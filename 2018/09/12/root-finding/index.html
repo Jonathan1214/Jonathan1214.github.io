@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//jonathan1214.github.io">
-  <title>Tag: 考试 | Jonathan的博客</title>
+  <title>Jonathan的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="哈尔滨工业大学17级">
-<meta property="og:type" content="website">
+  <meta name="description" content="{}date: 2018-09-12 16:42:27title: tags: title: root_finding tags: Python我终于开始弄算法了，最近在学Python，正好在Github上找到一个库，准备按照这个开始学习，最近在看python的算法，在Github上面搜索到一个repository，地址如下：https://github.com/TheAlgorithms/Py">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Jonathan的博客">
-<meta property="og:url" content="//jonathan1214.github.io/tags/考试/index.html">
+<meta property="og:url" content="//jonathan1214.github.io/2018/09/12/root-finding/index.html">
 <meta property="og:site_name" content="Jonathan的博客">
-<meta property="og:description" content="哈尔滨工业大学17级">
+<meta property="og:description" content="{}date: 2018-09-12 16:42:27title: tags: title: root_finding tags: Python我终于开始弄算法了，最近在学Python，正好在Github上找到一个库，准备按照这个开始学习，最近在看python的算法，在Github上面搜索到一个repository，地址如下：https://github.com/TheAlgorithms/Py">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-01T02:28:50.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jonathan的博客">
-<meta name="twitter:description" content="哈尔滨工业大学17级">
+<meta name="twitter:description" content="{}date: 2018-09-12 16:42:27title: tags: title: root_finding tags: Python我终于开始弄算法了，最近在学Python，正好在Github上找到一个库，准备按照这个开始学习，最近在看python的算法，在Github上面搜索到一个repository，地址如下：https://github.com/TheAlgorithms/Py">
   
     <link rel="alternative" href="/atom.xml" title="Jonathan的博客" type="application/atom+xml">
   
@@ -155,64 +156,206 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-root-finding" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>{}<br>date: 2018-09-12 16:42:27<br>title:</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><hr>
+<p>title: root_finding</p>
+<h2 id="tags-Python"><a href="#tags-Python" class="headerlink" title="tags: Python"></a>tags: Python</h2><p>我终于开始弄算法了，最近在学Python，正好在Github上找到一个库，准备按照这个开始学习，最近在看python的算法，在Github上面搜索到一个repository，地址如下：<a href="https://github.com/TheAlgorithms/Python，" target="_blank" rel="noopener">https://github.com/TheAlgorithms/Python，</a> 我fork了这个库，开始痛苦的学习。<a id="more"></a></p>
+<h3 id="这一篇关于求根算法，一共三个求根方法：二分法，割线法，牛顿法。"><a href="#这一篇关于求根算法，一共三个求根方法：二分法，割线法，牛顿法。" class="headerlink" title="这一篇关于求根算法，一共三个求根方法：二分法，割线法，牛顿法。"></a>这一篇关于求根算法，一共三个求根方法：二分法，割线法，牛顿法。</h3><h4 id="1-二分法"><a href="#1-二分法" class="headerlink" title="1. 二分法"></a>1. 二分法</h4><pre><code class="Python"><span class="comment"># repository中的代码</span>
+<span class="keyword">import</span> math
+
+
+<span class="function"><span class="keyword">def</span> <span class="title">bisection</span><span class="params">(function, a, b)</span>:</span>  <span class="comment"># 在[a,b]直接找到function的根 在这里我们只要知道function的一个根即可</span>
+
+    start = a
+    end = b
+    <span class="keyword">if</span> function(a) == <span class="number">0</span>:  <span class="comment"># a,b中的一个值是根</span>
+        <span class="keyword">return</span> a
+    <span class="keyword">elif</span> function(b) == <span class="number">0</span>:
+        <span class="keyword">return</span> b
+    <span class="keyword">elif</span> function(a) * function(b) &gt; <span class="number">0</span>:  <span class="comment"># 很显然如果f(a)和f(b)同号 二分法就不起作用了</span>
+        print(<span class="string">"couldn't find root in [a,b]"</span>)
+        <span class="keyword">return</span>
+    <span class="keyword">else</span>:
+        mid = (start + end) / <span class="number">2</span>
+        <span class="keyword">while</span> abs(start - mid) &gt; <span class="number">0.0000001</span>:  <span class="comment"># 保证精确度 注意float数据的精度为10^-6</span>
+                                <span class="comment"># 两个数的差小于10^-7时 可以认为这两个数相等了</span>
+            <span class="keyword">if</span> function(mid) == <span class="number">0</span>:
+                <span class="keyword">return</span> mid
+            <span class="keyword">elif</span> function(mid) * function(start) &lt; <span class="number">0</span>:
+                end = mid
+            <span class="keyword">else</span>:
+                start = mid
+            mid = (start + end) / <span class="number">2</span>
+        <span class="keyword">return</span> mid
+
+
+<span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span>
+    <span class="keyword">return</span> math.pow(x, <span class="number">3</span>) - <span class="number">2</span>*x - <span class="number">5</span>
+
+
+print(bisection(f, <span class="number">1</span>, <span class="number">1000</span>))
+
+<span class="comment"># 运行结果：</span>
+<span class="comment"># 2</span>
+<span class="comment"># 手动进行验算 很容易验证答案正确</span>
+</code></pre>
+<p>分析：最简单的求根算法为二分法︰令<code>f(x)</code>为一个连续函数，且已知存在区间<code>[a,b]</code> 满足<code>f(a)</code>和<code>f(b)</code>符号互异。令<code>c=(a+b)/2</code>（区间的中点），则 <code>f(a)</code>和<code>f(c)</code>或<code>f(c)</code>和<code>f(b)</code>中，必恰有一者符号互异，并将已知根所在区间的长度缩短为一半。对被缩短的区间重复上述步骤，直到找到根。二分法具有强健性，但其只能求得区间内的一个且只有一位精度的解。此外在合适的条件下，亦存在其他能更快求得精确解的方法。</p>
+<h4 id="2-割线法"><a href="#2-割线法" class="headerlink" title="2. 割线法"></a>2. 割线法</h4><pre><code class="Python"><span class="keyword">import</span> math
+
+<span class="function"><span class="keyword">def</span> <span class="title">intersection</span><span class="params">(function,x0,x1)</span>:</span> <span class="comment">#function is the f we want to find its root</span>
+            <span class="comment">#and x0 and x1 are two random starting points</span>
+    x_n = x0
+    x_n1 = x1
+    <span class="keyword">while</span> <span class="keyword">True</span>:
+        x_n2 = x_n1-(function(x_n1)/((function(x_n1)-function(x_n))/(x_n1-x_n)))
+        <span class="keyword">if</span> abs(x_n2 - x_n1)&lt;<span class="number">0.00001</span> :
+            <span class="keyword">return</span> x_n2
+        x_n=x_n1
+        x_n1=x_n2
+
+<span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span>
+    <span class="keyword">return</span> math.pow(x,<span class="number">3</span>)<span class="number">-2</span>*x<span class="number">-5</span>
+
+print(intersection(f,<span class="number">3</span>,<span class="number">3.5</span>))
+<span class="comment"># 运行结果</span>
+<span class="comment"># 2.09455148154</span>
+<span class="comment"># 这一定是有误差的 不过这个精度已经可以满足我们的要求了</span>
+</code></pre>
+<p>分析：将牛顿法中的导数替换为一个差分式，即得到割线法</p>
+<h4 id="3-牛顿法"><a href="#3-牛顿法" class="headerlink" title="3. 牛顿法"></a>3. 牛顿法</h4><pre><code class="Python"><span class="function"><span class="keyword">def</span> <span class="title">newton</span><span class="params">(function,function1,startingInt)</span>:</span> <span class="comment">#function is the f(x) and function1 is the f'(x)</span>
+  x_n=startingInt
+  <span class="keyword">while</span> <span class="keyword">True</span>:
+      x_n1=x_n-function(x_n)/function1(x_n)
+      <span class="keyword">if</span> abs(x_n-x_n1)&lt;<span class="number">0.00001</span>:
+          <span class="keyword">return</span> x_n1
+      x_n=x_n1
+
+<span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span>
+    <span class="keyword">return</span> (x**<span class="number">3</span>)<span class="number">-2</span>*x<span class="number">-5</span>
+
+<span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">(x)</span>:</span>
+    <span class="keyword">return</span> <span class="number">3</span>*(x**<span class="number">2</span>)<span class="number">-2</span>
+
+print(newton(f,f1,<span class="number">3</span>))
+<span class="comment"># 运行结果</span>
+<span class="comment"># 3</span>
+<span class="comment"># 容易验证这是对的</span>
+</code></pre>
+<p>分析：牛顿法假定函数<code>f</code>的导数是连续的。如果起始点距离根太远，牛顿法可能不收敛。然而，其若收敛，速度将较二分法快，且通常为二次收敛。bb牛顿法也是一种重要的算法，因为它能容易地推广到高维问题。类似牛顿法且有更高次的收敛性的算法为Householder法。具有三次收敛性的Householder法是Halley法。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/14/review-data-structure/" class="archive-article-date">
-  	<time datetime="2018-05-14T14:43:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/14/review-data-structure/">review_data_structure</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">考试</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
-          
-
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://jonathan1214.github.io/2018/09/12/root-finding/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/05/14/review-data-structure/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -240,9 +383,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
@@ -327,19 +470,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思考</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">考试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -352,6 +483,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">致敬</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考试</a>
               </li>
             
             <div class="clearfix"></div>
