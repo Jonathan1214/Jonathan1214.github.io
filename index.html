@@ -154,20 +154,112 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-algorithm-note-sort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-union-find" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/10/algorithm-note-sort/">算法的分析方法</a>
+      <a class="article-title" href="/2020/03/13/union-find/">union-find算法的原理及实现</a>
     </h1>
   
 
         
         
-<a href="/2020/03/10/algorithm-note-sort/" class="archive-article-date">
+<a href="/2020/03/13/union-find/" class="archive-article-date">
+  	<time datetime="2020-03-13T07:26:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在无线自组织网络中，对于任意两个节点，可以在其间构建一条连接建立通信，但是这样做会导致网络中需要建立的连接非常多，容易计算得到<code>N</code>个节点的网络需要的连接数<code>N(N-1)/2</code>，这没有用到无线自组织网络多跳的特点，连接增多，增加了网络的负担，实现起来也不容易，有什么办法改进呢。六度空间理论大家都知道，说的是最多通过六个人，我们可以和世界上的任何人建立联系，那么如何知道两个人之间是否可以建立联系呢？这两个问题其实都属于连通性问题，可以使用<code>union-find</code>算法解决，步骤如下：</p>
+<h2 id="1-数据准备"><a href="#1-数据准备" class="headerlink" title="1. 数据准备"></a>1. 数据准备</h2><p><code>p</code>和<code>q</code>表示两个抽象的节点，可以用整数表示，如果『p，q 是相连的』，则意味着：</p>
+<ul>
+<li>自反性：<code>p</code>和<code>p</code>是相连的。</li>
+<li>对称性：如果<code>p</code>和<code>q</code>相连，则<code>q</code>和<code>p</code>也是相连的。</li>
+<li>传递性：如果<code>p</code>和<code>q</code>相连，<code>q</code>和<code>r</code>相连，则<code>p</code>和<code>r</code>也相连。</li>
+</ul>
+<p>我们可以用一个数组表示所有的节点，数组的每个位置表示一个节点，每个位置的值表示这个节点所在分量的标识符，初始化的时候每个节点的标识符都是其本身，如下所示：<br>
+        
+          <a class="article-more-a" href="/2020/03/13/union-find/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">union-find</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/13/union-find/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-a-way-to-algorithm-analysis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/10/a-way-to-algorithm-analysis/">算法的分析方法</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/03/10/a-way-to-algorithm-analysis/" class="archive-article-date">
   	<time datetime="2020-03-10T13:30:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-10</time>
 </a>
         
@@ -177,7 +269,7 @@
       
         <p>也看了几天『算法』了，总是觉得不得要领，在此做一点笔记想必会有所帮助，能够完整地写下来或者清楚地讲述给别人并使之理解才算掌握了知识，这个观点来自费曼，我深以为然。<br><!-- 这里应该添加一个目录 --><br>
         
-          <a class="article-more-a" href="/2020/03/10/algorithm-note-sort/#more">more >></a>
+          <a class="article-more-a" href="/2020/03/10/a-way-to-algorithm-analysis/#more">more >></a>
         
       
 
@@ -205,7 +297,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/10/algorithm-note-sort/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/03/10/a-way-to-algorithm-analysis/">展开全文 >></a>
         </p>
       
 
@@ -509,7 +601,7 @@
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: true,
+		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
@@ -621,6 +713,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">union-find</a>
               </li>
             
             <div class="clearfix"></div>
