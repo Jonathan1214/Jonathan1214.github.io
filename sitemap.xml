@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jonathan1214.github.io/photos/data.json</loc>
+    
+    <lastmod>2020-03-20T14:11:06.735Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jonathan1214.github.io/2018/06/18/Believe-in-yourself/</loc>
+    
+    <lastmod>2020-03-17T07:23:53.910Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jonathan1214.github.io/2020/03/15/first-week-record-of-new-term/</loc>
     
-    <lastmod>2020-03-16T11:38:39.157Z</lastmod>
+    <lastmod>2020-03-16T11:39:53.058Z</lastmod>
     
   </url>
   
@@ -12,13 +26,6 @@
     <loc>https://jonathan1214.github.io/2019/12/29/record-of-high-frequency-course-design/</loc>
     
     <lastmod>2020-03-16T11:31:08.901Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jonathan1214.github.io/photos/data.json</loc>
-    
-    <lastmod>2020-03-15T14:41:39.348Z</lastmod>
     
   </url>
   
