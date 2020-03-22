@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://jonathan1214.github.io">
-  <title>dsfds&#39; blog</title>
+  <title>信道共享技术简述与ALOHA的仿真 | dsfds&#39; blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="dsfds&#39; blog">
-<meta property="og:url" content="https://jonathan1214.github.io/index.html">
+  <meta name="description" content="MAC（Media Access Control）协议，即介质访问控制协议。MAC层需要实现数据帧的封装卸装、帧寻址和识别、帧的接受和发送、链路的管理、帧的差错控制等。屏蔽了不同物理链路的种类差异性。其核心是对有限物理资源的高效利用。在Ad Hoc网络中，由于其无中心和使用无线信道等特点，对MAC协议的要求更高，需要解决的新带来的问题有：选择什么样的信道共享方式，如何处理终端暴露问题，如何隐藏终端">
+<meta name="keywords" content="网络,MAC协议,MATLAB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信道共享技术简述与ALOHA的仿真">
+<meta property="og:url" content="https://jonathan1214.github.io/2020/03/21/channel-sharing-and-aloha-imulation/index.html">
 <meta property="og:site_name" content="dsfds&#39; blog">
+<meta property="og:description" content="MAC（Media Access Control）协议，即介质访问控制协议。MAC层需要实现数据帧的封装卸装、帧寻址和识别、帧的接受和发送、链路的管理、帧的差错控制等。屏蔽了不同物理链路的种类差异性。其核心是对有限物理资源的高效利用。在Ad Hoc网络中，由于其无中心和使用无线信道等特点，对MAC协议的要求更高，需要解决的新带来的问题有：选择什么样的信道共享方式，如何处理终端暴露问题，如何隐藏终端">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/aloha_principle_illustration.png">
+<meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/pure_aloha.jpg">
+<meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/slotted_aloha.jpg">
+<meta property="og:updated_time" content="2020-03-22T13:27:45.940Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="dsfds&#39; blog">
+<meta name="twitter:title" content="信道共享技术简述与ALOHA的仿真">
+<meta name="twitter:description" content="MAC（Media Access Control）协议，即介质访问控制协议。MAC层需要实现数据帧的封装卸装、帧寻址和识别、帧的接受和发送、链路的管理、帧的差错控制等。屏蔽了不同物理链路的种类差异性。其核心是对有限物理资源的高效利用。在Ad Hoc网络中，由于其无中心和使用无线信道等特点，对MAC协议的要求更高，需要解决的新带来的问题有：选择什么样的信道共享方式，如何处理终端暴露问题，如何隐藏终端">
+<meta name="twitter:image" content="https://jonathan1214.github.io/assets/img/2020/aloha_principle_illustration.png">
   
     <link rel="alternative" href="/atom.xml" title="dsfds&#39; blog" type="application/atom+xml">
   
@@ -166,21 +175,23 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-channel-sharing-and-aloha-imulation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-channel-sharing-and-aloha-imulation" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/21/channel-sharing-and-aloha-imulation/">信道共享技术简述与ALOHA的仿真</a>
+    <h1 class="article-title" itemprop="name">
+      信道共享技术简述与ALOHA的仿真
     </h1>
   
 
         
         <a href="/2020/03/21/channel-sharing-and-aloha-imulation/" class="archive-article-date">
+    
+        <!-- <span id="busuanzi_container_page_pv" style="display:none" class="archive-article-date"> -->
+            <i class="icon-smile icon"></i>阅读数 <span id="busuanzi_value_page_pv"></span>&nbsp;
+        <!-- </span> -->
     
   	<time datetime="2020-03-21T08:04:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>发表 2020-03-21</time>&nbsp;
     
@@ -209,8 +220,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>MAC（Media Access Control）协议，即介质访问控制协议。MAC层需要实现数据帧的封装卸装、帧寻址和识别、帧的接受和发送、链路的管理、帧的差错控制等。屏蔽了不同物理链路的种类差异性。其核心是<strong>对有限物理资源的高效利用</strong>。在Ad Hoc网络中，由于其无中心和使用无线信道等特点，对MAC协议的要求更高，需要解决的新带来的问题有：选择什么样的信道共享方式，如何处理终端暴露问题，如何隐藏终端，以及如何处理节点移动带来的影响。本文将探讨简单的信道共享技术，并对动态接入协议<code>ALOHA</code>进行分析。<br>
-        
+        <p>MAC（Media Access Control）协议，即介质访问控制协议。MAC层需要实现数据帧的封装卸装、帧寻址和识别、帧的接受和发送、链路的管理、帧的差错控制等。屏蔽了不同物理链路的种类差异性。其核心是<strong>对有限物理资源的高效利用</strong>。在Ad Hoc网络中，由于其无中心和使用无线信道等特点，对MAC协议的要求更高，需要解决的新带来的问题有：选择什么样的信道共享方式，如何处理终端暴露问题，如何隐藏终端，以及如何处理节点移动带来的影响。本文将探讨简单的信道共享技术，并对动态接入协议<code>ALOHA</code>进行分析。<br><a id="more"></a></p>
+<h2 id="信道共享技术分类"><a href="#信道共享技术分类" class="headerlink" title="信道共享技术分类"></a>信道共享技术分类</h2><p>信道共享技术又称为多点接入技术，原理是通过一个专用信道将所有的用户连接起来。按照多个用户与一个主机连接的访问方法来划分，信道共享技术可以分为通过集中器或复用器相连和直接相连，前者即信道复用，后者又可分为受控接入和随机接入。</p>
+<ul>
+<li><a href="#信道复用">信道复用</a></li>
+<li><a href="#受控接入">受控接入</a></li>
+<li><a href="#随机接入">随机接入</a></li>
+</ul>
+<h3 id="信道复用"><a href="#信道复用" class="headerlink" title="信道复用"></a>信道复用</h3><p>这是一种应用的比较成熟的技术，集中器或复用器按顺序不断扫描各个端口，或采用中断技术来接受用户信息或转发。如<code>FDM</code>，<code>TDM</code>，<code>CDM</code>，<code>WDM</code>和<code>STDM</code>。<br>考虑一个实际例子：两个用户A和B，都需要需要发送信息；如果采用FDM方式，则分别为A和B分配一条不同频率的信道，然后一起发送；如果采用TDM方式，则A和B分时发送，可以使用相同频率的信道。这可以通过集中器扫描，也可以通过用户发送请求产生中断来执行。<br>其实这就是一种静态的信道分配，按频率、时间或码字对信道进行划分。显然，这会造成资源的浪费。</p>
+<h3 id="受控接入"><a href="#受控接入" class="headerlink" title="受控接入"></a>受控接入</h3><p>受控接入方式的网络拓扑是环型结构，分为集中式控制和分散式控制。集中式控制使用轮询方法，主机按顺序逐个询问各站是否有数据需要发送。分散式控制即使用令牌，在环路中有一个特殊的帧——『令牌』，沿着环路传递，只有获得了令牌的站才有权发送信息。</p>
+<h3 id="随机接入"><a href="#随机接入" class="headerlink" title="随机接入"></a>随机接入</h3><p>随机接入方式的网络拓扑是总线型结构，所有的站点可随时发送数据，争用信道，容易产生冲突，经典的协议有ALOHA，CSMA和CSMA/CD。</p>
+<h3 id="信道的静态和动态分配"><a href="#信道的静态和动态分配" class="headerlink" title="信道的静态和动态分配"></a>信道的静态和动态分配</h3><p>信道的静态分配即将信道资源N等分，这个资源包括时隙（slot）、频谱（frequency）和码字（code），适用于用户数量少、数据量大的情况。问题在于这种信道的分配方式不合理，它不能满足用户对资源占用的不同需求，效率低，不合适多站点，不适于突发性数据。</p>
+<p>信道的动态分配使用多路访问协议动态分配信道资源提高信道利用率。可以这么理解：不对信道资源进行划分，用户产生了需求就进行处理，处理时占用全部的信道资源。这么做不可避免的会产生信道争用和冲突问题，可以牺牲一点自由，使用受控接入方式可以隐藏争用问题和解决冲突问题。或者可以直面信道争用和冲突，使用随机接入方式，其中一个重要的协议就是ALOHA。</p>
+<p>从一个更高的角度上来看，信道复用技术是一种信道的静态分配技术，受控接入和随机接入是一种信道的动态分配技术。</p>
+<h2 id="ALOHA"><a href="#ALOHA" class="headerlink" title="ALOHA"></a>ALOHA</h2><p>前文讲到，ALOHA协议是一种信道的动态分配协议，它是一种信道共享方式的随机接入技术。在这种动态分配的方式下，信道有三种状态，<code>传输</code>，<code>空闲</code>和<code>竞争</code>，且所有的站点都通过同一信道发送或接受帧，某一特定时刻只允许一个站点使用信道。</p>
+<p>以一个数据帧A的发送为例，考虑其如何才能成功发送。发送时机有两种选择，连续时间或时间片，前者允许在任意时刻发送，后者将时间用时钟分离为片段，帧只允许在每一个片段开始瞬间发生。若是以连续时间发送，帧发送时，若信道是空闲状态，则成功开始发送帧，此时信道为传输状态，假设在帧发送时间内又有数据帧B的发送请求产生，则信道进入竞争状态，产生了<em>冲突</em>，帧A发送失败，帧B也发送失败，都需要重传，二者分别随机等待一段时间，然后进行发送，直到发送成功。</p>
+<p><div align="center" class="img"><br>    <img src="/assets/img/2020/aloha_principle_illustration.png" alt="aloha_principle_illustration" width="750"><br>    <span align="center" style="color:#999">ALOHA帧传输示意图</span><br></div><br>我们把以连续时间发送的称为纯ALOHA（pure ALOHA），按时间片发送到称为时隙ALOHA（slotted ALOHA），下面对它们的信道利用率进行分析。</p>
+<h3 id="pure-ALOHA-信道利用率分析"><a href="#pure-ALOHA-信道利用率分析" class="headerlink" title="pure ALOHA 信道利用率分析"></a>pure ALOHA 信道利用率分析</h3><p align="center" class="img"><br><img src="/assets/img/2020/pure_aloha.jpg" alt="pure_aloha" width="750"><br>    <span align="center" style="color:#999">纯ALOHA的信道吞吐率与网络负载的关系</span><br></p>
+
+<h3 id="slotted-ALOHA-信道利用率分析"><a href="#slotted-ALOHA-信道利用率分析" class="headerlink" title="slotted ALOHA 信道利用率分析"></a>slotted ALOHA 信道利用率分析</h3><p align="center" class="img"><br>    <img src="/assets/img/2020/slotted_aloha.jpg" alt="slotted_aloha" width="750"><br>    <span align="center" style="color:#999">时隙ALOHA的信道吞吐率与网络负载的关系</span><br></p>
+
       
 
       
@@ -240,226 +269,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/21/channel-sharing-and-aloha-imulation/">展开全文 >></a>
-        </p>
-      
 
       
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-first-week-record-of-new-term" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/15/first-week-record-of-new-term/">新学期的第一周</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/15/first-week-record-of-new-term/" class="archive-article-date">
-    
-  	<time datetime="2020-03-15T12:15:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>发表 2020-03-15</time>&nbsp;
-    
-    <time datetime="2020-03-16T11:39:53.058Z" itemprop="dateUpdated"><i class="icon-calendar icon"></i>更新 2020-03-16</time>
-    
-</a>
-<!-- 添加字数统计 -->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="icon-sort icon"></i>本文字数 1.1k
-        </span>
+      </div>
     </span>
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="icon-clock icon"></i>阅读时长 3分
-        </span>
-    </span>
+  </div>
 </div>
-        
-<!-- 添加字数统计 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><p align="center" class="img"><br>    <img src="/assets/img/2020/astonished_joey.jpg" alt="astonished_joey" width="750"><br>    <span align="center" style="color:#999">震惊的Joey</span></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><p></p></h2><p>不知不觉间大三已经过完一半，想起在过去的两年半中好像没有值得纪念的事，有点无可奈何，但要说没有发生那么一件在当时让我很有感触的事，当然也不可能，只是我以为自己的记忆会帮我保存那些真正重要的感觉，因此没有记录，但是这样的事怎么会有那么多呢？亲人故去、终有所成之类的记忆深刻的事不常发生，更多的是生活中有感触的小事，它们发生很触动我，但它们又是那么不起眼，不久后我就会忘记。过去的都过去了，不过现在我不想就让现在的它们被遗忘，我要尽可能地记录。<br>
-        
-      
 
-      
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://jonathan1214.github.io/2020/03/21/channel-sharing-and-aloha-imulation/" alt="微信分享二维码">
     </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">weekly</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/15/first-week-record-of-new-term/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-union-find" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/13/union-find/">union-find算法的原理及实现</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/13/union-find/" class="archive-article-date">
-    
-  	<time datetime="2020-03-13T07:26:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>发表 2020-03-13</time>&nbsp;
-    
-    <time datetime="2020-03-14T07:38:23.449Z" itemprop="dateUpdated"><i class="icon-calendar icon"></i>更新 2020-03-14</time>
-    
-</a>
-<!-- 添加字数统计 -->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="icon-sort icon"></i>本文字数 1.4k
-        </span>
-    </span>
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="icon-clock icon"></i>阅读时长 5分
-        </span>
-    </span>
 </div>
-        
-<!-- 添加字数统计 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在计算机网络中，对于任意两个节点，可以在其间构建一条连接建立通信，这样做没有问题，但是在整个网络中都这么做会导致需要建立的连接非常多，容易计算得到<code>N</code>个节点的网络需要的连接数<code>N(N-1)/2</code>，这增加了网络的负担，实现起来也不容易，有什么办法改进呢？六度空间理论大家都知道，说的是最多通过六个人，我们可以和世界上任何人建立联系，那么如何知道两个人之间是否可以建立联系呢？这两个问题其实都属于连通性问题，可以使用<code>union-find</code>算法解决，步骤如下：</p>
-<h2 id="1-数据准备"><a href="#1-数据准备" class="headerlink" title="1. 数据准备"></a>1. 数据准备</h2><p><code>p</code>和<code>q</code>表示两个抽象的节点，可以用整数表示，如果『p，q 是相连的』，则意味着：</p>
-<ul>
-<li>自反性：<code>p</code>和<code>p</code>是相连的。</li>
-<li>对称性：如果<code>p</code>和<code>q</code>相连，则<code>q</code>和<code>p</code>也是相连的。</li>
-<li>传递性：如果<code>p</code>和<code>q</code>相连，<code>q</code>和<code>r</code>相连，则<code>p</code>和<code>r</code>也相连。</li>
-</ul>
-<p>我们可以用一个数组表示所有的节点，数组的每个位置表示一个节点，每个位置的值表示这个节点所在分量的标识符，初始化的时候每个节点的标识符都是其本身，如下所示：<br>
-        
-      
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">union-find</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/13/union-find/">展开全文 >></a>
-        </p>
-      
-
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/15/first-week-record-of-new-term/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">新学期的第一周</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -474,599 +352,42 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-a-way-to-algorithm-analysis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/10/a-way-to-algorithm-analysis/">算法的分析方法</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/10/a-way-to-algorithm-analysis/" class="archive-article-date">
-    
-  	<time datetime="2020-03-10T13:30:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>发表 2020-03-10</time>&nbsp;
-    
-    <time datetime="2020-03-13T07:29:13.204Z" itemprop="dateUpdated"><i class="icon-calendar icon"></i>更新 2020-03-13</time>
-    
-</a>
-<!-- 添加字数统计 -->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="icon-sort icon"></i>本文字数 973
-        </span>
-    </span>
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="icon-clock icon"></i>阅读时长 3分
-        </span>
-    </span>
-</div>
-        
-<!-- 添加字数统计 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>也看了几天『算法』了，总是觉得不得要领，在此做一点笔记想必会有所帮助，能够完整地写下来或者清楚地讲述给别人并使之理解才算掌握了知识，这个观点来自费曼，我深以为然。<br><!-- 这里应该添加一个目录 --><br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/10/a-way-to-algorithm-analysis/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#信道共享技术分类"><span class="toc-number">1.</span> <span class="toc-text">信道共享技术分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#信道复用"><span class="toc-number">1.1.</span> <span class="toc-text">信道复用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#受控接入"><span class="toc-number">1.2.</span> <span class="toc-text">受控接入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#随机接入"><span class="toc-number">1.3.</span> <span class="toc-text">随机接入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信道的静态和动态分配"><span class="toc-number">1.4.</span> <span class="toc-text">信道的静态和动态分配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ALOHA"><span class="toc-number">2.</span> <span class="toc-text">ALOHA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pure-ALOHA-信道利用率分析"><span class="toc-number">2.1.</span> <span class="toc-text">pure ALOHA 信道利用率分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#slotted-ALOHA-信道利用率分析"><span class="toc-number">2.2.</span> <span class="toc-text">slotted ALOHA 信道利用率分析</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-record-of-high-frequency-course-design" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/29/record-of-high-frequency-course-design/">记录高频硬件课程设计</a>
-    </h1>
   
 
-        
-        <a href="/2019/12/29/record-of-high-frequency-course-design/" class="archive-article-date">
-    
-  	<time datetime="2019-12-29T01:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>发表 2019-12-29</time>&nbsp;
-    
-    <time datetime="2020-03-16T11:31:08.901Z" itemprop="dateUpdated"><i class="icon-calendar icon"></i>更新 2020-03-16</time>
-    
-</a>
-<!-- 添加字数统计 -->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="icon-sort icon"></i>本文字数 2.5k
-        </span>
-    </span>
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="icon-clock icon"></i>阅读时长 8分
-        </span>
-    </span>
-</div>
-        
-<!-- 添加字数统计 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文绝大部分内容是在19年12月29日写的，我记得很清楚，那天是周日上午，我没有为即将到来的通原考试而复习，而是选择去写点东西记录几天前刚刚结束的高频课设，这是一次很难忘的经历，有痛苦也有快乐，有想过放弃但还是坚持了下来，感谢自己和队友们。现在是2020年3月15日，本该在学校度过周日的我，和所有的大学生一样，因为肺炎疫情只能在家里学习，我没什么学习状态，有些无聊，因此整理博客，把这篇去年的记录整理整理，发到GitHubBlog上，留作纪念，发表日期还是使用去年写这篇文章的日子。<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/29/record-of-high-frequency-course-design/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Believe-in-yourself" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/18/Believe-in-yourself/">Believe_in_yourself</a>
-    </h1>
   
 
-        
-        <a href="/2018/06/18/Believe-in-yourself/" class="archive-article-date">
-    
-  	<time datetime="2018-06-18T14:30:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>发表 2018-06-18</time>&nbsp;
-    
-    <time datetime="2020-03-17T07:23:53.910Z" itemprop="dateUpdated"><i class="icon-calendar icon"></i>更新 2020-03-17</time>
-    
-</a>
-<!-- 添加字数统计 -->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="icon-sort icon"></i>本文字数 238
-        </span>
-    </span>
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="icon-clock icon"></i>阅读时长 1分
-        </span>
-    </span>
-</div>
-        
-<!-- 添加字数统计 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近有点烦躁，事情一件接着一件地扑面而来，丝毫不给我喘气的机会，为了排遣苦闷，我嘴上的脏话多了不少，不过好在这一切都将过去了，过去了之后我一定要好好开始，现在，我只有祈祷最后能有一个好的结果。<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/18/Believe-in-yourself/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-review-data-structure" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/14/review-data-structure/">数据结构复习</a>
-    </h1>
   
 
-        
-        <a href="/2018/05/14/review-data-structure/" class="archive-article-date">
-    
-  	<time datetime="2018-05-14T12:25:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>发表 2018-05-14</time>&nbsp;
-    
-    <time datetime="2020-03-11T12:10:12.000Z" itemprop="dateUpdated"><i class="icon-calendar icon"></i>更新 2020-03-11</time>
-    
-</a>
-<!-- 添加字数统计 -->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="icon-sort icon"></i>本文字数 1.5k
-        </span>
-    </span>
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="icon-clock icon"></i>阅读时长 7分
-        </span>
-    </span>
-</div>
-        
-<!-- 添加字数统计 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>先抄一段Dave在他的书《The Pragmatic Programmer》中的话：</p>
-<blockquote>
-<p>You’re a Pragmatic Programmer. You aren’t wedded to any particular technology, but you have a broad enough background in the science, and your experience with practical projects allow you to choose good solution in particular situations. Theory and practice combine to make you strong. You adjust your approach to suit the current circumstance and environment. And you do this continuously as the work progresses. Pragmatic Programmers get the job done, and do it well.</p>
-</blockquote>
-<p>Ok，现在开始吧！</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C/C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">考试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/14/review-data-structure/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-A_little_thinking" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/16/A_little_thinking/">一点思考</a>
-    </h1>
   
 
-        
-        <a href="/2018/04/16/A_little_thinking/" class="archive-article-date">
-    
-  	<time datetime="2018-04-16T14:17:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>发表 2018-04-16</time>&nbsp;
-    
-    <time datetime="2020-03-12T12:22:06.697Z" itemprop="dateUpdated"><i class="icon-calendar icon"></i>更新 2020-03-12</time>
-    
-</a>
-<!-- 添加字数统计 -->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="icon-sort icon"></i>本文字数 111
-        </span>
-    </span>
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="icon-clock icon"></i>阅读时长 1分
-        </span>
-    </span>
-</div>
-        
-<!-- 添加字数统计 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">思考</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/16/A_little_thinking/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
+  <!--  -->
   
-    <article id="post-My_first_lose" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/13/My_first_lose/">记录科创中期答辩</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/13/My_first_lose/" class="archive-article-date">
-    
-  	<time datetime="2018-04-13T12:10:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>发表 2018-04-13</time>&nbsp;
-    
-    <time datetime="2020-03-12T12:22:16.499Z" itemprop="dateUpdated"><i class="icon-calendar icon"></i>更新 2020-03-12</time>
-    
-</a>
-<!-- 添加字数统计 -->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="icon-sort icon"></i>本文字数 457
-        </span>
-    </span>
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="icon-clock icon"></i>阅读时长 1分
-        </span>
-    </span>
-</div>
-        
-<!-- 添加字数统计 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天下午的科创中期答辩我们组当掉了，说实话我们什么都没做，单纯的想敷衍过去，很不幸，老师没有让我们通过，4月29号要再来一次，希望可以通过吧。<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/13/My_first_lose/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <div id="gitment-ctn"></div>
+<script src="https://utteranc.es/client.js"
+        repo="Jonathan1214/BlogComment"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
   
 
 
@@ -1095,8 +416,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
