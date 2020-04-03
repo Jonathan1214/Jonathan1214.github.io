@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jonathan1214.github.io/2020/04/03/simple-simulation-example/</loc>
+    
+    <lastmod>2020-04-03T12:31:44.815Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jonathan1214.github.io/2020/02/15/test/</loc>
+    
+    <lastmod>2020-04-03T04:52:49.724Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jonathan1214.github.io/2020/04/02/ns2-simulation-overview/</loc>
     
-    <lastmod>2020-04-02T15:05:47.163Z</lastmod>
+    <lastmod>2020-04-03T02:37:56.712Z</lastmod>
     
   </url>
   
