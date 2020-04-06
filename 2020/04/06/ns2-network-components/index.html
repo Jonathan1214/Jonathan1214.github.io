@@ -6,20 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://jonathan1214.github.io">
-  <title>胡言乱语 | dsfds&#39; blog</title>
+  <title>NS2 的介绍（四）—— 网络组件 | dsfds&#39; blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="没想到有和上周一样，在周一写下上周的日常。不过这次我有话说，不是因为贪玩游戏，实在是因为周六晚上的突发事件打乱了周日的计划，不得已在半夜在农村道路上走上7里路，第二天已经没有精力去写这玩意儿了。翻看上周每天写下的只言片语，我发现若是只给我自己看，那还是有点东西可写的。">
-<meta name="keywords" content="记录,weekly">
+  <meta name="description" content="我们在前文)讨论 NS2 中一个非常重要的组成——事件调度器，这篇文章将讨论 NS2 另一个关键的组成——网络组件，主要是复合网络组件。">
+<meta name="keywords" content="网络,NS2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="胡言乱语">
-<meta property="og:url" content="https://jonathan1214.github.io/2020/03/22/second-week/index.html">
+<meta property="og:title" content="NS2 的介绍（四）—— 网络组件">
+<meta property="og:url" content="https://jonathan1214.github.io/2020/04/06/ns2-network-components/index.html">
 <meta property="og:site_name" content="dsfds&#39; blog">
-<meta property="og:description" content="没想到有和上周一样，在周一写下上周的日常。不过这次我有话说，不是因为贪玩游戏，实在是因为周六晚上的突发事件打乱了周日的计划，不得已在半夜在农村道路上走上7里路，第二天已经没有精力去写这玩意儿了。翻看上周每天写下的只言片语，我发现若是只给我自己看，那还是有点东西可写的。">
+<meta property="og:description" content="我们在前文)讨论 NS2 中一个非常重要的组成——事件调度器，这篇文章将讨论 NS2 另一个关键的组成——网络组件，主要是复合网络组件。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-03-23T13:54:21.114Z">
+<meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/partial_class_hierarchy.png">
+<meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/node.png">
+<meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/link.png">
+<meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/link_with_trace.png">
+<meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/link_with_snoop_queue.png">
+<meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/packet_flow.png">
+<meta property="og:updated_time" content="2020-04-06T10:10:07.643Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="胡言乱语">
-<meta name="twitter:description" content="没想到有和上周一样，在周一写下上周的日常。不过这次我有话说，不是因为贪玩游戏，实在是因为周六晚上的突发事件打乱了周日的计划，不得已在半夜在农村道路上走上7里路，第二天已经没有精力去写这玩意儿了。翻看上周每天写下的只言片语，我发现若是只给我自己看，那还是有点东西可写的。">
+<meta name="twitter:title" content="NS2 的介绍（四）—— 网络组件">
+<meta name="twitter:description" content="我们在前文)讨论 NS2 中一个非常重要的组成——事件调度器，这篇文章将讨论 NS2 另一个关键的组成——网络组件，主要是复合网络组件。">
+<meta name="twitter:image" content="https://jonathan1214.github.io/assets/img/2020/partial_class_hierarchy.png">
   
     <link rel="alternative" href="/atom.xml" title="dsfds&#39; blog" type="application/atom+xml">
   
@@ -171,27 +178,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-second-week" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ns2-network-components" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      胡言乱语
+      NS2 的介绍（四）—— 网络组件
     </h1>
   
 
         
-        <a href="/2020/03/22/second-week/" class="archive-article-date">
+        <a href="/2020/04/06/ns2-network-components/" class="archive-article-date">
     
         <!-- <span id="busuanzi_container_page_pv" style="display:none" class="archive-article-date"> -->
             <i class="icon-smile icon"></i>阅读数 <span id="busuanzi_value_page_pv"></span>&nbsp;
         <!-- </span> -->
     
-  	<time datetime="2020-03-22T13:39:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>发表 2020-03-22</time>&nbsp;
+  	<time datetime="2020-04-06T01:30:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>发表 2020-04-06</time>&nbsp;
     
-    <time datetime="2020-03-23T13:54:21.114Z" itemprop="dateUpdated"><i class="icon-calendar icon"></i>更新 2020-03-23</time>
+    <time datetime="2020-04-06T10:10:07.643Z" itemprop="dateUpdated"><i class="icon-calendar icon"></i>更新 2020-04-06</time>
     
 </a>
 <!-- 添加字数统计 -->
@@ -199,13 +206,13 @@
           <div style="margin-top:10px;">
     <span class="post-time">
         <span class="post-meta-item-icon">
-            <i class="icon-sort icon"></i>本文字数 749
+            <i class="icon-sort icon"></i>本文字数 1.4k
         </span>
     </span>
     <span class="post-time">
         &nbsp; | &nbsp;
         <span class="post-meta-item-icon">
-            <i class="icon-clock icon"></i>阅读时长 2分
+            <i class="icon-clock icon"></i>阅读时长 5分
         </span>
     </span>
 </div>
@@ -216,11 +223,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>没想到有和上周一样，在周一写下上周的日常。不过这次我有话说，不是因为贪玩游戏，实在是因为周六晚上的突发事件打乱了周日的计划，不得已在半夜在农村道路上走上7里路，第二天已经没有精力去写这玩意儿了。翻看上周每天写下的只言片语，我发现若是只给我自己看，那还是有点东西可写的。<br><a id="more"></a></p>
-<h2 id="无法抵挡的快乐"><a href="#无法抵挡的快乐" class="headerlink" title="无法抵挡的快乐"></a>无法抵挡的快乐</h2><p>放纵在放纵当时带来的快乐无与伦比，让我无法阻挡，虽然我已经很少体验到放纵的快乐，但我深知它的吸引力是多么强大。放纵对我而言是个什么样的标准呢？一天打上三把游戏已经是放纵了，大概就是这样，那么我可以说周四我放纵了一次。我处于一种完全沉浸式投入的状态，不在乎自己眼睛的疲劳，全心投入，决心赢下当前的比赛，但我还想赢得更多，于是不断地玩下去。最终局数来到了4，花去了2h<br>，我停了下来，没有继续玩下去。因为心心念念着学习知识，我停了下来，放弃了快乐。但是我知道，下一次我还是会沉浸其中，因为它能让我短暂地逃离现实，这是无法抵挡的快乐。</p>
-<h2 id="一个平庸的人"><a href="#一个平庸的人" class="headerlink" title="一个平庸的人"></a>一个平庸的人</h2><p>几乎每天都要上课，老师讲得那些我从来没有听过的知识，但没有多大程度引起我的兴趣，对我而言学习它只是身为学生的一种职责。我被动地接受他们传递过来的东西，OSI参考模型、TCP/IP参考模型、ALOHA随机接入协议还有光纤的若干性质，我几乎没有记下什么东西，但是我尝试去发现其中的规则，那是一种很美的东西，我尝试像一个『一无所知』的人，面对这些问题我能给出什么样的解决方案，大部分时候我什么也发现不了，对于这些问题我也一筹莫展，更别提解决方案，我不过是个平庸的人。</p>
-<h2 id="教育使我成为什么样的人？"><a href="#教育使我成为什么样的人？" class="headerlink" title="教育使我成为什么样的人？"></a>教育使我成为什么样的人？</h2><p>通常我不会想这样的问题，因为只不过是活着而以，不需要赋予人生意义，成为一个什么样的人也许真的无关紧要。周六看了郑强教授的一个视频，让我想考虑下这个问题，但我知道我想不明白的，我只能回顾自己的人生，并尝试从一些事件归纳出自己被教育成一个什么样的人，具体内容慢慢写吧。</p>
-<h2 id="我是随机漫步的傻瓜"><a href="#我是随机漫步的傻瓜" class="headerlink" title="我是随机漫步的傻瓜"></a>我是随机漫步的傻瓜</h2><p>我是个随机漫步的的傻瓜，但是我并没有受到眷顾，所以我还是个彻底的傻瓜。</p>
+        <p>我们在<a href="(/2020/04/02/ns2-event-scheduler">前文</a>)讨论 NS2 中一个非常重要的组成——事件调度器，这篇文章将讨论 NS2 另一个关键的组成——网络组件，主要是复合网络组件。<br><a id="more"></a><br>下图展示了 NS2 中部分 OTcl 类的部分体系结构，有助于我们理解基本的网络组件（network component），在<a href="http://www.sop.inria.fr/rodeo/personnel/Antonie.Clerget/ns" target="_blank" rel="noopener">这个链接</a>中可以找到 NS2 类的完整的体系结构。</p>
+<p></p><p align="center" class="img"><br>    <img src="/assets/img/2020/partial_class_hierarchy.png" alt="partial_class_hierarchy" width="500"><br>    <span align="center" style="color:#999">类的部分体系结构</span><br></p><br>层级的根是 TclObject 类，它是所有 OTcl 库对象的父类，如 scheduler（调度器），network component（网络组件），（timer）计时器和其他，包括 NAM 相关的类。NsObject 类是 OTclObject 的直接子类，同时也是所有基本 network component（网络组件）对象的父类，这些 network component 构成复合网络对象如 node （节点）和 link （连接），用来处理 packet。基于可能的输出 data path （数据路径）的数量，基本 network component （网络组件）进一步分为两类，Connector（连接器）和 Classifier（分类器），只有一个输出 data path（数据路径）的网络对象归到 Connector（连接器）下，而有多条输出 data path（数据路径）的归到 Classifier （分类器）下。<p></p>
+<h2 id="节点和路由选择"><a href="#节点和路由选择" class="headerlink" title="节点和路由选择"></a>节点和路由选择</h2><p>node（节点）是一个由节点入口对象和分类器构成的复合对象，如下图所示，NS2 中有两种 node （节点），unicast（单播）节点和 multicast （多播）节点。单播节点中有两个分类器，一个是负责单播路由选择的地址分类器，另一个是端口分类器。类似地，多播节点也有两个分类器，一个分类器负责区分多播 packet 和单播 packet，另一个多播分类器负责多播路由选择。</p>
+<p></p><p align="center" class="img"><br>    <img src="/assets/img/2020/node.png" alt="node" width="600"><br>    <span align="center" style="color:#999">节点</span><br></p><br>在 NS2 中，默认节点设置为单播，如要使用多播节点，需要在 OTcl 脚本中显式声明，创建 scheduler（调度器）对象后立即声明，而后所有的节点都会被创建为多播节点。确定节点类型后，使用者还需要手动选择一个路由选择协议，不可使用默认协议。<p></p>
+<ul>
+<li>unicast：<ul>
+<li><code>$ns rtproto &lt;type&gt;</code></li>
+<li><code>&lt;type&gt;</code>：Static，Session，DV，cost，multi-path</li>
+</ul>
+</li>
+<li>multicast：<ul>
+<li><code>$ns multicast</code> 放在 <code>set $ns [new Scheduler]</code> 后</li>
+<li><code>$ns mrtproto &lt;type&gt;</code></li>
+<li><code>&lt;type&gt;</code>：CtrMCast，DM，ST，BST</li>
+</ul>
+</li>
+</ul>
+<p>关于路由选择的更多信息，可以参考 <a href="http://www.isi.edu/nsnam/ns/ns-documentation.html" target="_blank" rel="noopener">NS2 手册</a>。</p>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>link（连接）是 NS2 中另一个主要的复合对象，当使用者使用 Simulator 对象的 <code>duplex-link</code> 成员函数，就可以创建一个双向连接，该连接包括两条单向连接，分别连接的双方，如下图所示。</p>
+<p>另一个要注意到是，节点的输出队列其实被实现为 simplex （单向）连接的一部分。从队列中 dequeue （出队）的 packet被传递给模拟连接延时的 Delay（延时）对象，而从队列中 drop （抛弃）的 packet 的被传递给一个 Null 代理然后被释放。最后，TTL 对象为每一个接受到的 packet 计算（time to live parameter）生命参数的时间，并更新 packet 的 TTL 字段。</p>
+<div align="center" class="img"><br>    <img src="/assets/img/2020/link.png" alt="link" width="400"><br>    <span align="center" style="color:#999">连接</span><br></div>
+
+<h3 id="追踪"><a href="#追踪" class="headerlink" title="追踪"></a>追踪</h3><p>在 NS2 中，网络活动在单向连接中被记录，如果 simulator （模拟器）被指引去追踪网络活动（使用 <code>$ns trace-all &lt;file&gt;</code> 或 <code>$ns namtrace-all &lt;file&gt;</code>），那么 link （连接）在创建后，会有如下图所示的 trace（追踪）对象插入其中。使用者也可以在给定的源节点和目的节点间自定义一个 type 类型的 trace 对象，使用 <code>creat-trace {type &lt;file&gt; &lt;src&gt; &lt;dst&gt;}</code> 命令即可。</p>
+<p>当插入到 link 中的 trace 对象（如 EnqT，DeqT 和 RecvT）受到一个 packet 时，它会向特定的 trace 文件中写入信息，且不需要消耗模拟时间，然后把该 packet 传递给下一个网络对象。trace 的格式讲在后面讨论。</p>
+<div align="center" class="img"><br>    <img src="/assets/img/2020/link_with_trace.png" alt="link_with_trace" width="750"><br>    <span align="center" style="color:#999">插入了 trace 对象的连接</span><br></div>
+
+<h3 id="队列监视器"><a href="#队列监视器" class="headerlink" title="队列监视器"></a>队列监视器</h3><p>本质上，tracing （追踪）对象被设计成可以记录 packet 的到达所在位置的时间。尽管使用者可以从 trace 中获得足够多的信息，如果他们对特定输出队列中发生的事的细节感兴趣，他们可以通过一些设置来获取这些信息。比如，如果使用者对 RED 队列的行为感兴趣，想计算平均队列大小的 dynamics 和某一特定 RED 队列的实时队列大小，或者其他有关监视队列的需求，队列监视器就可以有所帮助。队列监视行为使用队列监视器对象和 snoop 队列对象实现，如下图所示。</p>
+<p>当一个 packet 到达时，snoop 队列对象通知 queue monitor（队列监视器）该事件，由队列监视器监视队列。后续会给出一个 RED 队列监视的例子，详细情况可以参考那个例子。现在只需要注意到，snoop 队列对象除了图中所示的用法，它还可以与 tracing （追踪）对象并行使用。</p>
+<div align="center" class="img"><br>    <img src="/assets/img/2020/link_with_snoop_queue.png" alt="link_with_snoop_queue" width="750"><br>    <span align="center" style="color:#999">插入了 trace 对象的连接</span><br></div>
+
+<h2 id="一个-packet-流动的例子"><a href="#一个-packet-流动的例子" class="headerlink" title="一个 packet 流动的例子"></a>一个 packet 流动的例子</h2><p>到现在为止，我们分析了两个最重要的网络组件——节点和连接。下图展示了一个模拟网络建立和 packet 流动的内部情况。<br>网络由两个节点 n0 和 n1 组成，网络地址分别 0 和 1。绑定在 n0 上的一个 TCP 代理使用端口 0 与 绑定在 n1 上的使用端口 0 的 TCP sink 对象通信。最后，一个 FTP 应用绑定到 TCP 代理上，请求发送一些数据。<br>注意，下图没有显示出 FTP 在 TCP 上的具体行为，仅仅展示仿真网络和 packet 流动的详细内部情况。</p>
+<div align="center" class="img"><br>    <img src="/assets/img/2020/packet_flow.png" alt="packet_flow" width="750"><br>    <span align="center" style="color:#999">插入了 trace 对象的连接</span><br></div>
 
       
 
@@ -234,11 +268,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">weekly</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NS2</a>
         		</li>
       		
 		</ul>
@@ -294,7 +328,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://jonathan1214.github.io/2020/03/22/second-week/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://jonathan1214.github.io/2020/04/06/ns2-network-components/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -308,18 +342,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/27/latex-notes-1-basic-concepts/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          LaTex笔记（一）——基本概念
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/21/channel-sharing-and-aloha-imulation/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">信道共享技术简述与ALOHA的仿真</div>
+    <a href="/2020/04/04/ns2-event-scheduler/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">NS2 的介绍（三）—— 事件调度器</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -346,7 +371,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#无法抵挡的快乐"><span class="toc-number">1.</span> <span class="toc-text">无法抵挡的快乐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个平庸的人"><span class="toc-number">2.</span> <span class="toc-text">一个平庸的人</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#教育使我成为什么样的人？"><span class="toc-number">3.</span> <span class="toc-text">教育使我成为什么样的人？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#我是随机漫步的傻瓜"><span class="toc-number">4.</span> <span class="toc-text">我是随机漫步的傻瓜</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#节点和路由选择"><span class="toc-number">1.</span> <span class="toc-text">节点和路由选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接"><span class="toc-number">2.</span> <span class="toc-text">连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#追踪"><span class="toc-number">2.1.</span> <span class="toc-text">追踪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#队列监视器"><span class="toc-number">2.2.</span> <span class="toc-text">队列监视器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个-packet-流动的例子"><span class="toc-number">3.</span> <span class="toc-text">一个 packet 流动的例子</span></a></li></ol>
                     </div>
                 </span>
             </div>
