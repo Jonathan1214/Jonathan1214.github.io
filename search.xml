@@ -9,8 +9,23 @@
 <p>合理安排自己的时间，不要再浪费了，有许多美好值得去追求，有很多有意义的事儿可以去做，不要再浪费时间做一些没有意义的如玩手机的事儿了。</p>
 <p>最后，不要再赶ddl，一定要提前做好。</p>
 ]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
       <tags>
         <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一点思考</title>
+    <url>/2018/04/A_little_thinking/</url>
+    <content><![CDATA[<p>时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
@@ -70,18 +85,12 @@
 </ol>
 <p>简单的顺序存储的队列，实现入排操作不难，弄懂原理就好。</p>
 ]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
       <tags>
         <tag>C/C++</tag>
         <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一点思考</title>
-    <url>/2018/04/A_little_thinking/</url>
-    <content><![CDATA[<p>时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。</p>
-]]></content>
-      <tags>
-        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
@@ -89,6 +98,9 @@
     <url>/2018/06/Believe-in-yourself/</url>
     <content><![CDATA[<p>最近有点烦躁，事情一件接着一件地扑面而来，丝毫不给我喘气的机会，为了排遣苦闷，我嘴上的脏话多了不少，不过好在这一切都将过去了，过去了之后我一定要好好开始，现在，我只有祈祷最后能有一个好的结果。<br><a id="more"></a><br>这是一个疯狂的六月！<br>英语课程考试(6.7)，英语口语测试(6.14)，六级考试(6.16)，科创答辩(6.20)，数学建模考试(6.21)，近代史考试(6.26)，英语期末考试(6.29)……这还远没有结束，七月是工大的小学期时间！八月才放暑假！九月开学！坏消息是大物和微积分的考试放到小学期了，当然，这也可以算是好消息，至少六月份可以喘口气了，真正毫无疑问的好消息自然就是我们会搬进新公寓！</p>
 ]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
       <tags>
         <tag>记录</tag>
       </tags>
@@ -119,37 +131,11 @@
 <p>下午验收前一刻，上周三买的陶瓷滤波器终于从深圳邮到了学校，我赶紧去取回来，接到电路中，完美!<strong>『烂分恰完』</strong>。</p>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>做完这次课设，心里有太多感慨，很多次我都想放弃了，但是总有一股力量把我拉了回来，这其中有对朋友承诺的坚守也有自己那股不服输的劲，验收成功那一刻我有点想哭，是啊，这整个过程只有我自己这么看重吧，最后还在自我感动，但如果没有这自我感动，我不知道自己能否坚持下来。当然，课设整个过程也暴露了我的一些问题：我需要有更强大的精神力量，激励自己前进，也要学会如何带领团队前进。</p>
 ]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
       <tags>
         <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>union-find算法的原理及实现</title>
-    <url>/2020/03/union-find/</url>
-    <content><![CDATA[<p>在计算机网络中，对于任意两个节点，可以在其间构建一条连接建立通信，这样做没有问题，但是在整个网络中都这么做会导致需要建立的连接非常多，容易计算得到<code>N</code>个节点的网络需要的连接数<code>N(N-1)/2</code>，这增加了网络的负担，实现起来也不容易，有什么办法改进呢？六度空间理论大家都知道，说的是最多通过六个人，我们可以和世界上任何人建立联系，那么如何知道两个人之间是否可以建立联系呢？这两个问题其实都属于连通性问题，可以使用<code>union-find</code>算法解决，步骤如下：</p>
-<h2 id="1-数据准备"><a href="#1-数据准备" class="headerlink" title="1. 数据准备"></a>1. 数据准备</h2><p><code>p</code>和<code>q</code>表示两个抽象的节点，可以用整数表示，如果『p，q 是相连的』，则意味着：</p>
-<ul>
-<li>自反性：<code>p</code>和<code>p</code>是相连的。</li>
-<li>对称性：如果<code>p</code>和<code>q</code>相连，则<code>q</code>和<code>p</code>也是相连的。</li>
-<li>传递性：如果<code>p</code>和<code>q</code>相连，<code>q</code>和<code>r</code>相连，则<code>p</code>和<code>r</code>也相连。</li>
-</ul>
-<p>我们可以用一个数组表示所有的节点，数组的每个位置表示一个节点，每个位置的值表示这个节点所在分量的标识符，初始化的时候每个节点的标识符都是其本身，如下所示：<br><a id="more"></a></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">UF</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N]; <span class="comment">// 初始化节点数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h2><h3 id="quick-find"><a href="#quick-find" class="headerlink" title="quick-find"></a>quick-find</h3><p>在<code>union-find</code>算法中，有两个目标需要实现：判断两个节点是否连通和连接两个节点的。一种简单的思路是这样的，规定同属一个连通分量的标识符相同，比如：节点<code>0</code>，<code>1</code>和<code>2</code>是连通的，我们选择<code>1</code>为标识符，那么<code>a[0]=a[1]=a[2]=1</code>。这样做判断两个节点是否连通就可以在常数时间完成，基于此规则我们可以实现<code>quick-find</code>算法，但是这样做<code>union</code>的成本就会上升，每次<code>union</code>，需要遍历所有的节点，并对合适节点的标识符进行改变，这是个平方级别的算法，如下所示。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isConnected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> find(p)==find(q);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123; <span class="keyword">return</span> a[p]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pp = find(p);   <span class="comment">// p 节点的标识符</span></span><br><span class="line">    <span class="keyword">int</span> qq = find(q);   <span class="comment">// q 节点的标识符</span></span><br><span class="line">    <span class="keyword">if</span> (pp == qq) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">// 将 pp 标识符全部改成 qq</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++)</span><br><span class="line">        <span class="keyword">if</span> (a[i] == pp) a[i] = qq;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="quick-union"><a href="#quick-union" class="headerlink" title="quick-union"></a>quick-union</h3><p>quick-find算法中，union的成本是平方级别的，其原因在于每次union需要遍历全部的节点，可以进行一些调整，得到改进，这就是quick-union算法。具体实现：在同一类别的中的节点，我们不再让所有节点保存相同的标识符，而是在节点中保持其父节点，类似一棵树，不过是向上走的，子节点指向父节点，根节点保存的是他自己，这样一来，进行union操作时，至于遍历找到根节点，然后让其中一个根节点指向另一个根节点即可，进行find操作时，只需遍历找到根节点即指向自身的节点。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p];</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="comment">// pRoot 节点指向 Qroot</span></span><br><span class="line">    a[pRoot] = qRoot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="加权-quick-union"><a href="#加权-quick-union" class="headerlink" title="加权 quick-union"></a>加权 quick-union</h3><p>这样做没什么问题，但是在最坏情况下，节点是依次相连的，串成一串，这会导致算法的性能下降，我们对其稍加改进，每次union时，都把节点数小的那一组连接到节点数大的那一组，这就是加权的quick-union算法。实现这个算法我们需要一个数组保存每个节点下节点的数目，对根节点而言，这个数就是它所在组的大小。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">UF(<span class="keyword">int</span> N) &#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N];     <span class="comment">// 初始化节点数组</span></span><br><span class="line">    sz = <span class="keyword">new</span> <span class="keyword">int</span>[N];    <span class="comment">// 保存节点数目</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        sz[i] = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// find 算法没有改变</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="keyword">if</span> (pRoot == qRoot) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (sz[pRoot] &gt; sz[qRoot]) &#123; <span class="comment">// p 所在组较大</span></span><br><span class="line">        a[qRoot] = pRoot; <span class="comment">// 将q连接到q上</span></span><br><span class="line">        sz[pRoot] += sz[qRoot]; <span class="comment">// 更新 pRoot 下的节点数</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;    <span class="comment">// q 所在组较大</span></span><br><span class="line">        a[pRoot] = qRoot;</span><br><span class="line">        sz[qRoot] += sz[pRoot];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="路径压缩"><a href="#路径压缩" class="headerlink" title="路径压缩"></a>路径压缩</h3><p>还有一种路径压缩算法可以改进quick-union，即每次查找时，都把途径的节点指向根节点，这样均摊下来的find成本比较小，可以证明，路径压缩的加权quick-union算法是实现union-find最快的算法。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = p, t;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p]; <span class="comment">// 找到根节点</span></span><br><span class="line">    <span class="keyword">while</span> (x != p) &#123; <span class="comment">// 直到到达根节点</span></span><br><span class="line">        t = a[x];   <span class="comment">// 保存当前节点的父节点</span></span><br><span class="line">        a[x] = p;   <span class="comment">// 当前节点直接连接到根节点</span></span><br><span class="line">        x = t;      <span class="comment">// 移动到当前节点的父节点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// union 算法不变</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p>回到开头的那两个问题，有了union-find算法，我们来尝试解决它们。对于网络中节点是否需要构建新的连接，抽象出网络的节点构建起<code>UF</code>后，执行<code>isConnected()</code>即可判断是否需要建立新的连接，对于两个人是否可以建立连接的问题，我们用同样的方法也可以解决，但要是想通过最少的中间人就认识一个人，该怎么做呢，这又是另外一个问题了。</p>
-]]></content>
-      <tags>
-        <tag>算法</tag>
-        <tag>union-find</tag>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -189,9 +175,44 @@
 <li>对于规定的输入，判断这些操作的执行频率</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
       <tags>
         <tag>算法</tag>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>union-find算法的原理及实现</title>
+    <url>/2020/03/union-find/</url>
+    <content><![CDATA[<p>在计算机网络中，对于任意两个节点，可以在其间构建一条连接建立通信，这样做没有问题，但是在整个网络中都这么做会导致需要建立的连接非常多，容易计算得到<code>N</code>个节点的网络需要的连接数<code>N(N-1)/2</code>，这增加了网络的负担，实现起来也不容易，有什么办法改进呢？六度空间理论大家都知道，说的是最多通过六个人，我们可以和世界上任何人建立联系，那么如何知道两个人之间是否可以建立联系呢？这两个问题其实都属于连通性问题，可以使用<code>union-find</code>算法解决，步骤如下：</p>
+<h2 id="1-数据准备"><a href="#1-数据准备" class="headerlink" title="1. 数据准备"></a>1. 数据准备</h2><p><code>p</code>和<code>q</code>表示两个抽象的节点，可以用整数表示，如果『p，q 是相连的』，则意味着：</p>
+<ul>
+<li>自反性：<code>p</code>和<code>p</code>是相连的。</li>
+<li>对称性：如果<code>p</code>和<code>q</code>相连，则<code>q</code>和<code>p</code>也是相连的。</li>
+<li>传递性：如果<code>p</code>和<code>q</code>相连，<code>q</code>和<code>r</code>相连，则<code>p</code>和<code>r</code>也相连。</li>
+</ul>
+<p>我们可以用一个数组表示所有的节点，数组的每个位置表示一个节点，每个位置的值表示这个节点所在分量的标识符，初始化的时候每个节点的标识符都是其本身，如下所示：<br><a id="more"></a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">UF</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N]; <span class="comment">// 初始化节点数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h2><h3 id="quick-find"><a href="#quick-find" class="headerlink" title="quick-find"></a>quick-find</h3><p>在<code>union-find</code>算法中，有两个目标需要实现：判断两个节点是否连通和连接两个节点的。一种简单的思路是这样的，规定同属一个连通分量的标识符相同，比如：节点<code>0</code>，<code>1</code>和<code>2</code>是连通的，我们选择<code>1</code>为标识符，那么<code>a[0]=a[1]=a[2]=1</code>。这样做判断两个节点是否连通就可以在常数时间完成，基于此规则我们可以实现<code>quick-find</code>算法，但是这样做<code>union</code>的成本就会上升，每次<code>union</code>，需要遍历所有的节点，并对合适节点的标识符进行改变，这是个平方级别的算法，如下所示。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isConnected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> find(p)==find(q);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123; <span class="keyword">return</span> a[p]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pp = find(p);   <span class="comment">// p 节点的标识符</span></span><br><span class="line">    <span class="keyword">int</span> qq = find(q);   <span class="comment">// q 节点的标识符</span></span><br><span class="line">    <span class="keyword">if</span> (pp == qq) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">// 将 pp 标识符全部改成 qq</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++)</span><br><span class="line">        <span class="keyword">if</span> (a[i] == pp) a[i] = qq;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="quick-union"><a href="#quick-union" class="headerlink" title="quick-union"></a>quick-union</h3><p>quick-find算法中，union的成本是平方级别的，其原因在于每次union需要遍历全部的节点，可以进行一些调整，得到改进，这就是quick-union算法。具体实现：在同一类别的中的节点，我们不再让所有节点保存相同的标识符，而是在节点中保持其父节点，类似一棵树，不过是向上走的，子节点指向父节点，根节点保存的是他自己，这样一来，进行union操作时，至于遍历找到根节点，然后让其中一个根节点指向另一个根节点即可，进行find操作时，只需遍历找到根节点即指向自身的节点。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p];</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="comment">// pRoot 节点指向 Qroot</span></span><br><span class="line">    a[pRoot] = qRoot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="加权-quick-union"><a href="#加权-quick-union" class="headerlink" title="加权 quick-union"></a>加权 quick-union</h3><p>这样做没什么问题，但是在最坏情况下，节点是依次相连的，串成一串，这会导致算法的性能下降，我们对其稍加改进，每次union时，都把节点数小的那一组连接到节点数大的那一组，这就是加权的quick-union算法。实现这个算法我们需要一个数组保存每个节点下节点的数目，对根节点而言，这个数就是它所在组的大小。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">UF(<span class="keyword">int</span> N) &#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N];     <span class="comment">// 初始化节点数组</span></span><br><span class="line">    sz = <span class="keyword">new</span> <span class="keyword">int</span>[N];    <span class="comment">// 保存节点数目</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        sz[i] = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// find 算法没有改变</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="keyword">if</span> (pRoot == qRoot) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (sz[pRoot] &gt; sz[qRoot]) &#123; <span class="comment">// p 所在组较大</span></span><br><span class="line">        a[qRoot] = pRoot; <span class="comment">// 将q连接到q上</span></span><br><span class="line">        sz[pRoot] += sz[qRoot]; <span class="comment">// 更新 pRoot 下的节点数</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;    <span class="comment">// q 所在组较大</span></span><br><span class="line">        a[pRoot] = qRoot;</span><br><span class="line">        sz[qRoot] += sz[pRoot];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="路径压缩"><a href="#路径压缩" class="headerlink" title="路径压缩"></a>路径压缩</h3><p>还有一种路径压缩算法可以改进quick-union，即每次查找时，都把途径的节点指向根节点，这样均摊下来的find成本比较小，可以证明，路径压缩的加权quick-union算法是实现union-find最快的算法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = p, t;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p]; <span class="comment">// 找到根节点</span></span><br><span class="line">    <span class="keyword">while</span> (x != p) &#123; <span class="comment">// 直到到达根节点</span></span><br><span class="line">        t = a[x];   <span class="comment">// 保存当前节点的父节点</span></span><br><span class="line">        a[x] = p;   <span class="comment">// 当前节点直接连接到根节点</span></span><br><span class="line">        x = t;      <span class="comment">// 移动到当前节点的父节点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// union 算法不变</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>回到开头的那两个问题，有了union-find算法，我们来尝试解决它们。对于网络中节点是否需要构建新的连接，抽象出网络的节点构建起<code>UF</code>后，执行<code>isConnected()</code>即可判断是否需要建立新的连接，对于两个人是否可以建立连接的问题，我们用同样的方法也可以解决，但要是想通过最少的中间人就认识一个人，该怎么做呢，这又是另外一个问题了。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>Java</tag>
+        <tag>union-find</tag>
       </tags>
   </entry>
   <entry>
@@ -206,6 +227,9 @@
 <hr>
 <p>话不多说，以上就是这一周，关于上的这些课的具体内容我会在后面的文章中详细记录。这些网络类的课很有意思，它们有一种规则的美感，我想如果能自己亲手制定某些规则并加以实现肯定让人兴奋。生活总是有很多的不确定，但我确定关于『记录』这件事我会坚持下去。</p>
 ]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
       <tags>
         <tag>记录</tag>
         <tag>weekly</tag>
@@ -251,24 +275,13 @@
 
 <p>附MATLAB仿真代码：<br><figure class="highlight matlab"><figcaption><span>aloha_.m</span><a href="/downloads/code/aloha_.m">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line">clear all;clc;</span><br><span class="line"><span class="comment">% ALOHA 仿真</span></span><br><span class="line"><span class="comment">% 网络负载G</span></span><br><span class="line"><span class="comment">% 成功发送条件，请求为0</span></span><br><span class="line">T = <span class="number">100000</span>;   <span class="comment">% 仿真时间 1000个帧长</span></span><br><span class="line">load_scale = <span class="number">0.1</span>;</span><br><span class="line">G = <span class="number">0</span>:load_scale:<span class="number">5</span>; <span class="comment">% 网络负载</span></span><br><span class="line">requests = <span class="built_in">zeros</span>(T+<span class="number">1</span>, <span class="built_in">size</span>(G,<span class="number">2</span>)); <span class="comment">% 请求次数</span></span><br><span class="line">pure_ALOHA_sucess = <span class="built_in">zeros</span>(<span class="number">1</span>,<span class="built_in">size</span>(G,<span class="number">2</span>)); <span class="comment">% pure ALOHA成功次数</span></span><br><span class="line">slotted_ALOHA_sucess = <span class="built_in">zeros</span>(<span class="number">1</span>,<span class="built_in">size</span>(G,<span class="number">2</span>)); <span class="comment">% slotted ALOHA</span></span><br><span class="line"><span class="comment">% 产生请求</span></span><br><span class="line"><span class="keyword">for</span> g = <span class="number">1</span>:<span class="built_in">size</span>(G,<span class="number">2</span>)</span><br><span class="line">    requests(:,g) = random(<span class="string">'Poisson'</span>,G(g),T+<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% pure ALOHA</span></span><br><span class="line"><span class="keyword">for</span> g = <span class="number">1</span>:<span class="built_in">size</span>(G,<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">for</span> index = <span class="number">1</span>:T</span><br><span class="line">       <span class="keyword">if</span> requests(index,g) + requests(index+<span class="number">1</span>,g) == <span class="number">0</span></span><br><span class="line">           pure_ALOHA_sucess(g) = pure_ALOHA_sucess(g) + <span class="number">1</span>;</span><br><span class="line">       <span class="keyword">end</span></span><br><span class="line">       <span class="keyword">if</span> requests(index,g) == <span class="number">0</span></span><br><span class="line">           slotted_ALOHA_sucess(g) = slotted_ALOHA_sucess(g) + <span class="number">1</span>;</span><br><span class="line">       <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">%% calculate</span></span><br><span class="line"><span class="comment">% pure ALOHA</span></span><br><span class="line">probl_pure_ALOHA = pure_ALOHA_sucess / T; <span class="comment">% 成功概率</span></span><br><span class="line">S_pure_ALOHA = G.*probl_pure_ALOHA;       <span class="comment">% 吞吐率</span></span><br><span class="line"><span class="comment">% slotted ALOHA</span></span><br><span class="line">probl_slotted_ALOHA = slotted_ALOHA_sucess / T;</span><br><span class="line">S_slotted_ALOHA = G.*probl_slotted_ALOHA;</span><br><span class="line"><span class="comment">%% plot</span></span><br><span class="line"><span class="comment">% pure</span></span><br><span class="line">figure(<span class="number">1</span>)</span><br><span class="line">yyaxis left</span><br><span class="line">plot(G,probl_pure_ALOHA)</span><br><span class="line">ylabel(<span class="string">'Probablity of Sucess'</span>)</span><br><span class="line">yyaxis right</span><br><span class="line">plot(G,S_pure_ALOHA)</span><br><span class="line">title(<span class="string">'Average Throughput of Pure ALOHA'</span>)</span><br><span class="line">xlabel(<span class="string">'G'</span>)</span><br><span class="line">ylabel(<span class="string">'Average Throughput'</span>)</span><br><span class="line">grid on</span><br><span class="line"><span class="comment">% slotted</span></span><br><span class="line">figure(<span class="number">2</span>)</span><br><span class="line">yyaxis left</span><br><span class="line">plot(G,probl_slotted_ALOHA)</span><br><span class="line">ylabel(<span class="string">'Probablity of Sucess'</span>)</span><br><span class="line">yyaxis right</span><br><span class="line">plot(G,S_slotted_ALOHA)</span><br><span class="line">title(<span class="string">'Average Throughput of Slotted ALOHA'</span>)</span><br><span class="line">xlabel(<span class="string">'G'</span>)</span><br><span class="line">ylabel(<span class="string">'Average Throughput'</span>)</span><br><span class="line">grid on</span><br></pre></td></tr></table></figure></p>
 ]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
       <tags>
         <tag>网络</tag>
         <tag>MAC协议</tag>
         <tag>MATLAB</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>胡言乱语</title>
-    <url>/2020/03/second-week/</url>
-    <content><![CDATA[<p>没想到有和上周一样，在周一写下上周的日常。不过这次我有话说，不是因为贪玩游戏，实在是因为周六晚上的突发事件打乱了周日的计划，不得已在半夜在农村道路上走上7里路，第二天已经没有精力去写这玩意儿了。翻看上周每天写下的只言片语，我发现若是只给我自己看，那还是有点东西可写的。<br><a id="more"></a></p>
-<h2 id="无法抵挡的快乐"><a href="#无法抵挡的快乐" class="headerlink" title="无法抵挡的快乐"></a>无法抵挡的快乐</h2><p>放纵在放纵当时带来的快乐无与伦比，让我无法阻挡，虽然我已经很少体验到放纵的快乐，但我深知它的吸引力是多么强大。放纵对我而言是个什么样的标准呢？一天打上三把游戏已经是放纵了，大概就是这样，那么我可以说周四我放纵了一次。我处于一种完全沉浸式投入的状态，不在乎自己眼睛的疲劳，全心投入，决心赢下当前的比赛，但我还想赢得更多，于是不断地玩下去。最终局数来到了4，花去了2h<br>，我停了下来，没有继续玩下去。因为心心念念着学习知识，我停了下来，放弃了快乐。但是我知道，下一次我还是会沉浸其中，因为它能让我短暂地逃离现实，这是无法抵挡的快乐。</p>
-<h2 id="一个平庸的人"><a href="#一个平庸的人" class="headerlink" title="一个平庸的人"></a>一个平庸的人</h2><p>几乎每天都要上课，老师讲得那些我从来没有听过的知识，但没有多大程度引起我的兴趣，对我而言学习它只是身为学生的一种职责。我被动地接受他们传递过来的东西，OSI参考模型、TCP/IP参考模型、ALOHA随机接入协议还有光纤的若干性质，我几乎没有记下什么东西，但是我尝试去发现其中的规则，那是一种很美的东西，我尝试像一个『一无所知』的人，面对这些问题我能给出什么样的解决方案，大部分时候我什么也发现不了，对于这些问题我也一筹莫展，更别提解决方案，我不过是个平庸的人。</p>
-<h2 id="教育使我成为什么样的人？"><a href="#教育使我成为什么样的人？" class="headerlink" title="教育使我成为什么样的人？"></a>教育使我成为什么样的人？</h2><p>通常我不会想这样的问题，因为只不过是活着而以，不需要赋予人生意义，成为一个什么样的人也许真的无关紧要。周六看了郑强教授的一个视频，让我想考虑下这个问题，但我知道我想不明白的，我只能回顾自己的人生，并尝试从一些事件归纳出自己被教育成一个什么样的人，具体内容慢慢写吧。</p>
-<h2 id="我是随机漫步的傻瓜"><a href="#我是随机漫步的傻瓜" class="headerlink" title="我是随机漫步的傻瓜"></a>我是随机漫步的傻瓜</h2><p>我是个随机漫步的的傻瓜，但是我并没有受到眷顾，所以我还是个彻底的傻瓜。</p>
-]]></content>
-      <tags>
-        <tag>记录</tag>
-        <tag>weekly</tag>
       </tags>
   </entry>
   <entry>
@@ -329,8 +342,28 @@
 <hr>
 <p>链接：<a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/info/lshort/chinese" target="_blank" rel="noopener">lshort</a></p>
 ]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
       <tags>
         <tag>LaTeX</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>胡言乱语</title>
+    <url>/2020/03/second-week/</url>
+    <content><![CDATA[<p>没想到有和上周一样，在周一写下上周的日常。不过这次我有话说，不是因为贪玩游戏，实在是因为周六晚上的突发事件打乱了周日的计划，不得已在半夜在农村道路上走上7里路，第二天已经没有精力去写这玩意儿了。翻看上周每天写下的只言片语，我发现若是只给我自己看，那还是有点东西可写的。<br><a id="more"></a></p>
+<h2 id="无法抵挡的快乐"><a href="#无法抵挡的快乐" class="headerlink" title="无法抵挡的快乐"></a>无法抵挡的快乐</h2><p>放纵在放纵当时带来的快乐无与伦比，让我无法阻挡，虽然我已经很少体验到放纵的快乐，但我深知它的吸引力是多么强大。放纵对我而言是个什么样的标准呢？一天打上三把游戏已经是放纵了，大概就是这样，那么我可以说周四我放纵了一次。我处于一种完全沉浸式投入的状态，不在乎自己眼睛的疲劳，全心投入，决心赢下当前的比赛，但我还想赢得更多，于是不断地玩下去。最终局数来到了4，花去了2h<br>，我停了下来，没有继续玩下去。因为心心念念着学习知识，我停了下来，放弃了快乐。但是我知道，下一次我还是会沉浸其中，因为它能让我短暂地逃离现实，这是无法抵挡的快乐。</p>
+<h2 id="一个平庸的人"><a href="#一个平庸的人" class="headerlink" title="一个平庸的人"></a>一个平庸的人</h2><p>几乎每天都要上课，老师讲得那些我从来没有听过的知识，但没有多大程度引起我的兴趣，对我而言学习它只是身为学生的一种职责。我被动地接受他们传递过来的东西，OSI参考模型、TCP/IP参考模型、ALOHA随机接入协议还有光纤的若干性质，我几乎没有记下什么东西，但是我尝试去发现其中的规则，那是一种很美的东西，我尝试像一个『一无所知』的人，面对这些问题我能给出什么样的解决方案，大部分时候我什么也发现不了，对于这些问题我也一筹莫展，更别提解决方案，我不过是个平庸的人。</p>
+<h2 id="教育使我成为什么样的人？"><a href="#教育使我成为什么样的人？" class="headerlink" title="教育使我成为什么样的人？"></a>教育使我成为什么样的人？</h2><p>通常我不会想这样的问题，因为只不过是活着而以，不需要赋予人生意义，成为一个什么样的人也许真的无关紧要。周六看了郑强教授的一个视频，让我想考虑下这个问题，但我知道我想不明白的，我只能回顾自己的人生，并尝试从一些事件归纳出自己被教育成一个什么样的人，具体内容慢慢写吧。</p>
+<h2 id="我是随机漫步的傻瓜"><a href="#我是随机漫步的傻瓜" class="headerlink" title="我是随机漫步的傻瓜"></a>我是随机漫步的傻瓜</h2><p>我是个随机漫步的的傻瓜，但是我并没有受到眷顾，所以我还是个彻底的傻瓜。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>weekly</tag>
       </tags>
   </entry>
   <entry>
@@ -342,9 +375,46 @@
 <hr>
 <p>身处动荡之中，怀抱希望，希望一切都好起来。</p>
 ]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
       <tags>
         <tag>记录</tag>
         <tag>monthly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NS2 的介绍（一）—— 概述</title>
+    <url>/2020/04/ns2-simulation-overview/</url>
+    <content><![CDATA[<p>最近在上一门叫『无线自组织网络与应用』的课程，介绍了很多以前没有接触过的概念，包括了一个叫 NS2 的仿真工具，在前面<a href="/2020/03/latex-notes-1-basic-concepts/">一篇文章</a>中介绍的 AHOHA 协议也是在这门课程中有被详细讲述的。这篇文章基本上是<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">这篇文章</a>的翻译，介绍 NS2 这个仿真工具，给出这个它的概述。<br><a id="more"></a></p>
+<h2 id="NS2是什么"><a href="#NS2是什么" class="headerlink" title="NS2是什么"></a>NS2是什么</h2><p>NS2 是一个使用 C++ 和 OTcl 编写的面向对象的离散事件驱动的网络仿真器，在 UCBerkely 被开发出来。它主要用于局域网和广域网仿真。由于缺少适合新手入门的教程，NS2对于初学者来说不是很友好。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>NS2 可以仿真各种各样的IP网络。它实现了一些网络协议如 TCP 和 UDP，文件传输协议如 FTP、Telnet、Web、CBR 和 VBR，路由队列管理机制如 DropTail、RED 和 CBQ，路由选择算法如 Dijkstra，等等。针对局域网仿真，NS2 还实现了组播和一些 MAC 层协议。这里要介绍的是 NS2 的基本结构，然后按照例子介绍细节。</p>
+<p><div align="center" class="img"><br>    <img src="/assets/img/2020/structure_of_ns2.png" alt="structure_of_ns2" width="750"><br>    <span align="center" style="color:#999">用户角度的NS概览</span><br></div><br>NS2 是 OTcl 脚本解释器，包括仿真事件调度程序、网络组件对象库和网络启动 (plumbing) 模块库。plumbing 模块通常实现为基本模拟对象成员函数。换句话说，使用 NS2，你需要使用 OTcl 语言写一个脚本，包括以下内容：</p>
+<ul>
+<li>初始化一个事件调度程序</li>
+<li>使用网络对象和 plumbing 函数建立网络拓扑结构</li>
+<li>通过事件调度程序告知何时开始发送分组</li>
+</ul>
+<h3 id="network-object-网络对象"><a href="#network-object-网络对象" class="headerlink" title="network object 网络对象"></a>network object 网络对象</h3><p>plumbing 函数通过为<em>对象设定指向合适的对象的邻居指针</em>，在网络对象中探索可能的数据通路，进而建立起整个网络。如此一来，使用者想要创建一个新的网络对象变得简单，只需写一个新的对象或者从对象库中创建一个复合对象，然后探索 (plumb) 通过这个新对象的数据通路即可。<br>听起来比较复杂，但是 plumbing OTcl 模块让这一切变得非常简单，这也是 NS2 的强大之处。</p>
+<h3 id="event-scheduler-事件调度程序"><a href="#event-scheduler-事件调度程序" class="headerlink" title="event scheduler 事件调度程序"></a>event scheduler 事件调度程序</h3><p>除网络对象外，NS2 中另一个主要的组件就是事件调度程序。在 NS2 中，一个事件就是一个包 ID，这个 ID 是唯一的，涵盖了分配时间，以及用来处理该事件的指向下一个对象的指针。在 NS2 中，一个事件调度程序<strong>记录着模拟时间</strong>，并通过调用适当的网络组件启动在<strong>事件队列</strong>中调度好的应该在当前启动的所有事件，这些组件通常是发出事件并让事件与事件指出的包一起完成正确的指令。网络组件间进行通信，传递 packet，但是并不会消耗真实的仿真时间。所有需要消耗仿真时间来处理 packet 的网络组件通过使用事件调度程序完成，组件为待处理到packet发出一个事件然后等待组件自己启动事件，再进行进一步的行动处理 packet。</p>
+<p>举个例子，一个网络转发组件S模拟一次转发的延时为 20us，它为一个需要转发的 packet P 向调度程序发出一个延时 20us 的事件 E，20us 后，调度程序 M 从事件队列中调度出这个事件 E 并把它立即发给转发组件 S ，然后由转发组件 S 将 packet P 交给适当的输出链接组件。</p>
+<p>还有一种用法将事件调度程序当作计时器。比如，TCP 需要一个计时器记录一个 packet 的发送时间以备重发（发送一个具有相同 TCP 编号且不同 NS packet ID 的 packet）。计时器和延时器用类似的方式使用事件调度程序，不同之处在于计时器计算与 packet 相关的时间值，然后一段特定的时间过去后对该 packet 做合适的动作（如上面那个例子，计算 packet 的发送时间，如果超过预定时间重发该 packet），而不是模拟一个延时，</p>
+<h2 id="C-与-NS2"><a href="#C-与-NS2" class="headerlink" title="C++ 与 NS2"></a>C++ 与 NS2</h2><p>NS2 不仅可以用 OTcl 编写也可以用 C++ 编写。处于效率考量，NS2 将<strong>数据路径</strong>的实现和<strong>控制路径</strong>的实现分离开来，为了减少 packet 和事件的处理时间（注意，不是仿真时间），数据路径中的事件调度程序和基本网络组件对象用 C++ 编写然后编译，使用编译好的对象，OTcl 解释器通过一个 OTcl 连接为每一个 C++ 对象创建配对的 OTcl 对象，为成员函数创建配对的控制函数，为成员变量创建配对的配置变量，这样一来，对 C++ 对象的控制就传递给了 OTcl。向一个连接到 OTcl 的 C++ 对象中添加成员函数也是可能的，C++ 对象中不需要在一次模拟中被控制的或者不需要在内部被其他对象使用使用的，是不需要被连接到 OTcl 中。同样地，一个不在数据路径中的对象也可以使用 OTcl 实现。如图为一个对象在 C++ 和 OTcl 中的层次体系，可以看到，连接到 C++ 的 OTcl 对象和它连接的 C++ 对象具有相同的层次结构。</p>
+<p align="center" class="img"><br>    <img src="/assets/img/2020/cpp_vs_otcl.png" alt="cpp_vs_otcl" width="750"><br>    <span align="center" style="color:#999">C++ 和 OTcl 的连接</span><br></p>
+
+<h2 id="NS2-的大体结构"><a href="#NS2-的大体结构" class="headerlink" title="NS2 的大体结构"></a>NS2 的大体结构</h2><p>如图为 NS2 的整体结构，使用者站在图中的左下角，在 Tcl 中，使用 OTcl 库中的仿真对象设计并控制模拟。事件调度程序和绝大多数网络组件是通过 C++ 实现的，并且 OTcl 通过 OTcl 连接 (linkage) 可以使用到它们，而这个连接是通过 tclcl 实现的。这些东西共同构成了 NS2，它就是一个扩展了面向对象的 Tcl 解释器和网络模拟库。</p>
+<p align="center" class="img"><br>    <img src="/assets/img/2020/architecture_view_of_ns.png" alt="architecture_view_of_ns" width="750"><br>    <span align="center" style="color:#999">NS2  的体系结构图</span><br></p>
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文简单分析了 NS2 的大体结构和体系结构。现在来考虑下如何获得 NS2 的仿真结果，如第一张图所示，，当仿真结束时，NS2 按照输入的 Tcl（或 OTcl）脚本中的说明产生一个或者多个文本输出文件，其中包含了详细的仿真数据。这些数据可用于后续的仿真分析中，或者作为图形化仿真展示工具 NAM 的输入。</p>
+<hr>
+<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI 大学的资源</a></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+        <tag>NS2</tag>
       </tags>
   </entry>
   <entry>
@@ -465,37 +535,9 @@
 <hr>
 <p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
 ]]></content>
-      <tags>
-        <tag>网络</tag>
-        <tag>NS2</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NS2 的介绍（一）—— 概述</title>
-    <url>/2020/04/ns2-simulation-overview/</url>
-    <content><![CDATA[<p>最近在上一门叫『无线自组织网络与应用』的课程，介绍了很多以前没有接触过的概念，包括了一个叫 NS2 的仿真工具，在前面<a href="/2020/03/latex-notes-1-basic-concepts/">一篇文章</a>中介绍的 AHOHA 协议也是在这门课程中有被详细讲述的。这篇文章基本上是<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">这篇文章</a>的翻译，介绍 NS2 这个仿真工具，给出这个它的概述。<br><a id="more"></a></p>
-<h2 id="NS2是什么"><a href="#NS2是什么" class="headerlink" title="NS2是什么"></a>NS2是什么</h2><p>NS2 是一个使用 C++ 和 OTcl 编写的面向对象的离散事件驱动的网络仿真器，在 UCBerkely 被开发出来。它主要用于局域网和广域网仿真。由于缺少适合新手入门的教程，NS2对于初学者来说不是很友好。</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>NS2 可以仿真各种各样的IP网络。它实现了一些网络协议如 TCP 和 UDP，文件传输协议如 FTP、Telnet、Web、CBR 和 VBR，路由队列管理机制如 DropTail、RED 和 CBQ，路由选择算法如 Dijkstra，等等。针对局域网仿真，NS2 还实现了组播和一些 MAC 层协议。这里要介绍的是 NS2 的基本结构，然后按照例子介绍细节。</p>
-<p><div align="center" class="img"><br>    <img src="/assets/img/2020/structure_of_ns2.png" alt="structure_of_ns2" width="750"><br>    <span align="center" style="color:#999">用户角度的NS概览</span><br></div><br>NS2 是 OTcl 脚本解释器，包括仿真事件调度程序、网络组件对象库和网络启动 (plumbing) 模块库。plumbing 模块通常实现为基本模拟对象成员函数。换句话说，使用 NS2，你需要使用 OTcl 语言写一个脚本，包括以下内容：</p>
-<ul>
-<li>初始化一个事件调度程序</li>
-<li>使用网络对象和 plumbing 函数建立网络拓扑结构</li>
-<li>通过事件调度程序告知何时开始发送分组</li>
-</ul>
-<h3 id="network-object-网络对象"><a href="#network-object-网络对象" class="headerlink" title="network object 网络对象"></a>network object 网络对象</h3><p>plumbing 函数通过为<em>对象设定指向合适的对象的邻居指针</em>，在网络对象中探索可能的数据通路，进而建立起整个网络。如此一来，使用者想要创建一个新的网络对象变得简单，只需写一个新的对象或者从对象库中创建一个复合对象，然后探索 (plumb) 通过这个新对象的数据通路即可。<br>听起来比较复杂，但是 plumbing OTcl 模块让这一切变得非常简单，这也是 NS2 的强大之处。</p>
-<h3 id="event-scheduler-事件调度程序"><a href="#event-scheduler-事件调度程序" class="headerlink" title="event scheduler 事件调度程序"></a>event scheduler 事件调度程序</h3><p>除网络对象外，NS2 中另一个主要的组件就是事件调度程序。在 NS2 中，一个事件就是一个包 ID，这个 ID 是唯一的，涵盖了分配时间，以及用来处理该事件的指向下一个对象的指针。在 NS2 中，一个事件调度程序<strong>记录着模拟时间</strong>，并通过调用适当的网络组件启动在<strong>事件队列</strong>中调度好的应该在当前启动的所有事件，这些组件通常是发出事件并让事件与事件指出的包一起完成正确的指令。网络组件间进行通信，传递 packet，但是并不会消耗真实的仿真时间。所有需要消耗仿真时间来处理 packet 的网络组件通过使用事件调度程序完成，组件为待处理到packet发出一个事件然后等待组件自己启动事件，再进行进一步的行动处理 packet。</p>
-<p>举个例子，一个网络转发组件S模拟一次转发的延时为 20us，它为一个需要转发的 packet P 向调度程序发出一个延时 20us 的事件 E，20us 后，调度程序 M 从事件队列中调度出这个事件 E 并把它立即发给转发组件 S ，然后由转发组件 S 将 packet P 交给适当的输出链接组件。</p>
-<p>还有一种用法将事件调度程序当作计时器。比如，TCP 需要一个计时器记录一个 packet 的发送时间以备重发（发送一个具有相同 TCP 编号且不同 NS packet ID 的 packet）。计时器和延时器用类似的方式使用事件调度程序，不同之处在于计时器计算与 packet 相关的时间值，然后一段特定的时间过去后对该 packet 做合适的动作（如上面那个例子，计算 packet 的发送时间，如果超过预定时间重发该 packet），而不是模拟一个延时，</p>
-<h2 id="C-与-NS2"><a href="#C-与-NS2" class="headerlink" title="C++ 与 NS2"></a>C++ 与 NS2</h2><p>NS2 不仅可以用 OTcl 编写也可以用 C++ 编写。处于效率考量，NS2 将<strong>数据路径</strong>的实现和<strong>控制路径</strong>的实现分离开来，为了减少 packet 和事件的处理时间（注意，不是仿真时间），数据路径中的事件调度程序和基本网络组件对象用 C++ 编写然后编译，使用编译好的对象，OTcl 解释器通过一个 OTcl 连接为每一个 C++ 对象创建配对的 OTcl 对象，为成员函数创建配对的控制函数，为成员变量创建配对的配置变量，这样一来，对 C++ 对象的控制就传递给了 OTcl。向一个连接到 OTcl 的 C++ 对象中添加成员函数也是可能的，C++ 对象中不需要在一次模拟中被控制的或者不需要在内部被其他对象使用使用的，是不需要被连接到 OTcl 中。同样地，一个不在数据路径中的对象也可以使用 OTcl 实现。如图为一个对象在 C++ 和 OTcl 中的层次体系，可以看到，连接到 C++ 的 OTcl 对象和它连接的 C++ 对象具有相同的层次结构。</p>
-<p align="center" class="img"><br>    <img src="/assets/img/2020/cpp_vs_otcl.png" alt="cpp_vs_otcl" width="750"><br>    <span align="center" style="color:#999">C++ 和 OTcl 的连接</span><br></p>
-
-<h2 id="NS2-的大体结构"><a href="#NS2-的大体结构" class="headerlink" title="NS2 的大体结构"></a>NS2 的大体结构</h2><p>如图为 NS2 的整体结构，使用者站在图中的左下角，在 Tcl 中，使用 OTcl 库中的仿真对象设计并控制模拟。事件调度程序和绝大多数网络组件是通过 C++ 实现的，并且 OTcl 通过 OTcl 连接 (linkage) 可以使用到它们，而这个连接是通过 tclcl 实现的。这些东西共同构成了 NS2，它就是一个扩展了面向对象的 Tcl 解释器和网络模拟库。</p>
-<p align="center" class="img"><br>    <img src="/assets/img/2020/architecture_view_of_ns.png" alt="architecture_view_of_ns" width="750"><br>    <span align="center" style="color:#999">NS2  的体系结构图</span><br></p>
-
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文简单分析了 NS2 的大体结构和体系结构。现在来考虑下如何获得 NS2 的仿真结果，如第一张图所示，，当仿真结束时，NS2 按照输入的 Tcl（或 OTcl）脚本中的说明产生一个或者多个文本输出文件，其中包含了详细的仿真数据。这些数据可用于后续的仿真分析中，或者作为图形化仿真展示工具 NAM 的输入。</p>
-<hr>
-<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI 大学的资源</a></p>
-]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
       <tags>
         <tag>网络</tag>
         <tag>NS2</tag>
@@ -560,6 +602,9 @@ proc complete_sim {} {...}
 <hr>
 <p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
 ]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
       <tags>
         <tag>网络</tag>
         <tag>NS2</tag>
@@ -601,6 +646,22 @@ proc complete_sim {} {...}
 <h2 id="一个-packet-流动的例子"><a href="#一个-packet-流动的例子" class="headerlink" title="一个 packet 流动的例子"></a>一个 packet 流动的例子</h2><p>到现在为止，我们分析了两个最重要的网络组件——节点和连接。下图展示了一个模拟网络建立和 packet 流动的内部情况。<br>网络由两个节点 n0 和 n1 组成，网络地址分别 0 和 1。绑定在 n0 上的一个 TCP 代理使用端口 0 与 绑定在 n1 上的使用端口 0 的 TCP sink 对象通信。最后，一个 FTP 应用绑定到 TCP 代理上，请求发送一些数据。<br>注意，下图没有显示出 FTP 在 TCP 上的具体行为，仅仅展示仿真网络和 packet 流动的详细内部情况。</p>
 <div align="center" class="img"><br>    <img src="/assets/img/2020/packet_flow.png" alt="packet_flow" width="750"><br>    <span align="center" style="color:#999">插入了 trace 对象的连接</span><br></div>
 ]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+        <tag>NS2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NS2 的介绍（五）—— 数据分组</title>
+    <url>/2020/04/ns2-packet/</url>
+    <content><![CDATA[<p>在前面两篇文章中我们分别介绍了 NS2 中非常重要的两个组成——<a href="../ns2-event-scheduler">事件调度器</a>和<a href="../ns2-network-components">网络组件</a>，我们知道了 packet（数据分组）是如何在节点之间传递的，现在让我们来看看数据分组在 NS2 中是如何表示的。<br><a id="more"></a><br>一个 NS2 数据分组由一个<strong>头部信息的栈</strong>和<strong>可选的数据空间</strong>组成，如下图所示。在<a href="../ns2-simple-simulation-example">简单仿真示例</a>提到过，数据分组头格式在创建 Simulator 对象时被初始化，在 Simulator 对象中，一系列栈排列注册了的 header 头（有可能不可见）被定义，如 common 头（它通常被任何需要的对象使用）、IP 头、TCP 头、RTP 头（UDP 使用 RTP 头）和 trace 头，且每个 header 在栈中的偏移都会被记录下来。这意味着不管一个头有没有被使用，当一个 packet（数据分组）被代理分配时创建的栈中都会含有它，并且网络对象使用相应的 offset（偏移值）就可以获得数据分组的栈中的任意头。<br><img src="/assets/img/2020/ns_packet_format.png" alt="img"><br>通常，一个 packet（数据分组）只有一个特定的 head（头部）栈，尽管通过分配数据空间，packet（数据分组）可以携带实际的（来自 application）信息，很少有 application（应用）和 agent（代理）的实现会支持这种做法，这是因为<strong>在非实时的模拟中传递真实数据是没有意义的</strong>。但是如果你想实现一个可以跨过网络去和另一个 application 通信的 application 的话，你也许可以使用这个特性，不过需要在下层的代理实现中做一点改动，还可以为 application 创建一个新的 header，然后修改下层的代理向这个新建的 header 写入受到的数据。后面这种方法会在后面的一篇文章中讲到。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
       <tags>
         <tag>网络</tag>
         <tag>NS2</tag>

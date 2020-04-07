@@ -2,8 +2,10 @@
 
 
 
+  
 
-<html class="theme-next pisces" lang="zh-Hans">
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -73,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="算法,union-find,Java," />
+  <meta name="keywords" content="算法,Java,union-find," />
 
 
 
@@ -85,14 +87,14 @@
 
 
 <meta name="description" content="在计算机网络中，对于任意两个节点，可以在其间构建一条连接建立通信，这样做没有问题，但是在整个网络中都这么做会导致需要建立的连接非常多，容易计算得到N个节点的网络需要的连接数N(N-1)/2，这增加了网络的负担，实现起来也不容易，有什么办法改进呢？六度空间理论大家都知道，说的是最多通过六个人，我们可以和世界上任何人建立联系，那么如何知道两个人之间是否可以建立联系呢？这两个问题其实都属于连通性问题，可">
-<meta name="keywords" content="算法,union-find,Java">
+<meta name="keywords" content="算法,Java,union-find">
 <meta property="og:type" content="article">
 <meta property="og:title" content="union-find算法的原理及实现">
 <meta property="og:url" content="https://jonathan1214.github.io/2020/03/union-find/index.html">
 <meta property="og:site_name" content="dsfds&#39; blog">
 <meta property="og:description" content="在计算机网络中，对于任意两个节点，可以在其间构建一条连接建立通信，这样做没有问题，但是在整个网络中都这么做会导致需要建立的连接非常多，容易计算得到N个节点的网络需要的连接数N(N-1)/2，这增加了网络的负担，实现起来也不容易，有什么办法改进呢？六度空间理论大家都知道，说的是最多通过六个人，我们可以和世界上任何人建立联系，那么如何知道两个人之间是否可以建立联系呢？这两个问题其实都属于连通性问题，可">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-14T07:38:23.449Z">
+<meta property="og:updated_time" content="2020-04-07T09:37:37.388Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="union-find算法的原理及实现">
 <meta name="twitter:description" content="在计算机网络中，对于任意两个节点，可以在其间构建一条连接建立通信，这样做没有问题，但是在整个网络中都这么做会导致需要建立的连接非常多，容易计算得到N个节点的网络需要的连接数N(N-1)/2，这增加了网络的负担，实现起来也不容易，有什么办法改进呢？六度空间理论大家都知道，说的是最多通过六个人，我们可以和世界上任何人建立联系，那么如何知道两个人之间是否可以建立联系呢？这两个问题其实都属于连通性问题，可">
@@ -108,7 +110,7 @@
     sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
-    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -126,6 +128,9 @@
 
 
   <link rel="canonical" href="https://jonathan1214.github.io/2020/03/union-find/"/>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
@@ -357,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-03-14T15:38:23+08:00">
-                2020-03-14
+              <time title="更新于" itemprop="dateModified" datetime="2020-04-07T17:37:37+08:00">
+                2020-04-07
               </time>
             
           </span>
@@ -483,9 +488,9 @@
           
             <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
           
-            <a href="/tags/union-find/" rel="tag"><i class="fa fa-tag"></i> union-find</a>
-          
             <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/tags/union-find/" rel="tag"><i class="fa fa-tag"></i> union-find</a>
           
         </div>
       
@@ -591,12 +596,21 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
@@ -694,7 +708,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">21.1k</span>
+    <span title="Site words total count">21.6k</span>
   
 </div>
 

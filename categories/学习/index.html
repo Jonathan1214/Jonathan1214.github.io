@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="网络,NS2," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -86,20 +86,13 @@
 
 
 
-<meta name="description" content="在上一篇文章中，我们从一个简单的例子出发，从零开始编写了一个 NS2 模拟用的 OTcl 脚本，我们需要在脚本中完成以下任务：  创建 Simulator 对象； 创建 node 对象并构建 node 间的连接 link； 创建代理对象和 traffic 源对象，连接 node 和代理，连接代理和 traffic 源； 创建模拟场景 scenario，即定义调度任务； 开始模拟。  按照以上这些步">
-<meta name="keywords" content="网络,NS2">
-<meta property="og:type" content="article">
-<meta property="og:title" content="NS2 的介绍（三）—— 事件调度器">
-<meta property="og:url" content="https://jonathan1214.github.io/2020/04/ns2-event-scheduler/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="dsfds&#39; blog">
+<meta property="og:url" content="https://jonathan1214.github.io/categories/学习/index.html">
 <meta property="og:site_name" content="dsfds&#39; blog">
-<meta property="og:description" content="在上一篇文章中，我们从一个简单的例子出发，从零开始编写了一个 NS2 模拟用的 OTcl 脚本，我们需要在脚本中完成以下任务：  创建 Simulator 对象； 创建 node 对象并构建 node 间的连接 link； 创建代理对象和 traffic 源对象，连接 node 和代理，连接代理和 traffic 源； 创建模拟场景 scenario，即定义调度任务； 开始模拟。  按照以上这些步">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/discrete_event_scheduler.png">
-<meta property="og:updated_time" content="2020-04-07T09:36:39.356Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NS2 的介绍（三）—— 事件调度器">
-<meta name="twitter:description" content="在上一篇文章中，我们从一个简单的例子出发，从零开始编写了一个 NS2 模拟用的 OTcl 脚本，我们需要在脚本中完成以下任务：  创建 Simulator 对象； 创建 node 对象并构建 node 间的连接 link； 创建代理对象和 traffic 源对象，连接 node 和代理，连接代理和 traffic 源； 创建模拟场景 scenario，即定义调度任务； 开始模拟。  按照以上这些步">
-<meta name="twitter:image" content="https://jonathan1214.github.io/assets/img/2020/discrete_event_scheduler.png">
+<meta name="twitter:title" content="dsfds&#39; blog">
 
 
 
@@ -129,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="https://jonathan1214.github.io/2020/04/ns2-event-scheduler/"/>
+  <link rel="canonical" href="https://jonathan1214.github.io/categories/学习/"/>
 
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -138,7 +131,7 @@
 
 
 
-  <title>NS2 的介绍（三）—— 事件调度器 | dsfds' blog</title>
+  <title>分类: 学习 | dsfds' blog</title>
   
 
 
@@ -157,7 +150,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -305,273 +298,307 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block category">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>学习<small>分类</small>
+        </h1>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2020/04/ns2-event-scheduler/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="dsfds">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dsfds' blog">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2020/04/ns2-packet/" itemprop="url">
+              
+                <span itemprop="name">NS2 的介绍（五）—— 数据分组</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">NS2 的介绍（三）—— 事件调度器</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-04T08:32:25+08:00">
-                2020-04-04
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2020-04-07T17:36:39+08:00">
-                2020-04-07
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  959
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>在<a href="/2020/04/ns2-simple-simulation-example">上一篇文章</a>中，我们从一个简单的例子出发，从零开始编写了一个 NS2 模拟用的 OTcl 脚本，我们需要在脚本中完成以下任务：</p>
-<ol>
-<li>创建 Simulator 对象；</li>
-<li>创建 node 对象并构建 node 间的连接 link；</li>
-<li>创建代理对象和 traffic 源对象，连接 node 和代理，连接代理和 traffic 源；</li>
-<li>创建模拟场景 scenario，即定义调度任务；</li>
-<li>开始模拟。</li>
-</ol>
-<p>按照以上这些步骤编写就可完成模拟脚本编写。这篇文章中要介绍的是第 4 个步骤创建模拟场景的详细信息，我们将讨论 NS2 中的离散事件调度器。<br><a id="more"></a><br>如<a href="/2020/04/02/ns2-simulation-overview">第一篇文章</a>中谈到的，在 NS2 中，事件调度器主要是由一些网络组件来使用，组件们模拟 packet 的处理时需要调度程序作为延时器或计时器。如下图展示，每一个网络对象使用一个时间调度器，图中需要注意：<br>（1）网络对象发出一个事件那么它就要在预定的时间点上处理这个事件；<br>（2）网络对象间的数据路径和事件路径不相同；<br>若深入到代码层面，包在网络对象中传递时，发送方使用 <code>send(Packet* p){target_-&gt;recv(p);</code> 语句发送，接收方使用 <code>recv(Packet*, Handler* h = 0)</code> 方法接收。</p>
-<p><div align="center" class="img"><br>    <img src="/assets/img/2020/discrete_event_scheduler.png" alt="discrete_event_scheduler" width="750"><br>    <span align="center" style="color:#999">离散事件调度器</span><br></div><br>NS2 实现了两种事件调度器，实时调度器和非实时调度器。非实时调度器有三种实现，分别为 List、Heap 和 Calendar，它们逻辑上是一样的，之所以有这么多实现，是由于向下兼容的原因。默认的非实时调度器是 Calender 方式实现的。实时调度器是为仿真 emulation 使用的，允许仿真器 simulator 和真实的网络交互。下面这个就是一个指定事件调度器的例子。</p>
-<pre><code>set ns [new Simulator]
-$ns use-scheduler Heap
-</code></pre><p>事件调度器还可以调度模拟事件，比如启动一个 FTP 应用或者结束模拟。事件调度器对象本身有一些模拟调度成员函数，比如 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code>，它就可以在发起一个在特定的模拟时间 &lt;time> 发生的叫做 <code>AtEvent</code> 的事件。<code>AtEvent</code> 其实是 <code>Event</code> 类的子类，它扩展了额外的变量保存 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 中的 <code>string</code>，尽管有扩展，它在事件调度器中和一般的事件还是被相同对待的。模拟开始后，当模拟时间到达事件队列中的 AtEvent 应该被调度的时间时，该 <code>AtEvent</code> 就会被传递给一个 <code>AtEvent Handler</code>，<code>AtEvent Handler</code> 只被创建一次并处理所有的的 <code>AtEvent</code>，<code>AtEvent</code> 的 &lt;string> 确定的 OTcl 命令也会被执行。下面是一个模拟事件调度示例：</p>
-<pre><code>set ns [new Simulator]
-$ns use-scheduler Heap
-$ns at 300.5 &quot;complete_sim&quot;
-
-proc complete_sim {} {...}
-</code></pre><p>注意到在上面的例子中，<code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 是 Simulator 对象 ns 的成员函数，但是我们要记住，Simulator 对象仅仅只是起到一个用户接口的作用，事实上它会去调用网络对象或者调度器对象的成员函数，由它们真正地完成工作。下面是一个函数列表和简单说明，这些函数就是 Simulator 对象用来接口调度器成员函数的成员函数。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">成员函数</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Simulator instproc now</td>
-<td style="text-align:left">返回调度器对现在时间的 notion</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator isntproc at args</td>
-<td style="text-align:left">在特定的时间调度执行代码</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc at-now args</td>
-<td style="text-align:left">立即调度执行代码</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc after n args</td>
-<td style="text-align:left">n 秒后调度执行代码</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc run args</td>
-<td style="text-align:left">启动调度器</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc halt</td>
-<td style="text-align:left">停止或赞同调度器</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-      <div>
-        <ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者：</strong>
-    dsfds
-  </li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="https://jonathan1214.github.io/2020/04/ns2-event-scheduler/" title="NS2 的介绍（三）—— 事件调度器">https://jonathan1214.github.io/2020/04/ns2-event-scheduler/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>
-    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-04-07T16:06:51+08:00"
+              content="2020-04-07" >
+          04-07
+        </time>
       </div>
-    
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/网络/" rel="tag"><i class="fa fa-tag"></i> 网络</a>
-          
-            <a href="/tags/NS2/" rel="tag"><i class="fa fa-tag"></i> NS2</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2020/04/ns2-simple-simulation-example/" rel="next" title="NS2 的介绍（二）—— 模拟示例">
-                <i class="fa fa-chevron-left"></i> NS2 的介绍（二）—— 模拟示例
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/04/ns2-network-components/" rel="prev" title="NS2 的介绍（四）—— 网络组件">
-                NS2 的介绍（四）—— 网络组件 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
+      
+        
 
-    <div class="post-spread">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/04/ns2-network-components/" itemprop="url">
+              
+                <span itemprop="name">NS2 的介绍（四）—— 网络组件</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-04-06T09:30:03+08:00"
+              content="2020-04-06" >
+          04-06
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/04/ns2-event-scheduler/" itemprop="url">
+              
+                <span itemprop="name">NS2 的介绍（三）—— 事件调度器</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-04-04T08:32:25+08:00"
+              content="2020-04-04" >
+          04-04
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/04/ns2-simple-simulation-example/" itemprop="url">
+              
+                <span itemprop="name">NS2 的介绍（二）—— 模拟示例</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-04-03T10:25:25+08:00"
+              content="2020-04-03" >
+          04-03
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/04/ns2-simulation-overview/" itemprop="url">
+              
+                <span itemprop="name">NS2 的介绍（一）—— 概述</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-04-02T16:15:03+08:00"
+              content="2020-04-02" >
+          04-02
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/03/latex-notes-1-basic-concepts/" itemprop="url">
+              
+                <span itemprop="name">LaTex笔记（一）——基本概念</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-03-27T12:13:12+08:00"
+              content="2020-03-27" >
+          03-27
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/03/channel-sharing-and-aloha-imulation/" itemprop="url">
+              
+                <span itemprop="name">信道共享技术简述与ALOHA的仿真</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-03-21T16:04:28+08:00"
+              content="2020-03-21" >
+          03-21
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/03/union-find/" itemprop="url">
+              
+                <span itemprop="name">union-find算法的原理及实现</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-03-13T15:26:53+08:00"
+              content="2020-03-13" >
+          03-13
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/03/a-way-to-algorithm-analysis/" itemprop="url">
+              
+                <span itemprop="name">算法的分析方法</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-03-10T21:30:43+08:00"
+              content="2020-03-10" >
+          03-10
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2018/05/review-data-structure/" itemprop="url">
+              
+                <span itemprop="name">数据结构复习</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-05-14T20:25:46+08:00"
+              content="2018-05-14" >
+          05-14
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
       
     </div>
+
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -579,10 +606,6 @@ proc complete_sim {} {...}
 
 
           
-
-  
-
-
 
         </div>
         
@@ -855,10 +878,6 @@ proc complete_sim {} {...}
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
