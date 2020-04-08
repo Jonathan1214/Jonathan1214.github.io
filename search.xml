@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>一点思考</title>
+    <url>/2018/04/A_little_thinking/</url>
+    <content><![CDATA[<p>时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>思考</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>记录科创中期答辩</title>
     <url>/2018/04/My_first_lose/</url>
     <content><![CDATA[<p>今天下午的科创中期答辩我们组当掉了，说实话我们什么都没做，单纯的想敷衍过去，很不幸，老师没有让我们通过，4月29号要再来一次，希望可以通过吧。<br><a id="more"></a><br>关于这次答辩，我还是有些东西想记下来的：</p>
@@ -14,18 +26,6 @@
       </categories>
       <tags>
         <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一点思考</title>
-    <url>/2018/04/A_little_thinking/</url>
-    <content><![CDATA[<p>时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
@@ -106,39 +106,6 @@
       </tags>
   </entry>
   <entry>
-    <title>记录高频硬件课程设计</title>
-    <url>/2019/12/record-of-high-frequency-course-design/</url>
-    <content><![CDATA[<p>本文绝大部分内容是在19年12月29日写的，我记得很清楚，那天是周日上午，我没有为即将到来的通原考试而复习，而是选择去写点东西记录几天前刚刚结束的高频课设，这是一次很难忘的经历，有痛苦也有快乐，有想过放弃但还是坚持了下来，感谢自己和队友们。现在是2020年3月15日，本该在学校度过周日的我，和所有的大学生一样，因为肺炎疫情只能在家里学习，我没什么学习状态，有些无聊，因此整理博客，把这篇去年的记录整理整理，发到GitHubBlog上，留作纪念，发表日期还是使用去年写这篇文章的日子。<br><a id="more"></a></p>
-<h2 id="最终验收"><a href="#最终验收" class="headerlink" title="最终验收"></a>最终验收</h2><p>12月24号，高频硬件课设验收，在队友的强烈要求下，我们选择了一个比较宽松的老师给我们验收，因为我们功率达不到，但还想 <strong>『恰完烂分』</strong>，这能对他的保研有所帮助。最后的结果很好，我们拿到了5分（满分5分），<strong>『烂分恰完』</strong>。</p>
-<div align="center" class="img"><br>    <img src="/assets/img/2019/final.jpg" alt="验收" height="400"><br>    <p align="center" style="color:#999">最终验收时电路连接和波形</p><br></div>
-
-<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>12月17号周二下午考完『随机过程』，终于有时间休息了，躺了一个小时，吃个饭，室友已经去搞硬件了，虽然已经是晚上9点多了，但我还想去，带上东西，去李老师办公室焊。折腾了两个小时，焊好了一个西勒振荡器，但没有测试工具，只能第二天测试焊接是否正确，测试工具缺乏和焊接出错这两个问题在整个课设过程中一直困扰着我们。</p>
-<div align="center" class="img"><br>    <img src="/assets/img/2019/siler_oscillator.jpg" alt="西勒振荡器" height="400"><br>    <p align="center" style="color:#999">第一天晚上焊好的西勒振荡器</p><br></div>
-
-<h2 id="一起干"><a href="#一起干" class="headerlink" title="一起干"></a>一起干</h2><p>第二天是周三，没有课，我和赵公子决定去实验室接着焊板子，顺便测试下昨晚上焊的振荡器。两个小时后，我们焊好了发射机和接收机的振荡器，经过测试，他的能用，而我的那块振荡器产生了寄生调幅。检查了电路没有任何问题，折腾到下午，最后发现是射极偏置电阻过大导致的，微调射极电阻，即可解决这个问题。</p>
-<p>下午和晚上我们都在实验室呆着，一直做到晚上11点。因为我已经很久没焊接东西，有点手生，他更是没啥经验，我们效率比较低，只焊好了一个乘法电路、一个中频放大器和一个包络检波器。后面测试时发现，我焊接的那个乘法电路不能实现信号相乘。那时我还不知道，接下来3天我都会把时间花在乘法电路上，如果早知道调试它会这么折腾，第一天晚上就应该当机立断重新焊一个的。</p>
-<h2 id="心生退意"><a href="#心生退意" class="headerlink" title="心生退意"></a>心生退意</h2><p>接下来的几天我感到痛苦不堪，我焊接乘法电路始终不好使，不知为什么我就是不愿重新焊一块，执着地想把它修好，但这一切都是徒劳的。看着周围的同学一个个都做出来乘法电路了，我开始怀疑自己：如果做不出来是不是证明我不行，我怎么能不行呢？要不放弃吧，这样就不存在证明了，我告诉自己这些bonus对我来说并不那么重要，我保研与否与这课设5分没什么关系。沃老板执着地说焊板子的烟搞得他很难受，实验室里面人太多了，空气太差，乌烟瘴气，他想回寝室做，这样的参与状态让我心有不快，偏偏他才是一定要拿这 5 分保研的人，为什么我要受这些精神折磨，我当时的确不想再做下去了。</p>
-<p>周六早上，纠结了许久，我去教化补充了些元器件，决定去实验室再焊一个乘法器，还说服沃老板也焊一个接收机的乘法电路。我不知道是什么力量支撑着我继续做下去，这件事对我来说不是那么必要，最诱人的bonus并不是我一定需要的，如果不做课设，我可以去复习通原，我可以享受轻松的一周。事后我仔细想了想，大概是因为我自己的性格决定的，我不是那种遇到问题就放弃的人，借口谁都有一些，但是作为我，一旦开始做了，就要做到最后，没有中途放弃的，之前的软件仿真就是如此，没有理由硬件不坚持下去，到这个时候，其实做这个课设已经变成了和自己较劲了，我不想就这么输了。</p>
-<p>周六下午去做了通信原理实验，晚上终于焊好我的第二块乘法电路，测试再次失败，沃老板也焊好接收机混频电路，经过测试也失败。这时候我心态已经到了最低点了，我真的不想再来了，前面说的那么多不服输如何如何，可是看着别人一个个做好，我的却始终不行，旁边还有人明着嘲讽我，这使我明白『挫败感』是何含义。晚上10点，我和沃老板回寝室了，赵公子在周五下午有事回家了，但他做的已经足够多了。我突然决定不再去了。</p>
-<h2 id="坚持才是胜利"><a href="#坚持才是胜利" class="headerlink" title="坚持才是胜利"></a>坚持才是胜利</h2><p>周日上午我还是去实验室了，我想就是什么都做不出来，也得一直在实验室坐着，我就要和它刚到底。好在一切坚持都没有白费，我的乘法电路测试成功了，事实证明我的电路设计没有问题，焊接的也没有问题，昨晚测试失败只是因为电路连线没有接好，胜利让我欣喜若狂，我真想大声怒吼：我终于完成了。另一边也有好消息传来，沃老板焊的和赵公子焊的乘法电路都是好使的，还有什么比此刻更快乐呢？</p>
-<div align="center"><br>    <img src="/assets/img/2019/amplitude_modulation.jpg" alt="AM调幅" height="400"><br>    <p align="center" style="color:#999">赵公子的乘法器AM波形</p><br>    <img src="/assets/img/2019/mixing.jpg" alt="混频" height="400"><br>    <p align="center" style="color:#999">沃老板的混频器波形</p><br></div>
-
-<p>周日下午发生了一些不愉快的事情，因为下午找不到他人（其实他在午睡），我对沃老板的不满更加强烈了，而那时我已经十分疲惫，愤怒之下，下午3点左右我直接回寝室，拒绝回他消息，然后睡了一觉。期间他来找我，我『哈哈』糊弄过去，不想再干。6点多起来看一眼手机，想了想，还是再去试试，把级联和功率要求做完吧，都已经到这个份上了，干脆就把它做到完。</p>
-<h2 id="乘胜追击"><a href="#乘胜追击" class="headerlink" title="乘胜追击"></a>乘胜追击</h2><p>我不想就此打住，野心开始膨胀了，<strong>『恰5分』</strong> 是调侃，此时更像是口号。发射机 AM 调制输出接上我焊调试乘法器抽空焊好的小信号放大器，效果非常好！放大了80倍，但我心里清楚，因为没有接负载，最后功率肯定达不到；接收机，混频后中频放大再检波，效果很差，但也算检波出来了，在要求不那么严苛的时候，可以拿到分；发射机接收机级联成功，和仿真保持一致。</p>
-<p>如此算来，我们已经可以拿到 4.5 分，但是我们不想收手，我们继续调放大器，要把功率的 5 分也拿到手。很不幸，我们没有成功，三极管射极电阻过小，导致射极电流过大，二极管被烧坏了，放大器也就怀了，这又是我们唯一的放大器，级联也没办法做了，这下只有 4 分了，后悔，懊恼。</p>
-<p>第二天周一，已经是12月23号了，我都没想到自己会在这上面花上近一周时间。白天上了一天课，晚上我们接着调试了一下，还是那个问题，AM 波后的小信号放大器不好使，级联就不行，功率也没有。赵公子也回来了，我们让他重新焊了一个，失败了，因为我临时对之前测试成功的电路做了修改，为了减小电流避免三极管烧毁的事再发生，但是我没想到这么一改，电流太小，放大倍数达不到要求，而且我应该自己亲手焊的。可以说今天又是一无所获。但我不会就此打住，我不愿放弃。</p>
-<p>周二上午上完微波课，我立马去教化买了元件，再焊一个小信号放大器，再试一次，不到最后，谁也不知道结果，我不想放弃。一番折腾，焊好，测试，成功。</p>
-<p>下午验收前一刻，上周三买的陶瓷滤波器终于从深圳邮到了学校，我赶紧去取回来，接到电路中，完美!<strong>『烂分恰完』</strong>。</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>做完这次课设，心里有太多感慨，很多次我都想放弃了，但是总有一股力量把我拉了回来，这其中有对朋友承诺的坚守也有自己那股不服输的劲，验收成功那一刻我有点想哭，是啊，这整个过程只有我自己这么看重吧，最后还在自我感动，但如果没有这自我感动，我不知道自己能否坚持下来。当然，课设整个过程也暴露了我的一些问题：我需要有更强大的精神力量，激励自己前进，也要学会如何带领团队前进。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>算法的分析方法</title>
     <url>/2020/03/a-way-to-algorithm-analysis/</url>
     <content><![CDATA[<p>也看了几天『算法』了，总是觉得不得要领，在此做一点笔记想必会有所帮助，能够完整地写下来或者清楚地讲述给别人并使之理解才算掌握了知识，这个观点来自费曼，我深以为然。<br><!-- 这里应该添加一个目录 --><br><a id="more"></a></p>
@@ -181,6 +148,39 @@
       <tags>
         <tag>算法</tag>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记录高频硬件课程设计</title>
+    <url>/2019/12/record-of-high-frequency-course-design/</url>
+    <content><![CDATA[<p>本文绝大部分内容是在19年12月29日写的，我记得很清楚，那天是周日上午，我没有为即将到来的通原考试而复习，而是选择去写点东西记录几天前刚刚结束的高频课设，这是一次很难忘的经历，有痛苦也有快乐，有想过放弃但还是坚持了下来，感谢自己和队友们。现在是2020年3月15日，本该在学校度过周日的我，和所有的大学生一样，因为肺炎疫情只能在家里学习，我没什么学习状态，有些无聊，因此整理博客，把这篇去年的记录整理整理，发到GitHubBlog上，留作纪念，发表日期还是使用去年写这篇文章的日子。<br><a id="more"></a></p>
+<h2 id="最终验收"><a href="#最终验收" class="headerlink" title="最终验收"></a>最终验收</h2><p>12月24号，高频硬件课设验收，在队友的强烈要求下，我们选择了一个比较宽松的老师给我们验收，因为我们功率达不到，但还想 <strong>『恰完烂分』</strong>，这能对他的保研有所帮助。最后的结果很好，我们拿到了5分（满分5分），<strong>『烂分恰完』</strong>。</p>
+<div align="center" class="img"><br>    <img src="/assets/img/2019/final.jpg" alt="验收" height="400"><br>    <p align="center" style="color:#999">最终验收时电路连接和波形</p><br></div>
+
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>12月17号周二下午考完『随机过程』，终于有时间休息了，躺了一个小时，吃个饭，室友已经去搞硬件了，虽然已经是晚上9点多了，但我还想去，带上东西，去李老师办公室焊。折腾了两个小时，焊好了一个西勒振荡器，但没有测试工具，只能第二天测试焊接是否正确，测试工具缺乏和焊接出错这两个问题在整个课设过程中一直困扰着我们。</p>
+<div align="center" class="img"><br>    <img src="/assets/img/2019/siler_oscillator.jpg" alt="西勒振荡器" height="400"><br>    <p align="center" style="color:#999">第一天晚上焊好的西勒振荡器</p><br></div>
+
+<h2 id="一起干"><a href="#一起干" class="headerlink" title="一起干"></a>一起干</h2><p>第二天是周三，没有课，我和赵公子决定去实验室接着焊板子，顺便测试下昨晚上焊的振荡器。两个小时后，我们焊好了发射机和接收机的振荡器，经过测试，他的能用，而我的那块振荡器产生了寄生调幅。检查了电路没有任何问题，折腾到下午，最后发现是射极偏置电阻过大导致的，微调射极电阻，即可解决这个问题。</p>
+<p>下午和晚上我们都在实验室呆着，一直做到晚上11点。因为我已经很久没焊接东西，有点手生，他更是没啥经验，我们效率比较低，只焊好了一个乘法电路、一个中频放大器和一个包络检波器。后面测试时发现，我焊接的那个乘法电路不能实现信号相乘。那时我还不知道，接下来3天我都会把时间花在乘法电路上，如果早知道调试它会这么折腾，第一天晚上就应该当机立断重新焊一个的。</p>
+<h2 id="心生退意"><a href="#心生退意" class="headerlink" title="心生退意"></a>心生退意</h2><p>接下来的几天我感到痛苦不堪，我焊接乘法电路始终不好使，不知为什么我就是不愿重新焊一块，执着地想把它修好，但这一切都是徒劳的。看着周围的同学一个个都做出来乘法电路了，我开始怀疑自己：如果做不出来是不是证明我不行，我怎么能不行呢？要不放弃吧，这样就不存在证明了，我告诉自己这些bonus对我来说并不那么重要，我保研与否与这课设5分没什么关系。沃老板执着地说焊板子的烟搞得他很难受，实验室里面人太多了，空气太差，乌烟瘴气，他想回寝室做，这样的参与状态让我心有不快，偏偏他才是一定要拿这 5 分保研的人，为什么我要受这些精神折磨，我当时的确不想再做下去了。</p>
+<p>周六早上，纠结了许久，我去教化补充了些元器件，决定去实验室再焊一个乘法器，还说服沃老板也焊一个接收机的乘法电路。我不知道是什么力量支撑着我继续做下去，这件事对我来说不是那么必要，最诱人的bonus并不是我一定需要的，如果不做课设，我可以去复习通原，我可以享受轻松的一周。事后我仔细想了想，大概是因为我自己的性格决定的，我不是那种遇到问题就放弃的人，借口谁都有一些，但是作为我，一旦开始做了，就要做到最后，没有中途放弃的，之前的软件仿真就是如此，没有理由硬件不坚持下去，到这个时候，其实做这个课设已经变成了和自己较劲了，我不想就这么输了。</p>
+<p>周六下午去做了通信原理实验，晚上终于焊好我的第二块乘法电路，测试再次失败，沃老板也焊好接收机混频电路，经过测试也失败。这时候我心态已经到了最低点了，我真的不想再来了，前面说的那么多不服输如何如何，可是看着别人一个个做好，我的却始终不行，旁边还有人明着嘲讽我，这使我明白『挫败感』是何含义。晚上10点，我和沃老板回寝室了，赵公子在周五下午有事回家了，但他做的已经足够多了。我突然决定不再去了。</p>
+<h2 id="坚持才是胜利"><a href="#坚持才是胜利" class="headerlink" title="坚持才是胜利"></a>坚持才是胜利</h2><p>周日上午我还是去实验室了，我想就是什么都做不出来，也得一直在实验室坐着，我就要和它刚到底。好在一切坚持都没有白费，我的乘法电路测试成功了，事实证明我的电路设计没有问题，焊接的也没有问题，昨晚测试失败只是因为电路连线没有接好，胜利让我欣喜若狂，我真想大声怒吼：我终于完成了。另一边也有好消息传来，沃老板焊的和赵公子焊的乘法电路都是好使的，还有什么比此刻更快乐呢？</p>
+<div align="center"><br>    <img src="/assets/img/2019/amplitude_modulation.jpg" alt="AM调幅" height="400"><br>    <p align="center" style="color:#999">赵公子的乘法器AM波形</p><br>    <img src="/assets/img/2019/mixing.jpg" alt="混频" height="400"><br>    <p align="center" style="color:#999">沃老板的混频器波形</p><br></div>
+
+<p>周日下午发生了一些不愉快的事情，因为下午找不到他人（其实他在午睡），我对沃老板的不满更加强烈了，而那时我已经十分疲惫，愤怒之下，下午3点左右我直接回寝室，拒绝回他消息，然后睡了一觉。期间他来找我，我『哈哈』糊弄过去，不想再干。6点多起来看一眼手机，想了想，还是再去试试，把级联和功率要求做完吧，都已经到这个份上了，干脆就把它做到完。</p>
+<h2 id="乘胜追击"><a href="#乘胜追击" class="headerlink" title="乘胜追击"></a>乘胜追击</h2><p>我不想就此打住，野心开始膨胀了，<strong>『恰5分』</strong> 是调侃，此时更像是口号。发射机 AM 调制输出接上我焊调试乘法器抽空焊好的小信号放大器，效果非常好！放大了80倍，但我心里清楚，因为没有接负载，最后功率肯定达不到；接收机，混频后中频放大再检波，效果很差，但也算检波出来了，在要求不那么严苛的时候，可以拿到分；发射机接收机级联成功，和仿真保持一致。</p>
+<p>如此算来，我们已经可以拿到 4.5 分，但是我们不想收手，我们继续调放大器，要把功率的 5 分也拿到手。很不幸，我们没有成功，三极管射极电阻过小，导致射极电流过大，二极管被烧坏了，放大器也就怀了，这又是我们唯一的放大器，级联也没办法做了，这下只有 4 分了，后悔，懊恼。</p>
+<p>第二天周一，已经是12月23号了，我都没想到自己会在这上面花上近一周时间。白天上了一天课，晚上我们接着调试了一下，还是那个问题，AM 波后的小信号放大器不好使，级联就不行，功率也没有。赵公子也回来了，我们让他重新焊了一个，失败了，因为我临时对之前测试成功的电路做了修改，为了减小电流避免三极管烧毁的事再发生，但是我没想到这么一改，电流太小，放大倍数达不到要求，而且我应该自己亲手焊的。可以说今天又是一无所获。但我不会就此打住，我不愿放弃。</p>
+<p>周二上午上完微波课，我立马去教化买了元件，再焊一个小信号放大器，再试一次，不到最后，谁也不知道结果，我不想放弃。一番折腾，焊好，测试，成功。</p>
+<p>下午验收前一刻，上周三买的陶瓷滤波器终于从深圳邮到了学校，我赶紧去取回来，接到电路中，完美!<strong>『烂分恰完』</strong>。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>做完这次课设，心里有太多感慨，很多次我都想放弃了，但是总有一股力量把我拉了回来，这其中有对朋友承诺的坚守也有自己那股不服输的劲，验收成功那一刻我有点想哭，是啊，这整个过程只有我自己这么看重吧，最后还在自我感动，但如果没有这自我感动，我不知道自己能否坚持下来。当然，课设整个过程也暴露了我的一些问题：我需要有更强大的精神力量，激励自己前进，也要学会如何带领团队前进。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -285,6 +285,23 @@
       </tags>
   </entry>
   <entry>
+    <title>胡言乱语</title>
+    <url>/2020/03/second-week/</url>
+    <content><![CDATA[<p>没想到有和上周一样，在周一写下上周的日常。不过这次我有话说，不是因为贪玩游戏，实在是因为周六晚上的突发事件打乱了周日的计划，不得已在半夜在农村道路上走上7里路，第二天已经没有精力去写这玩意儿了。翻看上周每天写下的只言片语，我发现若是只给我自己看，那还是有点东西可写的。<br><a id="more"></a></p>
+<h2 id="无法抵挡的快乐"><a href="#无法抵挡的快乐" class="headerlink" title="无法抵挡的快乐"></a>无法抵挡的快乐</h2><p>放纵在放纵当时带来的快乐无与伦比，让我无法阻挡，虽然我已经很少体验到放纵的快乐，但我深知它的吸引力是多么强大。放纵对我而言是个什么样的标准呢？一天打上三把游戏已经是放纵了，大概就是这样，那么我可以说周四我放纵了一次。我处于一种完全沉浸式投入的状态，不在乎自己眼睛的疲劳，全心投入，决心赢下当前的比赛，但我还想赢得更多，于是不断地玩下去。最终局数来到了4，花去了2h<br>，我停了下来，没有继续玩下去。因为心心念念着学习知识，我停了下来，放弃了快乐。但是我知道，下一次我还是会沉浸其中，因为它能让我短暂地逃离现实，这是无法抵挡的快乐。</p>
+<h2 id="一个平庸的人"><a href="#一个平庸的人" class="headerlink" title="一个平庸的人"></a>一个平庸的人</h2><p>几乎每天都要上课，老师讲得那些我从来没有听过的知识，但没有多大程度引起我的兴趣，对我而言学习它只是身为学生的一种职责。我被动地接受他们传递过来的东西，OSI参考模型、TCP/IP参考模型、ALOHA随机接入协议还有光纤的若干性质，我几乎没有记下什么东西，但是我尝试去发现其中的规则，那是一种很美的东西，我尝试像一个『一无所知』的人，面对这些问题我能给出什么样的解决方案，大部分时候我什么也发现不了，对于这些问题我也一筹莫展，更别提解决方案，我不过是个平庸的人。</p>
+<h2 id="教育使我成为什么样的人？"><a href="#教育使我成为什么样的人？" class="headerlink" title="教育使我成为什么样的人？"></a>教育使我成为什么样的人？</h2><p>通常我不会想这样的问题，因为只不过是活着而以，不需要赋予人生意义，成为一个什么样的人也许真的无关紧要。周六看了郑强教授的一个视频，让我想考虑下这个问题，但我知道我想不明白的，我只能回顾自己的人生，并尝试从一些事件归纳出自己被教育成一个什么样的人，具体内容慢慢写吧。</p>
+<h2 id="我是随机漫步的傻瓜"><a href="#我是随机漫步的傻瓜" class="headerlink" title="我是随机漫步的傻瓜"></a>我是随机漫步的傻瓜</h2><p>我是个随机漫步的的傻瓜，但是我并没有受到眷顾，所以我还是个彻底的傻瓜。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>weekly</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LaTex笔记（一）——基本概念</title>
     <url>/2020/03/latex-notes-1-basic-concepts/</url>
     <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Tex是高德纳开发的排版文字和数学公式软件。TeX稳定，跨平台，支持多语言排版，其版本号非常有意思，无限趋近于pi，3.1415926…读作Tech，泰赫。</p>
@@ -350,40 +367,6 @@
       </tags>
   </entry>
   <entry>
-    <title>胡言乱语</title>
-    <url>/2020/03/second-week/</url>
-    <content><![CDATA[<p>没想到有和上周一样，在周一写下上周的日常。不过这次我有话说，不是因为贪玩游戏，实在是因为周六晚上的突发事件打乱了周日的计划，不得已在半夜在农村道路上走上7里路，第二天已经没有精力去写这玩意儿了。翻看上周每天写下的只言片语，我发现若是只给我自己看，那还是有点东西可写的。<br><a id="more"></a></p>
-<h2 id="无法抵挡的快乐"><a href="#无法抵挡的快乐" class="headerlink" title="无法抵挡的快乐"></a>无法抵挡的快乐</h2><p>放纵在放纵当时带来的快乐无与伦比，让我无法阻挡，虽然我已经很少体验到放纵的快乐，但我深知它的吸引力是多么强大。放纵对我而言是个什么样的标准呢？一天打上三把游戏已经是放纵了，大概就是这样，那么我可以说周四我放纵了一次。我处于一种完全沉浸式投入的状态，不在乎自己眼睛的疲劳，全心投入，决心赢下当前的比赛，但我还想赢得更多，于是不断地玩下去。最终局数来到了4，花去了2h<br>，我停了下来，没有继续玩下去。因为心心念念着学习知识，我停了下来，放弃了快乐。但是我知道，下一次我还是会沉浸其中，因为它能让我短暂地逃离现实，这是无法抵挡的快乐。</p>
-<h2 id="一个平庸的人"><a href="#一个平庸的人" class="headerlink" title="一个平庸的人"></a>一个平庸的人</h2><p>几乎每天都要上课，老师讲得那些我从来没有听过的知识，但没有多大程度引起我的兴趣，对我而言学习它只是身为学生的一种职责。我被动地接受他们传递过来的东西，OSI参考模型、TCP/IP参考模型、ALOHA随机接入协议还有光纤的若干性质，我几乎没有记下什么东西，但是我尝试去发现其中的规则，那是一种很美的东西，我尝试像一个『一无所知』的人，面对这些问题我能给出什么样的解决方案，大部分时候我什么也发现不了，对于这些问题我也一筹莫展，更别提解决方案，我不过是个平庸的人。</p>
-<h2 id="教育使我成为什么样的人？"><a href="#教育使我成为什么样的人？" class="headerlink" title="教育使我成为什么样的人？"></a>教育使我成为什么样的人？</h2><p>通常我不会想这样的问题，因为只不过是活着而以，不需要赋予人生意义，成为一个什么样的人也许真的无关紧要。周六看了郑强教授的一个视频，让我想考虑下这个问题，但我知道我想不明白的，我只能回顾自己的人生，并尝试从一些事件归纳出自己被教育成一个什么样的人，具体内容慢慢写吧。</p>
-<h2 id="我是随机漫步的傻瓜"><a href="#我是随机漫步的傻瓜" class="headerlink" title="我是随机漫步的傻瓜"></a>我是随机漫步的傻瓜</h2><p>我是个随机漫步的的傻瓜，但是我并没有受到眷顾，所以我还是个彻底的傻瓜。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>weekly</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在疫情中度过三月</title>
-    <url>/2020/03/the-third-month/</url>
-    <content><![CDATA[<p>惊觉已经是三月的最后一天，在这过去的一个月里，如果说有什么一定一提的，那一定是已经持续了快三个月的的新冠肺炎疫情，国内的疫情逐渐被控制住了，国外却又爆发了更大规模的，看起来返校遥遥无期。一月份的时候我肯定无法想象3月31日自己还在家，突发的疫情打乱我原有的计划，我本该在学校的教室里坐着的，现在却在家，本以为会非常非常想回学校，现在倒也还好，我只是怀念学校的WiFi罢了。<br><a id="more"></a><br>疫情蔓延全球，经济衰退，股价暴跌，美股数次熔断，不可否认这是一个动荡的三月。所谓『祸兮福之所倚』，被困在山村中的我却得以享受宁静，可以专心做自己想做的事，我重新开始捡起以前学了一点就知难而退的东西，比如 C++，Java，Linux 还有算法，除此之外，我还开始坚持看书、记单词和记录生活，为了督促自己，我还使用 atimelogger 记录自己每一分钟的花销。如果不是因为疫情，我也不会如此百无聊赖，也就不会开始做这些事情，从这个角度而言，对我而言这还是福。</p>
-<p>整个三月份，我看完了『乌合之众』、『金字塔原理』、『随机漫步的傻瓜』、『你的第一本哲学书』和『简单逻辑学』，平均一周看了一本多一点的书，还算可以，但是没有对其中任何一本书作一些读后感之类的笔记，算是一个不完整，希望在后面的阅读补上。这一个月也是折腾不断，看了算法看Linux，中间还去折腾下NS2——一坨年久失修的 shit。现在总结一下，算法是没看多少的，刚开始找了不知到哪儿来的一本 Java 算法书，看了一周几乎看完了，然而脑子中似乎什么都没剩下，于是我又照着『算法4』看，这次看得比较慢，加上中途新学期开学了，有很多课要上，到现在也才前两章，综合起来，我现在对排序算法比较清楚了，选择插入希尔归并快排都算了解得清楚了，现在还在继续看下去，第三章是『查找』，会讲到BST等新的数据结构。至于 Linux，照着鸟哥的书慢慢看，有时间就看一章，不求全部记住，只是有个大概概念就行了，现在也看到了 Shell 部分，坚持看下去吧。<br>学这些东西，并不是出于需要，我只是凭借着一时冲动开始看，什么时候我都热情消退了，我也就放弃了，转而投向新的东西。这说是我很长时间来的一种学习态度吧，对于学校规定的课程内容我总感觉不是很有意思，讲授的东西太过陈旧，我会凭借着冲动去随便投入到一些东西中去，既是对自己冲动的满足也是对那些陈旧无聊的知识的逃避。</p>
-<p>这个三月我也不是一切顺利，有两次突然陷入了一种极度的焦虑之中，在那种状态下，我什么都不想做，不愿意去做我应该做的事情，只想一直盯着手机看，好在持续一两天之后这种感觉就会很快消失，一切重归正常，但我知道几周后这种感觉又会到来。暂时还没有什么好办法应对这种情况，我只能选择接受它，并在它到来时暂时放下手头的工作，就当是一时的放松，但我坚信会找到办法的。</p>
-<hr>
-<p>身处动荡之中，怀抱希望，希望一切都好起来。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>monthly</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>NS2 的介绍（一）—— 概述</title>
     <url>/2020/04/ns2-simulation-overview/</url>
     <content><![CDATA[<p>最近在上一门叫『无线自组织网络与应用』的课程，介绍了很多以前没有接触过的概念，包括了一个叫 NS2 的仿真工具，在前面<a href="/2020/03/latex-notes-1-basic-concepts/">一篇文章</a>中介绍的 AHOHA 协议也是在这门课程中有被详细讲述的。这篇文章基本上是<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">这篇文章</a>的翻译，介绍 NS2 这个仿真工具，给出这个它的概述。<br><a id="more"></a></p>
@@ -408,6 +391,90 @@
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文简单分析了 NS2 的大体结构和体系结构。现在来考虑下如何获得 NS2 的仿真结果，如第一张图所示，，当仿真结束时，NS2 按照输入的 Tcl（或 OTcl）脚本中的说明产生一个或者多个文本输出文件，其中包含了详细的仿真数据。这些数据可用于后续的仿真分析中，或者作为图形化仿真展示工具 NAM 的输入。</p>
 <hr>
 <p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI 大学的资源</a></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+        <tag>NS2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在疫情中度过三月</title>
+    <url>/2020/03/the-third-month/</url>
+    <content><![CDATA[<p>惊觉已经是三月的最后一天，在这过去的一个月里，如果说有什么一定一提的，那一定是已经持续了快三个月的的新冠肺炎疫情，国内的疫情逐渐被控制住了，国外却又爆发了更大规模的，看起来返校遥遥无期。一月份的时候我肯定无法想象3月31日自己还在家，突发的疫情打乱我原有的计划，我本该在学校的教室里坐着的，现在却在家，本以为会非常非常想回学校，现在倒也还好，我只是怀念学校的WiFi罢了。<br><a id="more"></a><br>疫情蔓延全球，经济衰退，股价暴跌，美股数次熔断，不可否认这是一个动荡的三月。所谓『祸兮福之所倚』，被困在山村中的我却得以享受宁静，可以专心做自己想做的事，我重新开始捡起以前学了一点就知难而退的东西，比如 C++，Java，Linux 还有算法，除此之外，我还开始坚持看书、记单词和记录生活，为了督促自己，我还使用 atimelogger 记录自己每一分钟的花销。如果不是因为疫情，我也不会如此百无聊赖，也就不会开始做这些事情，从这个角度而言，对我而言这还是福。</p>
+<p>整个三月份，我看完了『乌合之众』、『金字塔原理』、『随机漫步的傻瓜』、『你的第一本哲学书』和『简单逻辑学』，平均一周看了一本多一点的书，还算可以，但是没有对其中任何一本书作一些读后感之类的笔记，算是一个不完整，希望在后面的阅读补上。这一个月也是折腾不断，看了算法看Linux，中间还去折腾下NS2——一坨年久失修的 shit。现在总结一下，算法是没看多少的，刚开始找了不知到哪儿来的一本 Java 算法书，看了一周几乎看完了，然而脑子中似乎什么都没剩下，于是我又照着『算法4』看，这次看得比较慢，加上中途新学期开学了，有很多课要上，到现在也才前两章，综合起来，我现在对排序算法比较清楚了，选择插入希尔归并快排都算了解得清楚了，现在还在继续看下去，第三章是『查找』，会讲到BST等新的数据结构。至于 Linux，照着鸟哥的书慢慢看，有时间就看一章，不求全部记住，只是有个大概概念就行了，现在也看到了 Shell 部分，坚持看下去吧。<br>学这些东西，并不是出于需要，我只是凭借着一时冲动开始看，什么时候我都热情消退了，我也就放弃了，转而投向新的东西。这说是我很长时间来的一种学习态度吧，对于学校规定的课程内容我总感觉不是很有意思，讲授的东西太过陈旧，我会凭借着冲动去随便投入到一些东西中去，既是对自己冲动的满足也是对那些陈旧无聊的知识的逃避。</p>
+<p>这个三月我也不是一切顺利，有两次突然陷入了一种极度的焦虑之中，在那种状态下，我什么都不想做，不愿意去做我应该做的事情，只想一直盯着手机看，好在持续一两天之后这种感觉就会很快消失，一切重归正常，但我知道几周后这种感觉又会到来。暂时还没有什么好办法应对这种情况，我只能选择接受它，并在它到来时暂时放下手头的工作，就当是一时的放松，但我坚信会找到办法的。</p>
+<hr>
+<p>身处动荡之中，怀抱希望，希望一切都好起来。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>monthly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NS2 的介绍（三）—— 事件调度器</title>
+    <url>/2020/04/ns2-event-scheduler/</url>
+    <content><![CDATA[<p>在<a href="/2020/04/ns2-simple-simulation-example">上一篇文章</a>中，我们从一个简单的例子出发，从零开始编写了一个 NS2 模拟用的 OTcl 脚本，我们需要在脚本中完成以下任务：</p>
+<ol>
+<li>创建 Simulator 对象；</li>
+<li>创建 node 对象并构建 node 间的连接 link；</li>
+<li>创建代理对象和 traffic 源对象，连接 node 和代理，连接代理和 traffic 源；</li>
+<li>创建模拟场景 scenario，即定义调度任务；</li>
+<li>开始模拟。</li>
+</ol>
+<p>按照以上这些步骤编写就可完成模拟脚本编写。这篇文章中要介绍的是第 4 个步骤创建模拟场景的详细信息，我们将讨论 NS2 中的离散事件调度器。<br><a id="more"></a><br>如<a href="/2020/04/02/ns2-simulation-overview">第一篇文章</a>中谈到的，在 NS2 中，事件调度器主要是由一些网络组件来使用，组件们模拟 packet 的处理时需要调度程序作为延时器或计时器。如下图展示，每一个网络对象使用一个时间调度器，图中需要注意：<br>（1）网络对象发出一个事件那么它就要在预定的时间点上处理这个事件；<br>（2）网络对象间的数据路径和事件路径不相同；<br>若深入到代码层面，包在网络对象中传递时，发送方使用 <code>send(Packet* p){target_-&gt;recv(p);</code> 语句发送，接收方使用 <code>recv(Packet*, Handler* h = 0)</code> 方法接收。</p>
+<p><div align="center" class="img"><br>    <img src="/assets/img/2020/discrete_event_scheduler.png" alt="discrete_event_scheduler" width="750"><br>    <span align="center" style="color:#999">离散事件调度器</span><br></div><br>NS2 实现了两种事件调度器，实时调度器和非实时调度器。非实时调度器有三种实现，分别为 List、Heap 和 Calendar，它们逻辑上是一样的，之所以有这么多实现，是由于向下兼容的原因。默认的非实时调度器是 Calender 方式实现的。实时调度器是为仿真 emulation 使用的，允许仿真器 simulator 和真实的网络交互。下面这个就是一个指定事件调度器的例子。</p>
+<pre><code>set ns [new Simulator]
+$ns use-scheduler Heap
+</code></pre><p>事件调度器还可以调度模拟事件，比如启动一个 FTP 应用或者结束模拟。事件调度器对象本身有一些模拟调度成员函数，比如 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code>，它就可以在发起一个在特定的模拟时间 &lt;time> 发生的叫做 <code>AtEvent</code> 的事件。<code>AtEvent</code> 其实是 <code>Event</code> 类的子类，它扩展了额外的变量保存 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 中的 <code>string</code>，尽管有扩展，它在事件调度器中和一般的事件还是被相同对待的。模拟开始后，当模拟时间到达事件队列中的 AtEvent 应该被调度的时间时，该 <code>AtEvent</code> 就会被传递给一个 <code>AtEvent Handler</code>，<code>AtEvent Handler</code> 只被创建一次并处理所有的的 <code>AtEvent</code>，<code>AtEvent</code> 的 &lt;string> 确定的 OTcl 命令也会被执行。下面是一个模拟事件调度示例：</p>
+<pre><code>set ns [new Simulator]
+$ns use-scheduler Heap
+$ns at 300.5 &quot;complete_sim&quot;
+
+proc complete_sim {} {...}
+</code></pre><p>注意到在上面的例子中，<code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 是 Simulator 对象 ns 的成员函数，但是我们要记住，Simulator 对象仅仅只是起到一个用户接口的作用，事实上它会去调用网络对象或者调度器对象的成员函数，由它们真正地完成工作。下面是一个函数列表和简单说明，这些函数就是 Simulator 对象用来接口调度器成员函数的成员函数。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">成员函数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Simulator instproc now</td>
+<td style="text-align:left">返回调度器对现在时间的 notion</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator isntproc at args</td>
+<td style="text-align:left">在特定的时间调度执行代码</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator instproc at-now args</td>
+<td style="text-align:left">立即调度执行代码</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator instproc after n args</td>
+<td style="text-align:left">n 秒后调度执行代码</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator instproc run args</td>
+<td style="text-align:left">启动调度器</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator instproc halt</td>
+<td style="text-align:left">停止或赞同调度器</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -544,73 +611,6 @@
       </tags>
   </entry>
   <entry>
-    <title>NS2 的介绍（三）—— 事件调度器</title>
-    <url>/2020/04/ns2-event-scheduler/</url>
-    <content><![CDATA[<p>在<a href="/2020/04/ns2-simple-simulation-example">上一篇文章</a>中，我们从一个简单的例子出发，从零开始编写了一个 NS2 模拟用的 OTcl 脚本，我们需要在脚本中完成以下任务：</p>
-<ol>
-<li>创建 Simulator 对象；</li>
-<li>创建 node 对象并构建 node 间的连接 link；</li>
-<li>创建代理对象和 traffic 源对象，连接 node 和代理，连接代理和 traffic 源；</li>
-<li>创建模拟场景 scenario，即定义调度任务；</li>
-<li>开始模拟。</li>
-</ol>
-<p>按照以上这些步骤编写就可完成模拟脚本编写。这篇文章中要介绍的是第 4 个步骤创建模拟场景的详细信息，我们将讨论 NS2 中的离散事件调度器。<br><a id="more"></a><br>如<a href="/2020/04/02/ns2-simulation-overview">第一篇文章</a>中谈到的，在 NS2 中，事件调度器主要是由一些网络组件来使用，组件们模拟 packet 的处理时需要调度程序作为延时器或计时器。如下图展示，每一个网络对象使用一个时间调度器，图中需要注意：<br>（1）网络对象发出一个事件那么它就要在预定的时间点上处理这个事件；<br>（2）网络对象间的数据路径和事件路径不相同；<br>若深入到代码层面，包在网络对象中传递时，发送方使用 <code>send(Packet* p){target_-&gt;recv(p);</code> 语句发送，接收方使用 <code>recv(Packet*, Handler* h = 0)</code> 方法接收。</p>
-<p><div align="center" class="img"><br>    <img src="/assets/img/2020/discrete_event_scheduler.png" alt="discrete_event_scheduler" width="750"><br>    <span align="center" style="color:#999">离散事件调度器</span><br></div><br>NS2 实现了两种事件调度器，实时调度器和非实时调度器。非实时调度器有三种实现，分别为 List、Heap 和 Calendar，它们逻辑上是一样的，之所以有这么多实现，是由于向下兼容的原因。默认的非实时调度器是 Calender 方式实现的。实时调度器是为仿真 emulation 使用的，允许仿真器 simulator 和真实的网络交互。下面这个就是一个指定事件调度器的例子。</p>
-<pre><code>set ns [new Simulator]
-$ns use-scheduler Heap
-</code></pre><p>事件调度器还可以调度模拟事件，比如启动一个 FTP 应用或者结束模拟。事件调度器对象本身有一些模拟调度成员函数，比如 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code>，它就可以在发起一个在特定的模拟时间 &lt;time> 发生的叫做 <code>AtEvent</code> 的事件。<code>AtEvent</code> 其实是 <code>Event</code> 类的子类，它扩展了额外的变量保存 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 中的 <code>string</code>，尽管有扩展，它在事件调度器中和一般的事件还是被相同对待的。模拟开始后，当模拟时间到达事件队列中的 AtEvent 应该被调度的时间时，该 <code>AtEvent</code> 就会被传递给一个 <code>AtEvent Handler</code>，<code>AtEvent Handler</code> 只被创建一次并处理所有的的 <code>AtEvent</code>，<code>AtEvent</code> 的 &lt;string> 确定的 OTcl 命令也会被执行。下面是一个模拟事件调度示例：</p>
-<pre><code>set ns [new Simulator]
-$ns use-scheduler Heap
-$ns at 300.5 &quot;complete_sim&quot;
-
-proc complete_sim {} {...}
-</code></pre><p>注意到在上面的例子中，<code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 是 Simulator 对象 ns 的成员函数，但是我们要记住，Simulator 对象仅仅只是起到一个用户接口的作用，事实上它会去调用网络对象或者调度器对象的成员函数，由它们真正地完成工作。下面是一个函数列表和简单说明，这些函数就是 Simulator 对象用来接口调度器成员函数的成员函数。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">成员函数</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Simulator instproc now</td>
-<td style="text-align:left">返回调度器对现在时间的 notion</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator isntproc at args</td>
-<td style="text-align:left">在特定的时间调度执行代码</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc at-now args</td>
-<td style="text-align:left">立即调度执行代码</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc after n args</td>
-<td style="text-align:left">n 秒后调度执行代码</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc run args</td>
-<td style="text-align:left">启动调度器</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc halt</td>
-<td style="text-align:left">停止或赞同调度器</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>网络</tag>
-        <tag>NS2</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>NS2 的介绍（四）—— 网络组件</title>
     <url>/2020/04/ns2-network-components/</url>
     <content><![CDATA[<p>我们在<a href="/2020/04/ns2-event-scheduler">前文</a>讨论 NS2 中一个非常重要的组成——事件调度器，这篇文章将讨论 NS2 另一个关键的组成——网络组件，主要是复合网络组件。<br><a id="more"></a><br>下图展示了 NS2 中部分 OTcl 类的部分体系结构，有助于我们理解基本的网络组件（network component），在<a href="http://www.sop.inria.fr/rodeo/personnel/Antonie.Clerget/ns" target="_blank" rel="noopener">这个链接</a>中可以找到 NS2 类的完整的体系结构。</p>
@@ -645,6 +645,9 @@ proc complete_sim {} {...}
 
 <h2 id="一个-packet-流动的例子"><a href="#一个-packet-流动的例子" class="headerlink" title="一个 packet 流动的例子"></a>一个 packet 流动的例子</h2><p>到现在为止，我们分析了两个最重要的网络组件——节点和连接。下图展示了一个模拟网络建立和 packet 流动的内部情况。<br>网络由两个节点 n0 和 n1 组成，网络地址分别 0 和 1。绑定在 n0 上的一个 TCP 代理使用端口 0 与 绑定在 n1 上的使用端口 0 的 TCP sink 对象通信。最后，一个 FTP 应用绑定到 TCP 代理上，请求发送一些数据。<br>注意，下图没有显示出 FTP 在 TCP 上的具体行为，仅仅展示仿真网络和 packet 流动的详细内部情况。</p>
 <div align="center" class="img"><br>    <img src="/assets/img/2020/packet_flow.png" alt="packet_flow" width="750"><br>    <span align="center" style="color:#999">插入了 trace 对象的连接</span><br></div>
+
+<hr>
+<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -658,6 +661,41 @@ proc complete_sim {} {...}
     <title>NS2 的介绍（五）—— 数据分组</title>
     <url>/2020/04/ns2-packet/</url>
     <content><![CDATA[<p>在前面两篇文章中我们分别介绍了 NS2 中非常重要的两个组成——<a href="../ns2-event-scheduler">事件调度器</a>和<a href="../ns2-network-components">网络组件</a>，我们知道了 packet（数据分组）是如何在节点之间传递的，现在让我们来看看数据分组在 NS2 中是如何表示的。<br><a id="more"></a><br>一个 NS2 数据分组由一个<strong>头部信息的栈</strong>和<strong>可选的数据空间</strong>组成，如下图所示。在<a href="../ns2-simple-simulation-example">简单仿真示例</a>提到过，数据分组头格式在创建 Simulator 对象时被初始化，在 Simulator 对象中，一系列栈排列注册了的 header 头（有可能不可见）被定义，如 common 头（它通常被任何需要的对象使用）、IP 头、TCP 头、RTP 头（UDP 使用 RTP 头）和 trace 头，且每个 header 在栈中的偏移都会被记录下来。这意味着不管一个头有没有被使用，当一个 packet（数据分组）被代理分配时创建的栈中都会含有它，并且网络对象使用相应的 offset（偏移值）就可以获得数据分组的栈中的任意头。<br><img src="/assets/img/2020/ns_packet_format.png" alt="img"><br>通常，一个 packet（数据分组）只有一个特定的 head（头部）栈，尽管通过分配数据空间，packet（数据分组）可以携带实际的（来自 application）信息，很少有 application（应用）和 agent（代理）的实现会支持这种做法，这是因为<strong>在非实时的模拟中传递真实数据是没有意义的</strong>。但是如果你想实现一个可以跨过网络去和另一个 application 通信的 application 的话，你也许可以使用这个特性，不过需要在下层的代理实现中做一点改动，还可以为 application 创建一个新的 header，然后修改下层的代理向这个新建的 header 写入受到的数据。后面这种方法会在后面的一篇文章中讲到。</p>
+<hr>
+<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+        <tag>NS2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NS2 的介绍（六）—— trace 分析示例</title>
+    <url>/2020/04/ns2-trace-analysis-example/</url>
+    <content><![CDATA[<p>本文将展示一个 trace 分析示例，从中可以知道如何从 NS2 中生成 trace，如何解释 trace，如何从 trace 中得到有用的信息。在 <a href="/2020/04/ns2-simple-simulation-example/" title="模拟示例">模拟示例</a> 给出的代码 <a href="/2020/04/ns2-trace-analysis-example/ns-simple.tcl" title="ns-simple.tcl">ns-simple.tcl</a> 中的第 15、16 行，我们打开了一个 trace 文件，在 finish 步骤中，我们向 trace 文件中写入了 trace 信息。<a id="more"></a></p>
+<figure class="highlight tcl"><table><tr><td class="code"><pre><span class="line"><span class="comment">#...</span></span><br><span class="line"><span class="comment">#open trace file</span></span><br><span class="line"><span class="keyword">set</span> f [<span class="keyword">open</span> out.tr w]</span><br><span class="line">$ns <span class="keyword">trace</span>-all $f</span><br><span class="line">#...</span><br></pre></td></tr></table></figure>
+<p>执行代码<a href="/2020/04/ns2-trace-analysis-example/ns-simple.tcl" title="ns-simple.tcl">ns-simple.tcl</a>会生成一个 NAM trace 文件，该文件作为 NAM 的输入，同时还会生成一个名为 out.tr 的文件，该文件用于我们的模拟分析。下图展示了 trace 的格式和来自 out.tr 的 trace 数据示例。<br><br>每一个 trace 行依次为以下部分：</p>
+<ul>
+<li>事件描述符：+，-，d，r</li>
+<li>事件发生的模拟时间，单位：秒</li>
+<li>发起事件的节点</li>
+<li>接受的节点</li>
+<li>packet 类型</li>
+<li>packet 大小，单位 Byte</li>
+<li>分隔符：——</li>
+<li>flow id：使用者在 OTcl 脚本中定义的 flow id。在模拟中用不到，可用于后续分析</li>
+<li>源地址</li>
+<li>目的地址</li>
+<li>网络层协议下 packet 序列编号：UDP 协议不需要使用编号但也会携带，便于分析；每一个 packet 编号唯一</li>
+</ul>
+<p>拿到模拟数据后，我们要做的就是筛选出需要的信息，并把它们转换成更容易理解的形式然后分析。下面是一简单的数据转换示例，对上面得到的 out.tr 文件，在终端中执行 <code>cat out.tr | grep &quot; 2 3 cbr &quot; | grep ^r | awk &#39;BEGIN {oldtime=0;oldpacket=0;} {dif=$12-oldpacket;if(dif==0) dif=1; if(dif&gt;0) {printf(&quot;%d\t%f\n&quot;,$12,($2-oldtime)/dif); oldtime=$2;oldpacket=$12}}&#39; &gt; jitter.txt</code>，即可在目录下得到一个输出文件 jitter.txt。该命令从 trace 中提取节点 3 从 2 中接收 packet 的事件，并计算接收当前 packet 距离接收上一个 packet 的 packet 时延（接收时间差/packetID差）。使用 gnuplot 可以画出如下图像，X 轴为 packet 序列号，Y 轴为模拟时间（单位：秒）。</p>
+<p>更多对 trace 的分析用法，参考 。</p>
+<p>这个例子中，仿真后的分析在 shell 终端中进行，但是这些处理也可以在输入的 OTcl 脚本中进行，我们将在下一节讨论。</p>
+<hr>
+<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
 ]]></content>
       <categories>
         <category>学习</category>

@@ -95,7 +95,7 @@
 <meta property="og:description" content="在前面两篇文章中我们分别介绍了 NS2 中非常重要的两个组成——事件调度器和网络组件，我们知道了 packet（数据分组）是如何在节点之间传递的，现在让我们来看看数据分组在 NS2 中是如何表示的。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/ns_packet_format.png">
-<meta property="og:updated_time" content="2020-04-07T09:36:03.863Z">
+<meta property="og:updated_time" content="2020-04-08T09:03:50.170Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NS2 的介绍（五）—— 数据分组">
 <meta name="twitter:description" content="在前面两篇文章中我们分别介绍了 NS2 中非常重要的两个组成——事件调度器和网络组件，我们知道了 packet（数据分组）是如何在节点之间传递的，现在让我们来看看数据分组在 NS2 中是如何表示的。">
@@ -364,12 +364,34 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-04-07T17:36:03+08:00">
-                2020-04-07
+              <time title="更新于" itemprop="dateModified" datetime="2020-04-08T17:03:50+08:00">
+                2020-04-08
               </time>
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -381,7 +403,7 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="page-pv"><i class="fa fa-eye"></i>
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -397,7 +419,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  481
+                  484
                 </span>
               
 
@@ -435,6 +457,8 @@
 
       
         <p>在前面两篇文章中我们分别介绍了 NS2 中非常重要的两个组成——<a href="../ns2-event-scheduler">事件调度器</a>和<a href="../ns2-network-components">网络组件</a>，我们知道了 packet（数据分组）是如何在节点之间传递的，现在让我们来看看数据分组在 NS2 中是如何表示的。<br><a id="more"></a><br>一个 NS2 数据分组由一个<strong>头部信息的栈</strong>和<strong>可选的数据空间</strong>组成，如下图所示。在<a href="../ns2-simple-simulation-example">简单仿真示例</a>提到过，数据分组头格式在创建 Simulator 对象时被初始化，在 Simulator 对象中，一系列栈排列注册了的 header 头（有可能不可见）被定义，如 common 头（它通常被任何需要的对象使用）、IP 头、TCP 头、RTP 头（UDP 使用 RTP 头）和 trace 头，且每个 header 在栈中的偏移都会被记录下来。这意味着不管一个头有没有被使用，当一个 packet（数据分组）被代理分配时创建的栈中都会含有它，并且网络对象使用相应的 offset（偏移值）就可以获得数据分组的栈中的任意头。<br><img src="/assets/img/2020/ns_packet_format.png" alt="img"><br>通常，一个 packet（数据分组）只有一个特定的 head（头部）栈，尽管通过分配数据空间，packet（数据分组）可以携带实际的（来自 application）信息，很少有 application（应用）和 agent（代理）的实现会支持这种做法，这是因为<strong>在非实时的模拟中传递真实数据是没有意义的</strong>。但是如果你想实现一个可以跨过网络去和另一个 application 通信的 application 的话，你也许可以使用这个特性，不过需要在下层的代理实现中做一点改动，还可以为 application 创建一个新的 header，然后修改下层的代理向这个新建的 header 写入受到的数据。后面这种方法会在后面的一篇文章中讲到。</p>
+<hr>
+<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
 
       
     </div>
@@ -494,6 +518,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/ns2-trace-analysis-example/" rel="prev" title="NS2 的介绍（六）—— trace 分析示例">
+                NS2 的介绍（六）—— trace 分析示例 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -565,7 +593,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -661,7 +689,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">21.6k</span>
+    <span title="Site words total count">22.2k</span>
   
 </div>
 
@@ -713,6 +741,12 @@
 
     
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 
   </div>
@@ -1172,6 +1206,31 @@
   
 
   
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
   
 
   

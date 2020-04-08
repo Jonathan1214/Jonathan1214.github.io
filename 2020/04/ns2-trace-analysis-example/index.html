@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="思考," />
+  <meta name="keywords" content="网络,NS2," />
 
 
 
@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。">
-<meta name="keywords" content="思考">
+<meta name="description" content="本文将展示一个 trace 分析示例，从中可以知道如何从 NS2 中生成 trace，如何解释 trace，如何从 trace 中得到有用的信息。在 模拟示例 给出的代码 ns-simple.tcl 中的第 15、16 行，我们打开了一个 trace 文件，在 finish 步骤中，我们向 trace 文件中写入了 trace 信息。">
+<meta name="keywords" content="网络,NS2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一点思考">
-<meta property="og:url" content="https://jonathan1214.github.io/2018/04/A_little_thinking/index.html">
+<meta property="og:title" content="NS2 的介绍（六）—— trace 分析示例">
+<meta property="og:url" content="https://jonathan1214.github.io/2020/04/ns2-trace-analysis-example/index.html">
 <meta property="og:site_name" content="dsfds&#39; blog">
-<meta property="og:description" content="时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。">
+<meta property="og:description" content="本文将展示一个 trace 分析示例，从中可以知道如何从 NS2 中生成 trace，如何解释 trace，如何从 trace 中得到有用的信息。在 模拟示例 给出的代码 ns-simple.tcl 中的第 15、16 行，我们打开了一个 trace 文件，在 finish 步骤中，我们向 trace 文件中写入了 trace 信息。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-07T09:38:17.246Z">
+<meta property="og:updated_time" content="2020-04-08T10:05:39.299Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一点思考">
-<meta name="twitter:description" content="时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。">
+<meta name="twitter:title" content="NS2 的介绍（六）—— trace 分析示例">
+<meta name="twitter:description" content="本文将展示一个 trace 分析示例，从中可以知道如何从 NS2 中生成 trace，如何解释 trace，如何从 trace 中得到有用的信息。在 模拟示例 给出的代码 ns-simple.tcl 中的第 15、16 行，我们打开了一个 trace 文件，在 finish 步骤中，我们向 trace 文件中写入了 trace 信息。">
 
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="https://jonathan1214.github.io/2018/04/A_little_thinking/"/>
+  <link rel="canonical" href="https://jonathan1214.github.io/2020/04/ns2-trace-analysis-example/"/>
 
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -136,7 +136,7 @@
 
 
 
-  <title>一点思考 | dsfds' blog</title>
+  <title>NS2 的介绍（六）—— trace 分析示例 | dsfds' blog</title>
   
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2018/04/A_little_thinking/">
+    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2020/04/ns2-trace-analysis-example/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dsfds">
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">一点思考</h1>
+          <h1 class="post-title" itemprop="name headline">NS2 的介绍（六）—— trace 分析示例</h1>
         
 
         <div class="post-meta">
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T22:17:54+08:00">
-                2018-04-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-08T12:41:36+08:00">
+                2020-04-08
               </time>
             
 
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-04-07T17:38:17+08:00">
-                2020-04-07
+              <time title="更新于" itemprop="dateModified" datetime="2020-04-08T18:05:39+08:00">
+                2020-04-08
               </time>
             
           </span>
@@ -381,8 +381,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
                   </a>
                 </span>
 
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  111
+                  574
                 </span>
               
 
@@ -433,7 +433,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -454,7 +454,27 @@
       
 
       
-        <p>时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。</p>
+        <p>本文将展示一个 trace 分析示例，从中可以知道如何从 NS2 中生成 trace，如何解释 trace，如何从 trace 中得到有用的信息。在 <a href="/2020/04/ns2-simple-simulation-example/" title="模拟示例">模拟示例</a> 给出的代码 <a href="/2020/04/ns2-trace-analysis-example/ns-simple.tcl" title="ns-simple.tcl">ns-simple.tcl</a> 中的第 15、16 行，我们打开了一个 trace 文件，在 finish 步骤中，我们向 trace 文件中写入了 trace 信息。<a id="more"></a></p>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#...</span></span><br><span class="line"><span class="comment">#open trace file</span></span><br><span class="line"><span class="keyword">set</span> f [<span class="keyword">open</span> out.tr w]</span><br><span class="line">$ns <span class="keyword">trace</span>-all $f</span><br><span class="line">#...</span><br></pre></td></tr></table></figure>
+<p>执行代码<a href="/2020/04/ns2-trace-analysis-example/ns-simple.tcl" title="ns-simple.tcl">ns-simple.tcl</a>会生成一个 NAM trace 文件，该文件作为 NAM 的输入，同时还会生成一个名为 out.tr 的文件，该文件用于我们的模拟分析。下图展示了 trace 的格式和来自 out.tr 的 trace 数据示例。<br><br>每一个 trace 行依次为以下部分：</p>
+<ul>
+<li>事件描述符：+，-，d，r</li>
+<li>事件发生的模拟时间，单位：秒</li>
+<li>发起事件的节点</li>
+<li>接受的节点</li>
+<li>packet 类型</li>
+<li>packet 大小，单位 Byte</li>
+<li>分隔符：——</li>
+<li>flow id：使用者在 OTcl 脚本中定义的 flow id。在模拟中用不到，可用于后续分析</li>
+<li>源地址</li>
+<li>目的地址</li>
+<li>网络层协议下 packet 序列编号：UDP 协议不需要使用编号但也会携带，便于分析；每一个 packet 编号唯一</li>
+</ul>
+<p>拿到模拟数据后，我们要做的就是筛选出需要的信息，并把它们转换成更容易理解的形式然后分析。下面是一简单的数据转换示例，对上面得到的 out.tr 文件，在终端中执行 <code>cat out.tr | grep &quot; 2 3 cbr &quot; | grep ^r | awk &#39;BEGIN {oldtime=0;oldpacket=0;} {dif=$12-oldpacket;if(dif==0) dif=1; if(dif&gt;0) {printf(&quot;%d\t%f\n&quot;,$12,($2-oldtime)/dif); oldtime=$2;oldpacket=$12}}&#39; &gt; jitter.txt</code>，即可在目录下得到一个输出文件 jitter.txt。该命令从 trace 中提取节点 3 从 2 中接收 packet 的事件，并计算接收当前 packet 距离接收上一个 packet 的 packet 时延（接收时间差/packetID差）。使用 gnuplot 可以画出如下图像，X 轴为 packet 序列号，Y 轴为模拟时间（单位：秒）。</p>
+<p>更多对 trace 的分析用法，参考 。</p>
+<p>这个例子中，仿真后的分析在 shell 终端中进行，但是这些处理也可以在输入的 OTcl 脚本中进行，我们将在下一节讨论。</p>
+<hr>
+<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
 
       
     </div>
@@ -475,7 +495,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://jonathan1214.github.io/2018/04/A_little_thinking/" title="一点思考">https://jonathan1214.github.io/2018/04/A_little_thinking/</a>
+    <a href="https://jonathan1214.github.io/2020/04/ns2-trace-analysis-example/" title="NS2 的介绍（六）—— trace 分析示例">https://jonathan1214.github.io/2020/04/ns2-trace-analysis-example/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -490,7 +510,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/思考/" rel="tag"><i class="fa fa-tag"></i> 思考</a>
+            <a href="/tags/网络/" rel="tag"><i class="fa fa-tag"></i> 网络</a>
+          
+            <a href="/tags/NS2/" rel="tag"><i class="fa fa-tag"></i> NS2</a>
           
         </div>
       
@@ -503,8 +525,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/My_first_lose/" rel="next" title="记录科创中期答辩">
-                <i class="fa fa-chevron-left"></i> 记录科创中期答辩
+              <a href="/2020/04/ns2-packet/" rel="next" title="NS2 的介绍（五）—— 数据分组">
+                <i class="fa fa-chevron-left"></i> NS2 的介绍（五）—— 数据分组
               </a>
             
           </div>
@@ -512,10 +534,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/review-data-structure/" rel="prev" title="数据结构复习">
-                数据结构复习 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

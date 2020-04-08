@@ -100,7 +100,7 @@
 <meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/link_with_trace.png">
 <meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/link_with_snoop_queue.png">
 <meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/packet_flow.png">
-<meta property="og:updated_time" content="2020-04-07T09:36:14.459Z">
+<meta property="og:updated_time" content="2020-04-08T09:05:03.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NS2 的介绍（四）—— 网络组件">
 <meta name="twitter:description" content="我们在前文讨论 NS2 中一个非常重要的组成——事件调度器，这篇文章将讨论 NS2 另一个关键的组成——网络组件，主要是复合网络组件。">
@@ -369,12 +369,34 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-04-07T17:36:14+08:00">
-                2020-04-07
+              <time title="更新于" itemprop="dateModified" datetime="2020-04-08T17:05:03+08:00">
+                2020-04-08
               </time>
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -386,7 +408,7 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="page-pv"><i class="fa fa-eye"></i>
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -471,6 +493,9 @@
 
 <h2 id="一个-packet-流动的例子"><a href="#一个-packet-流动的例子" class="headerlink" title="一个 packet 流动的例子"></a>一个 packet 流动的例子</h2><p>到现在为止，我们分析了两个最重要的网络组件——节点和连接。下图展示了一个模拟网络建立和 packet 流动的内部情况。<br>网络由两个节点 n0 和 n1 组成，网络地址分别 0 和 1。绑定在 n0 上的一个 TCP 代理使用端口 0 与 绑定在 n1 上的使用端口 0 的 TCP sink 对象通信。最后，一个 FTP 应用绑定到 TCP 代理上，请求发送一些数据。<br>注意，下图没有显示出 FTP 在 TCP 上的具体行为，仅仅展示仿真网络和 packet 流动的详细内部情况。</p>
 <div align="center" class="img"><br>    <img src="/assets/img/2020/packet_flow.png" alt="packet_flow" width="750"><br>    <span align="center" style="color:#999">插入了 trace 对象的连接</span><br></div>
+
+<hr>
+<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
 
       
     </div>
@@ -614,7 +639,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -726,7 +751,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">21.6k</span>
+    <span title="Site words total count">22.2k</span>
   
 </div>
 
@@ -778,6 +803,12 @@
 
     
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 
   </div>
@@ -1237,6 +1268,31 @@
   
 
   
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
   
 
   
