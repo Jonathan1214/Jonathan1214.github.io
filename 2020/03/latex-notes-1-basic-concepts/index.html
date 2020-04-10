@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -105,9 +105,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -615,6 +615,8 @@
 
   <aside id="sidebar" class="sidebar">
     
+      <div id="sidebar-dimmer"></div>
+    
     <div class="sidebar-inner">
 
       
@@ -649,7 +651,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -671,7 +673,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -720,7 +722,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一份代码"><span class="nav-number">2.</span> <span class="nav-text">第一份代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LaTeX命令和代码结构"><span class="nav-number">3.</span> <span class="nav-text">LaTeX命令和代码结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令和环境"><span class="nav-number">3.1.</span> <span class="nav-text">命令和环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源代码结构"><span class="nav-number">3.2.</span> <span class="nav-text">源代码结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宏包和文档类"><span class="nav-number">4.</span> <span class="nav-text">宏包和文档类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文档类"><span class="nav-number">4.1.</span> <span class="nav-text">文档类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宏包"><span class="nav-number">4.2.</span> <span class="nav-text">宏包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LaTeX用到的文件"><span class="nav-number">5.</span> <span class="nav-text">LaTeX用到的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件的组织方式"><span class="nav-number">6.</span> <span class="nav-text">文件的组织方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#术语和概念"><span class="nav-number">7.</span> <span class="nav-text">术语和概念</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一份代码"><span class="nav-text">第一份代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LaTeX命令和代码结构"><span class="nav-text">LaTeX命令和代码结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令和环境"><span class="nav-text">命令和环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源代码结构"><span class="nav-text">源代码结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宏包和文档类"><span class="nav-text">宏包和文档类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文档类"><span class="nav-text">文档类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宏包"><span class="nav-text">宏包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LaTeX用到的文件"><span class="nav-text">LaTeX用到的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件的组织方式"><span class="nav-text">文件的组织方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#术语和概念"><span class="nav-text">术语和概念</span></a></li></ol></div>
             
 
           </div>
@@ -761,7 +763,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">22.2k</span>
+    <span title="Site words total count">24.2k</span>
   
 </div>
 
@@ -774,7 +776,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
@@ -813,12 +815,6 @@
 
     
 
-    
-      <div id="needsharebutton-float">
-        <span class="btn">
-          <i class="fa fa-share-alt" aria-hidden="true"></i>
-        </span>
-      </div>
     
 
   </div>
@@ -894,13 +890,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
@@ -1289,18 +1278,6 @@
   <script>
     
     
-      flOptions = {};
-      
-          flOptions.iconStyle = "box";
-      
-          flOptions.boxForm = "horizontal";
-      
-          flOptions.position = "middleRight";
-      
-          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
-      
-      new needShareButton('#needsharebutton-float', flOptions);
-    
   </script>
 
   
@@ -1330,6 +1307,9 @@
 
 
   
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
 
   
 

@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>一点思考</title>
-    <url>/2018/04/A_little_thinking/</url>
-    <content><![CDATA[<p>时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>思考</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>记录科创中期答辩</title>
     <url>/2018/04/My_first_lose/</url>
     <content><![CDATA[<p>今天下午的科创中期答辩我们组当掉了，说实话我们什么都没做，单纯的想敷衍过去，很不幸，老师没有让我们通过，4月29号要再来一次，希望可以通过吧。<br><a id="more"></a><br>关于这次答辩，我还是有些东西想记下来的：</p>
@@ -26,6 +14,18 @@
       </categories>
       <tags>
         <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一点思考</title>
+    <url>/2018/04/A_little_thinking/</url>
+    <content><![CDATA[<p>时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
@@ -89,8 +89,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>C/C++</tag>
         <tag>数据结构</tag>
+        <tag>C/C++</tag>
       </tags>
   </entry>
   <entry>
@@ -367,40 +367,6 @@
       </tags>
   </entry>
   <entry>
-    <title>NS2 的介绍（一）—— 概述</title>
-    <url>/2020/04/ns2-simulation-overview/</url>
-    <content><![CDATA[<p>最近在上一门叫『无线自组织网络与应用』的课程，介绍了很多以前没有接触过的概念，包括了一个叫 NS2 的仿真工具，在前面<a href="/2020/03/latex-notes-1-basic-concepts/">一篇文章</a>中介绍的 AHOHA 协议也是在这门课程中有被详细讲述的。这篇文章基本上是<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">这篇文章</a>的翻译，介绍 NS2 这个仿真工具，给出这个它的概述。<br><a id="more"></a></p>
-<h2 id="NS2是什么"><a href="#NS2是什么" class="headerlink" title="NS2是什么"></a>NS2是什么</h2><p>NS2 是一个使用 C++ 和 OTcl 编写的面向对象的离散事件驱动的网络仿真器，在 UCBerkely 被开发出来。它主要用于局域网和广域网仿真。由于缺少适合新手入门的教程，NS2对于初学者来说不是很友好。</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>NS2 可以仿真各种各样的IP网络。它实现了一些网络协议如 TCP 和 UDP，文件传输协议如 FTP、Telnet、Web、CBR 和 VBR，路由队列管理机制如 DropTail、RED 和 CBQ，路由选择算法如 Dijkstra，等等。针对局域网仿真，NS2 还实现了组播和一些 MAC 层协议。这里要介绍的是 NS2 的基本结构，然后按照例子介绍细节。</p>
-<p><div align="center" class="img"><br>    <img src="/assets/img/2020/structure_of_ns2.png" alt="structure_of_ns2" width="750"><br>    <span align="center" style="color:#999">用户角度的NS概览</span><br></div><br>NS2 是 OTcl 脚本解释器，包括仿真事件调度程序、网络组件对象库和网络启动 (plumbing) 模块库。plumbing 模块通常实现为基本模拟对象成员函数。换句话说，使用 NS2，你需要使用 OTcl 语言写一个脚本，包括以下内容：</p>
-<ul>
-<li>初始化一个事件调度程序</li>
-<li>使用网络对象和 plumbing 函数建立网络拓扑结构</li>
-<li>通过事件调度程序告知何时开始发送分组</li>
-</ul>
-<h3 id="network-object-网络对象"><a href="#network-object-网络对象" class="headerlink" title="network object 网络对象"></a>network object 网络对象</h3><p>plumbing 函数通过为<em>对象设定指向合适的对象的邻居指针</em>，在网络对象中探索可能的数据通路，进而建立起整个网络。如此一来，使用者想要创建一个新的网络对象变得简单，只需写一个新的对象或者从对象库中创建一个复合对象，然后探索 (plumb) 通过这个新对象的数据通路即可。<br>听起来比较复杂，但是 plumbing OTcl 模块让这一切变得非常简单，这也是 NS2 的强大之处。</p>
-<h3 id="event-scheduler-事件调度程序"><a href="#event-scheduler-事件调度程序" class="headerlink" title="event scheduler 事件调度程序"></a>event scheduler 事件调度程序</h3><p>除网络对象外，NS2 中另一个主要的组件就是事件调度程序。在 NS2 中，一个事件就是一个包 ID，这个 ID 是唯一的，涵盖了分配时间，以及用来处理该事件的指向下一个对象的指针。在 NS2 中，一个事件调度程序<strong>记录着模拟时间</strong>，并通过调用适当的网络组件启动在<strong>事件队列</strong>中调度好的应该在当前启动的所有事件，这些组件通常是发出事件并让事件与事件指出的包一起完成正确的指令。网络组件间进行通信，传递 packet，但是并不会消耗真实的仿真时间。所有需要消耗仿真时间来处理 packet 的网络组件通过使用事件调度程序完成，组件为待处理到packet发出一个事件然后等待组件自己启动事件，再进行进一步的行动处理 packet。</p>
-<p>举个例子，一个网络转发组件S模拟一次转发的延时为 20us，它为一个需要转发的 packet P 向调度程序发出一个延时 20us 的事件 E，20us 后，调度程序 M 从事件队列中调度出这个事件 E 并把它立即发给转发组件 S ，然后由转发组件 S 将 packet P 交给适当的输出链接组件。</p>
-<p>还有一种用法将事件调度程序当作计时器。比如，TCP 需要一个计时器记录一个 packet 的发送时间以备重发（发送一个具有相同 TCP 编号且不同 NS packet ID 的 packet）。计时器和延时器用类似的方式使用事件调度程序，不同之处在于计时器计算与 packet 相关的时间值，然后一段特定的时间过去后对该 packet 做合适的动作（如上面那个例子，计算 packet 的发送时间，如果超过预定时间重发该 packet），而不是模拟一个延时，</p>
-<h2 id="C-与-NS2"><a href="#C-与-NS2" class="headerlink" title="C++ 与 NS2"></a>C++ 与 NS2</h2><p>NS2 不仅可以用 OTcl 编写也可以用 C++ 编写。处于效率考量，NS2 将<strong>数据路径</strong>的实现和<strong>控制路径</strong>的实现分离开来，为了减少 packet 和事件的处理时间（注意，不是仿真时间），数据路径中的事件调度程序和基本网络组件对象用 C++ 编写然后编译，使用编译好的对象，OTcl 解释器通过一个 OTcl 连接为每一个 C++ 对象创建配对的 OTcl 对象，为成员函数创建配对的控制函数，为成员变量创建配对的配置变量，这样一来，对 C++ 对象的控制就传递给了 OTcl。向一个连接到 OTcl 的 C++ 对象中添加成员函数也是可能的，C++ 对象中不需要在一次模拟中被控制的或者不需要在内部被其他对象使用使用的，是不需要被连接到 OTcl 中。同样地，一个不在数据路径中的对象也可以使用 OTcl 实现。如图为一个对象在 C++ 和 OTcl 中的层次体系，可以看到，连接到 C++ 的 OTcl 对象和它连接的 C++ 对象具有相同的层次结构。</p>
-<p align="center" class="img"><br>    <img src="/assets/img/2020/cpp_vs_otcl.png" alt="cpp_vs_otcl" width="750"><br>    <span align="center" style="color:#999">C++ 和 OTcl 的连接</span><br></p>
-
-<h2 id="NS2-的大体结构"><a href="#NS2-的大体结构" class="headerlink" title="NS2 的大体结构"></a>NS2 的大体结构</h2><p>如图为 NS2 的整体结构，使用者站在图中的左下角，在 Tcl 中，使用 OTcl 库中的仿真对象设计并控制模拟。事件调度程序和绝大多数网络组件是通过 C++ 实现的，并且 OTcl 通过 OTcl 连接 (linkage) 可以使用到它们，而这个连接是通过 tclcl 实现的。这些东西共同构成了 NS2，它就是一个扩展了面向对象的 Tcl 解释器和网络模拟库。</p>
-<p align="center" class="img"><br>    <img src="/assets/img/2020/architecture_view_of_ns.png" alt="architecture_view_of_ns" width="750"><br>    <span align="center" style="color:#999">NS2  的体系结构图</span><br></p>
-
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文简单分析了 NS2 的大体结构和体系结构。现在来考虑下如何获得 NS2 的仿真结果，如第一张图所示，，当仿真结束时，NS2 按照输入的 Tcl（或 OTcl）脚本中的说明产生一个或者多个文本输出文件，其中包含了详细的仿真数据。这些数据可用于后续的仿真分析中，或者作为图形化仿真展示工具 NAM 的输入。</p>
-<hr>
-<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI 大学的资源</a></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>网络</tag>
-        <tag>NS2</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>在疫情中度过三月</title>
     <url>/2020/03/the-third-month/</url>
     <content><![CDATA[<p>惊觉已经是三月的最后一天，在这过去的一个月里，如果说有什么一定一提的，那一定是已经持续了快三个月的的新冠肺炎疫情，国内的疫情逐渐被控制住了，国外却又爆发了更大规模的，看起来返校遥遥无期。一月份的时候我肯定无法想象3月31日自己还在家，突发的疫情打乱我原有的计划，我本该在学校的教室里坐着的，现在却在家，本以为会非常非常想回学校，现在倒也还好，我只是怀念学校的WiFi罢了。<br><a id="more"></a><br>疫情蔓延全球，经济衰退，股价暴跌，美股数次熔断，不可否认这是一个动荡的三月。所谓『祸兮福之所倚』，被困在山村中的我却得以享受宁静，可以专心做自己想做的事，我重新开始捡起以前学了一点就知难而退的东西，比如 C++，Java，Linux 还有算法，除此之外，我还开始坚持看书、记单词和记录生活，为了督促自己，我还使用 atimelogger 记录自己每一分钟的花销。如果不是因为疫情，我也不会如此百无聊赖，也就不会开始做这些事情，从这个角度而言，对我而言这还是福。</p>
@@ -475,6 +441,40 @@ proc complete_sim {} {...}
 </table>
 <hr>
 <p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+        <tag>NS2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NS2 的介绍（一）—— 概述</title>
+    <url>/2020/04/ns2-simulation-overview/</url>
+    <content><![CDATA[<p>最近在上一门叫『无线自组织网络与应用』的课程，介绍了很多以前没有接触过的概念，包括了一个叫 NS2 的仿真工具，在前面<a href="/2020/03/latex-notes-1-basic-concepts/">一篇文章</a>中介绍的 AHOHA 协议也是在这门课程中有被详细讲述的。这篇文章基本上是<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">这篇文章</a>的翻译，介绍 NS2 这个仿真工具，给出这个它的概述。<br><a id="more"></a></p>
+<h2 id="NS2是什么"><a href="#NS2是什么" class="headerlink" title="NS2是什么"></a>NS2是什么</h2><p>NS2 是一个使用 C++ 和 OTcl 编写的面向对象的离散事件驱动的网络仿真器，在 UCBerkely 被开发出来。它主要用于局域网和广域网仿真。由于缺少适合新手入门的教程，NS2对于初学者来说不是很友好。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>NS2 可以仿真各种各样的IP网络。它实现了一些网络协议如 TCP 和 UDP，文件传输协议如 FTP、Telnet、Web、CBR 和 VBR，路由队列管理机制如 DropTail、RED 和 CBQ，路由选择算法如 Dijkstra，等等。针对局域网仿真，NS2 还实现了组播和一些 MAC 层协议。这里要介绍的是 NS2 的基本结构，然后按照例子介绍细节。</p>
+<p><div align="center" class="img"><br>    <img src="/assets/img/2020/structure_of_ns2.png" alt="structure_of_ns2" width="750"><br>    <span align="center" style="color:#999">用户角度的NS概览</span><br></div><br>NS2 是 OTcl 脚本解释器，包括仿真事件调度程序、网络组件对象库和网络启动 (plumbing) 模块库。plumbing 模块通常实现为基本模拟对象成员函数。换句话说，使用 NS2，你需要使用 OTcl 语言写一个脚本，包括以下内容：</p>
+<ul>
+<li>初始化一个事件调度程序</li>
+<li>使用网络对象和 plumbing 函数建立网络拓扑结构</li>
+<li>通过事件调度程序告知何时开始发送分组</li>
+</ul>
+<h3 id="network-object-网络对象"><a href="#network-object-网络对象" class="headerlink" title="network object 网络对象"></a>network object 网络对象</h3><p>plumbing 函数通过为<em>对象设定指向合适的对象的邻居指针</em>，在网络对象中探索可能的数据通路，进而建立起整个网络。如此一来，使用者想要创建一个新的网络对象变得简单，只需写一个新的对象或者从对象库中创建一个复合对象，然后探索 (plumb) 通过这个新对象的数据通路即可。<br>听起来比较复杂，但是 plumbing OTcl 模块让这一切变得非常简单，这也是 NS2 的强大之处。</p>
+<h3 id="event-scheduler-事件调度程序"><a href="#event-scheduler-事件调度程序" class="headerlink" title="event scheduler 事件调度程序"></a>event scheduler 事件调度程序</h3><p>除网络对象外，NS2 中另一个主要的组件就是事件调度程序。在 NS2 中，一个事件就是一个包 ID，这个 ID 是唯一的，涵盖了分配时间，以及用来处理该事件的指向下一个对象的指针。在 NS2 中，一个事件调度程序<strong>记录着模拟时间</strong>，并通过调用适当的网络组件启动在<strong>事件队列</strong>中调度好的应该在当前启动的所有事件，这些组件通常是发出事件并让事件与事件指出的包一起完成正确的指令。网络组件间进行通信，传递 packet，但是并不会消耗真实的仿真时间。所有需要消耗仿真时间来处理 packet 的网络组件通过使用事件调度程序完成，组件为待处理到packet发出一个事件然后等待组件自己启动事件，再进行进一步的行动处理 packet。</p>
+<p>举个例子，一个网络转发组件S模拟一次转发的延时为 20us，它为一个需要转发的 packet P 向调度程序发出一个延时 20us 的事件 E，20us 后，调度程序 M 从事件队列中调度出这个事件 E 并把它立即发给转发组件 S ，然后由转发组件 S 将 packet P 交给适当的输出链接组件。</p>
+<p>还有一种用法将事件调度程序当作计时器。比如，TCP 需要一个计时器记录一个 packet 的发送时间以备重发（发送一个具有相同 TCP 编号且不同 NS packet ID 的 packet）。计时器和延时器用类似的方式使用事件调度程序，不同之处在于计时器计算与 packet 相关的时间值，然后一段特定的时间过去后对该 packet 做合适的动作（如上面那个例子，计算 packet 的发送时间，如果超过预定时间重发该 packet），而不是模拟一个延时，</p>
+<h2 id="C-与-NS2"><a href="#C-与-NS2" class="headerlink" title="C++ 与 NS2"></a>C++ 与 NS2</h2><p>NS2 不仅可以用 OTcl 编写也可以用 C++ 编写。处于效率考量，NS2 将<strong>数据路径</strong>的实现和<strong>控制路径</strong>的实现分离开来，为了减少 packet 和事件的处理时间（注意，不是仿真时间），数据路径中的事件调度程序和基本网络组件对象用 C++ 编写然后编译，使用编译好的对象，OTcl 解释器通过一个 OTcl 连接为每一个 C++ 对象创建配对的 OTcl 对象，为成员函数创建配对的控制函数，为成员变量创建配对的配置变量，这样一来，对 C++ 对象的控制就传递给了 OTcl。向一个连接到 OTcl 的 C++ 对象中添加成员函数也是可能的，C++ 对象中不需要在一次模拟中被控制的或者不需要在内部被其他对象使用使用的，是不需要被连接到 OTcl 中。同样地，一个不在数据路径中的对象也可以使用 OTcl 实现。如图为一个对象在 C++ 和 OTcl 中的层次体系，可以看到，连接到 C++ 的 OTcl 对象和它连接的 C++ 对象具有相同的层次结构。</p>
+<p align="center" class="img"><br>    <img src="/assets/img/2020/cpp_vs_otcl.png" alt="cpp_vs_otcl" width="750"><br>    <span align="center" style="color:#999">C++ 和 OTcl 的连接</span><br></p>
+
+<h2 id="NS2-的大体结构"><a href="#NS2-的大体结构" class="headerlink" title="NS2 的大体结构"></a>NS2 的大体结构</h2><p>如图为 NS2 的整体结构，使用者站在图中的左下角，在 Tcl 中，使用 OTcl 库中的仿真对象设计并控制模拟。事件调度程序和绝大多数网络组件是通过 C++ 实现的，并且 OTcl 通过 OTcl 连接 (linkage) 可以使用到它们，而这个连接是通过 tclcl 实现的。这些东西共同构成了 NS2，它就是一个扩展了面向对象的 Tcl 解释器和网络模拟库。</p>
+<p align="center" class="img"><br>    <img src="/assets/img/2020/architecture_view_of_ns.png" alt="architecture_view_of_ns" width="750"><br>    <span align="center" style="color:#999">NS2  的体系结构图</span><br></p>
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文简单分析了 NS2 的大体结构和体系结构。现在来考虑下如何获得 NS2 的仿真结果，如第一张图所示，，当仿真结束时，NS2 按照输入的 Tcl（或 OTcl）脚本中的说明产生一个或者多个文本输出文件，其中包含了详细的仿真数据。这些数据可用于后续的仿真分析中，或者作为图形化仿真展示工具 NAM 的输入。</p>
+<hr>
+<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI 大学的资源</a></p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -677,7 +677,9 @@ proc complete_sim {} {...}
     <url>/2020/04/ns2-trace-analysis-example/</url>
     <content><![CDATA[<p>本文将展示一个 trace 分析示例，从中可以知道如何从 NS2 中生成 trace，如何解释 trace，如何从 trace 中得到有用的信息。在 <a href="/2020/04/ns2-simple-simulation-example/" title="模拟示例">模拟示例</a> 给出的代码 <a href="/2020/04/ns2-trace-analysis-example/ns-simple.tcl" title="ns-simple.tcl">ns-simple.tcl</a> 中的第 15、16 行，我们打开了一个 trace 文件，在 finish 步骤中，我们向 trace 文件中写入了 trace 信息。<a id="more"></a></p>
 <figure class="highlight tcl"><table><tr><td class="code"><pre><span class="line"><span class="comment">#...</span></span><br><span class="line"><span class="comment">#open trace file</span></span><br><span class="line"><span class="keyword">set</span> f [<span class="keyword">open</span> out.tr w]</span><br><span class="line">$ns <span class="keyword">trace</span>-all $f</span><br><span class="line">#...</span><br></pre></td></tr></table></figure>
-<p>执行代码<a href="/2020/04/ns2-trace-analysis-example/ns-simple.tcl" title="ns-simple.tcl">ns-simple.tcl</a>会生成一个 NAM trace 文件，该文件作为 NAM 的输入，同时还会生成一个名为 out.tr 的文件，该文件用于我们的模拟分析。下图展示了 trace 的格式和来自 out.tr 的 trace 数据示例。<br><br>每一个 trace 行依次为以下部分：</p>
+<p>执行代码<a href="/2020/04/ns2-trace-analysis-example/ns-simple.tcl" title="ns-simple.tcl">ns-simple.tcl</a>会生成一个 NAM trace 文件，该文件作为 NAM 的输入，同时还会生成一个名为 out.tr 的文件，该文件用于我们的模拟分析。下图展示了 trace 的格式和来自 out.tr 的 trace 数据示例。</p>
+<img src="/2020/04/ns2-trace-analysis-example/trace_format_example.png" title="trace 文件格式与示例">
+<p>每一个 trace 行依次为以下部分：</p>
 <ul>
 <li>事件描述符：+，-，d，r</li>
 <li>事件发生的模拟时间，单位：秒</li>
@@ -689,10 +691,10 @@ proc complete_sim {} {...}
 <li>flow id：使用者在 OTcl 脚本中定义的 flow id。在模拟中用不到，可用于后续分析</li>
 <li>源地址</li>
 <li>目的地址</li>
-<li>网络层协议下 packet 序列编号：UDP 协议不需要使用编号但也会携带，便于分析；每一个 packet 编号唯一</li>
+<li>网络层协议下 packet 序列号：UDP 协议不需要使用序列号号但也会携带，便于分析</li>
+<li>packet id：每一个 packet 编号唯一</li>
 </ul>
 <p>拿到模拟数据后，我们要做的就是筛选出需要的信息，并把它们转换成更容易理解的形式然后分析。下面是一简单的数据转换示例，对上面得到的 out.tr 文件，在终端中执行 <code>cat out.tr | grep &quot; 2 3 cbr &quot; | grep ^r | awk &#39;BEGIN {oldtime=0;oldpacket=0;} {dif=$12-oldpacket;if(dif==0) dif=1; if(dif&gt;0) {printf(&quot;%d\t%f\n&quot;,$12,($2-oldtime)/dif); oldtime=$2;oldpacket=$12}}&#39; &gt; jitter.txt</code>，即可在目录下得到一个输出文件 jitter.txt。该命令从 trace 中提取节点 3 从 2 中接收 packet 的事件，并计算接收当前 packet 距离接收上一个 packet 的 packet 时延（接收时间差/packetID差）。使用 gnuplot 可以画出如下图像，X 轴为 packet 序列号，Y 轴为模拟时间（单位：秒）。</p>
-<p>更多对 trace 的分析用法，参考 。</p>
 <p>这个例子中，仿真后的分析在 shell 终端中进行，但是这些处理也可以在输入的 OTcl 脚本中进行，我们将在下一节讨论。</p>
 <hr>
 <p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
@@ -703,6 +705,91 @@ proc complete_sim {} {...}
       <tags>
         <tag>网络</tag>
         <tag>NS2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>算法笔记 —— 图</title>
+    <url>/2020/04/algorithm-map/</url>
+    <content><![CDATA[<p>在许多计算机应用中，由相连的结点所表示的模型起到了关键的作用。这些结点之间的连接很自然地会让人们产生一连串的疑问：沿着这些连接能否从一个结点到达另一个结点？有多少个结点和指定的结点相连？两个结点之间最短的连接是哪一条？要描述这些问题，我们要使用一种抽象的数学对象，叫做图。<br><a id="more"></a></p>
+<h2 id="1-无向图"><a href="#1-无向图" class="headerlink" title="1.无向图"></a>1.无向图</h2><p><em>无向图的定义</em>：无向图是由一组顶点和一组能够将两个顶点相连的边组成的。在无向图中，边（edge）仅仅是两个顶点（vertex）间的连接。根据这个定义，顶点叫什么名字无关紧要，我们使用 0 到 V-1 来表示一张含有 V 个顶点的图中的各个顶点，这样的表示便于使用数组的索引来访问各个结点，我们可以直接用数组的索引作为结点的名称，事实上如果顶点不符合我们的预设，我们也可以把它们映射到 0 到 V-1 上来。</p>
+<p>在这个定义下，允许出现下面两种特殊情况：</p>
+<ul>
+<li>自环：即一条连接一个顶点和其自身的边；</li>
+<li>连接同一对顶点的两条边称为平行边。</li>
+</ul>
+<h3 id="1-1-一些术语"><a href="#1-1-一些术语" class="headerlink" title="1.1.一些术语"></a>1.1.一些术语</h3><p>这里先介绍一些关于图的术语。</p>
+<ul>
+<li>相邻：两个顶点通过用一条边相连，称两个顶点<em>相邻</em>，边<em>依附于</em>这两个顶点；</li>
+<li>度数：顶点的度数为依附于它的边的总数；</li>
+<li>子图：一幅图的所有边的一个子集（包括所依附的结点）组成的图；</li>
+<li>路径：由边顺序连接的一系列顶点，简单路径没有重复顶点；</li>
+<li>连通图：从任意一个顶点都存在一条路径到达另一个任意顶点；</li>
+<li>树：树是一副无环连通图，互不相连的树组成的集合称为森林；当且仅当一幅含有 V 个结点的图 G 满足下列 5 个条件之一时，它就是一棵树：<ul>
+<li>G 有 V-1 条边且不含有环；</li>
+<li>G 有 V-1 条边且是连通的；</li>
+<li>G 是连通的，但删除任意一条边都会使它不再连通；</li>
+<li>G 是无环图，但添加任意一条边都会产生一条环；</li>
+<li>G 中的任意一对顶点之间仅存在一条简单路径。</li>
+</ul>
+</li>
+<li>稠密图与稀疏图：</li>
+<li>二分图：可将所有结点分为两部分，其中图的每条边所接的两个顶点术语不用的部分；</li>
+</ul>
+<h3 id="1-2-无向图的表示"><a href="#1-2-无向图的表示" class="headerlink" title="1.2.无向图的表示"></a>1.2.无向图的表示</h3><p>对于一个顶点数为 V，边数为 E 的无向图，我们可以用以下几种方式表示：</p>
+<ul>
+<li>邻接矩阵：使用 V 乘 V 的布尔矩阵，顶点 v 和 w 间存在连接时，则矩阵的 v 行 w 列和 w 行 v 列置为 true；</li>
+<li>边的数组：</li>
+<li>邻接表数组：使用一个以顶点为索引的列表数组，其中每个元素都是和该顶点相邻的顶点列表。</li>
+</ul>
+<img src="/2020/04/algorithm-map/adjacency_list.png" title="邻接表">
+<p>我们使用 <em>邻接表</em> 表示非稠密图，它将每个顶点的所有相邻顶点都保存在该顶点对应的元素所指向的一张链表中，使用这个数组可以快速访问给定顶点的邻接顶点列表。用这种表示方法，使用的空间和 V+E 成正比；添加一条边所需的时间为常数；遍历顶点 v 的所有相邻顶点所需的时间和 v 的度数成正比。</p>
+<h3 id="1-3-深度优先搜索-DFS"><a href="#1-3-深度优先搜索-DFS" class="headerlink" title="1.3.深度优先搜索 DFS"></a>1.3.深度优先搜索 DFS</h3><p>我们可以通过系统地检查每一个顶点和每一条边来获取图的各种性质，在此基础上获得一些我们感兴趣的东西。在图中，很多性质是和路径相关的，我们经常需要从一个顶点移动到另一个顶点。许多图算法的抽象模型都非常简单，比如 DFS。</p>
+<p>在讲 DFS 之前，让我们先来看看走迷宫问题，迷宫和图是非常相似的，用<em>通道</em>代替<em>边</em>，<em>路口</em>代替<em>顶点</em>，思考迷宫问题有助于我们理解 DFS。我们按照如下策略探索迷宫中的所有通道：</p>
+<ul>
+<li>选择一条没有标记过的通道，在你走过的路上铺一条<br>绳子；</li>
+<li>标记所有你第一次路过的路口和通道；</li>
+<li>当来到一个标记过的路口时（用绳子）回退到上个路口；</li>
+<li>当回退到的路口已没有可走的通道时继续回退。</li>
+</ul>
+<p>绳子可以保证我们总能找到一条出路，标记保证我们不会两次经过同一个通道或路口。理解迷宫问题，对于 DFS 自然也就不在话下了，甚至描述起来更加简单：</p>
+<ul>
+<li>访问当前顶点，标记其标记已访问；</li>
+<li>递归地访问它所有没有被标记过的所有邻居顶点。</li>
+</ul>
+<p>这就是 DFS 的全部思路了，很容易发现在递归调用中我们使用了栈这种数据结构，这对我们标记顶点而言，是 LIFO 的，这是 DFS 和 BFS 的不同之处，BFS 是 FIFO 的，我们马上会讲到 BFS。</p>
+<p>DFS 可以有效处理许多和图有关的任务，如：</p>
+<ul>
+<li>连通性：给定两个顶点是否连通；</li>
+<li>单点路径：从 s 到 v 是否存在一条路径。</li>
+</ul>
+<p>其实这是同一个问题，只不过路径问题需要使用额外的数组保存遍历过的路径而已，这样我们就可以从某一顶点出发构造出一棵树，树中所有结点均是该顶点可到达的。</p>
+<h3 id="1-4-广度优先搜索-BFS"><a href="#1-4-广度优先搜索-BFS" class="headerlink" title="1.4.广度优先搜索 BFS"></a>1.4.广度优先搜索 BFS</h3><p>基于 DFS，我们可以确定到某一结点的是否存在路径，很自然的地我们会考虑这是不是最短路径，如果不是有没有别的办法寻找到最短路径。这正是 BFS 要解决的问题，<strong>BFS 是很多图算法的基石，需要重点掌握</strong>。而 DFS 无法解决这个问题，这是由它们遍历图的顺序决定的。如上面提到的，在 DFS 中，我们使用一个下压栈（递归方法体现了出来），在这种 LIFO 的规则下的探索和走迷宫探索相邻的通道非常类似。在 BFS 中，我们希望按照距离起点的距离的顺序来遍历所有的顶点，使用 FIFO 队列代替 LIFO 栈即可：<br>重复以下步骤直到队列为空：</p>
+<ul>
+<li>取队列中的下一个顶点 v 并标记它；</li>
+<li>将与 v 相邻的所有未被标记过的顶点加入队列。</li>
+</ul>
+<p>同时，我们还可以使用一个数组保存遍历的路径，索引是顶点，数组的值为该顶点的已知路径上的最后一个顶点。</p>
+<h3 id="1-5-DFS-和-BFS-的总结"><a href="#1-5-DFS-和-BFS-的总结" class="headerlink" title="1.5.DFS 和 BFS 的总结"></a>1.5.DFS 和 BFS 的总结</h3><p>如同前面谈到的，DFS 和 BFS 的基本思路是一样的。在搜索中，我们先将起点存入数据结构中，然后重复以下步骤直到数据被清空：</p>
+<ul>
+<li>取其中的下一个顶点并标记它；</li>
+<li>将 v 的所有相邻而又未被标记的顶点加入数据结构。</li>
+</ul>
+<p>两个算法的不同之处仅仅在于从数据结构中获取下一个顶点的规则不同，BFS 是最早加入的顶点，DFS 是最晚加入的顶点。这种差异得到了处理图的两种完全不同的视角，无论如何，最早我们都可以遍历所有与起点连通的顶点和边。</p>
+<h3 id="1-6-更多问题"><a href="#1-6-更多问题" class="headerlink" title="1.6.更多问题"></a>1.6.更多问题</h3><p>有了 DFS 和 BFS 两种策略，我们可以处理更多问题：</p>
+<ul>
+<li>连通分量；</li>
+<li>检测环；</li>
+<li>双色问题。</li>
+</ul>
+<h2 id="2-有向图"><a href="#2-有向图" class="headerlink" title="2.有向图"></a>2.有向图</h2>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>数据结构</tag>
+        <tag>notes</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
 </search>
