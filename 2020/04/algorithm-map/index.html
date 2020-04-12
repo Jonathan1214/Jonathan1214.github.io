@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="算法,数据结构,notes,Java," />
+  <meta name="keywords" content="数据结构,算法,Java,notes," />
 
 
 
@@ -87,7 +87,7 @@
 
 
 <meta name="description" content="在许多计算机应用中，由相连的结点所表示的模型起到了关键的作用。这些结点之间的连接很自然地会让人们产生一连串的疑问：沿着这些连接能否从一个结点到达另一个结点？有多少个结点和指定的结点相连？两个结点之间最短的连接是哪一条？要描述这些问题，我们要使用一种抽象的数学对象，叫做图。">
-<meta name="keywords" content="算法,数据结构,notes,Java">
+<meta name="keywords" content="数据结构,算法,Java,notes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法笔记 —— 图">
 <meta property="og:url" content="https://jonathan1214.github.io/2020/04/algorithm-map/index.html">
@@ -95,7 +95,11 @@
 <meta property="og:description" content="在许多计算机应用中，由相连的结点所表示的模型起到了关键的作用。这些结点之间的连接很自然地会让人们产生一连串的疑问：沿着这些连接能否从一个结点到达另一个结点？有多少个结点和指定的结点相连？两个结点之间最短的连接是哪一条？要描述这些问题，我们要使用一种抽象的数学对象，叫做图。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://jonathan1214.github.io/2020/04/algorithm-map/adjacency_list.png">
-<meta property="og:updated_time" content="2020-04-11T10:33:11.079Z">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/04/algorithm-map/directional_graph.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/04/algorithm-map/managment_and_loop.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/04/algorithm-map/kosaraju_example.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/04/algorithm-map/kosaraju_provement.png">
+<meta property="og:updated_time" content="2020-04-12T13:47:23.567Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法笔记 —— 图">
 <meta name="twitter:description" content="在许多计算机应用中，由相连的结点所表示的模型起到了关键的作用。这些结点之间的连接很自然地会让人们产生一连串的疑问：沿着这些连接能否从一个结点到达另一个结点？有多少个结点和指定的结点相连？两个结点之间最短的连接是哪一条？要描述这些问题，我们要使用一种抽象的数学对象，叫做图。">
@@ -364,8 +368,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-04-11T18:33:11+08:00">
-                2020-04-11
+              <time title="更新于" itemprop="dateModified" datetime="2020-04-12T21:47:23+08:00">
+                2020-04-12
               </time>
             
           </span>
@@ -429,7 +433,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2k
+                  3.9k
                 </span>
               
 
@@ -445,7 +449,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  13
                 </span>
               
             </div>
@@ -537,7 +541,69 @@
 <li>检测环；</li>
 <li>双色问题。</li>
 </ul>
-<h2 id="2-有向图"><a href="#2-有向图" class="headerlink" title="2. 有向图"></a>2. 有向图</h2>
+<h2 id="2-有向图"><a href="#2-有向图" class="headerlink" title="2. 有向图"></a>2. 有向图</h2><p><strong>定义</strong>：有向图是由一组<em>顶点</em>和有方向的边的组成，每条有方向的边都连接着有序的一对顶点。</p>
+<img src="/2020/04/algorithm-map/directional_graph.png" title="有向图">
+<h3 id="2-1-有向图的表示"><a href="#2-1-有向图的表示" class="headerlink" title="2.1. 有向图的表示"></a>2.1. 有向图的表示</h3><p>这里先给出有向图的一些术语。</p>
+<ul>
+<li>顶点的出度：该顶点指向的边的总数；</li>
+<li>顶点的入度：指向该顶点的边的总数；</li>
+<li>有向边的头：它的第一个顶点；</li>
+<li>有向边的尾：它的第二个顶点；</li>
+<li>有向路径：由一些列顶点组成，每个顶点都存在一条有向边从它指向序列中下一个顶点；</li>
+<li>有向环：一条至少含有一条边且起点和终点相同的有向路径；</li>
+<li>简单有向环：一条（除了起点和终点必须相同之外）不含有重复的顶点和边的环；</li>
+<li>v 能够到达 w：v 到 w 存在有向路径（注意：这并不意味着从 w 可以达到 v）。</li>
+</ul>
+<p>有向图的表示和无向图类似，我们仍然可以使用邻接表数组来表示有向图，甚至更加简单，因为边是单向的，只需保存一个相邻结点。数组索引为某个顶点，索引下的邻接表为该顶点所指向的顶点构成的链表。</p>
+<h3 id="2-2-可达性问题"><a href="#2-2-可达性问题" class="headerlink" title="2.2. 可达性问题"></a>2.2. 可达性问题</h3><p>在无向图中我们处理过单点连通性问题，即判断其他顶点和给定的顶点是否连通，而在有向图中，也可以解决类似的问题，而且思路非常相似。</p>
+<ul>
+<li>单点可达性：给定一副有向图和起点 s，是否存在一条从 s 到达给定顶点 v 的有向图；</li>
+<li>多点可达性：给定一副图和顶点的集合，是否存在一条从集合中的任意顶点到达给定顶点 v 的路径。</li>
+</ul>
+<p>解决这个问题的算法是基于 DFS 的，稍作修改即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. 访问当前顶点，标记为已访问；</span><br><span class="line">2. 递归地访问它所谓未被标记过的顶点。</span><br></pre></td></tr></table></figure>
+<p>在此基础上，稍作修改我们就可以跟进一步地求出起点 s 和 终点 v 之间的路径或最短路径，算法和无向图中的完全一样。</p>
+<h3 id="2-3-环和有向无环图"><a href="#2-3-环和有向无环图" class="headerlink" title="2.3. 环和有向无环图"></a>2.3. 环和有向无环图</h3><p>对于有向图中环进行研究可以解决很多问题，如</p>
+<ul>
+<li><em>优先级限制下调度问题</em>：给定一组需要完成的任务，以及一组关于任务完成的先后次序的优先级限制。在满足限制条件的前提下应该如何安排并完成所有任务？</li>
+<li><em>拓扑排序</em>：给定一幅有向图，将所有的顶点排序，使得所有的有向边均从排在前面的元素指向排在后面的元素（或者说明无法做到这一点）。</li>
+</ul>
+<p>为什么说环和这些问题是相关的呢？举个例子，考虑一个调度问题：A 必须在 B 之前完成，B 必须在 C 之前完成，C 又必须在 A 之前完成。这显然是不可能实现的，这在有向图就构成了一个环。处理这些调度问题我们必须对图中的环进行检测。</p>
+<img src="/2020/04/algorithm-map/managment_and_loop.png" title="调度问题与有向图中的环">
+<p>有向无环图（DAG）就是一副不含有环的有向图。实现有向图中的环检测算法并不困难，我们可以基于 DFS 来解决这个问题。系统维护的递归调用栈表示的正是『当前』正在遍历的有向路径，一旦我们找到了一条有向边 v –&gt; w 且 w 已经在栈中，就找到了一个环，如果没有，那就说明这是无环图。如果更进一步，多加一个栈，我们就可以找出构成环的顶点。</p>
+<h4 id="DAG-检测算法"><a href="#DAG-检测算法" class="headerlink" title="DAG 检测算法"></a>DAG 检测算法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. 访问当前顶点，标记为已访问，标记为在当前搜索的路径的栈中</span><br><span class="line">2. 对当前顶点指向的顶点</span><br><span class="line">    如果未被标记，将其来源标记当前顶点，为其跳转到 1</span><br><span class="line">    如果在栈中，说明图中存在环</span><br><span class="line">    记录环到另一个栈中</span><br><span class="line">3. 当前顶点调用完毕，标记为不在当前搜索的路径的栈中</span><br></pre></td></tr></table></figure>
+<p>可以看到这个无向图中 DFS 路径搜索算法是类似的，这再次说明了 DFS 的重要性。</p>
+<h4 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h4><p>同样的，拓扑排序也是基于 DFS 的，只需稍作修改就可以实现拓扑排序。DFS 正好只会访问每个顶点一次，如果将递归调用函数 <code>dfs</code> 的参数顶点保存在一个数据结构中，遍历这个数据结构实际上就能访问图中的所有顶点，遍历的顺序取决于这个数据结构的性质以及是在递归调用之前还是之后进行保存。我们关心下面三种顺序：</p>
+<ul>
+<li>前序：在递归调用之前将顶点加入队列。</li>
+<li>后序：在递归调用之后将顶点加入队列。</li>
+<li>逆后序：在递归调用之后将顶点压入栈。</li>
+</ul>
+<p>可以证明，一幅有向无环图的拓扑顺序即为所有顶点的逆后续排列。</p>
+<p>我们可以看到，拓扑排序和调度问题离不开有向环的检测，而且这两个问题可以看作是一个问题。在调度时，必须保证有向图中没有环，因此，解决任务调度类应用通常需要以下3 步：</p>
+<ul>
+<li>指明任务和优先级条件；</li>
+<li>不断检测并去除有向图中的所有环，以确保存在可行的方案；</li>
+<li>使用拓扑排序解决调度问题。</li>
+</ul>
+<h3 id="2-4-强连通性"><a href="#2-4-强连通性" class="headerlink" title="2.4. 强连通性"></a>2.4. 强连通性</h3><p>类似无向图中的连通性，我们在有向图中定义了<strong>强连通性</strong>：在有向图 G 中，如果两个顶点 v 和 w 是互相可达的，则称它们是<strong>强连通的</strong>。联想到环的定义，我们很容易想到两个顶点是强连通的等价于它们在同一个有向环中。</p>
+<p>有向图中的强连通性也是一种顶点之间的等价关系，满足以下性质：</p>
+<ul>
+<li>自反性：任意顶点 v 和自己都是强连通的。</li>
+<li>对称性：如果 v 和 w 是强连通的，那么 w 和 v 也是强连通的。</li>
+<li>传递性：如果 v 和 w 是强连通的且 w 和 x 也是强连通的，那<br>么 v 和 x 也是强连通的。</li>
+</ul>
+<p>强连通性将所有的顶点分为两一些等价类，每个等价类都是由相互均为强连通的顶点的最大子集组成的，我们称这些子集为<strong>强连通分量</strong>。对于理解有向图的结构，强连通性是一种非常重要的抽象，它突出了相互关联的几组顶点，如可以帮助决定话题分类和理解食物链中的能量流动问题。</p>
+<p>对于强连通分量问题，我们可以使用 Kosaraju 算法来解决，本质上这个算法还是基于 DFS 的，</p>
+<ul>
+<li>首先对 G 进行反转，即改变所有边的指向和原来相反，得到图 H；</li>
+<li>然后对 H 进行逆后序排列；</li>
+<li>按照这个排列顺序对 G 中的顶点调用标准 DFS，每一次非标记的顶点遍历完表示做完了一个强连通分量的搜索。</li>
+</ul>
+<img src="/2020/04/algorithm-map/kosaraju_example.png" title="Kosaraju 算法运行示例">
+<p>举个例子，如上图所示。证明如下：</p>
+<img src="/2020/04/algorithm-map/kosaraju_provement.png" title="Kosaraju 算法证明">
+<h2 id="3-最小生成树"><a href="#3-最小生成树" class="headerlink" title="3. 最小生成树"></a>3. 最小生成树</h2>
       
     </div>
     
@@ -572,13 +638,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
-          
             <a href="/tags/数据结构/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
           
-            <a href="/tags/notes/" rel="tag"><i class="fa fa-tag"></i> notes</a>
+            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
           
             <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/tags/notes/" rel="tag"><i class="fa fa-tag"></i> notes</a>
           
         </div>
       
@@ -756,7 +822,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-无向图"><span class="nav-text">1. 无向图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-一些术语"><span class="nav-text">1.1. 一些术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-无向图的表示"><span class="nav-text">1.2. 无向图的表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-深度优先搜索-DFS"><span class="nav-text">1.3. 深度优先搜索 DFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-广度优先搜索-BFS"><span class="nav-text">1.4. 广度优先搜索 BFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-DFS-和-BFS-的总结"><span class="nav-text">1.5. DFS 和 BFS 的总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-更多问题"><span class="nav-text">1.6. 更多问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-有向图"><span class="nav-text">2. 有向图</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-无向图"><span class="nav-text">1. 无向图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-一些术语"><span class="nav-text">1.1. 一些术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-无向图的表示"><span class="nav-text">1.2. 无向图的表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-深度优先搜索-DFS"><span class="nav-text">1.3. 深度优先搜索 DFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-广度优先搜索-BFS"><span class="nav-text">1.4. 广度优先搜索 BFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-DFS-和-BFS-的总结"><span class="nav-text">1.5. DFS 和 BFS 的总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-更多问题"><span class="nav-text">1.6. 更多问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-有向图"><span class="nav-text">2. 有向图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-有向图的表示"><span class="nav-text">2.1. 有向图的表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-可达性问题"><span class="nav-text">2.2. 可达性问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-环和有向无环图"><span class="nav-text">2.3. 环和有向无环图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DAG-检测算法"><span class="nav-text">DAG 检测算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓扑排序"><span class="nav-text">拓扑排序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-强连通性"><span class="nav-text">2.4. 强连通性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-最小生成树"><span class="nav-text">3. 最小生成树</span></a></li></ol></div>
             
 
           </div>
@@ -797,7 +863,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">24.2k</span>
+    <span title="Site words total count">26k</span>
   
 </div>
 
