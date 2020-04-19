@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="notes,Ad-Hoc," />
+  <meta name="keywords" content="Ad-Hoc,notes," />
 
 
 
@@ -87,7 +87,7 @@
 
 
 <meta name="description" content="路，径之大者。由，从也。  路由，即建立、选择与遵循路径。在网络中，路由就是分组从源节点到目的节点时，决定端到端路径的网络范围的进程。路由工作在 OSI 参考模型的第三层——网络层，它解决了信息传递时的路径选择问题。">
-<meta name="keywords" content="notes,Ad-Hoc">
+<meta name="keywords" content="Ad-Hoc,notes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="无线自组织网络路由协议">
 <meta property="og:url" content="https://jonathan1214.github.io/2020/04/adhoc-routing-protocol/index.html">
@@ -106,7 +106,7 @@
 <meta property="og:image" content="https://jonathan1214.github.io/2020/04/adhoc-routing-protocol/dsr_rerr_format.png">
 <meta property="og:image" content="https://jonathan1214.github.io/2020/04/adhoc-routing-protocol/rerr_example.png">
 <meta property="og:image" content="https://jonathan1214.github.io/2020/04/adhoc-routing-protocol/proactive_reactive_route.png">
-<meta property="og:updated_time" content="2020-04-17T14:18:24.100Z">
+<meta property="og:updated_time" content="2020-04-19T14:01:38.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="无线自组织网络路由协议">
 <meta name="twitter:description" content="路，径之大者。由，从也。  路由，即建立、选择与遵循路径。在网络中，路由就是分组从源节点到目的节点时，决定端到端路径的网络范围的进程。路由工作在 OSI 参考模型的第三层——网络层，它解决了信息传递时的路径选择问题。">
@@ -375,8 +375,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-04-17T22:18:24+08:00">
-                2020-04-17
+              <time title="更新于" itemprop="dateModified" datetime="2020-04-19T22:01:38+08:00">
+                2020-04-19
               </time>
             
           </span>
@@ -440,7 +440,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5.9k
+                  8k
                 </span>
               
 
@@ -456,7 +456,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  20
+                  27
                 </span>
               
             </div>
@@ -650,8 +650,8 @@
 </ul>
 <h2 id="4-按需路由协议"><a href="#4-按需路由协议" class="headerlink" title="4. 按需路由协议"></a>4. 按需路由协议</h2><p>介绍完主动路由协议，我们再来看看按需路由协议。</p>
 <p>当需要一条从源节点到目的节点的路径进行数据发送时才查找路由。节点并不保存整个网络的及时准确的路由信息。当源节点要向目的节点发送报文时，源节点在网络中发起路由查找过程，找到相应的路由后，才开始发送报文。也被称为后验式。</p>
-<h3 id="4-1-动态-DSR-协议"><a href="#4-1-动态-DSR-协议" class="headerlink" title="4.1. 动态 DSR 协议"></a>4.1. 动态 DSR 协议</h3><p>DSDV 是最早采用<span style="color:red">按需路由</span>思想的协议，它采用了<span style="color:red">源路由</span>的路由机制，在每一个分组的头部都携带整条路由的信息，路由器按照该路由纪录来转发分组。</p>
-<p>DSR协议使用源路由，采用Cache（缓冲器）存放路由信息，且中间节点不必存储转发分组所需的路由信息，网络开销较少，却因此存在陈旧路由。</p>
+<h3 id="4-1-动态-DSR-协议"><a href="#4-1-动态-DSR-协议" class="headerlink" title="4.1. 动态 DSR 协议"></a>4.1. 动态 DSR 协议</h3><p>DSR 是最早采用<span style="color:red">按需路由</span>思想的协议，它采用了<span style="color:red">源路由</span>的路由机制，在每一个分组的头部都携带整条路由的信息，路由器按照该路由纪录来转发分组。</p>
+<p>DSR 协议使用源路由，采用 Cache（缓冲器）存放路由信息，且中间节点不必存储转发分组所需的路由信息，网络开销较少，却因此存在陈旧路由。</p>
 <h4 id="4-1-1-路由发现"><a href="#4-1-1-路由发现" class="headerlink" title="4.1.1. 路由发现"></a>4.1.1. 路由发现</h4><p>当一个节点欲发送数据到目的节点时，它首先查询路由缓冲器是否有到目的节点的路由。如果有，则按此路由发送数据；如果没有，源节点就开始启动路由发现程序。路由发现过程中使用<span style="color:red">洪泛路由</span>（Flooding Routing）。</p>
 <p>当节点 S 需要向节点 D 发送数据，但不知到节点 D 的路由于是节点 S 就开始路由发现过程。源节点 S 洪泛『路由请求』分组 Route Request(RREQ)，每个请求分组通过序列号和源节点 S 标识唯一确定。</p>
 <h5 id="路由请求"><a href="#路由请求" class="headerlink" title="路由请求"></a>路由请求</h5><p>源节点向邻居节点广播路由请求（RREQ）消息，RREQ 的格式及含义如下所示。</p>
@@ -684,7 +684,7 @@
 <p>其中 Node1 表示链路出错的一端节点 ID 号，Node2 是链路出错的另一端节点 ID 号，Did 表示目的节点 ID 或遇到链路出错的数据分组的源节点 ID ，Rerr route 是路由出错分组所要经过的路由（节点序号）。</p>
 <p>下图展示了一个例子，从中我们可以看出 RERR 是如何工作的。</p>
 <img src="/2020/04/adhoc-routing-protocol/rerr_example.png" title="RERR 示例">
-<h4 id="4-1-3-DSR-总结"><a href="#4-1-3-DSR-总结" class="headerlink" title="4.1.3 DSR 总结"></a>4.1.3 DSR 总结</h4><p>从上面的描述中，我们不难发现 DSR 协议的特点，这里再对其进行一个总结，它具有如下优点：</p>
+<h4 id="4-1-3-DSR-总结"><a href="#4-1-3-DSR-总结" class="headerlink" title="4.1.3. DSR 总结"></a>4.1.3. DSR 总结</h4><p>从上面的描述中，我们不难发现 DSR 协议的特点，这里再对其进行一个总结，它具有如下优点：</p>
 <ul>
 <li>采用源路由机制、避免了路由环路；</li>
 <li>它是一种按需路由协议，只有当两个节点间进行通信时，才会缓存路由纪录；</li>
@@ -699,7 +699,63 @@
 <li>当源节点发送路由请求分组 RREQ 时，可能会收到多个节点缓<br>存的到达目的节点的路由信息，引起竞争。解决办法：若某节<br>点听到其它节点发出的 RREQ 分组中路由信息含有较少跳数，<br>此节点停止发送。</li>
 <li>当源节点发送路由请求分组 RREQ 时，可能会收到多个节点缓<br>存的到达目的节点的路由信息，但有些路由信息可能是过时的。解决办法：引入定时器、链路断的情况应进行全网洪泛。</li>
 </ul>
-<h3 id="4-2-AODV-协议"><a href="#4-2-AODV-协议" class="headerlink" title="4.2. AODV 协议"></a>4.2. AODV 协议</h3><h2 id="5-主动路由协议与按需路由协议关系"><a href="#5-主动路由协议与按需路由协议关系" class="headerlink" title="5. 主动路由协议与按需路由协议关系"></a>5. 主动路由协议与按需路由协议关系</h2><img src="/2020/04/adhoc-routing-protocol/proactive_reactive_route.png" title="主动路由和按需路由">
+<h3 id="4-2-AODV-协议"><a href="#4-2-AODV-协议" class="headerlink" title="4.2. AODV 协议"></a>4.2. AODV 协议</h3><p>AODV，Ad Hoc on demand distance vector，按需距离矢量路由协议。</p>
+<p>AODV 在 DSR 的基础上进行了一些改进，在 AODV 中，参与通信过程的节点需要维护路由表，那些不再路径上的节点不保存路由信息，数据分组不需要包含从源到目的节点的路由信息，即采用逐跳转发分组方式。</p>
+<p>AODV路由协议是为Ad hoc网络节点设计的，它提供对动态链路状况的快速自适应、处理开销和存储开销低、路由开销低、确定到达 Ad Hoc 网络内目的节点的单目标传输路由。</p>
+<p>AODV 有四种基本的报文：RREQ（路由请求帧），RREP（路由应答帧），RERR（路由错误帧），HELLO（活跃路由链路监测帧）。</p>
+<h4 id="4-2-1-AODV-路由表"><a href="#4-2-1-AODV-路由表" class="headerlink" title="4.2.1 AODV 路由表"></a>4.2.1 AODV 路由表</h4><p>路由请求发送 RREQ 过程建立反向路由表，转发 RREP 时建立正向路由表，路由维护时更新路由表。路由表主要构成如下：</p>
+<ol>
+<li>目的节点地址 n_dst：用于标志使用此路由的最终目的节点，决定了数据分组转<br> 发方向。</li>
+<li>目的节点序列号 rt_seqno：反映此路由的新鲜度，一般序列号越大路由越新鲜，<br> 这是保证开环的重要措施，在路由发现和路由应答更新路由时需要进行序列号的<br> 比较。</li>
+<li>路由状态标志 rt_flags(有效、无效、正在修复等)：反映此路由目前的状态，主要<br> 用于告知数据分组经过此节点的时候处理方式。</li>
+<li>网络接口 rt_interface：移动节点访问信道的接口</li>
+<li>跳数 rt_hops：到达目的节点所需要的跳数。</li>
+<li>下一跳rt_nexthop：：数据分组经过本节点之后，数据分组将被直接转发的中继<br>节点，通常下一跳节点应该出现在当前节点的邻节点列表中。</li>
+<li>前驱节点列表 rt_pcliSt：使用这条路由的所有直接前驱节点列表。</li>
+<li>路由生命期 rt_expire：路由有效的生命期，在数据分组转发使用当前路由时会更<br>新路由的有效生命期，当较长时间不使用此路由时，此路由的有效期将会过期，<br>在路由管理时将会使路由失效。</li>
+</ol>
+<p>网络中的每个<strong>节点维护自身的序列号</strong>，它表征了路由的新旧。节点在发生路由请求时，会先增加自己的序列号，再发送，发送的 RREQ 中会携带自己的序列号。目的节点只接受最新的序列号，这样一来就可以避免路由环路问题。</p>
+<h4 id="4-2-2-路由建立"><a href="#4-2-2-路由建立" class="headerlink" title="4.2.2. 路由建立"></a>4.2.2. 路由建立</h4><p>简单概括成以下几个过程：</p>
+<ul>
+<li>源节点广播路由请求帧 RREQ；</li>
+<li>中间节点转发 RREQ，转发过程类似 DSR 协议；</li>
+<li>当目标节点接到 RREQ 分组时，它回应 RREP 分组，RREP 沿着方向路径传输。</li>
+</ul>
+<p>源节点 S 打算向目的节点 D 发送一个数据包，在路由表中未查找到能到达D的路由，向其邻居广播 RREQ 分组用于路由发现。为避免节点重复接收处理 RREQ 消息，用源节点和路由请求编号的组合唯一标识一个 RREQ 请求。</p>
+<p>接收到RREQ的节点作如下处理：中间节点更新各自到源节点S的路由表，记录并维护指向源节点的反向路由；设置到源节点路由表的『过时定时器』。</p>
+<p>如果收到 RREQ 的节点不是目的节点，更新 RREQ 分组（将 RREQ中 的信宿序列号设为节点收到的该信宿 D 相关的最大序列号，跳计数加1），并转发更新后的 RREQ 分组。如果在『路由发现定时』内已收到一个具有相同标识的RREQ分组，则抛弃该分组，不作任何处理。</p>
+<p>如果满足如下条件之一，则节点产生 RREP，并单播发送到源节点 S，否则继续广播 RREQ，且表项的序列号大于 RREQ 中的信宿序列号。</p>
+<ul>
+<li>该节点就是目的节点D，；</li>
+<li>节点的路由表中有到目的节点D的活动表项。</li>
+</ul>
+<p>转发 RREP 的中间节点创建『前向路由表』并更新，记录转发路由的下游节点、跳数、生存时间、目的序列号等内容；将跳计数加 1，并根据先前记录的反向路由将 RREP 报文转发给上游节点。上游节点收到RREP后按照相同规则更新路由表并转发 RREP，直至源节点 S。</p>
+<h4 id="4-2-3-路由维护"><a href="#4-2-3-路由维护" class="headerlink" title="4.2.3. 路由维护"></a>4.2.3. 路由维护</h4><p>AODV的路由也同样存在过期问题，因此参与通信的节点，需要维护路由表。通过设一个定时器，当超过设定时间时，则认为路由表中的反向路径信息无效。</p>
+<p>AODV链路状态检测机制，活跃路径节点以HELLO_INTERVAL为周期发送HELLO，用来保持联系，当在设定的时间内，如果没有来自路由表中的前向路径的HELLO，则认为前向路径信息失效（即使路由信息是可用的）。</p>
+<p>与活动路由无关的节点移动，并不影响信源到信宿的寻径。</p>
+<p>如果信源节点移动导致路由不可用，则由信源重新发起路由发现的过程。</p>
+<p>当由于信宿节点或活动路由的中间节点移动等原因导致链路中断链路的『上游节点』主动发送一个 RERR，该 RERR 的信宿序列号大于其所储存的信宿序列号，并传播到所有的邻居，邻居节点会继续转发 RERR 分组。其他节点收到RERR分组后，更新路由表（将包含e的链路设为无效），并继续转发RERR分组。该过程不断重复，直至所有的相关节点被通告到。</p>
+<p>中间节点收到发送到目的节点的数据包时，如果发现到达目的节点的路由失效，该中间节点可以缓存该数据包，并发起到目的节点的路由请求，等待路由重新建立后再据需发送数据包。</p>
+<h4 id="4-2-4-AODV-总结"><a href="#4-2-4-AODV-总结" class="headerlink" title="4.2.4. AODV 总结"></a>4.2.4. AODV 总结</h4><p>优点：传统的距离向量路由机制；支持中间节点应答，能使源节点迅速获得路由，有效减少了广播数，但存在过时路由问题；节点只存储需要的路由，减少了内存的需要和不必要的复制；快速响应路径上的断链，避免路由环路；具有网络的可扩充性；</p>
+<p>缺点是路由建立时延较大。</p>
+<h2 id="5-主动路由协议与按需路由协议"><a href="#5-主动路由协议与按需路由协议" class="headerlink" title="5. 主动路由协议与按需路由协议"></a>5. 主动路由协议与按需路由协议</h2><img src="/2020/04/adhoc-routing-protocol/proactive_reactive_route.png" title="主动路由和按需路由">
+<p>主动路由协议是按路由发现和建立路由方式的角度分类下的一种路由协议，也叫表驱动路由协议，与之相对的是按需路由协议，前面介绍的两种路由协议 OSPF、DSDV 均属于主动路由协议。</p>
+<p>主动路由协议的特点：</p>
+<ul>
+<li>传统的分布式最短路径路由协议，基于链路状态或者距离向量，所有节点连续更新『可达』信息；</li>
+<li>每个节点维护到网络中所有节点的路由；</li>
+<li>所有路由都已经存在并且随时可用；</li>
+<li>路由请求的延迟低；</li>
+<li>路由开销高。</li>
+</ul>
+<p>按需路由特点：</p>
+<ul>
+<li>在源端需要时候通过路由发现过程来确定路由控制信息采用洪泛（flooding）方式，路由请求延迟高，路由开销低；</li>
+<li>两种实现技术：源路由（报文头携带完整的路由信息）和逐跳路由（类似现有的Internet路由）。</li>
+</ul>
+<p>由于他们建立的方式不同，在应对不同的场合他们会有不同的效率表现。主动协议因全程维护所有的路由而具备低延迟；按需协议因只在需要时才发现所需路由而导致高延迟。主动协议因连续更新路由可能导致高开销；按需协议因只在需要时才维护路由而具备低开销。</p>
+<p>具体选择哪种类型的路由取决于业务负载和节点的移动模式（是否频繁移动）。</p>
+
       
     </div>
     
@@ -734,9 +790,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/notes/" rel="tag"><i class="fa fa-tag"></i> notes</a>
-          
             <a href="/tags/Ad-Hoc/" rel="tag"><i class="fa fa-tag"></i> Ad-Hoc</a>
+          
+            <a href="/tags/notes/" rel="tag"><i class="fa fa-tag"></i> notes</a>
           
         </div>
       
@@ -758,6 +814,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/stallite-communications-notes/" rel="prev" title="Notes of Satellite Communications">
+                Notes of Satellite Communications <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -843,7 +903,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -914,7 +974,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-路由协议引论"><span class="nav-text">1. 路由协议引论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-传统路由"><span class="nav-text">1.1. 传统路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Ad-Hoc-网络中的路由"><span class="nav-text">1.2. Ad-Hoc 网络中的路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-路由的分类"><span class="nav-text">1.3. 路由的分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-链路状态与距离矢量路由协议"><span class="nav-text">2. 链路状态与距离矢量路由协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-链路状态路由协议"><span class="nav-text">2.1. 链路状态路由协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#邻居表的建立"><span class="nav-text">邻居表的建立</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓扑表的建立"><span class="nav-text">拓扑表的建立</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算路由"><span class="nav-text">计算路由</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-距离矢量路由协议"><span class="nav-text">2.2. 距离矢量路由协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-主动路由协议"><span class="nav-text">3. 主动路由协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-DSDV-工作原理"><span class="nav-text">3.1. DSDV 工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#路由信息格式"><span class="nav-text">路由信息格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#信息公告"><span class="nav-text">信息公告</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DSDV-的优缺点"><span class="nav-text">DSDV 的优缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-text">缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-按需路由协议"><span class="nav-text">4. 按需路由协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-动态-DSR-协议"><span class="nav-text">4.1. 动态 DSR 协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1-路由发现"><span class="nav-text">4.1.1. 路由发现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#路由请求"><span class="nav-text">路由请求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#重复检测"><span class="nav-text">重复检测</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#路由应答"><span class="nav-text">路由应答</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获得新路由的方式"><span class="nav-text">获得新路由的方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#路由缓存"><span class="nav-text">路由缓存</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-2-路由维护"><span class="nav-text">4.1.2. 路由维护</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#路由缓存的优化"><span class="nav-text">路由缓存的优化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#错误路由缓存"><span class="nav-text">错误路由缓存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#RREP-风暴"><span class="nav-text">RREP 风暴</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#路由故障分组-RERR"><span class="nav-text">路由故障分组 RERR</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-3-DSR-总结"><span class="nav-text">4.1.3 DSR 总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-AODV-协议"><span class="nav-text">4.2. AODV 协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-主动路由协议与按需路由协议关系"><span class="nav-text">5. 主动路由协议与按需路由协议关系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-路由协议引论"><span class="nav-text">1. 路由协议引论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-传统路由"><span class="nav-text">1.1. 传统路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Ad-Hoc-网络中的路由"><span class="nav-text">1.2. Ad-Hoc 网络中的路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-路由的分类"><span class="nav-text">1.3. 路由的分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-链路状态与距离矢量路由协议"><span class="nav-text">2. 链路状态与距离矢量路由协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-链路状态路由协议"><span class="nav-text">2.1. 链路状态路由协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#邻居表的建立"><span class="nav-text">邻居表的建立</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓扑表的建立"><span class="nav-text">拓扑表的建立</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算路由"><span class="nav-text">计算路由</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-距离矢量路由协议"><span class="nav-text">2.2. 距离矢量路由协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-主动路由协议"><span class="nav-text">3. 主动路由协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-DSDV-工作原理"><span class="nav-text">3.1. DSDV 工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#路由信息格式"><span class="nav-text">路由信息格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#信息公告"><span class="nav-text">信息公告</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DSDV-的优缺点"><span class="nav-text">DSDV 的优缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-text">缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-按需路由协议"><span class="nav-text">4. 按需路由协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-动态-DSR-协议"><span class="nav-text">4.1. 动态 DSR 协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1-路由发现"><span class="nav-text">4.1.1. 路由发现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#路由请求"><span class="nav-text">路由请求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#重复检测"><span class="nav-text">重复检测</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#路由应答"><span class="nav-text">路由应答</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获得新路由的方式"><span class="nav-text">获得新路由的方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#路由缓存"><span class="nav-text">路由缓存</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-2-路由维护"><span class="nav-text">4.1.2. 路由维护</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#路由缓存的优化"><span class="nav-text">路由缓存的优化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#错误路由缓存"><span class="nav-text">错误路由缓存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#RREP-风暴"><span class="nav-text">RREP 风暴</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#路由故障分组-RERR"><span class="nav-text">路由故障分组 RERR</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-3-DSR-总结"><span class="nav-text">4.1.3. DSR 总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-AODV-协议"><span class="nav-text">4.2. AODV 协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1-AODV-路由表"><span class="nav-text">4.2.1 AODV 路由表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2-路由建立"><span class="nav-text">4.2.2. 路由建立</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-3-路由维护"><span class="nav-text">4.2.3. 路由维护</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-4-AODV-总结"><span class="nav-text">4.2.4. AODV 总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-主动路由协议与按需路由协议"><span class="nav-text">5. 主动路由协议与按需路由协议</span></a></li></ol></div>
             
 
           </div>
@@ -955,7 +1015,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">32.7k</span>
+    <span title="Site words total count">35.1k</span>
   
 </div>
 
@@ -1497,26 +1557,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
