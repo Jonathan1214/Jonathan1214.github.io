@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="算法,C/C++,链表,LeetCode," />
 
 
 
@@ -86,14 +86,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="https://jonathan1214.github.io/categories/index.html">
+<meta name="description" content="题目给定一个单链表，两两交换其中相邻的节点，并返回交换后的链表。 示例给定 1-&amp;gt;2-&amp;gt;3-&amp;gt;4，返回 2-&amp;gt;1-&amp;gt;4-&amp;gt;3。">
+<meta name="keywords" content="算法,C&#x2F;C++,链表,LeetCode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode | 24 两两交换链表中的节点">
+<meta property="og:url" content="https://jonathan1214.github.io/2020/05/swap-pairs-in-LinkdedList/index.html">
 <meta property="og:site_name" content="dsfds&#39; blog">
+<meta property="og:description" content="题目给定一个单链表，两两交换其中相邻的节点，并返回交换后的链表。 示例给定 1-&amp;gt;2-&amp;gt;3-&amp;gt;4，返回 2-&amp;gt;1-&amp;gt;4-&amp;gt;3。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-07T06:47:14.028Z">
+<meta property="og:updated_time" content="2020-05-05T13:11:02.935Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="LeetCode | 24 两两交换链表中的节点">
+<meta name="twitter:description" content="题目给定一个单链表，两两交换其中相邻的节点，并返回交换后的链表。 示例给定 1-&amp;gt;2-&amp;gt;3-&amp;gt;4，返回 2-&amp;gt;1-&amp;gt;4-&amp;gt;3。">
 
 
 
@@ -123,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="https://jonathan1214.github.io/categories/"/>
+  <link rel="canonical" href="https://jonathan1214.github.io/2020/05/swap-pairs-in-LinkdedList/"/>
 
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -132,7 +136,7 @@
 
 
 
-  <title>categories | dsfds' blog</title>
+  <title>LeetCode | 24 两两交换链表中的节点 | dsfds' blog</title>
   
 
 
@@ -301,40 +305,266 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2020/05/swap-pairs-in-LinkdedList/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="dsfds">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dsfds' blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 2 个分类
+          <h1 class="post-title" itemprop="name headline">LeetCode | 24 两两交换链表中的节点</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-05T20:25:38+08:00">
+                2020-05-05
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-05-05T21:11:02+08:00">
+                2020-05-05
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/swap-pairs-in-LinkdedList/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/swap-pairs-in-LinkdedList/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  333
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
             </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/学习/">学习</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">8</span></li></ul>
-            </div>
-          </div>
-        
-      </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个单链表，两两交换其中相邻的节点，并返回交换后的链表。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>给定 <code>1-&gt;2-&gt;3-&gt;4</code>，返回 <code>2-&gt;1-&gt;4-&gt;3</code>。<a id="more"></a></p>
+<p>说明：</p>
+<ul>
+<li>算法只能使用常数的额外空间；</li>
+<li>不能只是单纯的交换节点内部的值，而是需要实际的进行节点交换。</li>
+</ul>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>这个题目非常简单，简单叙述下思路如下：</p>
+<ol>
+<li>链表为空或只有一个节点时时直接返回头节点；</li>
+<li><code>p1</code> 指向第一个节点，<code>p2</code> 指向第二个节点，进行交换；交换之后 <code>p2</code> 成为头节点，更新头节点；<code>p1</code> 指向第二个节点；</li>
+<li>现在 <code>p1</code> 成为第二个 <code>pair</code> 的头节点；</li>
+<li>当 <code>p1-&gt;next</code>和 <code>p1-&gt;next-&gt;next</code> 不为空时执行：<ul>
+<li>交换 <code>p1-&gt;next</code>和 <code>p1-&gt;next-&gt;next</code></li>
+<li><code>p1 = p1-&gt;next-&gt;next</code></li>
+</ul>
+</li>
+</ol>
+<p>代码如下：</p>
+<figure class="highlight c"><figcaption><span>LeetCodeSolution24.c</span><a href="/downloads/code/LeetCodeSolution24.c">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 链表节点定义</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>{</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> *<span class="title">next</span>;</span></span><br><span class="line">} ListNode;</span><br><span class="line"></span><br><span class="line"><span class="function">ListNode *<span class="title">swapPairs</span><span class="params">(ListNode *head)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="literal">NULL</span> || head-&gt;next == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    ListNode *p1, *p2;</span><br><span class="line">    p1 = head;</span><br><span class="line">    p2 = p1-&gt;next;</span><br><span class="line">    <span class="comment">// 第一次交换</span></span><br><span class="line">    p1-&gt;next = p2-&gt;next;</span><br><span class="line">    p2-&gt;next = p1;</span><br><span class="line">    head = p2;</span><br><span class="line">    <span class="comment">// 其他</span></span><br><span class="line">    <span class="keyword">while</span> (p1-&gt;next &amp;&amp; p1-&gt;next-&gt;next)</span><br><span class="line">    {</span><br><span class="line">        exch(p1, p1-&gt;next);</span><br><span class="line">        p1 = p1-&gt;next-&gt;next;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exch</span><span class="params">(ListNode *p1, ListNode *p2)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    p1-&gt;next = p2-&gt;next;</span><br><span class="line">    p2-&gt;next = p2-&gt;next-&gt;next;</span><br><span class="line">    p1-&gt;next-&gt;next = p2;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    dsfds
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://jonathan1214.github.io/2020/05/swap-pairs-in-LinkdedList/" title="LeetCode | 24 两两交换链表中的节点">https://jonathan1214.github.io/2020/05/swap-pairs-in-LinkdedList/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          
+            <a href="/tags/C-C/" rel="tag"><i class="fa fa-tag"></i> C/C++</a>
+          
+            <a href="/tags/链表/" rel="tag"><i class="fa fa-tag"></i> 链表</a>
+          
+            <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> LeetCode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/delete-numN-node-at-reverse-order-in-list/" rel="next" title="LeetCode | 19 删除链表的倒数第N个节点">
+                <i class="fa fa-chevron-left"></i> LeetCode | 19 删除链表的倒数第N个节点
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -372,8 +602,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -453,6 +692,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例"><span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-text">题解</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

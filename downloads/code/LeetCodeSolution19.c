@@ -1,7 +1,7 @@
 // 链表节点定义
-typedef struct {
+typedef struct ListNode {
     int val;
-    ListNode *next;
+    struct ListNode *next;
 } ListNode;
 
 ListNode *delete(ListNode *head, int n) {
@@ -18,6 +18,8 @@ ListNode *delete(ListNode *head, int n) {
     // 删除节点
     ListNode *tmp = p2->next;
     p2->next = tmp->next;
+    if (tmp == head)
+        head = tmp->next;
     free(tmp); // 释放
     return head;
 }
