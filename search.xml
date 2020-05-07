@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>一点思考</title>
+    <url>/2018/04/A_little_thinking/</url>
+    <content><![CDATA[<p>时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>思考</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>记录科创中期答辩</title>
     <url>/2018/04/My_first_lose/</url>
     <content><![CDATA[<p>今天下午的科创中期答辩我们组当掉了，说实话我们什么都没做，单纯的想敷衍过去，很不幸，老师没有让我们通过，4月29号要再来一次，希望可以通过吧。<br><a id="more"></a><br>关于这次答辩，我还是有些东西想记下来的：</p>
@@ -94,6 +106,38 @@
       </tags>
   </entry>
   <entry>
+    <title>union-find算法的原理及实现</title>
+    <url>/2020/03/union-find/</url>
+    <content><![CDATA[<p>在计算机网络中，对于任意两个节点，可以在其间构建一条连接建立通信，这样做没有问题，但是在整个网络中都这么做会导致需要建立的连接非常多，容易计算得到<code>N</code>个节点的网络需要的连接数<code>N(N-1)/2</code>，这增加了网络的负担，实现起来也不容易，有什么办法改进呢？六度空间理论大家都知道，说的是最多通过六个人，我们可以和世界上任何人建立联系，那么如何知道两个人之间是否可以建立联系呢？这两个问题其实都属于连通性问题，可以使用<code>union-find</code>算法解决，步骤如下：</p>
+<h2 id="1-数据准备"><a href="#1-数据准备" class="headerlink" title="1. 数据准备"></a>1. 数据准备</h2><p><code>p</code>和<code>q</code>表示两个抽象的节点，可以用整数表示，如果『p，q 是相连的』，则意味着：</p>
+<ul>
+<li>自反性：<code>p</code>和<code>p</code>是相连的。</li>
+<li>对称性：如果<code>p</code>和<code>q</code>相连，则<code>q</code>和<code>p</code>也是相连的。</li>
+<li>传递性：如果<code>p</code>和<code>q</code>相连，<code>q</code>和<code>r</code>相连，则<code>p</code>和<code>r</code>也相连。</li>
+</ul>
+<p>我们可以用一个数组表示所有的节点，数组的每个位置表示一个节点，每个位置的值表示这个节点所在分量的标识符，初始化的时候每个节点的标识符都是其本身，如下所示：<br><a id="more"></a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">UF</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N]; <span class="comment">// 初始化节点数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h2><h3 id="quick-find"><a href="#quick-find" class="headerlink" title="quick-find"></a>quick-find</h3><p>在<code>union-find</code>算法中，有两个目标需要实现：判断两个节点是否连通和连接两个节点的。一种简单的思路是这样的，规定同属一个连通分量的标识符相同，比如：节点<code>0</code>，<code>1</code>和<code>2</code>是连通的，我们选择<code>1</code>为标识符，那么<code>a[0]=a[1]=a[2]=1</code>。这样做判断两个节点是否连通就可以在常数时间完成，基于此规则我们可以实现<code>quick-find</code>算法，但是这样做<code>union</code>的成本就会上升，每次<code>union</code>，需要遍历所有的节点，并对合适节点的标识符进行改变，这是个平方级别的算法，如下所示。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isConnected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> find(p)==find(q);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123; <span class="keyword">return</span> a[p]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pp = find(p);   <span class="comment">// p 节点的标识符</span></span><br><span class="line">    <span class="keyword">int</span> qq = find(q);   <span class="comment">// q 节点的标识符</span></span><br><span class="line">    <span class="keyword">if</span> (pp == qq) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">// 将 pp 标识符全部改成 qq</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++)</span><br><span class="line">        <span class="keyword">if</span> (a[i] == pp) a[i] = qq;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="quick-union"><a href="#quick-union" class="headerlink" title="quick-union"></a>quick-union</h3><p>quick-find算法中，union的成本是平方级别的，其原因在于每次union需要遍历全部的节点，可以进行一些调整，得到改进，这就是quick-union算法。具体实现：在同一类别的中的节点，我们不再让所有节点保存相同的标识符，而是在节点中保持其父节点，类似一棵树，不过是向上走的，子节点指向父节点，根节点保存的是他自己，这样一来，进行union操作时，至于遍历找到根节点，然后让其中一个根节点指向另一个根节点即可，进行find操作时，只需遍历找到根节点即指向自身的节点。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p];</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="comment">// pRoot 节点指向 Qroot</span></span><br><span class="line">    a[pRoot] = qRoot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="加权-quick-union"><a href="#加权-quick-union" class="headerlink" title="加权 quick-union"></a>加权 quick-union</h3><p>这样做没什么问题，但是在最坏情况下，节点是依次相连的，串成一串，这会导致算法的性能下降，我们对其稍加改进，每次union时，都把节点数小的那一组连接到节点数大的那一组，这就是加权的quick-union算法。实现这个算法我们需要一个数组保存每个节点下节点的数目，对根节点而言，这个数就是它所在组的大小。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">UF(<span class="keyword">int</span> N) &#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N];     <span class="comment">// 初始化节点数组</span></span><br><span class="line">    sz = <span class="keyword">new</span> <span class="keyword">int</span>[N];    <span class="comment">// 保存节点数目</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        sz[i] = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// find 算法没有改变</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="keyword">if</span> (pRoot == qRoot) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (sz[pRoot] &gt; sz[qRoot]) &#123; <span class="comment">// p 所在组较大</span></span><br><span class="line">        a[qRoot] = pRoot; <span class="comment">// 将q连接到q上</span></span><br><span class="line">        sz[pRoot] += sz[qRoot]; <span class="comment">// 更新 pRoot 下的节点数</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;    <span class="comment">// q 所在组较大</span></span><br><span class="line">        a[pRoot] = qRoot;</span><br><span class="line">        sz[qRoot] += sz[pRoot];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="路径压缩"><a href="#路径压缩" class="headerlink" title="路径压缩"></a>路径压缩</h3><p>还有一种路径压缩算法可以改进quick-union，即每次查找时，都把途径的节点指向根节点，这样均摊下来的find成本比较小，可以证明，路径压缩的加权quick-union算法是实现union-find最快的算法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = p, t;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p]; <span class="comment">// 找到根节点</span></span><br><span class="line">    <span class="keyword">while</span> (x != p) &#123; <span class="comment">// 直到到达根节点</span></span><br><span class="line">        t = a[x];   <span class="comment">// 保存当前节点的父节点</span></span><br><span class="line">        a[x] = p;   <span class="comment">// 当前节点直接连接到根节点</span></span><br><span class="line">        x = t;      <span class="comment">// 移动到当前节点的父节点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// union 算法不变</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>回到开头的那两个问题，有了union-find算法，我们来尝试解决它们。对于网络中节点是否需要构建新的连接，抽象出网络的节点构建起<code>UF</code>后，执行<code>isConnected()</code>即可判断是否需要建立新的连接，对于两个人是否可以建立连接的问题，我们用同样的方法也可以解决，但要是想通过最少的中间人就认识一个人，该怎么做呢，这又是另外一个问题了。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>union-find</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>记录高频硬件课程设计</title>
     <url>/2019/12/record-of-high-frequency-course-design/</url>
     <content><![CDATA[<p>本文绝大部分内容是在19年12月29日写的，我记得很清楚，那天是周日上午，我没有为即将到来的通原考试而复习，而是选择去写点东西记录几天前刚刚结束的高频课设，这是一次很难忘的经历，有痛苦也有快乐，有想过放弃但还是坚持了下来，感谢自己和队友们。现在是2020年3月15日，本该在学校度过周日的我，和所有的大学生一样，因为肺炎疫情只能在家里学习，我没什么学习状态，有些无聊，因此整理博客，把这篇去年的记录整理整理，发到GitHubBlog上，留作纪念，发表日期还是使用去年写这篇文章的日子。<br><a id="more"></a></p>
@@ -124,18 +168,6 @@
       </categories>
       <tags>
         <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一点思考</title>
-    <url>/2018/04/A_little_thinking/</url>
-    <content><![CDATA[<p>时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
@@ -184,35 +216,23 @@
       </tags>
   </entry>
   <entry>
-    <title>union-find算法的原理及实现</title>
-    <url>/2020/03/union-find/</url>
-    <content><![CDATA[<p>在计算机网络中，对于任意两个节点，可以在其间构建一条连接建立通信，这样做没有问题，但是在整个网络中都这么做会导致需要建立的连接非常多，容易计算得到<code>N</code>个节点的网络需要的连接数<code>N(N-1)/2</code>，这增加了网络的负担，实现起来也不容易，有什么办法改进呢？六度空间理论大家都知道，说的是最多通过六个人，我们可以和世界上任何人建立联系，那么如何知道两个人之间是否可以建立联系呢？这两个问题其实都属于连通性问题，可以使用<code>union-find</code>算法解决，步骤如下：</p>
-<h2 id="1-数据准备"><a href="#1-数据准备" class="headerlink" title="1. 数据准备"></a>1. 数据准备</h2><p><code>p</code>和<code>q</code>表示两个抽象的节点，可以用整数表示，如果『p，q 是相连的』，则意味着：</p>
-<ul>
-<li>自反性：<code>p</code>和<code>p</code>是相连的。</li>
-<li>对称性：如果<code>p</code>和<code>q</code>相连，则<code>q</code>和<code>p</code>也是相连的。</li>
-<li>传递性：如果<code>p</code>和<code>q</code>相连，<code>q</code>和<code>r</code>相连，则<code>p</code>和<code>r</code>也相连。</li>
-</ul>
-<p>我们可以用一个数组表示所有的节点，数组的每个位置表示一个节点，每个位置的值表示这个节点所在分量的标识符，初始化的时候每个节点的标识符都是其本身，如下所示：<br><a id="more"></a></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">UF</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N]; <span class="comment">// 初始化节点数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h2><h3 id="quick-find"><a href="#quick-find" class="headerlink" title="quick-find"></a>quick-find</h3><p>在<code>union-find</code>算法中，有两个目标需要实现：判断两个节点是否连通和连接两个节点的。一种简单的思路是这样的，规定同属一个连通分量的标识符相同，比如：节点<code>0</code>，<code>1</code>和<code>2</code>是连通的，我们选择<code>1</code>为标识符，那么<code>a[0]=a[1]=a[2]=1</code>。这样做判断两个节点是否连通就可以在常数时间完成，基于此规则我们可以实现<code>quick-find</code>算法，但是这样做<code>union</code>的成本就会上升，每次<code>union</code>，需要遍历所有的节点，并对合适节点的标识符进行改变，这是个平方级别的算法，如下所示。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isConnected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> find(p)==find(q);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123; <span class="keyword">return</span> a[p]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pp = find(p);   <span class="comment">// p 节点的标识符</span></span><br><span class="line">    <span class="keyword">int</span> qq = find(q);   <span class="comment">// q 节点的标识符</span></span><br><span class="line">    <span class="keyword">if</span> (pp == qq) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">// 将 pp 标识符全部改成 qq</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++)</span><br><span class="line">        <span class="keyword">if</span> (a[i] == pp) a[i] = qq;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="quick-union"><a href="#quick-union" class="headerlink" title="quick-union"></a>quick-union</h3><p>quick-find算法中，union的成本是平方级别的，其原因在于每次union需要遍历全部的节点，可以进行一些调整，得到改进，这就是quick-union算法。具体实现：在同一类别的中的节点，我们不再让所有节点保存相同的标识符，而是在节点中保持其父节点，类似一棵树，不过是向上走的，子节点指向父节点，根节点保存的是他自己，这样一来，进行union操作时，至于遍历找到根节点，然后让其中一个根节点指向另一个根节点即可，进行find操作时，只需遍历找到根节点即指向自身的节点。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p];</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="comment">// pRoot 节点指向 Qroot</span></span><br><span class="line">    a[pRoot] = qRoot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="加权-quick-union"><a href="#加权-quick-union" class="headerlink" title="加权 quick-union"></a>加权 quick-union</h3><p>这样做没什么问题，但是在最坏情况下，节点是依次相连的，串成一串，这会导致算法的性能下降，我们对其稍加改进，每次union时，都把节点数小的那一组连接到节点数大的那一组，这就是加权的quick-union算法。实现这个算法我们需要一个数组保存每个节点下节点的数目，对根节点而言，这个数就是它所在组的大小。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">UF(<span class="keyword">int</span> N) &#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N];     <span class="comment">// 初始化节点数组</span></span><br><span class="line">    sz = <span class="keyword">new</span> <span class="keyword">int</span>[N];    <span class="comment">// 保存节点数目</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        sz[i] = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// find 算法没有改变</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="keyword">if</span> (pRoot == qRoot) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (sz[pRoot] &gt; sz[qRoot]) &#123; <span class="comment">// p 所在组较大</span></span><br><span class="line">        a[qRoot] = pRoot; <span class="comment">// 将q连接到q上</span></span><br><span class="line">        sz[pRoot] += sz[qRoot]; <span class="comment">// 更新 pRoot 下的节点数</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;    <span class="comment">// q 所在组较大</span></span><br><span class="line">        a[pRoot] = qRoot;</span><br><span class="line">        sz[qRoot] += sz[pRoot];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="路径压缩"><a href="#路径压缩" class="headerlink" title="路径压缩"></a>路径压缩</h3><p>还有一种路径压缩算法可以改进quick-union，即每次查找时，都把途径的节点指向根节点，这样均摊下来的find成本比较小，可以证明，路径压缩的加权quick-union算法是实现union-find最快的算法。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = p, t;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p]; <span class="comment">// 找到根节点</span></span><br><span class="line">    <span class="keyword">while</span> (x != p) &#123; <span class="comment">// 直到到达根节点</span></span><br><span class="line">        t = a[x];   <span class="comment">// 保存当前节点的父节点</span></span><br><span class="line">        a[x] = p;   <span class="comment">// 当前节点直接连接到根节点</span></span><br><span class="line">        x = t;      <span class="comment">// 移动到当前节点的父节点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// union 算法不变</span></span><br></pre></td></tr></table></figure>
+    <title>新学期的第一周</title>
+    <url>/2020/03/first-week-record-of-new-term/</url>
+    <content><![CDATA[<p></p><p align="center" class="img"><br>    <img src="/assets/img/2020/astonished_joey.jpg" alt="astonished_joey" width="750"><br>    <span align="center" style="color:#999">震惊的Joey</span></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><p></p></h2><p>不知不觉间大三已经过完一半，想起在过去的两年半中好像没有值得纪念的事，有点无可奈何，但要说没有发生那么一件在当时让我很有感触的事，当然也不可能，只是我以为自己的记忆会帮我保存那些真正重要的感觉，因此没有记录，但是这样的事怎么会有那么多呢？亲人故去、终有所成之类的记忆深刻的事不常发生，更多的是生活中有感触的小事，它们发生很触动我，但它们又是那么不起眼，不久后我就会忘记。过去的都过去了，不过现在我不想就让现在的它们被遗忘，我要尽可能地记录。<br><a id="more"></a></p>
+<p>新学期的第一周也就这么过去了，或者说新学期的第三周就这么过去了，因为疫情耽搁在家没法返校，导致前两周的电工实习没法线下上也没法在线上操作，因此前两周没课，所以这一周才算是我的新学期第一周，没有开始上课怎么能叫新学期呢？不管怎么算，这一周的的确确就这么过去了。</p>
+<h2 id="新学期的前三门课"><a href="#新学期的前三门课" class="headerlink" title="新学期的前三门课"></a>新学期的前三门课</h2><p>过去的一周里，我上了三门课：《计算机通信网络》、《无线自组织网络与应用》和《光通信网络》。每科两节课，一共是六节课。三位老师都很有意思，有说自己从教一纪不知点名为何物的，有网课平台整三四个的，课下还提醒你『你啥时候进的直播啥时候出去我这都有记录，那些进来签个到就走了的同学自己注意点』，也有正常上课群里发『1』签到的。抛开这些不说，老师们课上得挺好。</p>
+<h2 id="atimelogger-记录每一分钟"><a href="#atimelogger-记录每一分钟" class="headerlink" title="atimelogger 记录每一分钟"></a>atimelogger 记录每一分钟</h2><p>周一晚上突然翻到这个自己两年前就下载过的APP————atimelogger，这是一个记录自己每一分钟用在何处的APP，我决定不再试一把，尝试记录自己每一分钟用在何处。从周二开始，这一周每一天我都几乎记录下了自己的每一分钟，这种感觉很奇妙，当你做什么的时候，你会意识到有一个时钟在走，你会不由自主地集中注意力，想要它走慢一点或者抓紧利用这有限的时间。后面我想，不管它在不在，我的生命时钟都在不停地走，不知道在某一天就会停下来，因为它是如此的不可感知，我很少注意到它，但是这个APP帮助我意识到了，它具象了我的生命时钟，让我感受到我的时间在不断消耗，我必须抓紧每一分钟。<br>atimelogger上的记录显示：我每天都花了30~40分钟玩2K19；每天晚上我都会看一集『老友记』，用时22分钟；每天都会记单词，用时20~30分钟；每天我都至少在『微信读书』APP上看了1h书；每天我都至少在床上睡了8个小时；每天我都至少在学习成长上花了6h。我开始喜欢上这种记录的感觉。</p>
+<h2 id="重启-Blog"><a href="#重启-Blog" class="headerlink" title="重启 Blog"></a>重启 Blog</h2><p>周四晚上折腾了一晚，重启Blog，后面几天也在不断完善，终于到了现在这个样子。换了站点的头像，给站点添加了访问人数统计，为每一篇博文添加阅读数统计，在此感谢不蒜子大佬的脚本。周六晚上还添加了<code>相册</code>，到周日晚上，终于可以正常使用了。关于重启博客我是这样想的，上个月我就重启了『记录计划』，只是在手机上写，既然都要记录，为什么不放到网上呢？这样还方便查看，而且我会更有动力去写，Blog是一个比较好的选择。</p>
 <hr>
-<p>回到开头的那两个问题，有了union-find算法，我们来尝试解决它们。对于网络中节点是否需要构建新的连接，抽象出网络的节点构建起<code>UF</code>后，执行<code>isConnected()</code>即可判断是否需要建立新的连接，对于两个人是否可以建立连接的问题，我们用同样的方法也可以解决，但要是想通过最少的中间人就认识一个人，该怎么做呢，这又是另外一个问题了。</p>
+<p>话不多说，以上就是这一周，关于上的这些课的具体内容我会在后面的文章中详细记录。这些网络类的课很有意思，它们有一种规则的美感，我想如果能自己亲手制定某些规则并加以实现肯定让人兴奋。生活总是有很多的不确定，但我确定关于『记录』这件事我会坚持下去。</p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>生活</category>
       </categories>
       <tags>
-        <tag>算法</tag>
-        <tag>Java</tag>
-        <tag>union-find</tag>
+        <tag>记录</tag>
+        <tag>weekly</tag>
       </tags>
   </entry>
   <entry>
@@ -280,43 +300,6 @@
       <tags>
         <tag>记录</tag>
         <tag>weekly</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>新学期的第一周</title>
-    <url>/2020/03/first-week-record-of-new-term/</url>
-    <content><![CDATA[<p></p><p align="center" class="img"><br>    <img src="/assets/img/2020/astonished_joey.jpg" alt="astonished_joey" width="750"><br>    <span align="center" style="color:#999">震惊的Joey</span></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><p></p></h2><p>不知不觉间大三已经过完一半，想起在过去的两年半中好像没有值得纪念的事，有点无可奈何，但要说没有发生那么一件在当时让我很有感触的事，当然也不可能，只是我以为自己的记忆会帮我保存那些真正重要的感觉，因此没有记录，但是这样的事怎么会有那么多呢？亲人故去、终有所成之类的记忆深刻的事不常发生，更多的是生活中有感触的小事，它们发生很触动我，但它们又是那么不起眼，不久后我就会忘记。过去的都过去了，不过现在我不想就让现在的它们被遗忘，我要尽可能地记录。<br><a id="more"></a></p>
-<p>新学期的第一周也就这么过去了，或者说新学期的第三周就这么过去了，因为疫情耽搁在家没法返校，导致前两周的电工实习没法线下上也没法在线上操作，因此前两周没课，所以这一周才算是我的新学期第一周，没有开始上课怎么能叫新学期呢？不管怎么算，这一周的的确确就这么过去了。</p>
-<h2 id="新学期的前三门课"><a href="#新学期的前三门课" class="headerlink" title="新学期的前三门课"></a>新学期的前三门课</h2><p>过去的一周里，我上了三门课：《计算机通信网络》、《无线自组织网络与应用》和《光通信网络》。每科两节课，一共是六节课。三位老师都很有意思，有说自己从教一纪不知点名为何物的，有网课平台整三四个的，课下还提醒你『你啥时候进的直播啥时候出去我这都有记录，那些进来签个到就走了的同学自己注意点』，也有正常上课群里发『1』签到的。抛开这些不说，老师们课上得挺好。</p>
-<h2 id="atimelogger-记录每一分钟"><a href="#atimelogger-记录每一分钟" class="headerlink" title="atimelogger 记录每一分钟"></a>atimelogger 记录每一分钟</h2><p>周一晚上突然翻到这个自己两年前就下载过的APP————atimelogger，这是一个记录自己每一分钟用在何处的APP，我决定不再试一把，尝试记录自己每一分钟用在何处。从周二开始，这一周每一天我都几乎记录下了自己的每一分钟，这种感觉很奇妙，当你做什么的时候，你会意识到有一个时钟在走，你会不由自主地集中注意力，想要它走慢一点或者抓紧利用这有限的时间。后面我想，不管它在不在，我的生命时钟都在不停地走，不知道在某一天就会停下来，因为它是如此的不可感知，我很少注意到它，但是这个APP帮助我意识到了，它具象了我的生命时钟，让我感受到我的时间在不断消耗，我必须抓紧每一分钟。<br>atimelogger上的记录显示：我每天都花了30~40分钟玩2K19；每天晚上我都会看一集『老友记』，用时22分钟；每天都会记单词，用时20~30分钟；每天我都至少在『微信读书』APP上看了1h书；每天我都至少在床上睡了8个小时；每天我都至少在学习成长上花了6h。我开始喜欢上这种记录的感觉。</p>
-<h2 id="重启-Blog"><a href="#重启-Blog" class="headerlink" title="重启 Blog"></a>重启 Blog</h2><p>周四晚上折腾了一晚，重启Blog，后面几天也在不断完善，终于到了现在这个样子。换了站点的头像，给站点添加了访问人数统计，为每一篇博文添加阅读数统计，在此感谢不蒜子大佬的脚本。周六晚上还添加了<code>相册</code>，到周日晚上，终于可以正常使用了。关于重启博客我是这样想的，上个月我就重启了『记录计划』，只是在手机上写，既然都要记录，为什么不放到网上呢？这样还方便查看，而且我会更有动力去写，Blog是一个比较好的选择。</p>
-<hr>
-<p>话不多说，以上就是这一周，关于上的这些课的具体内容我会在后面的文章中详细记录。这些网络类的课很有意思，它们有一种规则的美感，我想如果能自己亲手制定某些规则并加以实现肯定让人兴奋。生活总是有很多的不确定，但我确定关于『记录』这件事我会坚持下去。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>weekly</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在疫情中度过三月</title>
-    <url>/2020/03/the-third-month/</url>
-    <content><![CDATA[<p>惊觉已经是三月的最后一天，在这过去的一个月里，如果说有什么一定一提的，那一定是已经持续了快三个月的的新冠肺炎疫情，国内的疫情逐渐被控制住了，国外却又爆发了更大规模的，看起来返校遥遥无期。一月份的时候我肯定无法想象3月31日自己还在家，突发的疫情打乱我原有的计划，我本该在学校的教室里坐着的，现在却在家，本以为会非常非常想回学校，现在倒也还好，我只是怀念学校的WiFi罢了。<br><a id="more"></a><br>疫情蔓延全球，经济衰退，股价暴跌，美股数次熔断，不可否认这是一个动荡的三月。所谓『祸兮福之所倚』，被困在山村中的我却得以享受宁静，可以专心做自己想做的事，我重新开始捡起以前学了一点就知难而退的东西，比如 C++，Java，Linux 还有算法，除此之外，我还开始坚持看书、记单词和记录生活，为了督促自己，我还使用 atimelogger 记录自己每一分钟的花销。如果不是因为疫情，我也不会如此百无聊赖，也就不会开始做这些事情，从这个角度而言，对我而言这还是福。</p>
-<p>整个三月份，我看完了『乌合之众』、『金字塔原理』、『随机漫步的傻瓜』、『你的第一本哲学书』和『简单逻辑学』，平均一周看了一本多一点的书，还算可以，但是没有对其中任何一本书作一些读后感之类的笔记，算是一个不完整，希望在后面的阅读补上。这一个月也是折腾不断，看了算法看Linux，中间还去折腾下NS2——一坨年久失修的 shit。现在总结一下，算法是没看多少的，刚开始找了不知到哪儿来的一本 Java 算法书，看了一周几乎看完了，然而脑子中似乎什么都没剩下，于是我又照着『算法4』看，这次看得比较慢，加上中途新学期开学了，有很多课要上，到现在也才前两章，综合起来，我现在对排序算法比较清楚了，选择插入希尔归并快排都算了解得清楚了，现在还在继续看下去，第三章是『查找』，会讲到BST等新的数据结构。至于 Linux，照着鸟哥的书慢慢看，有时间就看一章，不求全部记住，只是有个大概概念就行了，现在也看到了 Shell 部分，坚持看下去吧。<br>学这些东西，并不是出于需要，我只是凭借着一时冲动开始看，什么时候我都热情消退了，我也就放弃了，转而投向新的东西。这说是我很长时间来的一种学习态度吧，对于学校规定的课程内容我总感觉不是很有意思，讲授的东西太过陈旧，我会凭借着冲动去随便投入到一些东西中去，既是对自己冲动的满足也是对那些陈旧无聊的知识的逃避。</p>
-<p>这个三月我也不是一切顺利，有两次突然陷入了一种极度的焦虑之中，在那种状态下，我什么都不想做，不愿意去做我应该做的事情，只想一直盯着手机看，好在持续一两天之后这种感觉就会很快消失，一切重归正常，但我知道几周后这种感觉又会到来。暂时还没有什么好办法应对这种情况，我只能选择接受它，并在它到来时暂时放下手头的工作，就当是一时的放松，但我坚信会找到办法的。</p>
-<hr>
-<p>身处动荡之中，怀抱希望，希望一切都好起来。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>monthly</tag>
       </tags>
   </entry>
   <entry>
@@ -409,6 +392,90 @@
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文简单分析了 NS2 的大体结构和体系结构。现在来考虑下如何获得 NS2 的仿真结果，如第一张图所示，，当仿真结束时，NS2 按照输入的 Tcl（或 OTcl）脚本中的说明产生一个或者多个文本输出文件，其中包含了详细的仿真数据。这些数据可用于后续的仿真分析中，或者作为图形化仿真展示工具 NAM 的输入。</p>
 <hr>
 <p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI 大学的资源</a></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+        <tag>NS2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在疫情中度过三月</title>
+    <url>/2020/03/the-third-month/</url>
+    <content><![CDATA[<p>惊觉已经是三月的最后一天，在这过去的一个月里，如果说有什么一定一提的，那一定是已经持续了快三个月的的新冠肺炎疫情，国内的疫情逐渐被控制住了，国外却又爆发了更大规模的，看起来返校遥遥无期。一月份的时候我肯定无法想象3月31日自己还在家，突发的疫情打乱我原有的计划，我本该在学校的教室里坐着的，现在却在家，本以为会非常非常想回学校，现在倒也还好，我只是怀念学校的WiFi罢了。<br><a id="more"></a><br>疫情蔓延全球，经济衰退，股价暴跌，美股数次熔断，不可否认这是一个动荡的三月。所谓『祸兮福之所倚』，被困在山村中的我却得以享受宁静，可以专心做自己想做的事，我重新开始捡起以前学了一点就知难而退的东西，比如 C++，Java，Linux 还有算法，除此之外，我还开始坚持看书、记单词和记录生活，为了督促自己，我还使用 atimelogger 记录自己每一分钟的花销。如果不是因为疫情，我也不会如此百无聊赖，也就不会开始做这些事情，从这个角度而言，对我而言这还是福。</p>
+<p>整个三月份，我看完了『乌合之众』、『金字塔原理』、『随机漫步的傻瓜』、『你的第一本哲学书』和『简单逻辑学』，平均一周看了一本多一点的书，还算可以，但是没有对其中任何一本书作一些读后感之类的笔记，算是一个不完整，希望在后面的阅读补上。这一个月也是折腾不断，看了算法看Linux，中间还去折腾下NS2——一坨年久失修的 shit。现在总结一下，算法是没看多少的，刚开始找了不知到哪儿来的一本 Java 算法书，看了一周几乎看完了，然而脑子中似乎什么都没剩下，于是我又照着『算法4』看，这次看得比较慢，加上中途新学期开学了，有很多课要上，到现在也才前两章，综合起来，我现在对排序算法比较清楚了，选择插入希尔归并快排都算了解得清楚了，现在还在继续看下去，第三章是『查找』，会讲到BST等新的数据结构。至于 Linux，照着鸟哥的书慢慢看，有时间就看一章，不求全部记住，只是有个大概概念就行了，现在也看到了 Shell 部分，坚持看下去吧。<br>学这些东西，并不是出于需要，我只是凭借着一时冲动开始看，什么时候我都热情消退了，我也就放弃了，转而投向新的东西。这说是我很长时间来的一种学习态度吧，对于学校规定的课程内容我总感觉不是很有意思，讲授的东西太过陈旧，我会凭借着冲动去随便投入到一些东西中去，既是对自己冲动的满足也是对那些陈旧无聊的知识的逃避。</p>
+<p>这个三月我也不是一切顺利，有两次突然陷入了一种极度的焦虑之中，在那种状态下，我什么都不想做，不愿意去做我应该做的事情，只想一直盯着手机看，好在持续一两天之后这种感觉就会很快消失，一切重归正常，但我知道几周后这种感觉又会到来。暂时还没有什么好办法应对这种情况，我只能选择接受它，并在它到来时暂时放下手头的工作，就当是一时的放松，但我坚信会找到办法的。</p>
+<hr>
+<p>身处动荡之中，怀抱希望，希望一切都好起来。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>monthly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NS2 的介绍（三）—— 事件调度器</title>
+    <url>/2020/04/ns2-event-scheduler/</url>
+    <content><![CDATA[<p>在<a href="/2020/04/ns2-simple-simulation-example">上一篇文章</a>中，我们从一个简单的例子出发，从零开始编写了一个 NS2 模拟用的 OTcl 脚本，我们需要在脚本中完成以下任务：</p>
+<ol>
+<li>创建 Simulator 对象；</li>
+<li>创建 node 对象并构建 node 间的连接 link；</li>
+<li>创建代理对象和 traffic 源对象，连接 node 和代理，连接代理和 traffic 源；</li>
+<li>创建模拟场景 scenario，即定义调度任务；</li>
+<li>开始模拟。</li>
+</ol>
+<p>按照以上这些步骤编写就可完成模拟脚本编写。这篇文章中要介绍的是第 4 个步骤创建模拟场景的详细信息，我们将讨论 NS2 中的离散事件调度器。<br><a id="more"></a><br>如<a href="/2020/04/02/ns2-simulation-overview">第一篇文章</a>中谈到的，在 NS2 中，事件调度器主要是由一些网络组件来使用，组件们模拟 packet 的处理时需要调度程序作为延时器或计时器。如下图展示，每一个网络对象使用一个时间调度器，图中需要注意：<br>（1）网络对象发出一个事件那么它就要在预定的时间点上处理这个事件；<br>（2）网络对象间的数据路径和事件路径不相同；<br>若深入到代码层面，包在网络对象中传递时，发送方使用 <code>send(Packet* p){target_-&gt;recv(p);</code> 语句发送，接收方使用 <code>recv(Packet*, Handler* h = 0)</code> 方法接收。</p>
+<p><div align="center" class="img"><br>    <img src="/assets/img/2020/discrete_event_scheduler.png" alt="discrete_event_scheduler" width="750"><br>    <span align="center" style="color:#999">离散事件调度器</span><br></div><br>NS2 实现了两种事件调度器，实时调度器和非实时调度器。非实时调度器有三种实现，分别为 List、Heap 和 Calendar，它们逻辑上是一样的，之所以有这么多实现，是由于向下兼容的原因。默认的非实时调度器是 Calender 方式实现的。实时调度器是为仿真 emulation 使用的，允许仿真器 simulator 和真实的网络交互。下面这个就是一个指定事件调度器的例子。</p>
+<pre><code>set ns [new Simulator]
+$ns use-scheduler Heap
+</code></pre><p>事件调度器还可以调度模拟事件，比如启动一个 FTP 应用或者结束模拟。事件调度器对象本身有一些模拟调度成员函数，比如 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code>，它就可以在发起一个在特定的模拟时间 &lt;time> 发生的叫做 <code>AtEvent</code> 的事件。<code>AtEvent</code> 其实是 <code>Event</code> 类的子类，它扩展了额外的变量保存 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 中的 <code>string</code>，尽管有扩展，它在事件调度器中和一般的事件还是被相同对待的。模拟开始后，当模拟时间到达事件队列中的 AtEvent 应该被调度的时间时，该 <code>AtEvent</code> 就会被传递给一个 <code>AtEvent Handler</code>，<code>AtEvent Handler</code> 只被创建一次并处理所有的的 <code>AtEvent</code>，<code>AtEvent</code> 的 &lt;string> 确定的 OTcl 命令也会被执行。下面是一个模拟事件调度示例：</p>
+<pre><code>set ns [new Simulator]
+$ns use-scheduler Heap
+$ns at 300.5 &quot;complete_sim&quot;
+
+proc complete_sim {} {...}
+</code></pre><p>注意到在上面的例子中，<code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 是 Simulator 对象 ns 的成员函数，但是我们要记住，Simulator 对象仅仅只是起到一个用户接口的作用，事实上它会去调用网络对象或者调度器对象的成员函数，由它们真正地完成工作。下面是一个函数列表和简单说明，这些函数就是 Simulator 对象用来接口调度器成员函数的成员函数。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">成员函数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Simulator instproc now</td>
+<td style="text-align:left">返回调度器对现在时间的 notion</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator isntproc at args</td>
+<td style="text-align:left">在特定的时间调度执行代码</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator instproc at-now args</td>
+<td style="text-align:left">立即调度执行代码</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator instproc after n args</td>
+<td style="text-align:left">n 秒后调度执行代码</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator instproc run args</td>
+<td style="text-align:left">启动调度器</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator instproc halt</td>
+<td style="text-align:left">停止或赞同调度器</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -545,61 +612,10 @@
       </tags>
   </entry>
   <entry>
-    <title>NS2 的介绍（三）—— 事件调度器</title>
-    <url>/2020/04/ns2-event-scheduler/</url>
-    <content><![CDATA[<p>在<a href="/2020/04/ns2-simple-simulation-example">上一篇文章</a>中，我们从一个简单的例子出发，从零开始编写了一个 NS2 模拟用的 OTcl 脚本，我们需要在脚本中完成以下任务：</p>
-<ol>
-<li>创建 Simulator 对象；</li>
-<li>创建 node 对象并构建 node 间的连接 link；</li>
-<li>创建代理对象和 traffic 源对象，连接 node 和代理，连接代理和 traffic 源；</li>
-<li>创建模拟场景 scenario，即定义调度任务；</li>
-<li>开始模拟。</li>
-</ol>
-<p>按照以上这些步骤编写就可完成模拟脚本编写。这篇文章中要介绍的是第 4 个步骤创建模拟场景的详细信息，我们将讨论 NS2 中的离散事件调度器。<br><a id="more"></a><br>如<a href="/2020/04/02/ns2-simulation-overview">第一篇文章</a>中谈到的，在 NS2 中，事件调度器主要是由一些网络组件来使用，组件们模拟 packet 的处理时需要调度程序作为延时器或计时器。如下图展示，每一个网络对象使用一个时间调度器，图中需要注意：<br>（1）网络对象发出一个事件那么它就要在预定的时间点上处理这个事件；<br>（2）网络对象间的数据路径和事件路径不相同；<br>若深入到代码层面，包在网络对象中传递时，发送方使用 <code>send(Packet* p){target_-&gt;recv(p);</code> 语句发送，接收方使用 <code>recv(Packet*, Handler* h = 0)</code> 方法接收。</p>
-<p><div align="center" class="img"><br>    <img src="/assets/img/2020/discrete_event_scheduler.png" alt="discrete_event_scheduler" width="750"><br>    <span align="center" style="color:#999">离散事件调度器</span><br></div><br>NS2 实现了两种事件调度器，实时调度器和非实时调度器。非实时调度器有三种实现，分别为 List、Heap 和 Calendar，它们逻辑上是一样的，之所以有这么多实现，是由于向下兼容的原因。默认的非实时调度器是 Calender 方式实现的。实时调度器是为仿真 emulation 使用的，允许仿真器 simulator 和真实的网络交互。下面这个就是一个指定事件调度器的例子。</p>
-<pre><code>set ns [new Simulator]
-$ns use-scheduler Heap
-</code></pre><p>事件调度器还可以调度模拟事件，比如启动一个 FTP 应用或者结束模拟。事件调度器对象本身有一些模拟调度成员函数，比如 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code>，它就可以在发起一个在特定的模拟时间 &lt;time> 发生的叫做 <code>AtEvent</code> 的事件。<code>AtEvent</code> 其实是 <code>Event</code> 类的子类，它扩展了额外的变量保存 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 中的 <code>string</code>，尽管有扩展，它在事件调度器中和一般的事件还是被相同对待的。模拟开始后，当模拟时间到达事件队列中的 AtEvent 应该被调度的时间时，该 <code>AtEvent</code> 就会被传递给一个 <code>AtEvent Handler</code>，<code>AtEvent Handler</code> 只被创建一次并处理所有的的 <code>AtEvent</code>，<code>AtEvent</code> 的 &lt;string> 确定的 OTcl 命令也会被执行。下面是一个模拟事件调度示例：</p>
-<pre><code>set ns [new Simulator]
-$ns use-scheduler Heap
-$ns at 300.5 &quot;complete_sim&quot;
-
-proc complete_sim {} {...}
-</code></pre><p>注意到在上面的例子中，<code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 是 Simulator 对象 ns 的成员函数，但是我们要记住，Simulator 对象仅仅只是起到一个用户接口的作用，事实上它会去调用网络对象或者调度器对象的成员函数，由它们真正地完成工作。下面是一个函数列表和简单说明，这些函数就是 Simulator 对象用来接口调度器成员函数的成员函数。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">成员函数</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Simulator instproc now</td>
-<td style="text-align:left">返回调度器对现在时间的 notion</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator isntproc at args</td>
-<td style="text-align:left">在特定的时间调度执行代码</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc at-now args</td>
-<td style="text-align:left">立即调度执行代码</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc after n args</td>
-<td style="text-align:left">n 秒后调度执行代码</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc run args</td>
-<td style="text-align:left">启动调度器</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc halt</td>
-<td style="text-align:left">停止或赞同调度器</td>
-</tr>
-</tbody>
-</table>
+    <title>NS2 的介绍（五）—— 数据分组</title>
+    <url>/2020/04/ns2-packet/</url>
+    <content><![CDATA[<p>在前面两篇文章中我们分别介绍了 NS2 中非常重要的两个组成——<a href="../ns2-event-scheduler">事件调度器</a>和<a href="../ns2-network-components">网络组件</a>，我们知道了 packet（数据分组）是如何在节点之间传递的，现在让我们来看看数据分组在 NS2 中是如何表示的。<br><a id="more"></a><br>一个 NS2 数据分组由一个<strong>头部信息的栈</strong>和<strong>可选的数据空间</strong>组成，如下图所示。在<a href="../ns2-simple-simulation-example">简单仿真示例</a>提到过，数据分组头格式在创建 Simulator 对象时被初始化，在 Simulator 对象中，一系列栈排列注册了的 header 头（有可能不可见）被定义，如 common 头（它通常被任何需要的对象使用）、IP 头、TCP 头、RTP 头（UDP 使用 RTP 头）和 trace 头，且每个 header 在栈中的偏移都会被记录下来。这意味着不管一个头有没有被使用，当一个 packet（数据分组）被代理分配时创建的栈中都会含有它，并且网络对象使用相应的 offset（偏移值）就可以获得数据分组的栈中的任意头。</p>
+<p><img src="/assets/img/2020/ns_packet_format.png" alt="packet 格式"><br>通常，一个 packet（数据分组）只有一个特定的 head（头部）栈，尽管通过分配数据空间，packet（数据分组）可以携带实际的（来自 application）信息，很少有 application（应用）和 agent（代理）的实现会支持这种做法，这是因为<strong>在非实时的模拟中传递真实数据是没有意义的</strong>。但是如果你想实现一个可以跨过网络去和另一个 application 通信的 application 的话，你也许可以使用这个特性，不过需要在下层的代理实现中做一点改动，还可以为 application 创建一个新的 header，然后修改下层的代理向这个新建的 header 写入受到的数据。后面这种方法会在后面的一篇文章中讲到。</p>
 <hr>
 <p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
 ]]></content>
@@ -659,22 +675,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>NS2 的介绍（五）—— 数据分组</title>
-    <url>/2020/04/ns2-packet/</url>
-    <content><![CDATA[<p>在前面两篇文章中我们分别介绍了 NS2 中非常重要的两个组成——<a href="../ns2-event-scheduler">事件调度器</a>和<a href="../ns2-network-components">网络组件</a>，我们知道了 packet（数据分组）是如何在节点之间传递的，现在让我们来看看数据分组在 NS2 中是如何表示的。<br><a id="more"></a><br>一个 NS2 数据分组由一个<strong>头部信息的栈</strong>和<strong>可选的数据空间</strong>组成，如下图所示。在<a href="../ns2-simple-simulation-example">简单仿真示例</a>提到过，数据分组头格式在创建 Simulator 对象时被初始化，在 Simulator 对象中，一系列栈排列注册了的 header 头（有可能不可见）被定义，如 common 头（它通常被任何需要的对象使用）、IP 头、TCP 头、RTP 头（UDP 使用 RTP 头）和 trace 头，且每个 header 在栈中的偏移都会被记录下来。这意味着不管一个头有没有被使用，当一个 packet（数据分组）被代理分配时创建的栈中都会含有它，并且网络对象使用相应的 offset（偏移值）就可以获得数据分组的栈中的任意头。</p>
-<p><img src="/assets/img/2020/ns_packet_format.png" alt="packet 格式"><br>通常，一个 packet（数据分组）只有一个特定的 head（头部）栈，尽管通过分配数据空间，packet（数据分组）可以携带实际的（来自 application）信息，很少有 application（应用）和 agent（代理）的实现会支持这种做法，这是因为<strong>在非实时的模拟中传递真实数据是没有意义的</strong>。但是如果你想实现一个可以跨过网络去和另一个 application 通信的 application 的话，你也许可以使用这个特性，不过需要在下层的代理实现中做一点改动，还可以为 application 创建一个新的 header，然后修改下层的代理向这个新建的 header 写入受到的数据。后面这种方法会在后面的一篇文章中讲到。</p>
-<hr>
-<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>网络</tag>
-        <tag>NS2</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>NS2 的介绍（六）—— trace 分析示例</title>
     <url>/2020/04/ns2-trace-analysis-example/</url>
     <content><![CDATA[<p>本文将展示一个 trace 分析示例，从中可以知道如何从 NS2 中生成 trace，如何解释 trace，如何从 trace 中得到有用的信息。在 <a href="/2020/04/ns2-simple-simulation-example/" title="模拟示例">模拟示例</a> 给出的代码 <a href="/2020/04/ns2-trace-analysis-example/ns-simple.tcl" title="ns-simple.tcl">ns-simple.tcl</a> 中的第 15、16 行，我们打开了一个 trace 文件，在 finish 步骤中，我们向 trace 文件中写入了 trace 信息。<a id="more"></a></p>
@@ -707,160 +707,6 @@ proc complete_sim {} {...}
       <tags>
         <tag>网络</tag>
         <tag>NS2</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>算法笔记 —— 图</title>
-    <url>/2020/04/algorithm-map/</url>
-    <content><![CDATA[<p>在许多计算机应用中，由相连的结点所表示的模型起到了关键的作用。这些结点之间的连接很自然地会让人们产生一连串的疑问：沿着这些连接能否从一个结点到达另一个结点？有多少个结点和指定的结点相连？两个结点之间最短的连接是哪一条？要描述这些问题，我们要使用一种抽象的数学对象，叫做图。<br><a id="more"></a></p>
-<h2 id="1-无向图"><a href="#1-无向图" class="headerlink" title="1. 无向图"></a>1. 无向图</h2><p><em>无向图的定义</em>：无向图是由一组顶点和一组能够将两个顶点相连的边组成的。在无向图中，边（edge）仅仅是两个顶点（vertex）间的连接。根据这个定义，顶点叫什么名字无关紧要，我们使用 0 到 V-1 来表示一张含有 V 个顶点的图中的各个顶点，这样的表示便于使用数组的索引来访问各个结点，我们可以直接用数组的索引作为结点的名称，事实上如果顶点不符合我们的预设，我们也可以把它们映射到 0 到 V-1 上来。</p>
-<p>在这个定义下，允许出现下面两种特殊情况：</p>
-<ul>
-<li>自环：即一条连接一个顶点和其自身的边；</li>
-<li>连接同一对顶点的两条边称为平行边。</li>
-</ul>
-<h3 id="1-1-一些术语"><a href="#1-1-一些术语" class="headerlink" title="1.1. 一些术语"></a>1.1. 一些术语</h3><p>这里先介绍一些关于图的术语。</p>
-<ul>
-<li>相邻：两个顶点通过用一条边相连，称两个顶点<em>相邻</em>，边<em>依附于</em>这两个顶点；</li>
-<li>度数：顶点的度数为依附于它的边的总数；</li>
-<li>子图：一幅图的所有边的一个子集（包括所依附的结点）组成的图；</li>
-<li>路径：由边顺序连接的一系列顶点，简单路径没有重复顶点；</li>
-<li>连通图：从任意一个顶点都存在一条路径到达另一个任意顶点；</li>
-<li>树：树是一副无环连通图，互不相连的树组成的集合称为森林；当且仅当一幅含有 V 个结点的图 G 满足下列 5 个条件之一时，它就是一棵树：<ul>
-<li>G 有 V-1 条边且不含有环；</li>
-<li>G 有 V-1 条边且是连通的；</li>
-<li>G 是连通的，但删除任意一条边都会使它不再连通；</li>
-<li>G 是无环图，但添加任意一条边都会产生一条环；</li>
-<li>G 中的任意一对顶点之间仅存在一条简单路径。</li>
-</ul>
-</li>
-<li>稠密图与稀疏图：</li>
-<li>二分图：可将所有结点分为两部分，其中图的每条边所接的两个顶点术语不用的部分；</li>
-</ul>
-<h3 id="1-2-无向图的表示"><a href="#1-2-无向图的表示" class="headerlink" title="1.2. 无向图的表示"></a>1.2. 无向图的表示</h3><p>对于一个顶点数为 V，边数为 E 的无向图，我们可以用以下几种方式表示：</p>
-<ul>
-<li>邻接矩阵：使用 V 乘 V 的布尔矩阵，顶点 v 和 w 间存在连接时，则矩阵的 v 行 w 列和 w 行 v 列置为 true；</li>
-<li>边的数组：</li>
-<li>邻接表数组：使用一个以顶点为索引的列表数组，其中每个元素都是和该顶点相邻的顶点列表。</li>
-</ul>
-<img src="/2020/04/algorithm-map/adjacency_list.png" title="邻接表">
-<p>我们使用 <em>邻接表</em> 表示非稠密图，它将每个顶点的所有相邻顶点都保存在该顶点对应的元素所指向的一张链表中，使用这个数组可以快速访问给定顶点的邻接顶点列表。用这种表示方法，使用的空间和 V+E 成正比；添加一条边所需的时间为常数；遍历顶点 v 的所有相邻顶点所需的时间和 v 的度数成正比。</p>
-<h3 id="1-3-深度优先搜索-DFS"><a href="#1-3-深度优先搜索-DFS" class="headerlink" title="1.3. 深度优先搜索 DFS"></a>1.3. 深度优先搜索 DFS</h3><p>我们可以通过系统地检查每一个顶点和每一条边来获取图的各种性质，在此基础上获得一些我们感兴趣的东西。在图中，很多性质是和路径相关的，我们经常需要从一个顶点移动到另一个顶点。许多图算法的抽象模型都非常简单，比如 DFS。</p>
-<p>在讲 DFS 之前，让我们先来看看走迷宫问题，迷宫和图是非常相似的，用<em>通道</em>代替<em>边</em>，<em>路口</em>代替<em>顶点</em>，思考迷宫问题有助于我们理解 DFS。我们按照如下策略探索迷宫中的所有通道：</p>
-<ul>
-<li>选择一条没有标记过的通道，在你走过的路上铺一条<br>绳子；</li>
-<li>标记所有你第一次路过的路口和通道；</li>
-<li>当来到一个标记过的路口时（用绳子）回退到上个路口；</li>
-<li>当回退到的路口已没有可走的通道时继续回退。</li>
-</ul>
-<p>绳子可以保证我们总能找到一条出路，标记保证我们不会两次经过同一个通道或路口。理解迷宫问题，对于 DFS 自然也就不在话下了，甚至描述起来更加简单：</p>
-<ul>
-<li>访问当前顶点，标记其标记已访问；</li>
-<li>递归地访问它所有没有被标记过的所有邻居顶点。</li>
-</ul>
-<p>这就是 DFS 的全部思路了，很容易发现在递归调用中我们使用了栈这种数据结构，这对我们标记顶点而言，是 LIFO 的，这是 DFS 和 BFS 的不同之处，BFS 是 FIFO 的，我们马上会讲到 BFS。</p>
-<p>DFS 可以有效处理许多和图有关的任务，如：</p>
-<ul>
-<li>连通性：给定两个顶点是否连通；</li>
-<li>单点路径：从 s 到 v 是否存在一条路径。</li>
-</ul>
-<p>其实这是同一个问题，只不过路径问题需要使用额外的数组保存遍历过的路径而已，这样我们就可以从某一顶点出发构造出一棵树，树中所有结点均是该顶点可到达的。</p>
-<h3 id="1-4-广度优先搜索-BFS"><a href="#1-4-广度优先搜索-BFS" class="headerlink" title="1.4. 广度优先搜索 BFS"></a>1.4. 广度优先搜索 BFS</h3><p>基于 DFS，我们可以确定到某一结点的是否存在路径，很自然的地我们会考虑这是不是最短路径，如果不是有没有别的办法寻找到最短路径。这正是 BFS 要解决的问题，<strong>BFS 是很多图算法的基石，需要重点掌握</strong>。而 DFS 无法解决这个问题，这是由它们遍历图的顺序决定的。如上面提到的，在 DFS 中，我们使用一个下压栈（递归方法体现了出来），在这种 LIFO 的规则下的探索和走迷宫探索相邻的通道非常类似。在 BFS 中，我们希望按照距离起点的距离的顺序来遍历所有的顶点，使用 FIFO 队列代替 LIFO 栈即可：<br>重复以下步骤直到队列为空：</p>
-<ul>
-<li>取队列中的下一个顶点 v 并标记它；</li>
-<li>将与 v 相邻的所有未被标记过的顶点加入队列。</li>
-</ul>
-<p>同时，我们还可以使用一个数组保存遍历的路径，索引是顶点，数组的值为该顶点的已知路径上的最后一个顶点。</p>
-<h3 id="1-5-DFS-和-BFS-的总结"><a href="#1-5-DFS-和-BFS-的总结" class="headerlink" title="1.5. DFS 和 BFS 的总结"></a>1.5. DFS 和 BFS 的总结</h3><p>如同前面谈到的，DFS 和 BFS 的基本思路是一样的。在搜索中，我们先将起点存入数据结构中，然后重复以下步骤直到数据被清空：</p>
-<ul>
-<li>取其中的下一个顶点并标记它；</li>
-<li>将 v 的所有相邻而又未被标记的顶点加入数据结构。</li>
-</ul>
-<p>两个算法的不同之处仅仅在于从数据结构中获取下一个顶点的规则不同，BFS 是最早加入的顶点，DFS 是最晚加入的顶点。这种差异得到了处理图的两种完全不同的视角，无论如何，最早我们都可以遍历所有与起点连通的顶点和边。</p>
-<h3 id="1-6-更多问题"><a href="#1-6-更多问题" class="headerlink" title="1.6. 更多问题"></a>1.6. 更多问题</h3><p>有了 DFS 和 BFS 两种策略，我们可以处理更多问题：</p>
-<ul>
-<li>连通分量；</li>
-<li>检测环；</li>
-<li>双色问题。</li>
-</ul>
-<h2 id="2-有向图"><a href="#2-有向图" class="headerlink" title="2. 有向图"></a>2. 有向图</h2><p><strong>定义</strong>：有向图是由一组<em>顶点</em>和有方向的边的组成，每条有方向的边都连接着有序的一对顶点。</p>
-<img src="/2020/04/algorithm-map/directional_graph.png" title="有向图">
-<h3 id="2-1-有向图的表示"><a href="#2-1-有向图的表示" class="headerlink" title="2.1. 有向图的表示"></a>2.1. 有向图的表示</h3><p>这里先给出有向图的一些术语。</p>
-<ul>
-<li>顶点的出度：该顶点指向的边的总数；</li>
-<li>顶点的入度：指向该顶点的边的总数；</li>
-<li>有向边的头：它的第一个顶点；</li>
-<li>有向边的尾：它的第二个顶点；</li>
-<li>有向路径：由一些列顶点组成，每个顶点都存在一条有向边从它指向序列中下一个顶点；</li>
-<li>有向环：一条至少含有一条边且起点和终点相同的有向路径；</li>
-<li>简单有向环：一条（除了起点和终点必须相同之外）不含有重复的顶点和边的环；</li>
-<li>v 能够到达 w：v 到 w 存在有向路径（注意：这并不意味着从 w 可以达到 v）。</li>
-</ul>
-<p>有向图的表示和无向图类似，我们仍然可以使用邻接表数组来表示有向图，甚至更加简单，因为边是单向的，只需保存一个相邻结点。数组索引为某个顶点，索引下的邻接表为该顶点所指向的顶点构成的链表。</p>
-<h3 id="2-2-可达性问题"><a href="#2-2-可达性问题" class="headerlink" title="2.2. 可达性问题"></a>2.2. 可达性问题</h3><p>在无向图中我们处理过单点连通性问题，即判断其他顶点和给定的顶点是否连通，而在有向图中，也可以解决类似的问题，而且思路非常相似。</p>
-<ul>
-<li>单点可达性：给定一副有向图和起点 s，是否存在一条从 s 到达给定顶点 v 的有向图；</li>
-<li>多点可达性：给定一副图和顶点的集合，是否存在一条从集合中的任意顶点到达给定顶点 v 的路径。</li>
-</ul>
-<p>解决这个问题的算法是基于 DFS 的，稍作修改即可：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 访问当前顶点，标记为已访问；</span><br><span class="line">2. 递归地访问它所谓未被标记过的顶点。</span><br></pre></td></tr></table></figure>
-<p>在此基础上，稍作修改我们就可以跟进一步地求出起点 s 和 终点 v 之间的路径或最短路径，算法和无向图中的完全一样。</p>
-<h3 id="2-3-环和有向无环图"><a href="#2-3-环和有向无环图" class="headerlink" title="2.3. 环和有向无环图"></a>2.3. 环和有向无环图</h3><p>对于有向图中环进行研究可以解决很多问题，如</p>
-<ul>
-<li><em>优先级限制下调度问题</em>：给定一组需要完成的任务，以及一组关于任务完成的先后次序的优先级限制。在满足限制条件的前提下应该如何安排并完成所有任务？</li>
-<li><em>拓扑排序</em>：给定一幅有向图，将所有的顶点排序，使得所有的有向边均从排在前面的元素指向排在后面的元素（或者说明无法做到这一点）。</li>
-</ul>
-<p>为什么说环和这些问题是相关的呢？举个例子，考虑一个调度问题：A 必须在 B 之前完成，B 必须在 C 之前完成，C 又必须在 A 之前完成。这显然是不可能实现的，这在有向图就构成了一个环。处理这些调度问题我们必须对图中的环进行检测。</p>
-<img src="/2020/04/algorithm-map/managment_and_loop.png" title="调度问题与有向图中的环">
-<p>有向无环图（DAG）就是一副不含有环的有向图。实现有向图中的环检测算法并不困难，我们可以基于 DFS 来解决这个问题。系统维护的递归调用栈表示的正是『当前』正在遍历的有向路径，一旦我们找到了一条有向边 v –&gt; w 且 w 已经在栈中，就找到了一个环，如果没有，那就说明这是无环图。如果更进一步，多加一个栈，我们就可以找出构成环的顶点。</p>
-<h4 id="DAG-检测算法"><a href="#DAG-检测算法" class="headerlink" title="DAG 检测算法"></a>DAG 检测算法</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 访问当前顶点，标记为已访问，标记为在当前搜索的路径的栈中</span><br><span class="line">2. 对当前顶点指向的顶点</span><br><span class="line">    如果未被标记，将其来源标记当前顶点，为其跳转到 1</span><br><span class="line">    如果在栈中，说明图中存在环</span><br><span class="line">    记录环到另一个栈中</span><br><span class="line">3. 当前顶点调用完毕，标记为不在当前搜索的路径的栈中</span><br></pre></td></tr></table></figure>
-<p>可以看到这个无向图中 DFS 路径搜索算法是类似的，这再次说明了 DFS 的重要性。</p>
-<h4 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h4><p>同样的，拓扑排序也是基于 DFS 的，只需稍作修改就可以实现拓扑排序。DFS 正好只会访问每个顶点一次，如果将递归调用函数 <code>dfs</code> 的参数顶点保存在一个数据结构中，遍历这个数据结构实际上就能访问图中的所有顶点，遍历的顺序取决于这个数据结构的性质以及是在递归调用之前还是之后进行保存。我们关心下面三种顺序：</p>
-<ul>
-<li>前序：在递归调用之前将顶点加入队列。</li>
-<li>后序：在递归调用之后将顶点加入队列。</li>
-<li>逆后序：在递归调用之后将顶点压入栈。</li>
-</ul>
-<p>可以证明，一幅有向无环图的拓扑顺序即为所有顶点的逆后续排列。</p>
-<p>我们可以看到，拓扑排序和调度问题离不开有向环的检测，而且这两个问题可以看作是一个问题。在调度时，必须保证有向图中没有环，因此，解决任务调度类应用通常需要以下3 步：</p>
-<ul>
-<li>指明任务和优先级条件；</li>
-<li>不断检测并去除有向图中的所有环，以确保存在可行的方案；</li>
-<li>使用拓扑排序解决调度问题。</li>
-</ul>
-<h3 id="2-4-强连通性"><a href="#2-4-强连通性" class="headerlink" title="2.4. 强连通性"></a>2.4. 强连通性</h3><p>类似无向图中的连通性，我们在有向图中定义了<strong>强连通性</strong>：在有向图 G 中，如果两个顶点 v 和 w 是互相可达的，则称它们是<strong>强连通的</strong>。联想到环的定义，我们很容易想到两个顶点是强连通的等价于它们在同一个有向环中。</p>
-<p>有向图中的强连通性也是一种顶点之间的等价关系，满足以下性质：</p>
-<ul>
-<li>自反性：任意顶点 v 和自己都是强连通的。</li>
-<li>对称性：如果 v 和 w 是强连通的，那么 w 和 v 也是强连通的。</li>
-<li>传递性：如果 v 和 w 是强连通的且 w 和 x 也是强连通的，那<br>么 v 和 x 也是强连通的。</li>
-</ul>
-<p>强连通性将所有的顶点分为两一些等价类，每个等价类都是由相互均为强连通的顶点的最大子集组成的，我们称这些子集为<strong>强连通分量</strong>。对于理解有向图的结构，强连通性是一种非常重要的抽象，它突出了相互关联的几组顶点，如可以帮助决定话题分类和理解食物链中的能量流动问题。</p>
-<p>对于强连通分量问题，我们可以使用 Kosaraju 算法来解决，本质上这个算法还是基于 DFS 的，</p>
-<ul>
-<li>首先对 G 进行反转，即改变所有边的指向和原来相反，得到图 H；</li>
-<li>然后对 H 进行逆后序排列；</li>
-<li>按照这个排列顺序对 G 中的顶点调用标准 DFS，每一次非标记的顶点遍历完表示做完了一个强连通分量的搜索。</li>
-</ul>
-<img src="/2020/04/algorithm-map/kosaraju_example.png" title="Kosaraju 算法运行示例">
-<p>举个例子，如上图所示。证明如下：</p>
-<img src="/2020/04/algorithm-map/kosaraju_provement.png" title="Kosaraju 算法证明">
-<h2 id="3-最小生成树"><a href="#3-最小生成树" class="headerlink" title="3. 最小生成树"></a>3. 最小生成树</h2><p><strong>加权图</strong>是为每条边关联一个<em>权值</em>或是<em>成本</em>的图模型。这种图能够自然地表示许多应用。在一幅电路图中，边表示导线，权值则可能表示导线的长度即成本，或是信号通过这条线路所需的时间。在这些情形中，最令人感兴趣的自然是将成本最小化。我们将学习加权无向图模型并用算法回答这个问题。</p>
-<p><strong>最小生成树</strong>：给定一副加权无向图，找到它的一棵最小生成树。</p>
-<p>在解决这个问题之前，我们需要对之前的数据结构进行一些改变。</p>
-<h3 id="3-1-Prim-算法"><a href="#3-1-Prim-算法" class="headerlink" title="3.1. Prim 算法"></a>3.1. Prim 算法</h3><p>这是一种得到加权无向图的有效算法，基本思想如下：</p>
-<ul>
-<li>将一个节点加入队列，将它的所有邻边加入队列</li>
-</ul>
-<h3 id="3-2-Kruskal-算法"><a href="#3-2-Kruskal-算法" class="headerlink" title="3.2. Kruskal 算法"></a>3.2. Kruskal 算法</h3><h2 id="4-最短路径"><a href="#4-最短路径" class="headerlink" title="4. 最短路径"></a>4. 最短路径</h2>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>notes</tag>
-        <tag>算法</tag>
-        <tag>数据结构</tag>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -1154,6 +1000,194 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>算法笔记 —— 图</title>
+    <url>/2020/04/algorithm-map/</url>
+    <content><![CDATA[<p>在许多计算机应用中，由相连的结点所表示的模型起到了关键的作用。这些结点之间的连接很自然地会让人们产生一连串的疑问：沿着这些连接能否从一个结点到达另一个结点？有多少个结点和指定的结点相连？两个结点之间最短的连接是哪一条？要描述这些问题，我们要使用一种抽象的数学对象，叫做图。<br><a id="more"></a></p>
+<h2 id="1-无向图"><a href="#1-无向图" class="headerlink" title="1. 无向图"></a>1. 无向图</h2><p><em>无向图的定义</em>：无向图是由一组顶点和一组能够将两个顶点相连的边组成的。在无向图中，边（edge）仅仅是两个顶点（vertex）间的连接。根据这个定义，顶点叫什么名字无关紧要，我们使用 0 到 V-1 来表示一张含有 V 个顶点的图中的各个顶点，这样的表示便于使用数组的索引来访问各个结点，我们可以直接用数组的索引作为结点的名称，事实上如果顶点不符合我们的预设，我们也可以把它们映射到 0 到 V-1 上来。</p>
+<p>在这个定义下，允许出现下面两种特殊情况：</p>
+<ul>
+<li>自环：即一条连接一个顶点和其自身的边；</li>
+<li>连接同一对顶点的两条边称为平行边。</li>
+</ul>
+<h3 id="1-1-一些术语"><a href="#1-1-一些术语" class="headerlink" title="1.1. 一些术语"></a>1.1. 一些术语</h3><p>这里先介绍一些关于图的术语。</p>
+<ul>
+<li>相邻：两个顶点通过用一条边相连，称两个顶点<em>相邻</em>，边<em>依附于</em>这两个顶点；</li>
+<li>度数：顶点的度数为依附于它的边的总数；</li>
+<li>子图：一幅图的所有边的一个子集（包括所依附的结点）组成的图；</li>
+<li>路径：由边顺序连接的一系列顶点，简单路径没有重复顶点；</li>
+<li>连通图：从任意一个顶点都存在一条路径到达另一个任意顶点；</li>
+<li>树：树是一副无环连通图，互不相连的树组成的集合称为森林；当且仅当一幅含有 V 个结点的图 G 满足下列 5 个条件之一时，它就是一棵树：<ul>
+<li>G 有 V-1 条边且不含有环；</li>
+<li>G 有 V-1 条边且是连通的；</li>
+<li>G 是连通的，但删除任意一条边都会使它不再连通；</li>
+<li>G 是无环图，但添加任意一条边都会产生一条环；</li>
+<li>G 中的任意一对顶点之间仅存在一条简单路径。</li>
+</ul>
+</li>
+<li>稠密图与稀疏图：</li>
+<li>二分图：可将所有结点分为两部分，其中图的每条边所接的两个顶点术语不用的部分；</li>
+</ul>
+<h3 id="1-2-无向图的表示"><a href="#1-2-无向图的表示" class="headerlink" title="1.2. 无向图的表示"></a>1.2. 无向图的表示</h3><p>对于一个顶点数为 V，边数为 E 的无向图，我们可以用以下几种方式表示：</p>
+<ul>
+<li>邻接矩阵：使用 V 乘 V 的布尔矩阵，顶点 v 和 w 间存在连接时，则矩阵的 v 行 w 列和 w 行 v 列置为 true；</li>
+<li>边的数组：</li>
+<li>邻接表数组：使用一个以顶点为索引的列表数组，其中每个元素都是和该顶点相邻的顶点列表。</li>
+</ul>
+<img src="/2020/04/algorithm-map/adjacency_list.png" title="邻接表">
+<p>我们使用 <em>邻接表</em> 表示非稠密图，它将每个顶点的所有相邻顶点都保存在该顶点对应的元素所指向的一张链表中，使用这个数组可以快速访问给定顶点的邻接顶点列表。用这种表示方法，使用的空间和 V+E 成正比；添加一条边所需的时间为常数；遍历顶点 v 的所有相邻顶点所需的时间和 v 的度数成正比。</p>
+<h3 id="1-3-深度优先搜索-DFS"><a href="#1-3-深度优先搜索-DFS" class="headerlink" title="1.3. 深度优先搜索 DFS"></a>1.3. 深度优先搜索 DFS</h3><p>我们可以通过系统地检查每一个顶点和每一条边来获取图的各种性质，在此基础上获得一些我们感兴趣的东西。在图中，很多性质是和路径相关的，我们经常需要从一个顶点移动到另一个顶点。许多图算法的抽象模型都非常简单，比如 DFS。</p>
+<p>在讲 DFS 之前，让我们先来看看走迷宫问题，迷宫和图是非常相似的，用<em>通道</em>代替<em>边</em>，<em>路口</em>代替<em>顶点</em>，思考迷宫问题有助于我们理解 DFS。我们按照如下策略探索迷宫中的所有通道：</p>
+<ul>
+<li>选择一条没有标记过的通道，在你走过的路上铺一条<br>绳子；</li>
+<li>标记所有你第一次路过的路口和通道；</li>
+<li>当来到一个标记过的路口时（用绳子）回退到上个路口；</li>
+<li>当回退到的路口已没有可走的通道时继续回退。</li>
+</ul>
+<p>绳子可以保证我们总能找到一条出路，标记保证我们不会两次经过同一个通道或路口。理解迷宫问题，对于 DFS 自然也就不在话下了，甚至描述起来更加简单：</p>
+<ul>
+<li>访问当前顶点，标记其标记已访问；</li>
+<li>递归地访问它所有没有被标记过的所有邻居顶点。</li>
+</ul>
+<p>这就是 DFS 的全部思路了，很容易发现在递归调用中我们使用了栈这种数据结构，这对我们标记顶点而言，是 LIFO 的，这是 DFS 和 BFS 的不同之处，BFS 是 FIFO 的，我们马上会讲到 BFS。</p>
+<p>DFS 可以有效处理许多和图有关的任务，如：</p>
+<ul>
+<li>连通性：给定两个顶点是否连通；</li>
+<li>单点路径：从 s 到 v 是否存在一条路径。</li>
+</ul>
+<p>其实这是同一个问题，只不过路径问题需要使用额外的数组保存遍历过的路径而已，这样我们就可以从某一顶点出发构造出一棵树，树中所有结点均是该顶点可到达的。</p>
+<h3 id="1-4-广度优先搜索-BFS"><a href="#1-4-广度优先搜索-BFS" class="headerlink" title="1.4. 广度优先搜索 BFS"></a>1.4. 广度优先搜索 BFS</h3><p>基于 DFS，我们可以确定到某一结点的是否存在路径，很自然的地我们会考虑这是不是最短路径，如果不是有没有别的办法寻找到最短路径。这正是 BFS 要解决的问题，<strong>BFS 是很多图算法的基石，需要重点掌握</strong>。而 DFS 无法解决这个问题，这是由它们遍历图的顺序决定的。如上面提到的，在 DFS 中，我们使用一个下压栈（递归方法体现了出来），在这种 LIFO 的规则下的探索和走迷宫探索相邻的通道非常类似。在 BFS 中，我们希望按照距离起点的距离的顺序来遍历所有的顶点，使用 FIFO 队列代替 LIFO 栈即可：<br>重复以下步骤直到队列为空：</p>
+<ul>
+<li>取队列中的下一个顶点 v 并标记它；</li>
+<li>将与 v 相邻的所有未被标记过的顶点加入队列。</li>
+</ul>
+<p>同时，我们还可以使用一个数组保存遍历的路径，索引是顶点，数组的值为该顶点的已知路径上的最后一个顶点。</p>
+<h3 id="1-5-DFS-和-BFS-的总结"><a href="#1-5-DFS-和-BFS-的总结" class="headerlink" title="1.5. DFS 和 BFS 的总结"></a>1.5. DFS 和 BFS 的总结</h3><p>如同前面谈到的，DFS 和 BFS 的基本思路是一样的。在搜索中，我们先将起点存入数据结构中，然后重复以下步骤直到数据被清空：</p>
+<ul>
+<li>取其中的下一个顶点并标记它；</li>
+<li>将 v 的所有相邻而又未被标记的顶点加入数据结构。</li>
+</ul>
+<p>两个算法的不同之处仅仅在于从数据结构中获取下一个顶点的规则不同，BFS 是最早加入的顶点，DFS 是最晚加入的顶点。这种差异得到了处理图的两种完全不同的视角，无论如何，最早我们都可以遍历所有与起点连通的顶点和边。</p>
+<h3 id="1-6-更多问题"><a href="#1-6-更多问题" class="headerlink" title="1.6. 更多问题"></a>1.6. 更多问题</h3><p>有了 DFS 和 BFS 两种策略，我们可以处理更多问题：</p>
+<ul>
+<li>连通分量；</li>
+<li>检测环；</li>
+<li>双色问题。</li>
+</ul>
+<h2 id="2-有向图"><a href="#2-有向图" class="headerlink" title="2. 有向图"></a>2. 有向图</h2><p><strong>定义</strong>：有向图是由一组<em>顶点</em>和有方向的边的组成，每条有方向的边都连接着有序的一对顶点。</p>
+<img src="/2020/04/algorithm-map/directional_graph.png" title="有向图">
+<h3 id="2-1-有向图的表示"><a href="#2-1-有向图的表示" class="headerlink" title="2.1. 有向图的表示"></a>2.1. 有向图的表示</h3><p>这里先给出有向图的一些术语。</p>
+<ul>
+<li>顶点的出度：该顶点指向的边的总数；</li>
+<li>顶点的入度：指向该顶点的边的总数；</li>
+<li>有向边的头：它的第一个顶点；</li>
+<li>有向边的尾：它的第二个顶点；</li>
+<li>有向路径：由一些列顶点组成，每个顶点都存在一条有向边从它指向序列中下一个顶点；</li>
+<li>有向环：一条至少含有一条边且起点和终点相同的有向路径；</li>
+<li>简单有向环：一条（除了起点和终点必须相同之外）不含有重复的顶点和边的环；</li>
+<li>v 能够到达 w：v 到 w 存在有向路径（注意：这并不意味着从 w 可以达到 v）。</li>
+</ul>
+<p>有向图的表示和无向图类似，我们仍然可以使用邻接表数组来表示有向图，甚至更加简单，因为边是单向的，只需保存一个相邻结点。数组索引为某个顶点，索引下的邻接表为该顶点所指向的顶点构成的链表。</p>
+<h3 id="2-2-可达性问题"><a href="#2-2-可达性问题" class="headerlink" title="2.2. 可达性问题"></a>2.2. 可达性问题</h3><p>在无向图中我们处理过单点连通性问题，即判断其他顶点和给定的顶点是否连通，而在有向图中，也可以解决类似的问题，而且思路非常相似。</p>
+<ul>
+<li>单点可达性：给定一副有向图和起点 s，是否存在一条从 s 到达给定顶点 v 的有向图；</li>
+<li>多点可达性：给定一副图和顶点的集合，是否存在一条从集合中的任意顶点到达给定顶点 v 的路径。</li>
+</ul>
+<p>解决这个问题的算法是基于 DFS 的，稍作修改即可：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 访问当前顶点，标记为已访问；</span><br><span class="line">2. 递归地访问它所谓未被标记过的顶点。</span><br></pre></td></tr></table></figure>
+<p>在此基础上，稍作修改我们就可以跟进一步地求出起点 s 和 终点 v 之间的路径或最短路径，算法和无向图中的完全一样。</p>
+<h3 id="2-3-环和有向无环图"><a href="#2-3-环和有向无环图" class="headerlink" title="2.3. 环和有向无环图"></a>2.3. 环和有向无环图</h3><p>对于有向图中环进行研究可以解决很多问题，如</p>
+<ul>
+<li><em>优先级限制下调度问题</em>：给定一组需要完成的任务，以及一组关于任务完成的先后次序的优先级限制。在满足限制条件的前提下应该如何安排并完成所有任务？</li>
+<li><em>拓扑排序</em>：给定一幅有向图，将所有的顶点排序，使得所有的有向边均从排在前面的元素指向排在后面的元素（或者说明无法做到这一点）。</li>
+</ul>
+<p>为什么说环和这些问题是相关的呢？举个例子，考虑一个调度问题：A 必须在 B 之前完成，B 必须在 C 之前完成，C 又必须在 A 之前完成。这显然是不可能实现的，这在有向图就构成了一个环。处理这些调度问题我们必须对图中的环进行检测。</p>
+<img src="/2020/04/algorithm-map/managment_and_loop.png" title="调度问题与有向图中的环">
+<p>有向无环图（DAG）就是一副不含有环的有向图。实现有向图中的环检测算法并不困难，我们可以基于 DFS 来解决这个问题。系统维护的递归调用栈表示的正是『当前』正在遍历的有向路径，一旦我们找到了一条有向边 v –&gt; w 且 w 已经在栈中，就找到了一个环，如果没有，那就说明这是无环图。如果更进一步，多加一个栈，我们就可以找出构成环的顶点。</p>
+<h4 id="DAG-检测算法"><a href="#DAG-检测算法" class="headerlink" title="DAG 检测算法"></a>DAG 检测算法</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 访问当前顶点，标记为已访问，标记为在当前搜索的路径的栈中</span><br><span class="line">2. 对当前顶点指向的顶点</span><br><span class="line">    如果未被标记，将其来源标记当前顶点，为其跳转到 1</span><br><span class="line">    如果在栈中，说明图中存在环</span><br><span class="line">    记录环到另一个栈中</span><br><span class="line">3. 当前顶点调用完毕，标记为不在当前搜索的路径的栈中</span><br></pre></td></tr></table></figure>
+<p>可以看到这个无向图中 DFS 路径搜索算法是类似的，这再次说明了 DFS 的重要性。</p>
+<h4 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h4><p>同样的，拓扑排序也是基于 DFS 的，只需稍作修改就可以实现拓扑排序。DFS 正好只会访问每个顶点一次，如果将递归调用函数 <code>dfs</code> 的参数顶点保存在一个数据结构中，遍历这个数据结构实际上就能访问图中的所有顶点，遍历的顺序取决于这个数据结构的性质以及是在递归调用之前还是之后进行保存。我们关心下面三种顺序：</p>
+<ul>
+<li>前序：在递归调用之前将顶点加入队列。</li>
+<li>后序：在递归调用之后将顶点加入队列。</li>
+<li>逆后序：在递归调用之后将顶点压入栈。</li>
+</ul>
+<p>可以证明，一幅有向无环图的拓扑顺序即为所有顶点的逆后续排列。</p>
+<p>我们可以看到，拓扑排序和调度问题离不开有向环的检测，而且这两个问题可以看作是一个问题。在调度时，必须保证有向图中没有环，因此，解决任务调度类应用通常需要以下3 步：</p>
+<ul>
+<li>指明任务和优先级条件；</li>
+<li>不断检测并去除有向图中的所有环，以确保存在可行的方案；</li>
+<li>使用拓扑排序解决调度问题。</li>
+</ul>
+<h3 id="2-4-强连通性"><a href="#2-4-强连通性" class="headerlink" title="2.4. 强连通性"></a>2.4. 强连通性</h3><p>类似无向图中的连通性，我们在有向图中定义了<strong>强连通性</strong>：在有向图 G 中，如果两个顶点 v 和 w 是互相可达的，则称它们是<strong>强连通的</strong>。联想到环的定义，我们很容易想到两个顶点是强连通的等价于它们在同一个有向环中。</p>
+<p>有向图中的强连通性也是一种顶点之间的等价关系，满足以下性质：</p>
+<ul>
+<li>自反性：任意顶点 v 和自己都是强连通的。</li>
+<li>对称性：如果 v 和 w 是强连通的，那么 w 和 v 也是强连通的。</li>
+<li>传递性：如果 v 和 w 是强连通的且 w 和 x 也是强连通的，那<br>么 v 和 x 也是强连通的。</li>
+</ul>
+<p>强连通性将所有的顶点分为两一些等价类，每个等价类都是由相互均为强连通的顶点的最大子集组成的，我们称这些子集为<strong>强连通分量</strong>。对于理解有向图的结构，强连通性是一种非常重要的抽象，它突出了相互关联的几组顶点，如可以帮助决定话题分类和理解食物链中的能量流动问题。</p>
+<p>对于强连通分量问题，我们可以使用 Kosaraju 算法来解决，本质上这个算法还是基于 DFS 的，</p>
+<ul>
+<li>首先对 G 进行反转，即改变所有边的指向和原来相反，得到图 H；</li>
+<li>然后对 H 进行逆后序排列；</li>
+<li>按照这个排列顺序对 G 中的顶点调用标准 DFS，每一次非标记的顶点遍历完表示做完了一个强连通分量的搜索。</li>
+</ul>
+<img src="/2020/04/algorithm-map/kosaraju_example.png" title="Kosaraju 算法运行示例">
+<p>举个例子，如上图所示。证明如下：</p>
+<img src="/2020/04/algorithm-map/kosaraju_provement.png" title="Kosaraju 算法证明">
+<h2 id="3-最小生成树"><a href="#3-最小生成树" class="headerlink" title="3. 最小生成树"></a>3. 最小生成树</h2><p><strong>加权图</strong>是为每条边关联一个<em>权值</em>或是<em>成本</em>的图模型。这种图能够自然地表示许多应用。在一幅电路图中，边表示导线，权值则可能表示导线的长度即成本，或是信号通过这条线路所需的时间。在这些情形中，最令人感兴趣的自然是将成本最小化。我们将学习加权无向图模型并用算法回答这个问题。</p>
+<p><strong>最小生成树</strong>：给定一副加权无向图，找到它的一棵最小生成树。</p>
+<p>在解决这个问题之前，我们需要对之前的数据结构进行一些改变。</p>
+<h3 id="3-1-Prim-算法"><a href="#3-1-Prim-算法" class="headerlink" title="3.1. Prim 算法"></a>3.1. Prim 算法</h3><p>这是一种得到加权无向图的有效算法，基本思想如下：</p>
+<ul>
+<li>将一个节点加入队列，将它的所有邻边加入队列</li>
+</ul>
+<h3 id="3-2-Kruskal-算法"><a href="#3-2-Kruskal-算法" class="headerlink" title="3.2. Kruskal 算法"></a>3.2. Kruskal 算法</h3><h2 id="4-最短路径"><a href="#4-最短路径" class="headerlink" title="4. 最短路径"></a>4. 最短路径</h2>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>数据结构</tag>
+        <tag>notes</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>呓语——关于一次申请的记录</title>
+    <url>/2020/04/a-whisper-story-of-an-application/</url>
+    <content><![CDATA[<p>日前，我又在为某件事犹豫不决一拖再拖了，这次是研究生申请。</p>
+<p>最终我说服了自己，在那一段短暂的时间，我变得勇敢去追求自己想要的：<a id="more"></a>我就是要争取成为这个老师的学生。那么第一步就应该是提出申请，没人能替我做这个事，面对这样的事，很难想象别人也会有同我一样的感受，我害怕被拒绝，考虑到会被拒绝都让我很难受，认为拒绝是对整个人的否定，不过我承认与否，我能感受到自己心中的感觉就是这样。好在这次我赢了，我暂胜了它，虽然托了较长一段时间。从外部看来，这仅仅就是一次申请一封邮件而言，不过厚着脸皮说一句：对我而言这是一次对自己的突破。希望自己能坚持敢于面对否定。</p>
+<p>敢于开始做一件会被否定的事，结果对于我而言就不那么重要了，好消息是这次结果还算不错。老师没有拒绝，希望在疫情结束后返校面对面谈谈。现在我又多了一个盼望开学的理由了。我不想放弃这次不算机会的机会，放弃其他选项是值得的，我接受了老师的提议，希望能有师徒缘分吧。</p>
+<p>申请之事告一段落，感谢『终身成长』带来的力量，开卷有益当真不错。现在先做好手上的事，顺便复习下基础知识，尽人事先。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NS2 的介绍（七）—— RED 队列监视示例</title>
+    <url>/2020/04/ns2-redQueue-monitor-ex/</url>
+    <content><![CDATA[<p>本文将展示一个 RED 队列监视示例。下面这段 OTcl 脚本建立了如图所示网络拓扑然后运行模拟场景，可以看到，在 r1 和 r2 间的 link 使用的 RED 队列可以保存至多 25 个 packet，我们通过测量当前队列和平均队列大小的动态变化，以观察 RED 队列是如何工作的。点击下载代码<a href="/downloads/code/red.tcl"> red.tcl </a>。<a id="more"></a></p>
+<img src="/2020/04/ns2-redQueue-monitor-ex/red_queue_monitor_setup.png" title="网络设置">
+<figure class="highlight tcl"><figcaption><span>red.tcl</span><a href="/downloads/code/red.tcl">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> ns [new Simulator]</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> node_(s1) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(s2) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(r1) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(r2) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(s3) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(s4) [$ns node]</span><br><span class="line"></span><br><span class="line">$ns duplex-link $node_(s1) $node_(r1) <span class="number">10</span>Mb <span class="number">2</span>ms DropTail</span><br><span class="line">$ns duplex-link $node_(s2) $node_(r1) <span class="number">10</span>Mb <span class="number">3</span>ms DropTail</span><br><span class="line">$ns duplex-link $node_(r1) $node_(r2) <span class="number">1.5</span>Mb <span class="number">20</span>ms RED</span><br><span class="line">$ns queue-limit $node_(r1) $node_(r2) <span class="number">25</span></span><br><span class="line">$ns queue-limit $node_(r2) $node_(r1) <span class="number">25</span></span><br><span class="line">$ns duplex-link $node_(s3) $node_(r2) <span class="number">10</span>Mb <span class="number">4</span>ms DropTail</span><br><span class="line">$ns duplex-link $node_(s4) $node_(r2) <span class="number">10</span>Mb <span class="number">5</span>ms DropTail</span><br><span class="line"></span><br><span class="line">$ns duplex-link-op $node_(s1) $node_(r1) orient right-down</span><br><span class="line">$ns duplex-link-op $node_(s2) $node_(r1) orient right-up</span><br><span class="line">$ns duplex-link-op $node_(r1) $node_(r2) orient right</span><br><span class="line"></span><br><span class="line">$ns duplex-link-op $node_(r1) $node_(r2) queuePos <span class="number">0</span></span><br><span class="line">$ns duplex-link-op $node_(r2) $node_(r1) queuePos <span class="number">0</span></span><br><span class="line"></span><br><span class="line">$ns duplex-link-op $node_(s3) $node_(r2) orient left-down</span><br><span class="line">$ns duplex-link-op $node_(s4) $node_(r2) orient left-up</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> tcp1 [$ns create-connection TCP/Reno $node_(s1) TCPSink $node_(s3) <span class="number">0</span>]</span><br><span class="line">$tcp1 <span class="keyword">set</span> window_ <span class="number">15</span></span><br><span class="line"><span class="keyword">set</span> tcp2 [$ns create-connection TCP/Reno $node_(s2) TCPSink $node_(s3) <span class="number">1</span>]</span><br><span class="line">$tcp2 <span class="keyword">set</span> window_ <span class="number">15</span></span><br><span class="line"><span class="keyword">set</span> ftp1 [$tcp1 attach-<span class="keyword">source</span> FTP]</span><br><span class="line"><span class="keyword">set</span> ftp2 [$tcp2 attach-<span class="keyword">source</span> FTP]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Tracing a queue</span></span><br><span class="line"><span class="keyword">set</span> redq [[$ns link $node_(r1) $node_(r2)] queue]</span><br><span class="line"><span class="keyword">set</span> tchan_ [<span class="keyword">open</span> all.q w]</span><br><span class="line">$redq <span class="keyword">trace</span> curq_</span><br><span class="line">$redq <span class="keyword">trace</span> ave_</span><br><span class="line">$redq attach $tchan_</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ns at <span class="number">0.0</span> <span class="string">"$ftp1 start"</span></span><br><span class="line">$ns at <span class="number">3.0</span> <span class="string">"$ftp2 start"</span></span><br><span class="line">$ns at <span class="number">10</span> <span class="string">"finish"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define 'finish' procedure (include post-simulation processes)</span></span><br><span class="line"><span class="keyword">proc</span><span class="title"> finish</span> {} {</span><br><span class="line">    <span class="keyword">global</span> tchan_</span><br><span class="line">    <span class="keyword">set</span> awkCode {</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> ($<span class="number">1</span> == <span class="string">"Q"</span> &amp;&amp; NF&gt;<span class="number">2</span>) {</span><br><span class="line">        print $<span class="number">2</span>, $<span class="number">3</span> &gt;&gt; <span class="string">"temp.q"</span>;</span><br><span class="line">        <span class="keyword">set</span> end $<span class="number">2</span></span><br><span class="line">        }</span><br><span class="line">        else <span class="keyword">if</span> ($<span class="number">1</span> == <span class="string">"a"</span> &amp;&amp; NF&gt;<span class="number">2</span>)</span><br><span class="line">        print $<span class="number">2</span>, $<span class="number">3</span> &gt;&gt; <span class="string">"temp.a"</span>;</span><br><span class="line">    }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">set</span> f [<span class="keyword">open</span> temp.queue w]</span><br><span class="line">    <span class="keyword">puts</span> $f <span class="string">"TitleText: red"</span></span><br><span class="line">    <span class="keyword">puts</span> $f <span class="string">"Device: Postscript"</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> { [<span class="keyword">info</span> exists tchan_] } {</span><br><span class="line">    <span class="keyword">close</span> $tchan_</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">exec</span> rm -f temp.q temp.a </span><br><span class="line">    <span class="keyword">exec</span> touch temp.a temp.q</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">exec</span> awk $awkCode all.q</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">puts</span> $f \<span class="string">"queue</span></span><br><span class="line"><span class="string">    exec cat temp.q &gt;@ $f  </span></span><br><span class="line"><span class="string">    puts $f \n\"ave_queue</span></span><br><span class="line"><span class="string">    exec cat temp.a &gt;@ $f</span></span><br><span class="line"><span class="string">    close $f</span></span><br><span class="line"><span class="string">    exec xgraph -bb -tk -x time -y queue temp.queue &amp;</span></span><br><span class="line"><span class="string">    exit 0</span></span><br><span class="line"><span class="string">}</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">$ns run</span></span><br></pre></td></tr></table></figure>
+<p>有几件事需要注意。首先，更高级的 Simulator 对象成员函数 <code>create-connection</code> 被用于创建 TCP 连接。其次，仔细观察代码中的队列跟踪部分，可以发现我们创建了一个指向 RED 队列对象的变量，调用它的成员函数 <code>trace</code> 监视当前队列大小（cur_q）和平均队列大小（avg_），然后把结果写入文件 <code>all.q</code> 中。</p>
+<p>运行结果：<br><img src="/2020/04/ns2-redQueue-monitor-ex/result.png" title="运行结果"></p>
+<hr>
+<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+        <tag>NS2</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Notes of Satellite Communications</title>
     <url>/2020/04/stallite-communications-notes/</url>
     <content><![CDATA[<p>卫星通信课的笔记，持续更新。<br><a id="more"></a></p>
@@ -1184,37 +1218,52 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>NS2 的介绍（七）—— RED 队列监视示例</title>
-    <url>/2020/04/ns2-redQueue-monitor-ex/</url>
-    <content><![CDATA[<p>本文将展示一个 RED 队列监视示例。下面这段 OTcl 脚本建立了如图所示网络拓扑然后运行模拟场景，可以看到，在 r1 和 r2 间的 link 使用的 RED 队列可以保存至多 25 个 packet，我们通过测量当前队列和平均队列大小的动态变化，以观察 RED 队列是如何工作的。点击下载代码<a href="/downloads/code/red.tcl"> red.tcl </a>。<a id="more"></a></p>
-<img src="/2020/04/ns2-redQueue-monitor-ex/red_queue_monitor_setup.png" title="网络设置">
-<figure class="highlight tcl"><figcaption><span>red.tcl</span><a href="/downloads/code/red.tcl">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> ns [new Simulator]</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> node_(s1) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(s2) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(r1) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(r2) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(s3) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(s4) [$ns node]</span><br><span class="line"></span><br><span class="line">$ns duplex-link $node_(s1) $node_(r1) <span class="number">10</span>Mb <span class="number">2</span>ms DropTail</span><br><span class="line">$ns duplex-link $node_(s2) $node_(r1) <span class="number">10</span>Mb <span class="number">3</span>ms DropTail</span><br><span class="line">$ns duplex-link $node_(r1) $node_(r2) <span class="number">1.5</span>Mb <span class="number">20</span>ms RED</span><br><span class="line">$ns queue-limit $node_(r1) $node_(r2) <span class="number">25</span></span><br><span class="line">$ns queue-limit $node_(r2) $node_(r1) <span class="number">25</span></span><br><span class="line">$ns duplex-link $node_(s3) $node_(r2) <span class="number">10</span>Mb <span class="number">4</span>ms DropTail</span><br><span class="line">$ns duplex-link $node_(s4) $node_(r2) <span class="number">10</span>Mb <span class="number">5</span>ms DropTail</span><br><span class="line"></span><br><span class="line">$ns duplex-link-op $node_(s1) $node_(r1) orient right-down</span><br><span class="line">$ns duplex-link-op $node_(s2) $node_(r1) orient right-up</span><br><span class="line">$ns duplex-link-op $node_(r1) $node_(r2) orient right</span><br><span class="line"></span><br><span class="line">$ns duplex-link-op $node_(r1) $node_(r2) queuePos <span class="number">0</span></span><br><span class="line">$ns duplex-link-op $node_(r2) $node_(r1) queuePos <span class="number">0</span></span><br><span class="line"></span><br><span class="line">$ns duplex-link-op $node_(s3) $node_(r2) orient left-down</span><br><span class="line">$ns duplex-link-op $node_(s4) $node_(r2) orient left-up</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> tcp1 [$ns create-connection TCP/Reno $node_(s1) TCPSink $node_(s3) <span class="number">0</span>]</span><br><span class="line">$tcp1 <span class="keyword">set</span> window_ <span class="number">15</span></span><br><span class="line"><span class="keyword">set</span> tcp2 [$ns create-connection TCP/Reno $node_(s2) TCPSink $node_(s3) <span class="number">1</span>]</span><br><span class="line">$tcp2 <span class="keyword">set</span> window_ <span class="number">15</span></span><br><span class="line"><span class="keyword">set</span> ftp1 [$tcp1 attach-<span class="keyword">source</span> FTP]</span><br><span class="line"><span class="keyword">set</span> ftp2 [$tcp2 attach-<span class="keyword">source</span> FTP]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Tracing a queue</span></span><br><span class="line"><span class="keyword">set</span> redq [[$ns link $node_(r1) $node_(r2)] queue]</span><br><span class="line"><span class="keyword">set</span> tchan_ [<span class="keyword">open</span> all.q w]</span><br><span class="line">$redq <span class="keyword">trace</span> curq_</span><br><span class="line">$redq <span class="keyword">trace</span> ave_</span><br><span class="line">$redq attach $tchan_</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ns at <span class="number">0.0</span> <span class="string">"$ftp1 start"</span></span><br><span class="line">$ns at <span class="number">3.0</span> <span class="string">"$ftp2 start"</span></span><br><span class="line">$ns at <span class="number">10</span> <span class="string">"finish"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define 'finish' procedure (include post-simulation processes)</span></span><br><span class="line"><span class="keyword">proc</span><span class="title"> finish</span> {} {</span><br><span class="line">    <span class="keyword">global</span> tchan_</span><br><span class="line">    <span class="keyword">set</span> awkCode {</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> ($<span class="number">1</span> == <span class="string">"Q"</span> &amp;&amp; NF&gt;<span class="number">2</span>) {</span><br><span class="line">        print $<span class="number">2</span>, $<span class="number">3</span> &gt;&gt; <span class="string">"temp.q"</span>;</span><br><span class="line">        <span class="keyword">set</span> end $<span class="number">2</span></span><br><span class="line">        }</span><br><span class="line">        else <span class="keyword">if</span> ($<span class="number">1</span> == <span class="string">"a"</span> &amp;&amp; NF&gt;<span class="number">2</span>)</span><br><span class="line">        print $<span class="number">2</span>, $<span class="number">3</span> &gt;&gt; <span class="string">"temp.a"</span>;</span><br><span class="line">    }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">set</span> f [<span class="keyword">open</span> temp.queue w]</span><br><span class="line">    <span class="keyword">puts</span> $f <span class="string">"TitleText: red"</span></span><br><span class="line">    <span class="keyword">puts</span> $f <span class="string">"Device: Postscript"</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> { [<span class="keyword">info</span> exists tchan_] } {</span><br><span class="line">    <span class="keyword">close</span> $tchan_</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">exec</span> rm -f temp.q temp.a </span><br><span class="line">    <span class="keyword">exec</span> touch temp.a temp.q</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">exec</span> awk $awkCode all.q</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">puts</span> $f \<span class="string">"queue</span></span><br><span class="line"><span class="string">    exec cat temp.q &gt;@ $f  </span></span><br><span class="line"><span class="string">    puts $f \n\"ave_queue</span></span><br><span class="line"><span class="string">    exec cat temp.a &gt;@ $f</span></span><br><span class="line"><span class="string">    close $f</span></span><br><span class="line"><span class="string">    exec xgraph -bb -tk -x time -y queue temp.queue &amp;</span></span><br><span class="line"><span class="string">    exit 0</span></span><br><span class="line"><span class="string">}</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">$ns run</span></span><br></pre></td></tr></table></figure>
-<p>有几件事需要注意。首先，更高级的 Simulator 对象成员函数 <code>create-connection</code> 被用于创建 TCP 连接。其次，仔细观察代码中的队列跟踪部分，可以发现我们创建了一个指向 RED 队列对象的变量，调用它的成员函数 <code>trace</code> 监视当前队列大小（cur_q）和平均队列大小（avg_），然后把结果写入文件 <code>all.q</code> 中。</p>
-<p>运行结果：<br><img src="/2020/04/ns2-redQueue-monitor-ex/result.png" title="运行结果"></p>
-<hr>
-<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
-]]></content>
+    <title>LeetCode | 4 两个排序数组的中位数</title>
+    <url>/2020/05/find-median-sorted-arrays/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定两个大小为 <code>m</code> 和 <code>n</code> 的有序数组 <code>nums1</code> 和 <code>nums2</code>。找出这两个有序数组的中位数。要求算法的时间复杂度为<code>O(log(m+n))</code>。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
+<li><code>nums1 = [1, 3]</code>，<code>nums2 = [2]</code>，中位数是 2.0；</li>
+<li><code>nums1 = [1, 2]</code>，<code>nums2 = [3, 4]</code>，中位数是 2.5；<a id="more"></a>
+</li>
+</ul>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>整体上是一个分而治之的思想，将问题分解，使用递归可以很方便的完成。这个问题是『寻找两个有序数组中的第 k 大元素』问题的特殊形式，我们直接实现寻址第 k 大元素的函数  <code>find_kth()</code> 即可，然后在 <code>findMedianSortedArrays()</code> 中调用它即可。</p>
+<p>我们使用递归方式实现 <code>find_kth()</code>，对于递归算法，我们要注意递归终止条件。首先要确保第一个参数数组的长度是较短的，</p>
+<ul>
+<li>较短数组 <code>a</code> 的长度（未搜索区域长度）变为 0，返回 <code>b</code> 中第 <code>k</code> 个元素；</li>
+<li>待寻找的序数 <code>k = 1</code>，返回<code>a</code> 和 <code>b</code> 的第一个元素中的较小者。</li>
+</ul>
+<p>然后我们需要确定每个数组的搜索长度。对于较小数组 <code>a</code>，搜索长度为数组长和 <code>k/2</code> 的较大者，余下的长度则为数组 <code>b</code> 待搜索的长度。</p>
+<p>代码如下：</p>
+<figure class="highlight c"><figcaption><span>LeetCodeSolution4.c</span><a href="/downloads/code/LeetCodeSolution4.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">// 辅助函数 选择两个有序数组中第 k 大的数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find_kth</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> alen, <span class="keyword">int</span> *b, <span class="keyword">int</span> blen, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="comment">// 确保 alen &lt; blen</span></span><br><span class="line">    <span class="keyword">if</span> (alen &gt; blen)</span><br><span class="line">        <span class="keyword">return</span> find_kth(b, blen, a, alen, k);</span><br><span class="line">    <span class="keyword">if</span> (alen == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> b[k<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">if</span> (k == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> a[<span class="number">0</span>] &lt; b[<span class="number">0</span>] ? a[<span class="number">0</span>] : b[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ia = alen &gt; k/<span class="number">2</span> ? k/<span class="number">2</span> : alen;</span><br><span class="line">    <span class="keyword">int</span> ib = k - ia;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (b[ib<span class="number">-1</span>] &gt; a[ia<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">return</span> find_kth(a+ia, alen-ia, b, blen, k-ia);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (b[ib<span class="number">-1</span>] &lt; a[ia<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">return</span> find_kth(a, alen, b+ib, blen-ib, k-ib);</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">// 注意这种情况</span></span><br><span class="line">        <span class="keyword">return</span> a[ia<span class="number">-1</span>];</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 找出两个有序数组中的中位数</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span> *nums1, <span class="keyword">int</span> nums1Size,</span></span></span><br><span class="line"><span class="function"><span class="params">                        <span class="keyword">int</span> *nums2, <span class="keyword">int</span> nums2Size)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> mid = nums2Size + (nums1Size - nums2Size) / <span class="number">2</span>;</span><br><span class="line">    <span class="comment">// if ((nums1Size &amp; 0x1) ^ (nums2Size &amp; 0x1)) // 和为奇数</span></span><br><span class="line">    <span class="keyword">if</span> ((nums1Size+nums2Size) &amp; <span class="number">0x1</span>)</span><br><span class="line">        <span class="keyword">return</span> find_kth(nums1, nums1Size, nums2, nums2Size, mid+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span>    <span class="comment">// 和为偶数</span></span><br><span class="line">        <span class="keyword">return</span> (find_kth(nums1, nums1Size, nums2, nums2Size, mid)</span><br><span class="line">                    + find_kth(nums1, nums1Size, nums2, nums2Size, mid+<span class="number">1</span>)) / <span class="number">2.0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>网络</tag>
-        <tag>NS2</tag>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
       </tags>
   </entry>
   <entry>
-    <title>呓语——关于一次申请的记录</title>
-    <url>/2020/04/a-whisper-story-of-an-application/</url>
-    <content><![CDATA[<p>日前，我又在为某件事犹豫不决一拖再拖了，这次是研究生申请。</p>
-<p>最终我说服了自己，在那一段短暂的时间，我变得勇敢去追求自己想要的：<a id="more"></a>我就是要争取成为这个老师的学生。那么第一步就应该是提出申请，没人能替我做这个事，面对这样的事，很难想象别人也会有同我一样的感受，我害怕被拒绝，考虑到会被拒绝都让我很难受，认为拒绝是对整个人的否定，不过我承认与否，我能感受到自己心中的感觉就是这样。好在这次我赢了，我暂胜了它，虽然托了较长一段时间。从外部看来，这仅仅就是一次申请一封邮件而言，不过厚着脸皮说一句：对我而言这是一次对自己的突破。希望自己能坚持敢于面对否定。</p>
-<p>敢于开始做一件会被否定的事，结果对于我而言就不那么重要了，好消息是这次结果还算不错。老师没有拒绝，希望在疫情结束后返校面对面谈谈。现在我又多了一个盼望开学的理由了。我不想放弃这次不算机会的机会，放弃其他选项是值得的，我接受了老师的提议，希望能有师徒缘分吧。</p>
-<p>申请之事告一段落，感谢『终身成长』带来的力量，开卷有益当真不错。现在先做好手上的事，顺便复习下基础知识，尽人事先。</p>
-]]></content>
+    <title>LeetCode | 11 盛最多水的容器</title>
+    <url>/2020/05/max-area/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定 <code>n</code> 个非负整数 <code>a1, a2, ..., an</code>，每个数代表坐标中的一个点 <code>(i, ai)</code>。画 <code>n</code> 条垂直线，使得垂直线 <code>i</code> 的两个端点分别为 <code>(i, ai)</code> 和 <code>(i, 0)</code>。找出其中的两条线，使得它们与 <code>x</code> 轴共同构成的容器可以容纳最多的水。</p>
+<p>注意：不能倾斜容器，<code>n</code> 至少是 2。<br><a id="more"></a></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>如果使用暴力算法，那么时间复杂度为 $O(n^2)$。如果使用双指针法，那么时间复杂度降为 $O(n)$。如下所示。</p>
+<ol>
+<li>初始化两个指针 <code>first</code> 和 <code>last</code> 分别指向数组头和尾；</li>
+<li>当 <code>last</code> 指向的值较小时，计算一个面积，并决定是否保留，然后 <code>last--</code> ；</li>
+<li>当 <code>first</code> 指向的值较小时，计算一个面积，并决定是否保留，然后 <code>first++</code>；</li>
+<li>从第 2 步重新执行，直到 <code>first == last</code>，返回最大值。</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span> *height, <span class="keyword">int</span> heightSize)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>, aux = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> first = <span class="number">0</span>, last = heightSize - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (first &lt; last) &#123;</span><br><span class="line">        <span class="keyword">if</span> (height[first] &lt; height[last]) &#123;</span><br><span class="line">            aux = height[first] * (last - first);</span><br><span class="line">            res = aux &gt; res ? aux : res;</span><br><span class="line">            first++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            aux = height[last] * (last - first);</span><br><span class="line">            res = aux &gt; res ? aux : res;</span><br><span class="line">            last--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们还可以对上面的算法进行一些改进。在上面的算法中，我们每次将指针挪动一个位置（向左或向右），然后计算面积并进行比较。这个面积的计算是否每次都有必要呢？其实并不必要，每次挪动指针后，所求区域的长度都会减小，只有<strong>区域的宽度增加我们才有重新计算面积的必要</strong>，即指针新指向的值大于它原来指向的值，我们才需要再次计算面积。基于此，我们可以对算法进行改进，如下所示。</p>
+<figure class="highlight c"><figcaption><span>LeetCodeSolution11.c</span><a href="/downloads/code/LeetCodeSolution11.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span> *height, <span class="keyword">int</span> heightSize)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>, aux = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> first = <span class="number">0</span>, last = heightSize - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (first &lt; last) {</span><br><span class="line">        aux = (last - first) * </span><br><span class="line">            (height[first] &lt; height[last] ? height[first] : height[last]);</span><br><span class="line">        res = aux &gt; res ? aus : res;</span><br><span class="line">        <span class="keyword">if</span> (height[first] &lt; height[last])</span><br><span class="line">            <span class="keyword">while</span> (++first &lt; max &amp;&amp; height[min] &lt;= height[min<span class="number">-1</span>])</span><br><span class="line">                <span class="comment">// 新指针指向的值不大于原来的值 继续减小指针即可</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">while</span> (--last &gt; first &amp;&amp; height[last] &lt;= height[last+<span class="number">1</span>])</span><br><span class="line">                <span class="comment">// 新指针指向的值不大于原来的值 继续减小指针即可</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>生活</category>
+        <category>学习</category>
       </categories>
       <tags>
-        <tag>记录</tag>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
       </tags>
   </entry>
   <entry>
@@ -1238,8 +1287,8 @@ proc complete_sim {} {...}
       </categories>
       <tags>
         <tag>算法</tag>
-        <tag>链表</tag>
         <tag>LeetCode</tag>
+        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -1271,33 +1320,8 @@ proc complete_sim {} {...}
       <tags>
         <tag>算法</tag>
         <tag>C/C++</tag>
+        <tag>LeetCode</tag>
         <tag>链表</tag>
-        <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode | 4 两个排序数组的中位数</title>
-    <url>/2020/05/find-median-sorted-arrays/</url>
-    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定两个大小为 <code>m</code> 和 <code>n</code> 的有序数组 <code>nums1</code> 和 <code>nums2</code>。找出这两个有序数组的中位数。要求算法的时间复杂度为<code>O(log(m+n))</code>。</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
-<li><code>nums1 = [1, 3]</code>，<code>nums2 = [2]</code>，中位数是 2.0；</li>
-<li><code>nums1 = [1, 2]</code>，<code>nums2 = [3, 4]</code>，中位数是 2.5；</li>
-</ul>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>整体上是一个分而治之的思想，将问题分解，使用递归可以很方便的完成。这个问题是『寻找两个有序数组中的第 k 大元素』问题的特殊形式，我们直接实现寻址第 k 大元素的函数  <code>find_kth()</code> 即可，然后在 <code>findMedianSortedArrays()</code> 中调用它即可。</p>
-<p>我们使用递归方式实现 <code>find_kth()</code>，对于递归算法，我们要注意递归终止条件。首先要确保第一个参数数组的长度是较短的，</p>
-<ul>
-<li>较短数组 <code>a</code> 的长度（未搜索区域长度）变为 0，返回 <code>b</code> 中第 <code>k</code> 个元素；</li>
-<li>待寻找的序数 <code>k = 1</code>，返回<code>a</code> 和 <code>b</code> 的第一个元素中的较小者。</li>
-</ul>
-<p>然后我们需要确定每个数组的搜索长度。对于较小数组 <code>a</code>，搜索长度为数组长和 <code>k/2</code> 的较大者，余下的长度则为数组 <code>b</code> 待搜索的长度。</p>
-<p>代码如下：</p>
-<figure class="highlight c"><figcaption><span>LeetCodeSolution4.c</span><a href="/downloads/code/LeetCodeSolution4.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">// 辅助函数 选择两个有序数组中第 k 大的数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find_kth</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> alen, <span class="keyword">int</span> *b, <span class="keyword">int</span> blen, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="comment">// 确保 alen &lt; blen</span></span><br><span class="line">    <span class="keyword">if</span> (alen &gt; blen)</span><br><span class="line">        <span class="keyword">return</span> find_kth(b, blen, a, alen, k);</span><br><span class="line">    <span class="keyword">if</span> (alen == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> b[k<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">if</span> (k == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> a[<span class="number">0</span>] &lt; b[<span class="number">0</span>] ? a[<span class="number">0</span>] : b[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ia = alen &gt; k/<span class="number">2</span> ? k/<span class="number">2</span> : alen;</span><br><span class="line">    <span class="keyword">int</span> ib = k - ia;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (b[ib<span class="number">-1</span>] &gt; a[ia<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">return</span> find_kth(a+ia, alen-ia, b, blen, k-ia);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (b[ib<span class="number">-1</span>] &lt; a[ia<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">return</span> find_kth(a, alen, b+ib, blen-ib, k-ib);</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">// 注意这种情况</span></span><br><span class="line">        <span class="keyword">return</span> a[ia<span class="number">-1</span>];</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 找出两个有序数组中的中位数</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span> *nums1, <span class="keyword">int</span> nums1Size,</span></span></span><br><span class="line"><span class="function"><span class="params">                        <span class="keyword">int</span> *nums2, <span class="keyword">int</span> nums2Size)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> mid = nums2Size + (nums1Size - nums2Size) / <span class="number">2</span>;</span><br><span class="line">    <span class="comment">// if ((nums1Size &amp; 0x1) ^ (nums2Size &amp; 0x1)) // 和为奇数</span></span><br><span class="line">    <span class="keyword">if</span> ((nums1Size+nums2Size) &amp; <span class="number">0x1</span>)</span><br><span class="line">        <span class="keyword">return</span> find_kth(nums1, nums1Size, nums2, nums2Size, mid+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span>    <span class="comment">// 和为偶数</span></span><br><span class="line">        <span class="keyword">return</span> (find_kth(nums1, nums1Size, nums2, nums2Size, mid)</span><br><span class="line">                    + find_kth(nums1, nums1Size, nums2, nums2Size, mid+<span class="number">1</span>)) / <span class="number">2.0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>LeetCode</tag>
       </tags>
   </entry>
 </search>
