@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>一点思考</title>
-    <url>/2018/04/A_little_thinking/</url>
-    <content><![CDATA[<p>时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>思考</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>记录科创中期答辩</title>
     <url>/2018/04/My_first_lose/</url>
     <content><![CDATA[<p>今天下午的科创中期答辩我们组当掉了，说实话我们什么都没做，单纯的想敷衍过去，很不幸，老师没有让我们通过，4月29号要再来一次，希望可以通过吧。<br><a id="more"></a><br>关于这次答辩，我还是有些东西想记下来的：</p>
@@ -29,15 +17,15 @@
       </tags>
   </entry>
   <entry>
-    <title>Believe_in_yourself</title>
-    <url>/2018/06/Believe-in-yourself/</url>
-    <content><![CDATA[<p>最近有点烦躁，事情一件接着一件地扑面而来，丝毫不给我喘气的机会，为了排遣苦闷，我嘴上的脏话多了不少，不过好在这一切都将过去了，过去了之后我一定要好好开始，现在，我只有祈祷最后能有一个好的结果。<br><a id="more"></a><br>这是一个疯狂的六月！<br>英语课程考试(6.7)，英语口语测试(6.14)，六级考试(6.16)，科创答辩(6.20)，数学建模考试(6.21)，近代史考试(6.26)，英语期末考试(6.29)……这还远没有结束，七月是工大的小学期时间！八月才放暑假！九月开学！坏消息是大物和微积分的考试放到小学期了，当然，这也可以算是好消息，至少六月份可以喘口气了，真正毫无疑问的好消息自然就是我们会搬进新公寓！</p>
+    <title>一点思考</title>
+    <url>/2018/04/A_little_thinking/</url>
+    <content><![CDATA[<p>时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。</p>
 ]]></content>
       <categories>
         <category>生活</category>
       </categories>
       <tags>
-        <tag>记录</tag>
+        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
@@ -101,8 +89,105 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
         <tag>C/C++</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记录高频硬件课程设计</title>
+    <url>/2019/12/record-of-high-frequency-course-design/</url>
+    <content><![CDATA[<p>本文绝大部分内容是在19年12月29日写的，我记得很清楚，那天是周日上午，我没有为即将到来的通原考试而复习，而是选择去写点东西记录几天前刚刚结束的高频课设，这是一次很难忘的经历，有痛苦也有快乐，有想过放弃但还是坚持了下来，感谢自己和队友们。现在是2020年3月15日，本该在学校度过周日的我，和所有的大学生一样，因为肺炎疫情只能在家里学习，我没什么学习状态，有些无聊，因此整理博客，把这篇去年的记录整理整理，发到GitHubBlog上，留作纪念，发表日期还是使用去年写这篇文章的日子。<br><a id="more"></a></p>
+<h2 id="最终验收"><a href="#最终验收" class="headerlink" title="最终验收"></a>最终验收</h2><p>12月24号，高频硬件课设验收，在队友的强烈要求下，我们选择了一个比较宽松的老师给我们验收，因为我们功率达不到，但还想 <strong>『恰完烂分』</strong>，这能对他的保研有所帮助。最后的结果很好，我们拿到了5分（满分5分），<strong>『烂分恰完』</strong>。</p>
+<div align="center" class="img"><br>    <img src="/assets/img/2019/final.jpg" alt="验收" height="400"><br>    <p align="center" style="color:#999">最终验收时电路连接和波形</p><br></div>
+
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>12月17号周二下午考完『随机过程』，终于有时间休息了，躺了一个小时，吃个饭，室友已经去搞硬件了，虽然已经是晚上9点多了，但我还想去，带上东西，去李老师办公室焊。折腾了两个小时，焊好了一个西勒振荡器，但没有测试工具，只能第二天测试焊接是否正确，测试工具缺乏和焊接出错这两个问题在整个课设过程中一直困扰着我们。</p>
+<div align="center" class="img"><br>    <img src="/assets/img/2019/siler_oscillator.jpg" alt="西勒振荡器" height="400"><br>    <p align="center" style="color:#999">第一天晚上焊好的西勒振荡器</p><br></div>
+
+<h2 id="一起干"><a href="#一起干" class="headerlink" title="一起干"></a>一起干</h2><p>第二天是周三，没有课，我和赵公子决定去实验室接着焊板子，顺便测试下昨晚上焊的振荡器。两个小时后，我们焊好了发射机和接收机的振荡器，经过测试，他的能用，而我的那块振荡器产生了寄生调幅。检查了电路没有任何问题，折腾到下午，最后发现是射极偏置电阻过大导致的，微调射极电阻，即可解决这个问题。</p>
+<p>下午和晚上我们都在实验室呆着，一直做到晚上11点。因为我已经很久没焊接东西，有点手生，他更是没啥经验，我们效率比较低，只焊好了一个乘法电路、一个中频放大器和一个包络检波器。后面测试时发现，我焊接的那个乘法电路不能实现信号相乘。那时我还不知道，接下来3天我都会把时间花在乘法电路上，如果早知道调试它会这么折腾，第一天晚上就应该当机立断重新焊一个的。</p>
+<h2 id="心生退意"><a href="#心生退意" class="headerlink" title="心生退意"></a>心生退意</h2><p>接下来的几天我感到痛苦不堪，我焊接乘法电路始终不好使，不知为什么我就是不愿重新焊一块，执着地想把它修好，但这一切都是徒劳的。看着周围的同学一个个都做出来乘法电路了，我开始怀疑自己：如果做不出来是不是证明我不行，我怎么能不行呢？要不放弃吧，这样就不存在证明了，我告诉自己这些bonus对我来说并不那么重要，我保研与否与这课设5分没什么关系。沃老板执着地说焊板子的烟搞得他很难受，实验室里面人太多了，空气太差，乌烟瘴气，他想回寝室做，这样的参与状态让我心有不快，偏偏他才是一定要拿这 5 分保研的人，为什么我要受这些精神折磨，我当时的确不想再做下去了。</p>
+<p>周六早上，纠结了许久，我去教化补充了些元器件，决定去实验室再焊一个乘法器，还说服沃老板也焊一个接收机的乘法电路。我不知道是什么力量支撑着我继续做下去，这件事对我来说不是那么必要，最诱人的bonus并不是我一定需要的，如果不做课设，我可以去复习通原，我可以享受轻松的一周。事后我仔细想了想，大概是因为我自己的性格决定的，我不是那种遇到问题就放弃的人，借口谁都有一些，但是作为我，一旦开始做了，就要做到最后，没有中途放弃的，之前的软件仿真就是如此，没有理由硬件不坚持下去，到这个时候，其实做这个课设已经变成了和自己较劲了，我不想就这么输了。</p>
+<p>周六下午去做了通信原理实验，晚上终于焊好我的第二块乘法电路，测试再次失败，沃老板也焊好接收机混频电路，经过测试也失败。这时候我心态已经到了最低点了，我真的不想再来了，前面说的那么多不服输如何如何，可是看着别人一个个做好，我的却始终不行，旁边还有人明着嘲讽我，这使我明白『挫败感』是何含义。晚上10点，我和沃老板回寝室了，赵公子在周五下午有事回家了，但他做的已经足够多了。我突然决定不再去了。</p>
+<h2 id="坚持才是胜利"><a href="#坚持才是胜利" class="headerlink" title="坚持才是胜利"></a>坚持才是胜利</h2><p>周日上午我还是去实验室了，我想就是什么都做不出来，也得一直在实验室坐着，我就要和它刚到底。好在一切坚持都没有白费，我的乘法电路测试成功了，事实证明我的电路设计没有问题，焊接的也没有问题，昨晚测试失败只是因为电路连线没有接好，胜利让我欣喜若狂，我真想大声怒吼：我终于完成了。另一边也有好消息传来，沃老板焊的和赵公子焊的乘法电路都是好使的，还有什么比此刻更快乐呢？</p>
+<div align="center"><br>    <img src="/assets/img/2019/amplitude_modulation.jpg" alt="AM调幅" height="400"><br>    <p align="center" style="color:#999">赵公子的乘法器AM波形</p><br>    <img src="/assets/img/2019/mixing.jpg" alt="混频" height="400"><br>    <p align="center" style="color:#999">沃老板的混频器波形</p><br></div>
+
+<p>周日下午发生了一些不愉快的事情，因为下午找不到他人（其实他在午睡），我对沃老板的不满更加强烈了，而那时我已经十分疲惫，愤怒之下，下午3点左右我直接回寝室，拒绝回他消息，然后睡了一觉。期间他来找我，我『哈哈』糊弄过去，不想再干。6点多起来看一眼手机，想了想，还是再去试试，把级联和功率要求做完吧，都已经到这个份上了，干脆就把它做到完。</p>
+<h2 id="乘胜追击"><a href="#乘胜追击" class="headerlink" title="乘胜追击"></a>乘胜追击</h2><p>我不想就此打住，野心开始膨胀了，<strong>『恰5分』</strong> 是调侃，此时更像是口号。发射机 AM 调制输出接上我焊调试乘法器抽空焊好的小信号放大器，效果非常好！放大了80倍，但我心里清楚，因为没有接负载，最后功率肯定达不到；接收机，混频后中频放大再检波，效果很差，但也算检波出来了，在要求不那么严苛的时候，可以拿到分；发射机接收机级联成功，和仿真保持一致。</p>
+<p>如此算来，我们已经可以拿到 4.5 分，但是我们不想收手，我们继续调放大器，要把功率的 5 分也拿到手。很不幸，我们没有成功，三极管射极电阻过小，导致射极电流过大，二极管被烧坏了，放大器也就怀了，这又是我们唯一的放大器，级联也没办法做了，这下只有 4 分了，后悔，懊恼。</p>
+<p>第二天周一，已经是12月23号了，我都没想到自己会在这上面花上近一周时间。白天上了一天课，晚上我们接着调试了一下，还是那个问题，AM 波后的小信号放大器不好使，级联就不行，功率也没有。赵公子也回来了，我们让他重新焊了一个，失败了，因为我临时对之前测试成功的电路做了修改，为了减小电流避免三极管烧毁的事再发生，但是我没想到这么一改，电流太小，放大倍数达不到要求，而且我应该自己亲手焊的。可以说今天又是一无所获。但我不会就此打住，我不愿放弃。</p>
+<p>周二上午上完微波课，我立马去教化买了元件，再焊一个小信号放大器，再试一次，不到最后，谁也不知道结果，我不想放弃。一番折腾，焊好，测试，成功。</p>
+<p>下午验收前一刻，上周三买的陶瓷滤波器终于从深圳邮到了学校，我赶紧去取回来，接到电路中，完美!<strong>『烂分恰完』</strong>。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>做完这次课设，心里有太多感慨，很多次我都想放弃了，但是总有一股力量把我拉了回来，这其中有对朋友承诺的坚守也有自己那股不服输的劲，验收成功那一刻我有点想哭，是啊，这整个过程只有我自己这么看重吧，最后还在自我感动，但如果没有这自我感动，我不知道自己能否坚持下来。当然，课设整个过程也暴露了我的一些问题：我需要有更强大的精神力量，激励自己前进，也要学会如何带领团队前进。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Believe_in_yourself</title>
+    <url>/2018/06/Believe-in-yourself/</url>
+    <content><![CDATA[<p>最近有点烦躁，事情一件接着一件地扑面而来，丝毫不给我喘气的机会，为了排遣苦闷，我嘴上的脏话多了不少，不过好在这一切都将过去了，过去了之后我一定要好好开始，现在，我只有祈祷最后能有一个好的结果。<br><a id="more"></a><br>这是一个疯狂的六月！<br>英语课程考试(6.7)，英语口语测试(6.14)，六级考试(6.16)，科创答辩(6.20)，数学建模考试(6.21)，近代史考试(6.26)，英语期末考试(6.29)……这还远没有结束，七月是工大的小学期时间！八月才放暑假！九月开学！坏消息是大物和微积分的考试放到小学期了，当然，这也可以算是好消息，至少六月份可以喘口气了，真正毫无疑问的好消息自然就是我们会搬进新公寓！</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>union-find算法的原理及实现</title>
+    <url>/2020/03/union-find/</url>
+    <content><![CDATA[<p>在计算机网络中，对于任意两个节点，可以在其间构建一条连接建立通信，这样做没有问题，但是在整个网络中都这么做会导致需要建立的连接非常多，容易计算得到<code>N</code>个节点的网络需要的连接数<code>N(N-1)/2</code>，这增加了网络的负担，实现起来也不容易，有什么办法改进呢？六度空间理论大家都知道，说的是最多通过六个人，我们可以和世界上任何人建立联系，那么如何知道两个人之间是否可以建立联系呢？这两个问题其实都属于连通性问题，可以使用<code>union-find</code>算法解决，步骤如下：</p>
+<h2 id="1-数据准备"><a href="#1-数据准备" class="headerlink" title="1. 数据准备"></a>1. 数据准备</h2><p><code>p</code>和<code>q</code>表示两个抽象的节点，可以用整数表示，如果『p，q 是相连的』，则意味着：</p>
+<ul>
+<li>自反性：<code>p</code>和<code>p</code>是相连的。</li>
+<li>对称性：如果<code>p</code>和<code>q</code>相连，则<code>q</code>和<code>p</code>也是相连的。</li>
+<li>传递性：如果<code>p</code>和<code>q</code>相连，<code>q</code>和<code>r</code>相连，则<code>p</code>和<code>r</code>也相连。</li>
+</ul>
+<p>我们可以用一个数组表示所有的节点，数组的每个位置表示一个节点，每个位置的值表示这个节点所在分量的标识符，初始化的时候每个节点的标识符都是其本身，如下所示：<br><a id="more"></a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">UF</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N]; <span class="comment">// 初始化节点数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h2><h3 id="quick-find"><a href="#quick-find" class="headerlink" title="quick-find"></a>quick-find</h3><p>在<code>union-find</code>算法中，有两个目标需要实现：判断两个节点是否连通和连接两个节点的。一种简单的思路是这样的，规定同属一个连通分量的标识符相同，比如：节点<code>0</code>，<code>1</code>和<code>2</code>是连通的，我们选择<code>1</code>为标识符，那么<code>a[0]=a[1]=a[2]=1</code>。这样做判断两个节点是否连通就可以在常数时间完成，基于此规则我们可以实现<code>quick-find</code>算法，但是这样做<code>union</code>的成本就会上升，每次<code>union</code>，需要遍历所有的节点，并对合适节点的标识符进行改变，这是个平方级别的算法，如下所示。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isConnected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> find(p)==find(q);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123; <span class="keyword">return</span> a[p]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pp = find(p);   <span class="comment">// p 节点的标识符</span></span><br><span class="line">    <span class="keyword">int</span> qq = find(q);   <span class="comment">// q 节点的标识符</span></span><br><span class="line">    <span class="keyword">if</span> (pp == qq) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">// 将 pp 标识符全部改成 qq</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++)</span><br><span class="line">        <span class="keyword">if</span> (a[i] == pp) a[i] = qq;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="quick-union"><a href="#quick-union" class="headerlink" title="quick-union"></a>quick-union</h3><p>quick-find算法中，union的成本是平方级别的，其原因在于每次union需要遍历全部的节点，可以进行一些调整，得到改进，这就是quick-union算法。具体实现：在同一类别的中的节点，我们不再让所有节点保存相同的标识符，而是在节点中保持其父节点，类似一棵树，不过是向上走的，子节点指向父节点，根节点保存的是他自己，这样一来，进行union操作时，至于遍历找到根节点，然后让其中一个根节点指向另一个根节点即可，进行find操作时，只需遍历找到根节点即指向自身的节点。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p];</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="comment">// pRoot 节点指向 Qroot</span></span><br><span class="line">    a[pRoot] = qRoot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="加权-quick-union"><a href="#加权-quick-union" class="headerlink" title="加权 quick-union"></a>加权 quick-union</h3><p>这样做没什么问题，但是在最坏情况下，节点是依次相连的，串成一串，这会导致算法的性能下降，我们对其稍加改进，每次union时，都把节点数小的那一组连接到节点数大的那一组，这就是加权的quick-union算法。实现这个算法我们需要一个数组保存每个节点下节点的数目，对根节点而言，这个数就是它所在组的大小。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">UF(<span class="keyword">int</span> N) &#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N];     <span class="comment">// 初始化节点数组</span></span><br><span class="line">    sz = <span class="keyword">new</span> <span class="keyword">int</span>[N];    <span class="comment">// 保存节点数目</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        sz[i] = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// find 算法没有改变</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="keyword">if</span> (pRoot == qRoot) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (sz[pRoot] &gt; sz[qRoot]) &#123; <span class="comment">// p 所在组较大</span></span><br><span class="line">        a[qRoot] = pRoot; <span class="comment">// 将q连接到q上</span></span><br><span class="line">        sz[pRoot] += sz[qRoot]; <span class="comment">// 更新 pRoot 下的节点数</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;    <span class="comment">// q 所在组较大</span></span><br><span class="line">        a[pRoot] = qRoot;</span><br><span class="line">        sz[qRoot] += sz[pRoot];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="路径压缩"><a href="#路径压缩" class="headerlink" title="路径压缩"></a>路径压缩</h3><p>还有一种路径压缩算法可以改进quick-union，即每次查找时，都把途径的节点指向根节点，这样均摊下来的find成本比较小，可以证明，路径压缩的加权quick-union算法是实现union-find最快的算法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = p, t;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p]; <span class="comment">// 找到根节点</span></span><br><span class="line">    <span class="keyword">while</span> (x != p) &#123; <span class="comment">// 直到到达根节点</span></span><br><span class="line">        t = a[x];   <span class="comment">// 保存当前节点的父节点</span></span><br><span class="line">        a[x] = p;   <span class="comment">// 当前节点直接连接到根节点</span></span><br><span class="line">        x = t;      <span class="comment">// 移动到当前节点的父节点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// union 算法不变</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>回到开头的那两个问题，有了union-find算法，我们来尝试解决它们。对于网络中节点是否需要构建新的连接，抽象出网络的节点构建起<code>UF</code>后，执行<code>isConnected()</code>即可判断是否需要建立新的连接，对于两个人是否可以建立连接的问题，我们用同样的方法也可以解决，但要是想通过最少的中间人就认识一个人，该怎么做呢，这又是另外一个问题了。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>union-find</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>新学期的第一周</title>
+    <url>/2020/03/first-week-record-of-new-term/</url>
+    <content><![CDATA[<p></p><p align="center" class="img"><br>    <img src="/assets/img/2020/astonished_joey.jpg" alt="astonished_joey" width="750"><br>    <span align="center" style="color:#999">震惊的Joey</span></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><p></p></h2><p>不知不觉间大三已经过完一半，想起在过去的两年半中好像没有值得纪念的事，有点无可奈何，但要说没有发生那么一件在当时让我很有感触的事，当然也不可能，只是我以为自己的记忆会帮我保存那些真正重要的感觉，因此没有记录，但是这样的事怎么会有那么多呢？亲人故去、终有所成之类的记忆深刻的事不常发生，更多的是生活中有感触的小事，它们发生很触动我，但它们又是那么不起眼，不久后我就会忘记。过去的都过去了，不过现在我不想就让现在的它们被遗忘，我要尽可能地记录。<br><a id="more"></a></p>
+<p>新学期的第一周也就这么过去了，或者说新学期的第三周就这么过去了，因为疫情耽搁在家没法返校，导致前两周的电工实习没法线下上也没法在线上操作，因此前两周没课，所以这一周才算是我的新学期第一周，没有开始上课怎么能叫新学期呢？不管怎么算，这一周的的确确就这么过去了。</p>
+<h2 id="新学期的前三门课"><a href="#新学期的前三门课" class="headerlink" title="新学期的前三门课"></a>新学期的前三门课</h2><p>过去的一周里，我上了三门课：《计算机通信网络》、《无线自组织网络与应用》和《光通信网络》。每科两节课，一共是六节课。三位老师都很有意思，有说自己从教一纪不知点名为何物的，有网课平台整三四个的，课下还提醒你『你啥时候进的直播啥时候出去我这都有记录，那些进来签个到就走了的同学自己注意点』，也有正常上课群里发『1』签到的。抛开这些不说，老师们课上得挺好。</p>
+<h2 id="atimelogger-记录每一分钟"><a href="#atimelogger-记录每一分钟" class="headerlink" title="atimelogger 记录每一分钟"></a>atimelogger 记录每一分钟</h2><p>周一晚上突然翻到这个自己两年前就下载过的APP————atimelogger，这是一个记录自己每一分钟用在何处的APP，我决定不再试一把，尝试记录自己每一分钟用在何处。从周二开始，这一周每一天我都几乎记录下了自己的每一分钟，这种感觉很奇妙，当你做什么的时候，你会意识到有一个时钟在走，你会不由自主地集中注意力，想要它走慢一点或者抓紧利用这有限的时间。后面我想，不管它在不在，我的生命时钟都在不停地走，不知道在某一天就会停下来，因为它是如此的不可感知，我很少注意到它，但是这个APP帮助我意识到了，它具象了我的生命时钟，让我感受到我的时间在不断消耗，我必须抓紧每一分钟。<br>atimelogger上的记录显示：我每天都花了30~40分钟玩2K19；每天晚上我都会看一集『老友记』，用时22分钟；每天都会记单词，用时20~30分钟；每天我都至少在『微信读书』APP上看了1h书；每天我都至少在床上睡了8个小时；每天我都至少在学习成长上花了6h。我开始喜欢上这种记录的感觉。</p>
+<h2 id="重启-Blog"><a href="#重启-Blog" class="headerlink" title="重启 Blog"></a>重启 Blog</h2><p>周四晚上折腾了一晚，重启Blog，后面几天也在不断完善，终于到了现在这个样子。换了站点的头像，给站点添加了访问人数统计，为每一篇博文添加阅读数统计，在此感谢不蒜子大佬的脚本。周六晚上还添加了<code>相册</code>，到周日晚上，终于可以正常使用了。关于重启博客我是这样想的，上个月我就重启了『记录计划』，只是在手机上写，既然都要记录，为什么不放到网上呢？这样还方便查看，而且我会更有动力去写，Blog是一个比较好的选择。</p>
+<hr>
+<p>话不多说，以上就是这一周，关于上的这些课的具体内容我会在后面的文章中详细记录。这些网络类的课很有意思，它们有一种规则的美感，我想如果能自己亲手制定某些规则并加以实现肯定让人兴奋。生活总是有很多的不确定，但我确定关于『记录』这件事我会坚持下去。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>weekly</tag>
       </tags>
   </entry>
   <entry>
@@ -151,91 +236,6 @@
       </tags>
   </entry>
   <entry>
-    <title>记录高频硬件课程设计</title>
-    <url>/2019/12/record-of-high-frequency-course-design/</url>
-    <content><![CDATA[<p>本文绝大部分内容是在19年12月29日写的，我记得很清楚，那天是周日上午，我没有为即将到来的通原考试而复习，而是选择去写点东西记录几天前刚刚结束的高频课设，这是一次很难忘的经历，有痛苦也有快乐，有想过放弃但还是坚持了下来，感谢自己和队友们。现在是2020年3月15日，本该在学校度过周日的我，和所有的大学生一样，因为肺炎疫情只能在家里学习，我没什么学习状态，有些无聊，因此整理博客，把这篇去年的记录整理整理，发到GitHubBlog上，留作纪念，发表日期还是使用去年写这篇文章的日子。<br><a id="more"></a></p>
-<h2 id="最终验收"><a href="#最终验收" class="headerlink" title="最终验收"></a>最终验收</h2><p>12月24号，高频硬件课设验收，在队友的强烈要求下，我们选择了一个比较宽松的老师给我们验收，因为我们功率达不到，但还想 <strong>『恰完烂分』</strong>，这能对他的保研有所帮助。最后的结果很好，我们拿到了5分（满分5分），<strong>『烂分恰完』</strong>。</p>
-<div align="center" class="img"><br>    <img src="/assets/img/2019/final.jpg" alt="验收" height="400"><br>    <p align="center" style="color:#999">最终验收时电路连接和波形</p><br></div>
-
-<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>12月17号周二下午考完『随机过程』，终于有时间休息了，躺了一个小时，吃个饭，室友已经去搞硬件了，虽然已经是晚上9点多了，但我还想去，带上东西，去李老师办公室焊。折腾了两个小时，焊好了一个西勒振荡器，但没有测试工具，只能第二天测试焊接是否正确，测试工具缺乏和焊接出错这两个问题在整个课设过程中一直困扰着我们。</p>
-<div align="center" class="img"><br>    <img src="/assets/img/2019/siler_oscillator.jpg" alt="西勒振荡器" height="400"><br>    <p align="center" style="color:#999">第一天晚上焊好的西勒振荡器</p><br></div>
-
-<h2 id="一起干"><a href="#一起干" class="headerlink" title="一起干"></a>一起干</h2><p>第二天是周三，没有课，我和赵公子决定去实验室接着焊板子，顺便测试下昨晚上焊的振荡器。两个小时后，我们焊好了发射机和接收机的振荡器，经过测试，他的能用，而我的那块振荡器产生了寄生调幅。检查了电路没有任何问题，折腾到下午，最后发现是射极偏置电阻过大导致的，微调射极电阻，即可解决这个问题。</p>
-<p>下午和晚上我们都在实验室呆着，一直做到晚上11点。因为我已经很久没焊接东西，有点手生，他更是没啥经验，我们效率比较低，只焊好了一个乘法电路、一个中频放大器和一个包络检波器。后面测试时发现，我焊接的那个乘法电路不能实现信号相乘。那时我还不知道，接下来3天我都会把时间花在乘法电路上，如果早知道调试它会这么折腾，第一天晚上就应该当机立断重新焊一个的。</p>
-<h2 id="心生退意"><a href="#心生退意" class="headerlink" title="心生退意"></a>心生退意</h2><p>接下来的几天我感到痛苦不堪，我焊接乘法电路始终不好使，不知为什么我就是不愿重新焊一块，执着地想把它修好，但这一切都是徒劳的。看着周围的同学一个个都做出来乘法电路了，我开始怀疑自己：如果做不出来是不是证明我不行，我怎么能不行呢？要不放弃吧，这样就不存在证明了，我告诉自己这些bonus对我来说并不那么重要，我保研与否与这课设5分没什么关系。沃老板执着地说焊板子的烟搞得他很难受，实验室里面人太多了，空气太差，乌烟瘴气，他想回寝室做，这样的参与状态让我心有不快，偏偏他才是一定要拿这 5 分保研的人，为什么我要受这些精神折磨，我当时的确不想再做下去了。</p>
-<p>周六早上，纠结了许久，我去教化补充了些元器件，决定去实验室再焊一个乘法器，还说服沃老板也焊一个接收机的乘法电路。我不知道是什么力量支撑着我继续做下去，这件事对我来说不是那么必要，最诱人的bonus并不是我一定需要的，如果不做课设，我可以去复习通原，我可以享受轻松的一周。事后我仔细想了想，大概是因为我自己的性格决定的，我不是那种遇到问题就放弃的人，借口谁都有一些，但是作为我，一旦开始做了，就要做到最后，没有中途放弃的，之前的软件仿真就是如此，没有理由硬件不坚持下去，到这个时候，其实做这个课设已经变成了和自己较劲了，我不想就这么输了。</p>
-<p>周六下午去做了通信原理实验，晚上终于焊好我的第二块乘法电路，测试再次失败，沃老板也焊好接收机混频电路，经过测试也失败。这时候我心态已经到了最低点了，我真的不想再来了，前面说的那么多不服输如何如何，可是看着别人一个个做好，我的却始终不行，旁边还有人明着嘲讽我，这使我明白『挫败感』是何含义。晚上10点，我和沃老板回寝室了，赵公子在周五下午有事回家了，但他做的已经足够多了。我突然决定不再去了。</p>
-<h2 id="坚持才是胜利"><a href="#坚持才是胜利" class="headerlink" title="坚持才是胜利"></a>坚持才是胜利</h2><p>周日上午我还是去实验室了，我想就是什么都做不出来，也得一直在实验室坐着，我就要和它刚到底。好在一切坚持都没有白费，我的乘法电路测试成功了，事实证明我的电路设计没有问题，焊接的也没有问题，昨晚测试失败只是因为电路连线没有接好，胜利让我欣喜若狂，我真想大声怒吼：我终于完成了。另一边也有好消息传来，沃老板焊的和赵公子焊的乘法电路都是好使的，还有什么比此刻更快乐呢？</p>
-<div align="center"><br>    <img src="/assets/img/2019/amplitude_modulation.jpg" alt="AM调幅" height="400"><br>    <p align="center" style="color:#999">赵公子的乘法器AM波形</p><br>    <img src="/assets/img/2019/mixing.jpg" alt="混频" height="400"><br>    <p align="center" style="color:#999">沃老板的混频器波形</p><br></div>
-
-<p>周日下午发生了一些不愉快的事情，因为下午找不到他人（其实他在午睡），我对沃老板的不满更加强烈了，而那时我已经十分疲惫，愤怒之下，下午3点左右我直接回寝室，拒绝回他消息，然后睡了一觉。期间他来找我，我『哈哈』糊弄过去，不想再干。6点多起来看一眼手机，想了想，还是再去试试，把级联和功率要求做完吧，都已经到这个份上了，干脆就把它做到完。</p>
-<h2 id="乘胜追击"><a href="#乘胜追击" class="headerlink" title="乘胜追击"></a>乘胜追击</h2><p>我不想就此打住，野心开始膨胀了，<strong>『恰5分』</strong> 是调侃，此时更像是口号。发射机 AM 调制输出接上我焊调试乘法器抽空焊好的小信号放大器，效果非常好！放大了80倍，但我心里清楚，因为没有接负载，最后功率肯定达不到；接收机，混频后中频放大再检波，效果很差，但也算检波出来了，在要求不那么严苛的时候，可以拿到分；发射机接收机级联成功，和仿真保持一致。</p>
-<p>如此算来，我们已经可以拿到 4.5 分，但是我们不想收手，我们继续调放大器，要把功率的 5 分也拿到手。很不幸，我们没有成功，三极管射极电阻过小，导致射极电流过大，二极管被烧坏了，放大器也就怀了，这又是我们唯一的放大器，级联也没办法做了，这下只有 4 分了，后悔，懊恼。</p>
-<p>第二天周一，已经是12月23号了，我都没想到自己会在这上面花上近一周时间。白天上了一天课，晚上我们接着调试了一下，还是那个问题，AM 波后的小信号放大器不好使，级联就不行，功率也没有。赵公子也回来了，我们让他重新焊了一个，失败了，因为我临时对之前测试成功的电路做了修改，为了减小电流避免三极管烧毁的事再发生，但是我没想到这么一改，电流太小，放大倍数达不到要求，而且我应该自己亲手焊的。可以说今天又是一无所获。但我不会就此打住，我不愿放弃。</p>
-<p>周二上午上完微波课，我立马去教化买了元件，再焊一个小信号放大器，再试一次，不到最后，谁也不知道结果，我不想放弃。一番折腾，焊好，测试，成功。</p>
-<p>下午验收前一刻，上周三买的陶瓷滤波器终于从深圳邮到了学校，我赶紧去取回来，接到电路中，完美!<strong>『烂分恰完』</strong>。</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>做完这次课设，心里有太多感慨，很多次我都想放弃了，但是总有一股力量把我拉了回来，这其中有对朋友承诺的坚守也有自己那股不服输的劲，验收成功那一刻我有点想哭，是啊，这整个过程只有我自己这么看重吧，最后还在自我感动，但如果没有这自我感动，我不知道自己能否坚持下来。当然，课设整个过程也暴露了我的一些问题：我需要有更强大的精神力量，激励自己前进，也要学会如何带领团队前进。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>union-find算法的原理及实现</title>
-    <url>/2020/03/union-find/</url>
-    <content><![CDATA[<p>在计算机网络中，对于任意两个节点，可以在其间构建一条连接建立通信，这样做没有问题，但是在整个网络中都这么做会导致需要建立的连接非常多，容易计算得到<code>N</code>个节点的网络需要的连接数<code>N(N-1)/2</code>，这增加了网络的负担，实现起来也不容易，有什么办法改进呢？六度空间理论大家都知道，说的是最多通过六个人，我们可以和世界上任何人建立联系，那么如何知道两个人之间是否可以建立联系呢？这两个问题其实都属于连通性问题，可以使用<code>union-find</code>算法解决，步骤如下：</p>
-<h2 id="1-数据准备"><a href="#1-数据准备" class="headerlink" title="1. 数据准备"></a>1. 数据准备</h2><p><code>p</code>和<code>q</code>表示两个抽象的节点，可以用整数表示，如果『p，q 是相连的』，则意味着：</p>
-<ul>
-<li>自反性：<code>p</code>和<code>p</code>是相连的。</li>
-<li>对称性：如果<code>p</code>和<code>q</code>相连，则<code>q</code>和<code>p</code>也是相连的。</li>
-<li>传递性：如果<code>p</code>和<code>q</code>相连，<code>q</code>和<code>r</code>相连，则<code>p</code>和<code>r</code>也相连。</li>
-</ul>
-<p>我们可以用一个数组表示所有的节点，数组的每个位置表示一个节点，每个位置的值表示这个节点所在分量的标识符，初始化的时候每个节点的标识符都是其本身，如下所示：<br><a id="more"></a></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">UF</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N]; <span class="comment">// 初始化节点数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h2><h3 id="quick-find"><a href="#quick-find" class="headerlink" title="quick-find"></a>quick-find</h3><p>在<code>union-find</code>算法中，有两个目标需要实现：判断两个节点是否连通和连接两个节点的。一种简单的思路是这样的，规定同属一个连通分量的标识符相同，比如：节点<code>0</code>，<code>1</code>和<code>2</code>是连通的，我们选择<code>1</code>为标识符，那么<code>a[0]=a[1]=a[2]=1</code>。这样做判断两个节点是否连通就可以在常数时间完成，基于此规则我们可以实现<code>quick-find</code>算法，但是这样做<code>union</code>的成本就会上升，每次<code>union</code>，需要遍历所有的节点，并对合适节点的标识符进行改变，这是个平方级别的算法，如下所示。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isConnected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> find(p)==find(q);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123; <span class="keyword">return</span> a[p]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pp = find(p);   <span class="comment">// p 节点的标识符</span></span><br><span class="line">    <span class="keyword">int</span> qq = find(q);   <span class="comment">// q 节点的标识符</span></span><br><span class="line">    <span class="keyword">if</span> (pp == qq) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">// 将 pp 标识符全部改成 qq</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++)</span><br><span class="line">        <span class="keyword">if</span> (a[i] == pp) a[i] = qq;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="quick-union"><a href="#quick-union" class="headerlink" title="quick-union"></a>quick-union</h3><p>quick-find算法中，union的成本是平方级别的，其原因在于每次union需要遍历全部的节点，可以进行一些调整，得到改进，这就是quick-union算法。具体实现：在同一类别的中的节点，我们不再让所有节点保存相同的标识符，而是在节点中保持其父节点，类似一棵树，不过是向上走的，子节点指向父节点，根节点保存的是他自己，这样一来，进行union操作时，至于遍历找到根节点，然后让其中一个根节点指向另一个根节点即可，进行find操作时，只需遍历找到根节点即指向自身的节点。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p];</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="comment">// pRoot 节点指向 Qroot</span></span><br><span class="line">    a[pRoot] = qRoot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="加权-quick-union"><a href="#加权-quick-union" class="headerlink" title="加权 quick-union"></a>加权 quick-union</h3><p>这样做没什么问题，但是在最坏情况下，节点是依次相连的，串成一串，这会导致算法的性能下降，我们对其稍加改进，每次union时，都把节点数小的那一组连接到节点数大的那一组，这就是加权的quick-union算法。实现这个算法我们需要一个数组保存每个节点下节点的数目，对根节点而言，这个数就是它所在组的大小。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">UF(<span class="keyword">int</span> N) &#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N];     <span class="comment">// 初始化节点数组</span></span><br><span class="line">    sz = <span class="keyword">new</span> <span class="keyword">int</span>[N];    <span class="comment">// 保存节点数目</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        sz[i] = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// find 算法没有改变</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="keyword">if</span> (pRoot == qRoot) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (sz[pRoot] &gt; sz[qRoot]) &#123; <span class="comment">// p 所在组较大</span></span><br><span class="line">        a[qRoot] = pRoot; <span class="comment">// 将q连接到q上</span></span><br><span class="line">        sz[pRoot] += sz[qRoot]; <span class="comment">// 更新 pRoot 下的节点数</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;    <span class="comment">// q 所在组较大</span></span><br><span class="line">        a[pRoot] = qRoot;</span><br><span class="line">        sz[qRoot] += sz[pRoot];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="路径压缩"><a href="#路径压缩" class="headerlink" title="路径压缩"></a>路径压缩</h3><p>还有一种路径压缩算法可以改进quick-union，即每次查找时，都把途径的节点指向根节点，这样均摊下来的find成本比较小，可以证明，路径压缩的加权quick-union算法是实现union-find最快的算法。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = p, t;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p]; <span class="comment">// 找到根节点</span></span><br><span class="line">    <span class="keyword">while</span> (x != p) &#123; <span class="comment">// 直到到达根节点</span></span><br><span class="line">        t = a[x];   <span class="comment">// 保存当前节点的父节点</span></span><br><span class="line">        a[x] = p;   <span class="comment">// 当前节点直接连接到根节点</span></span><br><span class="line">        x = t;      <span class="comment">// 移动到当前节点的父节点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// union 算法不变</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p>回到开头的那两个问题，有了union-find算法，我们来尝试解决它们。对于网络中节点是否需要构建新的连接，抽象出网络的节点构建起<code>UF</code>后，执行<code>isConnected()</code>即可判断是否需要建立新的连接，对于两个人是否可以建立连接的问题，我们用同样的方法也可以解决，但要是想通过最少的中间人就认识一个人，该怎么做呢，这又是另外一个问题了。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>Java</tag>
-        <tag>union-find</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>新学期的第一周</title>
-    <url>/2020/03/first-week-record-of-new-term/</url>
-    <content><![CDATA[<p></p><p align="center" class="img"><br>    <img src="/assets/img/2020/astonished_joey.jpg" alt="astonished_joey" width="750"><br>    <span align="center" style="color:#999">震惊的Joey</span></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><p></p></h2><p>不知不觉间大三已经过完一半，想起在过去的两年半中好像没有值得纪念的事，有点无可奈何，但要说没有发生那么一件在当时让我很有感触的事，当然也不可能，只是我以为自己的记忆会帮我保存那些真正重要的感觉，因此没有记录，但是这样的事怎么会有那么多呢？亲人故去、终有所成之类的记忆深刻的事不常发生，更多的是生活中有感触的小事，它们发生很触动我，但它们又是那么不起眼，不久后我就会忘记。过去的都过去了，不过现在我不想就让现在的它们被遗忘，我要尽可能地记录。<br><a id="more"></a></p>
-<p>新学期的第一周也就这么过去了，或者说新学期的第三周就这么过去了，因为疫情耽搁在家没法返校，导致前两周的电工实习没法线下上也没法在线上操作，因此前两周没课，所以这一周才算是我的新学期第一周，没有开始上课怎么能叫新学期呢？不管怎么算，这一周的的确确就这么过去了。</p>
-<h2 id="新学期的前三门课"><a href="#新学期的前三门课" class="headerlink" title="新学期的前三门课"></a>新学期的前三门课</h2><p>过去的一周里，我上了三门课：《计算机通信网络》、《无线自组织网络与应用》和《光通信网络》。每科两节课，一共是六节课。三位老师都很有意思，有说自己从教一纪不知点名为何物的，有网课平台整三四个的，课下还提醒你『你啥时候进的直播啥时候出去我这都有记录，那些进来签个到就走了的同学自己注意点』，也有正常上课群里发『1』签到的。抛开这些不说，老师们课上得挺好。</p>
-<h2 id="atimelogger-记录每一分钟"><a href="#atimelogger-记录每一分钟" class="headerlink" title="atimelogger 记录每一分钟"></a>atimelogger 记录每一分钟</h2><p>周一晚上突然翻到这个自己两年前就下载过的APP————atimelogger，这是一个记录自己每一分钟用在何处的APP，我决定不再试一把，尝试记录自己每一分钟用在何处。从周二开始，这一周每一天我都几乎记录下了自己的每一分钟，这种感觉很奇妙，当你做什么的时候，你会意识到有一个时钟在走，你会不由自主地集中注意力，想要它走慢一点或者抓紧利用这有限的时间。后面我想，不管它在不在，我的生命时钟都在不停地走，不知道在某一天就会停下来，因为它是如此的不可感知，我很少注意到它，但是这个APP帮助我意识到了，它具象了我的生命时钟，让我感受到我的时间在不断消耗，我必须抓紧每一分钟。<br>atimelogger上的记录显示：我每天都花了30~40分钟玩2K19；每天晚上我都会看一集『老友记』，用时22分钟；每天都会记单词，用时20~30分钟；每天我都至少在『微信读书』APP上看了1h书；每天我都至少在床上睡了8个小时；每天我都至少在学习成长上花了6h。我开始喜欢上这种记录的感觉。</p>
-<h2 id="重启-Blog"><a href="#重启-Blog" class="headerlink" title="重启 Blog"></a>重启 Blog</h2><p>周四晚上折腾了一晚，重启Blog，后面几天也在不断完善，终于到了现在这个样子。换了站点的头像，给站点添加了访问人数统计，为每一篇博文添加阅读数统计，在此感谢不蒜子大佬的脚本。周六晚上还添加了<code>相册</code>，到周日晚上，终于可以正常使用了。关于重启博客我是这样想的，上个月我就重启了『记录计划』，只是在手机上写，既然都要记录，为什么不放到网上呢？这样还方便查看，而且我会更有动力去写，Blog是一个比较好的选择。</p>
-<hr>
-<p>话不多说，以上就是这一周，关于上的这些课的具体内容我会在后面的文章中详细记录。这些网络类的课很有意思，它们有一种规则的美感，我想如果能自己亲手制定某些规则并加以实现肯定让人兴奋。生活总是有很多的不确定，但我确定关于『记录』这件事我会坚持下去。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>weekly</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>胡言乱语</title>
     <url>/2020/03/second-week/</url>
     <content><![CDATA[<p>没想到有和上周一样，在周一写下上周的日常。不过这次我有话说，不是因为贪玩游戏，实在是因为周六晚上的突发事件打乱了周日的计划，不得已在半夜在农村道路上走上7里路，第二天已经没有精力去写这玩意儿了。翻看上周每天写下的只言片语，我发现若是只给我自己看，那还是有点东西可写的。<br><a id="more"></a></p>
@@ -250,6 +250,56 @@
       <tags>
         <tag>记录</tag>
         <tag>weekly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>信道共享技术简述与ALOHA的仿真</title>
+    <url>/2020/03/channel-sharing-and-aloha-imulation/</url>
+    <content><![CDATA[<p>MAC（Media Access Control）协议，即介质访问控制协议。MAC层需要实现数据帧的封装卸装、帧寻址和识别、帧的接受和发送、链路的管理和帧的差错控制等。屏蔽了不同物理链路的种类差异性。其核心是<strong>对有限物理资源的高效利用</strong>。在Ad Hoc网络中，由于其无中心和使用无线信道等特点，新带来的问题有：选择什么样的信道共享方式，如何处理终端暴露问题，如何隐藏终端，以及如何处理节点移动带来的影响。因而对MAC协议的要求更高。本文将探讨简单的信道共享技术，并对动态接入协议<code>ALOHA</code>进行分析和<br>MATLAB仿真。<br><a id="more"></a></p>
+<h2 id="信道共享技术分类"><a href="#信道共享技术分类" class="headerlink" title="信道共享技术分类"></a>信道共享技术分类</h2><p>信道共享技术又称为多点接入技术，原理是通过一个专用信道将所有的用户连接起来。按照多个用户与一个主机连接的访问方法来划分，信道共享技术可以分为通过集中器或复用器相连和直接相连，前者即信道复用，后者又可分为受控接入和随机接入。</p>
+<ul>
+<li><a href="#信道复用">信道复用</a></li>
+<li><a href="#受控接入">受控接入</a></li>
+<li><a href="#随机接入">随机接入</a></li>
+</ul>
+<h3 id="信道复用"><a href="#信道复用" class="headerlink" title="信道复用"></a>信道复用</h3><p>这是一种应用的比较成熟的技术，集中器或复用器按顺序不断扫描各个端口，或采用中断技术来接受用户信息或转发。如<code>FDM</code>，<code>TDM</code>，<code>CDM</code>，<code>WDM</code>和<code>STDM</code>。<br>考虑一个实际例子：两个用户A和B，都需要需要发送信息；如果采用FDM方式，则分别为A和B分配一条不同频率的信道，允许二者一起发送而不产生冲突；如果采用TDM方式，则A和B的数据帧交给集中器，集中器把二者的帧放在不同的时隙发送然后发送，也可以避免冲突。这可以通过集中器扫描，也可以通过用户发送请求产生中断来执行。<br>其实这就是一种静态的信道分配，按频率、时间或码字对信道进行划分。显然，这会造成资源的浪费。</p>
+<h3 id="受控接入"><a href="#受控接入" class="headerlink" title="受控接入"></a>受控接入</h3><p>受控接入方式的网络拓扑是环型结构，分为集中式控制和分散式控制。集中式控制使用轮询方法，主机按顺序逐个询问各站是否有数据需要发送。分散式控制即使用令牌，在环路中有一个特殊的帧——『令牌』，沿着环路传递，只有获得了令牌的站才有权发送信息。</p>
+<h3 id="随机接入"><a href="#随机接入" class="headerlink" title="随机接入"></a>随机接入</h3><p>随机接入方式的网络拓扑是总线型结构，所有的站点可随时发送数据，争用信道，容易产生冲突，经典的协议有ALOHA，CSMA和CSMA/CD。</p>
+<h3 id="信道的静态和动态分配"><a href="#信道的静态和动态分配" class="headerlink" title="信道的静态和动态分配"></a>信道的静态和动态分配</h3><p>信道的静态分配即将信道资源N等分，这个资源包括时隙（slot）、频谱（frequency）和码字（code），适用于用户数量少、数据量大的情况。这种信道的分配方式在某系情况下是不合理，它不能满足用户对资源占用的不同需求，效率低，不合适多站点，不适于突发性数据。</p>
+<p>信道的动态分配使用多路访问协议，动态分配信道资源提高信道利用率。可以这么理解：不对信道资源进行划分，用户产生了需求就进行处理，处理时占用全部的信道资源。这么做不可避免的会产生信道争用和冲突问题，可以牺牲一点自由，使用受控接入方式可以隐藏争用问题和解决冲突问题。或者可以直面信道争用和冲突，使用随机接入方式，其中一个重要的协议就是ALOHA。</p>
+<p>从一个更高的角度上来看，信道复用技术是一种信道的静态分配技术，受控接入和随机接入是一种信道的动态分配技术。</p>
+<h2 id="ALOHA"><a href="#ALOHA" class="headerlink" title="ALOHA"></a>ALOHA</h2><p>前面讲到，ALOHA协议是一种信道的动态分配协议，它实现了信道共享方式中的一种随机接入技术。在这种动态分配的方式下，信道有三种状态，<code>传输</code>，<code>空闲</code>和<code>竞争</code>，所有的站点都通过同一信道发送或接受帧，某一特定时刻只允许一个站点使用信道。</p>
+<p>以一个数据帧A的发送为例，考虑其如何才能成功发送。发送时机有两种选择，连续时间或时间片，前者允许在任意时刻发送，后者将时间用时钟分离为片段，帧只允许在每一个片段开始瞬间发生。若是以连续时间发送，帧发送时，若信道是空闲状态，则成功开始发送帧，此时信道为传输状态，假设在帧发送时间内又有数据帧B的发送请求产生，则信道进入竞争状态，产生了<em>冲突</em>，帧A发送失败，帧B也发送失败，都需要重传，二者分别随机等待一段时间，然后进行发送，直到发送成功。</p>
+<p><div align="center" class="img"><br>    <img src="/assets/img/2020/aloha_principle_illustration.png" alt="aloha_principle_illustration" width="750"><br>    <span align="center" style="color:#999">纯ALOHA帧传输示意图</span><br></div><br>我们把以连续时间发送的称为纯ALOHA（pure ALOHA），按时间片发送到称为时隙ALOHA（slotted ALOHA），下面对它们的信道利用率进行分析。</p>
+<h3 id="pure-ALOHA-信道利用率分析"><a href="#pure-ALOHA-信道利用率分析" class="headerlink" title="pure ALOHA 信道利用率分析"></a>pure ALOHA 信道利用率分析</h3><p>首先考虑<code>pure ALOHA</code>中一帧发送成功的条件，假设帧长固定，发送所需时间为T，则不难推知发送成功的条件为<strong>该帧发送前后各有一段T时间内没有其他帧发送</strong>，如下图所示。</p>
+<p align="center" class="img"><br><img src="/assets/img/2020/aloha_success.png" alt="pure_aloha_success" width="750"><br>    <span align="center" style="color:#999">纯ALOHA的帧发送成功条件</span><br></p>
+
+<p>对其信道利用率分析我们先要确定一些条件：</p>
+<ul>
+<li>假设：帧长固定，无限用户，按泊松分布产生新的数据帧。</li>
+<li>网络负载为G，表示在T内总共发送的平均帧数，包括发送成功的帧和因碰撞未发送成功的帧。</li>
+<li>吞吐率为S，表示在帧的发送时间T内成功发送的平均帧数。</li>
+</ul>
+<p>简单分析可知，0&lt;=S&lt;=1，S=0表示在信道上无成功发送的数据；S=1表示数据帧一个接一个发送，这是不可能的。G只有在不发送碰撞时才和S相等，且可以远大于1。</p>
+<p>我们研究信道利用率，就是要考虑在什么的样的网络负载下，能够取得最大的吞吐率，并且要知道这个最大的吞吐率。</p>
+<p>对这个问题进行理论分析并不困难，稳定情况下，<code>S=G*P[发送成功]</code>，求出一个数据帧发送成功概率P即可，由前面的分析可知，当前帧要想发送成功，以为着当前时刻的前后T时间内，共2T时间内，没有其他数据帧的发送请求产生，按照数据帧的产生数或者说数据帧请求产生数在T时间内服从参数为G的泊松分布，不难得出<code>P[发送成功]=((2G)^0/0!)*e^(-2G)</code>，则吞吐率<code>S=G*P[发送成功]=G*e^(-2G)</code>，求极值可知，当G=0.5时，S取最大值0.184，非常小。</p>
+<p>对这个过程进行MATLAB仿真并不难，具体思路如下：产生一系列值的G，对每一个帧，产生若干个服从参数为G的泊松分布随机数，若连续的前后两个随机数和为0，则表示发送成功，统计发送成功的数占所有随机数的比即为该负载G下发送成功的概率，在和G相乘求得此时的吞吐率S，对每一个G都这么求即可得出一系列的(G,S)，再使用plot作出图像，如下所示：</p>
+<p align="center" class="img"><br><img src="/assets/img/2020/pure_aloha.jpg" alt="pure_aloha" width="750"><br>    <span align="center" style="color:#999">纯ALOHA的信道吞吐率与网络负载的关系</span><br></p>
+
+<h3 id="slotted-ALOHA-信道利用率分析"><a href="#slotted-ALOHA-信道利用率分析" class="headerlink" title="slotted ALOHA 信道利用率分析"></a>slotted ALOHA 信道利用率分析</h3><p>时隙ALOHA协议下，将信道时间划分为离散的时间隙，隙长为一个帧所需的发送时间，每个站点只能在时隙开始时才允许发。</p>
+<p>分析信道利用率时，条件和纯ALOHA相同。重点也是在考虑发送成功的概率，在时隙ALOHA协议下，当前帧发送成功的条件为：当前发送时隙前的一个时隙T内没有新的数据帧发送请求产生。事实上，由于只允许在时隙开始时发送请求，站点发送的数据帧都是积攒下来的。可以求出<code>P[发送成功]=(G^0/0!)*e^(-G)</code>，<code>S=G*e^(-G)</code>，当G=1时，S取最大值0.368，是纯ALOHA的2倍，但还是不够高。<br>仿真思路同纯ALOHA，最后作出的S-G图像如下所示：</p>
+<p align="center" class="img"><br>    <img src="/assets/img/2020/slotted_aloha.jpg" alt="slotted_aloha" width="750"><br>    <span align="center" style="color:#999">时隙ALOHA的信道吞吐率与网络负载的关系</span><br></p>
+
+<p>附MATLAB仿真代码：<br><figure class="highlight matlab"><figcaption><span>aloha_.m</span><a href="/downloads/code/aloha_.m">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line">clear all;clc;</span><br><span class="line"><span class="comment">% ALOHA 仿真</span></span><br><span class="line"><span class="comment">% 网络负载G</span></span><br><span class="line"><span class="comment">% 成功发送条件，请求为0</span></span><br><span class="line">T = <span class="number">100000</span>;   <span class="comment">% 仿真时间 1000个帧长</span></span><br><span class="line">load_scale = <span class="number">0.1</span>;</span><br><span class="line">G = <span class="number">0</span>:load_scale:<span class="number">5</span>; <span class="comment">% 网络负载</span></span><br><span class="line">requests = <span class="built_in">zeros</span>(T+<span class="number">1</span>, <span class="built_in">size</span>(G,<span class="number">2</span>)); <span class="comment">% 请求次数</span></span><br><span class="line">pure_ALOHA_sucess = <span class="built_in">zeros</span>(<span class="number">1</span>,<span class="built_in">size</span>(G,<span class="number">2</span>)); <span class="comment">% pure ALOHA成功次数</span></span><br><span class="line">slotted_ALOHA_sucess = <span class="built_in">zeros</span>(<span class="number">1</span>,<span class="built_in">size</span>(G,<span class="number">2</span>)); <span class="comment">% slotted ALOHA</span></span><br><span class="line"><span class="comment">% 产生请求</span></span><br><span class="line"><span class="keyword">for</span> g = <span class="number">1</span>:<span class="built_in">size</span>(G,<span class="number">2</span>)</span><br><span class="line">    requests(:,g) = random(<span class="string">'Poisson'</span>,G(g),T+<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% pure ALOHA</span></span><br><span class="line"><span class="keyword">for</span> g = <span class="number">1</span>:<span class="built_in">size</span>(G,<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">for</span> index = <span class="number">1</span>:T</span><br><span class="line">       <span class="keyword">if</span> requests(index,g) + requests(index+<span class="number">1</span>,g) == <span class="number">0</span></span><br><span class="line">           pure_ALOHA_sucess(g) = pure_ALOHA_sucess(g) + <span class="number">1</span>;</span><br><span class="line">       <span class="keyword">end</span></span><br><span class="line">       <span class="keyword">if</span> requests(index,g) == <span class="number">0</span></span><br><span class="line">           slotted_ALOHA_sucess(g) = slotted_ALOHA_sucess(g) + <span class="number">1</span>;</span><br><span class="line">       <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">%% calculate</span></span><br><span class="line"><span class="comment">% pure ALOHA</span></span><br><span class="line">probl_pure_ALOHA = pure_ALOHA_sucess / T; <span class="comment">% 成功概率</span></span><br><span class="line">S_pure_ALOHA = G.*probl_pure_ALOHA;       <span class="comment">% 吞吐率</span></span><br><span class="line"><span class="comment">% slotted ALOHA</span></span><br><span class="line">probl_slotted_ALOHA = slotted_ALOHA_sucess / T;</span><br><span class="line">S_slotted_ALOHA = G.*probl_slotted_ALOHA;</span><br><span class="line"><span class="comment">%% plot</span></span><br><span class="line"><span class="comment">% pure</span></span><br><span class="line">figure(<span class="number">1</span>)</span><br><span class="line">yyaxis left</span><br><span class="line">plot(G,probl_pure_ALOHA)</span><br><span class="line">ylabel(<span class="string">'Probablity of Sucess'</span>)</span><br><span class="line">yyaxis right</span><br><span class="line">plot(G,S_pure_ALOHA)</span><br><span class="line">title(<span class="string">'Average Throughput of Pure ALOHA'</span>)</span><br><span class="line">xlabel(<span class="string">'G'</span>)</span><br><span class="line">ylabel(<span class="string">'Average Throughput'</span>)</span><br><span class="line">grid on</span><br><span class="line"><span class="comment">% slotted</span></span><br><span class="line">figure(<span class="number">2</span>)</span><br><span class="line">yyaxis left</span><br><span class="line">plot(G,probl_slotted_ALOHA)</span><br><span class="line">ylabel(<span class="string">'Probablity of Sucess'</span>)</span><br><span class="line">yyaxis right</span><br><span class="line">plot(G,S_slotted_ALOHA)</span><br><span class="line">title(<span class="string">'Average Throughput of Slotted ALOHA'</span>)</span><br><span class="line">xlabel(<span class="string">'G'</span>)</span><br><span class="line">ylabel(<span class="string">'Average Throughput'</span>)</span><br><span class="line">grid on</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+        <tag>Ad-Hoc</tag>
+        <tag>MAC协议</tag>
+        <tag>MATLAB</tag>
       </tags>
   </entry>
   <entry>
@@ -318,56 +368,6 @@
       </tags>
   </entry>
   <entry>
-    <title>信道共享技术简述与ALOHA的仿真</title>
-    <url>/2020/03/channel-sharing-and-aloha-imulation/</url>
-    <content><![CDATA[<p>MAC（Media Access Control）协议，即介质访问控制协议。MAC层需要实现数据帧的封装卸装、帧寻址和识别、帧的接受和发送、链路的管理和帧的差错控制等。屏蔽了不同物理链路的种类差异性。其核心是<strong>对有限物理资源的高效利用</strong>。在Ad Hoc网络中，由于其无中心和使用无线信道等特点，新带来的问题有：选择什么样的信道共享方式，如何处理终端暴露问题，如何隐藏终端，以及如何处理节点移动带来的影响。因而对MAC协议的要求更高。本文将探讨简单的信道共享技术，并对动态接入协议<code>ALOHA</code>进行分析和<br>MATLAB仿真。<br><a id="more"></a></p>
-<h2 id="信道共享技术分类"><a href="#信道共享技术分类" class="headerlink" title="信道共享技术分类"></a>信道共享技术分类</h2><p>信道共享技术又称为多点接入技术，原理是通过一个专用信道将所有的用户连接起来。按照多个用户与一个主机连接的访问方法来划分，信道共享技术可以分为通过集中器或复用器相连和直接相连，前者即信道复用，后者又可分为受控接入和随机接入。</p>
-<ul>
-<li><a href="#信道复用">信道复用</a></li>
-<li><a href="#受控接入">受控接入</a></li>
-<li><a href="#随机接入">随机接入</a></li>
-</ul>
-<h3 id="信道复用"><a href="#信道复用" class="headerlink" title="信道复用"></a>信道复用</h3><p>这是一种应用的比较成熟的技术，集中器或复用器按顺序不断扫描各个端口，或采用中断技术来接受用户信息或转发。如<code>FDM</code>，<code>TDM</code>，<code>CDM</code>，<code>WDM</code>和<code>STDM</code>。<br>考虑一个实际例子：两个用户A和B，都需要需要发送信息；如果采用FDM方式，则分别为A和B分配一条不同频率的信道，允许二者一起发送而不产生冲突；如果采用TDM方式，则A和B的数据帧交给集中器，集中器把二者的帧放在不同的时隙发送然后发送，也可以避免冲突。这可以通过集中器扫描，也可以通过用户发送请求产生中断来执行。<br>其实这就是一种静态的信道分配，按频率、时间或码字对信道进行划分。显然，这会造成资源的浪费。</p>
-<h3 id="受控接入"><a href="#受控接入" class="headerlink" title="受控接入"></a>受控接入</h3><p>受控接入方式的网络拓扑是环型结构，分为集中式控制和分散式控制。集中式控制使用轮询方法，主机按顺序逐个询问各站是否有数据需要发送。分散式控制即使用令牌，在环路中有一个特殊的帧——『令牌』，沿着环路传递，只有获得了令牌的站才有权发送信息。</p>
-<h3 id="随机接入"><a href="#随机接入" class="headerlink" title="随机接入"></a>随机接入</h3><p>随机接入方式的网络拓扑是总线型结构，所有的站点可随时发送数据，争用信道，容易产生冲突，经典的协议有ALOHA，CSMA和CSMA/CD。</p>
-<h3 id="信道的静态和动态分配"><a href="#信道的静态和动态分配" class="headerlink" title="信道的静态和动态分配"></a>信道的静态和动态分配</h3><p>信道的静态分配即将信道资源N等分，这个资源包括时隙（slot）、频谱（frequency）和码字（code），适用于用户数量少、数据量大的情况。这种信道的分配方式在某系情况下是不合理，它不能满足用户对资源占用的不同需求，效率低，不合适多站点，不适于突发性数据。</p>
-<p>信道的动态分配使用多路访问协议，动态分配信道资源提高信道利用率。可以这么理解：不对信道资源进行划分，用户产生了需求就进行处理，处理时占用全部的信道资源。这么做不可避免的会产生信道争用和冲突问题，可以牺牲一点自由，使用受控接入方式可以隐藏争用问题和解决冲突问题。或者可以直面信道争用和冲突，使用随机接入方式，其中一个重要的协议就是ALOHA。</p>
-<p>从一个更高的角度上来看，信道复用技术是一种信道的静态分配技术，受控接入和随机接入是一种信道的动态分配技术。</p>
-<h2 id="ALOHA"><a href="#ALOHA" class="headerlink" title="ALOHA"></a>ALOHA</h2><p>前面讲到，ALOHA协议是一种信道的动态分配协议，它实现了信道共享方式中的一种随机接入技术。在这种动态分配的方式下，信道有三种状态，<code>传输</code>，<code>空闲</code>和<code>竞争</code>，所有的站点都通过同一信道发送或接受帧，某一特定时刻只允许一个站点使用信道。</p>
-<p>以一个数据帧A的发送为例，考虑其如何才能成功发送。发送时机有两种选择，连续时间或时间片，前者允许在任意时刻发送，后者将时间用时钟分离为片段，帧只允许在每一个片段开始瞬间发生。若是以连续时间发送，帧发送时，若信道是空闲状态，则成功开始发送帧，此时信道为传输状态，假设在帧发送时间内又有数据帧B的发送请求产生，则信道进入竞争状态，产生了<em>冲突</em>，帧A发送失败，帧B也发送失败，都需要重传，二者分别随机等待一段时间，然后进行发送，直到发送成功。</p>
-<p><div align="center" class="img"><br>    <img src="/assets/img/2020/aloha_principle_illustration.png" alt="aloha_principle_illustration" width="750"><br>    <span align="center" style="color:#999">纯ALOHA帧传输示意图</span><br></div><br>我们把以连续时间发送的称为纯ALOHA（pure ALOHA），按时间片发送到称为时隙ALOHA（slotted ALOHA），下面对它们的信道利用率进行分析。</p>
-<h3 id="pure-ALOHA-信道利用率分析"><a href="#pure-ALOHA-信道利用率分析" class="headerlink" title="pure ALOHA 信道利用率分析"></a>pure ALOHA 信道利用率分析</h3><p>首先考虑<code>pure ALOHA</code>中一帧发送成功的条件，假设帧长固定，发送所需时间为T，则不难推知发送成功的条件为<strong>该帧发送前后各有一段T时间内没有其他帧发送</strong>，如下图所示。</p>
-<p align="center" class="img"><br><img src="/assets/img/2020/aloha_success.png" alt="pure_aloha_success" width="750"><br>    <span align="center" style="color:#999">纯ALOHA的帧发送成功条件</span><br></p>
-
-<p>对其信道利用率分析我们先要确定一些条件：</p>
-<ul>
-<li>假设：帧长固定，无限用户，按泊松分布产生新的数据帧。</li>
-<li>网络负载为G，表示在T内总共发送的平均帧数，包括发送成功的帧和因碰撞未发送成功的帧。</li>
-<li>吞吐率为S，表示在帧的发送时间T内成功发送的平均帧数。</li>
-</ul>
-<p>简单分析可知，0&lt;=S&lt;=1，S=0表示在信道上无成功发送的数据；S=1表示数据帧一个接一个发送，这是不可能的。G只有在不发送碰撞时才和S相等，且可以远大于1。</p>
-<p>我们研究信道利用率，就是要考虑在什么的样的网络负载下，能够取得最大的吞吐率，并且要知道这个最大的吞吐率。</p>
-<p>对这个问题进行理论分析并不困难，稳定情况下，<code>S=G*P[发送成功]</code>，求出一个数据帧发送成功概率P即可，由前面的分析可知，当前帧要想发送成功，以为着当前时刻的前后T时间内，共2T时间内，没有其他数据帧的发送请求产生，按照数据帧的产生数或者说数据帧请求产生数在T时间内服从参数为G的泊松分布，不难得出<code>P[发送成功]=((2G)^0/0!)*e^(-2G)</code>，则吞吐率<code>S=G*P[发送成功]=G*e^(-2G)</code>，求极值可知，当G=0.5时，S取最大值0.184，非常小。</p>
-<p>对这个过程进行MATLAB仿真并不难，具体思路如下：产生一系列值的G，对每一个帧，产生若干个服从参数为G的泊松分布随机数，若连续的前后两个随机数和为0，则表示发送成功，统计发送成功的数占所有随机数的比即为该负载G下发送成功的概率，在和G相乘求得此时的吞吐率S，对每一个G都这么求即可得出一系列的(G,S)，再使用plot作出图像，如下所示：</p>
-<p align="center" class="img"><br><img src="/assets/img/2020/pure_aloha.jpg" alt="pure_aloha" width="750"><br>    <span align="center" style="color:#999">纯ALOHA的信道吞吐率与网络负载的关系</span><br></p>
-
-<h3 id="slotted-ALOHA-信道利用率分析"><a href="#slotted-ALOHA-信道利用率分析" class="headerlink" title="slotted ALOHA 信道利用率分析"></a>slotted ALOHA 信道利用率分析</h3><p>时隙ALOHA协议下，将信道时间划分为离散的时间隙，隙长为一个帧所需的发送时间，每个站点只能在时隙开始时才允许发。</p>
-<p>分析信道利用率时，条件和纯ALOHA相同。重点也是在考虑发送成功的概率，在时隙ALOHA协议下，当前帧发送成功的条件为：当前发送时隙前的一个时隙T内没有新的数据帧发送请求产生。事实上，由于只允许在时隙开始时发送请求，站点发送的数据帧都是积攒下来的。可以求出<code>P[发送成功]=(G^0/0!)*e^(-G)</code>，<code>S=G*e^(-G)</code>，当G=1时，S取最大值0.368，是纯ALOHA的2倍，但还是不够高。<br>仿真思路同纯ALOHA，最后作出的S-G图像如下所示：</p>
-<p align="center" class="img"><br>    <img src="/assets/img/2020/slotted_aloha.jpg" alt="slotted_aloha" width="750"><br>    <span align="center" style="color:#999">时隙ALOHA的信道吞吐率与网络负载的关系</span><br></p>
-
-<p>附MATLAB仿真代码：<br><figure class="highlight matlab"><figcaption><span>aloha_.m</span><a href="/downloads/code/aloha_.m">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line">clear all;clc;</span><br><span class="line"><span class="comment">% ALOHA 仿真</span></span><br><span class="line"><span class="comment">% 网络负载G</span></span><br><span class="line"><span class="comment">% 成功发送条件，请求为0</span></span><br><span class="line">T = <span class="number">100000</span>;   <span class="comment">% 仿真时间 1000个帧长</span></span><br><span class="line">load_scale = <span class="number">0.1</span>;</span><br><span class="line">G = <span class="number">0</span>:load_scale:<span class="number">5</span>; <span class="comment">% 网络负载</span></span><br><span class="line">requests = <span class="built_in">zeros</span>(T+<span class="number">1</span>, <span class="built_in">size</span>(G,<span class="number">2</span>)); <span class="comment">% 请求次数</span></span><br><span class="line">pure_ALOHA_sucess = <span class="built_in">zeros</span>(<span class="number">1</span>,<span class="built_in">size</span>(G,<span class="number">2</span>)); <span class="comment">% pure ALOHA成功次数</span></span><br><span class="line">slotted_ALOHA_sucess = <span class="built_in">zeros</span>(<span class="number">1</span>,<span class="built_in">size</span>(G,<span class="number">2</span>)); <span class="comment">% slotted ALOHA</span></span><br><span class="line"><span class="comment">% 产生请求</span></span><br><span class="line"><span class="keyword">for</span> g = <span class="number">1</span>:<span class="built_in">size</span>(G,<span class="number">2</span>)</span><br><span class="line">    requests(:,g) = random(<span class="string">'Poisson'</span>,G(g),T+<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% pure ALOHA</span></span><br><span class="line"><span class="keyword">for</span> g = <span class="number">1</span>:<span class="built_in">size</span>(G,<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">for</span> index = <span class="number">1</span>:T</span><br><span class="line">       <span class="keyword">if</span> requests(index,g) + requests(index+<span class="number">1</span>,g) == <span class="number">0</span></span><br><span class="line">           pure_ALOHA_sucess(g) = pure_ALOHA_sucess(g) + <span class="number">1</span>;</span><br><span class="line">       <span class="keyword">end</span></span><br><span class="line">       <span class="keyword">if</span> requests(index,g) == <span class="number">0</span></span><br><span class="line">           slotted_ALOHA_sucess(g) = slotted_ALOHA_sucess(g) + <span class="number">1</span>;</span><br><span class="line">       <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">%% calculate</span></span><br><span class="line"><span class="comment">% pure ALOHA</span></span><br><span class="line">probl_pure_ALOHA = pure_ALOHA_sucess / T; <span class="comment">% 成功概率</span></span><br><span class="line">S_pure_ALOHA = G.*probl_pure_ALOHA;       <span class="comment">% 吞吐率</span></span><br><span class="line"><span class="comment">% slotted ALOHA</span></span><br><span class="line">probl_slotted_ALOHA = slotted_ALOHA_sucess / T;</span><br><span class="line">S_slotted_ALOHA = G.*probl_slotted_ALOHA;</span><br><span class="line"><span class="comment">%% plot</span></span><br><span class="line"><span class="comment">% pure</span></span><br><span class="line">figure(<span class="number">1</span>)</span><br><span class="line">yyaxis left</span><br><span class="line">plot(G,probl_pure_ALOHA)</span><br><span class="line">ylabel(<span class="string">'Probablity of Sucess'</span>)</span><br><span class="line">yyaxis right</span><br><span class="line">plot(G,S_pure_ALOHA)</span><br><span class="line">title(<span class="string">'Average Throughput of Pure ALOHA'</span>)</span><br><span class="line">xlabel(<span class="string">'G'</span>)</span><br><span class="line">ylabel(<span class="string">'Average Throughput'</span>)</span><br><span class="line">grid on</span><br><span class="line"><span class="comment">% slotted</span></span><br><span class="line">figure(<span class="number">2</span>)</span><br><span class="line">yyaxis left</span><br><span class="line">plot(G,probl_slotted_ALOHA)</span><br><span class="line">ylabel(<span class="string">'Probablity of Sucess'</span>)</span><br><span class="line">yyaxis right</span><br><span class="line">plot(G,S_slotted_ALOHA)</span><br><span class="line">title(<span class="string">'Average Throughput of Slotted ALOHA'</span>)</span><br><span class="line">xlabel(<span class="string">'G'</span>)</span><br><span class="line">ylabel(<span class="string">'Average Throughput'</span>)</span><br><span class="line">grid on</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>网络</tag>
-        <tag>Ad-Hoc</tag>
-        <tag>MAC协议</tag>
-        <tag>MATLAB</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>在疫情中度过三月</title>
     <url>/2020/03/the-third-month/</url>
     <content><![CDATA[<p>惊觉已经是三月的最后一天，在这过去的一个月里，如果说有什么一定一提的，那一定是已经持续了快三个月的的新冠肺炎疫情，国内的疫情逐渐被控制住了，国外却又爆发了更大规模的，看起来返校遥遥无期。一月份的时候我肯定无法想象3月31日自己还在家，突发的疫情打乱我原有的计划，我本该在学校的教室里坐着的，现在却在家，本以为会非常非常想回学校，现在倒也还好，我只是怀念学校的WiFi罢了。<br><a id="more"></a><br>疫情蔓延全球，经济衰退，股价暴跌，美股数次熔断，不可否认这是一个动荡的三月。所谓『祸兮福之所倚』，被困在山村中的我却得以享受宁静，可以专心做自己想做的事，我重新开始捡起以前学了一点就知难而退的东西，比如 C++，Java，Linux 还有算法，除此之外，我还开始坚持看书、记单词和记录生活，为了督促自己，我还使用 atimelogger 记录自己每一分钟的花销。如果不是因为疫情，我也不会如此百无聊赖，也就不会开始做这些事情，从这个角度而言，对我而言这还是福。</p>
@@ -382,73 +382,6 @@
       <tags>
         <tag>记录</tag>
         <tag>monthly</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NS2 的介绍（三）—— 事件调度器</title>
-    <url>/2020/04/ns2-event-scheduler/</url>
-    <content><![CDATA[<p>在<a href="/2020/04/ns2-simple-simulation-example">上一篇文章</a>中，我们从一个简单的例子出发，从零开始编写了一个 NS2 模拟用的 OTcl 脚本，我们需要在脚本中完成以下任务：</p>
-<ol>
-<li>创建 Simulator 对象；</li>
-<li>创建 node 对象并构建 node 间的连接 link；</li>
-<li>创建代理对象和 traffic 源对象，连接 node 和代理，连接代理和 traffic 源；</li>
-<li>创建模拟场景 scenario，即定义调度任务；</li>
-<li>开始模拟。</li>
-</ol>
-<p>按照以上这些步骤编写就可完成模拟脚本编写。这篇文章中要介绍的是第 4 个步骤创建模拟场景的详细信息，我们将讨论 NS2 中的离散事件调度器。<br><a id="more"></a><br>如<a href="/2020/04/02/ns2-simulation-overview">第一篇文章</a>中谈到的，在 NS2 中，事件调度器主要是由一些网络组件来使用，组件们模拟 packet 的处理时需要调度程序作为延时器或计时器。如下图展示，每一个网络对象使用一个时间调度器，图中需要注意：<br>（1）网络对象发出一个事件那么它就要在预定的时间点上处理这个事件；<br>（2）网络对象间的数据路径和事件路径不相同；<br>若深入到代码层面，包在网络对象中传递时，发送方使用 <code>send(Packet* p){target_-&gt;recv(p);</code> 语句发送，接收方使用 <code>recv(Packet*, Handler* h = 0)</code> 方法接收。</p>
-<p><div align="center" class="img"><br>    <img src="/assets/img/2020/discrete_event_scheduler.png" alt="discrete_event_scheduler" width="750"><br>    <span align="center" style="color:#999">离散事件调度器</span><br></div><br>NS2 实现了两种事件调度器，实时调度器和非实时调度器。非实时调度器有三种实现，分别为 List、Heap 和 Calendar，它们逻辑上是一样的，之所以有这么多实现，是由于向下兼容的原因。默认的非实时调度器是 Calender 方式实现的。实时调度器是为仿真 emulation 使用的，允许仿真器 simulator 和真实的网络交互。下面这个就是一个指定事件调度器的例子。</p>
-<pre><code>set ns [new Simulator]
-$ns use-scheduler Heap
-</code></pre><p>事件调度器还可以调度模拟事件，比如启动一个 FTP 应用或者结束模拟。事件调度器对象本身有一些模拟调度成员函数，比如 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code>，它就可以在发起一个在特定的模拟时间 &lt;time> 发生的叫做 <code>AtEvent</code> 的事件。<code>AtEvent</code> 其实是 <code>Event</code> 类的子类，它扩展了额外的变量保存 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 中的 <code>string</code>，尽管有扩展，它在事件调度器中和一般的事件还是被相同对待的。模拟开始后，当模拟时间到达事件队列中的 AtEvent 应该被调度的时间时，该 <code>AtEvent</code> 就会被传递给一个 <code>AtEvent Handler</code>，<code>AtEvent Handler</code> 只被创建一次并处理所有的的 <code>AtEvent</code>，<code>AtEvent</code> 的 &lt;string> 确定的 OTcl 命令也会被执行。下面是一个模拟事件调度示例：</p>
-<pre><code>set ns [new Simulator]
-$ns use-scheduler Heap
-$ns at 300.5 &quot;complete_sim&quot;
-
-proc complete_sim {} {...}
-</code></pre><p>注意到在上面的例子中，<code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 是 Simulator 对象 ns 的成员函数，但是我们要记住，Simulator 对象仅仅只是起到一个用户接口的作用，事实上它会去调用网络对象或者调度器对象的成员函数，由它们真正地完成工作。下面是一个函数列表和简单说明，这些函数就是 Simulator 对象用来接口调度器成员函数的成员函数。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">成员函数</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Simulator instproc now</td>
-<td style="text-align:left">返回调度器对现在时间的 notion</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator isntproc at args</td>
-<td style="text-align:left">在特定的时间调度执行代码</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc at-now args</td>
-<td style="text-align:left">立即调度执行代码</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc after n args</td>
-<td style="text-align:left">n 秒后调度执行代码</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc run args</td>
-<td style="text-align:left">启动调度器</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc halt</td>
-<td style="text-align:left">停止或赞同调度器</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>网络</tag>
-        <tag>NS2</tag>
       </tags>
   </entry>
   <entry>
@@ -476,22 +409,6 @@ proc complete_sim {} {...}
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文简单分析了 NS2 的大体结构和体系结构。现在来考虑下如何获得 NS2 的仿真结果，如第一张图所示，，当仿真结束时，NS2 按照输入的 Tcl（或 OTcl）脚本中的说明产生一个或者多个文本输出文件，其中包含了详细的仿真数据。这些数据可用于后续的仿真分析中，或者作为图形化仿真展示工具 NAM 的输入。</p>
 <hr>
 <p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI 大学的资源</a></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>网络</tag>
-        <tag>NS2</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NS2 的介绍（五）—— 数据分组</title>
-    <url>/2020/04/ns2-packet/</url>
-    <content><![CDATA[<p>在前面两篇文章中我们分别介绍了 NS2 中非常重要的两个组成——<a href="../ns2-event-scheduler">事件调度器</a>和<a href="../ns2-network-components">网络组件</a>，我们知道了 packet（数据分组）是如何在节点之间传递的，现在让我们来看看数据分组在 NS2 中是如何表示的。<br><a id="more"></a><br>一个 NS2 数据分组由一个<strong>头部信息的栈</strong>和<strong>可选的数据空间</strong>组成，如下图所示。在<a href="../ns2-simple-simulation-example">简单仿真示例</a>提到过，数据分组头格式在创建 Simulator 对象时被初始化，在 Simulator 对象中，一系列栈排列注册了的 header 头（有可能不可见）被定义，如 common 头（它通常被任何需要的对象使用）、IP 头、TCP 头、RTP 头（UDP 使用 RTP 头）和 trace 头，且每个 header 在栈中的偏移都会被记录下来。这意味着不管一个头有没有被使用，当一个 packet（数据分组）被代理分配时创建的栈中都会含有它，并且网络对象使用相应的 offset（偏移值）就可以获得数据分组的栈中的任意头。</p>
-<p><img src="/assets/img/2020/ns_packet_format.png" alt="packet 格式"><br>通常，一个 packet（数据分组）只有一个特定的 head（头部）栈，尽管通过分配数据空间，packet（数据分组）可以携带实际的（来自 application）信息，很少有 application（应用）和 agent（代理）的实现会支持这种做法，这是因为<strong>在非实时的模拟中传递真实数据是没有意义的</strong>。但是如果你想实现一个可以跨过网络去和另一个 application 通信的 application 的话，你也许可以使用这个特性，不过需要在下层的代理实现中做一点改动，还可以为 application 创建一个新的 header，然后修改下层的代理向这个新建的 header 写入受到的数据。后面这种方法会在后面的一篇文章中讲到。</p>
-<hr>
-<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -628,6 +545,73 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>NS2 的介绍（三）—— 事件调度器</title>
+    <url>/2020/04/ns2-event-scheduler/</url>
+    <content><![CDATA[<p>在<a href="/2020/04/ns2-simple-simulation-example">上一篇文章</a>中，我们从一个简单的例子出发，从零开始编写了一个 NS2 模拟用的 OTcl 脚本，我们需要在脚本中完成以下任务：</p>
+<ol>
+<li>创建 Simulator 对象；</li>
+<li>创建 node 对象并构建 node 间的连接 link；</li>
+<li>创建代理对象和 traffic 源对象，连接 node 和代理，连接代理和 traffic 源；</li>
+<li>创建模拟场景 scenario，即定义调度任务；</li>
+<li>开始模拟。</li>
+</ol>
+<p>按照以上这些步骤编写就可完成模拟脚本编写。这篇文章中要介绍的是第 4 个步骤创建模拟场景的详细信息，我们将讨论 NS2 中的离散事件调度器。<br><a id="more"></a><br>如<a href="/2020/04/02/ns2-simulation-overview">第一篇文章</a>中谈到的，在 NS2 中，事件调度器主要是由一些网络组件来使用，组件们模拟 packet 的处理时需要调度程序作为延时器或计时器。如下图展示，每一个网络对象使用一个时间调度器，图中需要注意：<br>（1）网络对象发出一个事件那么它就要在预定的时间点上处理这个事件；<br>（2）网络对象间的数据路径和事件路径不相同；<br>若深入到代码层面，包在网络对象中传递时，发送方使用 <code>send(Packet* p){target_-&gt;recv(p);</code> 语句发送，接收方使用 <code>recv(Packet*, Handler* h = 0)</code> 方法接收。</p>
+<p><div align="center" class="img"><br>    <img src="/assets/img/2020/discrete_event_scheduler.png" alt="discrete_event_scheduler" width="750"><br>    <span align="center" style="color:#999">离散事件调度器</span><br></div><br>NS2 实现了两种事件调度器，实时调度器和非实时调度器。非实时调度器有三种实现，分别为 List、Heap 和 Calendar，它们逻辑上是一样的，之所以有这么多实现，是由于向下兼容的原因。默认的非实时调度器是 Calender 方式实现的。实时调度器是为仿真 emulation 使用的，允许仿真器 simulator 和真实的网络交互。下面这个就是一个指定事件调度器的例子。</p>
+<pre><code>set ns [new Simulator]
+$ns use-scheduler Heap
+</code></pre><p>事件调度器还可以调度模拟事件，比如启动一个 FTP 应用或者结束模拟。事件调度器对象本身有一些模拟调度成员函数，比如 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code>，它就可以在发起一个在特定的模拟时间 &lt;time> 发生的叫做 <code>AtEvent</code> 的事件。<code>AtEvent</code> 其实是 <code>Event</code> 类的子类，它扩展了额外的变量保存 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 中的 <code>string</code>，尽管有扩展，它在事件调度器中和一般的事件还是被相同对待的。模拟开始后，当模拟时间到达事件队列中的 AtEvent 应该被调度的时间时，该 <code>AtEvent</code> 就会被传递给一个 <code>AtEvent Handler</code>，<code>AtEvent Handler</code> 只被创建一次并处理所有的的 <code>AtEvent</code>，<code>AtEvent</code> 的 &lt;string> 确定的 OTcl 命令也会被执行。下面是一个模拟事件调度示例：</p>
+<pre><code>set ns [new Simulator]
+$ns use-scheduler Heap
+$ns at 300.5 &quot;complete_sim&quot;
+
+proc complete_sim {} {...}
+</code></pre><p>注意到在上面的例子中，<code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 是 Simulator 对象 ns 的成员函数，但是我们要记住，Simulator 对象仅仅只是起到一个用户接口的作用，事实上它会去调用网络对象或者调度器对象的成员函数，由它们真正地完成工作。下面是一个函数列表和简单说明，这些函数就是 Simulator 对象用来接口调度器成员函数的成员函数。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">成员函数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Simulator instproc now</td>
+<td style="text-align:left">返回调度器对现在时间的 notion</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator isntproc at args</td>
+<td style="text-align:left">在特定的时间调度执行代码</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator instproc at-now args</td>
+<td style="text-align:left">立即调度执行代码</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator instproc after n args</td>
+<td style="text-align:left">n 秒后调度执行代码</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator instproc run args</td>
+<td style="text-align:left">启动调度器</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator instproc halt</td>
+<td style="text-align:left">停止或赞同调度器</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+        <tag>NS2</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>NS2 的介绍（四）—— 网络组件</title>
     <url>/2020/04/ns2-network-components/</url>
     <content><![CDATA[<p>我们在<a href="/2020/04/ns2-event-scheduler">前文</a>讨论 NS2 中一个非常重要的组成——事件调度器，这篇文章将讨论 NS2 另一个关键的组成——网络组件，主要是复合网络组件。<br><a id="more"></a><br>下图展示了 NS2 中部分 OTcl 类的部分体系结构，有助于我们理解基本的网络组件（network component），在<a href="http://www.sop.inria.fr/rodeo/personnel/Antonie.Clerget/ns" target="_blank" rel="noopener">这个链接</a>中可以找到 NS2 类的完整的体系结构。</p>
@@ -663,6 +647,22 @@ proc complete_sim {} {...}
 <h2 id="一个-packet-流动的例子"><a href="#一个-packet-流动的例子" class="headerlink" title="一个 packet 流动的例子"></a>一个 packet 流动的例子</h2><p>到现在为止，我们分析了两个最重要的网络组件——节点和连接。下图展示了一个模拟网络建立和 packet 流动的内部情况。<br>网络由两个节点 n0 和 n1 组成，网络地址分别 0 和 1。绑定在 n0 上的一个 TCP 代理使用端口 0 与 绑定在 n1 上的使用端口 0 的 TCP sink 对象通信。最后，一个 FTP 应用绑定到 TCP 代理上，请求发送一些数据。<br>注意，下图没有显示出 FTP 在 TCP 上的具体行为，仅仅展示仿真网络和 packet 流动的详细内部情况。</p>
 <div align="center" class="img"><br>    <img src="/assets/img/2020/packet_flow.png" alt="packet_flow" width="750"><br>    <span align="center" style="color:#999">插入了 trace 对象的连接</span><br></div>
 
+<hr>
+<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+        <tag>NS2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NS2 的介绍（五）—— 数据分组</title>
+    <url>/2020/04/ns2-packet/</url>
+    <content><![CDATA[<p>在前面两篇文章中我们分别介绍了 NS2 中非常重要的两个组成——<a href="../ns2-event-scheduler">事件调度器</a>和<a href="../ns2-network-components">网络组件</a>，我们知道了 packet（数据分组）是如何在节点之间传递的，现在让我们来看看数据分组在 NS2 中是如何表示的。<br><a id="more"></a><br>一个 NS2 数据分组由一个<strong>头部信息的栈</strong>和<strong>可选的数据空间</strong>组成，如下图所示。在<a href="../ns2-simple-simulation-example">简单仿真示例</a>提到过，数据分组头格式在创建 Simulator 对象时被初始化，在 Simulator 对象中，一系列栈排列注册了的 header 头（有可能不可见）被定义，如 common 头（它通常被任何需要的对象使用）、IP 头、TCP 头、RTP 头（UDP 使用 RTP 头）和 trace 头，且每个 header 在栈中的偏移都会被记录下来。这意味着不管一个头有没有被使用，当一个 packet（数据分组）被代理分配时创建的栈中都会含有它，并且网络对象使用相应的 offset（偏移值）就可以获得数据分组的栈中的任意头。</p>
+<p><img src="/assets/img/2020/ns_packet_format.png" alt="packet 格式"><br>通常，一个 packet（数据分组）只有一个特定的 head（头部）栈，尽管通过分配数据空间，packet（数据分组）可以携带实际的（来自 application）信息，很少有 application（应用）和 agent（代理）的实现会支持这种做法，这是因为<strong>在非实时的模拟中传递真实数据是没有意义的</strong>。但是如果你想实现一个可以跨过网络去和另一个 application 通信的 application 的话，你也许可以使用这个特性，不过需要在下层的代理实现中做一点改动，还可以为 application 创建一个新的 header，然后修改下层的代理向这个新建的 header 写入受到的数据。后面这种方法会在后面的一篇文章中讲到。</p>
 <hr>
 <p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
 ]]></content>
@@ -857,29 +857,10 @@ proc complete_sim {} {...}
         <category>学习</category>
       </categories>
       <tags>
-        <tag>算法</tag>
         <tag>数据结构</tag>
-        <tag>notes</tag>
+        <tag>算法</tag>
         <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NS2 的介绍（七）—— RED 队列监视示例</title>
-    <url>/2020/04/ns2-redQueue-monitor-ex/</url>
-    <content><![CDATA[<p>本文将展示一个 RED 队列监视示例。下面这段 OTcl 脚本建立了如图所示网络拓扑然后运行模拟场景，可以看到，在 r1 和 r2 间的 link 使用的 RED 队列可以保存至多 25 个 packet，我们通过测量当前队列和平均队列大小的动态变化，以观察 RED 队列是如何工作的。点击下载代码<a href="/downloads/code/red.tcl"> red.tcl </a>。<a id="more"></a></p>
-<img src="/2020/04/ns2-redQueue-monitor-ex/red_queue_monitor_setup.png" title="网络设置">
-<figure class="highlight tcl"><figcaption><span>red.tcl</span><a href="/downloads/code/red.tcl">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> ns [new Simulator]</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> node_(s1) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(s2) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(r1) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(r2) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(s3) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(s4) [$ns node]</span><br><span class="line"></span><br><span class="line">$ns duplex-link $node_(s1) $node_(r1) <span class="number">10</span>Mb <span class="number">2</span>ms DropTail</span><br><span class="line">$ns duplex-link $node_(s2) $node_(r1) <span class="number">10</span>Mb <span class="number">3</span>ms DropTail</span><br><span class="line">$ns duplex-link $node_(r1) $node_(r2) <span class="number">1.5</span>Mb <span class="number">20</span>ms RED</span><br><span class="line">$ns queue-limit $node_(r1) $node_(r2) <span class="number">25</span></span><br><span class="line">$ns queue-limit $node_(r2) $node_(r1) <span class="number">25</span></span><br><span class="line">$ns duplex-link $node_(s3) $node_(r2) <span class="number">10</span>Mb <span class="number">4</span>ms DropTail</span><br><span class="line">$ns duplex-link $node_(s4) $node_(r2) <span class="number">10</span>Mb <span class="number">5</span>ms DropTail</span><br><span class="line"></span><br><span class="line">$ns duplex-link-op $node_(s1) $node_(r1) orient right-down</span><br><span class="line">$ns duplex-link-op $node_(s2) $node_(r1) orient right-up</span><br><span class="line">$ns duplex-link-op $node_(r1) $node_(r2) orient right</span><br><span class="line"></span><br><span class="line">$ns duplex-link-op $node_(r1) $node_(r2) queuePos <span class="number">0</span></span><br><span class="line">$ns duplex-link-op $node_(r2) $node_(r1) queuePos <span class="number">0</span></span><br><span class="line"></span><br><span class="line">$ns duplex-link-op $node_(s3) $node_(r2) orient left-down</span><br><span class="line">$ns duplex-link-op $node_(s4) $node_(r2) orient left-up</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> tcp1 [$ns create-connection TCP/Reno $node_(s1) TCPSink $node_(s3) <span class="number">0</span>]</span><br><span class="line">$tcp1 <span class="keyword">set</span> window_ <span class="number">15</span></span><br><span class="line"><span class="keyword">set</span> tcp2 [$ns create-connection TCP/Reno $node_(s2) TCPSink $node_(s3) <span class="number">1</span>]</span><br><span class="line">$tcp2 <span class="keyword">set</span> window_ <span class="number">15</span></span><br><span class="line"><span class="keyword">set</span> ftp1 [$tcp1 attach-<span class="keyword">source</span> FTP]</span><br><span class="line"><span class="keyword">set</span> ftp2 [$tcp2 attach-<span class="keyword">source</span> FTP]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Tracing a queue</span></span><br><span class="line"><span class="keyword">set</span> redq [[$ns link $node_(r1) $node_(r2)] queue]</span><br><span class="line"><span class="keyword">set</span> tchan_ [<span class="keyword">open</span> all.q w]</span><br><span class="line">$redq <span class="keyword">trace</span> curq_</span><br><span class="line">$redq <span class="keyword">trace</span> ave_</span><br><span class="line">$redq attach $tchan_</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ns at <span class="number">0.0</span> <span class="string">"$ftp1 start"</span></span><br><span class="line">$ns at <span class="number">3.0</span> <span class="string">"$ftp2 start"</span></span><br><span class="line">$ns at <span class="number">10</span> <span class="string">"finish"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define 'finish' procedure (include post-simulation processes)</span></span><br><span class="line"><span class="keyword">proc</span><span class="title"> finish</span> {} {</span><br><span class="line">    <span class="keyword">global</span> tchan_</span><br><span class="line">    <span class="keyword">set</span> awkCode {</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> ($<span class="number">1</span> == <span class="string">"Q"</span> &amp;&amp; NF&gt;<span class="number">2</span>) {</span><br><span class="line">        print $<span class="number">2</span>, $<span class="number">3</span> &gt;&gt; <span class="string">"temp.q"</span>;</span><br><span class="line">        <span class="keyword">set</span> end $<span class="number">2</span></span><br><span class="line">        }</span><br><span class="line">        else <span class="keyword">if</span> ($<span class="number">1</span> == <span class="string">"a"</span> &amp;&amp; NF&gt;<span class="number">2</span>)</span><br><span class="line">        print $<span class="number">2</span>, $<span class="number">3</span> &gt;&gt; <span class="string">"temp.a"</span>;</span><br><span class="line">    }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">set</span> f [<span class="keyword">open</span> temp.queue w]</span><br><span class="line">    <span class="keyword">puts</span> $f <span class="string">"TitleText: red"</span></span><br><span class="line">    <span class="keyword">puts</span> $f <span class="string">"Device: Postscript"</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> { [<span class="keyword">info</span> exists tchan_] } {</span><br><span class="line">    <span class="keyword">close</span> $tchan_</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">exec</span> rm -f temp.q temp.a </span><br><span class="line">    <span class="keyword">exec</span> touch temp.a temp.q</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">exec</span> awk $awkCode all.q</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">puts</span> $f \<span class="string">"queue</span></span><br><span class="line"><span class="string">    exec cat temp.q &gt;@ $f  </span></span><br><span class="line"><span class="string">    puts $f \n\"ave_queue</span></span><br><span class="line"><span class="string">    exec cat temp.a &gt;@ $f</span></span><br><span class="line"><span class="string">    close $f</span></span><br><span class="line"><span class="string">    exec xgraph -bb -tk -x time -y queue temp.queue &amp;</span></span><br><span class="line"><span class="string">    exit 0</span></span><br><span class="line"><span class="string">}</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">$ns run</span></span><br></pre></td></tr></table></figure>
-<p>有几件事需要注意。首先，更高级的 Simulator 对象成员函数 <code>create-connection</code> 被用于创建 TCP 连接。其次，仔细观察代码中的队列跟踪部分，可以发现我们创建了一个指向 RED 队列对象的变量，调用它的成员函数 <code>trace</code> 监视当前队列大小（cur_q）和平均队列大小（avg_），然后把结果写入文件 <code>all.q</code> 中。</p>
-<p>运行结果：<br><img src="/2020/04/ns2-redQueue-monitor-ex/result.png" title="运行结果"></p>
-<hr>
-<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>网络</tag>
-        <tag>NS2</tag>
+        <tag>notes</tag>
       </tags>
   </entry>
   <entry>
@@ -1168,8 +1149,27 @@ proc complete_sim {} {...}
         <category>学习</category>
       </categories>
       <tags>
-        <tag>notes</tag>
         <tag>Ad-Hoc</tag>
+        <tag>notes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NS2 的介绍（七）—— RED 队列监视示例</title>
+    <url>/2020/04/ns2-redQueue-monitor-ex/</url>
+    <content><![CDATA[<p>本文将展示一个 RED 队列监视示例。下面这段 OTcl 脚本建立了如图所示网络拓扑然后运行模拟场景，可以看到，在 r1 和 r2 间的 link 使用的 RED 队列可以保存至多 25 个 packet，我们通过测量当前队列和平均队列大小的动态变化，以观察 RED 队列是如何工作的。点击下载代码<a href="/downloads/code/red.tcl"> red.tcl </a>。<a id="more"></a></p>
+<img src="/2020/04/ns2-redQueue-monitor-ex/red_queue_monitor_setup.png" title="网络设置">
+<figure class="highlight tcl"><figcaption><span>red.tcl</span><a href="/downloads/code/red.tcl">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> ns [new Simulator]</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> node_(s1) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(s2) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(r1) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(r2) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(s3) [$ns node]</span><br><span class="line"><span class="keyword">set</span> node_(s4) [$ns node]</span><br><span class="line"></span><br><span class="line">$ns duplex-link $node_(s1) $node_(r1) <span class="number">10</span>Mb <span class="number">2</span>ms DropTail</span><br><span class="line">$ns duplex-link $node_(s2) $node_(r1) <span class="number">10</span>Mb <span class="number">3</span>ms DropTail</span><br><span class="line">$ns duplex-link $node_(r1) $node_(r2) <span class="number">1.5</span>Mb <span class="number">20</span>ms RED</span><br><span class="line">$ns queue-limit $node_(r1) $node_(r2) <span class="number">25</span></span><br><span class="line">$ns queue-limit $node_(r2) $node_(r1) <span class="number">25</span></span><br><span class="line">$ns duplex-link $node_(s3) $node_(r2) <span class="number">10</span>Mb <span class="number">4</span>ms DropTail</span><br><span class="line">$ns duplex-link $node_(s4) $node_(r2) <span class="number">10</span>Mb <span class="number">5</span>ms DropTail</span><br><span class="line"></span><br><span class="line">$ns duplex-link-op $node_(s1) $node_(r1) orient right-down</span><br><span class="line">$ns duplex-link-op $node_(s2) $node_(r1) orient right-up</span><br><span class="line">$ns duplex-link-op $node_(r1) $node_(r2) orient right</span><br><span class="line"></span><br><span class="line">$ns duplex-link-op $node_(r1) $node_(r2) queuePos <span class="number">0</span></span><br><span class="line">$ns duplex-link-op $node_(r2) $node_(r1) queuePos <span class="number">0</span></span><br><span class="line"></span><br><span class="line">$ns duplex-link-op $node_(s3) $node_(r2) orient left-down</span><br><span class="line">$ns duplex-link-op $node_(s4) $node_(r2) orient left-up</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> tcp1 [$ns create-connection TCP/Reno $node_(s1) TCPSink $node_(s3) <span class="number">0</span>]</span><br><span class="line">$tcp1 <span class="keyword">set</span> window_ <span class="number">15</span></span><br><span class="line"><span class="keyword">set</span> tcp2 [$ns create-connection TCP/Reno $node_(s2) TCPSink $node_(s3) <span class="number">1</span>]</span><br><span class="line">$tcp2 <span class="keyword">set</span> window_ <span class="number">15</span></span><br><span class="line"><span class="keyword">set</span> ftp1 [$tcp1 attach-<span class="keyword">source</span> FTP]</span><br><span class="line"><span class="keyword">set</span> ftp2 [$tcp2 attach-<span class="keyword">source</span> FTP]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Tracing a queue</span></span><br><span class="line"><span class="keyword">set</span> redq [[$ns link $node_(r1) $node_(r2)] queue]</span><br><span class="line"><span class="keyword">set</span> tchan_ [<span class="keyword">open</span> all.q w]</span><br><span class="line">$redq <span class="keyword">trace</span> curq_</span><br><span class="line">$redq <span class="keyword">trace</span> ave_</span><br><span class="line">$redq attach $tchan_</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ns at <span class="number">0.0</span> <span class="string">"$ftp1 start"</span></span><br><span class="line">$ns at <span class="number">3.0</span> <span class="string">"$ftp2 start"</span></span><br><span class="line">$ns at <span class="number">10</span> <span class="string">"finish"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define 'finish' procedure (include post-simulation processes)</span></span><br><span class="line"><span class="keyword">proc</span><span class="title"> finish</span> {} {</span><br><span class="line">    <span class="keyword">global</span> tchan_</span><br><span class="line">    <span class="keyword">set</span> awkCode {</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> ($<span class="number">1</span> == <span class="string">"Q"</span> &amp;&amp; NF&gt;<span class="number">2</span>) {</span><br><span class="line">        print $<span class="number">2</span>, $<span class="number">3</span> &gt;&gt; <span class="string">"temp.q"</span>;</span><br><span class="line">        <span class="keyword">set</span> end $<span class="number">2</span></span><br><span class="line">        }</span><br><span class="line">        else <span class="keyword">if</span> ($<span class="number">1</span> == <span class="string">"a"</span> &amp;&amp; NF&gt;<span class="number">2</span>)</span><br><span class="line">        print $<span class="number">2</span>, $<span class="number">3</span> &gt;&gt; <span class="string">"temp.a"</span>;</span><br><span class="line">    }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">set</span> f [<span class="keyword">open</span> temp.queue w]</span><br><span class="line">    <span class="keyword">puts</span> $f <span class="string">"TitleText: red"</span></span><br><span class="line">    <span class="keyword">puts</span> $f <span class="string">"Device: Postscript"</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> { [<span class="keyword">info</span> exists tchan_] } {</span><br><span class="line">    <span class="keyword">close</span> $tchan_</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">exec</span> rm -f temp.q temp.a </span><br><span class="line">    <span class="keyword">exec</span> touch temp.a temp.q</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">exec</span> awk $awkCode all.q</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">puts</span> $f \<span class="string">"queue</span></span><br><span class="line"><span class="string">    exec cat temp.q &gt;@ $f  </span></span><br><span class="line"><span class="string">    puts $f \n\"ave_queue</span></span><br><span class="line"><span class="string">    exec cat temp.a &gt;@ $f</span></span><br><span class="line"><span class="string">    close $f</span></span><br><span class="line"><span class="string">    exec xgraph -bb -tk -x time -y queue temp.queue &amp;</span></span><br><span class="line"><span class="string">    exit 0</span></span><br><span class="line"><span class="string">}</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">$ns run</span></span><br></pre></td></tr></table></figure>
+<p>有几件事需要注意。首先，更高级的 Simulator 对象成员函数 <code>create-connection</code> 被用于创建 TCP 连接。其次，仔细观察代码中的队列跟踪部分，可以发现我们创建了一个指向 RED 队列对象的变量，调用它的成员函数 <code>trace</code> 监视当前队列大小（cur_q）和平均队列大小（avg_），然后把结果写入文件 <code>all.q</code> 中。</p>
+<p>运行结果：<br><img src="/2020/04/ns2-redQueue-monitor-ex/result.png" title="运行结果"></p>
+<hr>
+<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+        <tag>NS2</tag>
       </tags>
   </entry>
   <entry>
@@ -1319,8 +1319,8 @@ proc complete_sim {} {...}
         <category>学习</category>
       </categories>
       <tags>
-        <tag>算法</tag>
         <tag>C/C++</tag>
+        <tag>算法</tag>
         <tag>链表</tag>
         <tag>LeetCode</tag>
       </tags>
@@ -1459,32 +1459,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>A Distance Sensor Demo For Arduino</title>
-    <url>/2020/06/distance-sensor-demo-for-arduino/</url>
-    <content><![CDATA[<p>Distance sensor can be very useful in some conditons, such as obstacles detecting and avoiding. By using arduino, it’s very easy for us to use distance sensor. This demo show us a simple example to use distance sensor. For better display, we will use LCD1602 to show the distance. <strong>It’s modified from example in arduino.</strong><br><a id="more"></a></p>
-<h2 id="Supplies"><a href="#Supplies" class="headerlink" title="Supplies"></a>Supplies</h2><ul>
-<li>Arduino uno R3</li>
-<li>HC-SR04</li>
-<li>Breadboard</li>
-<li>LCD1602</li>
-<li>Red LED</li>
-<li>Spotter</li>
-<li>Two 100 Ohm resistance</li>
-<li>some DuPont lines</li>
-</ul>
-<h2 id="Step-1-Design-and-connect-circuit"><a href="#Step-1-Design-and-connect-circuit" class="headerlink" title="Step 1 Design and connect circuit"></a>Step 1 Design and connect circuit</h2><p>Browsering internet, it’s easy to find instructions of HC-SR04 and LCD1602. And there are so many libraries for us in arduino. In our circuit, arduino digital pin 2, 3, 4, 5, 11 and 12 are used for LCD1602 while digital pin 7 and 8 are for HC-SR04. LED uses digital pin 13. Finally, following is our circuits.</p>
-<img src="/2020/06/distance-sensor-demo-for-arduino/distance-sensor-demo.png" title="Final Circuit">
-<h2 id="Step2-Code"><a href="#Step2-Code" class="headerlink" title="Step2 Code"></a>Step2 Code</h2><p>As we said before, our program is  based on libraries. So it’s simple to write code. Later I will display complete code. </p>
-<p>Outside the loop, we define a function readUltrasonicDistance used for HC-SR04. Calling this readUltrasonicDistance, we get distance in centimeter. Inside the function setup, we initialize a LCD1604. In the loop, we get distance in centimeter by calling function readUltrasonicDistance. Then we clear LCD screen and print some characters and distance we just got. Finally, we turn on the LED if distance less than 90cm, or turn off the LED if not less than 90cm.</p>
-<p>Here shows complete code.</p>
-<figure class="highlight c"><figcaption><span>distanceDemo.c</span><a href="/downloads/code/distanceDemo.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;LiquidCrystal.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// initialize the library with the numbers of the interface pins</span></span><br><span class="line"><span class="function">LiquidCrystal <span class="title">lcd</span><span class="params">(<span class="number">12</span>, <span class="number">11</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> cm = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">readUltrasonicDistance</span><span class="params">(<span class="keyword">int</span> triggerPin, <span class="keyword">int</span> echoPin)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  pinMode(triggerPin, OUTPUT);  <span class="comment">// Clear the trigger</span></span><br><span class="line">  digitalWrite(triggerPin, LOW);</span><br><span class="line">  delayMicroseconds(<span class="number">2</span>);</span><br><span class="line">  <span class="comment">// Sets the trigger pin to HIGH state for 10 microseconds</span></span><br><span class="line">  digitalWrite(triggerPin, HIGH);</span><br><span class="line">  delayMicroseconds(<span class="number">10</span>);</span><br><span class="line">  digitalWrite(triggerPin, LOW);</span><br><span class="line">  pinMode(echoPin, INPUT);</span><br><span class="line">  <span class="comment">// Reads the echo pin, and returns the sound wave travel time in microseconds</span></span><br><span class="line">  <span class="keyword">return</span> pulseIn(echoPin, HIGH);</span><br><span class="line">}</span><br><span class="line"><span class="keyword">int</span> LED = <span class="number">13</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  Serial.begin(<span class="number">9600</span>);</span><br><span class="line">  lcd.begin(<span class="number">16</span>, <span class="number">2</span>);</span><br><span class="line">  lcd.print(<span class="string">"DistanceSensor:"</span>);</span><br><span class="line">  pinMode(LED,OUTPUT);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="comment">// measure the ping time in cm</span></span><br><span class="line">  cm = <span class="number">0.01723</span> * readUltrasonicDistance(<span class="number">7</span>, <span class="number">8</span>);</span><br><span class="line">  <span class="comment">// convert to inches by dividing by 2.54</span></span><br><span class="line">  Serial.print(cm);</span><br><span class="line">  Serial.println(<span class="string">"cm"</span>);</span><br><span class="line">  lcd.clear();</span><br><span class="line">  lcd.print(<span class="string">"DistanceSensor:"</span>);</span><br><span class="line">  lcd.setCursor(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">  lcd.print(cm);</span><br><span class="line">  lcd.print(<span class="string">"cm"</span>);</span><br><span class="line">    <span class="keyword">if</span> (cm &lt; <span class="number">90</span>) {</span><br><span class="line">      digitalWrite(LED, HIGH);</span><br><span class="line">      delay(<span class="number">1000</span>);</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">      digitalWrite(LED, LOW);</span><br><span class="line">      delay(<span class="number">500</span>); <span class="comment">// Wait for 100 millisecond(s)</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>In this post, we show a demo to use distance sensor HC-SR04 and LCD1602. It’s a good example to use the sensor. Also, there are many possible usages.</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-  </entry>
-  <entry>
     <title>支持话音业务的卫星通信链路信道编码设计</title>
     <url>/2020/05/curriculum-design-of-satellite-communications/</url>
     <content><![CDATA[<p>又是一篇关于课程内容的文章，这次是卫星通信课设。如题所示，按照要求，我们需要设计一种支持话音业务的卫星通信链路信道编码设计，以达到给定的性能指标，不过稍微想想也能知道，我们现在并不具备这样的能力，我猜测这个课设题的目的是为了让我们熟悉已有的信道编码方式，比较它们的性能并根据需要选择一种方式。先给出题目：</p>
@@ -1515,6 +1489,32 @@ proc complete_sim {} {...}
       <tags>
         <tag>通信</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>A Distance Sensor Demo For Arduino</title>
+    <url>/2020/06/distance-sensor-demo-for-arduino/</url>
+    <content><![CDATA[<p>Distance sensor can be very useful in some conditons, such as obstacles detecting and avoiding. By using arduino, it’s very easy for us to use distance sensor. This demo show us a simple example to use distance sensor. For better display, we will use LCD1602 to show the distance. <strong>It’s modified from example in arduino.</strong><br><a id="more"></a></p>
+<h2 id="Supplies"><a href="#Supplies" class="headerlink" title="Supplies"></a>Supplies</h2><ul>
+<li>Arduino uno R3</li>
+<li>HC-SR04</li>
+<li>Breadboard</li>
+<li>LCD1602</li>
+<li>Red LED</li>
+<li>Spotter</li>
+<li>Two 100 Ohm resistance</li>
+<li>some DuPont lines</li>
+</ul>
+<h2 id="Step-1-Design-and-connect-circuit"><a href="#Step-1-Design-and-connect-circuit" class="headerlink" title="Step 1 Design and connect circuit"></a>Step 1 Design and connect circuit</h2><p>Browsering internet, it’s easy to find instructions of HC-SR04 and LCD1602. And there are so many libraries for us in arduino. In our circuit, arduino digital pin 2, 3, 4, 5, 11 and 12 are used for LCD1602 while digital pin 7 and 8 are for HC-SR04. LED uses digital pin 13. Finally, following is our circuits.</p>
+<img src="/2020/06/distance-sensor-demo-for-arduino/distance-sensor-demo.png" title="Final Circuit">
+<h2 id="Step2-Code"><a href="#Step2-Code" class="headerlink" title="Step2 Code"></a>Step2 Code</h2><p>As we said before, our program is  based on libraries. So it’s simple to write code. Later I will display complete code. </p>
+<p>Outside the loop, we define a function readUltrasonicDistance used for HC-SR04. Calling this readUltrasonicDistance, we get distance in centimeter. Inside the function setup, we initialize a LCD1604. In the loop, we get distance in centimeter by calling function readUltrasonicDistance. Then we clear LCD screen and print some characters and distance we just got. Finally, we turn on the LED if distance less than 90cm, or turn off the LED if not less than 90cm.</p>
+<p>Here shows complete code.</p>
+<figure class="highlight c"><figcaption><span>distanceDemo.c</span><a href="/downloads/code/distanceDemo.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;LiquidCrystal.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// initialize the library with the numbers of the interface pins</span></span><br><span class="line"><span class="function">LiquidCrystal <span class="title">lcd</span><span class="params">(<span class="number">12</span>, <span class="number">11</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> cm = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">readUltrasonicDistance</span><span class="params">(<span class="keyword">int</span> triggerPin, <span class="keyword">int</span> echoPin)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  pinMode(triggerPin, OUTPUT);  <span class="comment">// Clear the trigger</span></span><br><span class="line">  digitalWrite(triggerPin, LOW);</span><br><span class="line">  delayMicroseconds(<span class="number">2</span>);</span><br><span class="line">  <span class="comment">// Sets the trigger pin to HIGH state for 10 microseconds</span></span><br><span class="line">  digitalWrite(triggerPin, HIGH);</span><br><span class="line">  delayMicroseconds(<span class="number">10</span>);</span><br><span class="line">  digitalWrite(triggerPin, LOW);</span><br><span class="line">  pinMode(echoPin, INPUT);</span><br><span class="line">  <span class="comment">// Reads the echo pin, and returns the sound wave travel time in microseconds</span></span><br><span class="line">  <span class="keyword">return</span> pulseIn(echoPin, HIGH);</span><br><span class="line">}</span><br><span class="line"><span class="keyword">int</span> LED = <span class="number">13</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  Serial.begin(<span class="number">9600</span>);</span><br><span class="line">  lcd.begin(<span class="number">16</span>, <span class="number">2</span>);</span><br><span class="line">  lcd.print(<span class="string">"DistanceSensor:"</span>);</span><br><span class="line">  pinMode(LED,OUTPUT);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="comment">// measure the ping time in cm</span></span><br><span class="line">  cm = <span class="number">0.01723</span> * readUltrasonicDistance(<span class="number">7</span>, <span class="number">8</span>);</span><br><span class="line">  <span class="comment">// convert to inches by dividing by 2.54</span></span><br><span class="line">  Serial.print(cm);</span><br><span class="line">  Serial.println(<span class="string">"cm"</span>);</span><br><span class="line">  lcd.clear();</span><br><span class="line">  lcd.print(<span class="string">"DistanceSensor:"</span>);</span><br><span class="line">  lcd.setCursor(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">  lcd.print(cm);</span><br><span class="line">  lcd.print(<span class="string">"cm"</span>);</span><br><span class="line">    <span class="keyword">if</span> (cm &lt; <span class="number">90</span>) {</span><br><span class="line">      digitalWrite(LED, HIGH);</span><br><span class="line">      delay(<span class="number">1000</span>);</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">      digitalWrite(LED, LOW);</span><br><span class="line">      delay(<span class="number">500</span>); <span class="comment">// Wait for 100 millisecond(s)</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>In this post, we show a demo to use distance sensor HC-SR04 and LCD1602. It’s a good example to use the sensor. Also, there are many possible usages.</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
   </entry>
   <entry>
     <title>写在移动通信期末考试后</title>
@@ -1582,6 +1582,19 @@ proc complete_sim {} {...}
       </categories>
       <tags>
         <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>结束了，我的大学前三年</title>
+    <url>/2020/07/the-end-of-my-first-three-years-of-university/</url>
+    <content><![CDATA[<p>今天，终于写完了生产实习要求提交的设计报告，给自己这一周来的辛苦来一个结局。辛苦聪聪了，一直在小组内沟通，感谢，还有大家，虽然摸鱼但好歹在线，感谢。至此，我的大学前三年结束了，没有什么高光时刻，平平淡淡地度过了，今天是一个里程碑。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>里程碑</tag>
       </tags>
   </entry>
 </search>
