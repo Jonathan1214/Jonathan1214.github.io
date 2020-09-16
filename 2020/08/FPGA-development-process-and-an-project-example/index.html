@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="几天前再次从老师那儿得知毕设我需要做的是 LDPC 码的 FPGA 实现，看起来我必须得找时间学学 FPGA 了。本文就是在今天看完 B 站小梅哥的FPGA视频做的笔记，简单介绍 FPGA 的开发流程，最后会在 Quartus 中创建一个工程。 1. 开发流程一般的 FPGA 项目开发会遵循下面这个流程，从设计输入到最后的在线调试，当然有的人叫法可能不同，我看到的这个教程是这么介绍的，下面逐个来看">
+<meta name="description" content="几天前再次从老师那儿得知毕设我需要做的是 LDPC 码的 FPGA 实现，看起来我必须得找时间学学 FPGA 了。本文就是在今天看完 B 站小梅哥的FPGA视频做的笔记，简单介绍 FPGA 的开发流程，最后会在 Quartus 中创建一个工程。">
 <meta name="keywords" content="FPGA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FPGA 开发流程以及如何创建一个工程">
 <meta property="og:url" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/index.html">
 <meta property="og:site_name" content="dsfds&#39; blog">
-<meta property="og:description" content="几天前再次从老师那儿得知毕设我需要做的是 LDPC 码的 FPGA 实现，看起来我必须得找时间学学 FPGA 了。本文就是在今天看完 B 站小梅哥的FPGA视频做的笔记，简单介绍 FPGA 的开发流程，最后会在 Quartus 中创建一个工程。 1. 开发流程一般的 FPGA 项目开发会遵循下面这个流程，从设计输入到最后的在线调试，当然有的人叫法可能不同，我看到的这个教程是这么介绍的，下面逐个来看">
+<meta property="og:description" content="几天前再次从老师那儿得知毕设我需要做的是 LDPC 码的 FPGA 实现，看起来我必须得找时间学学 FPGA 了。本文就是在今天看完 B 站小梅哥的FPGA视频做的笔记，简单介绍 FPGA 的开发流程，最后会在 Quartus 中创建一个工程。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/2020-08-07-FPGA-development-process-and-an-project-example/image-20200807223822609.png">
 <meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/2020-08-07-FPGA-development-process-and-an-project-example/image-20200807224428973.png">
@@ -103,10 +103,10 @@
 <meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/2020-08-07-FPGA-development-process-and-an-project-example/image-20200809133617627.png">
 <meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/2020-08-07-FPGA-development-process-and-an-project-example/image-20200809133806051.png">
 <meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/2020-08-07-FPGA-development-process-and-an-project-example/image-20200809134109186.png">
-<meta property="og:updated_time" content="2020-08-09T05:44:29.097Z">
+<meta property="og:updated_time" content="2020-09-03T02:13:49.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FPGA 开发流程以及如何创建一个工程">
-<meta name="twitter:description" content="几天前再次从老师那儿得知毕设我需要做的是 LDPC 码的 FPGA 实现，看起来我必须得找时间学学 FPGA 了。本文就是在今天看完 B 站小梅哥的FPGA视频做的笔记，简单介绍 FPGA 的开发流程，最后会在 Quartus 中创建一个工程。 1. 开发流程一般的 FPGA 项目开发会遵循下面这个流程，从设计输入到最后的在线调试，当然有的人叫法可能不同，我看到的这个教程是这么介绍的，下面逐个来看">
+<meta name="twitter:description" content="几天前再次从老师那儿得知毕设我需要做的是 LDPC 码的 FPGA 实现，看起来我必须得找时间学学 FPGA 了。本文就是在今天看完 B 站小梅哥的FPGA视频做的笔记，简单介绍 FPGA 的开发流程，最后会在 Quartus 中创建一个工程。">
 <meta name="twitter:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/2020-08-07-FPGA-development-process-and-an-project-example/image-20200807223822609.png">
 
 
@@ -372,8 +372,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-09T13:44:29+08:00">
-                2020-08-09
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-03T10:13:49+08:00">
+                2020-09-03
               </time>
             
           </span>
@@ -475,6 +475,7 @@
 
       
         <p>几天前再次从老师那儿得知毕设我需要做的是 LDPC 码的 FPGA 实现，看起来我必须得找时间学学 FPGA 了。本文就是在今天看完 B 站<a href="https://space.bilibili.com/476579378" target="_blank" rel="noopener">小梅哥</a>的<a href="https://www.bilibili.com/video/BV1KE411h7AZ" target="_blank" rel="noopener">FPGA视频</a>做的笔记，简单介绍 FPGA 的开发流程，最后会在 Quartus 中创建一个工程。</p>
+<a id="more"></a>
 <h2 id="1-开发流程"><a href="#1-开发流程" class="headerlink" title="1. 开发流程"></a>1. 开发流程</h2><p>一般的 FPGA 项目开发会遵循下面这个流程，从设计输入到最后的在线调试，当然有的人叫法可能不同，我看到的这个教程是这么介绍的，下面逐个来看每一步都需要做什么。</p>
 <h3 id="1-1-设计定义"><a href="#1-1-设计定义" class="headerlink" title="1.1 设计定义"></a>1.1 设计定义</h3><h3 id="1-2-设计输入"><a href="#1-2-设计输入" class="headerlink" title="1.2 设计输入"></a>1.2 设计输入</h3><h3 id="1-3-分析和综合"><a href="#1-3-分析和综合" class="headerlink" title="1.3 分析和综合"></a>1.3 分析和综合</h3><h3 id="1-4-功能仿真"><a href="#1-4-功能仿真" class="headerlink" title="1.4 功能仿真"></a>1.4 功能仿真</h3><h3 id="1-5-布局布线"><a href="#1-5-布局布线" class="headerlink" title="1.5 布局布线"></a>1.5 布局布线</h3><h3 id="1-6-时序仿真"><a href="#1-6-时序仿真" class="headerlink" title="1.6 时序仿真"></a>1.6 时序仿真</h3><h3 id="1-7-IO-分配以及文件的生成"><a href="#1-7-IO-分配以及文件的生成" class="headerlink" title="1.7 IO 分配以及文件的生成"></a>1.7 IO 分配以及文件的生成</h3><h3 id="1-8-配置-FPGA"><a href="#1-8-配置-FPGA" class="headerlink" title="1.8 配置 FPGA"></a>1.8 配置 FPGA</h3><h3 id="1-9-在线调试"><a href="#1-9-在线调试" class="headerlink" title="1.9 在线调试"></a>1.9 在线调试</h3><h2 id="2-如何完成一个简单的项目"><a href="#2-如何完成一个简单的项目" class="headerlink" title="2. 如何完成一个简单的项目"></a>2. 如何完成一个简单的项目</h2><p>了解了上面的开发流程后，现在以一个简单的例子说明具体是如何操作的，同时学习下如何在 Quartus 中创建工程。</p>
 <ul>
@@ -568,8 +569,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/08/a-small-summer-win/" rel="prev" title="译码结束，喘上一口气">
-                译码结束，喘上一口气 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/08/a-small-summer-win/" rel="prev" title="LDPC 码译码结束，喘上一口气">
+                LDPC 码译码结束，喘上一口气 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -656,7 +657,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -678,7 +679,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -768,7 +769,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">50.3k</span>
+    <span title="Site words total count">51k</span>
   
 </div>
 
