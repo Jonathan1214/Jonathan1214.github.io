@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jonathan1214.github.io/2020/09/I-DID-IT/</loc>
+    
+    <lastmod>2020-09-24T05:18:26.782Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jonathan1214.github.io/about/index.html</loc>
+    
+    <lastmod>2020-09-24T05:07:52.596Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jonathan1214.github.io/2020/09/sr-log-200916/</loc>
     
-    <lastmod>2020-09-16T12:52:16.806Z</lastmod>
+    <lastmod>2020-09-16T12:54:19.488Z</lastmod>
     
   </url>
   
@@ -131,13 +145,6 @@
     <loc>https://jonathan1214.github.io/2020/05/swap-pairs-in-LinkdedList/</loc>
     
     <lastmod>2020-05-06T10:06:55.333Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jonathan1214.github.io/about/index.html</loc>
-    
-    <lastmod>2020-05-05T13:14:35.887Z</lastmod>
     
   </url>
   

@@ -95,10 +95,8 @@
 <meta property="og:description" content="实验室的第二天，写下的第一篇日志。今天的任务是实现 LDPC 码的高阶调制问题，经过了一番折腾，最终得到了一个看起来正确的方法，这种方法也在『Channel Codes』这本书的第 15 章简单提到了。实现 LDPC 码的高阶调制解调框图如下所示。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://jonathan1214.github.io/2020/09/sr-log-200916/image-20200916203759142.png">
-<meta property="og:image" content="https://jonathan1214.github.io/2020/09/sr-log-200916/2020-09-16-sr-log-200916/image-20200916203759142.png">
 <meta property="og:image" content="https://jonathan1214.github.io/2020/09/sr-log-200916/image-20200916204403197.png">
-<meta property="og:image" content="https://jonathan1214.github.io/2020/09/sr-log-200916/2020-09-16-sr-log-200916/image-20200916204403197.png">
-<meta property="og:updated_time" content="2020-09-16T12:52:16.806Z">
+<meta property="og:updated_time" content="2020-09-16T12:54:19.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="科研日志200916">
 <meta name="twitter:description" content="实验室的第二天，写下的第一篇日志。今天的任务是实现 LDPC 码的高阶调制问题，经过了一番折腾，最终得到了一个看起来正确的方法，这种方法也在『Channel Codes』这本书的第 15 章简单提到了。实现 LDPC 码的高阶调制解调框图如下所示。">
@@ -367,7 +365,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-16T20:52:16+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-16T20:54:19+08:00">
                 2020-09-16
               </time>
             
@@ -472,10 +470,8 @@
         <p>实验室的第二天，写下的第一篇日志。今天的任务是实现 LDPC 码的高阶调制问题，经过了一番折腾，最终得到了一个看起来正确的方法，这种方法也在『Channel Codes』这本书的第 15 章简单提到了。实现 LDPC 码的高阶调制解调框图如下所示。</p>
 <a id="more"></a>
 <img src="/2020/09/sr-log-200916/image-20200916203759142.png" title="a block diagram of an LDPC-coded modulation system">
-<p><img src="2020-09-16-sr-log-200916/image-20200916203759142.png" alt="image-20200916203759142"></p>
 <p>问题在于如何从接收到的符号中获得 LDPC 码译码器需要的信息，15 章中给出了在 SPA 下，由接收到的符号求每个比特的内信息计算方法，如下所示：</p>
 <img src="/2020/09/sr-log-200916/image-20200916204403197.png" title="LDPC-coded modulation system 内信息计算">
-<p><img src="2020-09-16-sr-log-200916/image-20200916204403197.png" alt="image-20200916204403197"></p>
 <p>其他的计算则和 BPSK 调制的 LDPC 码译码相同，由此我们解决了 LDPC 码的高阶调制问题。当然肯定有很多细节我没有考虑到，暂时先这样吧，后面想到了再补充。</p>
 
       
@@ -536,6 +532,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/09/I-DID-IT/" rel="prev" title="完成小阶段任务——终于完成了简单的 LDPC 编译码">
+                完成小阶段任务——终于完成了简单的 LDPC 编译码 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -612,7 +612,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -708,7 +708,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">51k</span>
+    <span title="Site words total count">51.5k</span>
   
 </div>
 
