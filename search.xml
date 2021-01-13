@@ -1,78 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>一点思考</title>
-    <url>/2018/04/A_little_thinking/</url>
-    <content><![CDATA[<p>时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>思考</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记录科创中期答辩</title>
-    <url>/2018/04/My_first_lose/</url>
-    <content><![CDATA[<p>今天下午的科创中期答辩我们组当掉了，说实话我们什么都没做，单纯的想敷衍过去，很不幸，老师没有让我们通过，4月29号要再来一次，希望可以通过吧。<br><a id="more"></a><br>关于这次答辩，我还是有些东西想记下来的：</p>
-<p>我们都有自己擅长的事，当然也有自己的绝不擅长甚至不愿触碰的事儿，很不幸，上台发言就是我不愿触碰的事儿，我害怕自己讲不清楚，害怕自己口齿不清，害怕失败，这或许是这次失败的一个重要原因吧。我们应该考虑下次答辩换一个人的，换一个会说的人，再有就是大二科创一定要好好选队友，海鹏非常可以，有拼劲儿，天行表达非常好，到时候再说，我只是一个中规中矩的驱动人物罢了，现在需要多学一点知识，也好让人家接受你成为队友。</p>
-<p>我算是认识到了，要想做好一件事情，一个好的态度是非常是非常重要的。对应到这次科创，这态度体现在，如下几个方面，我们有没有好好做这个项目或者说有没有做，有没有认真准备PPT，有没有认真准备报告。总结起来就是既要好好做也要好好说，anyway，这一次已经过去了，我们要把剩下的路走完。</p>
-<p>合理安排自己的时间，不要再浪费了，有许多美好值得去追求，有很多有意义的事儿可以去做，不要再浪费时间做一些没有意义的如玩手机的事儿了。</p>
-<p>最后，不要再赶ddl，一定要提前做好。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Believe_in_yourself</title>
-    <url>/2018/06/Believe-in-yourself/</url>
-    <content><![CDATA[<p>最近有点烦躁，事情一件接着一件地扑面而来，丝毫不给我喘气的机会，为了排遣苦闷，我嘴上的脏话多了不少，不过好在这一切都将过去了，过去了之后我一定要好好开始，现在，我只有祈祷最后能有一个好的结果。<br><a id="more"></a><br>这是一个疯狂的六月！<br>英语课程考试(6.7)，英语口语测试(6.14)，六级考试(6.16)，科创答辩(6.20)，数学建模考试(6.21)，近代史考试(6.26)，英语期末考试(6.29)……这还远没有结束，七月是工大的小学期时间！八月才放暑假！九月开学！坏消息是大物和微积分的考试放到小学期了，当然，这也可以算是好消息，至少六月份可以喘口气了，真正毫无疑问的好消息自然就是我们会搬进新公寓！</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>union-find算法的原理及实现</title>
-    <url>/2020/03/union-find/</url>
-    <content><![CDATA[<p>在计算机网络中，对于任意两个节点，可以在其间构建一条连接建立通信，这样做没有问题，但是在整个网络中都这么做会导致需要建立的连接非常多，容易计算得到<code>N</code>个节点的网络需要的连接数<code>N(N-1)/2</code>，这增加了网络的负担，实现起来也不容易，有什么办法改进呢？六度空间理论大家都知道，说的是最多通过六个人，我们可以和世界上任何人建立联系，那么如何知道两个人之间是否可以建立联系呢？这两个问题其实都属于连通性问题，可以使用<code>union-find</code>算法解决，步骤如下：</p>
-<h2 id="1-数据准备"><a href="#1-数据准备" class="headerlink" title="1. 数据准备"></a>1. 数据准备</h2><p><code>p</code>和<code>q</code>表示两个抽象的节点，可以用整数表示，如果『p，q 是相连的』，则意味着：</p>
-<ul>
-<li>自反性：<code>p</code>和<code>p</code>是相连的。</li>
-<li>对称性：如果<code>p</code>和<code>q</code>相连，则<code>q</code>和<code>p</code>也是相连的。</li>
-<li>传递性：如果<code>p</code>和<code>q</code>相连，<code>q</code>和<code>r</code>相连，则<code>p</code>和<code>r</code>也相连。</li>
-</ul>
-<p>我们可以用一个数组表示所有的节点，数组的每个位置表示一个节点，每个位置的值表示这个节点所在分量的标识符，初始化的时候每个节点的标识符都是其本身，如下所示：<br><a id="more"></a></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">UF</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N]; <span class="comment">// 初始化节点数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h2><h3 id="quick-find"><a href="#quick-find" class="headerlink" title="quick-find"></a>quick-find</h3><p>在<code>union-find</code>算法中，有两个目标需要实现：判断两个节点是否连通和连接两个节点的。一种简单的思路是这样的，规定同属一个连通分量的标识符相同，比如：节点<code>0</code>，<code>1</code>和<code>2</code>是连通的，我们选择<code>1</code>为标识符，那么<code>a[0]=a[1]=a[2]=1</code>。这样做判断两个节点是否连通就可以在常数时间完成，基于此规则我们可以实现<code>quick-find</code>算法，但是这样做<code>union</code>的成本就会上升，每次<code>union</code>，需要遍历所有的节点，并对合适节点的标识符进行改变，这是个平方级别的算法，如下所示。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isConnected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> find(p)==find(q);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123; <span class="keyword">return</span> a[p]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pp = find(p);   <span class="comment">// p 节点的标识符</span></span><br><span class="line">    <span class="keyword">int</span> qq = find(q);   <span class="comment">// q 节点的标识符</span></span><br><span class="line">    <span class="keyword">if</span> (pp == qq) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">// 将 pp 标识符全部改成 qq</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++)</span><br><span class="line">        <span class="keyword">if</span> (a[i] == pp) a[i] = qq;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="quick-union"><a href="#quick-union" class="headerlink" title="quick-union"></a>quick-union</h3><p>quick-find算法中，union的成本是平方级别的，其原因在于每次union需要遍历全部的节点，可以进行一些调整，得到改进，这就是quick-union算法。具体实现：在同一类别的中的节点，我们不再让所有节点保存相同的标识符，而是在节点中保持其父节点，类似一棵树，不过是向上走的，子节点指向父节点，根节点保存的是他自己，这样一来，进行union操作时，至于遍历找到根节点，然后让其中一个根节点指向另一个根节点即可，进行find操作时，只需遍历找到根节点即指向自身的节点。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p];</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="comment">// pRoot 节点指向 Qroot</span></span><br><span class="line">    a[pRoot] = qRoot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="加权-quick-union"><a href="#加权-quick-union" class="headerlink" title="加权 quick-union"></a>加权 quick-union</h3><p>这样做没什么问题，但是在最坏情况下，节点是依次相连的，串成一串，这会导致算法的性能下降，我们对其稍加改进，每次union时，都把节点数小的那一组连接到节点数大的那一组，这就是加权的quick-union算法。实现这个算法我们需要一个数组保存每个节点下节点的数目，对根节点而言，这个数就是它所在组的大小。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">UF(<span class="keyword">int</span> N) &#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N];     <span class="comment">// 初始化节点数组</span></span><br><span class="line">    sz = <span class="keyword">new</span> <span class="keyword">int</span>[N];    <span class="comment">// 保存节点数目</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        sz[i] = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// find 算法没有改变</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="keyword">if</span> (pRoot == qRoot) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (sz[pRoot] &gt; sz[qRoot]) &#123; <span class="comment">// p 所在组较大</span></span><br><span class="line">        a[qRoot] = pRoot; <span class="comment">// 将q连接到q上</span></span><br><span class="line">        sz[pRoot] += sz[qRoot]; <span class="comment">// 更新 pRoot 下的节点数</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;    <span class="comment">// q 所在组较大</span></span><br><span class="line">        a[pRoot] = qRoot;</span><br><span class="line">        sz[qRoot] += sz[pRoot];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="路径压缩"><a href="#路径压缩" class="headerlink" title="路径压缩"></a>路径压缩</h3><p>还有一种路径压缩算法可以改进quick-union，即每次查找时，都把途径的节点指向根节点，这样均摊下来的find成本比较小，可以证明，路径压缩的加权quick-union算法是实现union-find最快的算法。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = p, t;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p]; <span class="comment">// 找到根节点</span></span><br><span class="line">    <span class="keyword">while</span> (x != p) &#123; <span class="comment">// 直到到达根节点</span></span><br><span class="line">        t = a[x];   <span class="comment">// 保存当前节点的父节点</span></span><br><span class="line">        a[x] = p;   <span class="comment">// 当前节点直接连接到根节点</span></span><br><span class="line">        x = t;      <span class="comment">// 移动到当前节点的父节点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// union 算法不变</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p>回到开头的那两个问题，有了union-find算法，我们来尝试解决它们。对于网络中节点是否需要构建新的连接，抽象出网络的节点构建起<code>UF</code>后，执行<code>isConnected()</code>即可判断是否需要建立新的连接，对于两个人是否可以建立连接的问题，我们用同样的方法也可以解决，但要是想通过最少的中间人就认识一个人，该怎么做呢，这又是另外一个问题了。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>union-find</tag>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据结构复习</title>
     <url>/2018/05/review-data-structure/</url>
     <content><![CDATA[<p>先抄一段Dave在他的书《The Pragmatic Programmer》中的话：</p>
@@ -133,35 +61,18 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
         <tag>C/C++</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
-    <title>记录高频硬件课程设计</title>
-    <url>/2019/12/record-of-high-frequency-course-design/</url>
-    <content><![CDATA[<p>本文绝大部分内容是在19年12月29日写的，我记得很清楚，那天是周日上午，我没有为即将到来的通原考试而复习，而是选择去写点东西记录几天前刚刚结束的高频课设，这是一次很难忘的经历，有痛苦也有快乐，有想过放弃但还是坚持了下来，感谢自己和队友们。现在是2020年3月15日，本该在学校度过周日的我，和所有的大学生一样，因为肺炎疫情只能在家里学习，我没什么学习状态，有些无聊，因此整理博客，把这篇去年的记录整理整理，发到GitHubBlog上，留作纪念，发表日期还是使用去年写这篇文章的日子。<br><a id="more"></a></p>
-<h2 id="最终验收"><a href="#最终验收" class="headerlink" title="最终验收"></a>最终验收</h2><p>12月24号，高频硬件课设验收，在队友的强烈要求下，我们选择了一个比较宽松的老师给我们验收，因为我们功率达不到，但还想 <strong>『恰完烂分』</strong>，这能对他的保研有所帮助。最后的结果很好，我们拿到了5分（满分5分），<strong>『烂分恰完』</strong>。</p>
-<div align="center" class="img"><br>    <img src="/assets/img/2019/final.jpg" alt="验收" height="400"><br>    <p align="center" style="color:#999">最终验收时电路连接和波形</p><br></div>
-
-<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>12月17号周二下午考完『随机过程』，终于有时间休息了，躺了一个小时，吃个饭，室友已经去搞硬件了，虽然已经是晚上9点多了，但我还想去，带上东西，去李老师办公室焊。折腾了两个小时，焊好了一个西勒振荡器，但没有测试工具，只能第二天测试焊接是否正确，测试工具缺乏和焊接出错这两个问题在整个课设过程中一直困扰着我们。</p>
-<div align="center" class="img"><br>    <img src="/assets/img/2019/siler_oscillator.jpg" alt="西勒振荡器" height="400"><br>    <p align="center" style="color:#999">第一天晚上焊好的西勒振荡器</p><br></div>
-
-<h2 id="一起干"><a href="#一起干" class="headerlink" title="一起干"></a>一起干</h2><p>第二天是周三，没有课，我和赵公子决定去实验室接着焊板子，顺便测试下昨晚上焊的振荡器。两个小时后，我们焊好了发射机和接收机的振荡器，经过测试，他的能用，而我的那块振荡器产生了寄生调幅。检查了电路没有任何问题，折腾到下午，最后发现是射极偏置电阻过大导致的，微调射极电阻，即可解决这个问题。</p>
-<p>下午和晚上我们都在实验室呆着，一直做到晚上11点。因为我已经很久没焊接东西，有点手生，他更是没啥经验，我们效率比较低，只焊好了一个乘法电路、一个中频放大器和一个包络检波器。后面测试时发现，我焊接的那个乘法电路不能实现信号相乘。那时我还不知道，接下来3天我都会把时间花在乘法电路上，如果早知道调试它会这么折腾，第一天晚上就应该当机立断重新焊一个的。</p>
-<h2 id="心生退意"><a href="#心生退意" class="headerlink" title="心生退意"></a>心生退意</h2><p>接下来的几天我感到痛苦不堪，我焊接乘法电路始终不好使，不知为什么我就是不愿重新焊一块，执着地想把它修好，但这一切都是徒劳的。看着周围的同学一个个都做出来乘法电路了，我开始怀疑自己：如果做不出来是不是证明我不行，我怎么能不行呢？要不放弃吧，这样就不存在证明了，我告诉自己这些bonus对我来说并不那么重要，我保研与否与这课设5分没什么关系。沃老板执着地说焊板子的烟搞得他很难受，实验室里面人太多了，空气太差，乌烟瘴气，他想回寝室做，这样的参与状态让我心有不快，偏偏他才是一定要拿这 5 分保研的人，为什么我要受这些精神折磨，我当时的确不想再做下去了。</p>
-<p>周六早上，纠结了许久，我去教化补充了些元器件，决定去实验室再焊一个乘法器，还说服沃老板也焊一个接收机的乘法电路。我不知道是什么力量支撑着我继续做下去，这件事对我来说不是那么必要，最诱人的bonus并不是我一定需要的，如果不做课设，我可以去复习通原，我可以享受轻松的一周。事后我仔细想了想，大概是因为我自己的性格决定的，我不是那种遇到问题就放弃的人，借口谁都有一些，但是作为我，一旦开始做了，就要做到最后，没有中途放弃的，之前的软件仿真就是如此，没有理由硬件不坚持下去，到这个时候，其实做这个课设已经变成了和自己较劲了，我不想就这么输了。</p>
-<p>周六下午去做了通信原理实验，晚上终于焊好我的第二块乘法电路，测试再次失败，沃老板也焊好接收机混频电路，经过测试也失败。这时候我心态已经到了最低点了，我真的不想再来了，前面说的那么多不服输如何如何，可是看着别人一个个做好，我的却始终不行，旁边还有人明着嘲讽我，这使我明白『挫败感』是何含义。晚上10点，我和沃老板回寝室了，赵公子在周五下午有事回家了，但他做的已经足够多了。我突然决定不再去了。</p>
-<h2 id="坚持才是胜利"><a href="#坚持才是胜利" class="headerlink" title="坚持才是胜利"></a>坚持才是胜利</h2><p>周日上午我还是去实验室了，我想就是什么都做不出来，也得一直在实验室坐着，我就要和它刚到底。好在一切坚持都没有白费，我的乘法电路测试成功了，事实证明我的电路设计没有问题，焊接的也没有问题，昨晚测试失败只是因为电路连线没有接好，胜利让我欣喜若狂，我真想大声怒吼：我终于完成了。另一边也有好消息传来，沃老板焊的和赵公子焊的乘法电路都是好使的，还有什么比此刻更快乐呢？</p>
-<div align="center"><br>    <img src="/assets/img/2019/amplitude_modulation.jpg" alt="AM调幅" height="400"><br>    <p align="center" style="color:#999">赵公子的乘法器AM波形</p><br>    <img src="/assets/img/2019/mixing.jpg" alt="混频" height="400"><br>    <p align="center" style="color:#999">沃老板的混频器波形</p><br></div>
-
-<p>周日下午发生了一些不愉快的事情，因为下午找不到他人（其实他在午睡），我对沃老板的不满更加强烈了，而那时我已经十分疲惫，愤怒之下，下午3点左右我直接回寝室，拒绝回他消息，然后睡了一觉。期间他来找我，我『哈哈』糊弄过去，不想再干。6点多起来看一眼手机，想了想，还是再去试试，把级联和功率要求做完吧，都已经到这个份上了，干脆就把它做到完。</p>
-<h2 id="乘胜追击"><a href="#乘胜追击" class="headerlink" title="乘胜追击"></a>乘胜追击</h2><p>我不想就此打住，野心开始膨胀了，<strong>『恰5分』</strong> 是调侃，此时更像是口号。发射机 AM 调制输出接上我焊调试乘法器抽空焊好的小信号放大器，效果非常好！放大了80倍，但我心里清楚，因为没有接负载，最后功率肯定达不到；接收机，混频后中频放大再检波，效果很差，但也算检波出来了，在要求不那么严苛的时候，可以拿到分；发射机接收机级联成功，和仿真保持一致。</p>
-<p>如此算来，我们已经可以拿到 4.5 分，但是我们不想收手，我们继续调放大器，要把功率的 5 分也拿到手。很不幸，我们没有成功，三极管射极电阻过小，导致射极电流过大，二极管被烧坏了，放大器也就怀了，这又是我们唯一的放大器，级联也没办法做了，这下只有 4 分了，后悔，懊恼。</p>
-<p>第二天周一，已经是12月23号了，我都没想到自己会在这上面花上近一周时间。白天上了一天课，晚上我们接着调试了一下，还是那个问题，AM 波后的小信号放大器不好使，级联就不行，功率也没有。赵公子也回来了，我们让他重新焊了一个，失败了，因为我临时对之前测试成功的电路做了修改，为了减小电流避免三极管烧毁的事再发生，但是我没想到这么一改，电流太小，放大倍数达不到要求，而且我应该自己亲手焊的。可以说今天又是一无所获。但我不会就此打住，我不愿放弃。</p>
-<p>周二上午上完微波课，我立马去教化买了元件，再焊一个小信号放大器，再试一次，不到最后，谁也不知道结果，我不想放弃。一番折腾，焊好，测试，成功。</p>
-<p>下午验收前一刻，上周三买的陶瓷滤波器终于从深圳邮到了学校，我赶紧去取回来，接到电路中，完美!<strong>『烂分恰完』</strong>。</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>做完这次课设，心里有太多感慨，很多次我都想放弃了，但是总有一股力量把我拉了回来，这其中有对朋友承诺的坚守也有自己那股不服输的劲，验收成功那一刻我有点想哭，是啊，这整个过程只有我自己这么看重吧，最后还在自我感动，但如果没有这自我感动，我不知道自己能否坚持下来。当然，课设整个过程也暴露了我的一些问题：我需要有更强大的精神力量，激励自己前进，也要学会如何带领团队前进。</p>
+    <title>记录科创中期答辩</title>
+    <url>/2018/04/My_first_lose/</url>
+    <content><![CDATA[<p>今天下午的科创中期答辩我们组当掉了，说实话我们什么都没做，单纯的想敷衍过去，很不幸，老师没有让我们通过，4月29号要再来一次，希望可以通过吧。<br><a id="more"></a><br>关于这次答辩，我还是有些东西想记下来的：</p>
+<p>我们都有自己擅长的事，当然也有自己的绝不擅长甚至不愿触碰的事儿，很不幸，上台发言就是我不愿触碰的事儿，我害怕自己讲不清楚，害怕自己口齿不清，害怕失败，这或许是这次失败的一个重要原因吧。我们应该考虑下次答辩换一个人的，换一个会说的人，再有就是大二科创一定要好好选队友，海鹏非常可以，有拼劲儿，天行表达非常好，到时候再说，我只是一个中规中矩的驱动人物罢了，现在需要多学一点知识，也好让人家接受你成为队友。</p>
+<p>我算是认识到了，要想做好一件事情，一个好的态度是非常是非常重要的。对应到这次科创，这态度体现在，如下几个方面，我们有没有好好做这个项目或者说有没有做，有没有认真准备PPT，有没有认真准备报告。总结起来就是既要好好做也要好好说，anyway，这一次已经过去了，我们要把剩下的路走完。</p>
+<p>合理安排自己的时间，不要再浪费了，有许多美好值得去追求，有很多有意义的事儿可以去做，不要再浪费时间做一些没有意义的如玩手机的事儿了。</p>
+<p>最后，不要再赶ddl，一定要提前做好。</p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -171,20 +82,47 @@
       </tags>
   </entry>
   <entry>
-    <title>胡言乱语</title>
-    <url>/2020/03/second-week/</url>
-    <content><![CDATA[<p>没想到有和上周一样，在周一写下上周的日常。不过这次我有话说，不是因为贪玩游戏，实在是因为周六晚上的突发事件打乱了周日的计划，不得已在半夜在农村道路上走上7里路，第二天已经没有精力去写这玩意儿了。翻看上周每天写下的只言片语，我发现若是只给我自己看，那还是有点东西可写的。<br><a id="more"></a></p>
-<h2 id="无法抵挡的快乐"><a href="#无法抵挡的快乐" class="headerlink" title="无法抵挡的快乐"></a>无法抵挡的快乐</h2><p>放纵在放纵当时带来的快乐无与伦比，让我无法阻挡，虽然我已经很少体验到放纵的快乐，但我深知它的吸引力是多么强大。放纵对我而言是个什么样的标准呢？一天打上三把游戏已经是放纵了，大概就是这样，那么我可以说周四我放纵了一次。我处于一种完全沉浸式投入的状态，不在乎自己眼睛的疲劳，全心投入，决心赢下当前的比赛，但我还想赢得更多，于是不断地玩下去。最终局数来到了4，花去了2h<br>，我停了下来，没有继续玩下去。因为心心念念着学习知识，我停了下来，放弃了快乐。但是我知道，下一次我还是会沉浸其中，因为它能让我短暂地逃离现实，这是无法抵挡的快乐。</p>
-<h2 id="一个平庸的人"><a href="#一个平庸的人" class="headerlink" title="一个平庸的人"></a>一个平庸的人</h2><p>几乎每天都要上课，老师讲得那些我从来没有听过的知识，但没有多大程度引起我的兴趣，对我而言学习它只是身为学生的一种职责。我被动地接受他们传递过来的东西，OSI参考模型、TCP/IP参考模型、ALOHA随机接入协议还有光纤的若干性质，我几乎没有记下什么东西，但是我尝试去发现其中的规则，那是一种很美的东西，我尝试像一个『一无所知』的人，面对这些问题我能给出什么样的解决方案，大部分时候我什么也发现不了，对于这些问题我也一筹莫展，更别提解决方案，我不过是个平庸的人。</p>
-<h2 id="教育使我成为什么样的人？"><a href="#教育使我成为什么样的人？" class="headerlink" title="教育使我成为什么样的人？"></a>教育使我成为什么样的人？</h2><p>通常我不会想这样的问题，因为只不过是活着而以，不需要赋予人生意义，成为一个什么样的人也许真的无关紧要。周六看了郑强教授的一个视频，让我想考虑下这个问题，但我知道我想不明白的，我只能回顾自己的人生，并尝试从一些事件归纳出自己被教育成一个什么样的人，具体内容慢慢写吧。</p>
-<h2 id="我是随机漫步的傻瓜"><a href="#我是随机漫步的傻瓜" class="headerlink" title="我是随机漫步的傻瓜"></a>我是随机漫步的傻瓜</h2><p>我是个随机漫步的的傻瓜，但是我并没有受到眷顾，所以我还是个彻底的傻瓜。</p>
+    <title>一点思考</title>
+    <url>/2018/04/A_little_thinking/</url>
+    <content><![CDATA[<p>时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。</p>
 ]]></content>
       <categories>
         <category>生活</category>
       </categories>
       <tags>
-        <tag>记录</tag>
-        <tag>weekly</tag>
+        <tag>思考</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>union-find算法的原理及实现</title>
+    <url>/2020/03/union-find/</url>
+    <content><![CDATA[<p>在计算机网络中，对于任意两个节点，可以在其间构建一条连接建立通信，这样做没有问题，但是在整个网络中都这么做会导致需要建立的连接非常多，容易计算得到<code>N</code>个节点的网络需要的连接数<code>N(N-1)/2</code>，这增加了网络的负担，实现起来也不容易，有什么办法改进呢？六度空间理论大家都知道，说的是最多通过六个人，我们可以和世界上任何人建立联系，那么如何知道两个人之间是否可以建立联系呢？这两个问题其实都属于连通性问题，可以使用<code>union-find</code>算法解决，步骤如下：</p>
+<h2 id="1-数据准备"><a href="#1-数据准备" class="headerlink" title="1. 数据准备"></a>1. 数据准备</h2><p><code>p</code>和<code>q</code>表示两个抽象的节点，可以用整数表示，如果『p，q 是相连的』，则意味着：</p>
+<ul>
+<li>自反性：<code>p</code>和<code>p</code>是相连的。</li>
+<li>对称性：如果<code>p</code>和<code>q</code>相连，则<code>q</code>和<code>p</code>也是相连的。</li>
+<li>传递性：如果<code>p</code>和<code>q</code>相连，<code>q</code>和<code>r</code>相连，则<code>p</code>和<code>r</code>也相连。</li>
+</ul>
+<p>我们可以用一个数组表示所有的节点，数组的每个位置表示一个节点，每个位置的值表示这个节点所在分量的标识符，初始化的时候每个节点的标识符都是其本身，如下所示：<br><a id="more"></a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">UF</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N]; <span class="comment">// 初始化节点数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h2><h3 id="quick-find"><a href="#quick-find" class="headerlink" title="quick-find"></a>quick-find</h3><p>在<code>union-find</code>算法中，有两个目标需要实现：判断两个节点是否连通和连接两个节点的。一种简单的思路是这样的，规定同属一个连通分量的标识符相同，比如：节点<code>0</code>，<code>1</code>和<code>2</code>是连通的，我们选择<code>1</code>为标识符，那么<code>a[0]=a[1]=a[2]=1</code>。这样做判断两个节点是否连通就可以在常数时间完成，基于此规则我们可以实现<code>quick-find</code>算法，但是这样做<code>union</code>的成本就会上升，每次<code>union</code>，需要遍历所有的节点，并对合适节点的标识符进行改变，这是个平方级别的算法，如下所示。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isConnected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> find(p)==find(q);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123; <span class="keyword">return</span> a[p]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pp = find(p);   <span class="comment">// p 节点的标识符</span></span><br><span class="line">    <span class="keyword">int</span> qq = find(q);   <span class="comment">// q 节点的标识符</span></span><br><span class="line">    <span class="keyword">if</span> (pp == qq) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">// 将 pp 标识符全部改成 qq</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++)</span><br><span class="line">        <span class="keyword">if</span> (a[i] == pp) a[i] = qq;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="quick-union"><a href="#quick-union" class="headerlink" title="quick-union"></a>quick-union</h3><p>quick-find算法中，union的成本是平方级别的，其原因在于每次union需要遍历全部的节点，可以进行一些调整，得到改进，这就是quick-union算法。具体实现：在同一类别的中的节点，我们不再让所有节点保存相同的标识符，而是在节点中保持其父节点，类似一棵树，不过是向上走的，子节点指向父节点，根节点保存的是他自己，这样一来，进行union操作时，至于遍历找到根节点，然后让其中一个根节点指向另一个根节点即可，进行find操作时，只需遍历找到根节点即指向自身的节点。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p];</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="comment">// pRoot 节点指向 Qroot</span></span><br><span class="line">    a[pRoot] = qRoot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="加权-quick-union"><a href="#加权-quick-union" class="headerlink" title="加权 quick-union"></a>加权 quick-union</h3><p>这样做没什么问题，但是在最坏情况下，节点是依次相连的，串成一串，这会导致算法的性能下降，我们对其稍加改进，每次union时，都把节点数小的那一组连接到节点数大的那一组，这就是加权的quick-union算法。实现这个算法我们需要一个数组保存每个节点下节点的数目，对根节点而言，这个数就是它所在组的大小。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">UF(<span class="keyword">int</span> N) &#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N];     <span class="comment">// 初始化节点数组</span></span><br><span class="line">    sz = <span class="keyword">new</span> <span class="keyword">int</span>[N];    <span class="comment">// 保存节点数目</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        sz[i] = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// find 算法没有改变</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="keyword">if</span> (pRoot == qRoot) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (sz[pRoot] &gt; sz[qRoot]) &#123; <span class="comment">// p 所在组较大</span></span><br><span class="line">        a[qRoot] = pRoot; <span class="comment">// 将q连接到q上</span></span><br><span class="line">        sz[pRoot] += sz[qRoot]; <span class="comment">// 更新 pRoot 下的节点数</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;    <span class="comment">// q 所在组较大</span></span><br><span class="line">        a[pRoot] = qRoot;</span><br><span class="line">        sz[qRoot] += sz[pRoot];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="路径压缩"><a href="#路径压缩" class="headerlink" title="路径压缩"></a>路径压缩</h3><p>还有一种路径压缩算法可以改进quick-union，即每次查找时，都把途径的节点指向根节点，这样均摊下来的find成本比较小，可以证明，路径压缩的加权quick-union算法是实现union-find最快的算法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = p, t;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p]; <span class="comment">// 找到根节点</span></span><br><span class="line">    <span class="keyword">while</span> (x != p) &#123; <span class="comment">// 直到到达根节点</span></span><br><span class="line">        t = a[x];   <span class="comment">// 保存当前节点的父节点</span></span><br><span class="line">        a[x] = p;   <span class="comment">// 当前节点直接连接到根节点</span></span><br><span class="line">        x = t;      <span class="comment">// 移动到当前节点的父节点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// union 算法不变</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>回到开头的那两个问题，有了union-find算法，我们来尝试解决它们。对于网络中节点是否需要构建新的连接，抽象出网络的节点构建起<code>UF</code>后，执行<code>isConnected()</code>即可判断是否需要建立新的连接，对于两个人是否可以建立连接的问题，我们用同样的方法也可以解决，但要是想通过最少的中间人就认识一个人，该怎么做呢，这又是另外一个问题了。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>union-find</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -233,23 +171,36 @@
       </tags>
   </entry>
   <entry>
-    <title>新学期的第一周</title>
-    <url>/2020/03/first-week-record-of-new-term/</url>
-    <content><![CDATA[<p></p><p align="center" class="img"><br>    <img src="/assets/img/2020/astonished_joey.jpg" alt="astonished_joey" width="750"><br>    <span align="center" style="color:#999">震惊的Joey</span></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><p></p></h2><p>不知不觉间大三已经过完一半，想起在过去的两年半中好像没有值得纪念的事，有点无可奈何，但要说没有发生那么一件在当时让我很有感触的事，当然也不可能，只是我以为自己的记忆会帮我保存那些真正重要的感觉，因此没有记录，但是这样的事怎么会有那么多呢？亲人故去、终有所成之类的记忆深刻的事不常发生，更多的是生活中有感触的小事，它们发生很触动我，但它们又是那么不起眼，不久后我就会忘记。过去的都过去了，不过现在我不想就让现在的它们被遗忘，我要尽可能地记录。<br><a id="more"></a></p>
-<p>新学期的第一周也就这么过去了，或者说新学期的第三周就这么过去了，因为疫情耽搁在家没法返校，导致前两周的电工实习没法线下上也没法在线上操作，因此前两周没课，所以这一周才算是我的新学期第一周，没有开始上课怎么能叫新学期呢？不管怎么算，这一周的的确确就这么过去了。</p>
-<h2 id="新学期的前三门课"><a href="#新学期的前三门课" class="headerlink" title="新学期的前三门课"></a>新学期的前三门课</h2><p>过去的一周里，我上了三门课：《计算机通信网络》、《无线自组织网络与应用》和《光通信网络》。每科两节课，一共是六节课。三位老师都很有意思，有说自己从教一纪不知点名为何物的，有网课平台整三四个的，课下还提醒你『你啥时候进的直播啥时候出去我这都有记录，那些进来签个到就走了的同学自己注意点』，也有正常上课群里发『1』签到的。抛开这些不说，老师们课上得挺好。</p>
-<h2 id="atimelogger-记录每一分钟"><a href="#atimelogger-记录每一分钟" class="headerlink" title="atimelogger 记录每一分钟"></a>atimelogger 记录每一分钟</h2><p>周一晚上突然翻到这个自己两年前就下载过的APP————atimelogger，这是一个记录自己每一分钟用在何处的APP，我决定不再试一把，尝试记录自己每一分钟用在何处。从周二开始，这一周每一天我都几乎记录下了自己的每一分钟，这种感觉很奇妙，当你做什么的时候，你会意识到有一个时钟在走，你会不由自主地集中注意力，想要它走慢一点或者抓紧利用这有限的时间。后面我想，不管它在不在，我的生命时钟都在不停地走，不知道在某一天就会停下来，因为它是如此的不可感知，我很少注意到它，但是这个APP帮助我意识到了，它具象了我的生命时钟，让我感受到我的时间在不断消耗，我必须抓紧每一分钟。<br>atimelogger上的记录显示：我每天都花了30~40分钟玩2K19；每天晚上我都会看一集『老友记』，用时22分钟；每天都会记单词，用时20~30分钟；每天我都至少在『微信读书』APP上看了1h书；每天我都至少在床上睡了8个小时；每天我都至少在学习成长上花了6h。我开始喜欢上这种记录的感觉。</p>
-<h2 id="重启-Blog"><a href="#重启-Blog" class="headerlink" title="重启 Blog"></a>重启 Blog</h2><p>周四晚上折腾了一晚，重启Blog，后面几天也在不断完善，终于到了现在这个样子。换了站点的头像，给站点添加了访问人数统计，为每一篇博文添加阅读数统计，在此感谢不蒜子大佬的脚本。周六晚上还添加了<code>相册</code>，到周日晚上，终于可以正常使用了。关于重启博客我是这样想的，上个月我就重启了『记录计划』，只是在手机上写，既然都要记录，为什么不放到网上呢？这样还方便查看，而且我会更有动力去写，Blog是一个比较好的选择。</p>
-<hr>
-<p>话不多说，以上就是这一周，关于上的这些课的具体内容我会在后面的文章中详细记录。这些网络类的课很有意思，它们有一种规则的美感，我想如果能自己亲手制定某些规则并加以实现肯定让人兴奋。生活总是有很多的不确定，但我确定关于『记录』这件事我会坚持下去。</p>
+    <title>记录高频硬件课程设计</title>
+    <url>/2019/12/record-of-high-frequency-course-design/</url>
+    <content><![CDATA[<p>本文绝大部分内容是在19年12月29日写的，我记得很清楚，那天是周日上午，我没有为即将到来的通原考试而复习，而是选择去写点东西记录几天前刚刚结束的高频课设，这是一次很难忘的经历，有痛苦也有快乐，有想过放弃但还是坚持了下来，感谢自己和队友们。现在是2020年3月15日，本该在学校度过周日的我，和所有的大学生一样，因为肺炎疫情只能在家里学习，我没什么学习状态，有些无聊，因此整理博客，把这篇去年的记录整理整理，发到GitHubBlog上，留作纪念，发表日期还是使用去年写这篇文章的日子。<br><a id="more"></a></p>
+<h2 id="最终验收"><a href="#最终验收" class="headerlink" title="最终验收"></a>最终验收</h2><p>12月24号，高频硬件课设验收，在队友的强烈要求下，我们选择了一个比较宽松的老师给我们验收，因为我们功率达不到，但还想 <strong>『恰完烂分』</strong>，这能对他的保研有所帮助。最后的结果很好，我们拿到了5分（满分5分），<strong>『烂分恰完』</strong>。</p>
+<div align="center" class="img"><br>    <img src="/assets/img/2019/final.jpg" alt="验收" height="400"><br>    <p align="center" style="color:#999">最终验收时电路连接和波形</p><br></div>
+
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>12月17号周二下午考完『随机过程』，终于有时间休息了，躺了一个小时，吃个饭，室友已经去搞硬件了，虽然已经是晚上9点多了，但我还想去，带上东西，去李老师办公室焊。折腾了两个小时，焊好了一个西勒振荡器，但没有测试工具，只能第二天测试焊接是否正确，测试工具缺乏和焊接出错这两个问题在整个课设过程中一直困扰着我们。</p>
+<div align="center" class="img"><br>    <img src="/assets/img/2019/siler_oscillator.jpg" alt="西勒振荡器" height="400"><br>    <p align="center" style="color:#999">第一天晚上焊好的西勒振荡器</p><br></div>
+
+<h2 id="一起干"><a href="#一起干" class="headerlink" title="一起干"></a>一起干</h2><p>第二天是周三，没有课，我和赵公子决定去实验室接着焊板子，顺便测试下昨晚上焊的振荡器。两个小时后，我们焊好了发射机和接收机的振荡器，经过测试，他的能用，而我的那块振荡器产生了寄生调幅。检查了电路没有任何问题，折腾到下午，最后发现是射极偏置电阻过大导致的，微调射极电阻，即可解决这个问题。</p>
+<p>下午和晚上我们都在实验室呆着，一直做到晚上11点。因为我已经很久没焊接东西，有点手生，他更是没啥经验，我们效率比较低，只焊好了一个乘法电路、一个中频放大器和一个包络检波器。后面测试时发现，我焊接的那个乘法电路不能实现信号相乘。那时我还不知道，接下来3天我都会把时间花在乘法电路上，如果早知道调试它会这么折腾，第一天晚上就应该当机立断重新焊一个的。</p>
+<h2 id="心生退意"><a href="#心生退意" class="headerlink" title="心生退意"></a>心生退意</h2><p>接下来的几天我感到痛苦不堪，我焊接乘法电路始终不好使，不知为什么我就是不愿重新焊一块，执着地想把它修好，但这一切都是徒劳的。看着周围的同学一个个都做出来乘法电路了，我开始怀疑自己：如果做不出来是不是证明我不行，我怎么能不行呢？要不放弃吧，这样就不存在证明了，我告诉自己这些bonus对我来说并不那么重要，我保研与否与这课设5分没什么关系。沃老板执着地说焊板子的烟搞得他很难受，实验室里面人太多了，空气太差，乌烟瘴气，他想回寝室做，这样的参与状态让我心有不快，偏偏他才是一定要拿这 5 分保研的人，为什么我要受这些精神折磨，我当时的确不想再做下去了。</p>
+<p>周六早上，纠结了许久，我去教化补充了些元器件，决定去实验室再焊一个乘法器，还说服沃老板也焊一个接收机的乘法电路。我不知道是什么力量支撑着我继续做下去，这件事对我来说不是那么必要，最诱人的bonus并不是我一定需要的，如果不做课设，我可以去复习通原，我可以享受轻松的一周。事后我仔细想了想，大概是因为我自己的性格决定的，我不是那种遇到问题就放弃的人，借口谁都有一些，但是作为我，一旦开始做了，就要做到最后，没有中途放弃的，之前的软件仿真就是如此，没有理由硬件不坚持下去，到这个时候，其实做这个课设已经变成了和自己较劲了，我不想就这么输了。</p>
+<p>周六下午去做了通信原理实验，晚上终于焊好我的第二块乘法电路，测试再次失败，沃老板也焊好接收机混频电路，经过测试也失败。这时候我心态已经到了最低点了，我真的不想再来了，前面说的那么多不服输如何如何，可是看着别人一个个做好，我的却始终不行，旁边还有人明着嘲讽我，这使我明白『挫败感』是何含义。晚上10点，我和沃老板回寝室了，赵公子在周五下午有事回家了，但他做的已经足够多了。我突然决定不再去了。</p>
+<h2 id="坚持才是胜利"><a href="#坚持才是胜利" class="headerlink" title="坚持才是胜利"></a>坚持才是胜利</h2><p>周日上午我还是去实验室了，我想就是什么都做不出来，也得一直在实验室坐着，我就要和它刚到底。好在一切坚持都没有白费，我的乘法电路测试成功了，事实证明我的电路设计没有问题，焊接的也没有问题，昨晚测试失败只是因为电路连线没有接好，胜利让我欣喜若狂，我真想大声怒吼：我终于完成了。另一边也有好消息传来，沃老板焊的和赵公子焊的乘法电路都是好使的，还有什么比此刻更快乐呢？</p>
+<div align="center"><br>    <img src="/assets/img/2019/amplitude_modulation.jpg" alt="AM调幅" height="400"><br>    <p align="center" style="color:#999">赵公子的乘法器AM波形</p><br>    <img src="/assets/img/2019/mixing.jpg" alt="混频" height="400"><br>    <p align="center" style="color:#999">沃老板的混频器波形</p><br></div>
+
+<p>周日下午发生了一些不愉快的事情，因为下午找不到他人（其实他在午睡），我对沃老板的不满更加强烈了，而那时我已经十分疲惫，愤怒之下，下午3点左右我直接回寝室，拒绝回他消息，然后睡了一觉。期间他来找我，我『哈哈』糊弄过去，不想再干。6点多起来看一眼手机，想了想，还是再去试试，把级联和功率要求做完吧，都已经到这个份上了，干脆就把它做到完。</p>
+<h2 id="乘胜追击"><a href="#乘胜追击" class="headerlink" title="乘胜追击"></a>乘胜追击</h2><p>我不想就此打住，野心开始膨胀了，<strong>『恰5分』</strong> 是调侃，此时更像是口号。发射机 AM 调制输出接上我焊调试乘法器抽空焊好的小信号放大器，效果非常好！放大了80倍，但我心里清楚，因为没有接负载，最后功率肯定达不到；接收机，混频后中频放大再检波，效果很差，但也算检波出来了，在要求不那么严苛的时候，可以拿到分；发射机接收机级联成功，和仿真保持一致。</p>
+<p>如此算来，我们已经可以拿到 4.5 分，但是我们不想收手，我们继续调放大器，要把功率的 5 分也拿到手。很不幸，我们没有成功，三极管射极电阻过小，导致射极电流过大，二极管被烧坏了，放大器也就怀了，这又是我们唯一的放大器，级联也没办法做了，这下只有 4 分了，后悔，懊恼。</p>
+<p>第二天周一，已经是12月23号了，我都没想到自己会在这上面花上近一周时间。白天上了一天课，晚上我们接着调试了一下，还是那个问题，AM 波后的小信号放大器不好使，级联就不行，功率也没有。赵公子也回来了，我们让他重新焊了一个，失败了，因为我临时对之前测试成功的电路做了修改，为了减小电流避免三极管烧毁的事再发生，但是我没想到这么一改，电流太小，放大倍数达不到要求，而且我应该自己亲手焊的。可以说今天又是一无所获。但我不会就此打住，我不愿放弃。</p>
+<p>周二上午上完微波课，我立马去教化买了元件，再焊一个小信号放大器，再试一次，不到最后，谁也不知道结果，我不想放弃。一番折腾，焊好，测试，成功。</p>
+<p>下午验收前一刻，上周三买的陶瓷滤波器终于从深圳邮到了学校，我赶紧去取回来，接到电路中，完美!<strong>『烂分恰完』</strong>。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>做完这次课设，心里有太多感慨，很多次我都想放弃了，但是总有一股力量把我拉了回来，这其中有对朋友承诺的坚守也有自己那股不服输的劲，验收成功那一刻我有点想哭，是啊，这整个过程只有我自己这么看重吧，最后还在自我感动，但如果没有这自我感动，我不知道自己能否坚持下来。当然，课设整个过程也暴露了我的一些问题：我需要有更强大的精神力量，激励自己前进，也要学会如何带领团队前进。</p>
 ]]></content>
       <categories>
         <category>生活</category>
       </categories>
       <tags>
         <tag>记录</tag>
-        <tag>weekly</tag>
       </tags>
   </entry>
   <entry>
@@ -303,53 +254,122 @@
       </tags>
   </entry>
   <entry>
-    <title>NS2 的介绍（一）—— 概述</title>
-    <url>/2020/04/ns2-simulation-overview/</url>
-    <content><![CDATA[<p>最近在上一门叫『无线自组织网络与应用』的课程，介绍了很多以前没有接触过的概念，包括了一个叫 NS2 的仿真工具，在前面<a href="/2020/03/latex-notes-1-basic-concepts/">一篇文章</a>中介绍的 AHOHA 协议也是在这门课程中有被详细讲述的。这篇文章基本上是<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">这篇文章</a>的翻译，介绍 NS2 这个仿真工具，给出这个它的概述。<br><a id="more"></a></p>
-<h2 id="NS2是什么"><a href="#NS2是什么" class="headerlink" title="NS2是什么"></a>NS2是什么</h2><p>NS2 是一个使用 C++ 和 OTcl 编写的面向对象的离散事件驱动的网络仿真器，在 UCBerkely 被开发出来。它主要用于局域网和广域网仿真。由于缺少适合新手入门的教程，NS2对于初学者来说不是很友好。</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>NS2 可以仿真各种各样的IP网络。它实现了一些网络协议如 TCP 和 UDP，文件传输协议如 FTP、Telnet、Web、CBR 和 VBR，路由队列管理机制如 DropTail、RED 和 CBQ，路由选择算法如 Dijkstra，等等。针对局域网仿真，NS2 还实现了组播和一些 MAC 层协议。这里要介绍的是 NS2 的基本结构，然后按照例子介绍细节。</p>
-<p><div align="center" class="img"><br>    <img src="/assets/img/2020/structure_of_ns2.png" alt="structure_of_ns2" width="750"><br>    <span align="center" style="color:#999">用户角度的NS概览</span><br></div><br>NS2 是 OTcl 脚本解释器，包括仿真事件调度程序、网络组件对象库和网络启动 (plumbing) 模块库。plumbing 模块通常实现为基本模拟对象成员函数。换句话说，使用 NS2，你需要使用 OTcl 语言写一个脚本，包括以下内容：</p>
-<ul>
-<li>初始化一个事件调度程序</li>
-<li>使用网络对象和 plumbing 函数建立网络拓扑结构</li>
-<li>通过事件调度程序告知何时开始发送分组</li>
-</ul>
-<h3 id="network-object-网络对象"><a href="#network-object-网络对象" class="headerlink" title="network object 网络对象"></a>network object 网络对象</h3><p>plumbing 函数通过为<em>对象设定指向合适的对象的邻居指针</em>，在网络对象中探索可能的数据通路，进而建立起整个网络。如此一来，使用者想要创建一个新的网络对象变得简单，只需写一个新的对象或者从对象库中创建一个复合对象，然后探索 (plumb) 通过这个新对象的数据通路即可。<br>听起来比较复杂，但是 plumbing OTcl 模块让这一切变得非常简单，这也是 NS2 的强大之处。</p>
-<h3 id="event-scheduler-事件调度程序"><a href="#event-scheduler-事件调度程序" class="headerlink" title="event scheduler 事件调度程序"></a>event scheduler 事件调度程序</h3><p>除网络对象外，NS2 中另一个主要的组件就是事件调度程序。在 NS2 中，一个事件就是一个包 ID，这个 ID 是唯一的，涵盖了分配时间，以及用来处理该事件的指向下一个对象的指针。在 NS2 中，一个事件调度程序<strong>记录着模拟时间</strong>，并通过调用适当的网络组件启动在<strong>事件队列</strong>中调度好的应该在当前启动的所有事件，这些组件通常是发出事件并让事件与事件指出的包一起完成正确的指令。网络组件间进行通信，传递 packet，但是并不会消耗真实的仿真时间。所有需要消耗仿真时间来处理 packet 的网络组件通过使用事件调度程序完成，组件为待处理到packet发出一个事件然后等待组件自己启动事件，再进行进一步的行动处理 packet。</p>
-<p>举个例子，一个网络转发组件S模拟一次转发的延时为 20us，它为一个需要转发的 packet P 向调度程序发出一个延时 20us 的事件 E，20us 后，调度程序 M 从事件队列中调度出这个事件 E 并把它立即发给转发组件 S ，然后由转发组件 S 将 packet P 交给适当的输出链接组件。</p>
-<p>还有一种用法将事件调度程序当作计时器。比如，TCP 需要一个计时器记录一个 packet 的发送时间以备重发（发送一个具有相同 TCP 编号且不同 NS packet ID 的 packet）。计时器和延时器用类似的方式使用事件调度程序，不同之处在于计时器计算与 packet 相关的时间值，然后一段特定的时间过去后对该 packet 做合适的动作（如上面那个例子，计算 packet 的发送时间，如果超过预定时间重发该 packet），而不是模拟一个延时，</p>
-<h2 id="C-与-NS2"><a href="#C-与-NS2" class="headerlink" title="C++ 与 NS2"></a>C++ 与 NS2</h2><p>NS2 不仅可以用 OTcl 编写也可以用 C++ 编写。处于效率考量，NS2 将<strong>数据路径</strong>的实现和<strong>控制路径</strong>的实现分离开来，为了减少 packet 和事件的处理时间（注意，不是仿真时间），数据路径中的事件调度程序和基本网络组件对象用 C++ 编写然后编译，使用编译好的对象，OTcl 解释器通过一个 OTcl 连接为每一个 C++ 对象创建配对的 OTcl 对象，为成员函数创建配对的控制函数，为成员变量创建配对的配置变量，这样一来，对 C++ 对象的控制就传递给了 OTcl。向一个连接到 OTcl 的 C++ 对象中添加成员函数也是可能的，C++ 对象中不需要在一次模拟中被控制的或者不需要在内部被其他对象使用使用的，是不需要被连接到 OTcl 中。同样地，一个不在数据路径中的对象也可以使用 OTcl 实现。如图为一个对象在 C++ 和 OTcl 中的层次体系，可以看到，连接到 C++ 的 OTcl 对象和它连接的 C++ 对象具有相同的层次结构。</p>
-<p align="center" class="img"><br>    <img src="/assets/img/2020/cpp_vs_otcl.png" alt="cpp_vs_otcl" width="750"><br>    <span align="center" style="color:#999">C++ 和 OTcl 的连接</span><br></p>
-
-<h2 id="NS2-的大体结构"><a href="#NS2-的大体结构" class="headerlink" title="NS2 的大体结构"></a>NS2 的大体结构</h2><p>如图为 NS2 的整体结构，使用者站在图中的左下角，在 Tcl 中，使用 OTcl 库中的仿真对象设计并控制模拟。事件调度程序和绝大多数网络组件是通过 C++ 实现的，并且 OTcl 通过 OTcl 连接 (linkage) 可以使用到它们，而这个连接是通过 tclcl 实现的。这些东西共同构成了 NS2，它就是一个扩展了面向对象的 Tcl 解释器和网络模拟库。</p>
-<p align="center" class="img"><br>    <img src="/assets/img/2020/architecture_view_of_ns.png" alt="architecture_view_of_ns" width="750"><br>    <span align="center" style="color:#999">NS2  的体系结构图</span><br></p>
-
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文简单分析了 NS2 的大体结构和体系结构。现在来考虑下如何获得 NS2 的仿真结果，如第一张图所示，，当仿真结束时，NS2 按照输入的 Tcl（或 OTcl）脚本中的说明产生一个或者多个文本输出文件，其中包含了详细的仿真数据。这些数据可用于后续的仿真分析中，或者作为图形化仿真展示工具 NAM 的输入。</p>
+    <title>新学期的第一周</title>
+    <url>/2020/03/first-week-record-of-new-term/</url>
+    <content><![CDATA[<p></p><p align="center" class="img"><br>    <img src="/assets/img/2020/astonished_joey.jpg" alt="astonished_joey" width="750"><br>    <span align="center" style="color:#999">震惊的Joey</span></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><p></p></h2><p>不知不觉间大三已经过完一半，想起在过去的两年半中好像没有值得纪念的事，有点无可奈何，但要说没有发生那么一件在当时让我很有感触的事，当然也不可能，只是我以为自己的记忆会帮我保存那些真正重要的感觉，因此没有记录，但是这样的事怎么会有那么多呢？亲人故去、终有所成之类的记忆深刻的事不常发生，更多的是生活中有感触的小事，它们发生很触动我，但它们又是那么不起眼，不久后我就会忘记。过去的都过去了，不过现在我不想就让现在的它们被遗忘，我要尽可能地记录。<br><a id="more"></a></p>
+<p>新学期的第一周也就这么过去了，或者说新学期的第三周就这么过去了，因为疫情耽搁在家没法返校，导致前两周的电工实习没法线下上也没法在线上操作，因此前两周没课，所以这一周才算是我的新学期第一周，没有开始上课怎么能叫新学期呢？不管怎么算，这一周的的确确就这么过去了。</p>
+<h2 id="新学期的前三门课"><a href="#新学期的前三门课" class="headerlink" title="新学期的前三门课"></a>新学期的前三门课</h2><p>过去的一周里，我上了三门课：《计算机通信网络》、《无线自组织网络与应用》和《光通信网络》。每科两节课，一共是六节课。三位老师都很有意思，有说自己从教一纪不知点名为何物的，有网课平台整三四个的，课下还提醒你『你啥时候进的直播啥时候出去我这都有记录，那些进来签个到就走了的同学自己注意点』，也有正常上课群里发『1』签到的。抛开这些不说，老师们课上得挺好。</p>
+<h2 id="atimelogger-记录每一分钟"><a href="#atimelogger-记录每一分钟" class="headerlink" title="atimelogger 记录每一分钟"></a>atimelogger 记录每一分钟</h2><p>周一晚上突然翻到这个自己两年前就下载过的APP————atimelogger，这是一个记录自己每一分钟用在何处的APP，我决定不再试一把，尝试记录自己每一分钟用在何处。从周二开始，这一周每一天我都几乎记录下了自己的每一分钟，这种感觉很奇妙，当你做什么的时候，你会意识到有一个时钟在走，你会不由自主地集中注意力，想要它走慢一点或者抓紧利用这有限的时间。后面我想，不管它在不在，我的生命时钟都在不停地走，不知道在某一天就会停下来，因为它是如此的不可感知，我很少注意到它，但是这个APP帮助我意识到了，它具象了我的生命时钟，让我感受到我的时间在不断消耗，我必须抓紧每一分钟。<br>atimelogger上的记录显示：我每天都花了30~40分钟玩2K19；每天晚上我都会看一集『老友记』，用时22分钟；每天都会记单词，用时20~30分钟；每天我都至少在『微信读书』APP上看了1h书；每天我都至少在床上睡了8个小时；每天我都至少在学习成长上花了6h。我开始喜欢上这种记录的感觉。</p>
+<h2 id="重启-Blog"><a href="#重启-Blog" class="headerlink" title="重启 Blog"></a>重启 Blog</h2><p>周四晚上折腾了一晚，重启Blog，后面几天也在不断完善，终于到了现在这个样子。换了站点的头像，给站点添加了访问人数统计，为每一篇博文添加阅读数统计，在此感谢不蒜子大佬的脚本。周六晚上还添加了<code>相册</code>，到周日晚上，终于可以正常使用了。关于重启博客我是这样想的，上个月我就重启了『记录计划』，只是在手机上写，既然都要记录，为什么不放到网上呢？这样还方便查看，而且我会更有动力去写，Blog是一个比较好的选择。</p>
 <hr>
-<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI 大学的资源</a></p>
+<p>话不多说，以上就是这一周，关于上的这些课的具体内容我会在后面的文章中详细记录。这些网络类的课很有意思，它们有一种规则的美感，我想如果能自己亲手制定某些规则并加以实现肯定让人兴奋。生活总是有很多的不确定，但我确定关于『记录』这件事我会坚持下去。</p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>生活</category>
       </categories>
       <tags>
-        <tag>网络</tag>
-        <tag>NS2</tag>
+        <tag>记录</tag>
+        <tag>weekly</tag>
       </tags>
   </entry>
   <entry>
-    <title>NS2 的介绍（五）—— 数据分组</title>
-    <url>/2020/04/ns2-packet/</url>
-    <content><![CDATA[<p>在前面两篇文章中我们分别介绍了 NS2 中非常重要的两个组成——<a href="../ns2-event-scheduler">事件调度器</a>和<a href="../ns2-network-components">网络组件</a>，我们知道了 packet（数据分组）是如何在节点之间传递的，现在让我们来看看数据分组在 NS2 中是如何表示的。<br><a id="more"></a><br>一个 NS2 数据分组由一个<strong>头部信息的栈</strong>和<strong>可选的数据空间</strong>组成，如下图所示。在<a href="../ns2-simple-simulation-example">简单仿真示例</a>提到过，数据分组头格式在创建 Simulator 对象时被初始化，在 Simulator 对象中，一系列栈排列注册了的 header 头（有可能不可见）被定义，如 common 头（它通常被任何需要的对象使用）、IP 头、TCP 头、RTP 头（UDP 使用 RTP 头）和 trace 头，且每个 header 在栈中的偏移都会被记录下来。这意味着不管一个头有没有被使用，当一个 packet（数据分组）被代理分配时创建的栈中都会含有它，并且网络对象使用相应的 offset（偏移值）就可以获得数据分组的栈中的任意头。</p>
-<p><img src="/assets/img/2020/ns_packet_format.png" alt="packet 格式"><br>通常，一个 packet（数据分组）只有一个特定的 head（头部）栈，尽管通过分配数据空间，packet（数据分组）可以携带实际的（来自 application）信息，很少有 application（应用）和 agent（代理）的实现会支持这种做法，这是因为<strong>在非实时的模拟中传递真实数据是没有意义的</strong>。但是如果你想实现一个可以跨过网络去和另一个 application 通信的 application 的话，你也许可以使用这个特性，不过需要在下层的代理实现中做一点改动，还可以为 application 创建一个新的 header，然后修改下层的代理向这个新建的 header 写入受到的数据。后面这种方法会在后面的一篇文章中讲到。</p>
+    <title>LaTex笔记（一）——基本概念</title>
+    <url>/2020/03/latex-notes-1-basic-concepts/</url>
+    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Tex是高德纳开发的排版文字和数学公式软件。TeX稳定，跨平台，支持多语言排版，其版本号非常有意思，无限趋近于pi，3.1415926…读作Tech，泰赫。</p>
+<p>LaTex是一种格式，可以把LaTex理解成是对TeX的封装。LATeX使用TeX程序作为自己的排版引擎。设计目标是分离内容和格式。读作拉泰赫。<br><a id="more"></a></p>
+<h2 id="第一份代码"><a href="#第一份代码" class="headerlink" title="第一份代码"></a>第一份代码</h2><figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">&#123;article&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></span><br><span class="line">``Hello world!'' from <span class="tag">\<span class="name">LaTeX</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></span><br></pre></td></tr></table></figure>
+<p>一份简短的程序，保存为<code>helloworld.tex</code>，然后在命令行下使用<code>xelatex helloworld</code>编译即可。</p>
+<h2 id="LaTeX命令和代码结构"><a href="#LaTeX命令和代码结构" class="headerlink" title="LaTeX命令和代码结构"></a>LaTeX命令和代码结构</h2><p>源代码为文本文件，包括了内容以及命令，可以控制样式，划分文档结构及排版公式。</p>
+<h3 id="命令和环境"><a href="#命令和环境" class="headerlink" title="命令和环境"></a>命令和环境</h3><p>同几乎所有的编程语言一样，LaTeX命令对<strong>大小写敏感</strong>，命令以<code>\</code>开头，有两种形式：</p>
+<ul>
+<li>\ + 一串字母：如<code>\LaTex</code>，且任意非字母符号为界限。暂且称其为字母形式。</li>
+<li>\ + 单个非字母符号：如<code>\$</code>。称其为字符形式。</li>
+</ul>
+<p>字母形式的命令忽略其后的所有连续空格，所有的空格都被认为用来标志命令的结束，如果需要空格，使用<code>{}</code>，如<code>\TeX{} user</code>既可以把空格显示出来，类似于<strong>转义</strong>。</p>
+<p>接受参数。包括可选参数和必选参数，可选参数用<code>[]</code>包裹，必选参数使用<code>{}</code>包裹。带<code>*</code>的命令可看为<em>特殊的可选参数</em>。</p>
+<p>环境。可以使一些效果在局部生效，或是生成特殊的文档元素。用法：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;&lt;environment name&gt;&#125;</span><span class="string">[&lt;optional arguments&gt;]</span><span class="string">&#123;&lt;mandatory arguments&gt;&#125;</span></span></span><br><span class="line">...</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;&lt;environment name&gt;&#125;</span></span></span><br></pre></td></tr></table></figure>
+<p>分组。限制一些命令的作用范围。使用<code>{}</code>作为分组，分组中使用的命令限制在分组内。</p>
+<h3 id="源代码结构"><a href="#源代码结构" class="headerlink" title="源代码结构"></a>源代码结构</h3><p>以<code>\documentclass{...}</code>命令开头，花括号中指定了文档使用的文档类。有可选参数，可传递给指定文档类，最终作为文档类的参数。</p>
+<p>然后在document环境中写文档正文。</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></span><br><span class="line">...</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></span><br></pre></td></tr></table></figure>
+<p>在<code>documentclass</code>和<code>\begin</code>中间的部分称为导言区。一般在其中使用<code>\usepackage</code>调用宏包，对文档进行全局设置。</p>
+<h2 id="宏包和文档类"><a href="#宏包和文档类" class="headerlink" title="宏包和文档类"></a>宏包和文档类</h2><h3 id="文档类"><a href="#文档类" class="headerlink" title="文档类"></a>文档类</h3><p>规定了LaTeX源代码说要生成的文档的性质。<code>documentclass[&lt;options&gt;]{class-name}</code>。</p>
+<p><code>class-name</code>即文档类名，包括LaTeX提供的article、book和report的<strong>标准文档类</strong>，还有派生出支持中文排版的ctexart，ctexbook，ctexrep，以及一些其他。</p>
+<p><code>options</code>为可选参数，指定文档类的选项，如字号、纸张大小和单双面等等。参数使用逗号分隔。<code>documentclass[11pt,twosides,a4paper]{article}</code>。</p>
+<p>标准文档的选项包括：（略多，需要时查看即可）。</p>
+<h3 id="宏包"><a href="#宏包" class="headerlink" title="宏包"></a>宏包</h3><p>用来扩展LaTeX的功能，如插入复杂表格和图片，增加颜色或超链接等等。语法类似使用文档类：<code>usepackage[&lt;options&gt;]{package-names}</code>。可以一次性使用多个宏包，逗号分隔即可。</p>
+<p>命令行使用<code>texdoc package-name</code>查看包的使用方法。</p>
+<h2 id="LaTeX用到的文件"><a href="#LaTeX用到的文件" class="headerlink" title="LaTeX用到的文件"></a>LaTeX用到的文件</h2><p>编译使用文件：</p>
+<ul>
+<li>.sty：宏包文件。</li>
+<li>.cls：文档类文件。</li>
+<li>.bib：BiBTeX参考文献数据库文件。</li>
+<li>.bst：BiBTeX用到的参考文献格式模板。</li>
+</ul>
+<p>编译生成文件：</p>
+<ul>
+<li>.log：日志</li>
+<li>.aux：LaTeX生成的主辅助文件，记录交叉引用、目录、参考文献的引用。</li>
+<li>.toc：LaTeX生成目录记录文件</li>
+<li>.lof：LaTeX生成图片记录</li>
+<li>.lot：LaTeX生成表格记录</li>
+<li>.bbl</li>
+<li>.blg</li>
+<li>.idx</li>
+<li>.ind</li>
+<li>.ilg</li>
+<li>.out</li>
+</ul>
+<h2 id="文件的组织方式"><a href="#文件的组织方式" class="headerlink" title="文件的组织方式"></a>文件的组织方式</h2><p>可将源文件分隔成若干个文件，如将没章的内容单独写在一个文件中，然后使用<code>\include{&lt;filename&gt;}</code>在源代码里引用即可。注意路径的书写。可以不带扩展名，默认为.tex。</p>
+<p>使用<code>\include</code>会另起一页，使用<code>\input{filename}</code>避免这种情况。</p>
+<p>导言区使用<code>includeonly{&lt;filename1&gt;,&lt;filename2&gt;...}</code>指定正文中可以引用的文件。</p>
+<p>实用工具包：syntonly。然后在导言区使用<code>\syntaxonly</code>，不生成PDF文档，加快编译速度。</p>
+<p>注释：使用<code>%</code>。和MATLAB一样。</p>
+<h2 id="术语和概念"><a href="#术语和概念" class="headerlink" title="术语和概念"></a>术语和概念</h2><p>引擎：XeTeX。<br>格式：定义了一组命令的代码集，LaTeX。<br>编译命令：实际调用的、结合引擎和格式的命令，xelatex。</p>
 <hr>
-<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
+<p>链接：<a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/info/lshort/chinese" target="_blank" rel="noopener">lshort</a></p>
 ]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>网络</tag>
-        <tag>NS2</tag>
+        <tag>LaTeX</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>胡言乱语</title>
+    <url>/2020/03/second-week/</url>
+    <content><![CDATA[<p>没想到有和上周一样，在周一写下上周的日常。不过这次我有话说，不是因为贪玩游戏，实在是因为周六晚上的突发事件打乱了周日的计划，不得已在半夜在农村道路上走上7里路，第二天已经没有精力去写这玩意儿了。翻看上周每天写下的只言片语，我发现若是只给我自己看，那还是有点东西可写的。<br><a id="more"></a></p>
+<h2 id="无法抵挡的快乐"><a href="#无法抵挡的快乐" class="headerlink" title="无法抵挡的快乐"></a>无法抵挡的快乐</h2><p>放纵在放纵当时带来的快乐无与伦比，让我无法阻挡，虽然我已经很少体验到放纵的快乐，但我深知它的吸引力是多么强大。放纵对我而言是个什么样的标准呢？一天打上三把游戏已经是放纵了，大概就是这样，那么我可以说周四我放纵了一次。我处于一种完全沉浸式投入的状态，不在乎自己眼睛的疲劳，全心投入，决心赢下当前的比赛，但我还想赢得更多，于是不断地玩下去。最终局数来到了4，花去了2h<br>，我停了下来，没有继续玩下去。因为心心念念着学习知识，我停了下来，放弃了快乐。但是我知道，下一次我还是会沉浸其中，因为它能让我短暂地逃离现实，这是无法抵挡的快乐。</p>
+<h2 id="一个平庸的人"><a href="#一个平庸的人" class="headerlink" title="一个平庸的人"></a>一个平庸的人</h2><p>几乎每天都要上课，老师讲得那些我从来没有听过的知识，但没有多大程度引起我的兴趣，对我而言学习它只是身为学生的一种职责。我被动地接受他们传递过来的东西，OSI参考模型、TCP/IP参考模型、ALOHA随机接入协议还有光纤的若干性质，我几乎没有记下什么东西，但是我尝试去发现其中的规则，那是一种很美的东西，我尝试像一个『一无所知』的人，面对这些问题我能给出什么样的解决方案，大部分时候我什么也发现不了，对于这些问题我也一筹莫展，更别提解决方案，我不过是个平庸的人。</p>
+<h2 id="教育使我成为什么样的人？"><a href="#教育使我成为什么样的人？" class="headerlink" title="教育使我成为什么样的人？"></a>教育使我成为什么样的人？</h2><p>通常我不会想这样的问题，因为只不过是活着而以，不需要赋予人生意义，成为一个什么样的人也许真的无关紧要。周六看了郑强教授的一个视频，让我想考虑下这个问题，但我知道我想不明白的，我只能回顾自己的人生，并尝试从一些事件归纳出自己被教育成一个什么样的人，具体内容慢慢写吧。</p>
+<h2 id="我是随机漫步的傻瓜"><a href="#我是随机漫步的傻瓜" class="headerlink" title="我是随机漫步的傻瓜"></a>我是随机漫步的傻瓜</h2><p>我是个随机漫步的的傻瓜，但是我并没有受到眷顾，所以我还是个彻底的傻瓜。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>weekly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在疫情中度过三月</title>
+    <url>/2020/03/the-third-month/</url>
+    <content><![CDATA[<p>惊觉已经是三月的最后一天，在这过去的一个月里，如果说有什么一定一提的，那一定是已经持续了快三个月的的新冠肺炎疫情，国内的疫情逐渐被控制住了，国外却又爆发了更大规模的，看起来返校遥遥无期。一月份的时候我肯定无法想象3月31日自己还在家，突发的疫情打乱我原有的计划，我本该在学校的教室里坐着的，现在却在家，本以为会非常非常想回学校，现在倒也还好，我只是怀念学校的WiFi罢了。<br><a id="more"></a><br>疫情蔓延全球，经济衰退，股价暴跌，美股数次熔断，不可否认这是一个动荡的三月。所谓『祸兮福之所倚』，被困在山村中的我却得以享受宁静，可以专心做自己想做的事，我重新开始捡起以前学了一点就知难而退的东西，比如 C++，Java，Linux 还有算法，除此之外，我还开始坚持看书、记单词和记录生活，为了督促自己，我还使用 atimelogger 记录自己每一分钟的花销。如果不是因为疫情，我也不会如此百无聊赖，也就不会开始做这些事情，从这个角度而言，对我而言这还是福。</p>
+<p>整个三月份，我看完了『乌合之众』、『金字塔原理』、『随机漫步的傻瓜』、『你的第一本哲学书』和『简单逻辑学』，平均一周看了一本多一点的书，还算可以，但是没有对其中任何一本书作一些读后感之类的笔记，算是一个不完整，希望在后面的阅读补上。这一个月也是折腾不断，看了算法看Linux，中间还去折腾下NS2——一坨年久失修的 shit。现在总结一下，算法是没看多少的，刚开始找了不知到哪儿来的一本 Java 算法书，看了一周几乎看完了，然而脑子中似乎什么都没剩下，于是我又照着『算法4』看，这次看得比较慢，加上中途新学期开学了，有很多课要上，到现在也才前两章，综合起来，我现在对排序算法比较清楚了，选择插入希尔归并快排都算了解得清楚了，现在还在继续看下去，第三章是『查找』，会讲到BST等新的数据结构。至于 Linux，照着鸟哥的书慢慢看，有时间就看一章，不求全部记住，只是有个大概概念就行了，现在也看到了 Shell 部分，坚持看下去吧。<br>学这些东西，并不是出于需要，我只是凭借着一时冲动开始看，什么时候我都热情消退了，我也就放弃了，转而投向新的东西。这说是我很长时间来的一种学习态度吧，对于学校规定的课程内容我总感觉不是很有意思，讲授的东西太过陈旧，我会凭借着冲动去随便投入到一些东西中去，既是对自己冲动的满足也是对那些陈旧无聊的知识的逃避。</p>
+<p>这个三月我也不是一切顺利，有两次突然陷入了一种极度的焦虑之中，在那种状态下，我什么都不想做，不愿意去做我应该做的事情，只想一直盯着手机看，好在持续一两天之后这种感觉就会很快消失，一切重归正常，但我知道几周后这种感觉又会到来。暂时还没有什么好办法应对这种情况，我只能选择接受它，并在它到来时暂时放下手头的工作，就当是一时的放松，但我坚信会找到办法的。</p>
+<hr>
+<p>身处动荡之中，怀抱希望，希望一切都好起来。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>monthly</tag>
       </tags>
   </entry>
   <entry>
@@ -408,6 +428,56 @@ proc complete_sim {} {...}
 </tr>
 </tbody>
 </table>
+<hr>
+<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+        <tag>NS2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NS2 的介绍（一）—— 概述</title>
+    <url>/2020/04/ns2-simulation-overview/</url>
+    <content><![CDATA[<p>最近在上一门叫『无线自组织网络与应用』的课程，介绍了很多以前没有接触过的概念，包括了一个叫 NS2 的仿真工具，在前面<a href="/2020/03/latex-notes-1-basic-concepts/">一篇文章</a>中介绍的 AHOHA 协议也是在这门课程中有被详细讲述的。这篇文章基本上是<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">这篇文章</a>的翻译，介绍 NS2 这个仿真工具，给出这个它的概述。<br><a id="more"></a></p>
+<h2 id="NS2是什么"><a href="#NS2是什么" class="headerlink" title="NS2是什么"></a>NS2是什么</h2><p>NS2 是一个使用 C++ 和 OTcl 编写的面向对象的离散事件驱动的网络仿真器，在 UCBerkely 被开发出来。它主要用于局域网和广域网仿真。由于缺少适合新手入门的教程，NS2对于初学者来说不是很友好。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>NS2 可以仿真各种各样的IP网络。它实现了一些网络协议如 TCP 和 UDP，文件传输协议如 FTP、Telnet、Web、CBR 和 VBR，路由队列管理机制如 DropTail、RED 和 CBQ，路由选择算法如 Dijkstra，等等。针对局域网仿真，NS2 还实现了组播和一些 MAC 层协议。这里要介绍的是 NS2 的基本结构，然后按照例子介绍细节。</p>
+<p><div align="center" class="img"><br>    <img src="/assets/img/2020/structure_of_ns2.png" alt="structure_of_ns2" width="750"><br>    <span align="center" style="color:#999">用户角度的NS概览</span><br></div><br>NS2 是 OTcl 脚本解释器，包括仿真事件调度程序、网络组件对象库和网络启动 (plumbing) 模块库。plumbing 模块通常实现为基本模拟对象成员函数。换句话说，使用 NS2，你需要使用 OTcl 语言写一个脚本，包括以下内容：</p>
+<ul>
+<li>初始化一个事件调度程序</li>
+<li>使用网络对象和 plumbing 函数建立网络拓扑结构</li>
+<li>通过事件调度程序告知何时开始发送分组</li>
+</ul>
+<h3 id="network-object-网络对象"><a href="#network-object-网络对象" class="headerlink" title="network object 网络对象"></a>network object 网络对象</h3><p>plumbing 函数通过为<em>对象设定指向合适的对象的邻居指针</em>，在网络对象中探索可能的数据通路，进而建立起整个网络。如此一来，使用者想要创建一个新的网络对象变得简单，只需写一个新的对象或者从对象库中创建一个复合对象，然后探索 (plumb) 通过这个新对象的数据通路即可。<br>听起来比较复杂，但是 plumbing OTcl 模块让这一切变得非常简单，这也是 NS2 的强大之处。</p>
+<h3 id="event-scheduler-事件调度程序"><a href="#event-scheduler-事件调度程序" class="headerlink" title="event scheduler 事件调度程序"></a>event scheduler 事件调度程序</h3><p>除网络对象外，NS2 中另一个主要的组件就是事件调度程序。在 NS2 中，一个事件就是一个包 ID，这个 ID 是唯一的，涵盖了分配时间，以及用来处理该事件的指向下一个对象的指针。在 NS2 中，一个事件调度程序<strong>记录着模拟时间</strong>，并通过调用适当的网络组件启动在<strong>事件队列</strong>中调度好的应该在当前启动的所有事件，这些组件通常是发出事件并让事件与事件指出的包一起完成正确的指令。网络组件间进行通信，传递 packet，但是并不会消耗真实的仿真时间。所有需要消耗仿真时间来处理 packet 的网络组件通过使用事件调度程序完成，组件为待处理到packet发出一个事件然后等待组件自己启动事件，再进行进一步的行动处理 packet。</p>
+<p>举个例子，一个网络转发组件S模拟一次转发的延时为 20us，它为一个需要转发的 packet P 向调度程序发出一个延时 20us 的事件 E，20us 后，调度程序 M 从事件队列中调度出这个事件 E 并把它立即发给转发组件 S ，然后由转发组件 S 将 packet P 交给适当的输出链接组件。</p>
+<p>还有一种用法将事件调度程序当作计时器。比如，TCP 需要一个计时器记录一个 packet 的发送时间以备重发（发送一个具有相同 TCP 编号且不同 NS packet ID 的 packet）。计时器和延时器用类似的方式使用事件调度程序，不同之处在于计时器计算与 packet 相关的时间值，然后一段特定的时间过去后对该 packet 做合适的动作（如上面那个例子，计算 packet 的发送时间，如果超过预定时间重发该 packet），而不是模拟一个延时，</p>
+<h2 id="C-与-NS2"><a href="#C-与-NS2" class="headerlink" title="C++ 与 NS2"></a>C++ 与 NS2</h2><p>NS2 不仅可以用 OTcl 编写也可以用 C++ 编写。处于效率考量，NS2 将<strong>数据路径</strong>的实现和<strong>控制路径</strong>的实现分离开来，为了减少 packet 和事件的处理时间（注意，不是仿真时间），数据路径中的事件调度程序和基本网络组件对象用 C++ 编写然后编译，使用编译好的对象，OTcl 解释器通过一个 OTcl 连接为每一个 C++ 对象创建配对的 OTcl 对象，为成员函数创建配对的控制函数，为成员变量创建配对的配置变量，这样一来，对 C++ 对象的控制就传递给了 OTcl。向一个连接到 OTcl 的 C++ 对象中添加成员函数也是可能的，C++ 对象中不需要在一次模拟中被控制的或者不需要在内部被其他对象使用使用的，是不需要被连接到 OTcl 中。同样地，一个不在数据路径中的对象也可以使用 OTcl 实现。如图为一个对象在 C++ 和 OTcl 中的层次体系，可以看到，连接到 C++ 的 OTcl 对象和它连接的 C++ 对象具有相同的层次结构。</p>
+<p align="center" class="img"><br>    <img src="/assets/img/2020/cpp_vs_otcl.png" alt="cpp_vs_otcl" width="750"><br>    <span align="center" style="color:#999">C++ 和 OTcl 的连接</span><br></p>
+
+<h2 id="NS2-的大体结构"><a href="#NS2-的大体结构" class="headerlink" title="NS2 的大体结构"></a>NS2 的大体结构</h2><p>如图为 NS2 的整体结构，使用者站在图中的左下角，在 Tcl 中，使用 OTcl 库中的仿真对象设计并控制模拟。事件调度程序和绝大多数网络组件是通过 C++ 实现的，并且 OTcl 通过 OTcl 连接 (linkage) 可以使用到它们，而这个连接是通过 tclcl 实现的。这些东西共同构成了 NS2，它就是一个扩展了面向对象的 Tcl 解释器和网络模拟库。</p>
+<p align="center" class="img"><br>    <img src="/assets/img/2020/architecture_view_of_ns.png" alt="architecture_view_of_ns" width="750"><br>    <span align="center" style="color:#999">NS2  的体系结构图</span><br></p>
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文简单分析了 NS2 的大体结构和体系结构。现在来考虑下如何获得 NS2 的仿真结果，如第一张图所示，，当仿真结束时，NS2 按照输入的 Tcl（或 OTcl）脚本中的说明产生一个或者多个文本输出文件，其中包含了详细的仿真数据。这些数据可用于后续的仿真分析中，或者作为图形化仿真展示工具 NAM 的输入。</p>
+<hr>
+<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI 大学的资源</a></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+        <tag>NS2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NS2 的介绍（五）—— 数据分组</title>
+    <url>/2020/04/ns2-packet/</url>
+    <content><![CDATA[<p>在前面两篇文章中我们分别介绍了 NS2 中非常重要的两个组成——<a href="../ns2-event-scheduler">事件调度器</a>和<a href="../ns2-network-components">网络组件</a>，我们知道了 packet（数据分组）是如何在节点之间传递的，现在让我们来看看数据分组在 NS2 中是如何表示的。<br><a id="more"></a><br>一个 NS2 数据分组由一个<strong>头部信息的栈</strong>和<strong>可选的数据空间</strong>组成，如下图所示。在<a href="../ns2-simple-simulation-example">简单仿真示例</a>提到过，数据分组头格式在创建 Simulator 对象时被初始化，在 Simulator 对象中，一系列栈排列注册了的 header 头（有可能不可见）被定义，如 common 头（它通常被任何需要的对象使用）、IP 头、TCP 头、RTP 头（UDP 使用 RTP 头）和 trace 头，且每个 header 在栈中的偏移都会被记录下来。这意味着不管一个头有没有被使用，当一个 packet（数据分组）被代理分配时创建的栈中都会含有它，并且网络对象使用相应的 offset（偏移值）就可以获得数据分组的栈中的任意头。</p>
+<p><img src="/assets/img/2020/ns_packet_format.png" alt="packet 格式"><br>通常，一个 packet（数据分组）只有一个特定的 head（头部）栈，尽管通过分配数据空间，packet（数据分组）可以携带实际的（来自 application）信息，很少有 application（应用）和 agent（代理）的实现会支持这种做法，这是因为<strong>在非实时的模拟中传递真实数据是没有意义的</strong>。但是如果你想实现一个可以跨过网络去和另一个 application 通信的 application 的话，你也许可以使用这个特性，不过需要在下层的代理实现中做一点改动，还可以为 application 创建一个新的 header，然后修改下层的代理向这个新建的 header 写入受到的数据。后面这种方法会在后面的一篇文章中讲到。</p>
 <hr>
 <p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
 ]]></content>
@@ -546,6 +616,41 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>NS2 的介绍（六）—— trace 分析示例</title>
+    <url>/2020/04/ns2-trace-analysis-example/</url>
+    <content><![CDATA[<p>本文将展示一个 trace 分析示例，从中可以知道如何从 NS2 中生成 trace，如何解释 trace，如何从 trace 中得到有用的信息。在 <a href="/2020/04/ns2-simple-simulation-example/" title="模拟示例">模拟示例</a> 给出的代码 <a href="/2020/04/ns2-trace-analysis-example/ns-simple.tcl" title="ns-simple.tcl">ns-simple.tcl</a> 中的第 15、16 行，我们打开了一个 trace 文件，在 finish 步骤中，我们向 trace 文件中写入了 trace 信息。<a id="more"></a></p>
+<figure class="highlight tcl"><table><tr><td class="code"><pre><span class="line"><span class="comment">#...</span></span><br><span class="line"><span class="comment">#open trace file</span></span><br><span class="line"><span class="keyword">set</span> f [<span class="keyword">open</span> out.tr w]</span><br><span class="line">$ns <span class="keyword">trace</span>-all $f</span><br><span class="line">#...</span><br></pre></td></tr></table></figure>
+<p>执行代码<a href="/2020/04/ns2-trace-analysis-example/ns-simple.tcl" title="ns-simple.tcl">ns-simple.tcl</a>会生成一个 NAM trace 文件，该文件作为 NAM 的输入，同时还会生成一个名为 out.tr 的文件，该文件用于我们的模拟分析。下图展示了 trace 的格式和来自 out.tr 的 trace 数据示例。</p>
+<img src="/2020/04/ns2-trace-analysis-example/trace_format_example.png" title="trace 文件格式与示例">
+<p>每一个 trace 行依次为以下部分：</p>
+<ul>
+<li>事件描述符：+，-，d，r</li>
+<li>事件发生的模拟时间，单位：秒</li>
+<li>发起事件的节点</li>
+<li>接受的节点</li>
+<li>packet 类型</li>
+<li>packet 大小，单位 Byte</li>
+<li>分隔符：——</li>
+<li>flow id：使用者在 OTcl 脚本中定义的 flow id。在模拟中用不到，可用于后续分析</li>
+<li>源地址</li>
+<li>目的地址</li>
+<li>网络层协议下 packet 序列号：UDP 协议不需要使用序列号号但也会携带，便于分析</li>
+<li>packet id：每一个 packet 编号唯一</li>
+</ul>
+<p>拿到模拟数据后，我们要做的就是筛选出需要的信息，并把它们转换成更容易理解的形式然后分析。下面是一简单的数据转换示例，对上面得到的 out.tr 文件，在终端中执行 <code>cat out.tr | grep &quot; 2 3 cbr &quot; | grep ^r | awk &#39;BEGIN {oldtime=0;oldpacket=0;} {dif=$12-oldpacket;if(dif==0) dif=1; if(dif&gt;0) {printf(&quot;%d\t%f\n&quot;,$12,($2-oldtime)/dif); oldtime=$2;oldpacket=$12}}&#39; &gt; jitter.txt</code>，即可在目录下得到一个输出文件 jitter.txt。该命令从 trace 中提取节点 3 从 2 中接收 packet 的事件，并计算接收当前 packet 距离接收上一个 packet 的 packet 时延（接收时间差/packetID差）。使用 gnuplot 可以画出如下图像，X 轴为 packet 序列号，Y 轴为模拟时间（单位：秒）。</p>
+<p>这个例子中，仿真后的分析在 shell 终端中进行，但是这些处理也可以在输入的 OTcl 脚本中进行，我们将在下一节讨论。</p>
+<hr>
+<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+        <tag>NS2</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>NS2 的介绍（四）—— 网络组件</title>
     <url>/2020/04/ns2-network-components/</url>
     <content><![CDATA[<p>我们在<a href="/2020/04/ns2-event-scheduler">前文</a>讨论 NS2 中一个非常重要的组成——事件调度器，这篇文章将讨论 NS2 另一个关键的组成——网络组件，主要是复合网络组件。<br><a id="more"></a><br>下图展示了 NS2 中部分 OTcl 类的部分体系结构，有助于我们理解基本的网络组件（network component），在<a href="http://www.sop.inria.fr/rodeo/personnel/Antonie.Clerget/ns" target="_blank" rel="noopener">这个链接</a>中可以找到 NS2 类的完整的体系结构。</p>
@@ -593,68 +698,15 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>LaTex笔记（一）——基本概念</title>
-    <url>/2020/03/latex-notes-1-basic-concepts/</url>
-    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Tex是高德纳开发的排版文字和数学公式软件。TeX稳定，跨平台，支持多语言排版，其版本号非常有意思，无限趋近于pi，3.1415926…读作Tech，泰赫。</p>
-<p>LaTex是一种格式，可以把LaTex理解成是对TeX的封装。LATeX使用TeX程序作为自己的排版引擎。设计目标是分离内容和格式。读作拉泰赫。<br><a id="more"></a></p>
-<h2 id="第一份代码"><a href="#第一份代码" class="headerlink" title="第一份代码"></a>第一份代码</h2><figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">&#123;article&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></span><br><span class="line">``Hello world!'' from <span class="tag">\<span class="name">LaTeX</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></span><br></pre></td></tr></table></figure>
-<p>一份简短的程序，保存为<code>helloworld.tex</code>，然后在命令行下使用<code>xelatex helloworld</code>编译即可。</p>
-<h2 id="LaTeX命令和代码结构"><a href="#LaTeX命令和代码结构" class="headerlink" title="LaTeX命令和代码结构"></a>LaTeX命令和代码结构</h2><p>源代码为文本文件，包括了内容以及命令，可以控制样式，划分文档结构及排版公式。</p>
-<h3 id="命令和环境"><a href="#命令和环境" class="headerlink" title="命令和环境"></a>命令和环境</h3><p>同几乎所有的编程语言一样，LaTeX命令对<strong>大小写敏感</strong>，命令以<code>\</code>开头，有两种形式：</p>
-<ul>
-<li>\ + 一串字母：如<code>\LaTex</code>，且任意非字母符号为界限。暂且称其为字母形式。</li>
-<li>\ + 单个非字母符号：如<code>\$</code>。称其为字符形式。</li>
-</ul>
-<p>字母形式的命令忽略其后的所有连续空格，所有的空格都被认为用来标志命令的结束，如果需要空格，使用<code>{}</code>，如<code>\TeX{} user</code>既可以把空格显示出来，类似于<strong>转义</strong>。</p>
-<p>接受参数。包括可选参数和必选参数，可选参数用<code>[]</code>包裹，必选参数使用<code>{}</code>包裹。带<code>*</code>的命令可看为<em>特殊的可选参数</em>。</p>
-<p>环境。可以使一些效果在局部生效，或是生成特殊的文档元素。用法：</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;&lt;environment name&gt;&#125;</span><span class="string">[&lt;optional arguments&gt;]</span><span class="string">&#123;&lt;mandatory arguments&gt;&#125;</span></span></span><br><span class="line">...</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;&lt;environment name&gt;&#125;</span></span></span><br></pre></td></tr></table></figure>
-<p>分组。限制一些命令的作用范围。使用<code>{}</code>作为分组，分组中使用的命令限制在分组内。</p>
-<h3 id="源代码结构"><a href="#源代码结构" class="headerlink" title="源代码结构"></a>源代码结构</h3><p>以<code>\documentclass{...}</code>命令开头，花括号中指定了文档使用的文档类。有可选参数，可传递给指定文档类，最终作为文档类的参数。</p>
-<p>然后在document环境中写文档正文。</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></span><br><span class="line">...</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></span><br></pre></td></tr></table></figure>
-<p>在<code>documentclass</code>和<code>\begin</code>中间的部分称为导言区。一般在其中使用<code>\usepackage</code>调用宏包，对文档进行全局设置。</p>
-<h2 id="宏包和文档类"><a href="#宏包和文档类" class="headerlink" title="宏包和文档类"></a>宏包和文档类</h2><h3 id="文档类"><a href="#文档类" class="headerlink" title="文档类"></a>文档类</h3><p>规定了LaTeX源代码说要生成的文档的性质。<code>documentclass[&lt;options&gt;]{class-name}</code>。</p>
-<p><code>class-name</code>即文档类名，包括LaTeX提供的article、book和report的<strong>标准文档类</strong>，还有派生出支持中文排版的ctexart，ctexbook，ctexrep，以及一些其他。</p>
-<p><code>options</code>为可选参数，指定文档类的选项，如字号、纸张大小和单双面等等。参数使用逗号分隔。<code>documentclass[11pt,twosides,a4paper]{article}</code>。</p>
-<p>标准文档的选项包括：（略多，需要时查看即可）。</p>
-<h3 id="宏包"><a href="#宏包" class="headerlink" title="宏包"></a>宏包</h3><p>用来扩展LaTeX的功能，如插入复杂表格和图片，增加颜色或超链接等等。语法类似使用文档类：<code>usepackage[&lt;options&gt;]{package-names}</code>。可以一次性使用多个宏包，逗号分隔即可。</p>
-<p>命令行使用<code>texdoc package-name</code>查看包的使用方法。</p>
-<h2 id="LaTeX用到的文件"><a href="#LaTeX用到的文件" class="headerlink" title="LaTeX用到的文件"></a>LaTeX用到的文件</h2><p>编译使用文件：</p>
-<ul>
-<li>.sty：宏包文件。</li>
-<li>.cls：文档类文件。</li>
-<li>.bib：BiBTeX参考文献数据库文件。</li>
-<li>.bst：BiBTeX用到的参考文献格式模板。</li>
-</ul>
-<p>编译生成文件：</p>
-<ul>
-<li>.log：日志</li>
-<li>.aux：LaTeX生成的主辅助文件，记录交叉引用、目录、参考文献的引用。</li>
-<li>.toc：LaTeX生成目录记录文件</li>
-<li>.lof：LaTeX生成图片记录</li>
-<li>.lot：LaTeX生成表格记录</li>
-<li>.bbl</li>
-<li>.blg</li>
-<li>.idx</li>
-<li>.ind</li>
-<li>.ilg</li>
-<li>.out</li>
-</ul>
-<h2 id="文件的组织方式"><a href="#文件的组织方式" class="headerlink" title="文件的组织方式"></a>文件的组织方式</h2><p>可将源文件分隔成若干个文件，如将没章的内容单独写在一个文件中，然后使用<code>\include{&lt;filename&gt;}</code>在源代码里引用即可。注意路径的书写。可以不带扩展名，默认为.tex。</p>
-<p>使用<code>\include</code>会另起一页，使用<code>\input{filename}</code>避免这种情况。</p>
-<p>导言区使用<code>includeonly{&lt;filename1&gt;,&lt;filename2&gt;...}</code>指定正文中可以引用的文件。</p>
-<p>实用工具包：syntonly。然后在导言区使用<code>\syntaxonly</code>，不生成PDF文档，加快编译速度。</p>
-<p>注释：使用<code>%</code>。和MATLAB一样。</p>
-<h2 id="术语和概念"><a href="#术语和概念" class="headerlink" title="术语和概念"></a>术语和概念</h2><p>引擎：XeTeX。<br>格式：定义了一组命令的代码集，LaTeX。<br>编译命令：实际调用的、结合引擎和格式的命令，xelatex。</p>
-<hr>
-<p>链接：<a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/info/lshort/chinese" target="_blank" rel="noopener">lshort</a></p>
+    <title>Believe_in_yourself</title>
+    <url>/2018/06/Believe-in-yourself/</url>
+    <content><![CDATA[<p>最近有点烦躁，事情一件接着一件地扑面而来，丝毫不给我喘气的机会，为了排遣苦闷，我嘴上的脏话多了不少，不过好在这一切都将过去了，过去了之后我一定要好好开始，现在，我只有祈祷最后能有一个好的结果。<br><a id="more"></a><br>这是一个疯狂的六月！<br>英语课程考试(6.7)，英语口语测试(6.14)，六级考试(6.16)，科创答辩(6.20)，数学建模考试(6.21)，近代史考试(6.26)，英语期末考试(6.29)……这还远没有结束，七月是工大的小学期时间！八月才放暑假！九月开学！坏消息是大物和微积分的考试放到小学期了，当然，这也可以算是好消息，至少六月份可以喘口气了，真正毫无疑问的好消息自然就是我们会搬进新公寓！</p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>生活</category>
       </categories>
       <tags>
-        <tag>LaTeX</tag>
+        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -805,10 +857,10 @@ proc complete_sim {} {...}
         <category>学习</category>
       </categories>
       <tags>
-        <tag>notes</tag>
-        <tag>算法</tag>
         <tag>数据结构</tag>
+        <tag>算法</tag>
         <tag>Java</tag>
+        <tag>notes</tag>
       </tags>
   </entry>
   <entry>
@@ -858,6 +910,71 @@ proc complete_sim {} {...}
       </categories>
       <tags>
         <tag>notes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>呓语——一次申请的记录</title>
+    <url>/2020/04/a-whisper-story-of-an-application/</url>
+    <content><![CDATA[<p>日前，我又在为某件事犹豫不决一拖再拖了，这次是研究生申请。</p>
+<p>最终我说服了自己，在那一段短暂的时间，我变得勇敢去追求自己想要的：<a id="more"></a>我就是要争取成为这个老师的学生。那么第一步就应该是提出申请，没人能替我做这个事，面对这样的事，很难想象别人也会有同我一样的感受，我害怕被拒绝，考虑到会被拒绝都让我很难受，认为拒绝是对整个人的否定，不过我承认与否，我能感受到自己心中的感觉就是这样。好在这次我赢了，我暂胜了它，虽然托了较长一段时间。从外部看来，这仅仅就是一次申请一封邮件而言，不过厚着脸皮说一句：对我而言这是一次对自己的突破。希望自己能坚持敢于面对否定。</p>
+<p>敢于开始做一件会被否定的事，结果对于我而言就不那么重要了，好消息是这次结果还算不错。老师没有拒绝，希望在疫情结束后返校面对面谈谈。现在我又多了一个盼望开学的理由了。我不想放弃这次不算机会的机会，放弃其他选项是值得的，我接受了老师的提议，希望能有师徒缘分吧。</p>
+<p>申请之事告一段落，感谢『终身成长』带来的力量，开卷有益当真不错。现在先做好手上的事，顺便复习下基础知识，尽人事先。</p>
+<hr>
+<p>5月11日到23更新</p>
+<p>这两周蹭了老师的一门课，使用MATLAB实现一写通信技术的仿真，从课程中学到一些东西了，明白了之前一直迷迷糊糊的内容，当然最重要的是我的最终目的，希望这两周的表现能让老师满意。</p>
+<hr>
+<p>5月25日更新</p>
+<p>很开心，算是被老师接收了，等待一个多月，时间不长不短刚刚好。接下来是准备周三与学长学姐们的线上见面会，顺利通过之后就算是正式入门了，我需要准备一些问题以及准备回答一些问题，希望会有好结果。</p>
+<hr>
+<p>5月26日更新</p>
+<p>心终于沉下来了，这里列出我准备好的 15 个要问学长学姐们的问题。好吧，我的拖延症又犯了，再坚持努力克服下。</p>
+<blockquote>
+<ol>
+<li>缓解压力的办法？</li>
+<li>怎样发现好的想法？</li>
+<li>介绍下实验室。</li>
+<li>介绍下自己。</li>
+<li>喜欢什么球类运动。</li>
+</ol>
+</blockquote>
+<p>好吧，我没能写完。</p>
+<hr>
+<p>5月28日更新</p>
+<p>昨天下午面试一下午，完事儿之后心情久不能平静，还是老问题，我害怕失败，不过我不断说服自己：不要将这看成是对你自己的最终审判，无论结果如何这都是一次很好的成长机会。虽然还没收到最终的结果，但是今天心情稍微缓和些了，能够简单记录下昨天的过程，学长们（还是先不叫师兄的好）的有些问题值得深思。</p>
+<p>开场一片欢声笑语，氛围很轻松，被告知成瑶和我得全程开摄像头，提问我们的学长学姐依次开摄像头和我们见面向我们提问，前辈们按照入学顺序依次向我们提问，成瑶先答我后答。这就是昨天下午面试的场景。</p>
+<p>很遗憾没能记下全部问题，只有一些印象深刻的问题，列出如下：</p>
+<blockquote>
+<ol>
+<li>会做饭吗？</li>
+<li>读研的动机是什么？有没有未来的规划。</li>
+<li>希望从研究生经历中学到什么。</li>
+<li>印象最深刻的一本书，为什么。</li>
+<li>印象最深的一句名言，为什么。</li>
+<li>人在低/高处如何自处。</li>
+<li>如何面对自己的紧张情绪。</li>
+<li>篮球喜欢哪个球队和球星。</li>
+<li>大学经历中让你印象最深刻的事。</li>
+<li>大学经历中让你最自豪的事。</li>
+<li>关于人工智能等新技术的未来畅想。</li>
+<li>2FSK 和 4FSK 谁的误码性能更好，为什么。</li>
+<li>BPSK 和 QPSK 谁的误码性能更好，为什么。</li>
+<li>如果你现在很想打球，如何说服你的正在干活的朋友跟着去。</li>
+<li>如果实验室中别的同学在大声讨论，影响到你工作了，如何处理。</li>
+<li>喜欢柯南吗？</li>
+<li>说一句除汉语和英语之外的语言。</li>
+</ol>
+</blockquote>
+<p>有些问题很喜欢，有些问题没答上来，需要好好考虑。最后补充下于老师的问题，她问我朋政学长提的什么问题，检验我有没有认真听，碰巧我记得这个学长的问题，回答上了。事后我想了想，大概是对我上次课上没有认真听别人提问的再一次测试，老师实在是费心了，这一点我终身难忘，感谢。回头我又想了想，这个测试问题本就是不公平的，她只需记一个即可，而我所需要记得全部，还要分辨开来，不过问题本就是不对等的，我想太多了，老师的出发点是好的。</p>
+<p>大致就这么些，还在焦急地等待最终的结果。</p>
+<hr>
+<p>5月29日更新</p>
+<p>昨天下午终于收到了回复，经过老师和师兄们的再三确认，我的确是个好相处的人，师兄师姐们同意我进组了。之所以等了这么久，是因为师兄们在确认我是不是个好相处的人，有人觉得我比较低沉。感谢他们的接纳，我会继续努力的。至此，这件事就算告一段落了，过程曲折问题多多，<strong>如何让陌生人感受到自己最想表达出来的东西</strong>，我需要好好总结。好在结果完美，感谢威哥和成瑶的帮助。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -1146,73 +1263,8 @@ proc complete_sim {} {...}
         <category>学习</category>
       </categories>
       <tags>
-        <tag>notes</tag>
         <tag>Ad-Hoc</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>呓语——一次申请的记录</title>
-    <url>/2020/04/a-whisper-story-of-an-application/</url>
-    <content><![CDATA[<p>日前，我又在为某件事犹豫不决一拖再拖了，这次是研究生申请。</p>
-<p>最终我说服了自己，在那一段短暂的时间，我变得勇敢去追求自己想要的：<a id="more"></a>我就是要争取成为这个老师的学生。那么第一步就应该是提出申请，没人能替我做这个事，面对这样的事，很难想象别人也会有同我一样的感受，我害怕被拒绝，考虑到会被拒绝都让我很难受，认为拒绝是对整个人的否定，不过我承认与否，我能感受到自己心中的感觉就是这样。好在这次我赢了，我暂胜了它，虽然托了较长一段时间。从外部看来，这仅仅就是一次申请一封邮件而言，不过厚着脸皮说一句：对我而言这是一次对自己的突破。希望自己能坚持敢于面对否定。</p>
-<p>敢于开始做一件会被否定的事，结果对于我而言就不那么重要了，好消息是这次结果还算不错。老师没有拒绝，希望在疫情结束后返校面对面谈谈。现在我又多了一个盼望开学的理由了。我不想放弃这次不算机会的机会，放弃其他选项是值得的，我接受了老师的提议，希望能有师徒缘分吧。</p>
-<p>申请之事告一段落，感谢『终身成长』带来的力量，开卷有益当真不错。现在先做好手上的事，顺便复习下基础知识，尽人事先。</p>
-<hr>
-<p>5月11日到23更新</p>
-<p>这两周蹭了老师的一门课，使用MATLAB实现一写通信技术的仿真，从课程中学到一些东西了，明白了之前一直迷迷糊糊的内容，当然最重要的是我的最终目的，希望这两周的表现能让老师满意。</p>
-<hr>
-<p>5月25日更新</p>
-<p>很开心，算是被老师接收了，等待一个多月，时间不长不短刚刚好。接下来是准备周三与学长学姐们的线上见面会，顺利通过之后就算是正式入门了，我需要准备一些问题以及准备回答一些问题，希望会有好结果。</p>
-<hr>
-<p>5月26日更新</p>
-<p>心终于沉下来了，这里列出我准备好的 15 个要问学长学姐们的问题。好吧，我的拖延症又犯了，再坚持努力克服下。</p>
-<blockquote>
-<ol>
-<li>缓解压力的办法？</li>
-<li>怎样发现好的想法？</li>
-<li>介绍下实验室。</li>
-<li>介绍下自己。</li>
-<li>喜欢什么球类运动。</li>
-</ol>
-</blockquote>
-<p>好吧，我没能写完。</p>
-<hr>
-<p>5月28日更新</p>
-<p>昨天下午面试一下午，完事儿之后心情久不能平静，还是老问题，我害怕失败，不过我不断说服自己：不要将这看成是对你自己的最终审判，无论结果如何这都是一次很好的成长机会。虽然还没收到最终的结果，但是今天心情稍微缓和些了，能够简单记录下昨天的过程，学长们（还是先不叫师兄的好）的有些问题值得深思。</p>
-<p>开场一片欢声笑语，氛围很轻松，被告知成瑶和我得全程开摄像头，提问我们的学长学姐依次开摄像头和我们见面向我们提问，前辈们按照入学顺序依次向我们提问，成瑶先答我后答。这就是昨天下午面试的场景。</p>
-<p>很遗憾没能记下全部问题，只有一些印象深刻的问题，列出如下：</p>
-<blockquote>
-<ol>
-<li>会做饭吗？</li>
-<li>读研的动机是什么？有没有未来的规划。</li>
-<li>希望从研究生经历中学到什么。</li>
-<li>印象最深刻的一本书，为什么。</li>
-<li>印象最深的一句名言，为什么。</li>
-<li>人在低/高处如何自处。</li>
-<li>如何面对自己的紧张情绪。</li>
-<li>篮球喜欢哪个球队和球星。</li>
-<li>大学经历中让你印象最深刻的事。</li>
-<li>大学经历中让你最自豪的事。</li>
-<li>关于人工智能等新技术的未来畅想。</li>
-<li>2FSK 和 4FSK 谁的误码性能更好，为什么。</li>
-<li>BPSK 和 QPSK 谁的误码性能更好，为什么。</li>
-<li>如果你现在很想打球，如何说服你的正在干活的朋友跟着去。</li>
-<li>如果实验室中别的同学在大声讨论，影响到你工作了，如何处理。</li>
-<li>喜欢柯南吗？</li>
-<li>说一句除汉语和英语之外的语言。</li>
-</ol>
-</blockquote>
-<p>有些问题很喜欢，有些问题没答上来，需要好好考虑。最后补充下于老师的问题，她问我朋政学长提的什么问题，检验我有没有认真听，碰巧我记得这个学长的问题，回答上了。事后我想了想，大概是对我上次课上没有认真听别人提问的再一次测试，老师实在是费心了，这一点我终身难忘，感谢。回头我又想了想，这个测试问题本就是不公平的，她只需记一个即可，而我所需要记得全部，还要分辨开来，不过问题本就是不对等的，我想太多了，老师的出发点是好的。</p>
-<p>大致就这么些，还在焦急地等待最终的结果。</p>
-<hr>
-<p>5月29日更新</p>
-<p>昨天下午终于收到了回复，经过老师和师兄们的再三确认，我的确是个好相处的人，师兄师姐们同意我进组了。之所以等了这么久，是因为师兄们在确认我是不是个好相处的人，有人觉得我比较低沉。感谢他们的接纳，我会继续努力的。至此，这件事就算告一段落了，过程曲折问题多多，<strong>如何让陌生人感受到自己最想表达出来的东西</strong>，我需要好好总结。好在结果完美，感谢威哥和成瑶的帮助。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
+        <tag>notes</tag>
       </tags>
   </entry>
   <entry>
@@ -1267,9 +1319,32 @@ proc complete_sim {} {...}
         <category>学习</category>
       </categories>
       <tags>
-        <tag>算法</tag>
         <tag>C/C++</tag>
+        <tag>算法</tag>
         <tag>链表</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode | 11 盛最多水的容器</title>
+    <url>/2020/05/max-area/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定 <code>n</code> 个非负整数 <code>a1, a2, ..., an</code>，每个数代表坐标中的一个点 <code>(i, ai)</code>。画 <code>n</code> 条垂直线，使得垂直线 <code>i</code> 的两个端点分别为 <code>(i, ai)</code> 和 <code>(i, 0)</code>。找出其中的两条线，使得它们与 <code>x</code> 轴共同构成的容器可以容纳最多的水。</p>
+<p>注意：不能倾斜容器，<code>n</code> 至少是 2。<br><a id="more"></a></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>如果使用暴力算法，那么时间复杂度为 $O(n^2)$。如果使用双指针法，那么时间复杂度降为 $O(n)$。如下所示。</p>
+<ol>
+<li>初始化两个指针 <code>first</code> 和 <code>last</code> 分别指向数组头和尾；</li>
+<li>当 <code>last</code> 指向的值较小时，计算一个面积，并决定是否保留，然后 <code>last--</code> ；</li>
+<li>当 <code>first</code> 指向的值较小时，计算一个面积，并决定是否保留，然后 <code>first++</code>；</li>
+<li>从第 2 步重新执行，直到 <code>first == last</code>，返回最大值。</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span> *height, <span class="keyword">int</span> heightSize)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>, aux = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> first = <span class="number">0</span>, last = heightSize - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (first &lt; last) &#123;</span><br><span class="line">        <span class="keyword">if</span> (height[first] &lt; height[last]) &#123;</span><br><span class="line">            aux = height[first] * (last - first);</span><br><span class="line">            res = aux &gt; res ? aux : res;</span><br><span class="line">            first++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            aux = height[last] * (last - first);</span><br><span class="line">            res = aux &gt; res ? aux : res;</span><br><span class="line">            last--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们还可以对上面的算法进行一些改进。在上面的算法中，我们每次将指针挪动一个位置（向左或向右），然后计算面积并进行比较。这个面积的计算是否每次都有必要呢？其实并不必要，每次挪动指针后，所求区域的长度都会减小，只有<strong>区域的宽度增加我们才有重新计算面积的必要</strong>，即指针新指向的值大于它原来指向的值，我们才需要再次计算面积。基于此，我们可以对算法进行改进，如下所示。</p>
+<figure class="highlight c"><figcaption><span>LeetCodeSolution11.c</span><a href="/downloads/code/LeetCodeSolution11.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span> *height, <span class="keyword">int</span> heightSize)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>, aux = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> first = <span class="number">0</span>, last = heightSize - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (first &lt; last) {</span><br><span class="line">        aux = (last - first) * </span><br><span class="line">            (height[first] &lt; height[last] ? height[first] : height[last]);</span><br><span class="line">        res = aux &gt; res ? aux : res;</span><br><span class="line">        <span class="keyword">if</span> (height[first] &lt; height[last])</span><br><span class="line">            <span class="keyword">while</span> (++first &lt; max &amp;&amp; height[min] &lt;= height[min<span class="number">-1</span>])</span><br><span class="line">                <span class="comment">// 新指针指向的值不大于原来的值 继续减小指针即可</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">while</span> (--last &gt; first &amp;&amp; height[last] &lt;= height[last+<span class="number">1</span>])</span><br><span class="line">                <span class="comment">// 新指针指向的值不大于原来的值 继续减小指针即可</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
         <tag>LeetCode</tag>
       </tags>
   </entry>
@@ -1291,29 +1366,6 @@ proc complete_sim {} {...}
 <p>然后我们需要确定每个数组的搜索长度。对于较小数组 <code>a</code>，搜索长度为数组长和 <code>k/2</code> 的较大者，余下的长度则为数组 <code>b</code> 待搜索的长度。</p>
 <p>代码如下：</p>
 <figure class="highlight c"><figcaption><span>LeetCodeSolution4.c</span><a href="/downloads/code/LeetCodeSolution4.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">// 辅助函数 选择两个有序数组中第 k 大的数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find_kth</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> alen, <span class="keyword">int</span> *b, <span class="keyword">int</span> blen, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="comment">// 确保 alen &lt; blen</span></span><br><span class="line">    <span class="keyword">if</span> (alen &gt; blen)</span><br><span class="line">        <span class="keyword">return</span> find_kth(b, blen, a, alen, k);</span><br><span class="line">    <span class="keyword">if</span> (alen == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> b[k<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">if</span> (k == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> a[<span class="number">0</span>] &lt; b[<span class="number">0</span>] ? a[<span class="number">0</span>] : b[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ia = alen &gt; k/<span class="number">2</span> ? k/<span class="number">2</span> : alen;</span><br><span class="line">    <span class="keyword">int</span> ib = k - ia;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (b[ib<span class="number">-1</span>] &gt; a[ia<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">return</span> find_kth(a+ia, alen-ia, b, blen, k-ia);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (b[ib<span class="number">-1</span>] &lt; a[ia<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">return</span> find_kth(a, alen, b+ib, blen-ib, k-ib);</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">// 注意这种情况</span></span><br><span class="line">        <span class="keyword">return</span> a[ia<span class="number">-1</span>];</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 找出两个有序数组中的中位数</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span> *nums1, <span class="keyword">int</span> nums1Size,</span></span></span><br><span class="line"><span class="function"><span class="params">                        <span class="keyword">int</span> *nums2, <span class="keyword">int</span> nums2Size)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> mid = nums2Size + (nums1Size - nums2Size) / <span class="number">2</span>;</span><br><span class="line">    <span class="comment">// if ((nums1Size &amp; 0x1) ^ (nums2Size &amp; 0x1)) // 和为奇数</span></span><br><span class="line">    <span class="keyword">if</span> ((nums1Size+nums2Size) &amp; <span class="number">0x1</span>)</span><br><span class="line">        <span class="keyword">return</span> find_kth(nums1, nums1Size, nums2, nums2Size, mid+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span>    <span class="comment">// 和为偶数</span></span><br><span class="line">        <span class="keyword">return</span> (find_kth(nums1, nums1Size, nums2, nums2Size, mid)</span><br><span class="line">                    + find_kth(nums1, nums1Size, nums2, nums2Size, mid+<span class="number">1</span>)) / <span class="number">2.0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode | 11 盛最多水的容器</title>
-    <url>/2020/05/max-area/</url>
-    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定 <code>n</code> 个非负整数 <code>a1, a2, ..., an</code>，每个数代表坐标中的一个点 <code>(i, ai)</code>。画 <code>n</code> 条垂直线，使得垂直线 <code>i</code> 的两个端点分别为 <code>(i, ai)</code> 和 <code>(i, 0)</code>。找出其中的两条线，使得它们与 <code>x</code> 轴共同构成的容器可以容纳最多的水。</p>
-<p>注意：不能倾斜容器，<code>n</code> 至少是 2。<br><a id="more"></a></p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>如果使用暴力算法，那么时间复杂度为 $O(n^2)$。如果使用双指针法，那么时间复杂度降为 $O(n)$。如下所示。</p>
-<ol>
-<li>初始化两个指针 <code>first</code> 和 <code>last</code> 分别指向数组头和尾；</li>
-<li>当 <code>last</code> 指向的值较小时，计算一个面积，并决定是否保留，然后 <code>last--</code> ；</li>
-<li>当 <code>first</code> 指向的值较小时，计算一个面积，并决定是否保留，然后 <code>first++</code>；</li>
-<li>从第 2 步重新执行，直到 <code>first == last</code>，返回最大值。</li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span> *height, <span class="keyword">int</span> heightSize)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>, aux = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> first = <span class="number">0</span>, last = heightSize - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (first &lt; last) &#123;</span><br><span class="line">        <span class="keyword">if</span> (height[first] &lt; height[last]) &#123;</span><br><span class="line">            aux = height[first] * (last - first);</span><br><span class="line">            res = aux &gt; res ? aux : res;</span><br><span class="line">            first++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            aux = height[last] * (last - first);</span><br><span class="line">            res = aux &gt; res ? aux : res;</span><br><span class="line">            last--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们还可以对上面的算法进行一些改进。在上面的算法中，我们每次将指针挪动一个位置（向左或向右），然后计算面积并进行比较。这个面积的计算是否每次都有必要呢？其实并不必要，每次挪动指针后，所求区域的长度都会减小，只有<strong>区域的宽度增加我们才有重新计算面积的必要</strong>，即指针新指向的值大于它原来指向的值，我们才需要再次计算面积。基于此，我们可以对算法进行改进，如下所示。</p>
-<figure class="highlight c"><figcaption><span>LeetCodeSolution11.c</span><a href="/downloads/code/LeetCodeSolution11.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span> *height, <span class="keyword">int</span> heightSize)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>, aux = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> first = <span class="number">0</span>, last = heightSize - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (first &lt; last) {</span><br><span class="line">        aux = (last - first) * </span><br><span class="line">            (height[first] &lt; height[last] ? height[first] : height[last]);</span><br><span class="line">        res = aux &gt; res ? aux : res;</span><br><span class="line">        <span class="keyword">if</span> (height[first] &lt; height[last])</span><br><span class="line">            <span class="keyword">while</span> (++first &lt; max &amp;&amp; height[min] &lt;= height[min<span class="number">-1</span>])</span><br><span class="line">                <span class="comment">// 新指针指向的值不大于原来的值 继续减小指针即可</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">while</span> (--last &gt; first &amp;&amp; height[last] &lt;= height[last+<span class="number">1</span>])</span><br><span class="line">                <span class="comment">// 新指针指向的值不大于原来的值 继续减小指针即可</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>学习</category>
       </categories>
@@ -1350,6 +1402,31 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>LeetCode | 61 旋转链表</title>
+    <url>/2020/05/rotate-LinkedList-rightly/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
+<li>输入：<code>1-&gt;2-&gt;3-&gt;4-&gt;5</code>，<code>k=2</code></li>
+<li>输出：<code>4-&gt;5-&gt;1-&gt;2-&gt;3</code></li>
+</ul>
+<a id="more"></a>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>题目名字叫旋转链表，其实就是循环移动。最简单的思路是：遍历链表找到尾节点的前一节点，然后把尾节点从头插入链表，对这个过程执行 k 次即可。这样做算法的时间复杂度为 <code>O(kn)</code>。考虑到是循环移动，我们可以对算法进行改进。</p>
+<p>首先考虑 <code>k</code> 小于链表长度的情况，链表循环向右移动 <code>k</code> 次，不就相当于把链表练成环，然后尾节点位置向左移动 <code>k</code> 次吗？下面这个图展示了这个过程。</p>
+<img src="/2020/05/rotate-LinkedList-rightly/illustration.png" title="循环移动">
+<p>对于 <code>k</code> 大于链表长度的情况，先构成环，沿着环一直移动就行。这种方法的问题在于我们需要逆向移动单链表的指针，即每次需要找到单链表前驱的前驱，这是很难做到的，但我们可以先行将单链表进行逆序，然后移动指针，确定最终的头尾节点后再把链表逆序回来即可。</p>
+<p>更进一步的，在环中逆序移动指针 <code>k</code> 次，就相当于顺序移动指针 <code>n-k</code> 次，其中 <code>n</code> 是链表的长度。基于这种想法，我们再加以改进，得到下面的解法。</p>
+<p>先把指针 <code>p</code> 从头向后移动到尾，直到循环移动的次数 <code>k==0</code>。在此过程中，如果 <code>p</code> 指向了空节点，说明到了链表尾部，<code>k</code> 大于链表的长度，这时候我们可以利用循环的特点，对链表的长度减一值进行取模运算，得到的值是我们需要再移动到位置。然后按照上述的方法进行指针移动即可。最终代码如下所示。</p>
+<figure class="highlight c"><figcaption><span>LeetCodeSolution61.c</span><a href="/downloads/code/LeetCodeSolution61.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function">ListNode *<span class="title">rotateRight</span><span class="params">(ListNode *head, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="literal">NULL</span> || k &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    ListNode *pre, *last, *p;</span><br><span class="line">    ListNode tmpNode;</span><br><span class="line">    tmpNode.next = head;</span><br><span class="line">    last = &amp;tmpNode;</span><br><span class="line">    p = head;</span><br><span class="line">    <span class="keyword">int</span> ak = k;</span><br><span class="line">    <span class="keyword">while</span> (k &gt; <span class="number">0</span>){</span><br><span class="line">        <span class="comment">// 滑动指针来代替循环</span></span><br><span class="line">        <span class="keyword">if</span> (p == <span class="literal">NULL</span>) {</span><br><span class="line">            <span class="keyword">int</span> tmp = ak - k;</span><br><span class="line">            pre = &amp;tmpNode;</span><br><span class="line">            p = head;</span><br><span class="line">            k = ak % tmp;</span><br><span class="line">            <span class="keyword">if</span> (k == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">        pre = p;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        k--;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span>) {</span><br><span class="line">        last = last-&gt;next;</span><br><span class="line">        pre = p;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> (last != &amp;tmpNode) {</span><br><span class="line">        pre-&gt;next = head;</span><br><span class="line">        tmpNode.next = last-&gt;next;</span><br><span class="line">        last-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> tmpNode.next;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MPSK 和 MQAM 的误码率仿真</title>
     <url>/2020/05/ber-and-ser-of-PSK-and-QAM/</url>
     <content><![CDATA[<p>拖延几日，不觉课程已结课几天了，在此趁着脑中还有些关于课程内容的印象，简单写一篇记录，关于如何使用MATLAB构建一个调制技术的仿真程序。<br><a id="more"></a></p>
@@ -1379,48 +1456,6 @@ proc complete_sim {} {...}
       <tags>
         <tag>MATLAB</tag>
         <tag>通信</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode | 61 旋转链表</title>
-    <url>/2020/05/rotate-LinkedList-rightly/</url>
-    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
-<li>输入：<code>1-&gt;2-&gt;3-&gt;4-&gt;5</code>，<code>k=2</code></li>
-<li>输出：<code>4-&gt;5-&gt;1-&gt;2-&gt;3</code></li>
-</ul>
-<a id="more"></a>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>题目名字叫旋转链表，其实就是循环移动。最简单的思路是：遍历链表找到尾节点的前一节点，然后把尾节点从头插入链表，对这个过程执行 k 次即可。这样做算法的时间复杂度为 <code>O(kn)</code>。考虑到是循环移动，我们可以对算法进行改进。</p>
-<p>首先考虑 <code>k</code> 小于链表长度的情况，链表循环向右移动 <code>k</code> 次，不就相当于把链表练成环，然后尾节点位置向左移动 <code>k</code> 次吗？下面这个图展示了这个过程。</p>
-<img src="/2020/05/rotate-LinkedList-rightly/illustration.png" title="循环移动">
-<p>对于 <code>k</code> 大于链表长度的情况，先构成环，沿着环一直移动就行。这种方法的问题在于我们需要逆向移动单链表的指针，即每次需要找到单链表前驱的前驱，这是很难做到的，但我们可以先行将单链表进行逆序，然后移动指针，确定最终的头尾节点后再把链表逆序回来即可。</p>
-<p>更进一步的，在环中逆序移动指针 <code>k</code> 次，就相当于顺序移动指针 <code>n-k</code> 次，其中 <code>n</code> 是链表的长度。基于这种想法，我们再加以改进，得到下面的解法。</p>
-<p>先把指针 <code>p</code> 从头向后移动到尾，直到循环移动的次数 <code>k==0</code>。在此过程中，如果 <code>p</code> 指向了空节点，说明到了链表尾部，<code>k</code> 大于链表的长度，这时候我们可以利用循环的特点，对链表的长度减一值进行取模运算，得到的值是我们需要再移动到位置。然后按照上述的方法进行指针移动即可。最终代码如下所示。</p>
-<figure class="highlight c"><figcaption><span>LeetCodeSolution61.c</span><a href="/downloads/code/LeetCodeSolution61.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function">ListNode *<span class="title">rotateRight</span><span class="params">(ListNode *head, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="literal">NULL</span> || k &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    ListNode *pre, *last, *p;</span><br><span class="line">    ListNode tmpNode;</span><br><span class="line">    tmpNode.next = head;</span><br><span class="line">    last = &amp;tmpNode;</span><br><span class="line">    p = head;</span><br><span class="line">    <span class="keyword">int</span> ak = k;</span><br><span class="line">    <span class="keyword">while</span> (k &gt; <span class="number">0</span>){</span><br><span class="line">        <span class="comment">// 滑动指针来代替循环</span></span><br><span class="line">        <span class="keyword">if</span> (p == <span class="literal">NULL</span>) {</span><br><span class="line">            <span class="keyword">int</span> tmp = ak - k;</span><br><span class="line">            pre = &amp;tmpNode;</span><br><span class="line">            p = head;</span><br><span class="line">            k = ak % tmp;</span><br><span class="line">            <span class="keyword">if</span> (k == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">        pre = p;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        k--;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span>) {</span><br><span class="line">        last = last-&gt;next;</span><br><span class="line">        pre = p;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> (last != &amp;tmpNode) {</span><br><span class="line">        pre-&gt;next = head;</span><br><span class="line">        tmpNode.next = last-&gt;next;</span><br><span class="line">        last-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> tmpNode.next;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在疫情中度过三月</title>
-    <url>/2020/03/the-third-month/</url>
-    <content><![CDATA[<p>惊觉已经是三月的最后一天，在这过去的一个月里，如果说有什么一定一提的，那一定是已经持续了快三个月的的新冠肺炎疫情，国内的疫情逐渐被控制住了，国外却又爆发了更大规模的，看起来返校遥遥无期。一月份的时候我肯定无法想象3月31日自己还在家，突发的疫情打乱我原有的计划，我本该在学校的教室里坐着的，现在却在家，本以为会非常非常想回学校，现在倒也还好，我只是怀念学校的WiFi罢了。<br><a id="more"></a><br>疫情蔓延全球，经济衰退，股价暴跌，美股数次熔断，不可否认这是一个动荡的三月。所谓『祸兮福之所倚』，被困在山村中的我却得以享受宁静，可以专心做自己想做的事，我重新开始捡起以前学了一点就知难而退的东西，比如 C++，Java，Linux 还有算法，除此之外，我还开始坚持看书、记单词和记录生活，为了督促自己，我还使用 atimelogger 记录自己每一分钟的花销。如果不是因为疫情，我也不会如此百无聊赖，也就不会开始做这些事情，从这个角度而言，对我而言这还是福。</p>
-<p>整个三月份，我看完了『乌合之众』、『金字塔原理』、『随机漫步的傻瓜』、『你的第一本哲学书』和『简单逻辑学』，平均一周看了一本多一点的书，还算可以，但是没有对其中任何一本书作一些读后感之类的笔记，算是一个不完整，希望在后面的阅读补上。这一个月也是折腾不断，看了算法看Linux，中间还去折腾下NS2——一坨年久失修的 shit。现在总结一下，算法是没看多少的，刚开始找了不知到哪儿来的一本 Java 算法书，看了一周几乎看完了，然而脑子中似乎什么都没剩下，于是我又照着『算法4』看，这次看得比较慢，加上中途新学期开学了，有很多课要上，到现在也才前两章，综合起来，我现在对排序算法比较清楚了，选择插入希尔归并快排都算了解得清楚了，现在还在继续看下去，第三章是『查找』，会讲到BST等新的数据结构。至于 Linux，照着鸟哥的书慢慢看，有时间就看一章，不求全部记住，只是有个大概概念就行了，现在也看到了 Shell 部分，坚持看下去吧。<br>学这些东西，并不是出于需要，我只是凭借着一时冲动开始看，什么时候我都热情消退了，我也就放弃了，转而投向新的东西。这说是我很长时间来的一种学习态度吧，对于学校规定的课程内容我总感觉不是很有意思，讲授的东西太过陈旧，我会凭借着冲动去随便投入到一些东西中去，既是对自己冲动的满足也是对那些陈旧无聊的知识的逃避。</p>
-<p>这个三月我也不是一切顺利，有两次突然陷入了一种极度的焦虑之中，在那种状态下，我什么都不想做，不愿意去做我应该做的事情，只想一直盯着手机看，好在持续一两天之后这种感觉就会很快消失，一切重归正常，但我知道几周后这种感觉又会到来。暂时还没有什么好办法应对这种情况，我只能选择接受它，并在它到来时暂时放下手头的工作，就当是一时的放松，但我坚信会找到办法的。</p>
-<hr>
-<p>身处动荡之中，怀抱希望，希望一切都好起来。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>monthly</tag>
       </tags>
   </entry>
   <entry>
@@ -1559,6 +1594,78 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>『Channel Codes』笔记之有限域、向量空间、有限集合和图</title>
+    <url>/2020/06/finiteFields-VectorSpaces-FiniteGeometries-Graphs/</url>
+    <content><![CDATA[<p>我准备写一系列文章来记录阅读《Channel Codes》时留下来的笔记，这是第一篇，对应书中的第二章，介绍了有限域、向量空间、有限集合和图。无论是传统的信道编码还是现代的信道编码，都离不开这些代数和集合数学的概念，这些概念是信道编码的基础。<br><a id="more"></a></p>
+<h2 id="2-1-集合和二元运算"><a href="#2-1-集合和二元运算" class="headerlink" title="2.1 集合和二元运算"></a>2.1 集合和二元运算</h2><p>集合(set)就是一些特定对象的合集(collection)，这些对象被称作集合中的元素(element)。如：$X = {x_1, x_2, x_3, x_4, x_5, x_6}$，则 $X$ 是一个集合，它有 6 个元素。关于集合，我们需要知道下面这些：</p>
+<ul>
+<li>有限集(finite set)：集合中只有有限个元素；</li>
+<li>无限集(infinite set)：集合中的元素是无限个的；</li>
+<li>基数(cardinality)：集合 $X$ 中元素的个数就是元素的基数，记作 $| X|$。</li>
+<li>子集(subset)</li>
+<li>真子集(proper subset)</li>
+</ul>
+<p>定义在集合 $S$ 上的二元运算定义了一种规则，它对集合中的一对元素以<strong>确定的顺序</strong>进行运算，且结果仍然属于该集合。</p>
+<p>associative（结合的）：运算满足结合律。</p>
+<p>commutative（交换的）：运算满足交换律。</p>
+<h2 id="2-2-群"><a href="#2-2-群" class="headerlink" title="2.2 群"></a>2.2 群</h2><p>代数系统：集合定义在集合上的一些运算。</p>
+<h3 id="2-2-1-群的基本概念"><a href="#2-2-1-群的基本概念" class="headerlink" title="2.2.1 群的基本概念"></a>2.2.1 群的基本概念</h3><p>定义：集合和定义在集合上的一个二元元算称为群，且满足如下条件：</p>
+<ol>
+<li>运算满足结合律（associative）</li>
+<li>集合有一个单位元（identity element）</li>
+<li>对于任何一个元素，在集合中存在一个它的逆，且这个逆是唯一的。</li>
+</ol>
+<p>如果一个群是可交换的，那么称其为阿贝尔群。</p>
+<h3 id="2-2-2-有限群"><a href="#2-2-2-有限群" class="headerlink" title="2.2.2 有限群"></a>2.2.2 有限群</h3><h3 id="2-2-3-子群和陪集"><a href="#2-2-3-子群和陪集" class="headerlink" title="2.2.3 子群和陪集"></a>2.2.3 子群和陪集</h3><p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200803190531807.png" alt="image-20200803190531807"></p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200803190547257.png" alt="image-20200803190547257"></p>
+<p>陪集的一些性质：</p>
+<ol>
+<li>No two elements of a coset of H are identical. </li>
+<li>No two elements from two different cosets of H are identical. </li>
+<li>Every element of G appears in one and only one coset of H.</li>
+<li>All distinct cosets of H are disjoint.</li>
+<li>The union of all the distinct cosets of H forms the group G.</li>
+</ol>
+<p>拉格朗日定理：</p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200803191142440.png" alt="image-20200803191142440"></p>
+<h2 id="2-3-域"><a href="#2-3-域" class="headerlink" title="2.3 域"></a>2.3 域</h2><p>有限域在编码理论中非常重要。</p>
+<h3 id="2-3-1-定义和基本概念"><a href="#2-3-1-定义和基本概念" class="headerlink" title="2.3.1 定义和基本概念"></a>2.3.1 定义和基本概念</h3><p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200803193203931.png" alt="image-20200803193203931"></p>
+<p>从定义在可以看到，域可以分为两个群，每个群各有一个单位元素，因此域的元素个数至少为2，且可以证明：存在只含有两个元素的域。</p>
+<p>A field is simply an algebraic system in which we can perform addition, sub- traction, multiplication, and division without leaving the field.</p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200803193728641.png" alt="image-20200803193728641"></p>
+<p>从下面这个定义也可以引入到有限域：</p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200803194026394.png" alt="image-20200803194026394"></p>
+<p>一条证明，解释了师姐讲文章时的疑问：</p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200803194826387.png" alt="image-20200803194826387"></p>
+<h3 id="2-3-2-Finite-Fields"><a href="#2-3-2-Finite-Fields" class="headerlink" title="2.3.2 Finite Fields"></a>2.3.2 Finite Fields</h3><p>有限域又叫伽罗华域，在差错控制编码中非常重要。记作 GF(p)，p 为素数。</p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200804083806871.png" alt="image-20200804083806871"></p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200804083859309.png" alt="image-20200804083859309"></p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200804083922415.png" alt="image-20200804083922415"></p>
+<h2 id="2-4-Vector-Space"><a href="#2-4-Vector-Space" class="headerlink" title="2.4 Vector Space"></a>2.4 Vector Space</h2><h3 id="2-4-1-Basic-Definitions-and-Properties"><a href="#2-4-1-Basic-Definitions-and-Properties" class="headerlink" title="2.4.1 Basic Definitions and Properties"></a>2.4.1 Basic Definitions and Properties</h3><p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200804090317809.png" alt="image-20200804090317809"></p>
+<h2 id="2-5-Polynomials-over-Finite-Fields"><a href="#2-5-Polynomials-over-Finite-Fields" class="headerlink" title="2.5 Polynomials over Finite Fields"></a>2.5 Polynomials over Finite Fields</h2><h2 id="2-6-Construction-and-Properties-of-Galois-Fields"><a href="#2-6-Construction-and-Properties-of-Galois-Fields" class="headerlink" title="2.6 Construction and Properties of Galois Fields"></a>2.6 Construction and Properties of Galois Fields</h2><p>构造方法：通过 GF(p) 的 m 阶 primitive polynomials 得到 root a，那么，{0, 1, a, a^2, …, a^(p^m-2)} 构成了 GF(p^m)。</p>
+<h3 id="2-6-2-Some-Fundamental-Properties-of-Finite-Fields"><a href="#2-6-2-Some-Fundamental-Properties-of-Finite-Fields" class="headerlink" title="2.6.2 Some Fundamental Properties of Finite Fields"></a>2.6.2 Some Fundamental Properties of Finite Fields</h3><p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805085904765.png" alt="image-20200805085904765"></p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805085939344.png" alt="image-20200805085939344"></p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090049807.png" alt="image-20200805090049807"></p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090202552.png" alt="image-20200805090202552"></p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090223152.png" alt="image-20200805090223152"></p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090332982.png" alt="image-20200805090332982"></p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090359630.png" alt="image-20200805090359630"></p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090428880.png" alt="image-20200805090428880"></p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090506367.png" alt="image-20200805090506367"></p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090522736.png" alt="image-20200805090522736"></p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090540369.png" alt="image-20200805090540369"></p>
+<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090616153.png" alt="image-20200805090616153"></p>
+<h2 id="2-7-Finite-Geometries"><a href="#2-7-Finite-Geometries" class="headerlink" title="2.7 Finite Geometries"></a>2.7 Finite Geometries</h2>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>Channel Codes</tag>
+        <tag>文献笔记</tag>
+        <tag>抽象代数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>写在移动通信期末考试后</title>
     <url>/2020/07/written-after-mobile-communications-final-exam/</url>
     <content><![CDATA[<p>刚结束了今年的第一门专业课考试，不用感觉就知道考得稀烂，卷面约有 30 分没做完，折合下最终的成绩直接没了 18 分，这下可以考虑打破最低的考试课得分记录了——电路 76 分，我觉得很有希望。<br><a id="more"></a></p>
@@ -1624,19 +1731,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>闲逛半个月</title>
-    <url>/2020/09/hang-out-for-half-a-month/</url>
-    <content><![CDATA[<p>如题所示 ，我已经闲逛了半个月之久，昏昏沉沉过了半个月，像是突然失去了学习的状态，心情无法平复，难以集中到文章上，于是我逃避到游戏中，我尝试了 CSGO，Dota2，现在又开始玩 LOL 了，但我从心里知道这并不会长久的，很快我就会回归到我的状态，集中注意力学习。<br><a id="more"></a><br>这半个月来我到底干了什么呢？首先我感受到了自己的懈怠，但是不想就这样懈怠下去，于是决定先做点简单的事情——在 B 站看 FPGA 教程，或许是教程的每个视频太长，让我感觉很挫败，或许根本就是我无法静下心学习，总之，几天后我决定看买的那本 FPGA 书。看书比起看视频来果然快很多，而且可以随时停下来刷刷手机，四天之后，我把书看完了，但真的只是看完了，自问看过的东西脑子还记得的真的不多，很惭愧。接下来我彻底无事可做了，虽然老师给了篇文章让我去看，但是我完全无法静下心去看文章，尽管那篇文章并不长，简单看下的话应该花不到一个下午就能看完，我一定是哪里不对劲了。到现在我还是没有找到原因，不过我感受到了，这段不对劲的时间马上要过去了，我可以重新回归到之前的状态。</p>
-<p>我猜测，我在失去目标时很容易变的不知所措，如果我正在做的事情没有一个清晰的进度指示，也会让我感到沮丧无法坚持下去。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LDPC 码译码结束，喘上一口气</title>
     <url>/2020/08/a-small-summer-win/</url>
     <content><![CDATA[<p>过去的这两周，我的时间基本花在了 LDPC 码的学习上，开始是阅读『hannel Codes』这本书，然后就是用 C 语言实现其中介绍的译码算法和 SPA 和其简化版本 MSA，若是不深入其原理，实现这个算法并不困难，但我忽视了一个重要的问题：我实现的算法最终要达到什么样的效果？这导致我白白浪费了两天时间。</p>
@@ -1647,6 +1741,19 @@ proc complete_sim {} {...}
 <p><strong>果然，就是 MSA 算法的问题，书上给出的图在 SPA 算法下的，而我做的是 MSA，自然有性能差距。</strong></p>
 <img src="/2020/08/a-small-summer-win/finalresult.png" title="最终的仿真结果">
 <p>这次仿真就告一段落了，后续我会写几篇文章，总结仿真实现的过程以及在仿真中遇到的问题。现在我觉得最关键的一个问题是：<strong>面对仿真结果的不理想，如何进行调试，尤其是时间有限的情况下，如何快速定位错误。</strong>这是个共性的问题，需要经验的积累，从这次经历中我能学到的是什么呢？找时间总结下。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>闲逛半个月</title>
+    <url>/2020/09/hang-out-for-half-a-month/</url>
+    <content><![CDATA[<p>如题所示 ，我已经闲逛了半个月之久，昏昏沉沉过了半个月，像是突然失去了学习的状态，心情无法平复，难以集中到文章上，于是我逃避到游戏中，我尝试了 CSGO，Dota2，现在又开始玩 LOL 了，但我从心里知道这并不会长久的，很快我就会回归到我的状态，集中注意力学习。<br><a id="more"></a><br>这半个月来我到底干了什么呢？首先我感受到了自己的懈怠，但是不想就这样懈怠下去，于是决定先做点简单的事情——在 B 站看 FPGA 教程，或许是教程的每个视频太长，让我感觉很挫败，或许根本就是我无法静下心学习，总之，几天后我决定看买的那本 FPGA 书。看书比起看视频来果然快很多，而且可以随时停下来刷刷手机，四天之后，我把书看完了，但真的只是看完了，自问看过的东西脑子还记得的真的不多，很惭愧。接下来我彻底无事可做了，虽然老师给了篇文章让我去看，但是我完全无法静下心去看文章，尽管那篇文章并不长，简单看下的话应该花不到一个下午就能看完，我一定是哪里不对劲了。到现在我还是没有找到原因，不过我感受到了，这段不对劲的时间马上要过去了，我可以重新回归到之前的状态。</p>
+<p>我猜测，我在失去目标时很容易变的不知所措，如果我正在做的事情没有一个清晰的进度指示，也会让我感到沮丧无法坚持下去。</p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -1687,6 +1794,20 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>毕设要开题了！</title>
+    <url>/2020/10/preparation-for-start-of-graduation-project/</url>
+    <content><![CDATA[<p>昨天恰逢国庆和中秋一起过，中午和晚上都出去聚餐了，中午和实验室的师姐和师兄们吃，晚上和打篮球的朋友们吃，很舒服。<br><a id="more"></a><br>不过今天需要准备开题了，早上来实验室了，又是拖着略显疲惫的身体，我已经有点分不清是因为睡眠不足还是手上在做的东西迟迟没有进展，稍加思索，我更觉得是手上做的东西迟迟没有进展导致的，因为一事无成，所以心中有牵挂，晚上睡不好，早上没精神，然后就是效率低下，更加难以推进手中的事情，这是一个恶性循环。需要找到好的办法突破这个循环，目前看来唯一的办法就是取得进展，但是需要消耗的时间和精力未免也太多了些，我需要别的更好的办法。</p>
+<p>现在这些暂时都不重要了，现在重要的事情是 8 号提交一份开题报告给老师。</p>
+<p>抛开对未知的恐惧，找到一条路吧。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>完成小阶段任务——终于完成了简单的 LDPC 编译码</title>
     <url>/2020/09/I-DID-IT/</url>
     <content><![CDATA[<p>折腾了这么多天，总算是完成了 8 月就拿到的 LDPC 编码译码任务，最近几天一直在 Debug，如果不是做高阶调制，我可能永远不会注意到这个 Bug——随机数生成错误，而这个错误在低信噪比时对仿真结果几乎没有印象，当时做的时候也没有去尝试更高的信噪比，这是我的失误，加上高阶调制之后，事情变得不太一样了，错误就显现出来了，误码率平层在10^-4位置出现了，这本不该发生。经过几天的寻找，从一开始的随意寻找，到昨晚上才想到断点查看判决时的数据，还是经验不足啊，希望经过这次的痛苦经历，自己的Debug能力能有所提高。</p>
@@ -1707,22 +1828,6 @@ proc complete_sim {} {...}
 ]]></content>
       <categories>
         <category>学习</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>sr-log</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一次一次又一次的拖延，能逃离这个怪圈吗？</title>
-    <url>/2020/10/again-again-agin-delay/</url>
-    <content><![CDATA[<p>2 号老师告诉我们 8 号提交开题报告给她，现在已经 4 号晚上了，我还是几乎一字未动。是我拖延症又犯了，还是我根本不配写，关于这个问题，我决定好好考虑下，现在也写不下去，考虑下这个问题也挺好。<br><a id="more"></a><br>首先明确一点，不管配不配，这个报告我都必须写完。在这个基础上，再去考虑下一步：我要写出一个什么样的报告？为了这个目标我需要去做哪些事情？如果仅仅只是为了写完报告，那么我大可以找几篇硕士论文，把他们的前面部分进行一些糅合，就可以得到一份报告了，这种方式不失为一个选择，但也面临着问题：我到底要做的是什么东西？这个问题的优先级甚至还可以再提一提。或许我早就有了前面那个问题的答案：简单做一个编译码器即可，但简单搜索之后，我感到很难受，因为这件事情别人早就做过了，甚至已经做得挺好了，而我只是一个新手，也要去做相同的事情，我下意识地想逃避了。</p>
-<p>话说回来，我从心底是喜欢做这个东西的，<strong>我只是讨厌写报告，因为我不擅长写，非要写的话我会写得很烂，这让我感到很难受</strong>，这种感觉太真实了，我又把成长型思维抛到脑后了。现在让我尝试用这种思维进行思考：无论最终我的报告写得怎么样，我做的这个东西有没有得到认可以从而让我能够顺利毕业，我都要努力去完成，这是出于对老师的信任，而且我不该纠结于表面的批评，应该更深一步地考虑，将这看成是我成长的机会。报告写得烂，那就烂吧，我努力了，这次写得烂，那么给我建议吧，下一次我会让它变得更好。毕设做的东西毫无创新，不能通过，那可不行，我已经完成了。</p>
-<p>还有一个问题，如果有不确定的地方，不要再过多考虑了，那只是徒劳，尽早去寻求帮助吧。不要高估了自己，我需要帮助，这是快速进步的秘诀。</p>
-<p>话已至此，希望我真心听进去了，还剩下三天时间，加油写完吧，更重要的事是，记住这种感觉，这比什么都重要。人生没有这么短，路还长。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
       </categories>
       <tags>
         <tag>记录</tag>
@@ -1797,6 +1902,22 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>一次一次又一次的拖延，能逃离这个怪圈吗？</title>
+    <url>/2020/10/again-again-agin-delay/</url>
+    <content><![CDATA[<p>2 号老师告诉我们 8 号提交开题报告给她，现在已经 4 号晚上了，我还是几乎一字未动。是我拖延症又犯了，还是我根本不配写，关于这个问题，我决定好好考虑下，现在也写不下去，考虑下这个问题也挺好。<br><a id="more"></a><br>首先明确一点，不管配不配，这个报告我都必须写完。在这个基础上，再去考虑下一步：我要写出一个什么样的报告？为了这个目标我需要去做哪些事情？如果仅仅只是为了写完报告，那么我大可以找几篇硕士论文，把他们的前面部分进行一些糅合，就可以得到一份报告了，这种方式不失为一个选择，但也面临着问题：我到底要做的是什么东西？这个问题的优先级甚至还可以再提一提。或许我早就有了前面那个问题的答案：简单做一个编译码器即可，但简单搜索之后，我感到很难受，因为这件事情别人早就做过了，甚至已经做得挺好了，而我只是一个新手，也要去做相同的事情，我下意识地想逃避了。</p>
+<p>话说回来，我从心底是喜欢做这个东西的，<strong>我只是讨厌写报告，因为我不擅长写，非要写的话我会写得很烂，这让我感到很难受</strong>，这种感觉太真实了，我又把成长型思维抛到脑后了。现在让我尝试用这种思维进行思考：无论最终我的报告写得怎么样，我做的这个东西有没有得到认可以从而让我能够顺利毕业，我都要努力去完成，这是出于对老师的信任，而且我不该纠结于表面的批评，应该更深一步地考虑，将这看成是我成长的机会。报告写得烂，那就烂吧，我努力了，这次写得烂，那么给我建议吧，下一次我会让它变得更好。毕设做的东西毫无创新，不能通过，那可不行，我已经完成了。</p>
+<p>还有一个问题，如果有不确定的地方，不要再过多考虑了，那只是徒劳，尽早去寻求帮助吧。不要高估了自己，我需要帮助，这是快速进步的秘诀。</p>
+<p>话已至此，希望我真心听进去了，还剩下三天时间，加油写完吧，更重要的事是，记住这种感觉，这比什么都重要。人生没有这么短，路还长。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>sr-log</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>写在开题答辩之后</title>
     <url>/2020/10/fxxking-opening-things/</url>
     <content><![CDATA[<p>今天下午进行了毕设开题答辩，一句话来总结：退一步越想越气。一气自己不争气，二气答辩老师太离谱。抛开其他人的因素，我自己也应该从这次经历中学到点东西。<br><a id="more"></a></p>
@@ -1806,6 +1927,21 @@ proc complete_sim {} {...}
       </categories>
       <tags>
         <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>11 月的第一篇和最后一篇</title>
+    <url>/2020/11/log-11-29/</url>
+    <content><![CDATA[<p>已经是11月29日了，今天是教学周第12周的的最后一天，已经有许久没有整理整理了，今天正好休息，记下两笔吧。<br><a id="more"></a><br>先说毕设，距离我预订的完成时间还剩下两周，按照过去一个月的进度来看，我肯定无法在这最后两周完成全部内容，但我还想试试。我现在对 FPGA 的掌握程度还远没有达到预订的目标：给定一个需求，能够完成设计和代码实现。现在的我就算是照着设计去写代码都有很大的困难，问题出在哪里呢？这段时间以来，我也没闲着，也在看 Verilog 代码，也看了一些那几本书，但还是不得要领。按照之前学习的经验来看，还是代码抄得不够，我感觉回到了三年前，那是一次痛苦的 Python 学习经历，像个无头苍蝇一样撞了几天后直接放弃了，不过现在我没有放弃这个选项，我必须完成，那么在接下来这段时间多抄点代码吧，看看好的设计是怎么完成的。下周日再来检验吧。</p>
+<p>25号考完了本科中的最后一门必修课，恍惚间大学生活似乎就要结束了，真快啊。三年来，发生了一些有意思的事情，也碰到了很多有意思的人，完成了自己的执念也终于放下，有人永远地离去，我想抓住却已经来不及，珍惜身边人吧。</p>
+<p>加油。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>sr-log</tag>
       </tags>
   </entry>
   <entry>
@@ -1898,11 +2034,70 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>毕设要开题了！</title>
-    <url>/2020/10/preparation-for-start-of-graduation-project/</url>
-    <content><![CDATA[<p>昨天恰逢国庆和中秋一起过，中午和晚上都出去聚餐了，中午和实验室的师姐和师兄们吃，晚上和打篮球的朋友们吃，很舒服。<br><a id="more"></a><br>不过今天需要准备开题了，早上来实验室了，又是拖着略显疲惫的身体，我已经有点分不清是因为睡眠不足还是手上在做的东西迟迟没有进展，稍加思索，我更觉得是手上做的东西迟迟没有进展导致的，因为一事无成，所以心中有牵挂，晚上睡不好，早上没精神，然后就是效率低下，更加难以推进手中的事情，这是一个恶性循环。需要找到好的办法突破这个循环，目前看来唯一的办法就是取得进展，但是需要消耗的时间和精力未免也太多了些，我需要别的更好的办法。</p>
-<p>现在这些暂时都不重要了，现在重要的事情是 8 号提交一份开题报告给老师。</p>
-<p>抛开对未知的恐惧，找到一条路吧。</p>
+    <title>一点数字电路设计的感悟</title>
+    <url>/2020/12/a-little-understanding-of-FPGA-design/</url>
+    <content><![CDATA[<p>惊呼：已经12月了！</p>
+<p>现在每日牵挂的无非是课设二字，近日还算专心钻研数字电路设计，也算是知道了一点东西，有一点感悟，不妨写下来，让这种感觉更加准确。<br><a id="more"></a><br>数字电路设计，无非是时序逻辑电路和组合逻辑电路，在 FPGA 设计中，就是带触发器的同步电路设计和纯组合电路设计，浅显的理解可以认为是阻塞赋值和非阻塞赋值的区别。话虽说得简单，但是实际做起来倒真的不容易，就比如我几天前写的那个串口接收和发送的代码，时序总是不对，后面多看了看别人的设计，才发现自己真是太嫩了，这种设计自然是有比较特定的规律。</p>
+<h2 id="边沿检测"><a href="#边沿检测" class="headerlink" title="边沿检测"></a>边沿检测</h2><p>边沿检测可算是最最经典的电路设计了，实际当中却是处处会用到。一个典型的检测电路如下：</p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> Edge_detect(</span><br><span class="line">    <span class="keyword">input</span> clk,		<span class="comment">// 时钟</span></span><br><span class="line">    <span class="keyword">input</span> rst_n,	<span class="comment">// 复位信号</span></span><br><span class="line">    <span class="keyword">input</span> SigIn,	<span class="comment">// 输入信号 </span></span><br><span class="line">    <span class="keyword">output</span> SigOut,  <span class="comment">// 同步之后的输出信号</span></span><br><span class="line">    <span class="keyword">output</span> down,    <span class="comment">// 检测到下降沿产生一个脉冲</span></span><br><span class="line">    <span class="keyword">output</span> up	    <span class="comment">// 检测上升沿产生一个脉冲</span></span><br><span class="line">);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">reg</span> [<span class="number">2</span>:<span class="number">0</span>] ToggleSigIn;	<span class="comment">// 三级寄存器，前两级用于同步信号</span></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk <span class="keyword">or</span> <span class="keyword">negedge</span> rst_n) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> (~rst_n) <span class="keyword">begin</span></span><br><span class="line">            ToggleSigIn &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">begin</span></span><br><span class="line">            <span class="comment">// 移位寄存</span></span><br><span class="line">            ToggleSigIn &lt;= &#123;ToggleSigIn[<span class="number">1</span>:<span class="number">0</span>], SigIn&#125;;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 同步后的信号直接作为输出</span></span><br><span class="line">    <span class="keyword">assign</span> SigOut = ToggleSigIn[<span class="number">2</span>];	</span><br><span class="line">    <span class="comment">// 前一时刻为低电平 后一时刻为高电平 下降沿出现</span></span><br><span class="line">    <span class="keyword">assign</span> down   = (~ToggleSigIn[<span class="number">2</span>] &amp; ToggleSigIn[<span class="number">1</span>]);</span><br><span class="line">    <span class="comment">// 前一时刻为高电平 后一时刻为低电平 下降沿出现</span></span><br><span class="line">    <span class="keyword">assign</span> up     = (ToggleSigIn[<span class="number">2</span>] &amp; ~ToggleSigIn[<span class="number">1</span>]);</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+<p>看起来非常简单，但在实际使用中却是必不可少又十分有效的，譬如在串口接收中就需要简单信号线上下降沿的产生，以检测信号到来，当然，检测之前，做一次数据同步是必不可少的。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>sr-log</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数值分析总结</title>
+    <url>/2021/01/numerical-analysis-summary/</url>
+    <content><![CDATA[<p>今天是 1 月 6 号，两天后将进行数值分析考试，那是本学期的最后一门考试课（研究生课），也是我本科参加的最后一门考试了。这几天好好复习了一下，虽然老师上课讲的好像比较复杂，比较难，但真要考起来也不会太难，往年的考试题也比较简单，心里有底了。写个简单的知识点总结吧，就当是消磨时间了，剩下这一两天也怪难熬的。</p>
+<a id="more"></a>
+<p>总共分为 5 个部分：</p>
+<ul>
+<li>非线性方程和方程组的数值解法</li>
+<li>线性方程组的数值解法</li>
+<li>插值法和数值逼近</li>
+<li>数值积分</li>
+<li>常微分方程的初值问题和数值解法</li>
+</ul>
+<p>以及一个额外的问题：乘幂法求矩阵的最大模特征值及对应的特征向量。</p>
+<p>先从整体上来认识一下这门课程。数值分析，这个标题告诉我们这门课程就是要用一些数值方法去去近似求解一下难以求解的问题，这些问题往往是我们得不到解析解的，或者说只需要求出几个点的值而去求出整体的解析解没有多大意义，比如常第5部分会涉及到的常微分方程的初值问题。那么针对这些不同的问题，有哪些数值方法可以进行求解呢？</p>
+<h2 id="非线性方程和方程组的数值解法"><a href="#非线性方程和方程组的数值解法" class="headerlink" title="非线性方程和方程组的数值解法"></a>非线性方程和方程组的数值解法</h2><p>非线性方程和方程组，这无疑是我们最常遇到的难以求得解析解的问题，针对这类问题，有一些很好的迭代算法可以用于求解。对于非线性方程的求解，最简单的数值求解方法就是二分法，更高级一点的方法有牛顿法以及其改进形式。</p>
+<p>假设待求解的非线性方程是 $f(x) = 0$，迭代的第一步就是要通过这个方程构造出迭代形式：<br>$$<br>x_{k+1} = \phi(x_{k})<br>$$<br>其中，$\phi(x)$ 被称为迭代函数，迭代格式好不好就和这个迭代函数的性质有很大的关系。</p>
+<p>收敛阶：满足如下条件，则称迭代格式 p 阶收敛，其中 $\epsilon_{i}$ 为第 i 次迭代的误差。<br>$$<br>\rm{lim}\frac{|\epsilon_{i+1}|}{|\epsilon_{i}|}=c \ne 0<br>$$</p>
+<p>计算效率：$EI = p^{\frac{1}{\theta}}$。</p>
+<p>局部收敛性：若 $\phi(x)$ 在 $x = \phi(x)$ 的根 $\alpha$ 的邻域内有连续的一阶导数，且满足 $|\phi^{‘}(\alpha)| &lt; 1$，则称 $x_{k+1} = \phi(x_{k})$ 具有局部收敛性。而且我们可以推出，$\alpha$ 处的导数模值越小，迭代收敛越快，显然当它为零的时候，收敛最快，由此我们可以引出另外一个关于收敛阶的定理：$x=\phi(x)$ 的根 $\alpha$ 邻域内有充分多阶连续导数，则关于 $\alpha$ p 阶收敛等价于 $\phi(x)$ 在 $\alpha$ 处的前 p-1 阶导数值全都为0，且 p 阶导数不为0。</p>
+<p>了解了这些基础，对于二分法和牛顿法自然就是水到渠成的事情了。</p>
+<p>对于非线性方程组，我们也有相应的拟牛顿法进行计算，这都不是什么难事儿，只是在多元问题中，导数值的计算变成了 Jacobi 矩阵的计算。</p>
+<h2 id="线性方程组的数值解法"><a href="#线性方程组的数值解法" class="headerlink" title="线性方程组的数值解法"></a>线性方程组的数值解法</h2><p>再来看看线性方程组的数值解法。对一个线性方程组而言，当他满秩的时候</p>
+<h2 id="插值法和数值逼近"><a href="#插值法和数值逼近" class="headerlink" title="插值法和数值逼近"></a>插值法和数值逼近</h2><h2 id="数值积分"><a href="#数值积分" class="headerlink" title="数值积分"></a>数值积分</h2><h2 id="常微分方程的初值问题和数值解法"><a href="#常微分方程的初值问题和数值解法" class="headerlink" title="常微分方程的初值问题和数值解法"></a>常微分方程的初值问题和数值解法</h2>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>notes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>回家咯！</title>
+    <url>/2021/01/no-big-just-go-home/</url>
+    <content><![CDATA[<p>8 号考完了本科阶段的最后一门课，题目很简单，考得也很顺利，只是离毕业又近了一步。今天是 1 月 13 号，经过了将近两天的路程，火车转汽车再转汽车，终于在昨天下午到家了，现在还是有点恍惚，假期就这么开始了？希望结束的时候不稀里糊涂。</p>
+<a id="more"></a>
+<p>9 号和 10 号在学校快乐地玩耍了两天，10 号晚上坐上熟悉的那班火车，踏上回家的路。12号凌晨到达长沙，找个地方睡了一觉，第二天起来好歹是赶上了 9 点 20 回县城的大巴，令人不解的是大巴并没有同往常一样驶入站内，我们在站前的路上被放下了，有一段 6 车道宽的路，只有斑马线没有红绿灯，因为害怕，我在路旁站了起码 20 分钟才鼓起勇气穿过马路，在整个穿越的过程中，我都不太敢抬起头去看旁边的车，只敢用余光去看看，心想：如果就这么结束了，是不是也不算一件坏事儿……但并没有结束，我过去了，多等了一个小时，坐上了回来的车，这一趟折腾总算是结束了。</p>
+<p>说回假期的计划吧，这寒冷的天气都快让我忘记这回事儿了，在这种温度下，开始学习是一件需要很大勇气的事情，希望我有勇气开始，有定力能够坚持做下去。大概就下面这几件事情：</p>
+<ul>
+<li>基于 FPGA 的 LDPC 译码器</li>
+<li>算法</li>
+<li>C++</li>
+<li>英语</li>
+</ul>
+<p><strong>第一件事是最重要的，一定要放在首位，在假期结束的时候我需要完成，那么，为了达到这个目的，我的连续可用时间最长的下午就全部应该用来忙这件事儿。</strong></p>
+<p>其他三件都好说，没有硬性指标，<strong>只是一定要每天坚持去做</strong>，尤其是算法，希望每天都坚持看一点并且输出自己的想法，保证自己不是单纯的接受，一定要对输入的东西进行思考和加工。</p>
+<p>还有补充几点：保证适当的运动，不要生锈了；如果可能的话，看看有没有办法提高下自己的写作水平；打字速度该怎么提高呢；字该练了‘抄抄经吧……</p>
+<p>学习是没有尽头的，Linux 也应该看起来了，毕竟系统都装好了……</p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -1912,15 +2107,12 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>2021 第三天</title>
-    <url>/2021/01/day2-not-feeling-well/</url>
-    <content><![CDATA[<p>新年第三天了，这两天也没做什么事情，做了两次物联网实验，粘贴了一份读书报告，补完了数值分析的实验报告和作业，终于有时间复习数值分析了，下周五就要考试了，得抓紧复习了。</p>
-<a id="more"></a>
-<p>物联网这个实验做的实在太让人难受了，实验简单，本以为按照实验指导书一步步做就可以完成实验，这样就可以快速做完，腾出时间复习数值分析了，事实证明我想多了。最大的问题在于实验指导书就写得如同一坨狗屎，有时真不知道写这指导书的人在干嘛，写完之后有审核过吗？真的能起到指导作用吗？看来做这个产品的公司估计也不是一家好公司。很多时候，人们并不关系那种看起来很牛逼却看不懂的东西，大家会把更多的精力投入自己能够理解的那部分中去，以获得参与感和满足感，对于指导书一类的东西，一定要写的足够清楚，这才有意义。</p>
-<p>抄报告真的会上瘾？我想这是真的，尤其当你面对一个你不想写的报告，而这个学分你又非常想你拿到。最好是那种复制粘贴即可的，稍微改改格式就行的。理解别人的这种行为吧，因为我不知道什么时候自己也会去做，所以我应该做的不是苛责，而是思考背后的原因，这是关键。</p>
-<p>晚上头晕得厉害，估计是这些天来的累积结果，某一天晚上踢被子被冻醒了，昨天在正心一楼的大教室自习，脚一直没热过……想必是要感冒了，想到马上就要放假，不会开学那段极限坐车经历又要再次重演了吧，果真生活是个圈？赶紧找vv要了点药吃，希望赶紧好起来，还得复习数值分析，orz。</p>
-<p>啊！对了，看到一篇很感人的帖子<a href="https://m.hupu.com/bbs/40172727.html" target="_blank" rel="noopener">七年了，我还是很想你</a>，真羡慕啊，“有一个人能去爱，多珍贵”，后面和朋友们聊到这件事，说自己变得越来越现实，大概不会再去喜欢别人了，当我开始选择的时候，就意味着没有选择了，不过还是要相信真爱的，当不会在我这里发生就是了，祝各位幸福。</p>
-<p>OK，这大概就是这两天了，时间快到了，事也说得差不多了。晚安。</p>
+    <title>ready-for-final-exam</title>
+    <url>/2021/01/ready-for-final-exam/</url>
+    <content><![CDATA[<p>又过了两天，感冒还是没好全，但好在体温不高，应该不会影响我的回家计划，数值分析已经复习得差不多了，我的目标早就不是奖学金一类的东西了，因为太难了我追求不到，倒不如现在就改换赛道，做点别的事情，也让自己能够开心点，求不得苦还是少受点为好。</p>
+<p>真是糟糕，我已经记不得昨天发生了什么，午饭吃的什么东西呢？完全没有印象了，大概不重要的事情都是这样，一晃而过，我只是按照预订的路线去经历罢了，但那些刻骨铭心的事呢？我在内心不断对它进行加工，慢慢的，它变得面目全非，当时到底发生了发生什么，当时的我到底在想什么，都无从知晓了。这大概就是记录的意义，让平淡的生活留下痕迹，保留那些难得的珍贵回忆。</p>
+<p>这两天的复习就是在消磨时间，因为内心认为考试比较简单，没有必要花太多时间，所以早就把认为该看的内容看完了，可惜的是多出来的这点时间全都白白消耗了，打游戏，逛论坛，刷 B 站，干什么都好，就是没有正经学习。啊！该做的计划也没有做，记得用notion吧，或者找一个更好的离线版的工具，不然每天真的不知道自己都干了些什么，用文字记录虽然可以，但总是不够直白，图表形式才是最好的。罢了罢了，明天再说，又是这样的态度，可惜没有办法，只能明天再说了。</p>
+<p>明天好好考试，然后找老师讨论下放假要完成的任务，制定一个好的计划，这大概就是接下来的安排了。晚安。</p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -1947,145 +2139,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>一点数字电路设计的感悟</title>
-    <url>/2020/12/a-little-understanding-of-FPGA-design/</url>
-    <content><![CDATA[<p>惊呼：已经12月了！</p>
-<p>现在每日牵挂的无非是课设二字，近日还算专心钻研数字电路设计，也算是知道了一点东西，有一点感悟，不妨写下来，让这种感觉更加准确。<br><a id="more"></a><br>数字电路设计，无非是时序逻辑电路和组合逻辑电路，在 FPGA 设计中，就是带触发器的同步电路设计和纯组合电路设计，浅显的理解可以认为是阻塞赋值和非阻塞赋值的区别。话虽说得简单，但是实际做起来倒真的不容易，就比如我几天前写的那个串口接收和发送的代码，时序总是不对，后面多看了看别人的设计，才发现自己真是太嫩了，这种设计自然是有比较特定的规律。</p>
-<h2 id="边沿检测"><a href="#边沿检测" class="headerlink" title="边沿检测"></a>边沿检测</h2><p>边沿检测可算是最最经典的电路设计了，实际当中却是处处会用到。一个典型的检测电路如下：</p>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> Edge_detect(</span><br><span class="line">    <span class="keyword">input</span> clk,		<span class="comment">// 时钟</span></span><br><span class="line">    <span class="keyword">input</span> rst_n,	<span class="comment">// 复位信号</span></span><br><span class="line">    <span class="keyword">input</span> SigIn,	<span class="comment">// 输入信号 </span></span><br><span class="line">    <span class="keyword">output</span> SigOut,  <span class="comment">// 同步之后的输出信号</span></span><br><span class="line">    <span class="keyword">output</span> down,    <span class="comment">// 检测到下降沿产生一个脉冲</span></span><br><span class="line">    <span class="keyword">output</span> up	    <span class="comment">// 检测上升沿产生一个脉冲</span></span><br><span class="line">);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">reg</span> [<span class="number">2</span>:<span class="number">0</span>] ToggleSigIn;	<span class="comment">// 三级寄存器，前两级用于同步信号</span></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk <span class="keyword">or</span> <span class="keyword">negedge</span> rst_n) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> (~rst_n) <span class="keyword">begin</span></span><br><span class="line">            ToggleSigIn &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">begin</span></span><br><span class="line">            <span class="comment">// 移位寄存</span></span><br><span class="line">            ToggleSigIn &lt;= &#123;ToggleSigIn[<span class="number">1</span>:<span class="number">0</span>], SigIn&#125;;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 同步后的信号直接作为输出</span></span><br><span class="line">    <span class="keyword">assign</span> SigOut = ToggleSigIn[<span class="number">2</span>];	</span><br><span class="line">    <span class="comment">// 前一时刻为低电平 后一时刻为高电平 下降沿出现</span></span><br><span class="line">    <span class="keyword">assign</span> down   = (~ToggleSigIn[<span class="number">2</span>] &amp; ToggleSigIn[<span class="number">1</span>]);</span><br><span class="line">    <span class="comment">// 前一时刻为高电平 后一时刻为低电平 下降沿出现</span></span><br><span class="line">    <span class="keyword">assign</span> up     = (ToggleSigIn[<span class="number">2</span>] &amp; ~ToggleSigIn[<span class="number">1</span>]);</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-<p>看起来非常简单，但在实际使用中却是必不可少又十分有效的，譬如在串口接收中就需要简单信号线上下降沿的产生，以检测信号到来，当然，检测之前，做一次数据同步是必不可少的。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>sr-log</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>11 月的第一篇和最后一篇</title>
-    <url>/2020/11/log-11-29/</url>
-    <content><![CDATA[<p>已经是11月29日了，今天是教学周第12周的的最后一天，已经有许久没有整理整理了，今天正好休息，记下两笔吧。<br><a id="more"></a><br>先说毕设，距离我预订的完成时间还剩下两周，按照过去一个月的进度来看，我肯定无法在这最后两周完成全部内容，但我还想试试。我现在对 FPGA 的掌握程度还远没有达到预订的目标：给定一个需求，能够完成设计和代码实现。现在的我就算是照着设计去写代码都有很大的困难，问题出在哪里呢？这段时间以来，我也没闲着，也在看 Verilog 代码，也看了一些那几本书，但还是不得要领。按照之前学习的经验来看，还是代码抄得不够，我感觉回到了三年前，那是一次痛苦的 Python 学习经历，像个无头苍蝇一样撞了几天后直接放弃了，不过现在我没有放弃这个选项，我必须完成，那么在接下来这段时间多抄点代码吧，看看好的设计是怎么完成的。下周日再来检验吧。</p>
-<p>25号考完了本科中的最后一门必修课，恍惚间大学生活似乎就要结束了，真快啊。三年来，发生了一些有意思的事情，也碰到了很多有意思的人，完成了自己的执念也终于放下，有人永远地离去，我想抓住却已经来不及，珍惜身边人吧。</p>
-<p>加油。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>sr-log</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NS2 的介绍（六）—— trace 分析示例</title>
-    <url>/2020/04/ns2-trace-analysis-example/</url>
-    <content><![CDATA[<p>本文将展示一个 trace 分析示例，从中可以知道如何从 NS2 中生成 trace，如何解释 trace，如何从 trace 中得到有用的信息。在 <a href="/2020/04/ns2-simple-simulation-example/" title="模拟示例">模拟示例</a> 给出的代码 <a href="/2020/04/ns2-trace-analysis-example/ns-simple.tcl" title="ns-simple.tcl">ns-simple.tcl</a> 中的第 15、16 行，我们打开了一个 trace 文件，在 finish 步骤中，我们向 trace 文件中写入了 trace 信息。<a id="more"></a></p>
-<figure class="highlight tcl"><table><tr><td class="code"><pre><span class="line"><span class="comment">#...</span></span><br><span class="line"><span class="comment">#open trace file</span></span><br><span class="line"><span class="keyword">set</span> f [<span class="keyword">open</span> out.tr w]</span><br><span class="line">$ns <span class="keyword">trace</span>-all $f</span><br><span class="line">#...</span><br></pre></td></tr></table></figure>
-<p>执行代码<a href="/2020/04/ns2-trace-analysis-example/ns-simple.tcl" title="ns-simple.tcl">ns-simple.tcl</a>会生成一个 NAM trace 文件，该文件作为 NAM 的输入，同时还会生成一个名为 out.tr 的文件，该文件用于我们的模拟分析。下图展示了 trace 的格式和来自 out.tr 的 trace 数据示例。</p>
-<img src="/2020/04/ns2-trace-analysis-example/trace_format_example.png" title="trace 文件格式与示例">
-<p>每一个 trace 行依次为以下部分：</p>
-<ul>
-<li>事件描述符：+，-，d，r</li>
-<li>事件发生的模拟时间，单位：秒</li>
-<li>发起事件的节点</li>
-<li>接受的节点</li>
-<li>packet 类型</li>
-<li>packet 大小，单位 Byte</li>
-<li>分隔符：——</li>
-<li>flow id：使用者在 OTcl 脚本中定义的 flow id。在模拟中用不到，可用于后续分析</li>
-<li>源地址</li>
-<li>目的地址</li>
-<li>网络层协议下 packet 序列号：UDP 协议不需要使用序列号号但也会携带，便于分析</li>
-<li>packet id：每一个 packet 编号唯一</li>
-</ul>
-<p>拿到模拟数据后，我们要做的就是筛选出需要的信息，并把它们转换成更容易理解的形式然后分析。下面是一简单的数据转换示例，对上面得到的 out.tr 文件，在终端中执行 <code>cat out.tr | grep &quot; 2 3 cbr &quot; | grep ^r | awk &#39;BEGIN {oldtime=0;oldpacket=0;} {dif=$12-oldpacket;if(dif==0) dif=1; if(dif&gt;0) {printf(&quot;%d\t%f\n&quot;,$12,($2-oldtime)/dif); oldtime=$2;oldpacket=$12}}&#39; &gt; jitter.txt</code>，即可在目录下得到一个输出文件 jitter.txt。该命令从 trace 中提取节点 3 从 2 中接收 packet 的事件，并计算接收当前 packet 距离接收上一个 packet 的 packet 时延（接收时间差/packetID差）。使用 gnuplot 可以画出如下图像，X 轴为 packet 序列号，Y 轴为模拟时间（单位：秒）。</p>
-<p>这个例子中，仿真后的分析在 shell 终端中进行，但是这些处理也可以在输入的 OTcl 脚本中进行，我们将在下一节讨论。</p>
-<hr>
-<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>网络</tag>
-        <tag>NS2</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>『Channel Codes』笔记之有限域、向量空间、有限集合和图</title>
-    <url>/2020/06/finiteFields-VectorSpaces-FiniteGeometries-Graphs/</url>
-    <content><![CDATA[<p>我准备写一系列文章来记录阅读《Channel Codes》时留下来的笔记，这是第一篇，对应书中的第二章，介绍了有限域、向量空间、有限集合和图。无论是传统的信道编码还是现代的信道编码，都离不开这些代数和集合数学的概念，这些概念是信道编码的基础。<br><a id="more"></a></p>
-<h2 id="2-1-集合和二元运算"><a href="#2-1-集合和二元运算" class="headerlink" title="2.1 集合和二元运算"></a>2.1 集合和二元运算</h2><p>集合(set)就是一些特定对象的合集(collection)，这些对象被称作集合中的元素(element)。如：$X = {x_1, x_2, x_3, x_4, x_5, x_6}$，则 $X$ 是一个集合，它有 6 个元素。关于集合，我们需要知道下面这些：</p>
-<ul>
-<li>有限集(finite set)：集合中只有有限个元素；</li>
-<li>无限集(infinite set)：集合中的元素是无限个的；</li>
-<li>基数(cardinality)：集合 $X$ 中元素的个数就是元素的基数，记作 $| X|$。</li>
-<li>子集(subset)</li>
-<li>真子集(proper subset)</li>
-</ul>
-<p>定义在集合 $S$ 上的二元运算定义了一种规则，它对集合中的一对元素以<strong>确定的顺序</strong>进行运算，且结果仍然属于该集合。</p>
-<p>associative（结合的）：运算满足结合律。</p>
-<p>commutative（交换的）：运算满足交换律。</p>
-<h2 id="2-2-群"><a href="#2-2-群" class="headerlink" title="2.2 群"></a>2.2 群</h2><p>代数系统：集合定义在集合上的一些运算。</p>
-<h3 id="2-2-1-群的基本概念"><a href="#2-2-1-群的基本概念" class="headerlink" title="2.2.1 群的基本概念"></a>2.2.1 群的基本概念</h3><p>定义：集合和定义在集合上的一个二元元算称为群，且满足如下条件：</p>
-<ol>
-<li>运算满足结合律（associative）</li>
-<li>集合有一个单位元（identity element）</li>
-<li>对于任何一个元素，在集合中存在一个它的逆，且这个逆是唯一的。</li>
-</ol>
-<p>如果一个群是可交换的，那么称其为阿贝尔群。</p>
-<h3 id="2-2-2-有限群"><a href="#2-2-2-有限群" class="headerlink" title="2.2.2 有限群"></a>2.2.2 有限群</h3><h3 id="2-2-3-子群和陪集"><a href="#2-2-3-子群和陪集" class="headerlink" title="2.2.3 子群和陪集"></a>2.2.3 子群和陪集</h3><p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200803190531807.png" alt="image-20200803190531807"></p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200803190547257.png" alt="image-20200803190547257"></p>
-<p>陪集的一些性质：</p>
-<ol>
-<li>No two elements of a coset of H are identical. </li>
-<li>No two elements from two different cosets of H are identical. </li>
-<li>Every element of G appears in one and only one coset of H.</li>
-<li>All distinct cosets of H are disjoint.</li>
-<li>The union of all the distinct cosets of H forms the group G.</li>
-</ol>
-<p>拉格朗日定理：</p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200803191142440.png" alt="image-20200803191142440"></p>
-<h2 id="2-3-域"><a href="#2-3-域" class="headerlink" title="2.3 域"></a>2.3 域</h2><p>有限域在编码理论中非常重要。</p>
-<h3 id="2-3-1-定义和基本概念"><a href="#2-3-1-定义和基本概念" class="headerlink" title="2.3.1 定义和基本概念"></a>2.3.1 定义和基本概念</h3><p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200803193203931.png" alt="image-20200803193203931"></p>
-<p>从定义在可以看到，域可以分为两个群，每个群各有一个单位元素，因此域的元素个数至少为2，且可以证明：存在只含有两个元素的域。</p>
-<p>A field is simply an algebraic system in which we can perform addition, sub- traction, multiplication, and division without leaving the field.</p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200803193728641.png" alt="image-20200803193728641"></p>
-<p>从下面这个定义也可以引入到有限域：</p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200803194026394.png" alt="image-20200803194026394"></p>
-<p>一条证明，解释了师姐讲文章时的疑问：</p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200803194826387.png" alt="image-20200803194826387"></p>
-<h3 id="2-3-2-Finite-Fields"><a href="#2-3-2-Finite-Fields" class="headerlink" title="2.3.2 Finite Fields"></a>2.3.2 Finite Fields</h3><p>有限域又叫伽罗华域，在差错控制编码中非常重要。记作 GF(p)，p 为素数。</p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200804083806871.png" alt="image-20200804083806871"></p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200804083859309.png" alt="image-20200804083859309"></p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200804083922415.png" alt="image-20200804083922415"></p>
-<h2 id="2-4-Vector-Space"><a href="#2-4-Vector-Space" class="headerlink" title="2.4 Vector Space"></a>2.4 Vector Space</h2><h3 id="2-4-1-Basic-Definitions-and-Properties"><a href="#2-4-1-Basic-Definitions-and-Properties" class="headerlink" title="2.4.1 Basic Definitions and Properties"></a>2.4.1 Basic Definitions and Properties</h3><p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200804090317809.png" alt="image-20200804090317809"></p>
-<h2 id="2-5-Polynomials-over-Finite-Fields"><a href="#2-5-Polynomials-over-Finite-Fields" class="headerlink" title="2.5 Polynomials over Finite Fields"></a>2.5 Polynomials over Finite Fields</h2><h2 id="2-6-Construction-and-Properties-of-Galois-Fields"><a href="#2-6-Construction-and-Properties-of-Galois-Fields" class="headerlink" title="2.6 Construction and Properties of Galois Fields"></a>2.6 Construction and Properties of Galois Fields</h2><p>构造方法：通过 GF(p) 的 m 阶 primitive polynomials 得到 root a，那么，{0, 1, a, a^2, …, a^(p^m-2)} 构成了 GF(p^m)。</p>
-<h3 id="2-6-2-Some-Fundamental-Properties-of-Finite-Fields"><a href="#2-6-2-Some-Fundamental-Properties-of-Finite-Fields" class="headerlink" title="2.6.2 Some Fundamental Properties of Finite Fields"></a>2.6.2 Some Fundamental Properties of Finite Fields</h3><p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805085904765.png" alt="image-20200805085904765"></p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805085939344.png" alt="image-20200805085939344"></p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090049807.png" alt="image-20200805090049807"></p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090202552.png" alt="image-20200805090202552"></p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090223152.png" alt="image-20200805090223152"></p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090332982.png" alt="image-20200805090332982"></p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090359630.png" alt="image-20200805090359630"></p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090428880.png" alt="image-20200805090428880"></p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090506367.png" alt="image-20200805090506367"></p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090522736.png" alt="image-20200805090522736"></p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090540369.png" alt="image-20200805090540369"></p>
-<p><img src="2020-06-22-finiteFields-VectorSpaces-FiniteGeometries-Graphs/image-20200805090616153.png" alt="image-20200805090616153"></p>
-<h2 id="2-7-Finite-Geometries"><a href="#2-7-Finite-Geometries" class="headerlink" title="2.7 Finite Geometries"></a>2.7 Finite Geometries</h2>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>Channel Codes</tag>
-        <tag>文献笔记</tag>
-        <tag>抽象代数</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>新年快乐！2020 的小结与2021 年的展望</title>
     <url>/2021/01/happy-new-year-2021/</url>
     <content><![CDATA[<p>新年快乐，2020总算是过去了。</p>
@@ -2095,6 +2148,24 @@ proc complete_sim {} {...}
 <p>我永远对未来抱有美好的期望，只是我似乎不知道自己在期望什么，《球状闪电》中说到：美妙人生的关键在于你能迷上什么东西。我不知道自己有什么可以沉迷的，游戏么？最好不要，那就试试其他有用的吧，”有用的“，在我这里似乎什么都得有用才行，没有那种纯粹靠着一时冲动去做的，但我又何尝不在冲动之下犯下一个又一个错误呢？我啊，说的总是和做的差太多，算不上是个好人。那么这一次，我说，2021 年，我要大幅度提高自己对产品或者说是对人文世界的感知力。编程能力倒是先不着急，我知道自己一定不甘心在这方面落下的。</p>
 <p>昨晚收到老师送的礼物，还有星空，实在太美了，太感谢了。</p>
 <p>2021，做自己，不留遗憾。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021 第三天</title>
+    <url>/2021/01/day2-not-feeling-well/</url>
+    <content><![CDATA[<p>新年第三天了，这两天也没做什么事情，做了两次物联网实验，粘贴了一份读书报告，补完了数值分析的实验报告和作业，终于有时间复习数值分析了，下周五就要考试了，得抓紧复习了。</p>
+<a id="more"></a>
+<p>物联网这个实验做的实在太让人难受了，实验简单，本以为按照实验指导书一步步做就可以完成实验，这样就可以快速做完，腾出时间复习数值分析了，事实证明我想多了。最大的问题在于实验指导书就写得如同一坨狗屎，有时真不知道写这指导书的人在干嘛，写完之后有审核过吗？真的能起到指导作用吗？看来做这个产品的公司估计也不是一家好公司。很多时候，人们并不关系那种看起来很牛逼却看不懂的东西，大家会把更多的精力投入自己能够理解的那部分中去，以获得参与感和满足感，对于指导书一类的东西，一定要写的足够清楚，这才有意义。</p>
+<p>抄报告真的会上瘾？我想这是真的，尤其当你面对一个你不想写的报告，而这个学分你又非常想你拿到。最好是那种复制粘贴即可的，稍微改改格式就行的。理解别人的这种行为吧，因为我不知道什么时候自己也会去做，所以我应该做的不是苛责，而是思考背后的原因，这是关键。</p>
+<p>晚上头晕得厉害，估计是这些天来的累积结果，某一天晚上踢被子被冻醒了，昨天在正心一楼的大教室自习，脚一直没热过……想必是要感冒了，想到马上就要放假，不会开学那段极限坐车经历又要再次重演了吧，果真生活是个圈？赶紧找vv要了点药吃，希望赶紧好起来，还得复习数值分析，orz。</p>
+<p>啊！对了，看到一篇很感人的帖子<a href="https://m.hupu.com/bbs/40172727.html" target="_blank" rel="noopener">七年了，我还是很想你</a>，真羡慕啊，“有一个人能去爱，多珍贵”，后面和朋友们聊到这件事，说自己变得越来越现实，大概不会再去喜欢别人了，当我开始选择的时候，就意味着没有选择了，不过还是要相信真爱的，当不会在我这里发生就是了，祝各位幸福。</p>
+<p>OK，这大概就是这两天了，时间快到了，事也说得差不多了。晚安。</p>
 ]]></content>
       <categories>
         <category>生活</category>
