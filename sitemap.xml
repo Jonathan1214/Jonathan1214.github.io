@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jonathan1214.github.io/2021/01/day3-feeling-better/</loc>
+    
+    <lastmod>2021-01-14T02:13:26.480Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jonathan1214.github.io/2021/01/alogorithm-notes-complexity-analysis/</loc>
     
     <lastmod>2021-01-14T01:46:14.820Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://jonathan1214.github.io/2021/01/numerical-analysis-summary/</loc>
     
     <lastmod>2021-01-06T12:03:03.456Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jonathan1214.github.io/2021/01/day3-feeling-better/</loc>
-    
-    <lastmod>2021-01-05T15:07:47.250Z</lastmod>
     
   </url>
   
