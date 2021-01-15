@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="算法,数组," />
 
 
 
@@ -86,13 +86,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="dsfds&#39; blog">
-<meta property="og:url" content="https://jonathan1214.github.io/archives/2020/09/index.html">
+<meta name="description" content="今天就不写记录了，来写下今天做的两道题：duplicate zeros，merge sorted array，均来自 Array101 模块。 在写之前，我得反省下，做这两道题花的时间实在是太长了，这直接导致下午做毕设计划的失败，今天又是没做毕设的一天。已经是周五了，下周一需要和老师约一次讨论，后面两天抓紧点完成。为了控制自己去做不想做的事情，希望做到下面这些：刷题就给自己 15mins，做不出来">
+<meta name="keywords" content="算法,数组">
+<meta property="og:type" content="article">
+<meta property="og:title" content="向数组中插入数据">
+<meta property="og:url" content="https://jonathan1214.github.io/2021/01/inserting-items-into-an-array/index.html">
 <meta property="og:site_name" content="dsfds&#39; blog">
+<meta property="og:description" content="今天就不写记录了，来写下今天做的两道题：duplicate zeros，merge sorted array，均来自 Array101 模块。 在写之前，我得反省下，做这两道题花的时间实在是太长了，这直接导致下午做毕设计划的失败，今天又是没做毕设的一天。已经是周五了，下周一需要和老师约一次讨论，后面两天抓紧点完成。为了控制自己去做不想做的事情，希望做到下面这些：刷题就给自己 15mins，做不出来">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-01-15T13:44:09.572Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="dsfds&#39; blog">
+<meta name="twitter:title" content="向数组中插入数据">
+<meta name="twitter:description" content="今天就不写记录了，来写下今天做的两道题：duplicate zeros，merge sorted array，均来自 Array101 模块。 在写之前，我得反省下，做这两道题花的时间实在是太长了，这直接导致下午做毕设计划的失败，今天又是没做毕设的一天。已经是周五了，下周一需要和老师约一次讨论，后面两天抓紧点完成。为了控制自己去做不想做的事情，希望做到下面这些：刷题就给自己 15mins，做不出来">
 
 
 
@@ -122,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="https://jonathan1214.github.io/archives/2020/09/"/>
+  <link rel="canonical" href="https://jonathan1214.github.io/2021/01/inserting-items-into-an-array/"/>
 
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -131,7 +136,7 @@
 
 
 
-  <title>归档 | dsfds' blog</title>
+  <title>向数组中插入数据 | dsfds' blog</title>
   
 
 
@@ -150,7 +155,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -298,147 +303,279 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2021/01/inserting-items-into-an-array/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="dsfds">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dsfds' blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
-         
+          <h1 class="post-title" itemprop="name headline">向数组中插入数据</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-15T21:15:23+08:00">
+                2021-01-15
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2021-01-15T21:44:09+08:00">
+                2021-01-15
+              </time>
+            
+          </span>
+
           
-        好! 目前共计 59 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
 
-      
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
 
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2020">2020</h1>
-          </div>
-        
-        
 
-        
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/01/inserting-items-into-an-array/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/01/inserting-items-into-an-array/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/09/I-DID-IT/" itemprop="url">
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">完成小阶段任务——终于完成了简单的 LDPC 编译码</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.1k
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-09-24T09:31:36+08:00"
-              content="2020-09-24" >
-          09-24
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/09/sr-log-200916/" itemprop="url">
-              
-                <span itemprop="name">搬砖日记 2020.09.16</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-09-16T20:27:54+08:00"
-              content="2020-09-16" >
-          09-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/09/hang-out-for-half-a-month/" itemprop="url">
-              
-                <span itemprop="name">闲逛半个月</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-09-03T10:27:36+08:00"
-              content="2020-09-03" >
-          09-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>今天就不写记录了，来写下今天做的两道题：<a href="https://leetcode.com/problems/duplicate-zeros/" target="_blank" rel="noopener">duplicate zeros</a>，<a href="https://leetcode.com/problems/merge-sorted-array/" target="_blank" rel="noopener">merge sorted array</a>，均来自 Array101 模块。</p>
+<p>在写之前，我得反省下，做这两道题花的时间实在是太长了，这直接导致下午做毕设计划的失败，今天又是没做毕设的一天。已经是周五了，下周一需要和老师约一次讨论，后面两天抓紧点完成。为了控制自己去做不想做的事情，希望做到下面这些：刷题就给自己 15mins，做不出来就不要再想了，继续想下午八成也是做不出来的，不如直接看看答案的思路，好好学习下；别打游戏了……</p>
+<a id="more"></a>
+<p>先来看两道题的描述：</p>
+<blockquote>
+<p><strong>Duplicate Zeros</strong>：</p>
+<p>Given a fixed length array <code>arr</code> of integers, duplicate each occurrence of zero, shifting the remaining elements to the right. Note that elements beyond the length of the original array are not written. Do the above modifications to the input array <strong>in place</strong>, do not return anything from your function.</p>
+<p><em>example</em>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; Input: [1,0,2,3,0,4,5,0]</span><br><span class="line">&gt; Output: null</span><br><span class="line">&gt; Explanation: After calling your function, the input array is modified to: [1,0,0,2,3,0,0,4]</span><br><span class="line">&gt; </span><br><span class="line">&gt; Input: [1,2,3]</span><br><span class="line">&gt; Output: null</span><br><span class="line">&gt; Explanation: After calling your function, the input array is modified to: [1,2,3]</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p><strong>Merge Sorted Array</strong>：</p>
+<p>Given two sorted integer arrays <code>nums1</code> and <code>nums2</code>, merge <code>nums2</code> into <code>nums1</code> as one sorted array. The number of elements initialized in <code>nums1</code> and <code>nums2</code> are <code>m</code> and <code>n</code> respectively. You may assume that <code>nums1</code> has enough space (size that is equal to <code>m + n</code>) to hold additional elements from <code>nums2</code>.</p>
+<p><em>example</em>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3</span><br><span class="line">&gt; Output: [1,2,2,3,5,6]</span><br><span class="line">&gt; </span><br><span class="line">&gt; Input: nums1 = [1], m = 1, nums2 = [], n = 0</span><br><span class="line">&gt; Output: [1]</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>显然，这两道题是类似的，且第二道更简单，不过在看题解之前，我实在是想不出来该如何解决问题，知道看了题解才恍然大悟：原来我一直想的都是从前到后遍历数组，以期待解决问题，但未曾想到这两道题应该从后向前思考……</p>
+<p>以 duplicate zeros 为例，<code>O(n^2)</code> 的方法很容易想到：遍历数组，每当当前值为0，复制值到下一个位置，然后将所有的值都向后推。我们这里不考虑这种暴力解法。为了达成将数组中的 0 向后复制一个位置，且多出的数直接向后推出数组，如果从前向后考虑，那么向后迭代时我们需要保存好当前的值，还要根据下一个位置的值是否为 0 进行不同的操作，这里面的条件实在太多了，很难判断。如果从后向前考虑就不一样了，假设已经操作结束了，那么有相当一部分值被推出了数组，这不是是意味着原来他们所在的空间在迭代的时候是可以被使用的，如 example 中的 5，他位于数组的第7个位，在迭代时我们根本不用管这个数，假装他不存在就好了。为了达到这个目的，我们需要先遍历一遍数组，计算有多个 0 要被复制，这样我们就知道后几个值会被推出数组，然后再从后往前遍历，将他们依次尽可能的往数组末尾推，这样就完成了整个算法，当然其中有一些边界条件很烦人，需要细心处理。最终的代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">duplicateZeros</span><span class="params">(<span class="keyword">int</span>* arr, <span class="keyword">int</span> arrSize)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> zeros_cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> copy_from;</span><br><span class="line">    <span class="keyword">int</span> copy_to;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// count how many zeros in array</span></span><br><span class="line">    <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt; arrSize; i++ ) &#123;</span><br><span class="line">        <span class="keyword">if</span> ( i + zeros_cnt &lt; arrSize ) &#123;</span><br><span class="line">            <span class="keyword">if</span> ( arr[i] == <span class="number">0</span>)</span><br><span class="line">                zeros_cnt++;</span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> tmp = i + zeros_cnt;</span><br><span class="line">    <span class="keyword">if</span> ( zeros_cnt &gt; <span class="number">0</span> &amp;&amp; (tmp &gt; arrSize )) zeros_cnt--;</span><br><span class="line"></span><br><span class="line">    copy_from = arrSize - zeros_cnt - <span class="number">1</span>;</span><br><span class="line">    copy_to   = arrSize - <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// zeros at boundary, copy directly</span></span><br><span class="line">    <span class="keyword">if</span> ( arr[copy_from] == <span class="number">0</span> &amp;&amp; (tmp &gt; arrSize) )</span><br><span class="line">        arr[copy_to--] = arr[copy_from--];</span><br><span class="line">    <span class="comment">// exchange from end</span></span><br><span class="line">    <span class="keyword">while</span> ( copy_from &gt;= <span class="number">0</span> ) &#123;</span><br><span class="line">        <span class="keyword">if</span> ( arr[copy_from] == <span class="number">0</span> ) &#123;</span><br><span class="line">            arr[copy_to]   = <span class="number">0</span>;</span><br><span class="line">            arr[copy_to<span class="number">-1</span>] = <span class="number">0</span>;</span><br><span class="line">            copy_to -= <span class="number">2</span>;</span><br><span class="line">            copy_from--;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            arr[copy_to--] = arr[copy_from--];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>后面那道和前面的非常相似，为什么说更加简单？因为只需要从后往前向数组内写入两个数组当前值中的最小值即可，没有前面那道题中那么 tricky 的边界条件。最终的代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>* nums1, <span class="keyword">int</span> nums1Size, <span class="keyword">int</span> m, <span class="keyword">int</span>* nums2, <span class="keyword">int</span> nums2Size, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i   = m + n - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> p_1 = m - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> p_2 = n - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> curVal;</span><br><span class="line">    <span class="keyword">while</span> ( p_2 &gt;= <span class="number">0</span> &amp;&amp; p_1 &gt;= <span class="number">0</span> )</span><br><span class="line">        nums1[i--] = (nums2[p_2] &gt; nums1[p_1]) ? nums2[p_2--] : nums1[p_1--];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> ( p_2 &gt;= <span class="number">0</span> )</span><br><span class="line">        nums1[i--] = nums2[p_2--];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>简单总结下，当问题从前向后难以解决时，不妨假设问题已经解决了，基于解决后的情形试试从后往前处理。</p>
 
       
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    dsfds
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://jonathan1214.github.io/2021/01/inserting-items-into-an-array/" title="向数组中插入数据">https://jonathan1214.github.io/2021/01/inserting-items-into-an-array/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          
+            <a href="/tags/数组/" rel="tag"><i class="fa fa-tag"></i> 数组</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/01/day1-holiday-learning/" rel="next" title="寒假第一天的学习记录">
+                <i class="fa fa-chevron-left"></i> 寒假第一天的学习记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -446,6 +583,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -713,6 +857,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1122,26 +1270,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
