@@ -7,6 +7,7 @@ categories:
 tags:
   - 数组
   - 算法
+  - LeetCode
 ---
 
 今天就不写记录了，来写下今天做的两道题：[duplicate zeros](https://leetcode.com/problems/duplicate-zeros/)，[merge sorted array](https://leetcode.com/problems/merge-sorted-array/)，均来自 Array101 模块。
