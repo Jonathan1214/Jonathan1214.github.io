@@ -10,7 +10,7 @@ tags:
   - LeetCode
 ---
 
-接着上一篇 {% asset_link inserting-items-into-an-array '向数组中插入元素' %} 而来，下面这两道题是从数组中删除删除元素，解法一样：[Remove Element](https://leetcode.com/problems/remove-element/) 和 [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)。我还是太菜了，居然做不出来……看了 solution 之后才恍然大悟，原来如此，我把两个指针一前一后放置，然后向中间靠拢，但是后面那个指针的移动太快了，因此导致出错，真是『步子大了，喀嚓，容易扯着蛋』。
+接着上一篇 {% post_link inserting-items-into-an-array '向数组中插入元素' %} 而来，下面这两道题是从数组中删除删除元素，解法一样：[Remove Element](https://leetcode.com/problems/remove-element/) 和 [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)。我还是太菜了，居然做不出来……看了 solution 之后才恍然大悟，原来如此，我把两个指针一前一后放置，然后向中间靠拢，但是后面那个指针的移动太快了，因此导致出错，真是『步子大了，喀嚓，容易扯着蛋』。
 
 <!--more-->
 
