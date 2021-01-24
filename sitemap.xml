@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jonathan1214.github.io/2021/01/csapp-chapter2-notes-integer-float/</loc>
+    
+    <lastmod>2021-01-24T05:04:05.944Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jonathan1214.github.io/2021/01/STL-source-code-analysis-02introduction-of-STL-architecture-foundation/</loc>
     
     <lastmod>2021-01-22T13:02:03.928Z</lastmod>
