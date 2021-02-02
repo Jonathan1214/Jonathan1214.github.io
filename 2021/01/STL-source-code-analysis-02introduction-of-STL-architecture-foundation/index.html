@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="C/C++,notes,STL," />
+  <meta name="keywords" content="notes,C/C++,STL," />
 
 
 
@@ -87,20 +87,20 @@
 
 
 <meta name="description" content="STL 六大部件：  容器（Containers） 分配器（Allocators） 算法（Algorithms） 迭代器（Iterators） 适配器（Adapters） 仿函数（Functors）     一个例子： 1234567891011121314#include &amp;lt;vector&amp;gt;#include &amp;lt;algorithm&amp;gt;#include &amp;lt;functiona">
-<meta name="keywords" content="C&#x2F;C++,notes,STL">
+<meta name="keywords" content="notes,C&#x2F;C++,STL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="STL源码分析——02STL体系结构基础介绍">
 <meta property="og:url" content="https://jonathan1214.github.io/2021/01/STL-source-code-analysis-02introduction-of-STL-architecture-foundation/index.html">
 <meta property="og:site_name" content="dsfds&#39; blog">
 <meta property="og:description" content="STL 六大部件：  容器（Containers） 分配器（Allocators） 算法（Algorithms） 迭代器（Iterators） 适配器（Adapters） 仿函数（Functors）     一个例子： 1234567891011121314#include &amp;lt;vector&amp;gt;#include &amp;lt;algorithm&amp;gt;#include &amp;lt;functiona">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://jonathan1214.github.io/2021/01/STL-source-code-analysis-02introduction-of-STL-architecture-foundation/01/STL-source-code-analysis-02introduction-of-STL-architecture-foundation/image-20210119105439154.png">
-<meta property="og:image" content="https://jonathan1214.github.io/2021/01/STL-source-code-analysis-02introduction-of-STL-architecture-foundation/01/STL-source-code-analysis-02introduction-of-STL-architecture-foundation/image-20210119111745950.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2021/01/STL-source-code-analysis-02introduction-of-STL-architecture-foundation/image-20210119105439154.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2021/01/STL-source-code-analysis-02introduction-of-STL-architecture-foundation/image-20210119111745950.png">
 <meta property="og:updated_time" content="2021-02-01T12:53:53.030Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="STL源码分析——02STL体系结构基础介绍">
 <meta name="twitter:description" content="STL 六大部件：  容器（Containers） 分配器（Allocators） 算法（Algorithms） 迭代器（Iterators） 适配器（Adapters） 仿函数（Functors）     一个例子： 1234567891011121314#include &amp;lt;vector&amp;gt;#include &amp;lt;algorithm&amp;gt;#include &amp;lt;functiona">
-<meta name="twitter:image" content="https://jonathan1214.github.io/2021/01/STL-source-code-analysis-02introduction-of-STL-architecture-foundation/01/STL-source-code-analysis-02introduction-of-STL-architecture-foundation/image-20210119105439154.png">
+<meta name="twitter:image" content="https://jonathan1214.github.io/2021/01/STL-source-code-analysis-02introduction-of-STL-architecture-foundation/image-20210119105439154.png">
 
 
 
@@ -486,7 +486,7 @@
 <li>迭代器（Iterators）</li>
 <li>适配器（Adapters）</li>
 <li><p>仿函数（Functors）</p>
-<img src="/2021/01/STL-source-code-analysis-02introduction-of-STL-architecture-foundation/01/STL-source-code-analysis-02introduction-of-STL-architecture-foundation/image-20210119105439154.png">
+<img src="/2021/01/STL-source-code-analysis-02introduction-of-STL-architecture-foundation/image-20210119105439154.png">
 </li>
 </ul>
 <!--![image-20210119105439154](2021-01-19-STL-source-code-analysis-02introduction-of-STL-architecture-foundation/image-20210119105439154.png)-->
@@ -496,7 +496,7 @@
 <p>遍历容器：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Container&lt;T&gt; c;</span><br><span class="line"></span><br><span class="line">Container&lt;T&gt;::iterator ite = c.begin();</span><br><span class="line"><span class="keyword">for</span> (; ite != c.end(); ++ite) &#123;&#125;</span><br></pre></td></tr></table></figure></p>
 <p>C++11带来的新方法：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//    for ( decl : coll ) &#123;</span></span><br><span class="line"><span class="comment">//        statement;</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i : &#123; <span class="number">2</span>, <span class="number">3</span> ,<span class="number">5</span>, <span class="number">7</span>&#125; ) &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; vec;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">auto</span> elem : vec ) &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; elem &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">auto</span> &amp;elem : vec ) &#123;</span><br><span class="line">        elem *= <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="容器——结构与分类"><a href="#容器——结构与分类" class="headerlink" title="容器——结构与分类"></a>容器——结构与分类</h2> <img src="/2021/01/STL-source-code-analysis-02introduction-of-STL-architecture-foundation/01/STL-source-code-analysis-02introduction-of-STL-architecture-foundation/image-20210119111745950.png">
+<h2 id="容器——结构与分类"><a href="#容器——结构与分类" class="headerlink" title="容器——结构与分类"></a>容器——结构与分类</h2> <img src="/2021/01/STL-source-code-analysis-02introduction-of-STL-architecture-foundation/image-20210119111745950.png">
 <p>序列型容器（Sequence Containers）：</p>
 <ul>
 <li>Array（C++11）</li>
@@ -532,9 +532,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C-C/" rel="tag"><i class="fa fa-tag"></i> C/C++</a>
-          
             <a href="/tags/notes/" rel="tag"><i class="fa fa-tag"></i> notes</a>
+          
+            <a href="/tags/C-C/" rel="tag"><i class="fa fa-tag"></i> C/C++</a>
           
             <a href="/tags/STL/" rel="tag"><i class="fa fa-tag"></i> STL</a>
           

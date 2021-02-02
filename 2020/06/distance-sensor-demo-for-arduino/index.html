@@ -93,12 +93,12 @@
 <meta property="og:site_name" content="dsfds&#39; blog">
 <meta property="og:description" content="Distance sensor can be very useful in some conditons, such as obstacles detecting and avoiding. By using arduino, it’s very easy for us to use distance sensor. This demo show us a simple example to us">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://jonathan1214.github.io/2020/06/distance-sensor-demo-for-arduino/06/distance-sensor-demo-for-arduino/distance-sensor-demo.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/06/distance-sensor-demo-for-arduino/distance-sensor-demo.png">
 <meta property="og:updated_time" content="2020-06-01T11:02:46.592Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A Distance Sensor Demo For Arduino">
 <meta name="twitter:description" content="Distance sensor can be very useful in some conditons, such as obstacles detecting and avoiding. By using arduino, it’s very easy for us to use distance sensor. This demo show us a simple example to us">
-<meta name="twitter:image" content="https://jonathan1214.github.io/2020/06/distance-sensor-demo-for-arduino/06/distance-sensor-demo-for-arduino/distance-sensor-demo.png">
+<meta name="twitter:image" content="https://jonathan1214.github.io/2020/06/distance-sensor-demo-for-arduino/distance-sensor-demo.png">
 
 
 
@@ -477,7 +477,7 @@
 <li>some DuPont lines</li>
 </ul>
 <h2 id="Step-1-Design-and-connect-circuit"><a href="#Step-1-Design-and-connect-circuit" class="headerlink" title="Step 1 Design and connect circuit"></a>Step 1 Design and connect circuit</h2><p>Browsering internet, it’s easy to find instructions of HC-SR04 and LCD1602. And there are so many libraries for us in arduino. In our circuit, arduino digital pin 2, 3, 4, 5, 11 and 12 are used for LCD1602 while digital pin 7 and 8 are for HC-SR04. LED uses digital pin 13. Finally, following is our circuits.</p>
-<img src="/2020/06/distance-sensor-demo-for-arduino/06/distance-sensor-demo-for-arduino/distance-sensor-demo.png" title="Final Circuit">
+<img src="/2020/06/distance-sensor-demo-for-arduino/distance-sensor-demo.png" title="Final Circuit">
 <h2 id="Step2-Code"><a href="#Step2-Code" class="headerlink" title="Step2 Code"></a>Step2 Code</h2><p>As we said before, our program is  based on libraries. So it’s simple to write code. Later I will display complete code. </p>
 <p>Outside the loop, we define a function readUltrasonicDistance used for HC-SR04. Calling this readUltrasonicDistance, we get distance in centimeter. Inside the function setup, we initialize a LCD1604. In the loop, we get distance in centimeter by calling function readUltrasonicDistance. Then we clear LCD screen and print some characters and distance we just got. Finally, we turn on the LED if distance less than 90cm, or turn off the LED if not less than 90cm.</p>
 <p>Here shows complete code.</p>
