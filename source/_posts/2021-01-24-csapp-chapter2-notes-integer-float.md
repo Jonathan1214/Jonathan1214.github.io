@@ -2,6 +2,8 @@
 title: CSAPP 第二章 信息的表示及处理
 date: 2021-01-24 12:55:36
 updated:
+copyright: true
+mathjax: true
 categories:
   - 学习
 tags:
