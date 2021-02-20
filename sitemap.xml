@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jonathan1214.github.io/categories/index.html</loc>
+    
+    <lastmod>2021-02-20T12:48:06.201Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jonathan1214.github.io/tags/index.html</loc>
+    
+    <lastmod>2021-02-20T12:47:50.667Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jonathan1214.github.io/about/index.html</loc>
+    
+    <lastmod>2021-02-20T12:47:25.215Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jonathan1214.github.io/2021/02/happy-chinese-new-year/</loc>
     
     <lastmod>2021-02-11T15:09:14.949Z</lastmod>
@@ -54,13 +75,6 @@
     <loc>https://jonathan1214.github.io/2021/01/hdlbits-sequantial-logic-ff-and-counter/</loc>
     
     <lastmod>2021-02-02T02:20:39.640Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jonathan1214.github.io/about/index.html</loc>
-    
-    <lastmod>2021-02-02T01:41:32.778Z</lastmod>
     
   </url>
   
@@ -488,20 +502,6 @@
     <loc>https://jonathan1214.github.io//404/index.html</loc>
     
     <lastmod>2020-04-07T07:41:06.105Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jonathan1214.github.io/categories/index.html</loc>
-    
-    <lastmod>2020-04-07T06:47:14.028Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jonathan1214.github.io/tags/index.html</loc>
-    
-    <lastmod>2020-04-07T06:43:48.961Z</lastmod>
     
   </url>
   
