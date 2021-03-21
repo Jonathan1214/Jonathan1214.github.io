@@ -1,5 +1,5 @@
 ---
-title: 『weekly』
+title: 『weekly』忽然第二周也结束了
 copyright: true
 date: 2021-03-21 15:00:10
 updated:
