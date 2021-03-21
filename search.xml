@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>一点思考</title>
-    <url>/2018/04/A_little_thinking/</url>
-    <content><![CDATA[<p>时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>思考</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>记录科创中期答辩</title>
     <url>/2018/04/My_first_lose/</url>
     <content><![CDATA[<p>今天下午的科创中期答辩我们组当掉了，说实话我们什么都没做，单纯的想敷衍过去，很不幸，老师没有让我们通过，4月29号要再来一次，希望可以通过吧。<br><a id="more"></a><br>关于这次答辩，我还是有些东西想记下来的：</p>
@@ -26,6 +14,18 @@
       </categories>
       <tags>
         <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一点思考</title>
+    <url>/2018/04/A_little_thinking/</url>
+    <content><![CDATA[<p>时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
@@ -89,8 +89,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>C/C++</tag>
         <tag>数据结构</tag>
+        <tag>C/C++</tag>
       </tags>
   </entry>
   <entry>
@@ -139,38 +139,6 @@
       </tags>
   </entry>
   <entry>
-    <title>union-find算法的原理及实现</title>
-    <url>/2020/03/union-find/</url>
-    <content><![CDATA[<p>在计算机网络中，对于任意两个节点，可以在其间构建一条连接建立通信，这样做没有问题，但是在整个网络中都这么做会导致需要建立的连接非常多，容易计算得到<code>N</code>个节点的网络需要的连接数<code>N(N-1)/2</code>，这增加了网络的负担，实现起来也不容易，有什么办法改进呢？六度空间理论大家都知道，说的是最多通过六个人，我们可以和世界上任何人建立联系，那么如何知道两个人之间是否可以建立联系呢？这两个问题其实都属于连通性问题，可以使用<code>union-find</code>算法解决，步骤如下：</p>
-<h2 id="1-数据准备"><a href="#1-数据准备" class="headerlink" title="1. 数据准备"></a>1. 数据准备</h2><p><code>p</code>和<code>q</code>表示两个抽象的节点，可以用整数表示，如果『p，q 是相连的』，则意味着：</p>
-<ul>
-<li>自反性：<code>p</code>和<code>p</code>是相连的。</li>
-<li>对称性：如果<code>p</code>和<code>q</code>相连，则<code>q</code>和<code>p</code>也是相连的。</li>
-<li>传递性：如果<code>p</code>和<code>q</code>相连，<code>q</code>和<code>r</code>相连，则<code>p</code>和<code>r</code>也相连。</li>
-</ul>
-<p>我们可以用一个数组表示所有的节点，数组的每个位置表示一个节点，每个位置的值表示这个节点所在分量的标识符，初始化的时候每个节点的标识符都是其本身，如下所示：<br><a id="more"></a></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">UF</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N]; <span class="comment">// 初始化节点数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h2><h3 id="quick-find"><a href="#quick-find" class="headerlink" title="quick-find"></a>quick-find</h3><p>在<code>union-find</code>算法中，有两个目标需要实现：判断两个节点是否连通和连接两个节点的。一种简单的思路是这样的，规定同属一个连通分量的标识符相同，比如：节点<code>0</code>，<code>1</code>和<code>2</code>是连通的，我们选择<code>1</code>为标识符，那么<code>a[0]=a[1]=a[2]=1</code>。这样做判断两个节点是否连通就可以在常数时间完成，基于此规则我们可以实现<code>quick-find</code>算法，但是这样做<code>union</code>的成本就会上升，每次<code>union</code>，需要遍历所有的节点，并对合适节点的标识符进行改变，这是个平方级别的算法，如下所示。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isConnected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> find(p)==find(q);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123; <span class="keyword">return</span> a[p]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pp = find(p);   <span class="comment">// p 节点的标识符</span></span><br><span class="line">    <span class="keyword">int</span> qq = find(q);   <span class="comment">// q 节点的标识符</span></span><br><span class="line">    <span class="keyword">if</span> (pp == qq) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">// 将 pp 标识符全部改成 qq</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++)</span><br><span class="line">        <span class="keyword">if</span> (a[i] == pp) a[i] = qq;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="quick-union"><a href="#quick-union" class="headerlink" title="quick-union"></a>quick-union</h3><p>quick-find算法中，union的成本是平方级别的，其原因在于每次union需要遍历全部的节点，可以进行一些调整，得到改进，这就是quick-union算法。具体实现：在同一类别的中的节点，我们不再让所有节点保存相同的标识符，而是在节点中保持其父节点，类似一棵树，不过是向上走的，子节点指向父节点，根节点保存的是他自己，这样一来，进行union操作时，至于遍历找到根节点，然后让其中一个根节点指向另一个根节点即可，进行find操作时，只需遍历找到根节点即指向自身的节点。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p];</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="comment">// pRoot 节点指向 Qroot</span></span><br><span class="line">    a[pRoot] = qRoot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="加权-quick-union"><a href="#加权-quick-union" class="headerlink" title="加权 quick-union"></a>加权 quick-union</h3><p>这样做没什么问题，但是在最坏情况下，节点是依次相连的，串成一串，这会导致算法的性能下降，我们对其稍加改进，每次union时，都把节点数小的那一组连接到节点数大的那一组，这就是加权的quick-union算法。实现这个算法我们需要一个数组保存每个节点下节点的数目，对根节点而言，这个数就是它所在组的大小。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">UF(<span class="keyword">int</span> N) &#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N];     <span class="comment">// 初始化节点数组</span></span><br><span class="line">    sz = <span class="keyword">new</span> <span class="keyword">int</span>[N];    <span class="comment">// 保存节点数目</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        sz[i] = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// find 算法没有改变</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="keyword">if</span> (pRoot == qRoot) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (sz[pRoot] &gt; sz[qRoot]) &#123; <span class="comment">// p 所在组较大</span></span><br><span class="line">        a[qRoot] = pRoot; <span class="comment">// 将q连接到q上</span></span><br><span class="line">        sz[pRoot] += sz[qRoot]; <span class="comment">// 更新 pRoot 下的节点数</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;    <span class="comment">// q 所在组较大</span></span><br><span class="line">        a[pRoot] = qRoot;</span><br><span class="line">        sz[qRoot] += sz[pRoot];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="路径压缩"><a href="#路径压缩" class="headerlink" title="路径压缩"></a>路径压缩</h3><p>还有一种路径压缩算法可以改进quick-union，即每次查找时，都把途径的节点指向根节点，这样均摊下来的find成本比较小，可以证明，路径压缩的加权quick-union算法是实现union-find最快的算法。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = p, t;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p]; <span class="comment">// 找到根节点</span></span><br><span class="line">    <span class="keyword">while</span> (x != p) &#123; <span class="comment">// 直到到达根节点</span></span><br><span class="line">        t = a[x];   <span class="comment">// 保存当前节点的父节点</span></span><br><span class="line">        a[x] = p;   <span class="comment">// 当前节点直接连接到根节点</span></span><br><span class="line">        x = t;      <span class="comment">// 移动到当前节点的父节点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// union 算法不变</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p>回到开头的那两个问题，有了union-find算法，我们来尝试解决它们。对于网络中节点是否需要构建新的连接，抽象出网络的节点构建起<code>UF</code>后，执行<code>isConnected()</code>即可判断是否需要建立新的连接，对于两个人是否可以建立连接的问题，我们用同样的方法也可以解决，但要是想通过最少的中间人就认识一个人，该怎么做呢，这又是另外一个问题了。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>union-find</tag>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>算法的分析方法</title>
     <url>/2020/03/a-way-to-algorithm-analysis/</url>
     <content><![CDATA[<p>也看了几天『算法』了，总是觉得不得要领，在此做一点笔记想必会有所帮助，能够完整地写下来或者清楚地讲述给别人并使之理解才算掌握了知识，这个观点来自费曼，我深以为然。<br><!-- 这里应该添加一个目录 --><br><a id="more"></a></p>
@@ -213,6 +181,38 @@
       <tags>
         <tag>算法</tag>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>union-find算法的原理及实现</title>
+    <url>/2020/03/union-find/</url>
+    <content><![CDATA[<p>在计算机网络中，对于任意两个节点，可以在其间构建一条连接建立通信，这样做没有问题，但是在整个网络中都这么做会导致需要建立的连接非常多，容易计算得到<code>N</code>个节点的网络需要的连接数<code>N(N-1)/2</code>，这增加了网络的负担，实现起来也不容易，有什么办法改进呢？六度空间理论大家都知道，说的是最多通过六个人，我们可以和世界上任何人建立联系，那么如何知道两个人之间是否可以建立联系呢？这两个问题其实都属于连通性问题，可以使用<code>union-find</code>算法解决，步骤如下：</p>
+<h2 id="1-数据准备"><a href="#1-数据准备" class="headerlink" title="1. 数据准备"></a>1. 数据准备</h2><p><code>p</code>和<code>q</code>表示两个抽象的节点，可以用整数表示，如果『p，q 是相连的』，则意味着：</p>
+<ul>
+<li>自反性：<code>p</code>和<code>p</code>是相连的。</li>
+<li>对称性：如果<code>p</code>和<code>q</code>相连，则<code>q</code>和<code>p</code>也是相连的。</li>
+<li>传递性：如果<code>p</code>和<code>q</code>相连，<code>q</code>和<code>r</code>相连，则<code>p</code>和<code>r</code>也相连。</li>
+</ul>
+<p>我们可以用一个数组表示所有的节点，数组的每个位置表示一个节点，每个位置的值表示这个节点所在分量的标识符，初始化的时候每个节点的标识符都是其本身，如下所示：<br><a id="more"></a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">UF</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N]; <span class="comment">// 初始化节点数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h2><h3 id="quick-find"><a href="#quick-find" class="headerlink" title="quick-find"></a>quick-find</h3><p>在<code>union-find</code>算法中，有两个目标需要实现：判断两个节点是否连通和连接两个节点的。一种简单的思路是这样的，规定同属一个连通分量的标识符相同，比如：节点<code>0</code>，<code>1</code>和<code>2</code>是连通的，我们选择<code>1</code>为标识符，那么<code>a[0]=a[1]=a[2]=1</code>。这样做判断两个节点是否连通就可以在常数时间完成，基于此规则我们可以实现<code>quick-find</code>算法，但是这样做<code>union</code>的成本就会上升，每次<code>union</code>，需要遍历所有的节点，并对合适节点的标识符进行改变，这是个平方级别的算法，如下所示。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isConnected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> find(p)==find(q);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123; <span class="keyword">return</span> a[p]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pp = find(p);   <span class="comment">// p 节点的标识符</span></span><br><span class="line">    <span class="keyword">int</span> qq = find(q);   <span class="comment">// q 节点的标识符</span></span><br><span class="line">    <span class="keyword">if</span> (pp == qq) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">// 将 pp 标识符全部改成 qq</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++)</span><br><span class="line">        <span class="keyword">if</span> (a[i] == pp) a[i] = qq;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="quick-union"><a href="#quick-union" class="headerlink" title="quick-union"></a>quick-union</h3><p>quick-find算法中，union的成本是平方级别的，其原因在于每次union需要遍历全部的节点，可以进行一些调整，得到改进，这就是quick-union算法。具体实现：在同一类别的中的节点，我们不再让所有节点保存相同的标识符，而是在节点中保持其父节点，类似一棵树，不过是向上走的，子节点指向父节点，根节点保存的是他自己，这样一来，进行union操作时，至于遍历找到根节点，然后让其中一个根节点指向另一个根节点即可，进行find操作时，只需遍历找到根节点即指向自身的节点。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p];</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="comment">// pRoot 节点指向 Qroot</span></span><br><span class="line">    a[pRoot] = qRoot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="加权-quick-union"><a href="#加权-quick-union" class="headerlink" title="加权 quick-union"></a>加权 quick-union</h3><p>这样做没什么问题，但是在最坏情况下，节点是依次相连的，串成一串，这会导致算法的性能下降，我们对其稍加改进，每次union时，都把节点数小的那一组连接到节点数大的那一组，这就是加权的quick-union算法。实现这个算法我们需要一个数组保存每个节点下节点的数目，对根节点而言，这个数就是它所在组的大小。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">UF(<span class="keyword">int</span> N) &#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="keyword">int</span>[N];     <span class="comment">// 初始化节点数组</span></span><br><span class="line">    sz = <span class="keyword">new</span> <span class="keyword">int</span>[N];    <span class="comment">// 保存节点数目</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        a[i] = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        sz[i] = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// find 算法没有改变</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="keyword">if</span> (pRoot == qRoot) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (sz[pRoot] &gt; sz[qRoot]) &#123; <span class="comment">// p 所在组较大</span></span><br><span class="line">        a[qRoot] = pRoot; <span class="comment">// 将q连接到q上</span></span><br><span class="line">        sz[pRoot] += sz[qRoot]; <span class="comment">// 更新 pRoot 下的节点数</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;    <span class="comment">// q 所在组较大</span></span><br><span class="line">        a[pRoot] = qRoot;</span><br><span class="line">        sz[qRoot] += sz[pRoot];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="路径压缩"><a href="#路径压缩" class="headerlink" title="路径压缩"></a>路径压缩</h3><p>还有一种路径压缩算法可以改进quick-union，即每次查找时，都把途径的节点指向根节点，这样均摊下来的find成本比较小，可以证明，路径压缩的加权quick-union算法是实现union-find最快的算法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = p, t;</span><br><span class="line">    <span class="keyword">while</span> (a[p] != p) p = a[p]; <span class="comment">// 找到根节点</span></span><br><span class="line">    <span class="keyword">while</span> (x != p) &#123; <span class="comment">// 直到到达根节点</span></span><br><span class="line">        t = a[x];   <span class="comment">// 保存当前节点的父节点</span></span><br><span class="line">        a[x] = p;   <span class="comment">// 当前节点直接连接到根节点</span></span><br><span class="line">        x = t;      <span class="comment">// 移动到当前节点的父节点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// union 算法不变</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>回到开头的那两个问题，有了union-find算法，我们来尝试解决它们。对于网络中节点是否需要构建新的连接，抽象出网络的节点构建起<code>UF</code>后，执行<code>isConnected()</code>即可判断是否需要建立新的连接，对于两个人是否可以建立连接的问题，我们用同样的方法也可以解决，但要是想通过最少的中间人就认识一个人，该怎么做呢，这又是另外一个问题了。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>Java</tag>
+        <tag>union-find</tag>
       </tags>
   </entry>
   <entry>
@@ -857,10 +857,10 @@ proc complete_sim {} {...}
         <category>学习</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
         <tag>算法</tag>
-        <tag>Java</tag>
+        <tag>数据结构</tag>
         <tag>notes</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -1149,8 +1149,8 @@ proc complete_sim {} {...}
         <category>学习</category>
       </categories>
       <tags>
-        <tag>Ad-Hoc</tag>
         <tag>notes</tag>
+        <tag>Ad-Hoc</tag>
       </tags>
   </entry>
   <entry>
@@ -1170,6 +1170,36 @@ proc complete_sim {} {...}
       <tags>
         <tag>网络</tag>
         <tag>NS2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Notes of Satellite Communications</title>
+    <url>/2020/04/stallite-communications-notes/</url>
+    <content><![CDATA[<p>卫星通信课的笔记，持续更新。<br><a id="more"></a></p>
+<h2 id="1-Overview-of-Satellite-Systems"><a href="#1-Overview-of-Satellite-Systems" class="headerlink" title="1. Overview of Satellite Systems"></a>1. Overview of Satellite Systems</h2><h3 id="1-1-Frequency-Allocations"><a href="#1-1-Frequency-Allocations" class="headerlink" title="1.1. Frequency Allocations"></a>1.1. Frequency Allocations</h3><p>频率资源非常紧张，国际上由 ITU ( International Telecommunication<br>Union ) 同一管理分配。在卫星通信中，为了更好地对频率资源进行管理，将世界分成三个区域。</p>
+<ul>
+<li>Region 1: Europe, Africa, what was formerly the Soviet Union, and Mongolia</li>
+<li>Region 2: North and South America and Greenland</li>
+<li>Region 3: Asia (excluding region 1 areas), Australia, and the southwest Pacific</li>
+</ul>
+<p>在区域内，全频带可使用。这些频率资源基本上是用于提供下面这些服务，当然它们也可以细分出很多内容，如 Mobile satellite services 中包含了 land mobile，maritime mobile 和 aeronautical mobile。</p>
+<ul>
+<li>Fixed satellite service (FSS)</li>
+<li>Broadcasting satellite service (BSS)</li>
+<li>Mobile satellite services</li>
+<li>Navigational satellite services</li>
+<li>Meteorological satellite services</li>
+</ul>
+<p>下表展示了常用的频带和它们的名称，这些都是常识。</p>
+<img src="/2020/04/stallite-communications-notes/frequency_band_designations.png" title="Frequency Band Designations">
+<p>还有一种 ITU 的频段划分方式，不在卫星通信中使用：</p>
+<img src="/2020/04/stallite-communications-notes/itu_frequency_band_designations.png" title="ITU Frequency Band Designations">
+<h2 id="2-Orbits-and-Launching-Methods"><a href="#2-Orbits-and-Launching-Methods" class="headerlink" title="2. Orbits and Launching Methods"></a>2. Orbits and Launching Methods</h2>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>notes</tag>
       </tags>
   </entry>
   <entry>
@@ -1238,36 +1268,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>Notes of Satellite Communications</title>
-    <url>/2020/04/stallite-communications-notes/</url>
-    <content><![CDATA[<p>卫星通信课的笔记，持续更新。<br><a id="more"></a></p>
-<h2 id="1-Overview-of-Satellite-Systems"><a href="#1-Overview-of-Satellite-Systems" class="headerlink" title="1. Overview of Satellite Systems"></a>1. Overview of Satellite Systems</h2><h3 id="1-1-Frequency-Allocations"><a href="#1-1-Frequency-Allocations" class="headerlink" title="1.1. Frequency Allocations"></a>1.1. Frequency Allocations</h3><p>频率资源非常紧张，国际上由 ITU ( International Telecommunication<br>Union ) 同一管理分配。在卫星通信中，为了更好地对频率资源进行管理，将世界分成三个区域。</p>
-<ul>
-<li>Region 1: Europe, Africa, what was formerly the Soviet Union, and Mongolia</li>
-<li>Region 2: North and South America and Greenland</li>
-<li>Region 3: Asia (excluding region 1 areas), Australia, and the southwest Pacific</li>
-</ul>
-<p>在区域内，全频带可使用。这些频率资源基本上是用于提供下面这些服务，当然它们也可以细分出很多内容，如 Mobile satellite services 中包含了 land mobile，maritime mobile 和 aeronautical mobile。</p>
-<ul>
-<li>Fixed satellite service (FSS)</li>
-<li>Broadcasting satellite service (BSS)</li>
-<li>Mobile satellite services</li>
-<li>Navigational satellite services</li>
-<li>Meteorological satellite services</li>
-</ul>
-<p>下表展示了常用的频带和它们的名称，这些都是常识。</p>
-<img src="/2020/04/stallite-communications-notes/frequency_band_designations.png" title="Frequency Band Designations">
-<p>还有一种 ITU 的频段划分方式，不在卫星通信中使用：</p>
-<img src="/2020/04/stallite-communications-notes/itu_frequency_band_designations.png" title="ITU Frequency Band Designations">
-<h2 id="2-Orbits-and-Launching-Methods"><a href="#2-Orbits-and-Launching-Methods" class="headerlink" title="2. Orbits and Launching Methods"></a>2. Orbits and Launching Methods</h2>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>notes</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode | 19 删除链表的倒数第N个节点</title>
     <url>/2020/05/delete-numN-node-at-reverse-order-in-list/</url>
     <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个链表，删除链表的倒数第 n 个节点，并返回链表的头结点。<br><a id="more"></a></p>
@@ -1319,8 +1319,8 @@ proc complete_sim {} {...}
         <category>学习</category>
       </categories>
       <tags>
-        <tag>C/C++</tag>
         <tag>算法</tag>
+        <tag>C/C++</tag>
         <tag>链表</tag>
         <tag>LeetCode</tag>
       </tags>
@@ -1402,6 +1402,38 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>MPSK 和 MQAM 的误码率仿真</title>
+    <url>/2020/05/ber-and-ser-of-PSK-and-QAM/</url>
+    <content><![CDATA[<p>拖延几日，不觉课程已结课几天了，在此趁着脑中还有些关于课程内容的印象，简单写一篇记录，关于如何使用MATLAB构建一个调制技术的仿真程序。<br><a id="more"></a></p>
+<h2 id="BPSK"><a href="#BPSK" class="headerlink" title="BPSK"></a>BPSK</h2><p>首先来看最简单的二进制仿真，以 BPSK 为例，我们来看看如何搭建一个仿真仿真程序，从中得到些一般的仿真设置方法。</p>
+<p>在进行仿真之前，先看看我们期待需要得到的是什么——BPSK的误码率 Pe 随信噪比 SNR 的变化曲线，那么这个图像的横坐标就是信噪比，纵坐标就是误码率。这里面还有一个问题需要提前考虑，老师也在上课的时候强调过让我们去思考，即 SNR 和 $\frac{E_b}{N_0}$ 的关系，我们的结论是 $SNR=2\frac{E_b}{N_0}$，这里面有一个<strong>从带通等效到低通的过程，同时把基带波形的因素也进行一般化</strong>，具体的我只是有一个模糊的概念，等我真的理解了，有机会再来补上吧。最终我们要画的就是 Pe 随 $\frac{E_b}{N_0}$ 的变化曲线。</p>
+<p>这里直接给出理论值计算公式，具体推导并不复杂。<br>$$<br>P_e=\frac{1}{2}erfc(\frac{E_b}{N_0})<br>$$</p>
+<p>接下来的问题在于我们如何通过 $\frac{E_b}{N_0}$ 定量描述噪声和信号的大小，在仿真中我们需要实际比较噪声和信号幅度的大小确定最终的判定结果。</p>
+<p>先来看一个比较笨的办法，这个办法并不具有一般性，它没有使用到一个特别重要的东西——<strong>星座图</strong>，后续我会利用星座图给出一个更加简单的方法。考虑如下这个公式：<br>$$<br>SNR = \frac{P_s}{P_n}=\frac{E_b/T_s}{N_0\cdot B}\times log_2(M)=\frac{E_b}{N_0}=\frac{a^2}{2\sigma^2}<br>$$</p>
+<p>信号幅度a=1，则立即可以得到噪声功率</p>
+<p>$$<br>\sigma^2=\frac{1}{2E_b/N_0}<br>$$</p>
+<p>BPSK 的基带信号是双极性的，用 -1 和 +1 来表示两种不同极性的信号，前面已经得到噪声的功率，那么信号加上噪声幅度就得到接收信号。这就是关键之处，确定信号和噪声的定量关系，已经噪声该如何加到信号上，明白了这个，其余都很简单。最终我们可以得到如下的代码：</p>
+<figure class="highlight matlab"><figcaption><span>BPSK.m</span><a href="/downloads/code/BPSK.m">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line">EbN0dB = <span class="number">0</span>:<span class="number">1</span>:<span class="number">10</span>;</span><br><span class="line">EbN0 = <span class="number">10.</span>^(EbN0dB/<span class="number">10</span>);</span><br><span class="line">N = <span class="number">2</span>*<span class="number">10</span>^<span class="number">6</span>;                     <span class="comment">% 发送比特数即码元数</span></span><br><span class="line">Pb = <span class="number">0.5</span>*<span class="built_in">erfc</span>(<span class="built_in">sqrt</span>(EbN0));      <span class="comment">% 理论值</span></span><br><span class="line">ber = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB)); <span class="comment">% 仿真误码率 预分配</span></span><br><span class="line">a = <span class="built_in">sign</span>(<span class="built_in">randn</span>(<span class="number">1</span>, N));          <span class="comment">% 基带信号</span></span><br><span class="line">noise = <span class="built_in">randn</span>(<span class="number">1</span>, N);            <span class="comment">% 标准噪声</span></span><br><span class="line">sigma = <span class="built_in">sqrt</span>(<span class="number">1.</span>/EbN0/<span class="number">2</span>);        <span class="comment">% 噪声功率</span></span><br><span class="line"><span class="keyword">for</span> n = <span class="number">1</span>:<span class="built_in">length</span>(EbN0dB)</span><br><span class="line">    rk = a + sigma(n)*noise;    <span class="comment">% 加噪声得到接收信号</span></span><br><span class="line">    dec_a = <span class="built_in">sign</span>(rk);           <span class="comment">% 判决</span></span><br><span class="line">    ber(n) = sum(<span class="built_in">abs</span>(a-dec_a)/<span class="number">2</span>)/<span class="built_in">length</span>(a);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">semilogy(EbN0dB, Pb, <span class="string">'LineWidth'</span>, <span class="number">1</span>);</span><br><span class="line">hold on;</span><br><span class="line">semilogy(EbN0dB, ber, <span class="string">'rd'</span>);</span><br><span class="line">legend(<span class="string">'理论结果'</span>, <span class="string">'仿真结果'</span>)</span><br><span class="line">xlabel(<span class="string">'\itE_b/N_0\rm(dB)'</span>); ylabel(<span class="string">'Pb'</span>);</span><br><span class="line">title(<span class="string">'BPSK误码率仿真'</span>)</span><br><span class="line">grid on</span><br></pre></td></tr></table></figure>
+<p>得到的结果如下所示：</p>
+<img src="/2020/05/ber-and-ser-of-PSK-and-QAM/BPSK.png" title="BPSK 仿真结果">
+<p>第二种方法更具有一般性，理解了它，其他调制方式也是一样的可以实现。这需要星座图的帮助，通过星座图，我们可以得到最小欧式距离和平均比特能量的关系。在 BPSK 中，有<br>$$<br>d_{min}=\sqrt{4E_b}<br>$$</p>
+<p>同时，$\frac{d_{min}}{2}$ 也正是信号的幅度，令 $d_{min}=2$，则信号的幅度为 $a=1$，由 $\frac{E_b}{N_0}$ 和 $d_{min}$ 与 $E_b$ 的关系，我们可以得到<br>$$<br>N_0=\frac{E_b}{E_b/N_0}=\frac{d_{min}^2}{4}\cdot\frac{1}{E_b/N_0}<br>$$</p>
+<p>那么噪声功率就是$\sigma^2=\frac{N_0}{2}$。然后按照第一种方法的思路去编写仿真程序即可，非常简单。再来说说它的通用性，使用星座图仿真 AWGN 信道下的调制方式，我们首先需要确定最小欧式距离和平均比特能量的关系，然后得到噪声功率即可，这样就可以得到信号和噪声的定量关系，进行仿真即可。</p>
+<h2 id="QPSK"><a href="#QPSK" class="headerlink" title="QPSK"></a>QPSK</h2><p>利用上面提到的具有一般性的方式，我们需要使用星座图，QPSK有如下两种星座图形式：</p>
+<img src="/2020/05/ber-and-ser-of-PSK-and-QAM/QPSKConstellation.png" title="QPSK 的两种星座图">
+<p>以第一种左边的星座图为例，说明仿真过程。对于 MPSK 调制，最小欧式距离为：<br>$$<br>d_{min}=2\sqrt{(log_2M\times sin^2\frac{\pi}{M})\varepsilon_b}<br>$$<br>在 QPSK 中，M=4，则 $d_{min}=2\sqrt{\varepsilon_b}$。注意到这和之前的 BPSK 不一样，我们可以将 QPSK 看作两路正交的相位调制叠加。仿真中我们令 $d_{min}=2$，则$\varepsilon =1$，进而可以得到两路信号的幅度都是1，同时还可以确定噪声功率为 $\sigma^2 = \frac{1}{2SNR}$。按照上面的仿真思路我们很容易可以写出代码，最终得到的图形如下所示。</p>
+<h2 id="16QAM-和-16PSK"><a href="#16QAM-和-16PSK" class="headerlink" title="16QAM 和 16PSK"></a>16QAM 和 16PSK</h2><p>同理，对16QAM和16PSK也是一样的道理，只不过星座点映射在代码实现上会稍稍复杂一点。分析 16QAM 可以将它看作两路正交的 4PAM 信号的叠加，其余分析方法和上面完全相同。16PSK 就更加简单了，不多说，直接给出代码和最终的波形图，如下所示。</p>
+<img src="/2020/05/ber-and-ser-of-PSK-and-QAM/QAMandPSK.jpg" title="16QAM和16PSK仿真结果">
+<figure class="highlight matlab"><figcaption><span>QAMandPSK.m</span><a href="/downloads/code/QAMandPSK.m">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line">clear all;</span><br><span class="line">close all;</span><br><span class="line">clc;</span><br><span class="line"></span><br><span class="line">EbN0dB = <span class="number">0</span>:<span class="number">1</span>:<span class="number">15</span>;</span><br><span class="line">EbN0 = <span class="number">10.</span>^(EbN0dB/<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">M = <span class="number">16</span>; <span class="comment">% 16 QAM</span></span><br><span class="line">N = <span class="number">64</span>; <span class="comment">% 64 QAM</span></span><br><span class="line"><span class="comment">%% 16QAM 64QAM theory</span></span><br><span class="line">Pe_16_help = <span class="number">2</span>*(<span class="number">1</span><span class="number">-1</span>/<span class="built_in">sqrt</span>(M))*qfunc(<span class="built_in">sqrt</span>(<span class="number">3</span>*<span class="built_in">log2</span>(M)*EbN0/(M<span class="number">-1</span>)));</span><br><span class="line">Pe_16 = <span class="number">1</span>- (<span class="number">1</span> - Pe_16_help).^<span class="number">2</span>;</span><br><span class="line">Pb_16 = Pe_16 / <span class="number">4</span>;</span><br><span class="line">Pe_64_help = <span class="number">2</span>*(<span class="number">1</span><span class="number">-1</span>/<span class="built_in">sqrt</span>(N))*qfunc(<span class="built_in">sqrt</span>(<span class="number">3</span>*<span class="built_in">log2</span>(N)*EbN0/(N<span class="number">-1</span>)));</span><br><span class="line">Pe_64 = <span class="number">1</span>- (<span class="number">1</span> - Pe_64_help).^<span class="number">2</span>;</span><br><span class="line"><span class="comment">%% 16PSK theory</span></span><br><span class="line">Pe_theory_PSK = <span class="number">2</span>*qfunc(<span class="built_in">sin</span>(<span class="built_in">pi</span>/M)*<span class="built_in">sqrt</span>(<span class="number">2</span>*<span class="built_in">log2</span>(M)*EbN0));</span><br><span class="line"><span class="comment">%% theory plot</span></span><br><span class="line">semilogy(EbN0dB, Pe_16, <span class="string">'LineWidth'</span>, <span class="number">1</span>)</span><br><span class="line">hold on</span><br><span class="line"><span class="comment">% semilogy(EbN0dB, Pe_64)</span></span><br><span class="line"><span class="comment">% hold on</span></span><br><span class="line">semilogy(EbN0dB, Pe_theory_PSK, <span class="string">'k'</span>, <span class="string">'LineWidth'</span>, <span class="number">1</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, Pb_16, <span class="string">'c'</span>, <span class="string">'LineWidth'</span>, <span class="number">1</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, Pe_theory_PSK / <span class="number">4</span>, <span class="string">'g'</span>, <span class="string">'LineWidth'</span>, <span class="number">1</span>)</span><br><span class="line">grid on</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'\it{E_b/N_0} \rm(dB)'</span>)</span><br><span class="line">ylabel(<span class="string">'P_b and P_e'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">% 16QAM 仿真</span></span><br><span class="line"><span class="comment">% 格雷码映射表</span></span><br><span class="line">gray_code_table = [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>; % <span class="number">0</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;  % <span class="number">1</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>;  % <span class="number">2</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>;  % <span class="number">3</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span>;  % <span class="number">4</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span>;  % <span class="number">5</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>;  % <span class="number">6</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>;  % <span class="number">7</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span>;  % <span class="number">8</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span>;  % <span class="number">9</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span>;  % <span class="number">10</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span>;  % <span class="number">11</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span>;  % <span class="number">12</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span>;  % <span class="number">13</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>;  % <span class="number">14</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>;];<span class="comment">% 15</span></span><br><span class="line"><span class="comment">% 星座点位置表 16QAM</span></span><br><span class="line">star_table_1 = [<span class="number">-1</span>*(<span class="number">-3</span>:<span class="number">2</span>:<span class="number">3</span>) (<span class="number">-3</span>:<span class="number">2</span>:<span class="number">3</span>) <span class="number">-1</span>*(<span class="number">-3</span>:<span class="number">2</span>:<span class="number">3</span>) (<span class="number">-3</span>:<span class="number">2</span>:<span class="number">3</span>)];</span><br><span class="line">star_table_2 = [ones(<span class="number">1</span>, <span class="number">4</span>)*<span class="number">3</span> ones(<span class="number">1</span>, <span class="number">4</span>) <span class="number">-1</span>*ones(<span class="number">1</span>,<span class="number">4</span>) <span class="number">-3</span>*ones(<span class="number">1</span>,<span class="number">4</span>)];</span><br><span class="line">star_table = [star_table_1<span class="string">' star_table_2'</span>];</span><br><span class="line">star_table_T = star_table';</span><br><span class="line">table_used = <span class="built_in">reshape</span>(star_table_T, <span class="number">1</span>, M*<span class="number">2</span>);</span><br><span class="line"><span class="comment">% 星座点位置表 16PSK</span></span><br><span class="line">phase = <span class="number">0</span>:<span class="number">2</span>*<span class="built_in">pi</span>/M:(<span class="number">2</span>*<span class="built_in">pi</span><span class="number">-2</span>*<span class="built_in">pi</span>/M);</span><br><span class="line">PSK16StarTable = [cos(phase);</span><br><span class="line">                  sin(phase)];</span><br><span class="line">PSK_table_used = <span class="built_in">reshape</span>(PSK16StarTable, M*<span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">% 基带信号</span></span><br><span class="line">N = <span class="number">4</span>*<span class="number">10</span>^<span class="number">4</span>; <span class="comment">% bit数</span></span><br><span class="line">base = (<span class="built_in">sign</span>(<span class="built_in">randn</span>(<span class="number">1</span>, N)) + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">mid_modul = <span class="built_in">reshape</span>(base, [<span class="number">4</span> N/<span class="number">4</span>]);</span><br><span class="line">mid_modul = mid_modul';</span><br><span class="line"><span class="comment">% 映射到星座点上 QAM 和 QPSK</span></span><br><span class="line">modulSignalPosi = <span class="built_in">zeros</span>(N/<span class="number">4</span>, <span class="number">2</span>);</span><br><span class="line">PSK_modulSignalPosi = <span class="built_in">zeros</span>(<span class="number">2</span>, N/<span class="number">4</span>);</span><br><span class="line"><span class="keyword">for</span> symbol = <span class="number">1</span>:N/<span class="number">4</span></span><br><span class="line">    dude = gray2int(mid_modul(symbol, :)) + <span class="number">1</span>;</span><br><span class="line">    modulSignalPosi(symbol, :) = star_table(dude, :);</span><br><span class="line">    PSK_modulSignalPosi(:, symbol) = PSK16StarTable(:, dude);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% 噪声</span></span><br><span class="line">sigma = <span class="built_in">sqrt</span>(<span class="number">4</span>*(M<span class="number">-1</span>)/<span class="number">6</span>/<span class="built_in">log2</span>(M)./EbN0/<span class="number">2</span>);</span><br><span class="line">PSK_sigma = <span class="built_in">sqrt</span>(<span class="number">1</span>/<span class="built_in">log2</span>(M)./EbN0/<span class="number">2</span>);</span><br><span class="line"><span class="comment">% 过信道 解调 求信噪比</span></span><br><span class="line">be = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB));</span><br><span class="line">se = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB));</span><br><span class="line">PSK_be = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB));</span><br><span class="line">PSK_se = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB));</span><br><span class="line"><span class="keyword">for</span> index = <span class="number">1</span>:<span class="built_in">length</span>(EbN0dB)</span><br><span class="line">    <span class="comment">% 加噪声</span></span><br><span class="line">    reciPosi = modulSignalPosi + sigma(index) * <span class="built_in">randn</span>(N/<span class="number">4</span>, <span class="number">2</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% 最小距离解调 QAM</span></span><br><span class="line">    distanceMid = <span class="built_in">repmat</span>(reciPosi, [<span class="number">1</span> M]) - <span class="built_in">repmat</span>(table_used, N/<span class="number">4</span>, <span class="number">1</span>);</span><br><span class="line">    distanceMid = distanceMid.^<span class="number">2</span>;</span><br><span class="line">    distance = distanceMid(:, <span class="number">1</span>:<span class="number">2</span>:(M*<span class="number">2</span><span class="number">-1</span>)) + distanceMid(:, <span class="number">2</span>:<span class="number">2</span>:(M*<span class="number">2</span>));</span><br><span class="line">    distance = distance';</span><br><span class="line">    <span class="comment">% decodePosi 即为解调结果对应gray_code_table的位置</span></span><br><span class="line">    [~, decodePosi] = min(distance);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% 解调结果映射到基带 QAM</span></span><br><span class="line">    toBaseGray = gray_code_table(decodePosi, :);</span><br><span class="line">    toBaseSignal = <span class="built_in">reshape</span>(toBaseGray', <span class="number">1</span>, N);</span><br><span class="line">    be(index) = sum(<span class="built_in">abs</span>(base-toBaseSignal));</span><br><span class="line">    se_posi = double(mid_modul ~= toBaseGray);</span><br><span class="line">    se(index) = sum(<span class="built_in">sign</span>(sum(se_posi, <span class="number">2</span>)));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% PSK</span></span><br><span class="line">    PSK_reciPosi = PSK_modulSignalPosi + PSK_sigma(index) * <span class="built_in">randn</span>(<span class="number">2</span>, N/<span class="number">4</span>);</span><br><span class="line">    </span><br><span class="line">    PSK_distanceMid = <span class="built_in">repmat</span>(PSK_reciPosi, [M <span class="number">1</span>]) - <span class="built_in">repmat</span>(PSK_table_used, [<span class="number">1</span> N/<span class="number">4</span>]);</span><br><span class="line">    PSK_distanceMid = PSK_distanceMid.^<span class="number">2</span>;</span><br><span class="line">    PSK_distance = PSK_distanceMid(<span class="number">1</span>:<span class="number">2</span>:(M*<span class="number">2</span><span class="number">-1</span>), :) + PSK_distanceMid(<span class="number">2</span>:<span class="number">2</span>:(M*<span class="number">2</span>), :);</span><br><span class="line">    [~, PSK_decodePosi] = min(PSK_distance);</span><br><span class="line">    </span><br><span class="line">    PSK_toBaseGray = gray_code_table(PSK_decodePosi, :);</span><br><span class="line">    PSK_toBaseSignal = <span class="built_in">reshape</span>(PSK_toBaseGray', <span class="number">1</span>, N);</span><br><span class="line">    PSK_be(index) = sum(<span class="built_in">abs</span>(base-PSK_toBaseSignal));</span><br><span class="line">    PSK_se_posi = double(mid_modul ~= PSK_toBaseGray);</span><br><span class="line">    PSK_se(index) = sum(<span class="built_in">sign</span>(sum(PSK_se_posi, <span class="number">2</span>)));</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">semilogy(EbN0dB, se/N*<span class="number">4</span>, <span class="string">'v'</span>, <span class="string">'MarkerEdgeColor'</span>, <span class="string">'r'</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, be/N, <span class="string">'*'</span>, <span class="string">'MarkerEdgeColor'</span>, <span class="string">'r'</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, PSK_se/N*<span class="number">4</span>, <span class="string">'^'</span>, <span class="string">'MarkerEdgeColor'</span>, <span class="string">'m'</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, PSK_be/N, <span class="string">'*'</span>, <span class="string">'MarkerEdgeColor'</span>, <span class="string">'m'</span>)</span><br><span class="line">legend(<span class="string">'16QAM理论误码率'</span>, <span class="string">'16PSK理论误码率'</span>, <span class="string">'16QAM理论误比特率'</span>,  <span class="string">'16PSK理论误比特率'</span>, ...</span><br><span class="line">    <span class="string">'16QAM仿真误码率'</span>, <span class="string">'16QAM仿真误比特率'</span>, <span class="string">'16PSK仿真误码率'</span>, <span class="string">'16PSK仿真误比特率'</span>)</span><br><span class="line">title(<span class="string">'16QAM and 16PSK'</span>)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MATLAB</tag>
+        <tag>通信</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode | 61 旋转链表</title>
     <url>/2020/05/rotate-LinkedList-rightly/</url>
     <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。</p>
@@ -1459,36 +1491,30 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>MPSK 和 MQAM 的误码率仿真</title>
-    <url>/2020/05/ber-and-ser-of-PSK-and-QAM/</url>
-    <content><![CDATA[<p>拖延几日，不觉课程已结课几天了，在此趁着脑中还有些关于课程内容的印象，简单写一篇记录，关于如何使用MATLAB构建一个调制技术的仿真程序。<br><a id="more"></a></p>
-<h2 id="BPSK"><a href="#BPSK" class="headerlink" title="BPSK"></a>BPSK</h2><p>首先来看最简单的二进制仿真，以 BPSK 为例，我们来看看如何搭建一个仿真仿真程序，从中得到些一般的仿真设置方法。</p>
-<p>在进行仿真之前，先看看我们期待需要得到的是什么——BPSK的误码率 Pe 随信噪比 SNR 的变化曲线，那么这个图像的横坐标就是信噪比，纵坐标就是误码率。这里面还有一个问题需要提前考虑，老师也在上课的时候强调过让我们去思考，即 SNR 和 $\frac{E_b}{N_0}$ 的关系，我们的结论是 $SNR=2\frac{E_b}{N_0}$，这里面有一个<strong>从带通等效到低通的过程，同时把基带波形的因素也进行一般化</strong>，具体的我只是有一个模糊的概念，等我真的理解了，有机会再来补上吧。最终我们要画的就是 Pe 随 $\frac{E_b}{N_0}$ 的变化曲线。</p>
-<p>这里直接给出理论值计算公式，具体推导并不复杂。<br>$$<br>P_e=\frac{1}{2}erfc(\frac{E_b}{N_0})<br>$$</p>
-<p>接下来的问题在于我们如何通过 $\frac{E_b}{N_0}$ 定量描述噪声和信号的大小，在仿真中我们需要实际比较噪声和信号幅度的大小确定最终的判定结果。</p>
-<p>先来看一个比较笨的办法，这个办法并不具有一般性，它没有使用到一个特别重要的东西——<strong>星座图</strong>，后续我会利用星座图给出一个更加简单的方法。考虑如下这个公式：<br>$$<br>SNR = \frac{P_s}{P_n}=\frac{E_b/T_s}{N_0\cdot B}\times log_2(M)=\frac{E_b}{N_0}=\frac{a^2}{2\sigma^2}<br>$$</p>
-<p>信号幅度a=1，则立即可以得到噪声功率</p>
-<p>$$<br>\sigma^2=\frac{1}{2E_b/N_0}<br>$$</p>
-<p>BPSK 的基带信号是双极性的，用 -1 和 +1 来表示两种不同极性的信号，前面已经得到噪声的功率，那么信号加上噪声幅度就得到接收信号。这就是关键之处，确定信号和噪声的定量关系，已经噪声该如何加到信号上，明白了这个，其余都很简单。最终我们可以得到如下的代码：</p>
-<figure class="highlight matlab"><figcaption><span>BPSK.m</span><a href="/downloads/code/BPSK.m">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line">EbN0dB = <span class="number">0</span>:<span class="number">1</span>:<span class="number">10</span>;</span><br><span class="line">EbN0 = <span class="number">10.</span>^(EbN0dB/<span class="number">10</span>);</span><br><span class="line">N = <span class="number">2</span>*<span class="number">10</span>^<span class="number">6</span>;                     <span class="comment">% 发送比特数即码元数</span></span><br><span class="line">Pb = <span class="number">0.5</span>*<span class="built_in">erfc</span>(<span class="built_in">sqrt</span>(EbN0));      <span class="comment">% 理论值</span></span><br><span class="line">ber = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB)); <span class="comment">% 仿真误码率 预分配</span></span><br><span class="line">a = <span class="built_in">sign</span>(<span class="built_in">randn</span>(<span class="number">1</span>, N));          <span class="comment">% 基带信号</span></span><br><span class="line">noise = <span class="built_in">randn</span>(<span class="number">1</span>, N);            <span class="comment">% 标准噪声</span></span><br><span class="line">sigma = <span class="built_in">sqrt</span>(<span class="number">1.</span>/EbN0/<span class="number">2</span>);        <span class="comment">% 噪声功率</span></span><br><span class="line"><span class="keyword">for</span> n = <span class="number">1</span>:<span class="built_in">length</span>(EbN0dB)</span><br><span class="line">    rk = a + sigma(n)*noise;    <span class="comment">% 加噪声得到接收信号</span></span><br><span class="line">    dec_a = <span class="built_in">sign</span>(rk);           <span class="comment">% 判决</span></span><br><span class="line">    ber(n) = sum(<span class="built_in">abs</span>(a-dec_a)/<span class="number">2</span>)/<span class="built_in">length</span>(a);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">semilogy(EbN0dB, Pb, <span class="string">'LineWidth'</span>, <span class="number">1</span>);</span><br><span class="line">hold on;</span><br><span class="line">semilogy(EbN0dB, ber, <span class="string">'rd'</span>);</span><br><span class="line">legend(<span class="string">'理论结果'</span>, <span class="string">'仿真结果'</span>)</span><br><span class="line">xlabel(<span class="string">'\itE_b/N_0\rm(dB)'</span>); ylabel(<span class="string">'Pb'</span>);</span><br><span class="line">title(<span class="string">'BPSK误码率仿真'</span>)</span><br><span class="line">grid on</span><br></pre></td></tr></table></figure>
-<p>得到的结果如下所示：</p>
-<img src="/2020/05/ber-and-ser-of-PSK-and-QAM/BPSK.png" title="BPSK 仿真结果">
-<p>第二种方法更具有一般性，理解了它，其他调制方式也是一样的可以实现。这需要星座图的帮助，通过星座图，我们可以得到最小欧式距离和平均比特能量的关系。在 BPSK 中，有<br>$$<br>d_{min}=\sqrt{4E_b}<br>$$</p>
-<p>同时，$\frac{d_{min}}{2}$ 也正是信号的幅度，令 $d_{min}=2$，则信号的幅度为 $a=1$，由 $\frac{E_b}{N_0}$ 和 $d_{min}$ 与 $E_b$ 的关系，我们可以得到<br>$$<br>N_0=\frac{E_b}{E_b/N_0}=\frac{d_{min}^2}{4}\cdot\frac{1}{E_b/N_0}<br>$$</p>
-<p>那么噪声功率就是$\sigma^2=\frac{N_0}{2}$。然后按照第一种方法的思路去编写仿真程序即可，非常简单。再来说说它的通用性，使用星座图仿真 AWGN 信道下的调制方式，我们首先需要确定最小欧式距离和平均比特能量的关系，然后得到噪声功率即可，这样就可以得到信号和噪声的定量关系，进行仿真即可。</p>
-<h2 id="QPSK"><a href="#QPSK" class="headerlink" title="QPSK"></a>QPSK</h2><p>利用上面提到的具有一般性的方式，我们需要使用星座图，QPSK有如下两种星座图形式：</p>
-<img src="/2020/05/ber-and-ser-of-PSK-and-QAM/QPSKConstellation.png" title="QPSK 的两种星座图">
-<p>以第一种左边的星座图为例，说明仿真过程。对于 MPSK 调制，最小欧式距离为：<br>$$<br>d_{min}=2\sqrt{(log_2M\times sin^2\frac{\pi}{M})\varepsilon_b}<br>$$<br>在 QPSK 中，M=4，则 $d_{min}=2\sqrt{\varepsilon_b}$。注意到这和之前的 BPSK 不一样，我们可以将 QPSK 看作两路正交的相位调制叠加。仿真中我们令 $d_{min}=2$，则$\varepsilon =1$，进而可以得到两路信号的幅度都是1，同时还可以确定噪声功率为 $\sigma^2 = \frac{1}{2SNR}$。按照上面的仿真思路我们很容易可以写出代码，最终得到的图形如下所示。</p>
-<h2 id="16QAM-和-16PSK"><a href="#16QAM-和-16PSK" class="headerlink" title="16QAM 和 16PSK"></a>16QAM 和 16PSK</h2><p>同理，对16QAM和16PSK也是一样的道理，只不过星座点映射在代码实现上会稍稍复杂一点。分析 16QAM 可以将它看作两路正交的 4PAM 信号的叠加，其余分析方法和上面完全相同。16PSK 就更加简单了，不多说，直接给出代码和最终的波形图，如下所示。</p>
-<img src="/2020/05/ber-and-ser-of-PSK-and-QAM/QAMandPSK.jpg" title="16QAM和16PSK仿真结果">
-<figure class="highlight matlab"><figcaption><span>QAMandPSK.m</span><a href="/downloads/code/QAMandPSK.m">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line">clear all;</span><br><span class="line">close all;</span><br><span class="line">clc;</span><br><span class="line"></span><br><span class="line">EbN0dB = <span class="number">0</span>:<span class="number">1</span>:<span class="number">15</span>;</span><br><span class="line">EbN0 = <span class="number">10.</span>^(EbN0dB/<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">M = <span class="number">16</span>; <span class="comment">% 16 QAM</span></span><br><span class="line">N = <span class="number">64</span>; <span class="comment">% 64 QAM</span></span><br><span class="line"><span class="comment">%% 16QAM 64QAM theory</span></span><br><span class="line">Pe_16_help = <span class="number">2</span>*(<span class="number">1</span><span class="number">-1</span>/<span class="built_in">sqrt</span>(M))*qfunc(<span class="built_in">sqrt</span>(<span class="number">3</span>*<span class="built_in">log2</span>(M)*EbN0/(M<span class="number">-1</span>)));</span><br><span class="line">Pe_16 = <span class="number">1</span>- (<span class="number">1</span> - Pe_16_help).^<span class="number">2</span>;</span><br><span class="line">Pb_16 = Pe_16 / <span class="number">4</span>;</span><br><span class="line">Pe_64_help = <span class="number">2</span>*(<span class="number">1</span><span class="number">-1</span>/<span class="built_in">sqrt</span>(N))*qfunc(<span class="built_in">sqrt</span>(<span class="number">3</span>*<span class="built_in">log2</span>(N)*EbN0/(N<span class="number">-1</span>)));</span><br><span class="line">Pe_64 = <span class="number">1</span>- (<span class="number">1</span> - Pe_64_help).^<span class="number">2</span>;</span><br><span class="line"><span class="comment">%% 16PSK theory</span></span><br><span class="line">Pe_theory_PSK = <span class="number">2</span>*qfunc(<span class="built_in">sin</span>(<span class="built_in">pi</span>/M)*<span class="built_in">sqrt</span>(<span class="number">2</span>*<span class="built_in">log2</span>(M)*EbN0));</span><br><span class="line"><span class="comment">%% theory plot</span></span><br><span class="line">semilogy(EbN0dB, Pe_16, <span class="string">'LineWidth'</span>, <span class="number">1</span>)</span><br><span class="line">hold on</span><br><span class="line"><span class="comment">% semilogy(EbN0dB, Pe_64)</span></span><br><span class="line"><span class="comment">% hold on</span></span><br><span class="line">semilogy(EbN0dB, Pe_theory_PSK, <span class="string">'k'</span>, <span class="string">'LineWidth'</span>, <span class="number">1</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, Pb_16, <span class="string">'c'</span>, <span class="string">'LineWidth'</span>, <span class="number">1</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, Pe_theory_PSK / <span class="number">4</span>, <span class="string">'g'</span>, <span class="string">'LineWidth'</span>, <span class="number">1</span>)</span><br><span class="line">grid on</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'\it{E_b/N_0} \rm(dB)'</span>)</span><br><span class="line">ylabel(<span class="string">'P_b and P_e'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">% 16QAM 仿真</span></span><br><span class="line"><span class="comment">% 格雷码映射表</span></span><br><span class="line">gray_code_table = [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>; % <span class="number">0</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;  % <span class="number">1</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>;  % <span class="number">2</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>;  % <span class="number">3</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span>;  % <span class="number">4</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span>;  % <span class="number">5</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>;  % <span class="number">6</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>;  % <span class="number">7</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span>;  % <span class="number">8</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span>;  % <span class="number">9</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span>;  % <span class="number">10</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span>;  % <span class="number">11</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span>;  % <span class="number">12</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span>;  % <span class="number">13</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>;  % <span class="number">14</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>;];<span class="comment">% 15</span></span><br><span class="line"><span class="comment">% 星座点位置表 16QAM</span></span><br><span class="line">star_table_1 = [<span class="number">-1</span>*(<span class="number">-3</span>:<span class="number">2</span>:<span class="number">3</span>) (<span class="number">-3</span>:<span class="number">2</span>:<span class="number">3</span>) <span class="number">-1</span>*(<span class="number">-3</span>:<span class="number">2</span>:<span class="number">3</span>) (<span class="number">-3</span>:<span class="number">2</span>:<span class="number">3</span>)];</span><br><span class="line">star_table_2 = [ones(<span class="number">1</span>, <span class="number">4</span>)*<span class="number">3</span> ones(<span class="number">1</span>, <span class="number">4</span>) <span class="number">-1</span>*ones(<span class="number">1</span>,<span class="number">4</span>) <span class="number">-3</span>*ones(<span class="number">1</span>,<span class="number">4</span>)];</span><br><span class="line">star_table = [star_table_1<span class="string">' star_table_2'</span>];</span><br><span class="line">star_table_T = star_table';</span><br><span class="line">table_used = <span class="built_in">reshape</span>(star_table_T, <span class="number">1</span>, M*<span class="number">2</span>);</span><br><span class="line"><span class="comment">% 星座点位置表 16PSK</span></span><br><span class="line">phase = <span class="number">0</span>:<span class="number">2</span>*<span class="built_in">pi</span>/M:(<span class="number">2</span>*<span class="built_in">pi</span><span class="number">-2</span>*<span class="built_in">pi</span>/M);</span><br><span class="line">PSK16StarTable = [cos(phase);</span><br><span class="line">                  sin(phase)];</span><br><span class="line">PSK_table_used = <span class="built_in">reshape</span>(PSK16StarTable, M*<span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">% 基带信号</span></span><br><span class="line">N = <span class="number">4</span>*<span class="number">10</span>^<span class="number">4</span>; <span class="comment">% bit数</span></span><br><span class="line">base = (<span class="built_in">sign</span>(<span class="built_in">randn</span>(<span class="number">1</span>, N)) + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">mid_modul = <span class="built_in">reshape</span>(base, [<span class="number">4</span> N/<span class="number">4</span>]);</span><br><span class="line">mid_modul = mid_modul';</span><br><span class="line"><span class="comment">% 映射到星座点上 QAM 和 QPSK</span></span><br><span class="line">modulSignalPosi = <span class="built_in">zeros</span>(N/<span class="number">4</span>, <span class="number">2</span>);</span><br><span class="line">PSK_modulSignalPosi = <span class="built_in">zeros</span>(<span class="number">2</span>, N/<span class="number">4</span>);</span><br><span class="line"><span class="keyword">for</span> symbol = <span class="number">1</span>:N/<span class="number">4</span></span><br><span class="line">    dude = gray2int(mid_modul(symbol, :)) + <span class="number">1</span>;</span><br><span class="line">    modulSignalPosi(symbol, :) = star_table(dude, :);</span><br><span class="line">    PSK_modulSignalPosi(:, symbol) = PSK16StarTable(:, dude);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% 噪声</span></span><br><span class="line">sigma = <span class="built_in">sqrt</span>(<span class="number">4</span>*(M<span class="number">-1</span>)/<span class="number">6</span>/<span class="built_in">log2</span>(M)./EbN0/<span class="number">2</span>);</span><br><span class="line">PSK_sigma = <span class="built_in">sqrt</span>(<span class="number">1</span>/<span class="built_in">log2</span>(M)./EbN0/<span class="number">2</span>);</span><br><span class="line"><span class="comment">% 过信道 解调 求信噪比</span></span><br><span class="line">be = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB));</span><br><span class="line">se = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB));</span><br><span class="line">PSK_be = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB));</span><br><span class="line">PSK_se = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB));</span><br><span class="line"><span class="keyword">for</span> index = <span class="number">1</span>:<span class="built_in">length</span>(EbN0dB)</span><br><span class="line">    <span class="comment">% 加噪声</span></span><br><span class="line">    reciPosi = modulSignalPosi + sigma(index) * <span class="built_in">randn</span>(N/<span class="number">4</span>, <span class="number">2</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% 最小距离解调 QAM</span></span><br><span class="line">    distanceMid = <span class="built_in">repmat</span>(reciPosi, [<span class="number">1</span> M]) - <span class="built_in">repmat</span>(table_used, N/<span class="number">4</span>, <span class="number">1</span>);</span><br><span class="line">    distanceMid = distanceMid.^<span class="number">2</span>;</span><br><span class="line">    distance = distanceMid(:, <span class="number">1</span>:<span class="number">2</span>:(M*<span class="number">2</span><span class="number">-1</span>)) + distanceMid(:, <span class="number">2</span>:<span class="number">2</span>:(M*<span class="number">2</span>));</span><br><span class="line">    distance = distance';</span><br><span class="line">    <span class="comment">% decodePosi 即为解调结果对应gray_code_table的位置</span></span><br><span class="line">    [~, decodePosi] = min(distance);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% 解调结果映射到基带 QAM</span></span><br><span class="line">    toBaseGray = gray_code_table(decodePosi, :);</span><br><span class="line">    toBaseSignal = <span class="built_in">reshape</span>(toBaseGray', <span class="number">1</span>, N);</span><br><span class="line">    be(index) = sum(<span class="built_in">abs</span>(base-toBaseSignal));</span><br><span class="line">    se_posi = double(mid_modul ~= toBaseGray);</span><br><span class="line">    se(index) = sum(<span class="built_in">sign</span>(sum(se_posi, <span class="number">2</span>)));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% PSK</span></span><br><span class="line">    PSK_reciPosi = PSK_modulSignalPosi + PSK_sigma(index) * <span class="built_in">randn</span>(<span class="number">2</span>, N/<span class="number">4</span>);</span><br><span class="line">    </span><br><span class="line">    PSK_distanceMid = <span class="built_in">repmat</span>(PSK_reciPosi, [M <span class="number">1</span>]) - <span class="built_in">repmat</span>(PSK_table_used, [<span class="number">1</span> N/<span class="number">4</span>]);</span><br><span class="line">    PSK_distanceMid = PSK_distanceMid.^<span class="number">2</span>;</span><br><span class="line">    PSK_distance = PSK_distanceMid(<span class="number">1</span>:<span class="number">2</span>:(M*<span class="number">2</span><span class="number">-1</span>), :) + PSK_distanceMid(<span class="number">2</span>:<span class="number">2</span>:(M*<span class="number">2</span>), :);</span><br><span class="line">    [~, PSK_decodePosi] = min(PSK_distance);</span><br><span class="line">    </span><br><span class="line">    PSK_toBaseGray = gray_code_table(PSK_decodePosi, :);</span><br><span class="line">    PSK_toBaseSignal = <span class="built_in">reshape</span>(PSK_toBaseGray', <span class="number">1</span>, N);</span><br><span class="line">    PSK_be(index) = sum(<span class="built_in">abs</span>(base-PSK_toBaseSignal));</span><br><span class="line">    PSK_se_posi = double(mid_modul ~= PSK_toBaseGray);</span><br><span class="line">    PSK_se(index) = sum(<span class="built_in">sign</span>(sum(PSK_se_posi, <span class="number">2</span>)));</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">semilogy(EbN0dB, se/N*<span class="number">4</span>, <span class="string">'v'</span>, <span class="string">'MarkerEdgeColor'</span>, <span class="string">'r'</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, be/N, <span class="string">'*'</span>, <span class="string">'MarkerEdgeColor'</span>, <span class="string">'r'</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, PSK_se/N*<span class="number">4</span>, <span class="string">'^'</span>, <span class="string">'MarkerEdgeColor'</span>, <span class="string">'m'</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, PSK_be/N, <span class="string">'*'</span>, <span class="string">'MarkerEdgeColor'</span>, <span class="string">'m'</span>)</span><br><span class="line">legend(<span class="string">'16QAM理论误码率'</span>, <span class="string">'16PSK理论误码率'</span>, <span class="string">'16QAM理论误比特率'</span>,  <span class="string">'16PSK理论误比特率'</span>, ...</span><br><span class="line">    <span class="string">'16QAM仿真误码率'</span>, <span class="string">'16QAM仿真误比特率'</span>, <span class="string">'16PSK仿真误码率'</span>, <span class="string">'16PSK仿真误比特率'</span>)</span><br><span class="line">title(<span class="string">'16QAM and 16PSK'</span>)</span><br></pre></td></tr></table></figure>]]></content>
+    <title>A Distance Sensor Demo For Arduino</title>
+    <url>/2020/06/distance-sensor-demo-for-arduino/</url>
+    <content><![CDATA[<p>Distance sensor can be very useful in some conditons, such as obstacles detecting and avoiding. By using arduino, it’s very easy for us to use distance sensor. This demo show us a simple example to use distance sensor. For better display, we will use LCD1602 to show the distance. <strong>It’s modified from example in arduino.</strong><br><a id="more"></a></p>
+<h2 id="Supplies"><a href="#Supplies" class="headerlink" title="Supplies"></a>Supplies</h2><ul>
+<li>Arduino uno R3</li>
+<li>HC-SR04</li>
+<li>Breadboard</li>
+<li>LCD1602</li>
+<li>Red LED</li>
+<li>Spotter</li>
+<li>Two 100 Ohm resistance</li>
+<li>some DuPont lines</li>
+</ul>
+<h2 id="Step-1-Design-and-connect-circuit"><a href="#Step-1-Design-and-connect-circuit" class="headerlink" title="Step 1 Design and connect circuit"></a>Step 1 Design and connect circuit</h2><p>Browsering internet, it’s easy to find instructions of HC-SR04 and LCD1602. And there are so many libraries for us in arduino. In our circuit, arduino digital pin 2, 3, 4, 5, 11 and 12 are used for LCD1602 while digital pin 7 and 8 are for HC-SR04. LED uses digital pin 13. Finally, following is our circuits.</p>
+<img src="/2020/06/distance-sensor-demo-for-arduino/distance-sensor-demo.png" title="Final Circuit">
+<h2 id="Step2-Code"><a href="#Step2-Code" class="headerlink" title="Step2 Code"></a>Step2 Code</h2><p>As we said before, our program is  based on libraries. So it’s simple to write code. Later I will display complete code. </p>
+<p>Outside the loop, we define a function readUltrasonicDistance used for HC-SR04. Calling this readUltrasonicDistance, we get distance in centimeter. Inside the function setup, we initialize a LCD1604. In the loop, we get distance in centimeter by calling function readUltrasonicDistance. Then we clear LCD screen and print some characters and distance we just got. Finally, we turn on the LED if distance less than 90cm, or turn off the LED if not less than 90cm.</p>
+<p>Here shows complete code.</p>
+<figure class="highlight c"><figcaption><span>distanceDemo.c</span><a href="/downloads/code/distanceDemo.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;LiquidCrystal.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// initialize the library with the numbers of the interface pins</span></span><br><span class="line"><span class="function">LiquidCrystal <span class="title">lcd</span><span class="params">(<span class="number">12</span>, <span class="number">11</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> cm = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">readUltrasonicDistance</span><span class="params">(<span class="keyword">int</span> triggerPin, <span class="keyword">int</span> echoPin)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  pinMode(triggerPin, OUTPUT);  <span class="comment">// Clear the trigger</span></span><br><span class="line">  digitalWrite(triggerPin, LOW);</span><br><span class="line">  delayMicroseconds(<span class="number">2</span>);</span><br><span class="line">  <span class="comment">// Sets the trigger pin to HIGH state for 10 microseconds</span></span><br><span class="line">  digitalWrite(triggerPin, HIGH);</span><br><span class="line">  delayMicroseconds(<span class="number">10</span>);</span><br><span class="line">  digitalWrite(triggerPin, LOW);</span><br><span class="line">  pinMode(echoPin, INPUT);</span><br><span class="line">  <span class="comment">// Reads the echo pin, and returns the sound wave travel time in microseconds</span></span><br><span class="line">  <span class="keyword">return</span> pulseIn(echoPin, HIGH);</span><br><span class="line">}</span><br><span class="line"><span class="keyword">int</span> LED = <span class="number">13</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  Serial.begin(<span class="number">9600</span>);</span><br><span class="line">  lcd.begin(<span class="number">16</span>, <span class="number">2</span>);</span><br><span class="line">  lcd.print(<span class="string">"DistanceSensor:"</span>);</span><br><span class="line">  pinMode(LED,OUTPUT);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="comment">// measure the ping time in cm</span></span><br><span class="line">  cm = <span class="number">0.01723</span> * readUltrasonicDistance(<span class="number">7</span>, <span class="number">8</span>);</span><br><span class="line">  <span class="comment">// convert to inches by dividing by 2.54</span></span><br><span class="line">  Serial.print(cm);</span><br><span class="line">  Serial.println(<span class="string">"cm"</span>);</span><br><span class="line">  lcd.clear();</span><br><span class="line">  lcd.print(<span class="string">"DistanceSensor:"</span>);</span><br><span class="line">  lcd.setCursor(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">  lcd.print(cm);</span><br><span class="line">  lcd.print(<span class="string">"cm"</span>);</span><br><span class="line">    <span class="keyword">if</span> (cm &lt; <span class="number">90</span>) {</span><br><span class="line">      digitalWrite(LED, HIGH);</span><br><span class="line">      delay(<span class="number">1000</span>);</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">      digitalWrite(LED, LOW);</span><br><span class="line">      delay(<span class="number">500</span>); <span class="comment">// Wait for 100 millisecond(s)</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>In this post, we show a demo to use distance sensor HC-SR04 and LCD1602. It’s a good example to use the sensor. Also, there are many possible usages.</p>
+]]></content>
       <categories>
         <category>学习</category>
       </categories>
-      <tags>
-        <tag>MATLAB</tag>
-        <tag>通信</tag>
-      </tags>
   </entry>
   <entry>
     <title>计算机网络课程报告</title>
@@ -1540,49 +1566,6 @@ proc complete_sim {} {...}
       <tags>
         <tag>网络</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>写在移动通信期末考试后</title>
-    <url>/2020/07/written-after-mobile-communications-final-exam/</url>
-    <content><![CDATA[<p>刚结束了今年的第一门专业课考试，不用感觉就知道考得稀烂，卷面约有 30 分没做完，折合下最终的成绩直接没了 18 分，这下可以考虑打破最低的考试课得分记录了——电路 76 分，我觉得很有希望。<br><a id="more"></a></p>
-<p>艰苦的 2020 过去一半了，我还呆在家，来不及感慨自己这半年来又是什么都没做，就得不认真地准备专业课考试，我从心里抵触考试，自然就不好好准备，以为也不过如此，拿到足够多的分数即可，但被现实告知，不会这么容易的，拿到想要的东西也得认真对待才行。</p>
-<p>刚结束了今年的第一门专业课考试，不用感觉就知道考得稀烂，卷面约有 30 分没做完，折合下最终的成绩直接没了 18 分，这下可以考虑打破最低的考试课得分记录了——电路 76 分，我觉得很有希望。</p>
-<p>问题出在了哪里？</p>
-<p>痛苦地承认自己真的不行？未免太过窝囊。好在这才刚刚开始，还有补救的机会，移动通信失去的东西，要在后面的天线原理和卫星通信上找回来，就像以前做的那样。</p>
-<p>希望一切好起来吧。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>A Distance Sensor Demo For Arduino</title>
-    <url>/2020/06/distance-sensor-demo-for-arduino/</url>
-    <content><![CDATA[<p>Distance sensor can be very useful in some conditons, such as obstacles detecting and avoiding. By using arduino, it’s very easy for us to use distance sensor. This demo show us a simple example to use distance sensor. For better display, we will use LCD1602 to show the distance. <strong>It’s modified from example in arduino.</strong><br><a id="more"></a></p>
-<h2 id="Supplies"><a href="#Supplies" class="headerlink" title="Supplies"></a>Supplies</h2><ul>
-<li>Arduino uno R3</li>
-<li>HC-SR04</li>
-<li>Breadboard</li>
-<li>LCD1602</li>
-<li>Red LED</li>
-<li>Spotter</li>
-<li>Two 100 Ohm resistance</li>
-<li>some DuPont lines</li>
-</ul>
-<h2 id="Step-1-Design-and-connect-circuit"><a href="#Step-1-Design-and-connect-circuit" class="headerlink" title="Step 1 Design and connect circuit"></a>Step 1 Design and connect circuit</h2><p>Browsering internet, it’s easy to find instructions of HC-SR04 and LCD1602. And there are so many libraries for us in arduino. In our circuit, arduino digital pin 2, 3, 4, 5, 11 and 12 are used for LCD1602 while digital pin 7 and 8 are for HC-SR04. LED uses digital pin 13. Finally, following is our circuits.</p>
-<img src="/2020/06/distance-sensor-demo-for-arduino/distance-sensor-demo.png" title="Final Circuit">
-<h2 id="Step2-Code"><a href="#Step2-Code" class="headerlink" title="Step2 Code"></a>Step2 Code</h2><p>As we said before, our program is  based on libraries. So it’s simple to write code. Later I will display complete code. </p>
-<p>Outside the loop, we define a function readUltrasonicDistance used for HC-SR04. Calling this readUltrasonicDistance, we get distance in centimeter. Inside the function setup, we initialize a LCD1604. In the loop, we get distance in centimeter by calling function readUltrasonicDistance. Then we clear LCD screen and print some characters and distance we just got. Finally, we turn on the LED if distance less than 90cm, or turn off the LED if not less than 90cm.</p>
-<p>Here shows complete code.</p>
-<figure class="highlight c"><figcaption><span>distanceDemo.c</span><a href="/downloads/code/distanceDemo.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;LiquidCrystal.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// initialize the library with the numbers of the interface pins</span></span><br><span class="line"><span class="function">LiquidCrystal <span class="title">lcd</span><span class="params">(<span class="number">12</span>, <span class="number">11</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> cm = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">readUltrasonicDistance</span><span class="params">(<span class="keyword">int</span> triggerPin, <span class="keyword">int</span> echoPin)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  pinMode(triggerPin, OUTPUT);  <span class="comment">// Clear the trigger</span></span><br><span class="line">  digitalWrite(triggerPin, LOW);</span><br><span class="line">  delayMicroseconds(<span class="number">2</span>);</span><br><span class="line">  <span class="comment">// Sets the trigger pin to HIGH state for 10 microseconds</span></span><br><span class="line">  digitalWrite(triggerPin, HIGH);</span><br><span class="line">  delayMicroseconds(<span class="number">10</span>);</span><br><span class="line">  digitalWrite(triggerPin, LOW);</span><br><span class="line">  pinMode(echoPin, INPUT);</span><br><span class="line">  <span class="comment">// Reads the echo pin, and returns the sound wave travel time in microseconds</span></span><br><span class="line">  <span class="keyword">return</span> pulseIn(echoPin, HIGH);</span><br><span class="line">}</span><br><span class="line"><span class="keyword">int</span> LED = <span class="number">13</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  Serial.begin(<span class="number">9600</span>);</span><br><span class="line">  lcd.begin(<span class="number">16</span>, <span class="number">2</span>);</span><br><span class="line">  lcd.print(<span class="string">"DistanceSensor:"</span>);</span><br><span class="line">  pinMode(LED,OUTPUT);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="comment">// measure the ping time in cm</span></span><br><span class="line">  cm = <span class="number">0.01723</span> * readUltrasonicDistance(<span class="number">7</span>, <span class="number">8</span>);</span><br><span class="line">  <span class="comment">// convert to inches by dividing by 2.54</span></span><br><span class="line">  Serial.print(cm);</span><br><span class="line">  Serial.println(<span class="string">"cm"</span>);</span><br><span class="line">  lcd.clear();</span><br><span class="line">  lcd.print(<span class="string">"DistanceSensor:"</span>);</span><br><span class="line">  lcd.setCursor(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">  lcd.print(cm);</span><br><span class="line">  lcd.print(<span class="string">"cm"</span>);</span><br><span class="line">    <span class="keyword">if</span> (cm &lt; <span class="number">90</span>) {</span><br><span class="line">      digitalWrite(LED, HIGH);</span><br><span class="line">      delay(<span class="number">1000</span>);</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">      digitalWrite(LED, LOW);</span><br><span class="line">      delay(<span class="number">500</span>); <span class="comment">// Wait for 100 millisecond(s)</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>In this post, we show a demo to use distance sensor HC-SR04 and LCD1602. It’s a good example to use the sensor. Also, there are many possible usages.</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
   </entry>
   <entry>
     <title>『Channel Codes』笔记之有限域、向量空间、有限集合和图</title>
@@ -1657,6 +1640,23 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>写在移动通信期末考试后</title>
+    <url>/2020/07/written-after-mobile-communications-final-exam/</url>
+    <content><![CDATA[<p>刚结束了今年的第一门专业课考试，不用感觉就知道考得稀烂，卷面约有 30 分没做完，折合下最终的成绩直接没了 18 分，这下可以考虑打破最低的考试课得分记录了——电路 76 分，我觉得很有希望。<br><a id="more"></a></p>
+<p>艰苦的 2020 过去一半了，我还呆在家，来不及感慨自己这半年来又是什么都没做，就得不认真地准备专业课考试，我从心里抵触考试，自然就不好好准备，以为也不过如此，拿到足够多的分数即可，但被现实告知，不会这么容易的，拿到想要的东西也得认真对待才行。</p>
+<p>刚结束了今年的第一门专业课考试，不用感觉就知道考得稀烂，卷面约有 30 分没做完，折合下最终的成绩直接没了 18 分，这下可以考虑打破最低的考试课得分记录了——电路 76 分，我觉得很有希望。</p>
+<p>问题出在了哪里？</p>
+<p>痛苦地承认自己真的不行？未免太过窝囊。好在这才刚刚开始，还有补救的机会，移动通信失去的东西，要在后面的天线原理和卫星通信上找回来，就像以前做的那样。</p>
+<p>希望一切好起来吧。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>结束了，我的大学前三年</title>
     <url>/2020/07/the-end-of-my-first-three-years-of-university/</url>
     <content><![CDATA[<p>今天，终于写完了生产实习要求提交的设计报告，给自己这一周来的辛苦来一个结局。辛苦聪聪了，一直在小组内沟通，感谢，还有大家，虽然摸鱼但好歹在线，感谢。至此，我的大学前三年结束了，没有什么高光时刻，平平淡淡地度过了，今天是一个里程碑。</p>
@@ -1670,42 +1670,10 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>LDPC 码译码结束，喘上一口气</title>
-    <url>/2020/08/a-small-summer-win/</url>
-    <content><![CDATA[<p>过去的这两周，我的时间基本花在了 LDPC 码的学习上，开始是阅读『hannel Codes』这本书，然后就是用 C 语言实现其中介绍的译码算法和 SPA 和其简化版本 MSA，若是不深入其原理，实现这个算法并不困难，但我忽视了一个重要的问题：我实现的算法最终要达到什么样的效果？这导致我白白浪费了两天时间。</p>
-<a id="more"></a>
-<p>书上给出的 BER 曲线中，使用的算法是 SPA，而我实现的算法是 MSA，其他条件相同的情况下，MSA 性能就是不如 SPA，因为它只是 SPA 的简化版本。我做出来的误码率曲线老是和书上的差一点，让我非常困惑，纠结了半天，后面问了老师，她给了她当时做的时候生成的 H 矩阵和当时实现的代码，让我作一个参考，这对我帮助很大。</p>
-<img src="/2020/08/a-small-summer-win/image-20200817230403378.png" title="书上给出的仿真结果图">
-<p>昨天一天还是白白度过了，我在极度自闭中混过了一天，期间断点运行了代码试了试，发现了我原来实现算法中的一个小问题，还优化了一下代码，但都对性能毫无改进，就算是使用老师给的 H 矩阵也是一样。我开始怀疑是算法本身的问题，是不是它根本就达不到书上给出的性能，于是今天我回头去看书，在图的上方，作者写明了仿真算法是 SPA，而我做的是 MSA！该死，我居然直接忽视了这么明显了信息。在往前翻翻，作者提到 MSA 会比 SPA 的性能差 0.1dB，我的仿真是符合的！我有点激动，赶紧实现了 SPA，稍加调试，开始运行，等待结果。</p>
-<p><strong>果然，就是 MSA 算法的问题，书上给出的图在 SPA 算法下的，而我做的是 MSA，自然有性能差距。</strong></p>
-<img src="/2020/08/a-small-summer-win/finalresult.png" title="最终的仿真结果">
-<p>这次仿真就告一段落了，后续我会写几篇文章，总结仿真实现的过程以及在仿真中遇到的问题。现在我觉得最关键的一个问题是：<strong>面对仿真结果的不理想，如何进行调试，尤其是时间有限的情况下，如何快速定位错误。</strong>这是个共性的问题，需要经验的积累，从这次经历中我能学到的是什么呢？找时间总结下。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>近日杂记</title>
     <url>/2020/08/some-recent-chores/</url>
     <content><![CDATA[<p>又过去几天了，每天保持低效率地看书，也总算是看完了『Channel   Codes』的前两章，看书时间分布也就是上午两小时下午两小时，晚上一小时了，期间得穿插着打游戏和上网冲浪，这就是放假的状态吗？有点舒服，但是又觉得不该如此，人生怎么能如此颓废。思考罢了，回头又是继续这种生活，好不快乐。</p>
 <a id="more"></a>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>闲逛半个月</title>
-    <url>/2020/09/hang-out-for-half-a-month/</url>
-    <content><![CDATA[<p>如题所示 ，我已经闲逛了半个月之久，昏昏沉沉过了半个月，像是突然失去了学习的状态，心情无法平复，难以集中到文章上，于是我逃避到游戏中，我尝试了 CSGO，Dota2，现在又开始玩 LOL 了，但我从心里知道这并不会长久的，很快我就会回归到我的状态，集中注意力学习。<br><a id="more"></a><br>这半个月来我到底干了什么呢？首先我感受到了自己的懈怠，但是不想就这样懈怠下去，于是决定先做点简单的事情——在 B 站看 FPGA 教程，或许是教程的每个视频太长，让我感觉很挫败，或许根本就是我无法静下心学习，总之，几天后我决定看买的那本 FPGA 书。看书比起看视频来果然快很多，而且可以随时停下来刷刷手机，四天之后，我把书看完了，但真的只是看完了，自问看过的东西脑子还记得的真的不多，很惭愧。接下来我彻底无事可做了，虽然老师给了篇文章让我去看，但是我完全无法静下心去看文章，尽管那篇文章并不长，简单看下的话应该花不到一个下午就能看完，我一定是哪里不对劲了。到现在我还是没有找到原因，不过我感受到了，这段不对劲的时间马上要过去了，我可以重新回归到之前的状态。</p>
-<p>我猜测，我在失去目标时很容易变的不知所措，如果我正在做的事情没有一个清晰的进度指示，也会让我感到沮丧无法坚持下去。</p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -1763,6 +1731,56 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>LDPC 码译码结束，喘上一口气</title>
+    <url>/2020/08/a-small-summer-win/</url>
+    <content><![CDATA[<p>过去的这两周，我的时间基本花在了 LDPC 码的学习上，开始是阅读『hannel Codes』这本书，然后就是用 C 语言实现其中介绍的译码算法和 SPA 和其简化版本 MSA，若是不深入其原理，实现这个算法并不困难，但我忽视了一个重要的问题：我实现的算法最终要达到什么样的效果？这导致我白白浪费了两天时间。</p>
+<a id="more"></a>
+<p>书上给出的 BER 曲线中，使用的算法是 SPA，而我实现的算法是 MSA，其他条件相同的情况下，MSA 性能就是不如 SPA，因为它只是 SPA 的简化版本。我做出来的误码率曲线老是和书上的差一点，让我非常困惑，纠结了半天，后面问了老师，她给了她当时做的时候生成的 H 矩阵和当时实现的代码，让我作一个参考，这对我帮助很大。</p>
+<img src="/2020/08/a-small-summer-win/image-20200817230403378.png" title="书上给出的仿真结果图">
+<p>昨天一天还是白白度过了，我在极度自闭中混过了一天，期间断点运行了代码试了试，发现了我原来实现算法中的一个小问题，还优化了一下代码，但都对性能毫无改进，就算是使用老师给的 H 矩阵也是一样。我开始怀疑是算法本身的问题，是不是它根本就达不到书上给出的性能，于是今天我回头去看书，在图的上方，作者写明了仿真算法是 SPA，而我做的是 MSA！该死，我居然直接忽视了这么明显了信息。在往前翻翻，作者提到 MSA 会比 SPA 的性能差 0.1dB，我的仿真是符合的！我有点激动，赶紧实现了 SPA，稍加调试，开始运行，等待结果。</p>
+<p><strong>果然，就是 MSA 算法的问题，书上给出的图在 SPA 算法下的，而我做的是 MSA，自然有性能差距。</strong></p>
+<img src="/2020/08/a-small-summer-win/finalresult.png" title="最终的仿真结果">
+<p>这次仿真就告一段落了，后续我会写几篇文章，总结仿真实现的过程以及在仿真中遇到的问题。现在我觉得最关键的一个问题是：<strong>面对仿真结果的不理想，如何进行调试，尤其是时间有限的情况下，如何快速定位错误。</strong>这是个共性的问题，需要经验的积累，从这次经历中我能学到的是什么呢？找时间总结下。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>闲逛半个月</title>
+    <url>/2020/09/hang-out-for-half-a-month/</url>
+    <content><![CDATA[<p>如题所示 ，我已经闲逛了半个月之久，昏昏沉沉过了半个月，像是突然失去了学习的状态，心情无法平复，难以集中到文章上，于是我逃避到游戏中，我尝试了 CSGO，Dota2，现在又开始玩 LOL 了，但我从心里知道这并不会长久的，很快我就会回归到我的状态，集中注意力学习。<br><a id="more"></a><br>这半个月来我到底干了什么呢？首先我感受到了自己的懈怠，但是不想就这样懈怠下去，于是决定先做点简单的事情——在 B 站看 FPGA 教程，或许是教程的每个视频太长，让我感觉很挫败，或许根本就是我无法静下心学习，总之，几天后我决定看买的那本 FPGA 书。看书比起看视频来果然快很多，而且可以随时停下来刷刷手机，四天之后，我把书看完了，但真的只是看完了，自问看过的东西脑子还记得的真的不多，很惭愧。接下来我彻底无事可做了，虽然老师给了篇文章让我去看，但是我完全无法静下心去看文章，尽管那篇文章并不长，简单看下的话应该花不到一个下午就能看完，我一定是哪里不对劲了。到现在我还是没有找到原因，不过我感受到了，这段不对劲的时间马上要过去了，我可以重新回归到之前的状态。</p>
+<p>我猜测，我在失去目标时很容易变的不知所措，如果我正在做的事情没有一个清晰的进度指示，也会让我感到沮丧无法坚持下去。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搬砖日记 2020.09.16</title>
+    <url>/2020/09/sr-log-200916/</url>
+    <content><![CDATA[<p>实验室的第二天，写下的第一篇日志。今天的任务是实现 LDPC 码的高阶调制问题，经过了一番折腾，最终得到了一个看起来正确的方法，这种方法也在『Channel Codes』这本书的第 15 章简单提到了。实现 LDPC 码的高阶调制解调框图如下所示。</p>
+<a id="more"></a>
+<img src="/2020/09/sr-log-200916/image-20200916203759142.png" title="a block diagram of an LDPC-coded modulation system">
+<p>问题在于如何从接收到的符号中获得 LDPC 码译码器需要的信息，15 章中给出了在 SPA 下，由接收到的符号求每个比特的内信息计算方法，如下所示：</p>
+<img src="/2020/09/sr-log-200916/image-20200916204403197.png" title="LDPC-coded modulation system 内信息计算">
+<p>其他的计算则和 BPSK 调制的 LDPC 码译码相同，由此我们解决了 LDPC 码的高阶调制问题。当然肯定有很多细节我没有考虑到，暂时先这样吧，后面想到了再补充。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>sr-log</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>完成小阶段任务——终于完成了简单的 LDPC 编译码</title>
     <url>/2020/09/I-DID-IT/</url>
     <content><![CDATA[<p>折腾了这么多天，总算是完成了 8 月就拿到的 LDPC 编码译码任务，最近几天一直在 Debug，如果不是做高阶调制，我可能永远不会注意到这个 Bug——随机数生成错误，而这个错误在低信噪比时对仿真结果几乎没有印象，当时做的时候也没有去尝试更高的信噪比，这是我的失误，加上高阶调制之后，事情变得不太一样了，错误就显现出来了，误码率平层在10^-4位置出现了，这本不该发生。经过几天的寻找，从一开始的随意寻找，到昨晚上才想到断点查看判决时的数据，还是经验不足啊，希望经过这次的痛苦经历，自己的Debug能力能有所提高。</p>
@@ -1804,24 +1822,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>搬砖日记 2020.09.16</title>
-    <url>/2020/09/sr-log-200916/</url>
-    <content><![CDATA[<p>实验室的第二天，写下的第一篇日志。今天的任务是实现 LDPC 码的高阶调制问题，经过了一番折腾，最终得到了一个看起来正确的方法，这种方法也在『Channel Codes』这本书的第 15 章简单提到了。实现 LDPC 码的高阶调制解调框图如下所示。</p>
-<a id="more"></a>
-<img src="/2020/09/sr-log-200916/image-20200916203759142.png" title="a block diagram of an LDPC-coded modulation system">
-<p>问题在于如何从接收到的符号中获得 LDPC 码译码器需要的信息，15 章中给出了在 SPA 下，由接收到的符号求每个比特的内信息计算方法，如下所示：</p>
-<img src="/2020/09/sr-log-200916/image-20200916204403197.png" title="LDPC-coded modulation system 内信息计算">
-<p>其他的计算则和 BPSK 调制的 LDPC 码译码相同，由此我们解决了 LDPC 码的高阶调制问题。当然肯定有很多细节我没有考虑到，暂时先这样吧，后面想到了再补充。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>sr-log</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一次一次又一次的拖延，能逃离这个怪圈吗？</title>
     <url>/2020/10/again-again-agin-delay/</url>
     <content><![CDATA[<p>2 号老师告诉我们 8 号提交开题报告给她，现在已经 4 号晚上了，我还是几乎一字未动。是我拖延症又犯了，还是我根本不配写，关于这个问题，我决定好好考虑下，现在也写不下去，考虑下这个问题也挺好。<br><a id="more"></a><br>首先明确一点，不管配不配，这个报告我都必须写完。在这个基础上，再去考虑下一步：我要写出一个什么样的报告？为了这个目标我需要去做哪些事情？如果仅仅只是为了写完报告，那么我大可以找几篇硕士论文，把他们的前面部分进行一些糅合，就可以得到一份报告了，这种方式不失为一个选择，但也面临着问题：我到底要做的是什么东西？这个问题的优先级甚至还可以再提一提。或许我早就有了前面那个问题的答案：简单做一个编译码器即可，但简单搜索之后，我感到很难受，因为这件事情别人早就做过了，甚至已经做得挺好了，而我只是一个新手，也要去做相同的事情，我下意识地想逃避了。</p>
@@ -1845,6 +1845,73 @@ proc complete_sim {} {...}
 ]]></content>
       <categories>
         <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一张实验室电脑的软件清单</title>
+    <url>/2020/10/windows-software-list/</url>
+    <content><![CDATA[<p>最多两周后，需要搬到隔壁实验室去，大概会配一台电脑，在此列一张需要安装的软件清单，如果可以的话，最好列出获取软件的方式。<br><a id="more"></a></p>
+<ul>
+<li>uTorrent</li>
+<li>360 压缩</li>
+<li>Altium Designer</li>
+<li>Anaconda</li>
+<li>Android Studio（-）</li>
+<li>CCleaner</li>
+<li>doxygen</li>
+<li>foxmail</li>
+<li>git</li>
+<li>GitHub Desktop</li>
+<li>Google Chrome</li>
+<li>Java</li>
+<li>KeePass Password Safe</li>
+<li>Keil 4</li>
+<li>Mathpix Snipping Tool</li>
+<li>MathType</li>
+<li>MATLAB</li>
+<li>Office, Visio</li>
+<li>VScode</li>
+<li>VS</li>
+<li>Modelsim</li>
+<li>Node.js</li>
+<li>Notepad++</li>
+<li>Fiddler</li>
+<li>PuTTy</li>
+<li>Python</li>
+<li>Quartus 13.1</li>
+<li>ScreenToGif</li>
+<li>ShowMore</li>
+<li>Stardock Fences3</li>
+<li>Steam Wallpaper Engine</li>
+<li>TeamViewer</li>
+<li>Typora</li>
+<li>Vim</li>
+<li>VMware</li>
+<li>WinSCP</li>
+<li>Wireshark</li>
+<li>Wolfram Engine</li>
+<li>XMind</li>
+<li>百度网盘</li>
+<li>坚果云</li>
+<li>欧路词典</li>
+<li>QQ</li>
+<li>网易云音乐</li>
+<li>微信</li>
+<li>rime 输入法</li>
+<li>桌面日历</li>
+</ul>
+<p>补充：</p>
+<ul>
+<li>endnote</li>
+<li>Snipaste</li>
+<li>ToDo</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
       </categories>
       <tags>
         <tag>记录</tag>
@@ -1952,78 +2019,28 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>一张实验室电脑的软件清单</title>
-    <url>/2020/10/windows-software-list/</url>
-    <content><![CDATA[<p>最多两周后，需要搬到隔壁实验室去，大概会配一台电脑，在此列一张需要安装的软件清单，如果可以的话，最好列出获取软件的方式。<br><a id="more"></a></p>
-<ul>
-<li>uTorrent</li>
-<li>360 压缩</li>
-<li>Altium Designer</li>
-<li>Anaconda</li>
-<li>Android Studio（-）</li>
-<li>CCleaner</li>
-<li>doxygen</li>
-<li>foxmail</li>
-<li>git</li>
-<li>GitHub Desktop</li>
-<li>Google Chrome</li>
-<li>Java</li>
-<li>KeePass Password Safe</li>
-<li>Keil 4</li>
-<li>Mathpix Snipping Tool</li>
-<li>MathType</li>
-<li>MATLAB</li>
-<li>Office, Visio</li>
-<li>VScode</li>
-<li>VS</li>
-<li>Modelsim</li>
-<li>Node.js</li>
-<li>Notepad++</li>
-<li>Fiddler</li>
-<li>PuTTy</li>
-<li>Python</li>
-<li>Quartus 13.1</li>
-<li>ScreenToGif</li>
-<li>ShowMore</li>
-<li>Stardock Fences3</li>
-<li>Steam Wallpaper Engine</li>
-<li>TeamViewer</li>
-<li>Typora</li>
-<li>Vim</li>
-<li>VMware</li>
-<li>WinSCP</li>
-<li>Wireshark</li>
-<li>Wolfram Engine</li>
-<li>XMind</li>
-<li>百度网盘</li>
-<li>坚果云</li>
-<li>欧路词典</li>
-<li>QQ</li>
-<li>网易云音乐</li>
-<li>微信</li>
-<li>rime 输入法</li>
-<li>桌面日历</li>
-</ul>
-<p>补充：</p>
-<ul>
-<li>endnote</li>
-<li>Snipaste</li>
-<li>ToDo</li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>11 月的第一篇和最后一篇</title>
     <url>/2020/11/log-11-29/</url>
     <content><![CDATA[<p>已经是11月29日了，今天是教学周第12周的的最后一天，已经有许久没有整理整理了，今天正好休息，记下两笔吧。<br><a id="more"></a><br>先说毕设，距离我预订的完成时间还剩下两周，按照过去一个月的进度来看，我肯定无法在这最后两周完成全部内容，但我还想试试。我现在对 FPGA 的掌握程度还远没有达到预订的目标：给定一个需求，能够完成设计和代码实现。现在的我就算是照着设计去写代码都有很大的困难，问题出在哪里呢？这段时间以来，我也没闲着，也在看 Verilog 代码，也看了一些那几本书，但还是不得要领。按照之前学习的经验来看，还是代码抄得不够，我感觉回到了三年前，那是一次痛苦的 Python 学习经历，像个无头苍蝇一样撞了几天后直接放弃了，不过现在我没有放弃这个选项，我必须完成，那么在接下来这段时间多抄点代码吧，看看好的设计是怎么完成的。下周日再来检验吧。</p>
 <p>25号考完了本科中的最后一门必修课，恍惚间大学生活似乎就要结束了，真快啊。三年来，发生了一些有意思的事情，也碰到了很多有意思的人，完成了自己的执念也终于放下，有人永远地离去，我想抓住却已经来不及，珍惜身边人吧。</p>
 <p>加油。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>sr-log</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一点数字电路设计的感悟</title>
+    <url>/2020/12/a-little-understanding-of-FPGA-design/</url>
+    <content><![CDATA[<p>惊呼：已经12月了！</p>
+<p>现在每日牵挂的无非是课设二字，近日还算专心钻研数字电路设计，也算是知道了一点东西，有一点感悟，不妨写下来，让这种感觉更加准确。<br><a id="more"></a><br>数字电路设计，无非是时序逻辑电路和组合逻辑电路，在 FPGA 设计中，就是带触发器的同步电路设计和纯组合电路设计，浅显的理解可以认为是阻塞赋值和非阻塞赋值的区别。话虽说得简单，但是实际做起来倒真的不容易，就比如我几天前写的那个串口接收和发送的代码，时序总是不对，后面多看了看别人的设计，才发现自己真是太嫩了，这种设计自然是有比较特定的规律。</p>
+<h2 id="边沿检测"><a href="#边沿检测" class="headerlink" title="边沿检测"></a>边沿检测</h2><p>边沿检测可算是最最经典的电路设计了，实际当中却是处处会用到。一个典型的检测电路如下：</p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> Edge_detect(</span><br><span class="line">    <span class="keyword">input</span> clk,		<span class="comment">// 时钟</span></span><br><span class="line">    <span class="keyword">input</span> rst_n,	<span class="comment">// 复位信号</span></span><br><span class="line">    <span class="keyword">input</span> SigIn,	<span class="comment">// 输入信号 </span></span><br><span class="line">    <span class="keyword">output</span> SigOut,  <span class="comment">// 同步之后的输出信号</span></span><br><span class="line">    <span class="keyword">output</span> down,    <span class="comment">// 检测到下降沿产生一个脉冲</span></span><br><span class="line">    <span class="keyword">output</span> up	    <span class="comment">// 检测上升沿产生一个脉冲</span></span><br><span class="line">);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">reg</span> [<span class="number">2</span>:<span class="number">0</span>] ToggleSigIn;	<span class="comment">// 三级寄存器，前两级用于同步信号</span></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk <span class="keyword">or</span> <span class="keyword">negedge</span> rst_n) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> (~rst_n) <span class="keyword">begin</span></span><br><span class="line">            ToggleSigIn &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">begin</span></span><br><span class="line">            <span class="comment">// 移位寄存</span></span><br><span class="line">            ToggleSigIn &lt;= &#123;ToggleSigIn[<span class="number">1</span>:<span class="number">0</span>], SigIn&#125;;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 同步后的信号直接作为输出</span></span><br><span class="line">    <span class="keyword">assign</span> SigOut = ToggleSigIn[<span class="number">2</span>];	</span><br><span class="line">    <span class="comment">// 前一时刻为低电平 后一时刻为高电平 下降沿出现</span></span><br><span class="line">    <span class="keyword">assign</span> down   = (~ToggleSigIn[<span class="number">2</span>] &amp; ToggleSigIn[<span class="number">1</span>]);</span><br><span class="line">    <span class="comment">// 前一时刻为高电平 后一时刻为低电平 下降沿出现</span></span><br><span class="line">    <span class="keyword">assign</span> up     = (ToggleSigIn[<span class="number">2</span>] &amp; ~ToggleSigIn[<span class="number">1</span>]);</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+<p>看起来非常简单，但在实际使用中却是必不可少又十分有效的，譬如在串口接收中就需要简单信号线上下降沿的产生，以检测信号到来，当然，检测之前，做一次数据同步是必不可少的。</p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -2049,23 +2066,6 @@ proc complete_sim {} {...}
       </categories>
       <tags>
         <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一点数字电路设计的感悟</title>
-    <url>/2020/12/a-little-understanding-of-FPGA-design/</url>
-    <content><![CDATA[<p>惊呼：已经12月了！</p>
-<p>现在每日牵挂的无非是课设二字，近日还算专心钻研数字电路设计，也算是知道了一点东西，有一点感悟，不妨写下来，让这种感觉更加准确。<br><a id="more"></a><br>数字电路设计，无非是时序逻辑电路和组合逻辑电路，在 FPGA 设计中，就是带触发器的同步电路设计和纯组合电路设计，浅显的理解可以认为是阻塞赋值和非阻塞赋值的区别。话虽说得简单，但是实际做起来倒真的不容易，就比如我几天前写的那个串口接收和发送的代码，时序总是不对，后面多看了看别人的设计，才发现自己真是太嫩了，这种设计自然是有比较特定的规律。</p>
-<h2 id="边沿检测"><a href="#边沿检测" class="headerlink" title="边沿检测"></a>边沿检测</h2><p>边沿检测可算是最最经典的电路设计了，实际当中却是处处会用到。一个典型的检测电路如下：</p>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> Edge_detect(</span><br><span class="line">    <span class="keyword">input</span> clk,		<span class="comment">// 时钟</span></span><br><span class="line">    <span class="keyword">input</span> rst_n,	<span class="comment">// 复位信号</span></span><br><span class="line">    <span class="keyword">input</span> SigIn,	<span class="comment">// 输入信号 </span></span><br><span class="line">    <span class="keyword">output</span> SigOut,  <span class="comment">// 同步之后的输出信号</span></span><br><span class="line">    <span class="keyword">output</span> down,    <span class="comment">// 检测到下降沿产生一个脉冲</span></span><br><span class="line">    <span class="keyword">output</span> up	    <span class="comment">// 检测上升沿产生一个脉冲</span></span><br><span class="line">);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">reg</span> [<span class="number">2</span>:<span class="number">0</span>] ToggleSigIn;	<span class="comment">// 三级寄存器，前两级用于同步信号</span></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk <span class="keyword">or</span> <span class="keyword">negedge</span> rst_n) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> (~rst_n) <span class="keyword">begin</span></span><br><span class="line">            ToggleSigIn &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">begin</span></span><br><span class="line">            <span class="comment">// 移位寄存</span></span><br><span class="line">            ToggleSigIn &lt;= &#123;ToggleSigIn[<span class="number">1</span>:<span class="number">0</span>], SigIn&#125;;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 同步后的信号直接作为输出</span></span><br><span class="line">    <span class="keyword">assign</span> SigOut = ToggleSigIn[<span class="number">2</span>];	</span><br><span class="line">    <span class="comment">// 前一时刻为低电平 后一时刻为高电平 下降沿出现</span></span><br><span class="line">    <span class="keyword">assign</span> down   = (~ToggleSigIn[<span class="number">2</span>] &amp; ToggleSigIn[<span class="number">1</span>]);</span><br><span class="line">    <span class="comment">// 前一时刻为高电平 后一时刻为低电平 下降沿出现</span></span><br><span class="line">    <span class="keyword">assign</span> up     = (ToggleSigIn[<span class="number">2</span>] &amp; ~ToggleSigIn[<span class="number">1</span>]);</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-<p>看起来非常简单，但在实际使用中却是必不可少又十分有效的，譬如在串口接收中就需要简单信号线上下降沿的产生，以检测信号到来，当然，检测之前，做一次数据同步是必不可少的。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>sr-log</tag>
       </tags>
   </entry>
   <entry>
@@ -2465,8 +2465,8 @@ proc complete_sim {} {...}
         <category>C/C++</category>
       </categories>
       <tags>
-        <tag>C/C++</tag>
         <tag>notes</tag>
+        <tag>C/C++</tag>
         <tag>STL</tag>
       </tags>
   </entry>
@@ -2745,6 +2745,58 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>『HDLbits』时序逻辑之 FF 和 Counter</title>
+    <url>/2021/01/hdlbits-sequantial-logic-ff-and-counter/</url>
+    <content><![CDATA[<p>刷了一天 hdlbits 了，放几道时序逻辑电路设计的题上来，对于现在的我来说，这些问题都算不得难了，因为电路都很简单，只是要用 Verilog 实现，但真正要设计电路的问题对我而言就相对困难了，比如文中的 <a href="#Dualedge">Dualedge</a>，难在电路设计，而不是 Verilog 实现，后者纯粹是个体力活，比如 <a href="#Count-clock">Count clock</a>，需要加油啊。</p>
+<a id="more"></a>
+<h2 id="Edgecapture"><a href="#Edgecapture" class="headerlink" title="Edgecapture"></a>Edgecapture</h2><p>原文链接：<a href="https://hdlbits.01xz.net/wiki/Edgecapture" target="_blank" rel="noopener">Edgecapture</a>。</p>
+<p>For each bit in a 32-bit vector, capture when the input signal changes from 1 in one clock cycle to 0 the next. “Capture” means that the output will remain 1 until the register is reset (synchronous reset).</p>
+<p>Each output bit behaves like a SR flip-flop: The output bit should be set (to 1) the cycle after a 1 to 0 transition occurs. The output bit should be reset (to 0) at the positive clock edge when reset is high. If both of the above events occur at the same time, reset has precedence. In the last 4 cycles of the example waveform below, the ‘reset’ event occurs one cycle earlier than the ‘set’ event, so there is no conflict here.</p>
+<p>In the example waveform below, reset, in[1] and out[1] are shown again separately for clarity.</p>
+<p>保持先前为 1 的状态，最好的办法莫过于使用<code>与AND</code>了，如 <code>out &lt;= out | (reg_in &amp; (~in))</code> 简单一句就完成抓取下降沿的任务，同理易知抓取上升沿即 <code>out &lt;= out | ((~reg_in) &amp; in)</code>。</p>
+ <img src="/2021/01/hdlbits-sequantial-logic-ff-and-counter/image-20210130143822445.png">
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">    <span class="keyword">input</span> clk,</span><br><span class="line">    <span class="keyword">input</span> reset,</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">31</span>:<span class="number">0</span>] in,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">31</span>:<span class="number">0</span>] out</span><br><span class="line">);</span><br><span class="line">    <span class="keyword">reg</span> [<span class="number">31</span>:<span class="number">0</span>] reg_in;</span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk) <span class="keyword">begin</span></span><br><span class="line">        reg_in &lt;= in;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> ( reset )</span><br><span class="line">            out &lt;= <span class="number">32'd0</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            out &lt;= out | (reg_in &amp; (~in));</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+<h2 id="Dualedge"><a href="#Dualedge" class="headerlink" title="Dualedge"></a>Dualedge</h2><p>原文链接：<a href="https://hdlbits.01xz.net/wiki/Dualedge" target="_blank" rel="noopener">Dualedge</a>。</p>
+<p>果然，碰到真正的时序电路设计问题我就直接懵了。下面的答案是在网上抄的，实在是惭愧。</p>
+<p>You’re familiar with flip-flops that are triggered on the positive edge of the clock, or negative edge of the clock. A dual-edge triggered flip-flop is triggered on both edges of the clock. However, FPGAs don’t have dual-edge triggered flip-flops, and <code>always @(posedge clk or negedge clk)</code> is not accepted as a legal sensitivity list.</p>
+<p>Build a circuit that functionally behaves like a dual-edge triggered flip-flop:</p>
+ <img src="/2021/01/hdlbits-sequantial-logic-ff-and-counter/image-20210130150619632.png">
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">    <span class="keyword">input</span> clk,</span><br><span class="line">    <span class="keyword">input</span> d,</span><br><span class="line">    <span class="keyword">output</span> q</span><br><span class="line">);</span><br><span class="line">    <span class="keyword">reg</span> q_d1;</span><br><span class="line">    <span class="keyword">reg</span> q_d2;</span><br><span class="line">    <span class="keyword">always</span>@(<span class="keyword">posedge</span> clk)<span class="keyword">begin</span></span><br><span class="line">        q_d1 &lt;= d ^ q_d2;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">always</span>@(<span class="keyword">negedge</span> clk)<span class="keyword">begin</span></span><br><span class="line">        q_d2 &lt;= d ^ q_d1;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">assign</span> q = q_d1 ^ q_d2;</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+<h2 id="Exams-ece241-2014-q7a"><a href="#Exams-ece241-2014-q7a" class="headerlink" title="Exams/ece241 2014 q7a"></a>Exams/ece241 2014 q7a</h2><p>原文链接：<a href="https://hdlbits.01xz.net/wiki/Exams/ece241_2014_q7a" target="_blank" rel="noopener">Exams/ece241 2014 q7a</a>。</p>
+<p>正确理解全部的需求，否则会有意想不到的BUG。</p>
+<p>Design a 1-12 counter with the following inputs and outputs:</p>
+<ul>
+<li><strong>Reset</strong> Synchronous active-high reset that forces the counter to 1</li>
+<li><strong>Enable</strong> Set high for the counter to run</li>
+<li><strong>Clk</strong> Positive edge-triggered clock input</li>
+<li><strong>Q[3:0]</strong> The output of the counter</li>
+<li><strong>c_enable, c_load, c_d[3:0]</strong> Control signals going to the provided 4-bit counter, so correct operation can be verified.</li>
+</ul>
+<p>You have the following components available:</p>
+<ul>
+<li>the 4-bit binary counter (<strong>count4</strong>) below, which has Enable and synchronous parallel-load inputs (load has higher priority than enable). The <strong>count4</strong> module is provided to you. Instantiate it in your circuit.</li>
+<li>logic gates</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">module count4(</span><br><span class="line">    input clk,</span><br><span class="line">    input enable,</span><br><span class="line">    input load,</span><br><span class="line">    input [3:0] d,</span><br><span class="line">    output reg [3:0] Q</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>The <strong>c_enable</strong>, <strong>c_load</strong>, and <strong>c_d</strong> outputs are the signals that go to the internal counter’s <strong>enable</strong>, <strong>load</strong>, and <strong>d</strong> inputs, respectively. Their purpose is to allow these signals to be checked for correctness.</p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">    <span class="keyword">input</span> clk,</span><br><span class="line">    <span class="keyword">input</span> reset,</span><br><span class="line">    <span class="keyword">input</span> enable,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">3</span>:<span class="number">0</span>] Q,</span><br><span class="line">    <span class="keyword">output</span> c_enable,</span><br><span class="line">    <span class="keyword">output</span> c_load,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">3</span>:<span class="number">0</span>] c_d</span><br><span class="line">); <span class="comment">//</span></span><br><span class="line">    </span><br><span class="line">    count4 the_counter (clk, c_enable, c_load, c_d, Q );</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">assign</span> c_d = <span class="number">4'd1</span>;</span><br><span class="line">    <span class="keyword">assign</span> c_enable = enable;</span><br><span class="line">    <span class="keyword">assign</span> c_load = reset | (Q == <span class="number">4'd12</span> &amp;&amp; enable);</span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+<p>注意最后一条 assign 语句，<code>Q == 4&#39;d12 &amp;&amp; enable</code>，如果不测试，很容易忘记加 <code>enable</code> 条件，产生意想不到的 错误，我自己在测试的时候怎么才能发现这样的问题呢？hdlbits 上的 checker 是怎么做的，我很想知道。</p>
+<h2 id="Count-clock"><a href="#Count-clock" class="headerlink" title="Count clock"></a>Count clock</h2><p>原文地址：<a href="https://hdlbits.01xz.net/wiki/Count_clock" target="_blank" rel="noopener">Count clock</a></p>
+<p>Create a set of counters suitable for use as a 12-hour clock (with am/pm indicator). Your counters are clocked by a fast-running <code>clk</code>, with a pulse on <code>ena</code> whenever your clock should increment (i.e., once per second).</p>
+<p><code>reset</code> resets the clock to 12:00 AM. <code>pm</code> is 0 for AM and 1 for PM. <code>hh</code>, <code>mm</code>, and <code>ss</code> are two <strong>BCD</strong> (Binary-Coded Decimal) digits each for hours (01-12), minutes (00-59), and seconds (00-59). Reset has higher priority than enable, and can occur even when not enabled.</p>
+<p>The following timing diagram shows the rollover behaviour from <code>11:59:59 AM</code> to <code>12:00:00 PM</code> and the synchronous reset and enable behaviour.</p>
+ <img src="/2021/01/hdlbits-sequantial-logic-ff-and-counter/image-20210130204152683.png">
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> clk,</span><br><span class="line">    <span class="keyword">input</span> reset,</span><br><span class="line">    <span class="keyword">input</span> ena,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> pm,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">7</span>:<span class="number">0</span>] hh,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">7</span>:<span class="number">0</span>] mm,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">7</span>:<span class="number">0</span>] ss); </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">wire</span> ena_mm = (ss == <span class="number">8'h59</span>) &amp; ena;</span><br><span class="line">    <span class="keyword">wire</span> ena_hh = ena &amp; (ss == <span class="number">8'h59</span>) &amp; (mm == <span class="number">8'h59</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// ss</span></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> ( reset )</span><br><span class="line">            ss &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ( ena ) <span class="keyword">begin</span></span><br><span class="line">            <span class="keyword">if</span> ( ss == <span class="number">8'h59</span> )</span><br><span class="line">            	ss &lt;= <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> ( ss[<span class="number">3</span>:<span class="number">0</span>] == <span class="number">4'd9</span> &amp;&amp; ss[<span class="number">7</span>:<span class="number">4</span>] != <span class="number">4'd5</span> )</span><br><span class="line">                ss &lt;= &#123;ss[<span class="number">7</span>:<span class="number">4</span>]+<span class="number">1'b1</span>, <span class="number">4'd0</span>&#125;;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                ss[<span class="number">3</span>:<span class="number">0</span>] &lt;= ss[<span class="number">3</span>:<span class="number">0</span>] + <span class="number">1'b1</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">        </span><br><span class="line">    <span class="comment">// mm</span></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> ( reset )</span><br><span class="line">            mm &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ( ena_mm ) <span class="keyword">begin</span></span><br><span class="line">            <span class="keyword">if</span> ( mm == <span class="number">8'h59</span> )</span><br><span class="line">                mm &lt;= <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> ( mm[<span class="number">3</span>:<span class="number">0</span>] == <span class="number">4'd9</span> &amp;&amp; mm[<span class="number">7</span>:<span class="number">4</span>] != <span class="number">4'd5</span> )</span><br><span class="line">                mm &lt;= &#123;mm[<span class="number">7</span>:<span class="number">4</span>] + <span class="number">1'b1</span>, <span class="number">4'd0</span>&#125;;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                mm[<span class="number">3</span>:<span class="number">0</span>] &lt;= mm[<span class="number">3</span>:<span class="number">0</span>] + <span class="number">1'b1</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// hh</span></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> ( reset )</span><br><span class="line">            hh &lt;= <span class="number">8'h12</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ( ena_hh ) <span class="keyword">begin</span></span><br><span class="line">            <span class="keyword">if</span> ( hh == <span class="number">8'h12</span> )</span><br><span class="line">                hh &lt;= <span class="number">8'h01</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> ( hh[<span class="number">3</span>:<span class="number">0</span>] == <span class="number">4'd9</span> )</span><br><span class="line">                hh &lt;= &#123;hh[<span class="number">7</span>:<span class="number">4</span>]+<span class="number">1'b1</span>, <span class="number">4'd0</span>&#125;;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                hh[<span class="number">3</span>:<span class="number">0</span>] &lt;= hh[<span class="number">3</span>:<span class="number">0</span>] + <span class="number">1'b1</span>;  </span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">            </span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> ( reset )</span><br><span class="line">            pm &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ( ena_hh &amp;&amp; hh == <span class="number">8'h11</span> )</span><br><span class="line">            pm &lt;= ~pm;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            pm &lt;= pm;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>FPGA</tag>
+        <tag>verilog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>结构三十六法</title>
     <url>/2021/02/thirty-six-structural-methods/</url>
     <content><![CDATA[<p>看着自己越来越难看的字，最近决定练一练，抄下最近看到的楷书行笔的方法。</p>
@@ -2776,6 +2828,56 @@ proc complete_sim {} {...}
       <categories>
         <category>生活</category>
       </categories>
+  </entry>
+  <entry>
+    <title>『Weekly』2 月最后一天</title>
+    <url>/2021/02/last-day-of-feb-2021/</url>
+    <content><![CDATA[<p>这是一份迟到几个小时的一周总结，也将是我第一篇一周总结，以后在这个 blog 上还是一周更新一次这样的生活记录，天天都写在这里感觉不合适，会让我丧失在这里更新技术类文章的动力（每天都写完一篇了，八成不想写第二篇）。</p>
+<p>简单总结下这一周：所有的目标都没有完成。至于原因如何，我大概明白，但是坚决不改，活该。</p>
+<a id="more"></a>
+<h2 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h2><p>2022.2021.02.22~2021.02.28</p>
+<h2 id="小事记"><a href="#小事记" class="headerlink" title="小事记"></a>小事记</h2><ul>
+<li>看完了 Instagram 的发展历史：社区非常重要，和什么样的人前行很重要。</li>
+<li>看了几张过去的照片，感慨万千，若一切重来，又当如何呢？</li>
+<li>一直好奇河堤的尽头是什么，当我终于走了过去，才发现不过如此，有些东西保留一些未知是最美的。</li>
+<li>LeetCode 刷到了 100 题，在这个程度上，我终于算是对算法有了基本的了解了，至少会做几道题了，我很高兴，虽然这占去了我很多时间，导致我看学习视频、做毕设的进度被严重拖慢了。</li>
+<li>有舍有得，选择其实就是放弃，如何才能做出合理的选择。</li>
+<li>县城医疗水平太差了，底层的人和他有关的一切都是底层的，就连思想也是。</li>
+<li>考研出分了，四六级也出分了，我了解的各位得到的分数基本在意料之中，他们获得了去更好的大学深造的机会，上交，东南，北大，等等。当然，也有因为六级没过失去了保研资格的，但是从另一方面来说，获得了去往更好学校的机会，不用考虑放不放弃保研资格这个难题。</li>
+<li>元宵快乐！</li>
+</ul>
+<p>就这样吧，没啥想写的了，下周努力。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>weekly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>『Weekly』开学啦</title>
+    <url>/2021/03/weekly-final-semester-starts/</url>
+    <content><![CDATA[<p>最后一个学期终于是开始了，转眼间整个大学生涯要结束了，扪心自问，似乎没有掌握什么可以谋生的技能，整个人还是处在一种迷茫的状态，希望这种情况早点结束，早点找到自己真正的渴望真正的梦想，寻找到一点人生的意义。</p>
+<h2 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h2><p>2021.03.01~2021.03.07</p>
+<h2 id="小事记"><a href="#小事记" class="headerlink" title="小事记"></a>小事记</h2><ul>
+<li>核酸检测</li>
+<li>看完了《最好的告别》，开始看《枪炮、病菌与钢铁》</li>
+<li>开学</li>
+<li>整理个人思绪</li>
+<li>毕设依然停滞不前</li>
+<li>第九次 Z236/Z238 旅程，在途中体验了一把极限的感觉</li>
+<li>第一次参加 LeetCode 周赛，我好菜啊</li>
+</ul>
+<a id="more"></a>
+<p>大概就这些内容吧，这一周挺平淡的，没什么特别的事情发生，可能是已经到周日了吧，前几天发生的看似重要的事情到现在都无所谓了，可见时间真的是良好的过滤器。唯一值得关注的事情就是毕设中期检查的日子又近了一点，我需要尽快做完自己手中的事情，加油。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>weekly</tag>
+      </tags>
   </entry>
   <entry>
     <title>『weekly』开学第一周</title>
@@ -2840,57 +2942,25 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>『Weekly』2 月最后一天</title>
-    <url>/2021/02/last-day-of-feb-2021/</url>
-    <content><![CDATA[<p>这是一份迟到几个小时的一周总结，也将是我第一篇一周总结，以后在这个 blog 上还是一周更新一次这样的生活记录，天天都写在这里感觉不合适，会让我丧失在这里更新技术类文章的动力（每天都写完一篇了，八成不想写第二篇）。</p>
-<p>简单总结下这一周：所有的目标都没有完成。至于原因如何，我大概明白，但是坚决不改，活该。</p>
-<a id="more"></a>
-<h2 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h2><p>2022.2021.02.22~2021.02.28</p>
-<h2 id="小事记"><a href="#小事记" class="headerlink" title="小事记"></a>小事记</h2><ul>
-<li>看完了 Instagram 的发展历史：社区非常重要，和什么样的人前行很重要。</li>
-<li>看了几张过去的照片，感慨万千，若一切重来，又当如何呢？</li>
-<li>一直好奇河堤的尽头是什么，当我终于走了过去，才发现不过如此，有些东西保留一些未知是最美的。</li>
-<li>LeetCode 刷到了 100 题，在这个程度上，我终于算是对算法有了基本的了解了，至少会做几道题了，我很高兴，虽然这占去了我很多时间，导致我看学习视频、做毕设的进度被严重拖慢了。</li>
-<li>有舍有得，选择其实就是放弃，如何才能做出合理的选择。</li>
-<li>县城医疗水平太差了，底层的人和他有关的一切都是底层的，就连思想也是。</li>
-<li>考研出分了，四六级也出分了，我了解的各位得到的分数基本在意料之中，他们获得了去更好的大学深造的机会，上交，东南，北大，等等。当然，也有因为六级没过失去了保研资格的，但是从另一方面来说，获得了去往更好学校的机会，不用考虑放不放弃保研资格这个难题。</li>
-<li>元宵快乐！</li>
-</ul>
-<p>就这样吧，没啥想写的了，下周努力。</p>
+    <title>无题</title>
+    <url>/2021/03/no-title/</url>
+    <content><![CDATA[<p>无题，如题，真不知道来个什么标题，索性就用无题，反正过不了多久，现在发生的所有事情都会消散，留下或长或短的影响，这都是后话了，无题正好合适，干脆开一个新的 tag，就叫无题，专门写写不知道起什么名字的小短文。现在的我正在摸鱼，明明还有很多事情需要做，都交给明天吧。</p>
+<p>闷闷不乐的一天在与老师讨论后完全结束了，只剩下了快乐。我想我找到了苦恼的源泉，那个问题实在是难以解决，终于在与老师的讨论中发现了根本原因：我们完全搞错了方向，通信人想要的信息的传递，而雷达人要的不过是几个状态的确定，这完全不是一个数量级的数据需要。由此出发，带来的不同研究方向也就完全可以理解了。对各自专业保持足够的尊重，做自己熟悉的事情，并保持开放的心态，需求合作的机会。</p>
+<p>更进一步的思考，前面说的这件事让我明白了更多东西。在我们考虑一项技术被采用或者一种行为发生的原因，我们首先要考虑的就是他的<strong>目的</strong>。看似相同的事情，诚然他们一定有很多的相同之处，但关键的目的不同，导致了完全不同的结果。在对未知的事情有足够多的了解之前，我们最好尊重。紧守自己的能力圈，清楚自己的边界在哪里。</p>
+<p>痛快，痛快，实在是痛快，现在终于有信心去做我想做的事情。</p>
+<p>今后要从事什么样的工作，我现在还是没有想法，只是一心想找个钱多的，这是一个朴素的想法，抱着这样普通的想法寻找，自然也只能找到普通的工作，需要将这个目标细化一点，什么样的工作是钱多的，是可持续的吗？我有从事 10 年以上的觉悟吗？我能从中获得自我的成长吗？这些都是需要考虑的问题，都留给明天吧。</p>
+<p>看起来明天的事情可太多了，<strong>人生意义以及毕业设计</strong>，所以今晚早点睡吧，晚安。</p>
 ]]></content>
       <categories>
         <category>生活</category>
       </categories>
       <tags>
-        <tag>weekly</tag>
+        <tag>记录</tag>
+        <tag>无题</tag>
       </tags>
   </entry>
   <entry>
-    <title>『Weekly』开学啦</title>
-    <url>/2021/03/weekly-final-semester-starts/</url>
-    <content><![CDATA[<p>最后一个学期终于是开始了，转眼间整个大学生涯要结束了，扪心自问，似乎没有掌握什么可以谋生的技能，整个人还是处在一种迷茫的状态，希望这种情况早点结束，早点找到自己真正的渴望真正的梦想，寻找到一点人生的意义。</p>
-<h2 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h2><p>2021.03.01~2021.03.07</p>
-<h2 id="小事记"><a href="#小事记" class="headerlink" title="小事记"></a>小事记</h2><ul>
-<li>核酸检测</li>
-<li>看完了《最好的告别》，开始看《枪炮、病菌与钢铁》</li>
-<li>开学</li>
-<li>整理个人思绪</li>
-<li>毕设依然停滞不前</li>
-<li>第九次 Z236/Z238 旅程，在途中体验了一把极限的感觉</li>
-<li>第一次参加 LeetCode 周赛，我好菜啊</li>
-</ul>
-<a id="more"></a>
-<p>大概就这些内容吧，这一周挺平淡的，没什么特别的事情发生，可能是已经到周日了吧，前几天发生的看似重要的事情到现在都无所谓了，可见时间真的是良好的过滤器。唯一值得关注的事情就是毕设中期检查的日子又近了一点，我需要尽快做完自己手中的事情，加油。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>weekly</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>『weekly』</title>
+    <title>『weekly』忽然第二周也结束了</title>
     <url>/2021/03/weekly-suddenly-another-weekly-gone/</url>
     <content><![CDATA[<p>第二周马上结束了，感觉上这周比上一周过得快很多，也许是因为我去实验室没有那么勤了，在寝室游荡闲逛的时间总是过得很快。这一周的发生的事情有点多，不过基本是与毕设无关的，毕设上几乎是毫无进展，碰到大问题了，希望马上有所突破是不现实的，又无处可问，ddl 又近在眼前，我怎能不焦虑呢？于是乎我选择了逃避，这就是我这周在实验室呆得少的真正原因，压力有点大，我需要放松下。我坚信自己将找到答案，只要我持续坚持寻找。</p>
 <h2 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h2><p>2021.03.15~2021.03.21</p>
@@ -2912,76 +2982,6 @@ proc complete_sim {} {...}
       <tags>
         <tag>记录</tag>
         <tag>weekly</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>『HDLbits』时序逻辑之 FF 和 Counter</title>
-    <url>/2021/01/hdlbits-sequantial-logic-ff-and-counter/</url>
-    <content><![CDATA[<p>刷了一天 hdlbits 了，放几道时序逻辑电路设计的题上来，对于现在的我来说，这些问题都算不得难了，因为电路都很简单，只是要用 Verilog 实现，但真正要设计电路的问题对我而言就相对困难了，比如文中的 <a href="#Dualedge">Dualedge</a>，难在电路设计，而不是 Verilog 实现，后者纯粹是个体力活，比如 <a href="#Count-clock">Count clock</a>，需要加油啊。</p>
-<a id="more"></a>
-<h2 id="Edgecapture"><a href="#Edgecapture" class="headerlink" title="Edgecapture"></a>Edgecapture</h2><p>原文链接：<a href="https://hdlbits.01xz.net/wiki/Edgecapture" target="_blank" rel="noopener">Edgecapture</a>。</p>
-<p>For each bit in a 32-bit vector, capture when the input signal changes from 1 in one clock cycle to 0 the next. “Capture” means that the output will remain 1 until the register is reset (synchronous reset).</p>
-<p>Each output bit behaves like a SR flip-flop: The output bit should be set (to 1) the cycle after a 1 to 0 transition occurs. The output bit should be reset (to 0) at the positive clock edge when reset is high. If both of the above events occur at the same time, reset has precedence. In the last 4 cycles of the example waveform below, the ‘reset’ event occurs one cycle earlier than the ‘set’ event, so there is no conflict here.</p>
-<p>In the example waveform below, reset, in[1] and out[1] are shown again separately for clarity.</p>
-<p>保持先前为 1 的状态，最好的办法莫过于使用<code>与AND</code>了，如 <code>out &lt;= out | (reg_in &amp; (~in))</code> 简单一句就完成抓取下降沿的任务，同理易知抓取上升沿即 <code>out &lt;= out | ((~reg_in) &amp; in)</code>。</p>
- <img src="/2021/01/hdlbits-sequantial-logic-ff-and-counter/image-20210130143822445.png">
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">    <span class="keyword">input</span> clk,</span><br><span class="line">    <span class="keyword">input</span> reset,</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">31</span>:<span class="number">0</span>] in,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">31</span>:<span class="number">0</span>] out</span><br><span class="line">);</span><br><span class="line">    <span class="keyword">reg</span> [<span class="number">31</span>:<span class="number">0</span>] reg_in;</span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk) <span class="keyword">begin</span></span><br><span class="line">        reg_in &lt;= in;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> ( reset )</span><br><span class="line">            out &lt;= <span class="number">32'd0</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            out &lt;= out | (reg_in &amp; (~in));</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-<h2 id="Dualedge"><a href="#Dualedge" class="headerlink" title="Dualedge"></a>Dualedge</h2><p>原文链接：<a href="https://hdlbits.01xz.net/wiki/Dualedge" target="_blank" rel="noopener">Dualedge</a>。</p>
-<p>果然，碰到真正的时序电路设计问题我就直接懵了。下面的答案是在网上抄的，实在是惭愧。</p>
-<p>You’re familiar with flip-flops that are triggered on the positive edge of the clock, or negative edge of the clock. A dual-edge triggered flip-flop is triggered on both edges of the clock. However, FPGAs don’t have dual-edge triggered flip-flops, and <code>always @(posedge clk or negedge clk)</code> is not accepted as a legal sensitivity list.</p>
-<p>Build a circuit that functionally behaves like a dual-edge triggered flip-flop:</p>
- <img src="/2021/01/hdlbits-sequantial-logic-ff-and-counter/image-20210130150619632.png">
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">    <span class="keyword">input</span> clk,</span><br><span class="line">    <span class="keyword">input</span> d,</span><br><span class="line">    <span class="keyword">output</span> q</span><br><span class="line">);</span><br><span class="line">    <span class="keyword">reg</span> q_d1;</span><br><span class="line">    <span class="keyword">reg</span> q_d2;</span><br><span class="line">    <span class="keyword">always</span>@(<span class="keyword">posedge</span> clk)<span class="keyword">begin</span></span><br><span class="line">        q_d1 &lt;= d ^ q_d2;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">always</span>@(<span class="keyword">negedge</span> clk)<span class="keyword">begin</span></span><br><span class="line">        q_d2 &lt;= d ^ q_d1;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">assign</span> q = q_d1 ^ q_d2;</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-<h2 id="Exams-ece241-2014-q7a"><a href="#Exams-ece241-2014-q7a" class="headerlink" title="Exams/ece241 2014 q7a"></a>Exams/ece241 2014 q7a</h2><p>原文链接：<a href="https://hdlbits.01xz.net/wiki/Exams/ece241_2014_q7a" target="_blank" rel="noopener">Exams/ece241 2014 q7a</a>。</p>
-<p>正确理解全部的需求，否则会有意想不到的BUG。</p>
-<p>Design a 1-12 counter with the following inputs and outputs:</p>
-<ul>
-<li><strong>Reset</strong> Synchronous active-high reset that forces the counter to 1</li>
-<li><strong>Enable</strong> Set high for the counter to run</li>
-<li><strong>Clk</strong> Positive edge-triggered clock input</li>
-<li><strong>Q[3:0]</strong> The output of the counter</li>
-<li><strong>c_enable, c_load, c_d[3:0]</strong> Control signals going to the provided 4-bit counter, so correct operation can be verified.</li>
-</ul>
-<p>You have the following components available:</p>
-<ul>
-<li>the 4-bit binary counter (<strong>count4</strong>) below, which has Enable and synchronous parallel-load inputs (load has higher priority than enable). The <strong>count4</strong> module is provided to you. Instantiate it in your circuit.</li>
-<li>logic gates</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">module count4(</span><br><span class="line">    input clk,</span><br><span class="line">    input enable,</span><br><span class="line">    input load,</span><br><span class="line">    input [3:0] d,</span><br><span class="line">    output reg [3:0] Q</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>The <strong>c_enable</strong>, <strong>c_load</strong>, and <strong>c_d</strong> outputs are the signals that go to the internal counter’s <strong>enable</strong>, <strong>load</strong>, and <strong>d</strong> inputs, respectively. Their purpose is to allow these signals to be checked for correctness.</p>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">    <span class="keyword">input</span> clk,</span><br><span class="line">    <span class="keyword">input</span> reset,</span><br><span class="line">    <span class="keyword">input</span> enable,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">3</span>:<span class="number">0</span>] Q,</span><br><span class="line">    <span class="keyword">output</span> c_enable,</span><br><span class="line">    <span class="keyword">output</span> c_load,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">3</span>:<span class="number">0</span>] c_d</span><br><span class="line">); <span class="comment">//</span></span><br><span class="line">    </span><br><span class="line">    count4 the_counter (clk, c_enable, c_load, c_d, Q );</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">assign</span> c_d = <span class="number">4'd1</span>;</span><br><span class="line">    <span class="keyword">assign</span> c_enable = enable;</span><br><span class="line">    <span class="keyword">assign</span> c_load = reset | (Q == <span class="number">4'd12</span> &amp;&amp; enable);</span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-<p>注意最后一条 assign 语句，<code>Q == 4&#39;d12 &amp;&amp; enable</code>，如果不测试，很容易忘记加 <code>enable</code> 条件，产生意想不到的 错误，我自己在测试的时候怎么才能发现这样的问题呢？hdlbits 上的 checker 是怎么做的，我很想知道。</p>
-<h2 id="Count-clock"><a href="#Count-clock" class="headerlink" title="Count clock"></a>Count clock</h2><p>原文地址：<a href="https://hdlbits.01xz.net/wiki/Count_clock" target="_blank" rel="noopener">Count clock</a></p>
-<p>Create a set of counters suitable for use as a 12-hour clock (with am/pm indicator). Your counters are clocked by a fast-running <code>clk</code>, with a pulse on <code>ena</code> whenever your clock should increment (i.e., once per second).</p>
-<p><code>reset</code> resets the clock to 12:00 AM. <code>pm</code> is 0 for AM and 1 for PM. <code>hh</code>, <code>mm</code>, and <code>ss</code> are two <strong>BCD</strong> (Binary-Coded Decimal) digits each for hours (01-12), minutes (00-59), and seconds (00-59). Reset has higher priority than enable, and can occur even when not enabled.</p>
-<p>The following timing diagram shows the rollover behaviour from <code>11:59:59 AM</code> to <code>12:00:00 PM</code> and the synchronous reset and enable behaviour.</p>
- <img src="/2021/01/hdlbits-sequantial-logic-ff-and-counter/image-20210130204152683.png">
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> clk,</span><br><span class="line">    <span class="keyword">input</span> reset,</span><br><span class="line">    <span class="keyword">input</span> ena,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> pm,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">7</span>:<span class="number">0</span>] hh,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">7</span>:<span class="number">0</span>] mm,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">7</span>:<span class="number">0</span>] ss); </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">wire</span> ena_mm = (ss == <span class="number">8'h59</span>) &amp; ena;</span><br><span class="line">    <span class="keyword">wire</span> ena_hh = ena &amp; (ss == <span class="number">8'h59</span>) &amp; (mm == <span class="number">8'h59</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// ss</span></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> ( reset )</span><br><span class="line">            ss &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ( ena ) <span class="keyword">begin</span></span><br><span class="line">            <span class="keyword">if</span> ( ss == <span class="number">8'h59</span> )</span><br><span class="line">            	ss &lt;= <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> ( ss[<span class="number">3</span>:<span class="number">0</span>] == <span class="number">4'd9</span> &amp;&amp; ss[<span class="number">7</span>:<span class="number">4</span>] != <span class="number">4'd5</span> )</span><br><span class="line">                ss &lt;= &#123;ss[<span class="number">7</span>:<span class="number">4</span>]+<span class="number">1'b1</span>, <span class="number">4'd0</span>&#125;;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                ss[<span class="number">3</span>:<span class="number">0</span>] &lt;= ss[<span class="number">3</span>:<span class="number">0</span>] + <span class="number">1'b1</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">        </span><br><span class="line">    <span class="comment">// mm</span></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> ( reset )</span><br><span class="line">            mm &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ( ena_mm ) <span class="keyword">begin</span></span><br><span class="line">            <span class="keyword">if</span> ( mm == <span class="number">8'h59</span> )</span><br><span class="line">                mm &lt;= <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> ( mm[<span class="number">3</span>:<span class="number">0</span>] == <span class="number">4'd9</span> &amp;&amp; mm[<span class="number">7</span>:<span class="number">4</span>] != <span class="number">4'd5</span> )</span><br><span class="line">                mm &lt;= &#123;mm[<span class="number">7</span>:<span class="number">4</span>] + <span class="number">1'b1</span>, <span class="number">4'd0</span>&#125;;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                mm[<span class="number">3</span>:<span class="number">0</span>] &lt;= mm[<span class="number">3</span>:<span class="number">0</span>] + <span class="number">1'b1</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// hh</span></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> ( reset )</span><br><span class="line">            hh &lt;= <span class="number">8'h12</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ( ena_hh ) <span class="keyword">begin</span></span><br><span class="line">            <span class="keyword">if</span> ( hh == <span class="number">8'h12</span> )</span><br><span class="line">                hh &lt;= <span class="number">8'h01</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> ( hh[<span class="number">3</span>:<span class="number">0</span>] == <span class="number">4'd9</span> )</span><br><span class="line">                hh &lt;= &#123;hh[<span class="number">7</span>:<span class="number">4</span>]+<span class="number">1'b1</span>, <span class="number">4'd0</span>&#125;;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                hh[<span class="number">3</span>:<span class="number">0</span>] &lt;= hh[<span class="number">3</span>:<span class="number">0</span>] + <span class="number">1'b1</span>;  </span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">            </span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> ( reset )</span><br><span class="line">            pm &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ( ena_hh &amp;&amp; hh == <span class="number">8'h11</span> )</span><br><span class="line">            pm &lt;= ~pm;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            pm &lt;= pm;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>FPGA</tag>
-        <tag>verilog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>无题</title>
-    <url>/2021/03/no-title/</url>
-    <content><![CDATA[<p>无题，如题，真不知道来个什么标题，索性就用无题，反正过不了多久，现在发生的所有事情都会消散，留下或长或短的影响，这都是后话了，无题正好合适，干脆开一个新的 tag，就叫无题，专门写写不知道起什么名字的小短文。现在的我正在摸鱼，明明还有很多事情需要做，都交给明天吧。</p>
-<p>闷闷不乐的一天在与老师讨论后完全结束了，只剩下了快乐。我想我找到了苦恼的源泉，那个问题实在是难以解决，终于在与老师的讨论中发现了根本原因：我们完全搞错了方向，通信人想要的信息的传递，而雷达人要的不过是几个状态的确定，这完全不是一个数量级的数据需要。由此出发，带来的不同研究方向也就完全可以理解了。对各自专业保持足够的尊重，做自己熟悉的事情，并保持开放的心态，需求合作的机会。</p>
-<p>更进一步的思考，前面说的这件事让我明白了更多东西。在我们考虑一项技术被采用或者一种行为发生的原因，我们首先要考虑的就是他的<strong>目的</strong>。看似相同的事情，诚然他们一定有很多的相同之处，但关键的目的不同，导致了完全不同的结果。在对未知的事情有足够多的了解之前，我们最好尊重。紧守自己的能力圈，清楚自己的边界在哪里。</p>
-<p>痛快，痛快，实在是痛快，现在终于有信心去做我想做的事情。</p>
-<p>今后要从事什么样的工作，我现在还是没有想法，只是一心想找个钱多的，这是一个朴素的想法，抱着这样普通的想法寻找，自然也只能找到普通的工作，需要将这个目标细化一点，什么样的工作是钱多的，是可持续的吗？我有从事 10 年以上的觉悟吗？我能从中获得自我的成长吗？这些都是需要考虑的问题，都留给明天吧。</p>
-<p>看起来明天的事情可太多了，<strong>人生意义以及毕业设计</strong>，所以今晚早点睡吧，晚安。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>无题</tag>
       </tags>
   </entry>
 </search>
