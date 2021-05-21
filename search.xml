@@ -29,18 +29,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Believe_in_yourself</title>
-    <url>/2018/06/Believe-in-yourself/</url>
-    <content><![CDATA[<p>最近有点烦躁，事情一件接着一件地扑面而来，丝毫不给我喘气的机会，为了排遣苦闷，我嘴上的脏话多了不少，不过好在这一切都将过去了，过去了之后我一定要好好开始，现在，我只有祈祷最后能有一个好的结果。<br><a id="more"></a><br>这是一个疯狂的六月！<br>英语课程考试(6.7)，英语口语测试(6.14)，六级考试(6.16)，科创答辩(6.20)，数学建模考试(6.21)，近代史考试(6.26)，英语期末考试(6.29)……这还远没有结束，七月是工大的小学期时间！八月才放暑假！九月开学！坏消息是大物和微积分的考试放到小学期了，当然，这也可以算是好消息，至少六月份可以喘口气了，真正毫无疑问的好消息自然就是我们会搬进新公寓！</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据结构复习</title>
     <url>/2018/05/review-data-structure/</url>
     <content><![CDATA[<p>先抄一段Dave在他的书《The Pragmatic Programmer》中的话：</p>
@@ -106,6 +94,51 @@
       </tags>
   </entry>
   <entry>
+    <title>Believe_in_yourself</title>
+    <url>/2018/06/Believe-in-yourself/</url>
+    <content><![CDATA[<p>最近有点烦躁，事情一件接着一件地扑面而来，丝毫不给我喘气的机会，为了排遣苦闷，我嘴上的脏话多了不少，不过好在这一切都将过去了，过去了之后我一定要好好开始，现在，我只有祈祷最后能有一个好的结果。<br><a id="more"></a><br>这是一个疯狂的六月！<br>英语课程考试(6.7)，英语口语测试(6.14)，六级考试(6.16)，科创答辩(6.20)，数学建模考试(6.21)，近代史考试(6.26)，英语期末考试(6.29)……这还远没有结束，七月是工大的小学期时间！八月才放暑假！九月开学！坏消息是大物和微积分的考试放到小学期了，当然，这也可以算是好消息，至少六月份可以喘口气了，真正毫无疑问的好消息自然就是我们会搬进新公寓！</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记录高频硬件课程设计</title>
+    <url>/2019/12/record-of-high-frequency-course-design/</url>
+    <content><![CDATA[<p>本文绝大部分内容是在19年12月29日写的，我记得很清楚，那天是周日上午，我没有为即将到来的通原考试而复习，而是选择去写点东西记录几天前刚刚结束的高频课设，这是一次很难忘的经历，有痛苦也有快乐，有想过放弃但还是坚持了下来，感谢自己和队友们。现在是2020年3月15日，本该在学校度过周日的我，和所有的大学生一样，因为肺炎疫情只能在家里学习，我没什么学习状态，有些无聊，因此整理博客，把这篇去年的记录整理整理，发到GitHubBlog上，留作纪念，发表日期还是使用去年写这篇文章的日子。<br><a id="more"></a></p>
+<h2 id="最终验收"><a href="#最终验收" class="headerlink" title="最终验收"></a>最终验收</h2><p>12月24号，高频硬件课设验收，在队友的强烈要求下，我们选择了一个比较宽松的老师给我们验收，因为我们功率达不到，但还想 <strong>『恰完烂分』</strong>，这能对他的保研有所帮助。最后的结果很好，我们拿到了5分（满分5分），<strong>『烂分恰完』</strong>。</p>
+<div align="center" class="img"><br>    <img src="/assets/img/2019/final.jpg" alt="验收" height="400"><br>    <p align="center" style="color:#999">最终验收时电路连接和波形</p><br></div>
+
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>12月17号周二下午考完『随机过程』，终于有时间休息了，躺了一个小时，吃个饭，室友已经去搞硬件了，虽然已经是晚上9点多了，但我还想去，带上东西，去李老师办公室焊。折腾了两个小时，焊好了一个西勒振荡器，但没有测试工具，只能第二天测试焊接是否正确，测试工具缺乏和焊接出错这两个问题在整个课设过程中一直困扰着我们。</p>
+<div align="center" class="img"><br>    <img src="/assets/img/2019/siler_oscillator.jpg" alt="西勒振荡器" height="400"><br>    <p align="center" style="color:#999">第一天晚上焊好的西勒振荡器</p><br></div>
+
+<h2 id="一起干"><a href="#一起干" class="headerlink" title="一起干"></a>一起干</h2><p>第二天是周三，没有课，我和赵公子决定去实验室接着焊板子，顺便测试下昨晚上焊的振荡器。两个小时后，我们焊好了发射机和接收机的振荡器，经过测试，他的能用，而我的那块振荡器产生了寄生调幅。检查了电路没有任何问题，折腾到下午，最后发现是射极偏置电阻过大导致的，微调射极电阻，即可解决这个问题。</p>
+<p>下午和晚上我们都在实验室呆着，一直做到晚上11点。因为我已经很久没焊接东西，有点手生，他更是没啥经验，我们效率比较低，只焊好了一个乘法电路、一个中频放大器和一个包络检波器。后面测试时发现，我焊接的那个乘法电路不能实现信号相乘。那时我还不知道，接下来3天我都会把时间花在乘法电路上，如果早知道调试它会这么折腾，第一天晚上就应该当机立断重新焊一个的。</p>
+<h2 id="心生退意"><a href="#心生退意" class="headerlink" title="心生退意"></a>心生退意</h2><p>接下来的几天我感到痛苦不堪，我焊接乘法电路始终不好使，不知为什么我就是不愿重新焊一块，执着地想把它修好，但这一切都是徒劳的。看着周围的同学一个个都做出来乘法电路了，我开始怀疑自己：如果做不出来是不是证明我不行，我怎么能不行呢？要不放弃吧，这样就不存在证明了，我告诉自己这些bonus对我来说并不那么重要，我保研与否与这课设5分没什么关系。沃老板执着地说焊板子的烟搞得他很难受，实验室里面人太多了，空气太差，乌烟瘴气，他想回寝室做，这样的参与状态让我心有不快，偏偏他才是一定要拿这 5 分保研的人，为什么我要受这些精神折磨，我当时的确不想再做下去了。</p>
+<p>周六早上，纠结了许久，我去教化补充了些元器件，决定去实验室再焊一个乘法器，还说服沃老板也焊一个接收机的乘法电路。我不知道是什么力量支撑着我继续做下去，这件事对我来说不是那么必要，最诱人的bonus并不是我一定需要的，如果不做课设，我可以去复习通原，我可以享受轻松的一周。事后我仔细想了想，大概是因为我自己的性格决定的，我不是那种遇到问题就放弃的人，借口谁都有一些，但是作为我，一旦开始做了，就要做到最后，没有中途放弃的，之前的软件仿真就是如此，没有理由硬件不坚持下去，到这个时候，其实做这个课设已经变成了和自己较劲了，我不想就这么输了。</p>
+<p>周六下午去做了通信原理实验，晚上终于焊好我的第二块乘法电路，测试再次失败，沃老板也焊好接收机混频电路，经过测试也失败。这时候我心态已经到了最低点了，我真的不想再来了，前面说的那么多不服输如何如何，可是看着别人一个个做好，我的却始终不行，旁边还有人明着嘲讽我，这使我明白『挫败感』是何含义。晚上10点，我和沃老板回寝室了，赵公子在周五下午有事回家了，但他做的已经足够多了。我突然决定不再去了。</p>
+<h2 id="坚持才是胜利"><a href="#坚持才是胜利" class="headerlink" title="坚持才是胜利"></a>坚持才是胜利</h2><p>周日上午我还是去实验室了，我想就是什么都做不出来，也得一直在实验室坐着，我就要和它刚到底。好在一切坚持都没有白费，我的乘法电路测试成功了，事实证明我的电路设计没有问题，焊接的也没有问题，昨晚测试失败只是因为电路连线没有接好，胜利让我欣喜若狂，我真想大声怒吼：我终于完成了。另一边也有好消息传来，沃老板焊的和赵公子焊的乘法电路都是好使的，还有什么比此刻更快乐呢？</p>
+<div align="center"><br>    <img src="/assets/img/2019/amplitude_modulation.jpg" alt="AM调幅" height="400"><br>    <p align="center" style="color:#999">赵公子的乘法器AM波形</p><br>    <img src="/assets/img/2019/mixing.jpg" alt="混频" height="400"><br>    <p align="center" style="color:#999">沃老板的混频器波形</p><br></div>
+
+<p>周日下午发生了一些不愉快的事情，因为下午找不到他人（其实他在午睡），我对沃老板的不满更加强烈了，而那时我已经十分疲惫，愤怒之下，下午3点左右我直接回寝室，拒绝回他消息，然后睡了一觉。期间他来找我，我『哈哈』糊弄过去，不想再干。6点多起来看一眼手机，想了想，还是再去试试，把级联和功率要求做完吧，都已经到这个份上了，干脆就把它做到完。</p>
+<h2 id="乘胜追击"><a href="#乘胜追击" class="headerlink" title="乘胜追击"></a>乘胜追击</h2><p>我不想就此打住，野心开始膨胀了，<strong>『恰5分』</strong> 是调侃，此时更像是口号。发射机 AM 调制输出接上我焊调试乘法器抽空焊好的小信号放大器，效果非常好！放大了80倍，但我心里清楚，因为没有接负载，最后功率肯定达不到；接收机，混频后中频放大再检波，效果很差，但也算检波出来了，在要求不那么严苛的时候，可以拿到分；发射机接收机级联成功，和仿真保持一致。</p>
+<p>如此算来，我们已经可以拿到 4.5 分，但是我们不想收手，我们继续调放大器，要把功率的 5 分也拿到手。很不幸，我们没有成功，三极管射极电阻过小，导致射极电流过大，二极管被烧坏了，放大器也就怀了，这又是我们唯一的放大器，级联也没办法做了，这下只有 4 分了，后悔，懊恼。</p>
+<p>第二天周一，已经是12月23号了，我都没想到自己会在这上面花上近一周时间。白天上了一天课，晚上我们接着调试了一下，还是那个问题，AM 波后的小信号放大器不好使，级联就不行，功率也没有。赵公子也回来了，我们让他重新焊了一个，失败了，因为我临时对之前测试成功的电路做了修改，为了减小电流避免三极管烧毁的事再发生，但是我没想到这么一改，电流太小，放大倍数达不到要求，而且我应该自己亲手焊的。可以说今天又是一无所获。但我不会就此打住，我不愿放弃。</p>
+<p>周二上午上完微波课，我立马去教化买了元件，再焊一个小信号放大器，再试一次，不到最后，谁也不知道结果，我不想放弃。一番折腾，焊好，测试，成功。</p>
+<p>下午验收前一刻，上周三买的陶瓷滤波器终于从深圳邮到了学校，我赶紧去取回来，接到电路中，完美!<strong>『烂分恰完』</strong>。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>做完这次课设，心里有太多感慨，很多次我都想放弃了，但是总有一股力量把我拉了回来，这其中有对朋友承诺的坚守也有自己那股不服输的劲，验收成功那一刻我有点想哭，是啊，这整个过程只有我自己这么看重吧，最后还在自我感动，但如果没有这自我感动，我不知道自己能否坚持下来。当然，课设整个过程也暴露了我的一些问题：我需要有更强大的精神力量，激励自己前进，也要学会如何带领团队前进。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>算法的分析方法</title>
     <url>/2020/03/a-way-to-algorithm-analysis/</url>
     <content><![CDATA[<p>也看了几天『算法』了，总是觉得不得要领，在此做一点笔记想必会有所帮助，能够完整地写下来或者清楚地讲述给别人并使之理解才算掌握了知识，这个观点来自费曼，我深以为然。<br><!-- 这里应该添加一个目录 --><br><a id="more"></a></p>
@@ -151,39 +184,6 @@
       </tags>
   </entry>
   <entry>
-    <title>记录高频硬件课程设计</title>
-    <url>/2019/12/record-of-high-frequency-course-design/</url>
-    <content><![CDATA[<p>本文绝大部分内容是在19年12月29日写的，我记得很清楚，那天是周日上午，我没有为即将到来的通原考试而复习，而是选择去写点东西记录几天前刚刚结束的高频课设，这是一次很难忘的经历，有痛苦也有快乐，有想过放弃但还是坚持了下来，感谢自己和队友们。现在是2020年3月15日，本该在学校度过周日的我，和所有的大学生一样，因为肺炎疫情只能在家里学习，我没什么学习状态，有些无聊，因此整理博客，把这篇去年的记录整理整理，发到GitHubBlog上，留作纪念，发表日期还是使用去年写这篇文章的日子。<br><a id="more"></a></p>
-<h2 id="最终验收"><a href="#最终验收" class="headerlink" title="最终验收"></a>最终验收</h2><p>12月24号，高频硬件课设验收，在队友的强烈要求下，我们选择了一个比较宽松的老师给我们验收，因为我们功率达不到，但还想 <strong>『恰完烂分』</strong>，这能对他的保研有所帮助。最后的结果很好，我们拿到了5分（满分5分），<strong>『烂分恰完』</strong>。</p>
-<div align="center" class="img"><br>    <img src="/assets/img/2019/final.jpg" alt="验收" height="400"><br>    <p align="center" style="color:#999">最终验收时电路连接和波形</p><br></div>
-
-<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>12月17号周二下午考完『随机过程』，终于有时间休息了，躺了一个小时，吃个饭，室友已经去搞硬件了，虽然已经是晚上9点多了，但我还想去，带上东西，去李老师办公室焊。折腾了两个小时，焊好了一个西勒振荡器，但没有测试工具，只能第二天测试焊接是否正确，测试工具缺乏和焊接出错这两个问题在整个课设过程中一直困扰着我们。</p>
-<div align="center" class="img"><br>    <img src="/assets/img/2019/siler_oscillator.jpg" alt="西勒振荡器" height="400"><br>    <p align="center" style="color:#999">第一天晚上焊好的西勒振荡器</p><br></div>
-
-<h2 id="一起干"><a href="#一起干" class="headerlink" title="一起干"></a>一起干</h2><p>第二天是周三，没有课，我和赵公子决定去实验室接着焊板子，顺便测试下昨晚上焊的振荡器。两个小时后，我们焊好了发射机和接收机的振荡器，经过测试，他的能用，而我的那块振荡器产生了寄生调幅。检查了电路没有任何问题，折腾到下午，最后发现是射极偏置电阻过大导致的，微调射极电阻，即可解决这个问题。</p>
-<p>下午和晚上我们都在实验室呆着，一直做到晚上11点。因为我已经很久没焊接东西，有点手生，他更是没啥经验，我们效率比较低，只焊好了一个乘法电路、一个中频放大器和一个包络检波器。后面测试时发现，我焊接的那个乘法电路不能实现信号相乘。那时我还不知道，接下来3天我都会把时间花在乘法电路上，如果早知道调试它会这么折腾，第一天晚上就应该当机立断重新焊一个的。</p>
-<h2 id="心生退意"><a href="#心生退意" class="headerlink" title="心生退意"></a>心生退意</h2><p>接下来的几天我感到痛苦不堪，我焊接乘法电路始终不好使，不知为什么我就是不愿重新焊一块，执着地想把它修好，但这一切都是徒劳的。看着周围的同学一个个都做出来乘法电路了，我开始怀疑自己：如果做不出来是不是证明我不行，我怎么能不行呢？要不放弃吧，这样就不存在证明了，我告诉自己这些bonus对我来说并不那么重要，我保研与否与这课设5分没什么关系。沃老板执着地说焊板子的烟搞得他很难受，实验室里面人太多了，空气太差，乌烟瘴气，他想回寝室做，这样的参与状态让我心有不快，偏偏他才是一定要拿这 5 分保研的人，为什么我要受这些精神折磨，我当时的确不想再做下去了。</p>
-<p>周六早上，纠结了许久，我去教化补充了些元器件，决定去实验室再焊一个乘法器，还说服沃老板也焊一个接收机的乘法电路。我不知道是什么力量支撑着我继续做下去，这件事对我来说不是那么必要，最诱人的bonus并不是我一定需要的，如果不做课设，我可以去复习通原，我可以享受轻松的一周。事后我仔细想了想，大概是因为我自己的性格决定的，我不是那种遇到问题就放弃的人，借口谁都有一些，但是作为我，一旦开始做了，就要做到最后，没有中途放弃的，之前的软件仿真就是如此，没有理由硬件不坚持下去，到这个时候，其实做这个课设已经变成了和自己较劲了，我不想就这么输了。</p>
-<p>周六下午去做了通信原理实验，晚上终于焊好我的第二块乘法电路，测试再次失败，沃老板也焊好接收机混频电路，经过测试也失败。这时候我心态已经到了最低点了，我真的不想再来了，前面说的那么多不服输如何如何，可是看着别人一个个做好，我的却始终不行，旁边还有人明着嘲讽我，这使我明白『挫败感』是何含义。晚上10点，我和沃老板回寝室了，赵公子在周五下午有事回家了，但他做的已经足够多了。我突然决定不再去了。</p>
-<h2 id="坚持才是胜利"><a href="#坚持才是胜利" class="headerlink" title="坚持才是胜利"></a>坚持才是胜利</h2><p>周日上午我还是去实验室了，我想就是什么都做不出来，也得一直在实验室坐着，我就要和它刚到底。好在一切坚持都没有白费，我的乘法电路测试成功了，事实证明我的电路设计没有问题，焊接的也没有问题，昨晚测试失败只是因为电路连线没有接好，胜利让我欣喜若狂，我真想大声怒吼：我终于完成了。另一边也有好消息传来，沃老板焊的和赵公子焊的乘法电路都是好使的，还有什么比此刻更快乐呢？</p>
-<div align="center"><br>    <img src="/assets/img/2019/amplitude_modulation.jpg" alt="AM调幅" height="400"><br>    <p align="center" style="color:#999">赵公子的乘法器AM波形</p><br>    <img src="/assets/img/2019/mixing.jpg" alt="混频" height="400"><br>    <p align="center" style="color:#999">沃老板的混频器波形</p><br></div>
-
-<p>周日下午发生了一些不愉快的事情，因为下午找不到他人（其实他在午睡），我对沃老板的不满更加强烈了，而那时我已经十分疲惫，愤怒之下，下午3点左右我直接回寝室，拒绝回他消息，然后睡了一觉。期间他来找我，我『哈哈』糊弄过去，不想再干。6点多起来看一眼手机，想了想，还是再去试试，把级联和功率要求做完吧，都已经到这个份上了，干脆就把它做到完。</p>
-<h2 id="乘胜追击"><a href="#乘胜追击" class="headerlink" title="乘胜追击"></a>乘胜追击</h2><p>我不想就此打住，野心开始膨胀了，<strong>『恰5分』</strong> 是调侃，此时更像是口号。发射机 AM 调制输出接上我焊调试乘法器抽空焊好的小信号放大器，效果非常好！放大了80倍，但我心里清楚，因为没有接负载，最后功率肯定达不到；接收机，混频后中频放大再检波，效果很差，但也算检波出来了，在要求不那么严苛的时候，可以拿到分；发射机接收机级联成功，和仿真保持一致。</p>
-<p>如此算来，我们已经可以拿到 4.5 分，但是我们不想收手，我们继续调放大器，要把功率的 5 分也拿到手。很不幸，我们没有成功，三极管射极电阻过小，导致射极电流过大，二极管被烧坏了，放大器也就怀了，这又是我们唯一的放大器，级联也没办法做了，这下只有 4 分了，后悔，懊恼。</p>
-<p>第二天周一，已经是12月23号了，我都没想到自己会在这上面花上近一周时间。白天上了一天课，晚上我们接着调试了一下，还是那个问题，AM 波后的小信号放大器不好使，级联就不行，功率也没有。赵公子也回来了，我们让他重新焊了一个，失败了，因为我临时对之前测试成功的电路做了修改，为了减小电流避免三极管烧毁的事再发生，但是我没想到这么一改，电流太小，放大倍数达不到要求，而且我应该自己亲手焊的。可以说今天又是一无所获。但我不会就此打住，我不愿放弃。</p>
-<p>周二上午上完微波课，我立马去教化买了元件，再焊一个小信号放大器，再试一次，不到最后，谁也不知道结果，我不想放弃。一番折腾，焊好，测试，成功。</p>
-<p>下午验收前一刻，上周三买的陶瓷滤波器终于从深圳邮到了学校，我赶紧去取回来，接到电路中，完美!<strong>『烂分恰完』</strong>。</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>做完这次课设，心里有太多感慨，很多次我都想放弃了，但是总有一股力量把我拉了回来，这其中有对朋友承诺的坚守也有自己那股不服输的劲，验收成功那一刻我有点想哭，是啊，这整个过程只有我自己这么看重吧，最后还在自我感动，但如果没有这自我感动，我不知道自己能否坚持下来。当然，课设整个过程也暴露了我的一些问题：我需要有更强大的精神力量，激励自己前进，也要学会如何带领团队前进。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>union-find算法的原理及实现</title>
     <url>/2020/03/union-find/</url>
     <content><![CDATA[<p>在计算机网络中，对于任意两个节点，可以在其间构建一条连接建立通信，这样做没有问题，但是在整个网络中都这么做会导致需要建立的连接非常多，容易计算得到<code>N</code>个节点的网络需要的连接数<code>N(N-1)/2</code>，这增加了网络的负担，实现起来也不容易，有什么办法改进呢？六度空间理论大家都知道，说的是最多通过六个人，我们可以和世界上任何人建立联系，那么如何知道两个人之间是否可以建立联系呢？这两个问题其实都属于连通性问题，可以使用<code>union-find</code>算法解决，步骤如下：</p>
@@ -226,23 +226,6 @@
 <h2 id="重启-Blog"><a href="#重启-Blog" class="headerlink" title="重启 Blog"></a>重启 Blog</h2><p>周四晚上折腾了一晚，重启Blog，后面几天也在不断完善，终于到了现在这个样子。换了站点的头像，给站点添加了访问人数统计，为每一篇博文添加阅读数统计，在此感谢不蒜子大佬的脚本。周六晚上还添加了<code>相册</code>，到周日晚上，终于可以正常使用了。关于重启博客我是这样想的，上个月我就重启了『记录计划』，只是在手机上写，既然都要记录，为什么不放到网上呢？这样还方便查看，而且我会更有动力去写，Blog是一个比较好的选择。</p>
 <hr>
 <p>话不多说，以上就是这一周，关于上的这些课的具体内容我会在后面的文章中详细记录。这些网络类的课很有意思，它们有一种规则的美感，我想如果能自己亲手制定某些规则并加以实现肯定让人兴奋。生活总是有很多的不确定，但我确定关于『记录』这件事我会坚持下去。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>weekly</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>胡言乱语</title>
-    <url>/2020/03/second-week/</url>
-    <content><![CDATA[<p>没想到有和上周一样，在周一写下上周的日常。不过这次我有话说，不是因为贪玩游戏，实在是因为周六晚上的突发事件打乱了周日的计划，不得已在半夜在农村道路上走上7里路，第二天已经没有精力去写这玩意儿了。翻看上周每天写下的只言片语，我发现若是只给我自己看，那还是有点东西可写的。<br><a id="more"></a></p>
-<h2 id="无法抵挡的快乐"><a href="#无法抵挡的快乐" class="headerlink" title="无法抵挡的快乐"></a>无法抵挡的快乐</h2><p>放纵在放纵当时带来的快乐无与伦比，让我无法阻挡，虽然我已经很少体验到放纵的快乐，但我深知它的吸引力是多么强大。放纵对我而言是个什么样的标准呢？一天打上三把游戏已经是放纵了，大概就是这样，那么我可以说周四我放纵了一次。我处于一种完全沉浸式投入的状态，不在乎自己眼睛的疲劳，全心投入，决心赢下当前的比赛，但我还想赢得更多，于是不断地玩下去。最终局数来到了4，花去了2h<br>，我停了下来，没有继续玩下去。因为心心念念着学习知识，我停了下来，放弃了快乐。但是我知道，下一次我还是会沉浸其中，因为它能让我短暂地逃离现实，这是无法抵挡的快乐。</p>
-<h2 id="一个平庸的人"><a href="#一个平庸的人" class="headerlink" title="一个平庸的人"></a>一个平庸的人</h2><p>几乎每天都要上课，老师讲得那些我从来没有听过的知识，但没有多大程度引起我的兴趣，对我而言学习它只是身为学生的一种职责。我被动地接受他们传递过来的东西，OSI参考模型、TCP/IP参考模型、ALOHA随机接入协议还有光纤的若干性质，我几乎没有记下什么东西，但是我尝试去发现其中的规则，那是一种很美的东西，我尝试像一个『一无所知』的人，面对这些问题我能给出什么样的解决方案，大部分时候我什么也发现不了，对于这些问题我也一筹莫展，更别提解决方案，我不过是个平庸的人。</p>
-<h2 id="教育使我成为什么样的人？"><a href="#教育使我成为什么样的人？" class="headerlink" title="教育使我成为什么样的人？"></a>教育使我成为什么样的人？</h2><p>通常我不会想这样的问题，因为只不过是活着而以，不需要赋予人生意义，成为一个什么样的人也许真的无关紧要。周六看了郑强教授的一个视频，让我想考虑下这个问题，但我知道我想不明白的，我只能回顾自己的人生，并尝试从一些事件归纳出自己被教育成一个什么样的人，具体内容慢慢写吧。</p>
-<h2 id="我是随机漫步的傻瓜"><a href="#我是随机漫步的傻瓜" class="headerlink" title="我是随机漫步的傻瓜"></a>我是随机漫步的傻瓜</h2><p>我是个随机漫步的的傻瓜，但是我并没有受到眷顾，所以我还是个彻底的傻瓜。</p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -303,20 +286,20 @@
       </tags>
   </entry>
   <entry>
-    <title>在疫情中度过三月</title>
-    <url>/2020/03/the-third-month/</url>
-    <content><![CDATA[<p>惊觉已经是三月的最后一天，在这过去的一个月里，如果说有什么一定一提的，那一定是已经持续了快三个月的的新冠肺炎疫情，国内的疫情逐渐被控制住了，国外却又爆发了更大规模的，看起来返校遥遥无期。一月份的时候我肯定无法想象3月31日自己还在家，突发的疫情打乱我原有的计划，我本该在学校的教室里坐着的，现在却在家，本以为会非常非常想回学校，现在倒也还好，我只是怀念学校的WiFi罢了。<br><a id="more"></a><br>疫情蔓延全球，经济衰退，股价暴跌，美股数次熔断，不可否认这是一个动荡的三月。所谓『祸兮福之所倚』，被困在山村中的我却得以享受宁静，可以专心做自己想做的事，我重新开始捡起以前学了一点就知难而退的东西，比如 C++，Java，Linux 还有算法，除此之外，我还开始坚持看书、记单词和记录生活，为了督促自己，我还使用 atimelogger 记录自己每一分钟的花销。如果不是因为疫情，我也不会如此百无聊赖，也就不会开始做这些事情，从这个角度而言，对我而言这还是福。</p>
-<p>整个三月份，我看完了『乌合之众』、『金字塔原理』、『随机漫步的傻瓜』、『你的第一本哲学书』和『简单逻辑学』，平均一周看了一本多一点的书，还算可以，但是没有对其中任何一本书作一些读后感之类的笔记，算是一个不完整，希望在后面的阅读补上。这一个月也是折腾不断，看了算法看Linux，中间还去折腾下NS2——一坨年久失修的 shit。现在总结一下，算法是没看多少的，刚开始找了不知到哪儿来的一本 Java 算法书，看了一周几乎看完了，然而脑子中似乎什么都没剩下，于是我又照着『算法4』看，这次看得比较慢，加上中途新学期开学了，有很多课要上，到现在也才前两章，综合起来，我现在对排序算法比较清楚了，选择插入希尔归并快排都算了解得清楚了，现在还在继续看下去，第三章是『查找』，会讲到BST等新的数据结构。至于 Linux，照着鸟哥的书慢慢看，有时间就看一章，不求全部记住，只是有个大概概念就行了，现在也看到了 Shell 部分，坚持看下去吧。<br>学这些东西，并不是出于需要，我只是凭借着一时冲动开始看，什么时候我都热情消退了，我也就放弃了，转而投向新的东西。这说是我很长时间来的一种学习态度吧，对于学校规定的课程内容我总感觉不是很有意思，讲授的东西太过陈旧，我会凭借着冲动去随便投入到一些东西中去，既是对自己冲动的满足也是对那些陈旧无聊的知识的逃避。</p>
-<p>这个三月我也不是一切顺利，有两次突然陷入了一种极度的焦虑之中，在那种状态下，我什么都不想做，不愿意去做我应该做的事情，只想一直盯着手机看，好在持续一两天之后这种感觉就会很快消失，一切重归正常，但我知道几周后这种感觉又会到来。暂时还没有什么好办法应对这种情况，我只能选择接受它，并在它到来时暂时放下手头的工作，就当是一时的放松，但我坚信会找到办法的。</p>
-<hr>
-<p>身处动荡之中，怀抱希望，希望一切都好起来。</p>
+    <title>胡言乱语</title>
+    <url>/2020/03/second-week/</url>
+    <content><![CDATA[<p>没想到有和上周一样，在周一写下上周的日常。不过这次我有话说，不是因为贪玩游戏，实在是因为周六晚上的突发事件打乱了周日的计划，不得已在半夜在农村道路上走上7里路，第二天已经没有精力去写这玩意儿了。翻看上周每天写下的只言片语，我发现若是只给我自己看，那还是有点东西可写的。<br><a id="more"></a></p>
+<h2 id="无法抵挡的快乐"><a href="#无法抵挡的快乐" class="headerlink" title="无法抵挡的快乐"></a>无法抵挡的快乐</h2><p>放纵在放纵当时带来的快乐无与伦比，让我无法阻挡，虽然我已经很少体验到放纵的快乐，但我深知它的吸引力是多么强大。放纵对我而言是个什么样的标准呢？一天打上三把游戏已经是放纵了，大概就是这样，那么我可以说周四我放纵了一次。我处于一种完全沉浸式投入的状态，不在乎自己眼睛的疲劳，全心投入，决心赢下当前的比赛，但我还想赢得更多，于是不断地玩下去。最终局数来到了4，花去了2h<br>，我停了下来，没有继续玩下去。因为心心念念着学习知识，我停了下来，放弃了快乐。但是我知道，下一次我还是会沉浸其中，因为它能让我短暂地逃离现实，这是无法抵挡的快乐。</p>
+<h2 id="一个平庸的人"><a href="#一个平庸的人" class="headerlink" title="一个平庸的人"></a>一个平庸的人</h2><p>几乎每天都要上课，老师讲得那些我从来没有听过的知识，但没有多大程度引起我的兴趣，对我而言学习它只是身为学生的一种职责。我被动地接受他们传递过来的东西，OSI参考模型、TCP/IP参考模型、ALOHA随机接入协议还有光纤的若干性质，我几乎没有记下什么东西，但是我尝试去发现其中的规则，那是一种很美的东西，我尝试像一个『一无所知』的人，面对这些问题我能给出什么样的解决方案，大部分时候我什么也发现不了，对于这些问题我也一筹莫展，更别提解决方案，我不过是个平庸的人。</p>
+<h2 id="教育使我成为什么样的人？"><a href="#教育使我成为什么样的人？" class="headerlink" title="教育使我成为什么样的人？"></a>教育使我成为什么样的人？</h2><p>通常我不会想这样的问题，因为只不过是活着而以，不需要赋予人生意义，成为一个什么样的人也许真的无关紧要。周六看了郑强教授的一个视频，让我想考虑下这个问题，但我知道我想不明白的，我只能回顾自己的人生，并尝试从一些事件归纳出自己被教育成一个什么样的人，具体内容慢慢写吧。</p>
+<h2 id="我是随机漫步的傻瓜"><a href="#我是随机漫步的傻瓜" class="headerlink" title="我是随机漫步的傻瓜"></a>我是随机漫步的傻瓜</h2><p>我是个随机漫步的的傻瓜，但是我并没有受到眷顾，所以我还是个彻底的傻瓜。</p>
 ]]></content>
       <categories>
         <category>生活</category>
       </categories>
       <tags>
         <tag>记录</tag>
-        <tag>monthly</tag>
+        <tag>weekly</tag>
       </tags>
   </entry>
   <entry>
@@ -382,6 +365,23 @@
       </categories>
       <tags>
         <tag>LaTeX</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在疫情中度过三月</title>
+    <url>/2020/03/the-third-month/</url>
+    <content><![CDATA[<p>惊觉已经是三月的最后一天，在这过去的一个月里，如果说有什么一定一提的，那一定是已经持续了快三个月的的新冠肺炎疫情，国内的疫情逐渐被控制住了，国外却又爆发了更大规模的，看起来返校遥遥无期。一月份的时候我肯定无法想象3月31日自己还在家，突发的疫情打乱我原有的计划，我本该在学校的教室里坐着的，现在却在家，本以为会非常非常想回学校，现在倒也还好，我只是怀念学校的WiFi罢了。<br><a id="more"></a><br>疫情蔓延全球，经济衰退，股价暴跌，美股数次熔断，不可否认这是一个动荡的三月。所谓『祸兮福之所倚』，被困在山村中的我却得以享受宁静，可以专心做自己想做的事，我重新开始捡起以前学了一点就知难而退的东西，比如 C++，Java，Linux 还有算法，除此之外，我还开始坚持看书、记单词和记录生活，为了督促自己，我还使用 atimelogger 记录自己每一分钟的花销。如果不是因为疫情，我也不会如此百无聊赖，也就不会开始做这些事情，从这个角度而言，对我而言这还是福。</p>
+<p>整个三月份，我看完了『乌合之众』、『金字塔原理』、『随机漫步的傻瓜』、『你的第一本哲学书』和『简单逻辑学』，平均一周看了一本多一点的书，还算可以，但是没有对其中任何一本书作一些读后感之类的笔记，算是一个不完整，希望在后面的阅读补上。这一个月也是折腾不断，看了算法看Linux，中间还去折腾下NS2——一坨年久失修的 shit。现在总结一下，算法是没看多少的，刚开始找了不知到哪儿来的一本 Java 算法书，看了一周几乎看完了，然而脑子中似乎什么都没剩下，于是我又照着『算法4』看，这次看得比较慢，加上中途新学期开学了，有很多课要上，到现在也才前两章，综合起来，我现在对排序算法比较清楚了，选择插入希尔归并快排都算了解得清楚了，现在还在继续看下去，第三章是『查找』，会讲到BST等新的数据结构。至于 Linux，照着鸟哥的书慢慢看，有时间就看一章，不求全部记住，只是有个大概概念就行了，现在也看到了 Shell 部分，坚持看下去吧。<br>学这些东西，并不是出于需要，我只是凭借着一时冲动开始看，什么时候我都热情消退了，我也就放弃了，转而投向新的东西。这说是我很长时间来的一种学习态度吧，对于学校规定的课程内容我总感觉不是很有意思，讲授的东西太过陈旧，我会凭借着冲动去随便投入到一些东西中去，既是对自己冲动的满足也是对那些陈旧无聊的知识的逃避。</p>
+<p>这个三月我也不是一切顺利，有两次突然陷入了一种极度的焦虑之中，在那种状态下，我什么都不想做，不愿意去做我应该做的事情，只想一直盯着手机看，好在持续一两天之后这种感觉就会很快消失，一切重归正常，但我知道几周后这种感觉又会到来。暂时还没有什么好办法应对这种情况，我只能选择接受它，并在它到来时暂时放下手头的工作，就当是一时的放松，但我坚信会找到办法的。</p>
+<hr>
+<p>身处动荡之中，怀抱希望，希望一切都好起来。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>monthly</tag>
       </tags>
   </entry>
   <entry>
@@ -864,36 +864,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>Notes of Satellite Communications</title>
-    <url>/2020/04/stallite-communications-notes/</url>
-    <content><![CDATA[<p>卫星通信课的笔记，持续更新。<br><a id="more"></a></p>
-<h2 id="1-Overview-of-Satellite-Systems"><a href="#1-Overview-of-Satellite-Systems" class="headerlink" title="1. Overview of Satellite Systems"></a>1. Overview of Satellite Systems</h2><h3 id="1-1-Frequency-Allocations"><a href="#1-1-Frequency-Allocations" class="headerlink" title="1.1. Frequency Allocations"></a>1.1. Frequency Allocations</h3><p>频率资源非常紧张，国际上由 ITU ( International Telecommunication<br>Union ) 同一管理分配。在卫星通信中，为了更好地对频率资源进行管理，将世界分成三个区域。</p>
-<ul>
-<li>Region 1: Europe, Africa, what was formerly the Soviet Union, and Mongolia</li>
-<li>Region 2: North and South America and Greenland</li>
-<li>Region 3: Asia (excluding region 1 areas), Australia, and the southwest Pacific</li>
-</ul>
-<p>在区域内，全频带可使用。这些频率资源基本上是用于提供下面这些服务，当然它们也可以细分出很多内容，如 Mobile satellite services 中包含了 land mobile，maritime mobile 和 aeronautical mobile。</p>
-<ul>
-<li>Fixed satellite service (FSS)</li>
-<li>Broadcasting satellite service (BSS)</li>
-<li>Mobile satellite services</li>
-<li>Navigational satellite services</li>
-<li>Meteorological satellite services</li>
-</ul>
-<p>下表展示了常用的频带和它们的名称，这些都是常识。</p>
-<img src="/2020/04/stallite-communications-notes/frequency_band_designations.png" title="Frequency Band Designations">
-<p>还有一种 ITU 的频段划分方式，不在卫星通信中使用：</p>
-<img src="/2020/04/stallite-communications-notes/itu_frequency_band_designations.png" title="ITU Frequency Band Designations">
-<h2 id="2-Orbits-and-Launching-Methods"><a href="#2-Orbits-and-Launching-Methods" class="headerlink" title="2. Orbits and Launching Methods"></a>2. Orbits and Launching Methods</h2>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>notes</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>无线自组织网络路由协议</title>
     <url>/2020/04/adhoc-routing-protocol/</url>
     <content><![CDATA[<blockquote>
@@ -1203,28 +1173,33 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>LeetCode | 19 删除链表的倒数第N个节点</title>
-    <url>/2020/05/delete-numN-node-at-reverse-order-in-list/</url>
-    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个链表，删除链表的倒数第 n 个节点，并返回链表的头结点。<br><a id="more"></a></p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>给定一个链表：<code>1-&gt;2&gt;3-&gt;4-&gt;5</code>，和 <code>n=2</code>。当删除倒数第二个节点后，链表变为 <code>1-&gt;2&gt;3-&gt;5</code>。</p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>给定的 <code>n</code> 保证是有效的。</p>
-<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><p>这个题使用双指针即可很快解决：</p>
-<ol>
-<li>初始化两个指针 <code>p1</code> 和 <code>p2</code> 均指向链表的头部</li>
-<li><code>p2</code> 不动，<code>p1</code> 指针向后滑动 <code>n</code> 个位置</li>
-<li><code>p1</code> 和 <code>p2</code> 一起向后滑动，当 <code>p1</code> 指向节点的下一个节点为空时，<code>p2</code> 指向的节点即为待删除节点的前一个节点，执行删除操作。</li>
-<li>返回头指针</li>
-</ol>
-<img src="/2020/05/delete-numN-node-at-reverse-order-in-list/illustration.png" title="算法执行图示">
-<p>使用 C 语言实现如下：</p>
-<figure class="highlight c"><figcaption><span>LeetCodeSolution19.c</span><a href="/downloads/code/LeetCodeSolution19.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">// 链表节点定义</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> {</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> *<span class="title">next</span>;</span></span><br><span class="line">} ListNode;</span><br><span class="line"></span><br><span class="line"><span class="function">ListNode *<span class="title">delete</span><span class="params">(ListNode *head, <span class="keyword">int</span> n)</span> </span>{</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">    ListNode *p1 = head, *p2 = head;</span><br><span class="line">    <span class="comment">// 滑动指针 p1</span></span><br><span class="line">    <span class="keyword">for</span> (; n &gt; <span class="number">0</span>; n--)</span><br><span class="line">        p1 = p1-&gt;next;</span><br><span class="line">    <span class="comment">// 同时滑动 p1 和 p2 直到 p1 指向最后一个节点</span></span><br><span class="line">    <span class="keyword">while</span> (p1-&gt;next != <span class="literal">NULL</span>) {</span><br><span class="line">        p1 = p1-&gt;next;</span><br><span class="line">        p2 = p2-&gt;next;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 删除节点</span></span><br><span class="line">    ListNode *tmp = p2-&gt;next;</span><br><span class="line">    p2-&gt;next = tmp-&gt;next;</span><br><span class="line">    <span class="keyword">if</span> (tmp == head)</span><br><span class="line">        head = tmp-&gt;next;</span><br><span class="line">    <span class="built_in">free</span>(tmp); <span class="comment">// 释放</span></span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>]]></content>
+    <title>Notes of Satellite Communications</title>
+    <url>/2020/04/stallite-communications-notes/</url>
+    <content><![CDATA[<p>卫星通信课的笔记，持续更新。<br><a id="more"></a></p>
+<h2 id="1-Overview-of-Satellite-Systems"><a href="#1-Overview-of-Satellite-Systems" class="headerlink" title="1. Overview of Satellite Systems"></a>1. Overview of Satellite Systems</h2><h3 id="1-1-Frequency-Allocations"><a href="#1-1-Frequency-Allocations" class="headerlink" title="1.1. Frequency Allocations"></a>1.1. Frequency Allocations</h3><p>频率资源非常紧张，国际上由 ITU ( International Telecommunication<br>Union ) 同一管理分配。在卫星通信中，为了更好地对频率资源进行管理，将世界分成三个区域。</p>
+<ul>
+<li>Region 1: Europe, Africa, what was formerly the Soviet Union, and Mongolia</li>
+<li>Region 2: North and South America and Greenland</li>
+<li>Region 3: Asia (excluding region 1 areas), Australia, and the southwest Pacific</li>
+</ul>
+<p>在区域内，全频带可使用。这些频率资源基本上是用于提供下面这些服务，当然它们也可以细分出很多内容，如 Mobile satellite services 中包含了 land mobile，maritime mobile 和 aeronautical mobile。</p>
+<ul>
+<li>Fixed satellite service (FSS)</li>
+<li>Broadcasting satellite service (BSS)</li>
+<li>Mobile satellite services</li>
+<li>Navigational satellite services</li>
+<li>Meteorological satellite services</li>
+</ul>
+<p>下表展示了常用的频带和它们的名称，这些都是常识。</p>
+<img src="/2020/04/stallite-communications-notes/frequency_band_designations.png" title="Frequency Band Designations">
+<p>还有一种 ITU 的频段划分方式，不在卫星通信中使用：</p>
+<img src="/2020/04/stallite-communications-notes/itu_frequency_band_designations.png" title="ITU Frequency Band Designations">
+<h2 id="2-Orbits-and-Launching-Methods"><a href="#2-Orbits-and-Launching-Methods" class="headerlink" title="2. Orbits and Launching Methods"></a>2. Orbits and Launching Methods</h2>]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>算法</tag>
-        <tag>链表</tag>
-        <tag>LeetCode</tag>
+        <tag>notes</tag>
       </tags>
   </entry>
   <entry>
@@ -1293,6 +1268,57 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>LeetCode | 19 删除链表的倒数第N个节点</title>
+    <url>/2020/05/delete-numN-node-at-reverse-order-in-list/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个链表，删除链表的倒数第 n 个节点，并返回链表的头结点。<br><a id="more"></a></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>给定一个链表：<code>1-&gt;2&gt;3-&gt;4-&gt;5</code>，和 <code>n=2</code>。当删除倒数第二个节点后，链表变为 <code>1-&gt;2&gt;3-&gt;5</code>。</p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>给定的 <code>n</code> 保证是有效的。</p>
+<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><p>这个题使用双指针即可很快解决：</p>
+<ol>
+<li>初始化两个指针 <code>p1</code> 和 <code>p2</code> 均指向链表的头部</li>
+<li><code>p2</code> 不动，<code>p1</code> 指针向后滑动 <code>n</code> 个位置</li>
+<li><code>p1</code> 和 <code>p2</code> 一起向后滑动，当 <code>p1</code> 指向节点的下一个节点为空时，<code>p2</code> 指向的节点即为待删除节点的前一个节点，执行删除操作。</li>
+<li>返回头指针</li>
+</ol>
+<img src="/2020/05/delete-numN-node-at-reverse-order-in-list/illustration.png" title="算法执行图示">
+<p>使用 C 语言实现如下：</p>
+<figure class="highlight c"><figcaption><span>LeetCodeSolution19.c</span><a href="/downloads/code/LeetCodeSolution19.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">// 链表节点定义</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> {</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> *<span class="title">next</span>;</span></span><br><span class="line">} ListNode;</span><br><span class="line"></span><br><span class="line"><span class="function">ListNode *<span class="title">delete</span><span class="params">(ListNode *head, <span class="keyword">int</span> n)</span> </span>{</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">    ListNode *p1 = head, *p2 = head;</span><br><span class="line">    <span class="comment">// 滑动指针 p1</span></span><br><span class="line">    <span class="keyword">for</span> (; n &gt; <span class="number">0</span>; n--)</span><br><span class="line">        p1 = p1-&gt;next;</span><br><span class="line">    <span class="comment">// 同时滑动 p1 和 p2 直到 p1 指向最后一个节点</span></span><br><span class="line">    <span class="keyword">while</span> (p1-&gt;next != <span class="literal">NULL</span>) {</span><br><span class="line">        p1 = p1-&gt;next;</span><br><span class="line">        p2 = p2-&gt;next;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 删除节点</span></span><br><span class="line">    ListNode *tmp = p2-&gt;next;</span><br><span class="line">    p2-&gt;next = tmp-&gt;next;</span><br><span class="line">    <span class="keyword">if</span> (tmp == head)</span><br><span class="line">        head = tmp-&gt;next;</span><br><span class="line">    <span class="built_in">free</span>(tmp); <span class="comment">// 释放</span></span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>链表</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode | 4 两个排序数组的中位数</title>
+    <url>/2020/05/find-median-sorted-arrays/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定两个大小为 <code>m</code> 和 <code>n</code> 的有序数组 <code>nums1</code> 和 <code>nums2</code>。找出这两个有序数组的中位数。要求算法的时间复杂度为<code>O(log(m+n))</code>。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
+<li><code>nums1 = [1, 3]</code>，<code>nums2 = [2]</code>，中位数是 2.0；</li>
+<li><code>nums1 = [1, 2]</code>，<code>nums2 = [3, 4]</code>，中位数是 2.5；<a id="more"></a>
+</li>
+</ul>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>整体上是一个分而治之的思想，将问题分解，使用递归可以很方便的完成。这个问题是『寻找两个有序数组中的第 k 大元素』问题的特殊形式，我们直接实现寻址第 k 大元素的函数  <code>find_kth()</code> 即可，然后在 <code>findMedianSortedArrays()</code> 中调用它即可。</p>
+<p>我们使用递归方式实现 <code>find_kth()</code>，对于递归算法，我们要注意递归终止条件。首先要确保第一个参数数组的长度是较短的，</p>
+<ul>
+<li>较短数组 <code>a</code> 的长度（未搜索区域长度）变为 0，返回 <code>b</code> 中第 <code>k</code> 个元素；</li>
+<li>待寻找的序数 <code>k = 1</code>，返回<code>a</code> 和 <code>b</code> 的第一个元素中的较小者。</li>
+</ul>
+<p>然后我们需要确定每个数组的搜索长度。对于较小数组 <code>a</code>，搜索长度为数组长和 <code>k/2</code> 的较大者，余下的长度则为数组 <code>b</code> 待搜索的长度。</p>
+<p>代码如下：</p>
+<figure class="highlight c"><figcaption><span>LeetCodeSolution4.c</span><a href="/downloads/code/LeetCodeSolution4.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">// 辅助函数 选择两个有序数组中第 k 大的数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find_kth</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> alen, <span class="keyword">int</span> *b, <span class="keyword">int</span> blen, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="comment">// 确保 alen &lt; blen</span></span><br><span class="line">    <span class="keyword">if</span> (alen &gt; blen)</span><br><span class="line">        <span class="keyword">return</span> find_kth(b, blen, a, alen, k);</span><br><span class="line">    <span class="keyword">if</span> (alen == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> b[k<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">if</span> (k == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> a[<span class="number">0</span>] &lt; b[<span class="number">0</span>] ? a[<span class="number">0</span>] : b[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ia = alen &gt; k/<span class="number">2</span> ? k/<span class="number">2</span> : alen;</span><br><span class="line">    <span class="keyword">int</span> ib = k - ia;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (b[ib<span class="number">-1</span>] &gt; a[ia<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">return</span> find_kth(a+ia, alen-ia, b, blen, k-ia);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (b[ib<span class="number">-1</span>] &lt; a[ia<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">return</span> find_kth(a, alen, b+ib, blen-ib, k-ib);</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">// 注意这种情况</span></span><br><span class="line">        <span class="keyword">return</span> a[ia<span class="number">-1</span>];</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 找出两个有序数组中的中位数</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span> *nums1, <span class="keyword">int</span> nums1Size,</span></span></span><br><span class="line"><span class="function"><span class="params">                        <span class="keyword">int</span> *nums2, <span class="keyword">int</span> nums2Size)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> mid = nums2Size + (nums1Size - nums2Size) / <span class="number">2</span>;</span><br><span class="line">    <span class="comment">// if ((nums1Size &amp; 0x1) ^ (nums2Size &amp; 0x1)) // 和为奇数</span></span><br><span class="line">    <span class="keyword">if</span> ((nums1Size+nums2Size) &amp; <span class="number">0x1</span>)</span><br><span class="line">        <span class="keyword">return</span> find_kth(nums1, nums1Size, nums2, nums2Size, mid+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span>    <span class="comment">// 和为偶数</span></span><br><span class="line">        <span class="keyword">return</span> (find_kth(nums1, nums1Size, nums2, nums2Size, mid)</span><br><span class="line">                    + find_kth(nums1, nums1Size, nums2, nums2Size, mid+<span class="number">1</span>)) / <span class="number">2.0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode | 24 两两交换链表中的节点</title>
     <url>/2020/05/swap-pairs-in-LinkdedList/</url>
     <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个单链表，两两交换其中相邻的节点，并返回交换后的链表。</p>
@@ -1349,31 +1375,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>LeetCode | 61 旋转链表</title>
-    <url>/2020/05/rotate-LinkedList-rightly/</url>
-    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
-<li>输入：<code>1-&gt;2-&gt;3-&gt;4-&gt;5</code>，<code>k=2</code></li>
-<li>输出：<code>4-&gt;5-&gt;1-&gt;2-&gt;3</code></li>
-</ul>
-<a id="more"></a>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>题目名字叫旋转链表，其实就是循环移动。最简单的思路是：遍历链表找到尾节点的前一节点，然后把尾节点从头插入链表，对这个过程执行 k 次即可。这样做算法的时间复杂度为 <code>O(kn)</code>。考虑到是循环移动，我们可以对算法进行改进。</p>
-<p>首先考虑 <code>k</code> 小于链表长度的情况，链表循环向右移动 <code>k</code> 次，不就相当于把链表练成环，然后尾节点位置向左移动 <code>k</code> 次吗？下面这个图展示了这个过程。</p>
-<img src="/2020/05/rotate-LinkedList-rightly/illustration.png" title="循环移动">
-<p>对于 <code>k</code> 大于链表长度的情况，先构成环，沿着环一直移动就行。这种方法的问题在于我们需要逆向移动单链表的指针，即每次需要找到单链表前驱的前驱，这是很难做到的，但我们可以先行将单链表进行逆序，然后移动指针，确定最终的头尾节点后再把链表逆序回来即可。</p>
-<p>更进一步的，在环中逆序移动指针 <code>k</code> 次，就相当于顺序移动指针 <code>n-k</code> 次，其中 <code>n</code> 是链表的长度。基于这种想法，我们再加以改进，得到下面的解法。</p>
-<p>先把指针 <code>p</code> 从头向后移动到尾，直到循环移动的次数 <code>k==0</code>。在此过程中，如果 <code>p</code> 指向了空节点，说明到了链表尾部，<code>k</code> 大于链表的长度，这时候我们可以利用循环的特点，对链表的长度减一值进行取模运算，得到的值是我们需要再移动到位置。然后按照上述的方法进行指针移动即可。最终代码如下所示。</p>
-<figure class="highlight c"><figcaption><span>LeetCodeSolution61.c</span><a href="/downloads/code/LeetCodeSolution61.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function">ListNode *<span class="title">rotateRight</span><span class="params">(ListNode *head, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="literal">NULL</span> || k &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    ListNode *pre, *last, *p;</span><br><span class="line">    ListNode tmpNode;</span><br><span class="line">    tmpNode.next = head;</span><br><span class="line">    last = &amp;tmpNode;</span><br><span class="line">    p = head;</span><br><span class="line">    <span class="keyword">int</span> ak = k;</span><br><span class="line">    <span class="keyword">while</span> (k &gt; <span class="number">0</span>){</span><br><span class="line">        <span class="comment">// 滑动指针来代替循环</span></span><br><span class="line">        <span class="keyword">if</span> (p == <span class="literal">NULL</span>) {</span><br><span class="line">            <span class="keyword">int</span> tmp = ak - k;</span><br><span class="line">            pre = &amp;tmpNode;</span><br><span class="line">            p = head;</span><br><span class="line">            k = ak % tmp;</span><br><span class="line">            <span class="keyword">if</span> (k == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">        pre = p;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        k--;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span>) {</span><br><span class="line">        last = last-&gt;next;</span><br><span class="line">        pre = p;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> (last != &amp;tmpNode) {</span><br><span class="line">        pre-&gt;next = head;</span><br><span class="line">        tmpNode.next = last-&gt;next;</span><br><span class="line">        last-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> tmpNode.next;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode | 2 两数相加</title>
     <url>/2020/05/add-two-numbers/</url>
     <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定两个非空链表表示两个非负整数，位数按照逆序方式存储，它们的每个节点只存储单个数字。将两数相加并返回一个新的链表。</p>
@@ -1397,6 +1398,31 @@ proc complete_sim {} {...}
       <tags>
         <tag>算法</tag>
         <tag>链表</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode | 61 旋转链表</title>
+    <url>/2020/05/rotate-LinkedList-rightly/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
+<li>输入：<code>1-&gt;2-&gt;3-&gt;4-&gt;5</code>，<code>k=2</code></li>
+<li>输出：<code>4-&gt;5-&gt;1-&gt;2-&gt;3</code></li>
+</ul>
+<a id="more"></a>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>题目名字叫旋转链表，其实就是循环移动。最简单的思路是：遍历链表找到尾节点的前一节点，然后把尾节点从头插入链表，对这个过程执行 k 次即可。这样做算法的时间复杂度为 <code>O(kn)</code>。考虑到是循环移动，我们可以对算法进行改进。</p>
+<p>首先考虑 <code>k</code> 小于链表长度的情况，链表循环向右移动 <code>k</code> 次，不就相当于把链表练成环，然后尾节点位置向左移动 <code>k</code> 次吗？下面这个图展示了这个过程。</p>
+<img src="/2020/05/rotate-LinkedList-rightly/illustration.png" title="循环移动">
+<p>对于 <code>k</code> 大于链表长度的情况，先构成环，沿着环一直移动就行。这种方法的问题在于我们需要逆向移动单链表的指针，即每次需要找到单链表前驱的前驱，这是很难做到的，但我们可以先行将单链表进行逆序，然后移动指针，确定最终的头尾节点后再把链表逆序回来即可。</p>
+<p>更进一步的，在环中逆序移动指针 <code>k</code> 次，就相当于顺序移动指针 <code>n-k</code> 次，其中 <code>n</code> 是链表的长度。基于这种想法，我们再加以改进，得到下面的解法。</p>
+<p>先把指针 <code>p</code> 从头向后移动到尾，直到循环移动的次数 <code>k==0</code>。在此过程中，如果 <code>p</code> 指向了空节点，说明到了链表尾部，<code>k</code> 大于链表的长度，这时候我们可以利用循环的特点，对链表的长度减一值进行取模运算，得到的值是我们需要再移动到位置。然后按照上述的方法进行指针移动即可。最终代码如下所示。</p>
+<figure class="highlight c"><figcaption><span>LeetCodeSolution61.c</span><a href="/downloads/code/LeetCodeSolution61.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function">ListNode *<span class="title">rotateRight</span><span class="params">(ListNode *head, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="literal">NULL</span> || k &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    ListNode *pre, *last, *p;</span><br><span class="line">    ListNode tmpNode;</span><br><span class="line">    tmpNode.next = head;</span><br><span class="line">    last = &amp;tmpNode;</span><br><span class="line">    p = head;</span><br><span class="line">    <span class="keyword">int</span> ak = k;</span><br><span class="line">    <span class="keyword">while</span> (k &gt; <span class="number">0</span>){</span><br><span class="line">        <span class="comment">// 滑动指针来代替循环</span></span><br><span class="line">        <span class="keyword">if</span> (p == <span class="literal">NULL</span>) {</span><br><span class="line">            <span class="keyword">int</span> tmp = ak - k;</span><br><span class="line">            pre = &amp;tmpNode;</span><br><span class="line">            p = head;</span><br><span class="line">            k = ak % tmp;</span><br><span class="line">            <span class="keyword">if</span> (k == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">        pre = p;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        k--;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span>) {</span><br><span class="line">        last = last-&gt;next;</span><br><span class="line">        pre = p;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> (last != &amp;tmpNode) {</span><br><span class="line">        pre-&gt;next = head;</span><br><span class="line">        tmpNode.next = last-&gt;next;</span><br><span class="line">        last-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> tmpNode.next;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
         <tag>LeetCode</tag>
       </tags>
   </entry>
@@ -1430,32 +1456,6 @@ proc complete_sim {} {...}
       <tags>
         <tag>MATLAB</tag>
         <tag>通信</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode | 4 两个排序数组的中位数</title>
-    <url>/2020/05/find-median-sorted-arrays/</url>
-    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定两个大小为 <code>m</code> 和 <code>n</code> 的有序数组 <code>nums1</code> 和 <code>nums2</code>。找出这两个有序数组的中位数。要求算法的时间复杂度为<code>O(log(m+n))</code>。</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
-<li><code>nums1 = [1, 3]</code>，<code>nums2 = [2]</code>，中位数是 2.0；</li>
-<li><code>nums1 = [1, 2]</code>，<code>nums2 = [3, 4]</code>，中位数是 2.5；<a id="more"></a>
-</li>
-</ul>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>整体上是一个分而治之的思想，将问题分解，使用递归可以很方便的完成。这个问题是『寻找两个有序数组中的第 k 大元素』问题的特殊形式，我们直接实现寻址第 k 大元素的函数  <code>find_kth()</code> 即可，然后在 <code>findMedianSortedArrays()</code> 中调用它即可。</p>
-<p>我们使用递归方式实现 <code>find_kth()</code>，对于递归算法，我们要注意递归终止条件。首先要确保第一个参数数组的长度是较短的，</p>
-<ul>
-<li>较短数组 <code>a</code> 的长度（未搜索区域长度）变为 0，返回 <code>b</code> 中第 <code>k</code> 个元素；</li>
-<li>待寻找的序数 <code>k = 1</code>，返回<code>a</code> 和 <code>b</code> 的第一个元素中的较小者。</li>
-</ul>
-<p>然后我们需要确定每个数组的搜索长度。对于较小数组 <code>a</code>，搜索长度为数组长和 <code>k/2</code> 的较大者，余下的长度则为数组 <code>b</code> 待搜索的长度。</p>
-<p>代码如下：</p>
-<figure class="highlight c"><figcaption><span>LeetCodeSolution4.c</span><a href="/downloads/code/LeetCodeSolution4.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">// 辅助函数 选择两个有序数组中第 k 大的数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find_kth</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> alen, <span class="keyword">int</span> *b, <span class="keyword">int</span> blen, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="comment">// 确保 alen &lt; blen</span></span><br><span class="line">    <span class="keyword">if</span> (alen &gt; blen)</span><br><span class="line">        <span class="keyword">return</span> find_kth(b, blen, a, alen, k);</span><br><span class="line">    <span class="keyword">if</span> (alen == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> b[k<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">if</span> (k == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> a[<span class="number">0</span>] &lt; b[<span class="number">0</span>] ? a[<span class="number">0</span>] : b[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ia = alen &gt; k/<span class="number">2</span> ? k/<span class="number">2</span> : alen;</span><br><span class="line">    <span class="keyword">int</span> ib = k - ia;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (b[ib<span class="number">-1</span>] &gt; a[ia<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">return</span> find_kth(a+ia, alen-ia, b, blen, k-ia);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (b[ib<span class="number">-1</span>] &lt; a[ia<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">return</span> find_kth(a, alen, b+ib, blen-ib, k-ib);</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">// 注意这种情况</span></span><br><span class="line">        <span class="keyword">return</span> a[ia<span class="number">-1</span>];</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 找出两个有序数组中的中位数</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span> *nums1, <span class="keyword">int</span> nums1Size,</span></span></span><br><span class="line"><span class="function"><span class="params">                        <span class="keyword">int</span> *nums2, <span class="keyword">int</span> nums2Size)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> mid = nums2Size + (nums1Size - nums2Size) / <span class="number">2</span>;</span><br><span class="line">    <span class="comment">// if ((nums1Size &amp; 0x1) ^ (nums2Size &amp; 0x1)) // 和为奇数</span></span><br><span class="line">    <span class="keyword">if</span> ((nums1Size+nums2Size) &amp; <span class="number">0x1</span>)</span><br><span class="line">        <span class="keyword">return</span> find_kth(nums1, nums1Size, nums2, nums2Size, mid+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span>    <span class="comment">// 和为偶数</span></span><br><span class="line">        <span class="keyword">return</span> (find_kth(nums1, nums1Size, nums2, nums2Size, mid)</span><br><span class="line">                    + find_kth(nums1, nums1Size, nums2, nums2Size, mid+<span class="number">1</span>)) / <span class="number">2.0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>LeetCode</tag>
       </tags>
   </entry>
   <entry>
@@ -1515,6 +1515,57 @@ proc complete_sim {} {...}
       <categories>
         <category>学习</category>
       </categories>
+  </entry>
+  <entry>
+    <title>计算机网络课程报告</title>
+    <url>/2020/06/curriculum-report-of-computer-network/</url>
+    <content><![CDATA[<p>现在初步打算写无线局域网中MAC的接入技术，在知网简单搜索下，发现研究这个的还真不少，如<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CMFD&amp;dbname=CMFD201902&amp;filename=1019113029.nh&amp;uid=WEEvREcwSlJHSldRa1FhdXNzY2Z2S3F4L2xoUW9La0NoVFhnOE9GdXhpZz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjU0ODllWm9GQ3ZsVUwvSlZGMjZGN0s1SGRIT3BwRWJQSVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlk=" target="_blank" rel="noopener">无线局域网中高效MAC层接入机制研究</a>，<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CMFD&amp;dbname=CMFD202001&amp;filename=1020004190.nh&amp;uid=WEEvREcwSlJHSldRa1FhdXNzY2Z2S3F4L2xoUW9La0NoVFhnOE9GdXhpZz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjYzMzBab0ZDdmxWcnpCVkYyNUhyTzRHdERGcjVFYlBJUjhlWDFMdXhZUzdEaDFUM3FUcldNMUZyQ1VSN3FmWWU=" target="_blank" rel="noopener">低时延高可靠无线局域网MAC增强技术研究</a>和<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CDFD&amp;dbname=CDFDLAST2020&amp;filename=1019253781.nh&amp;uid=WEEvREcwSlJHSldRa1FhdXNzY2Z2S3F4L2xoUW9La0NoVFhnOE9GdXhpZz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjA5NDlkYkVycEViUElSOGVYMUx1eFlTN0RoMVQzcVRyV00xRnJDVVI3cWZZZVpvRkN2a1dydlBWRjI2RjdHOUg=" target="_blank" rel="noopener">工业无线局域网MAC协议确定性机制研究</a>。看起来写完这篇课程报告不是特别烦，基本上我觉得可以照着一篇硕士论文快速完成这篇课程报告，毕竟时间紧急，拿到该拿的分即可。写完后，我会在这里同步完报告的全部内容。<br><a id="more"></a></p>
+<h2 id="1-无线局域网的发展历史"><a href="#1-无线局域网的发展历史" class="headerlink" title="1. 无线局域网的发展历史"></a>1. 无线局域网的发展历史</h2><p>随着互联网业务的迅速发展，人们对各种在线服务的实时性需求日益强烈。相比蜂窝网，无线局域网网络有着高带宽，灵活以及廉价等诸多优势，目前，无线局域网（Wireless Local Area Network, WLAN）己经在家庭、校园、企业和城市公共场所等多种场景部署。</p>
+<p>可以看到无线局域网已经广泛应用于我们的日常生活，这是由于其传输速率高、带宽配置灵活、使用非授权频段以及方便灵活部署等优势。无线局域网的代表协议是IEEE 802.11系列标准，第一个IEEE 802.11 标准于1997年发表，至今已有 23 年历史了[1]。二十年来，802.11取得了很大的发展，很多新技术进入了标准，推动 802.11 协议日趋完善。</p>
+<p>1997年，IEEE推出了第一个无线局域网标准——IEEE 802.11，其中定义了介质访问控制（MAC）层和物理层。物理层定义了工作在2.4GHz的ISM频段上的两种扩频作调制方式和一种红外线传输的方式，总数据传输速率设计为2Mbit/s，MAC层采用的CSMA/CA技术。</p>
+<p>EEE 802.11a协议[2]在1999年被标准化，它采用的是正交频分复用技术（Orthogonal Frequency Division Multiplexing, OFDM），工作频率为5GHz，使用52个正交频分多路复用子载波，最大原始数据传输率为54Mb/s，达到了现实网络中等吞吐量（20Mb/s）的要求。</p>
+<p>同年IEEE 802.11b被正式批准，该标准规定无线局域网工作频段在2.4GHz，由于工作频段更低，与IEEE 802.11a相比，它的工作范围更大，但速率更低，数据传输速率达到11Mbps。该标准是对IEEE 802.11的一个补充，采用点对点模式和基本模式两种运作模式，其数据传输速率可以根据实际情况在11Mbps、5.5Mbps、2Mbps、1Mbps的不同速率间自动切换，802.11b和工作在5GHz频率上的802.11a标准不兼容。由于价格低廉，802.11b产品已经被广泛地投入市场，并在许多实际工作场所运行。</p>
+<p>2003年7月IEEE 802.11工作组批准了IEEE 802.11g草案，在2.4GHz频段使用正交频分复用技术，使数据传输速率提高到20Mbit/s以上；可与IEEE 802.11b的Wi-Fi系统互联互通，可共存于同一AP的网络里，从而保障了后向兼容性。</p>
+<p>IEEE 802.11 n在2009年标准化，采用了OFDM和4x4多入多出（Multiple-Input Multiple-Output, MIMO）技术[3]，物理层速率可以在两路20MHz信道(共40MHz )中达到600Mbps。</p>
+<p>2013推出的IEEE 802.11ac协议利用OFDM和8x8 MIMO技术[4]，在8个20MHz信道(共160MHz)中，物理层速率可达到6.9Gbps，在802.11n基础上有了很大的提升。最新的 802.11ax 标准已经支持160MHz的带宽，8条流空间复用，基于 OFDMA的多址接入技术提高了信道利用率，满足密集部署场景的应用需求[5]。其他更多标准的简略信息如图1-1所示。    </p>
+<img src="/2020/06/curriculum-report-of-computer-network/mainIEEE80211Standard.png" title="图1-1 主要的IEEE 802.11标准">
+<p>我们可以看到，无线局域网标准定义了协议的工作频段、调制编码方式及最高速度的支持。可以看到，无线局域网的工作频段是2.4GHz和5GHz，前者的具体范围是2.4000～2.4835GHz，后者是5.15～5.825GHz，通常设计工作在2.4GHz频段的协议支持的数据传输速率低一些，但覆盖范围大，工作在5GHz频段的协议支持的数据传输塑料布高一些，但覆盖范围小。从调制技术来看，无线局域网的物理层从CCK向OFDM和MIMO-OFDM发展，支持的传输速率越来越大，2Mbps，54Mbps，600Mbps，1Gbps，9.6Gbps，传输速率是越来越大，当然其中消耗了更多的带宽资源。</p>
+<h2 id="2-无线局域网的MAC层"><a href="#2-无线局域网的MAC层" class="headerlink" title="2. 无线局域网的MAC层"></a>2. 无线局域网的MAC层</h2><h3 id="2-1-无线局域网的两种网络结构"><a href="#2-1-无线局域网的两种网络结构" class="headerlink" title="2.1 无线局域网的两种网络结构"></a>2.1 无线局域网的两种网络结构</h3><p>IEEE 802.11定义了无线局域网的两种网络结构，分别是无中心网络（Ad hoc模式）和有中心网络。在Ad hoc模式下，网络中没有中心站点，各站点式平等的，这是一种对等式网络（Peer-to-Peer，P2P），有中心网络的网络结构中有一个中心站点，又称接入点（Access Point，AP），也叫做AP模式。两种结构的示意图如图2-1所示。</p>
+<p>目前，AP模式是比较常用的，我们在家中使用的WiFi就是这种模式，而Ad hoc一般在一些专用场合使用，平时比较少见。</p>
+<img src="/2020/06/curriculum-report-of-computer-network/networdPattern.png" title="图2-1 网络模式示意图">
+<h3 id="2-2-无线局域网的MAC层结构"><a href="#2-2-无线局域网的MAC层结构" class="headerlink" title="2.2 无线局域网的MAC层结构"></a>2.2 无线局域网的MAC层结构</h3><p>在无线局域网中，无线信道由多个站点共享，它们同处于一个冲突域下，在这种情况下，最需要解决的一个问题就是如何避免站点数据的碰撞，否则站点的数据会发生相互干扰，导致接受站点无法正确接收到信息。这个时候我们就需要一个控制各站点接入无线信道的协议来统一管理，这就是我们的MAC层协议。</p>
+<p>MAC层即介质访问控制层，在传输帧时，一个基站首先要获取共享信道的访问，无线局域网的标准定义了两种介质访问控制方式：分布式协调功能（DCF）和集中式协调功能（PCF）。其中DCF功能是必须支持的，而PCF则不一定。MAC的结构如图2-2所示。</p>
+<img src="/2020/06/curriculum-report-of-computer-network/WLANMAC.png" title="图2-2 无线局域网 MAC示意图">
+<p>DCF机制是IEEE 802.11协议采用的基于竞争的MAC机制，其采用载波监听多址接入/冲突避免（Carrier Sense Multiple Access mechanism with Collision Avoidance，CSMA/CA）和二进制指数退避（Binary Exponential Back-off，BEB）两种基本机制可以为多个站点提供信道接入，各个站点在这种机制下对信道资源进行争用，有可能会发生数据碰撞。</p>
+<p>PCF是MAC的可选用功能，在PCF下，各站点不需要争用信道，信道资源由AP统一分配，这种工作模式下，不会发生数据碰撞。但是一般情况下这种方式使用较少，只有在对传输时间要求高的视频、音频会话类应用时，才会启用PCF方式。</p>
+<h3 id="2-3-无线局域网的MAC层接入机制"><a href="#2-3-无线局域网的MAC层接入机制" class="headerlink" title="2.3 无线局域网的MAC层接入机制"></a>2.3 无线局域网的MAC层接入机制</h3><p>当前，IEEE 802.11MAC协议中广泛采用的接入方法是CSMA/CA。CA的意思是冲突避免，无线局域网发送结点监测到无线信道“空闲”时不“立即”发送帧，而是所有准备发送数据帧的主机都执行退避算法，通过“冲突避免”（CA）来减小冲突发生概率，而且无线局域网发送结点需要等待接收结点发送回确认帧，来判断此次发送是否成功。</p>
+<h4 id="2-3-1-常用帧间间隔"><a href="#2-3-1-常用帧间间隔" class="headerlink" title="2.3.1 常用帧间间隔"></a>2.3.1 常用帧间间隔</h4><p>网络中的无线网卡在检测到信道空闲时到真正发送一帧时，或发送一帧之后到发送下一帧时，都需要间隔一个帧间隔（Inter Frame Space，IFS）时间。IEEE 802.11协议规定了4种帧间间隔：</p>
+<p>（1）短帧间间隔（Short IFS，SIFS）<br>固定值，是最小的帧间间隔，只有在等待一个SIFS后才可能发送ACK帧、CTS帧。</p>
+<p>（2）分布协调功能帧间间隔（Distributed coordination IFS，DIFS）<br>DIFS比PIFS长一个时一隙时间。它只能工作在DCF模式，主要用于在每次通信中的第一帧之前。</p>
+<p>（3）点协调功能帧间间隔（Point coordination IFS，PIFS)<br>PIFS比SIFS长一个时隙时间(slot time )，又称集中协调功能帧间间隔。它只能工作在PCF模式，用于在开始使用PCF功能时，使站点能够尽快获得发送权。</p>
+<p>（4）扩展帧间间隔（Extended coordination IFS，EIFS）<br>EIFS是最长的IFS，主要用于在前一帧出错的情况下，发送站点必须延迟EIFS，而不是正常情况下的DIFS时间后，再发送下一帧</p>
+<h4 id="2-3-2-CSMA-CA原理"><a href="#2-3-2-CSMA-CA原理" class="headerlink" title="2.3.2 CSMA/CA原理"></a>2.3.2 CSMA/CA原理</h4><p>CSMA/CA的设计目标是为了尽可能减少冲突发送概率，简单概括其基本原理就是信道监听，推迟发送和冲突避免。信道监听通过物理层对无线信道进行载波监听，ACK确认，推迟发送采用虚拟载波监听（Virtual Carrier Sense，VCS）与网络分配向量（Network Allocation Vector，NAV）机制，冲突退避采用DIFS和二进制指数退避算法。</p>
+<p>CSMA/CA有两种工作模式，基本模式和可选的RTS/CTS预约模式，后者可以解决隐藏主机带来的冲突问题。这里只介绍基本模式，它的信道接入过程如图2-3所示。</p>
+<img src="/2020/06/curriculum-report-of-computer-network/channelConnectionProcess.png" title="图2-3 基本模式下的信道接入过程">
+<p>NAV起到一个计时器的作用，其数值由发送主机在帧头的“持续时间”字段广播给其他主机，对于其他主机，只有当检测到NAV=0时才认为信道是空闲的。如果检测到信道空闲，那么发送主机需要等待一个DIFS，然后随机退避n个slot time才能发送数据帧，这个时候的数据帧就携带了此次发送站点的NAV信息，提醒其他站点信道繁忙，让其他站点保持静默以免发送碰撞。退避时间由二进制指数退避算法决定，退避时间为<br>$$<br>W = (2^{2+i}-1)\cdot W_s<br>$$<br>第i次退避时，从 $2^{i+1}-1$ 个slot time中随机选取一个作为退避时间，如果在退避时，检测到NAV不为0，这表示其他站点开始发送帧，此次竞争失败，则冻结当前退避时间，直到NAV=0并等待DIFS后继续从刚才冻结的退避时间开始倒数。从上述的描述我们可以看到，帧立即发送的条件为：NAV=0并且经过DIFS并且退避时间=0。</p>
+<p>接收主机（AP模式下即为AP）收到数据帧后，等待SIFS，才能向发送主机发送ACK确认帧，发送主机收到后，一次帧发送才算完成。</p>
+<p>从前述对CSMA/CA的分析我们不难发现，这种机制在AP连接的站点数目较少时性能才比较好，因为此时站点退避的时间相同的概率比较小，发生冲突的概率小，但如果AP接入的站点很多，那么碰撞的概率增大，网络的性能变差。针对这种情况，对其进行改进的研究也很多，我们在后面进行介绍。</p>
+<h2 id="3-无线局域网的MAC层接入技术的改进"><a href="#3-无线局域网的MAC层接入技术的改进" class="headerlink" title="3. 无线局域网的MAC层接入技术的改进"></a>3. 无线局域网的MAC层接入技术的改进</h2><p>前面谈到，传统的无线局域网MAC接入技术基于CAMA/CA和BEB机制，在这种机制下，如果网络中接入的站点比较多，数据发生碰撞的概率会增大，极端情况下，如果接入的站点特别多，没有站带你能够向AP发送数据，也就是说在密集组网的情况下，传统的MAC层接入技术有许多需要改进的地方。</p>
+<h3 id="3-1-初始竞争窗口值的改进"><a href="#3-1-初始竞争窗口值的改进" class="headerlink" title="3.1 初始竞争窗口值的改进"></a>3.1 初始竞争窗口值的改进</h3><p>在CSMA/CA和BEB协议中，一些参数如初始竞争窗口值对网络的性能有着显著的影响，系统吞吐量对初始竞争窗口值比较敏感，一个合适的竞争窗口选择方案可以极大地提高系统的吞吐量[6]，这不难理解，当网络负载小的时候，窗口也就可以小一些，让用户得以快速接入。</p>
+<p>基于此，有很多竞争窗口值优化方案被提出，竞争窗口值其实是与当前的活跃用户关联在一起的，因此活跃用户检测也是有一个需要考虑的问题，可以根据测量得到的碰撞概率对当前活跃用户进行估计[7]，也可以根据观察到的空闲时隙数来对活跃用户数进行估计[8]，估计完用户数后，再对竞争窗口值进行动态调整。</p>
+<p>还有利用贪婪策略的CSMA/CA竞争窗口启发式优化方案，使用贪婪搜索算法得到当前系统初始竞争窗口值的，并根据启发式规则使之处于动态最优状态[9]。</p>
+<h3 id="3-2-接入方式的改变"><a href="#3-2-接入方式的改变" class="headerlink" title="3.2 接入方式的改变"></a>3.2 接入方式的改变</h3><p>从本质上来看CSMA/CA机制是一种随机接入的竞争机制，而且是单用户单信道的，这种机制天然就不适合密集用户的场景。因此，有的学者研究了多信道下的MAC协议，以获得更高的吞吐量和更低的时延[10]。</p>
+<p>最新的WiFi标准IEEE 802.11ax引入OFDMA技术，不再采用原来的单用户单信道，而是将整个信道划分为多个子信道来允许多个用户同时接入。新的MAC层技术也必须适应这种接入方式，原有的CSMA/CA其实已经不太适用了，因此，人们又提出了多站点随机接入型和接入点集中调度接入型。</p>
+<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h2><p>本文简单介绍了无线局域网的发展历史，介绍了无线局域网的MAC层接入技术，我们发现，随着网络的发展和接入用户数量的快速增长，带宽和接入速率已经不是限制网络的因素，如何让众多用户有效地接入站点成了一个更加值得重视的问题。其实整个问题不止在无线局域网中存在，在蜂窝网络等用户接入网都会存在这样的问题，这种场景下，用户是随机接入的，如何有效地区分用户是一个很关键的问题。</p>
+<p>未来，随着接入站点数目的不断增加，有效地接入控制方法是需要的，值得研究。在一些特定场景下，如工业局域网中，不仅要保证站点的接入，还需要保证高可靠性，针对确定性问题做到指标检测过程和负载调整过程，就可实现良好的负载均衡[11]。针对这些特定场景下的优化的研究也有很多。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1]   Perahia E .IEEE 802.11n Development: History, Process, and Technology[J]. IEEE Communications Magazine, 2008, 46(7):48-55.<br>[2]   IEEE. IEEE Standard for Telecommunications and Information Exchange Between Systems一LAN/MAN Specific Requirements一Part 11:Wireless Medium Access Control (MAC) and physical layer (PHY) specifications: High Speed Physical Layer in the 5 GHz band[C]// IEEE Std 80211a. IEEE, 2002.<br>[3]   IEEE. IEEE Standard for Information technology–Local and metropolitan area networks– Specific requirements– Part 11:Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications Amendment 2: Fast Basic Service Set (BSS) Transition[J]. IEEE Xplore,2008:1-126.<br>[4]   IEEE Standard for Information technology– Telecommunications and information exchange between systems Local and metropolitan area networks—Specific requirements–Part 11:Wireless LAN Medium Access Control (MAC) and Physical Layer (PH Y) Specifications–A[C]// IEEE Std 802.11 ac-2013 (Amendment to IEEE Std 802.11-2012, as amended by IEEE Std 802.11 ae-2012, IEEE Std 802.11 aa-2012, and IEEE Std 802.11 ad-2012). 2013.<br>[5]   Zhu H , Li M , Chlamtac I , et al. A survey of quality of service in IEEE 802.11 networks.[J]. Wireless Communications IEEE, 2004, 11(4):6-14.<br>[6]   Parker B M, Schormans J A, Gilmour S G. Increasing throughput in IEEE 802.11 by optimal selection of backoff parameters[J]. Networks Iet, 2014, 4(1):21-29.<br>[7]   Morino Y, Hiraguri T, Yoshino H, et al. A Novel Contention Window Control Scheme Based on a Markov Chain Model in Dense WLAN Environment[C]// International Conference on Artificial Intelligence. 2016.<br>[8]   Yu Q, Zhuang Y, Ma L. Dynamic contention window adjustment scheme for improving throughput and fairness in IEEE 802.11 wireless LANs[C]// Global Communications Conference. IEEE, 2013.<br>[9]   林尚娟. 无线局域网中高效MAC层接入机制研究[D].北京邮电大学,2019.<br>[10] Hadded M , Muhlethaler P , Laouiti A , et al. TDMA-based MAC Protocols for Vehicular Ad Hoc Networks: A Survey, Qualitative Analysis and Open Research Issues[J]. IEEE Communications Surveys &amp; Tutorials, 2015, 17(4):1-1.<br>[11] 程煜钧. 工业无线局域网MAC协议确定性机制研究[D].北京交通大学,2019.</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+      </tags>
   </entry>
   <entry>
     <title>『Channel Codes』笔记之有限域、向量空间、有限集合和图</title>
@@ -1589,57 +1640,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>计算机网络课程报告</title>
-    <url>/2020/06/curriculum-report-of-computer-network/</url>
-    <content><![CDATA[<p>现在初步打算写无线局域网中MAC的接入技术，在知网简单搜索下，发现研究这个的还真不少，如<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CMFD&amp;dbname=CMFD201902&amp;filename=1019113029.nh&amp;uid=WEEvREcwSlJHSldRa1FhdXNzY2Z2S3F4L2xoUW9La0NoVFhnOE9GdXhpZz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjU0ODllWm9GQ3ZsVUwvSlZGMjZGN0s1SGRIT3BwRWJQSVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlk=" target="_blank" rel="noopener">无线局域网中高效MAC层接入机制研究</a>，<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CMFD&amp;dbname=CMFD202001&amp;filename=1020004190.nh&amp;uid=WEEvREcwSlJHSldRa1FhdXNzY2Z2S3F4L2xoUW9La0NoVFhnOE9GdXhpZz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjYzMzBab0ZDdmxWcnpCVkYyNUhyTzRHdERGcjVFYlBJUjhlWDFMdXhZUzdEaDFUM3FUcldNMUZyQ1VSN3FmWWU=" target="_blank" rel="noopener">低时延高可靠无线局域网MAC增强技术研究</a>和<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CDFD&amp;dbname=CDFDLAST2020&amp;filename=1019253781.nh&amp;uid=WEEvREcwSlJHSldRa1FhdXNzY2Z2S3F4L2xoUW9La0NoVFhnOE9GdXhpZz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjA5NDlkYkVycEViUElSOGVYMUx1eFlTN0RoMVQzcVRyV00xRnJDVVI3cWZZZVpvRkN2a1dydlBWRjI2RjdHOUg=" target="_blank" rel="noopener">工业无线局域网MAC协议确定性机制研究</a>。看起来写完这篇课程报告不是特别烦，基本上我觉得可以照着一篇硕士论文快速完成这篇课程报告，毕竟时间紧急，拿到该拿的分即可。写完后，我会在这里同步完报告的全部内容。<br><a id="more"></a></p>
-<h2 id="1-无线局域网的发展历史"><a href="#1-无线局域网的发展历史" class="headerlink" title="1. 无线局域网的发展历史"></a>1. 无线局域网的发展历史</h2><p>随着互联网业务的迅速发展，人们对各种在线服务的实时性需求日益强烈。相比蜂窝网，无线局域网网络有着高带宽，灵活以及廉价等诸多优势，目前，无线局域网（Wireless Local Area Network, WLAN）己经在家庭、校园、企业和城市公共场所等多种场景部署。</p>
-<p>可以看到无线局域网已经广泛应用于我们的日常生活，这是由于其传输速率高、带宽配置灵活、使用非授权频段以及方便灵活部署等优势。无线局域网的代表协议是IEEE 802.11系列标准，第一个IEEE 802.11 标准于1997年发表，至今已有 23 年历史了[1]。二十年来，802.11取得了很大的发展，很多新技术进入了标准，推动 802.11 协议日趋完善。</p>
-<p>1997年，IEEE推出了第一个无线局域网标准——IEEE 802.11，其中定义了介质访问控制（MAC）层和物理层。物理层定义了工作在2.4GHz的ISM频段上的两种扩频作调制方式和一种红外线传输的方式，总数据传输速率设计为2Mbit/s，MAC层采用的CSMA/CA技术。</p>
-<p>EEE 802.11a协议[2]在1999年被标准化，它采用的是正交频分复用技术（Orthogonal Frequency Division Multiplexing, OFDM），工作频率为5GHz，使用52个正交频分多路复用子载波，最大原始数据传输率为54Mb/s，达到了现实网络中等吞吐量（20Mb/s）的要求。</p>
-<p>同年IEEE 802.11b被正式批准，该标准规定无线局域网工作频段在2.4GHz，由于工作频段更低，与IEEE 802.11a相比，它的工作范围更大，但速率更低，数据传输速率达到11Mbps。该标准是对IEEE 802.11的一个补充，采用点对点模式和基本模式两种运作模式，其数据传输速率可以根据实际情况在11Mbps、5.5Mbps、2Mbps、1Mbps的不同速率间自动切换，802.11b和工作在5GHz频率上的802.11a标准不兼容。由于价格低廉，802.11b产品已经被广泛地投入市场，并在许多实际工作场所运行。</p>
-<p>2003年7月IEEE 802.11工作组批准了IEEE 802.11g草案，在2.4GHz频段使用正交频分复用技术，使数据传输速率提高到20Mbit/s以上；可与IEEE 802.11b的Wi-Fi系统互联互通，可共存于同一AP的网络里，从而保障了后向兼容性。</p>
-<p>IEEE 802.11 n在2009年标准化，采用了OFDM和4x4多入多出（Multiple-Input Multiple-Output, MIMO）技术[3]，物理层速率可以在两路20MHz信道(共40MHz )中达到600Mbps。</p>
-<p>2013推出的IEEE 802.11ac协议利用OFDM和8x8 MIMO技术[4]，在8个20MHz信道(共160MHz)中，物理层速率可达到6.9Gbps，在802.11n基础上有了很大的提升。最新的 802.11ax 标准已经支持160MHz的带宽，8条流空间复用，基于 OFDMA的多址接入技术提高了信道利用率，满足密集部署场景的应用需求[5]。其他更多标准的简略信息如图1-1所示。    </p>
-<img src="/2020/06/curriculum-report-of-computer-network/mainIEEE80211Standard.png" title="图1-1 主要的IEEE 802.11标准">
-<p>我们可以看到，无线局域网标准定义了协议的工作频段、调制编码方式及最高速度的支持。可以看到，无线局域网的工作频段是2.4GHz和5GHz，前者的具体范围是2.4000～2.4835GHz，后者是5.15～5.825GHz，通常设计工作在2.4GHz频段的协议支持的数据传输速率低一些，但覆盖范围大，工作在5GHz频段的协议支持的数据传输塑料布高一些，但覆盖范围小。从调制技术来看，无线局域网的物理层从CCK向OFDM和MIMO-OFDM发展，支持的传输速率越来越大，2Mbps，54Mbps，600Mbps，1Gbps，9.6Gbps，传输速率是越来越大，当然其中消耗了更多的带宽资源。</p>
-<h2 id="2-无线局域网的MAC层"><a href="#2-无线局域网的MAC层" class="headerlink" title="2. 无线局域网的MAC层"></a>2. 无线局域网的MAC层</h2><h3 id="2-1-无线局域网的两种网络结构"><a href="#2-1-无线局域网的两种网络结构" class="headerlink" title="2.1 无线局域网的两种网络结构"></a>2.1 无线局域网的两种网络结构</h3><p>IEEE 802.11定义了无线局域网的两种网络结构，分别是无中心网络（Ad hoc模式）和有中心网络。在Ad hoc模式下，网络中没有中心站点，各站点式平等的，这是一种对等式网络（Peer-to-Peer，P2P），有中心网络的网络结构中有一个中心站点，又称接入点（Access Point，AP），也叫做AP模式。两种结构的示意图如图2-1所示。</p>
-<p>目前，AP模式是比较常用的，我们在家中使用的WiFi就是这种模式，而Ad hoc一般在一些专用场合使用，平时比较少见。</p>
-<img src="/2020/06/curriculum-report-of-computer-network/networdPattern.png" title="图2-1 网络模式示意图">
-<h3 id="2-2-无线局域网的MAC层结构"><a href="#2-2-无线局域网的MAC层结构" class="headerlink" title="2.2 无线局域网的MAC层结构"></a>2.2 无线局域网的MAC层结构</h3><p>在无线局域网中，无线信道由多个站点共享，它们同处于一个冲突域下，在这种情况下，最需要解决的一个问题就是如何避免站点数据的碰撞，否则站点的数据会发生相互干扰，导致接受站点无法正确接收到信息。这个时候我们就需要一个控制各站点接入无线信道的协议来统一管理，这就是我们的MAC层协议。</p>
-<p>MAC层即介质访问控制层，在传输帧时，一个基站首先要获取共享信道的访问，无线局域网的标准定义了两种介质访问控制方式：分布式协调功能（DCF）和集中式协调功能（PCF）。其中DCF功能是必须支持的，而PCF则不一定。MAC的结构如图2-2所示。</p>
-<img src="/2020/06/curriculum-report-of-computer-network/WLANMAC.png" title="图2-2 无线局域网 MAC示意图">
-<p>DCF机制是IEEE 802.11协议采用的基于竞争的MAC机制，其采用载波监听多址接入/冲突避免（Carrier Sense Multiple Access mechanism with Collision Avoidance，CSMA/CA）和二进制指数退避（Binary Exponential Back-off，BEB）两种基本机制可以为多个站点提供信道接入，各个站点在这种机制下对信道资源进行争用，有可能会发生数据碰撞。</p>
-<p>PCF是MAC的可选用功能，在PCF下，各站点不需要争用信道，信道资源由AP统一分配，这种工作模式下，不会发生数据碰撞。但是一般情况下这种方式使用较少，只有在对传输时间要求高的视频、音频会话类应用时，才会启用PCF方式。</p>
-<h3 id="2-3-无线局域网的MAC层接入机制"><a href="#2-3-无线局域网的MAC层接入机制" class="headerlink" title="2.3 无线局域网的MAC层接入机制"></a>2.3 无线局域网的MAC层接入机制</h3><p>当前，IEEE 802.11MAC协议中广泛采用的接入方法是CSMA/CA。CA的意思是冲突避免，无线局域网发送结点监测到无线信道“空闲”时不“立即”发送帧，而是所有准备发送数据帧的主机都执行退避算法，通过“冲突避免”（CA）来减小冲突发生概率，而且无线局域网发送结点需要等待接收结点发送回确认帧，来判断此次发送是否成功。</p>
-<h4 id="2-3-1-常用帧间间隔"><a href="#2-3-1-常用帧间间隔" class="headerlink" title="2.3.1 常用帧间间隔"></a>2.3.1 常用帧间间隔</h4><p>网络中的无线网卡在检测到信道空闲时到真正发送一帧时，或发送一帧之后到发送下一帧时，都需要间隔一个帧间隔（Inter Frame Space，IFS）时间。IEEE 802.11协议规定了4种帧间间隔：</p>
-<p>（1）短帧间间隔（Short IFS，SIFS）<br>固定值，是最小的帧间间隔，只有在等待一个SIFS后才可能发送ACK帧、CTS帧。</p>
-<p>（2）分布协调功能帧间间隔（Distributed coordination IFS，DIFS）<br>DIFS比PIFS长一个时一隙时间。它只能工作在DCF模式，主要用于在每次通信中的第一帧之前。</p>
-<p>（3）点协调功能帧间间隔（Point coordination IFS，PIFS)<br>PIFS比SIFS长一个时隙时间(slot time )，又称集中协调功能帧间间隔。它只能工作在PCF模式，用于在开始使用PCF功能时，使站点能够尽快获得发送权。</p>
-<p>（4）扩展帧间间隔（Extended coordination IFS，EIFS）<br>EIFS是最长的IFS，主要用于在前一帧出错的情况下，发送站点必须延迟EIFS，而不是正常情况下的DIFS时间后，再发送下一帧</p>
-<h4 id="2-3-2-CSMA-CA原理"><a href="#2-3-2-CSMA-CA原理" class="headerlink" title="2.3.2 CSMA/CA原理"></a>2.3.2 CSMA/CA原理</h4><p>CSMA/CA的设计目标是为了尽可能减少冲突发送概率，简单概括其基本原理就是信道监听，推迟发送和冲突避免。信道监听通过物理层对无线信道进行载波监听，ACK确认，推迟发送采用虚拟载波监听（Virtual Carrier Sense，VCS）与网络分配向量（Network Allocation Vector，NAV）机制，冲突退避采用DIFS和二进制指数退避算法。</p>
-<p>CSMA/CA有两种工作模式，基本模式和可选的RTS/CTS预约模式，后者可以解决隐藏主机带来的冲突问题。这里只介绍基本模式，它的信道接入过程如图2-3所示。</p>
-<img src="/2020/06/curriculum-report-of-computer-network/channelConnectionProcess.png" title="图2-3 基本模式下的信道接入过程">
-<p>NAV起到一个计时器的作用，其数值由发送主机在帧头的“持续时间”字段广播给其他主机，对于其他主机，只有当检测到NAV=0时才认为信道是空闲的。如果检测到信道空闲，那么发送主机需要等待一个DIFS，然后随机退避n个slot time才能发送数据帧，这个时候的数据帧就携带了此次发送站点的NAV信息，提醒其他站点信道繁忙，让其他站点保持静默以免发送碰撞。退避时间由二进制指数退避算法决定，退避时间为<br>$$<br>W = (2^{2+i}-1)\cdot W_s<br>$$<br>第i次退避时，从 $2^{i+1}-1$ 个slot time中随机选取一个作为退避时间，如果在退避时，检测到NAV不为0，这表示其他站点开始发送帧，此次竞争失败，则冻结当前退避时间，直到NAV=0并等待DIFS后继续从刚才冻结的退避时间开始倒数。从上述的描述我们可以看到，帧立即发送的条件为：NAV=0并且经过DIFS并且退避时间=0。</p>
-<p>接收主机（AP模式下即为AP）收到数据帧后，等待SIFS，才能向发送主机发送ACK确认帧，发送主机收到后，一次帧发送才算完成。</p>
-<p>从前述对CSMA/CA的分析我们不难发现，这种机制在AP连接的站点数目较少时性能才比较好，因为此时站点退避的时间相同的概率比较小，发生冲突的概率小，但如果AP接入的站点很多，那么碰撞的概率增大，网络的性能变差。针对这种情况，对其进行改进的研究也很多，我们在后面进行介绍。</p>
-<h2 id="3-无线局域网的MAC层接入技术的改进"><a href="#3-无线局域网的MAC层接入技术的改进" class="headerlink" title="3. 无线局域网的MAC层接入技术的改进"></a>3. 无线局域网的MAC层接入技术的改进</h2><p>前面谈到，传统的无线局域网MAC接入技术基于CAMA/CA和BEB机制，在这种机制下，如果网络中接入的站点比较多，数据发生碰撞的概率会增大，极端情况下，如果接入的站点特别多，没有站带你能够向AP发送数据，也就是说在密集组网的情况下，传统的MAC层接入技术有许多需要改进的地方。</p>
-<h3 id="3-1-初始竞争窗口值的改进"><a href="#3-1-初始竞争窗口值的改进" class="headerlink" title="3.1 初始竞争窗口值的改进"></a>3.1 初始竞争窗口值的改进</h3><p>在CSMA/CA和BEB协议中，一些参数如初始竞争窗口值对网络的性能有着显著的影响，系统吞吐量对初始竞争窗口值比较敏感，一个合适的竞争窗口选择方案可以极大地提高系统的吞吐量[6]，这不难理解，当网络负载小的时候，窗口也就可以小一些，让用户得以快速接入。</p>
-<p>基于此，有很多竞争窗口值优化方案被提出，竞争窗口值其实是与当前的活跃用户关联在一起的，因此活跃用户检测也是有一个需要考虑的问题，可以根据测量得到的碰撞概率对当前活跃用户进行估计[7]，也可以根据观察到的空闲时隙数来对活跃用户数进行估计[8]，估计完用户数后，再对竞争窗口值进行动态调整。</p>
-<p>还有利用贪婪策略的CSMA/CA竞争窗口启发式优化方案，使用贪婪搜索算法得到当前系统初始竞争窗口值的，并根据启发式规则使之处于动态最优状态[9]。</p>
-<h3 id="3-2-接入方式的改变"><a href="#3-2-接入方式的改变" class="headerlink" title="3.2 接入方式的改变"></a>3.2 接入方式的改变</h3><p>从本质上来看CSMA/CA机制是一种随机接入的竞争机制，而且是单用户单信道的，这种机制天然就不适合密集用户的场景。因此，有的学者研究了多信道下的MAC协议，以获得更高的吞吐量和更低的时延[10]。</p>
-<p>最新的WiFi标准IEEE 802.11ax引入OFDMA技术，不再采用原来的单用户单信道，而是将整个信道划分为多个子信道来允许多个用户同时接入。新的MAC层技术也必须适应这种接入方式，原有的CSMA/CA其实已经不太适用了，因此，人们又提出了多站点随机接入型和接入点集中调度接入型。</p>
-<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h2><p>本文简单介绍了无线局域网的发展历史，介绍了无线局域网的MAC层接入技术，我们发现，随着网络的发展和接入用户数量的快速增长，带宽和接入速率已经不是限制网络的因素，如何让众多用户有效地接入站点成了一个更加值得重视的问题。其实整个问题不止在无线局域网中存在，在蜂窝网络等用户接入网都会存在这样的问题，这种场景下，用户是随机接入的，如何有效地区分用户是一个很关键的问题。</p>
-<p>未来，随着接入站点数目的不断增加，有效地接入控制方法是需要的，值得研究。在一些特定场景下，如工业局域网中，不仅要保证站点的接入，还需要保证高可靠性，针对确定性问题做到指标检测过程和负载调整过程，就可实现良好的负载均衡[11]。针对这些特定场景下的优化的研究也有很多。</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1]   Perahia E .IEEE 802.11n Development: History, Process, and Technology[J]. IEEE Communications Magazine, 2008, 46(7):48-55.<br>[2]   IEEE. IEEE Standard for Telecommunications and Information Exchange Between Systems一LAN/MAN Specific Requirements一Part 11:Wireless Medium Access Control (MAC) and physical layer (PHY) specifications: High Speed Physical Layer in the 5 GHz band[C]// IEEE Std 80211a. IEEE, 2002.<br>[3]   IEEE. IEEE Standard for Information technology–Local and metropolitan area networks– Specific requirements– Part 11:Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications Amendment 2: Fast Basic Service Set (BSS) Transition[J]. IEEE Xplore,2008:1-126.<br>[4]   IEEE Standard for Information technology– Telecommunications and information exchange between systems Local and metropolitan area networks—Specific requirements–Part 11:Wireless LAN Medium Access Control (MAC) and Physical Layer (PH Y) Specifications–A[C]// IEEE Std 802.11 ac-2013 (Amendment to IEEE Std 802.11-2012, as amended by IEEE Std 802.11 ae-2012, IEEE Std 802.11 aa-2012, and IEEE Std 802.11 ad-2012). 2013.<br>[5]   Zhu H , Li M , Chlamtac I , et al. A survey of quality of service in IEEE 802.11 networks.[J]. Wireless Communications IEEE, 2004, 11(4):6-14.<br>[6]   Parker B M, Schormans J A, Gilmour S G. Increasing throughput in IEEE 802.11 by optimal selection of backoff parameters[J]. Networks Iet, 2014, 4(1):21-29.<br>[7]   Morino Y, Hiraguri T, Yoshino H, et al. A Novel Contention Window Control Scheme Based on a Markov Chain Model in Dense WLAN Environment[C]// International Conference on Artificial Intelligence. 2016.<br>[8]   Yu Q, Zhuang Y, Ma L. Dynamic contention window adjustment scheme for improving throughput and fairness in IEEE 802.11 wireless LANs[C]// Global Communications Conference. IEEE, 2013.<br>[9]   林尚娟. 无线局域网中高效MAC层接入机制研究[D].北京邮电大学,2019.<br>[10] Hadded M , Muhlethaler P , Laouiti A , et al. TDMA-based MAC Protocols for Vehicular Ad Hoc Networks: A Survey, Qualitative Analysis and Open Research Issues[J]. IEEE Communications Surveys &amp; Tutorials, 2015, 17(4):1-1.<br>[11] 程煜钧. 工业无线局域网MAC协议确定性机制研究[D].北京交通大学,2019.</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>网络</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>写在移动通信期末考试后</title>
     <url>/2020/07/written-after-mobile-communications-final-exam/</url>
     <content><![CDATA[<p>刚结束了今年的第一门专业课考试，不用感觉就知道考得稀烂，卷面约有 30 分没做完，折合下最终的成绩直接没了 18 分，这下可以考虑打破最低的考试课得分记录了——电路 76 分，我觉得很有希望。<br><a id="more"></a></p>
@@ -1702,37 +1702,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>闲逛半个月</title>
-    <url>/2020/09/hang-out-for-half-a-month/</url>
-    <content><![CDATA[<p>如题所示 ，我已经闲逛了半个月之久，昏昏沉沉过了半个月，像是突然失去了学习的状态，心情无法平复，难以集中到文章上，于是我逃避到游戏中，我尝试了 CSGO，Dota2，现在又开始玩 LOL 了，但我从心里知道这并不会长久的，很快我就会回归到我的状态，集中注意力学习。<br><a id="more"></a><br>这半个月来我到底干了什么呢？首先我感受到了自己的懈怠，但是不想就这样懈怠下去，于是决定先做点简单的事情——在 B 站看 FPGA 教程，或许是教程的每个视频太长，让我感觉很挫败，或许根本就是我无法静下心学习，总之，几天后我决定看买的那本 FPGA 书。看书比起看视频来果然快很多，而且可以随时停下来刷刷手机，四天之后，我把书看完了，但真的只是看完了，自问看过的东西脑子还记得的真的不多，很惭愧。接下来我彻底无事可做了，虽然老师给了篇文章让我去看，但是我完全无法静下心去看文章，尽管那篇文章并不长，简单看下的话应该花不到一个下午就能看完，我一定是哪里不对劲了。到现在我还是没有找到原因，不过我感受到了，这段不对劲的时间马上要过去了，我可以重新回归到之前的状态。</p>
-<p>我猜测，我在失去目标时很容易变的不知所措，如果我正在做的事情没有一个清晰的进度指示，也会让我感到沮丧无法坚持下去。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>搬砖日记 2020.09.16</title>
-    <url>/2020/09/sr-log-200916/</url>
-    <content><![CDATA[<p>实验室的第二天，写下的第一篇日志。今天的任务是实现 LDPC 码的高阶调制问题，经过了一番折腾，最终得到了一个看起来正确的方法，这种方法也在『Channel Codes』这本书的第 15 章简单提到了。实现 LDPC 码的高阶调制解调框图如下所示。</p>
-<a id="more"></a>
-<img src="/2020/09/sr-log-200916/image-20200916203759142.png" title="a block diagram of an LDPC-coded modulation system">
-<p>问题在于如何从接收到的符号中获得 LDPC 码译码器需要的信息，15 章中给出了在 SPA 下，由接收到的符号求每个比特的内信息计算方法，如下所示：</p>
-<img src="/2020/09/sr-log-200916/image-20200916204403197.png" title="LDPC-coded modulation system 内信息计算">
-<p>其他的计算则和 BPSK 调制的 LDPC 码译码相同，由此我们解决了 LDPC 码的高阶调制问题。当然肯定有很多细节我没有考虑到，暂时先这样吧，后面想到了再补充。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>sr-log</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>FPGA 开发流程以及如何创建一个工程</title>
     <url>/2020/08/FPGA-development-process-and-an-project-example/</url>
     <content><![CDATA[<p>几天前再次从老师那儿得知毕设我需要做的是 LDPC 码的 FPGA 实现，看起来我必须得找时间学学 FPGA 了。本文就是在今天看完 B 站<a href="https://space.bilibili.com/476579378" target="_blank" rel="noopener">小梅哥</a>的<a href="https://www.bilibili.com/video/BV1KE411h7AZ" target="_blank" rel="noopener">FPGA视频</a>做的笔记，简单介绍 FPGA 的开发流程，最后会在 Quartus 中创建一个工程。</p>
@@ -1781,17 +1750,34 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>毕设要开题了！</title>
-    <url>/2020/10/preparation-for-start-of-graduation-project/</url>
-    <content><![CDATA[<p>昨天恰逢国庆和中秋一起过，中午和晚上都出去聚餐了，中午和实验室的师姐和师兄们吃，晚上和打篮球的朋友们吃，很舒服。<br><a id="more"></a><br>不过今天需要准备开题了，早上来实验室了，又是拖着略显疲惫的身体，我已经有点分不清是因为睡眠不足还是手上在做的东西迟迟没有进展，稍加思索，我更觉得是手上做的东西迟迟没有进展导致的，因为一事无成，所以心中有牵挂，晚上睡不好，早上没精神，然后就是效率低下，更加难以推进手中的事情，这是一个恶性循环。需要找到好的办法突破这个循环，目前看来唯一的办法就是取得进展，但是需要消耗的时间和精力未免也太多了些，我需要别的更好的办法。</p>
-<p>现在这些暂时都不重要了，现在重要的事情是 8 号提交一份开题报告给老师。</p>
-<p>抛开对未知的恐惧，找到一条路吧。</p>
+    <title>闲逛半个月</title>
+    <url>/2020/09/hang-out-for-half-a-month/</url>
+    <content><![CDATA[<p>如题所示 ，我已经闲逛了半个月之久，昏昏沉沉过了半个月，像是突然失去了学习的状态，心情无法平复，难以集中到文章上，于是我逃避到游戏中，我尝试了 CSGO，Dota2，现在又开始玩 LOL 了，但我从心里知道这并不会长久的，很快我就会回归到我的状态，集中注意力学习。<br><a id="more"></a><br>这半个月来我到底干了什么呢？首先我感受到了自己的懈怠，但是不想就这样懈怠下去，于是决定先做点简单的事情——在 B 站看 FPGA 教程，或许是教程的每个视频太长，让我感觉很挫败，或许根本就是我无法静下心学习，总之，几天后我决定看买的那本 FPGA 书。看书比起看视频来果然快很多，而且可以随时停下来刷刷手机，四天之后，我把书看完了，但真的只是看完了，自问看过的东西脑子还记得的真的不多，很惭愧。接下来我彻底无事可做了，虽然老师给了篇文章让我去看，但是我完全无法静下心去看文章，尽管那篇文章并不长，简单看下的话应该花不到一个下午就能看完，我一定是哪里不对劲了。到现在我还是没有找到原因，不过我感受到了，这段不对劲的时间马上要过去了，我可以重新回归到之前的状态。</p>
+<p>我猜测，我在失去目标时很容易变的不知所措，如果我正在做的事情没有一个清晰的进度指示，也会让我感到沮丧无法坚持下去。</p>
 ]]></content>
       <categories>
         <category>生活</category>
       </categories>
       <tags>
         <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搬砖日记 2020.09.16</title>
+    <url>/2020/09/sr-log-200916/</url>
+    <content><![CDATA[<p>实验室的第二天，写下的第一篇日志。今天的任务是实现 LDPC 码的高阶调制问题，经过了一番折腾，最终得到了一个看起来正确的方法，这种方法也在『Channel Codes』这本书的第 15 章简单提到了。实现 LDPC 码的高阶调制解调框图如下所示。</p>
+<a id="more"></a>
+<img src="/2020/09/sr-log-200916/image-20200916203759142.png" title="a block diagram of an LDPC-coded modulation system">
+<p>问题在于如何从接收到的符号中获得 LDPC 码译码器需要的信息，15 章中给出了在 SPA 下，由接收到的符号求每个比特的内信息计算方法，如下所示：</p>
+<img src="/2020/09/sr-log-200916/image-20200916204403197.png" title="LDPC-coded modulation system 内信息计算">
+<p>其他的计算则和 BPSK 调制的 LDPC 码译码相同，由此我们解决了 LDPC 码的高阶调制问题。当然肯定有很多细节我没有考虑到，暂时先这样吧，后面想到了再补充。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>sr-log</tag>
       </tags>
   </entry>
   <entry>
@@ -1819,6 +1805,20 @@ proc complete_sim {} {...}
       <tags>
         <tag>记录</tag>
         <tag>sr-log</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>毕设要开题了！</title>
+    <url>/2020/10/preparation-for-start-of-graduation-project/</url>
+    <content><![CDATA[<p>昨天恰逢国庆和中秋一起过，中午和晚上都出去聚餐了，中午和实验室的师姐和师兄们吃，晚上和打篮球的朋友们吃，很舒服。<br><a id="more"></a><br>不过今天需要准备开题了，早上来实验室了，又是拖着略显疲惫的身体，我已经有点分不清是因为睡眠不足还是手上在做的东西迟迟没有进展，稍加思索，我更觉得是手上做的东西迟迟没有进展导致的，因为一事无成，所以心中有牵挂，晚上睡不好，早上没精神，然后就是效率低下，更加难以推进手中的事情，这是一个恶性循环。需要找到好的办法突破这个循环，目前看来唯一的办法就是取得进展，但是需要消耗的时间和精力未免也太多了些，我需要别的更好的办法。</p>
+<p>现在这些暂时都不重要了，现在重要的事情是 8 号提交一份开题报告给老师。</p>
+<p>抛开对未知的恐惧，找到一条路吧。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -2019,24 +2019,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>新年快乐！2020 的小结与2021 年的展望</title>
-    <url>/2021/01/happy-new-year-2021/</url>
-    <content><![CDATA[<p>新年快乐，2020总算是过去了。</p>
-<a id="more"></a>
-<p>先总结下这一年。对我而言，虽然经历了很多事情，但这一年过得并不算坏。尝试拥有了自己一直渴求的东西，最后发现不是自己想要的就果断放手了，算是对那段过去做了一个交代。很幸运能够被现在的毕设导师选择，我将在老师手下度过剩下的两年半，用朋友的话说：你这选到了神仙导师，直接起飞了。那确实，我实在是有点幸运啊。两年过去了，我开始渐渐理解他的选择，如果是我，绝对会把事情弄得一塌糊涂，对于家里的事情，我决定和他使用同样的态度，多么希望能有机会再和他谈谈……9月终于开学了，开题，上课，看文献，写代码，做毕设，生活忙碌了起来，时间也像流水一样逝去。回望这一年，我没有在自己的核心竞争力上取得多大提升，年初决定的计划几乎都没有执行到底，这一点和往年一样，不同的是这样的时间不会再有太多了，我已经大四了，没有什么拿得出手的技能，换句话说没有人愿意付钱雇我干活，已经没有太多时间浪费了。</p>
-<p>未来这一年，我有什么样的计划呢？暂时还没有想好，只有一个大概的想法，最重要的事情当然就是好好做完毕设，顺利毕业，然后就是提升自己的的核心竞争力，让别人愿意出一个好价钱。这些想法都宽泛了，难以执行，最好我在后面会详细说明下，希望自己坚持下去，这一篇算是个开头展望。</p>
-<p>我永远对未来抱有美好的期望，只是我似乎不知道自己在期望什么，《球状闪电》中说到：美妙人生的关键在于你能迷上什么东西。我不知道自己有什么可以沉迷的，游戏么？最好不要，那就试试其他有用的吧，”有用的“，在我这里似乎什么都得有用才行，没有那种纯粹靠着一时冲动去做的，但我又何尝不在冲动之下犯下一个又一个错误呢？我啊，说的总是和做的差太多，算不上是个好人。那么这一次，我说，2021 年，我要大幅度提高自己对产品或者说是对人文世界的感知力。编程能力倒是先不着急，我知道自己一定不甘心在这方面落下的。</p>
-<p>昨晚收到老师送的礼物，还有星空，实在太美了，太感谢了。</p>
-<p>2021，做自己，不留遗憾。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>11 月的第一篇和最后一篇</title>
     <url>/2020/11/log-11-29/</url>
     <content><![CDATA[<p>已经是11月29日了，今天是教学周第12周的的最后一天，已经有许久没有整理整理了，今天正好休息，记下两笔吧。<br><a id="more"></a><br>先说毕设，距离我预订的完成时间还剩下两周，按照过去一个月的进度来看，我肯定无法在这最后两周完成全部内容，但我还想试试。我现在对 FPGA 的掌握程度还远没有达到预订的目标：给定一个需求，能够完成设计和代码实现。现在的我就算是照着设计去写代码都有很大的困难，问题出在哪里呢？这段时间以来，我也没闲着，也在看 Verilog 代码，也看了一些那几本书，但还是不得要领。按照之前学习的经验来看，还是代码抄得不够，我感觉回到了三年前，那是一次痛苦的 Python 学习经历，像个无头苍蝇一样撞了几天后直接放弃了，不过现在我没有放弃这个选项，我必须完成，那么在接下来这段时间多抄点代码吧，看看好的设计是怎么完成的。下周日再来检验吧。</p>
@@ -2069,30 +2051,15 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>2021 第三天</title>
-    <url>/2021/01/day2-not-feeling-well/</url>
-    <content><![CDATA[<p>新年第三天了，这两天也没做什么事情，做了两次物联网实验，粘贴了一份读书报告，补完了数值分析的实验报告和作业，终于有时间复习数值分析了，下周五就要考试了，得抓紧复习了。</p>
+    <title>新年快乐！2020 的小结与2021 年的展望</title>
+    <url>/2021/01/happy-new-year-2021/</url>
+    <content><![CDATA[<p>新年快乐，2020总算是过去了。</p>
 <a id="more"></a>
-<p>物联网这个实验做的实在太让人难受了，实验简单，本以为按照实验指导书一步步做就可以完成实验，这样就可以快速做完，腾出时间复习数值分析了，事实证明我想多了。最大的问题在于实验指导书就写得如同一坨狗屎，有时真不知道写这指导书的人在干嘛，写完之后有审核过吗？真的能起到指导作用吗？看来做这个产品的公司估计也不是一家好公司。很多时候，人们并不关系那种看起来很牛逼却看不懂的东西，大家会把更多的精力投入自己能够理解的那部分中去，以获得参与感和满足感，对于指导书一类的东西，一定要写的足够清楚，这才有意义。</p>
-<p>抄报告真的会上瘾？我想这是真的，尤其当你面对一个你不想写的报告，而这个学分你又非常想你拿到。最好是那种复制粘贴即可的，稍微改改格式就行的。理解别人的这种行为吧，因为我不知道什么时候自己也会去做，所以我应该做的不是苛责，而是思考背后的原因，这是关键。</p>
-<p>晚上头晕得厉害，估计是这些天来的累积结果，某一天晚上踢被子被冻醒了，昨天在正心一楼的大教室自习，脚一直没热过……想必是要感冒了，想到马上就要放假，不会开学那段极限坐车经历又要再次重演了吧，果真生活是个圈？赶紧找vv要了点药吃，希望赶紧好起来，还得复习数值分析，orz。</p>
-<p>啊！对了，看到一篇很感人的帖子<a href="https://m.hupu.com/bbs/40172727.html" target="_blank" rel="noopener">七年了，我还是很想你</a>，真羡慕啊，“有一个人能去爱，多珍贵”，后面和朋友们聊到这件事，说自己变得越来越现实，大概不会再去喜欢别人了，当我开始选择的时候，就意味着没有选择了，不过还是要相信真爱的，当不会在我这里发生就是了，祝各位幸福。</p>
-<p>OK，这大概就是这两天了，时间快到了，事也说得差不多了。晚安。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ready-for-final-exam</title>
-    <url>/2021/01/ready-for-final-exam/</url>
-    <content><![CDATA[<p>又过了两天，感冒还是没好全，但好在体温不高，应该不会影响我的回家计划，数值分析已经复习得差不多了，我的目标早就不是奖学金一类的东西了，因为太难了我追求不到，倒不如现在就改换赛道，做点别的事情，也让自己能够开心点，求不得苦还是少受点为好。</p>
-<p>真是糟糕，我已经记不得昨天发生了什么，午饭吃的什么东西呢？完全没有印象了，大概不重要的事情都是这样，一晃而过，我只是按照预订的路线去经历罢了，但那些刻骨铭心的事呢？我在内心不断对它进行加工，慢慢的，它变得面目全非，当时到底发生了发生什么，当时的我到底在想什么，都无从知晓了。这大概就是记录的意义，让平淡的生活留下痕迹，保留那些难得的珍贵回忆。</p>
-<p>这两天的复习就是在消磨时间，因为内心认为考试比较简单，没有必要花太多时间，所以早就把认为该看的内容看完了，可惜的是多出来的这点时间全都白白消耗了，打游戏，逛论坛，刷 B 站，干什么都好，就是没有正经学习。啊！该做的计划也没有做，记得用notion吧，或者找一个更好的离线版的工具，不然每天真的不知道自己都干了些什么，用文字记录虽然可以，但总是不够直白，图表形式才是最好的。罢了罢了，明天再说，又是这样的态度，可惜没有办法，只能明天再说了。</p>
-<p>明天好好考试，然后找老师讨论下放假要完成的任务，制定一个好的计划，这大概就是接下来的安排了。晚安。</p>
+<p>先总结下这一年。对我而言，虽然经历了很多事情，但这一年过得并不算坏。尝试拥有了自己一直渴求的东西，最后发现不是自己想要的就果断放手了，算是对那段过去做了一个交代。很幸运能够被现在的毕设导师选择，我将在老师手下度过剩下的两年半，用朋友的话说：你这选到了神仙导师，直接起飞了。那确实，我实在是有点幸运啊。两年过去了，我开始渐渐理解他的选择，如果是我，绝对会把事情弄得一塌糊涂，对于家里的事情，我决定和他使用同样的态度，多么希望能有机会再和他谈谈……9月终于开学了，开题，上课，看文献，写代码，做毕设，生活忙碌了起来，时间也像流水一样逝去。回望这一年，我没有在自己的核心竞争力上取得多大提升，年初决定的计划几乎都没有执行到底，这一点和往年一样，不同的是这样的时间不会再有太多了，我已经大四了，没有什么拿得出手的技能，换句话说没有人愿意付钱雇我干活，已经没有太多时间浪费了。</p>
+<p>未来这一年，我有什么样的计划呢？暂时还没有想好，只有一个大概的想法，最重要的事情当然就是好好做完毕设，顺利毕业，然后就是提升自己的的核心竞争力，让别人愿意出一个好价钱。这些想法都宽泛了，难以执行，最好我在后面会详细说明下，希望自己坚持下去，这一篇算是个开头展望。</p>
+<p>我永远对未来抱有美好的期望，只是我似乎不知道自己在期望什么，《球状闪电》中说到：美妙人生的关键在于你能迷上什么东西。我不知道自己有什么可以沉迷的，游戏么？最好不要，那就试试其他有用的吧，”有用的“，在我这里似乎什么都得有用才行，没有那种纯粹靠着一时冲动去做的，但我又何尝不在冲动之下犯下一个又一个错误呢？我啊，说的总是和做的差太多，算不上是个好人。那么这一次，我说，2021 年，我要大幅度提高自己对产品或者说是对人文世界的感知力。编程能力倒是先不着急，我知道自己一定不甘心在这方面落下的。</p>
+<p>昨晚收到老师送的礼物，还有星空，实在太美了，太感谢了。</p>
+<p>2021，做自己，不留遗憾。</p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -2119,34 +2086,21 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>数值分析总结</title>
-    <url>/2021/01/numerical-analysis-summary/</url>
-    <content><![CDATA[<p>今天是 1 月 6 号，两天后将进行数值分析考试，那是本学期的最后一门考试课（研究生课），也是我本科参加的最后一门考试了。这几天好好复习了一下，虽然老师上课讲的好像比较复杂，比较难，但真要考起来也不会太难，往年的考试题也比较简单，心里有底了。写个简单的知识点总结吧，就当是消磨时间了，剩下这一两天也怪难熬的。</p>
+    <title>2021 第三天</title>
+    <url>/2021/01/day2-not-feeling-well/</url>
+    <content><![CDATA[<p>新年第三天了，这两天也没做什么事情，做了两次物联网实验，粘贴了一份读书报告，补完了数值分析的实验报告和作业，终于有时间复习数值分析了，下周五就要考试了，得抓紧复习了。</p>
 <a id="more"></a>
-<p>总共分为 5 个部分：</p>
-<ul>
-<li>非线性方程和方程组的数值解法</li>
-<li>线性方程组的数值解法</li>
-<li>插值法和数值逼近</li>
-<li>数值积分</li>
-<li>常微分方程的初值问题和数值解法</li>
-</ul>
-<p>以及一个额外的问题：乘幂法求矩阵的最大模特征值及对应的特征向量。</p>
-<p>先从整体上来认识一下这门课程。数值分析，这个标题告诉我们这门课程就是要用一些数值方法去去近似求解一下难以求解的问题，这些问题往往是我们得不到解析解的，或者说只需要求出几个点的值而去求出整体的解析解没有多大意义，比如常第5部分会涉及到的常微分方程的初值问题。那么针对这些不同的问题，有哪些数值方法可以进行求解呢？</p>
-<h2 id="非线性方程和方程组的数值解法"><a href="#非线性方程和方程组的数值解法" class="headerlink" title="非线性方程和方程组的数值解法"></a>非线性方程和方程组的数值解法</h2><p>非线性方程和方程组，这无疑是我们最常遇到的难以求得解析解的问题，针对这类问题，有一些很好的迭代算法可以用于求解。对于非线性方程的求解，最简单的数值求解方法就是二分法，更高级一点的方法有牛顿法以及其改进形式。</p>
-<p>假设待求解的非线性方程是 $f(x) = 0$，迭代的第一步就是要通过这个方程构造出迭代形式：<br>$$<br>x_{k+1} = \phi(x_{k})<br>$$<br>其中，$\phi(x)$ 被称为迭代函数，迭代格式好不好就和这个迭代函数的性质有很大的关系。</p>
-<p>收敛阶：满足如下条件，则称迭代格式 p 阶收敛，其中 $\epsilon_{i}$ 为第 i 次迭代的误差。<br>$$<br>\rm{lim}\frac{|\epsilon_{i+1}|}{|\epsilon_{i}|}=c \ne 0<br>$$</p>
-<p>计算效率：$EI = p^{\frac{1}{\theta}}$。</p>
-<p>局部收敛性：若 $\phi(x)$ 在 $x = \phi(x)$ 的根 $\alpha$ 的邻域内有连续的一阶导数，且满足 $|\phi^{‘}(\alpha)| &lt; 1$，则称 $x_{k+1} = \phi(x_{k})$ 具有局部收敛性。而且我们可以推出，$\alpha$ 处的导数模值越小，迭代收敛越快，显然当它为零的时候，收敛最快，由此我们可以引出另外一个关于收敛阶的定理：$x=\phi(x)$ 的根 $\alpha$ 邻域内有充分多阶连续导数，则关于 $\alpha$ p 阶收敛等价于 $\phi(x)$ 在 $\alpha$ 处的前 p-1 阶导数值全都为0，且 p 阶导数不为0。</p>
-<p>了解了这些基础，对于二分法和牛顿法自然就是水到渠成的事情了。</p>
-<p>对于非线性方程组，我们也有相应的拟牛顿法进行计算，这都不是什么难事儿，只是在多元问题中，导数值的计算变成了 Jacobi 矩阵的计算。</p>
-<h2 id="线性方程组的数值解法"><a href="#线性方程组的数值解法" class="headerlink" title="线性方程组的数值解法"></a>线性方程组的数值解法</h2><p>再来看看线性方程组的数值解法。对一个线性方程组而言，当他满秩的时候</p>
-<h2 id="插值法和数值逼近"><a href="#插值法和数值逼近" class="headerlink" title="插值法和数值逼近"></a>插值法和数值逼近</h2><h2 id="数值积分"><a href="#数值积分" class="headerlink" title="数值积分"></a>数值积分</h2><h2 id="常微分方程的初值问题和数值解法"><a href="#常微分方程的初值问题和数值解法" class="headerlink" title="常微分方程的初值问题和数值解法"></a>常微分方程的初值问题和数值解法</h2>]]></content>
+<p>物联网这个实验做的实在太让人难受了，实验简单，本以为按照实验指导书一步步做就可以完成实验，这样就可以快速做完，腾出时间复习数值分析了，事实证明我想多了。最大的问题在于实验指导书就写得如同一坨狗屎，有时真不知道写这指导书的人在干嘛，写完之后有审核过吗？真的能起到指导作用吗？看来做这个产品的公司估计也不是一家好公司。很多时候，人们并不关系那种看起来很牛逼却看不懂的东西，大家会把更多的精力投入自己能够理解的那部分中去，以获得参与感和满足感，对于指导书一类的东西，一定要写的足够清楚，这才有意义。</p>
+<p>抄报告真的会上瘾？我想这是真的，尤其当你面对一个你不想写的报告，而这个学分你又非常想你拿到。最好是那种复制粘贴即可的，稍微改改格式就行的。理解别人的这种行为吧，因为我不知道什么时候自己也会去做，所以我应该做的不是苛责，而是思考背后的原因，这是关键。</p>
+<p>晚上头晕得厉害，估计是这些天来的累积结果，某一天晚上踢被子被冻醒了，昨天在正心一楼的大教室自习，脚一直没热过……想必是要感冒了，想到马上就要放假，不会开学那段极限坐车经历又要再次重演了吧，果真生活是个圈？赶紧找vv要了点药吃，希望赶紧好起来，还得复习数值分析，orz。</p>
+<p>啊！对了，看到一篇很感人的帖子<a href="https://m.hupu.com/bbs/40172727.html" target="_blank" rel="noopener">七年了，我还是很想你</a>，真羡慕啊，“有一个人能去爱，多珍贵”，后面和朋友们聊到这件事，说自己变得越来越现实，大概不会再去喜欢别人了，当我开始选择的时候，就意味着没有选择了，不过还是要相信真爱的，当不会在我这里发生就是了，祝各位幸福。</p>
+<p>OK，这大概就是这两天了，时间快到了，事也说得差不多了。晚安。</p>
+]]></content>
       <categories>
-        <category>学习</category>
+        <category>生活</category>
       </categories>
       <tags>
-        <tag>notes</tag>
+        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -2211,6 +2165,52 @@ proc complete_sim {} {...}
       </categories>
       <tags>
         <tag>复杂度分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ready-for-final-exam</title>
+    <url>/2021/01/ready-for-final-exam/</url>
+    <content><![CDATA[<p>又过了两天，感冒还是没好全，但好在体温不高，应该不会影响我的回家计划，数值分析已经复习得差不多了，我的目标早就不是奖学金一类的东西了，因为太难了我追求不到，倒不如现在就改换赛道，做点别的事情，也让自己能够开心点，求不得苦还是少受点为好。</p>
+<p>真是糟糕，我已经记不得昨天发生了什么，午饭吃的什么东西呢？完全没有印象了，大概不重要的事情都是这样，一晃而过，我只是按照预订的路线去经历罢了，但那些刻骨铭心的事呢？我在内心不断对它进行加工，慢慢的，它变得面目全非，当时到底发生了发生什么，当时的我到底在想什么，都无从知晓了。这大概就是记录的意义，让平淡的生活留下痕迹，保留那些难得的珍贵回忆。</p>
+<p>这两天的复习就是在消磨时间，因为内心认为考试比较简单，没有必要花太多时间，所以早就把认为该看的内容看完了，可惜的是多出来的这点时间全都白白消耗了，打游戏，逛论坛，刷 B 站，干什么都好，就是没有正经学习。啊！该做的计划也没有做，记得用notion吧，或者找一个更好的离线版的工具，不然每天真的不知道自己都干了些什么，用文字记录虽然可以，但总是不够直白，图表形式才是最好的。罢了罢了，明天再说，又是这样的态度，可惜没有办法，只能明天再说了。</p>
+<p>明天好好考试，然后找老师讨论下放假要完成的任务，制定一个好的计划，这大概就是接下来的安排了。晚安。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数值分析总结</title>
+    <url>/2021/01/numerical-analysis-summary/</url>
+    <content><![CDATA[<p>今天是 1 月 6 号，两天后将进行数值分析考试，那是本学期的最后一门考试课（研究生课），也是我本科参加的最后一门考试了。这几天好好复习了一下，虽然老师上课讲的好像比较复杂，比较难，但真要考起来也不会太难，往年的考试题也比较简单，心里有底了。写个简单的知识点总结吧，就当是消磨时间了，剩下这一两天也怪难熬的。</p>
+<a id="more"></a>
+<p>总共分为 5 个部分：</p>
+<ul>
+<li>非线性方程和方程组的数值解法</li>
+<li>线性方程组的数值解法</li>
+<li>插值法和数值逼近</li>
+<li>数值积分</li>
+<li>常微分方程的初值问题和数值解法</li>
+</ul>
+<p>以及一个额外的问题：乘幂法求矩阵的最大模特征值及对应的特征向量。</p>
+<p>先从整体上来认识一下这门课程。数值分析，这个标题告诉我们这门课程就是要用一些数值方法去去近似求解一下难以求解的问题，这些问题往往是我们得不到解析解的，或者说只需要求出几个点的值而去求出整体的解析解没有多大意义，比如常第5部分会涉及到的常微分方程的初值问题。那么针对这些不同的问题，有哪些数值方法可以进行求解呢？</p>
+<h2 id="非线性方程和方程组的数值解法"><a href="#非线性方程和方程组的数值解法" class="headerlink" title="非线性方程和方程组的数值解法"></a>非线性方程和方程组的数值解法</h2><p>非线性方程和方程组，这无疑是我们最常遇到的难以求得解析解的问题，针对这类问题，有一些很好的迭代算法可以用于求解。对于非线性方程的求解，最简单的数值求解方法就是二分法，更高级一点的方法有牛顿法以及其改进形式。</p>
+<p>假设待求解的非线性方程是 $f(x) = 0$，迭代的第一步就是要通过这个方程构造出迭代形式：<br>$$<br>x_{k+1} = \phi(x_{k})<br>$$<br>其中，$\phi(x)$ 被称为迭代函数，迭代格式好不好就和这个迭代函数的性质有很大的关系。</p>
+<p>收敛阶：满足如下条件，则称迭代格式 p 阶收敛，其中 $\epsilon_{i}$ 为第 i 次迭代的误差。<br>$$<br>\rm{lim}\frac{|\epsilon_{i+1}|}{|\epsilon_{i}|}=c \ne 0<br>$$</p>
+<p>计算效率：$EI = p^{\frac{1}{\theta}}$。</p>
+<p>局部收敛性：若 $\phi(x)$ 在 $x = \phi(x)$ 的根 $\alpha$ 的邻域内有连续的一阶导数，且满足 $|\phi^{‘}(\alpha)| &lt; 1$，则称 $x_{k+1} = \phi(x_{k})$ 具有局部收敛性。而且我们可以推出，$\alpha$ 处的导数模值越小，迭代收敛越快，显然当它为零的时候，收敛最快，由此我们可以引出另外一个关于收敛阶的定理：$x=\phi(x)$ 的根 $\alpha$ 邻域内有充分多阶连续导数，则关于 $\alpha$ p 阶收敛等价于 $\phi(x)$ 在 $\alpha$ 处的前 p-1 阶导数值全都为0，且 p 阶导数不为0。</p>
+<p>了解了这些基础，对于二分法和牛顿法自然就是水到渠成的事情了。</p>
+<p>对于非线性方程组，我们也有相应的拟牛顿法进行计算，这都不是什么难事儿，只是在多元问题中，导数值的计算变成了 Jacobi 矩阵的计算。</p>
+<h2 id="线性方程组的数值解法"><a href="#线性方程组的数值解法" class="headerlink" title="线性方程组的数值解法"></a>线性方程组的数值解法</h2><p>再来看看线性方程组的数值解法。对一个线性方程组而言，当他满秩的时候</p>
+<h2 id="插值法和数值逼近"><a href="#插值法和数值逼近" class="headerlink" title="插值法和数值逼近"></a>插值法和数值逼近</h2><h2 id="数值积分"><a href="#数值积分" class="headerlink" title="数值积分"></a>数值积分</h2><h2 id="常微分方程的初值问题和数值解法"><a href="#常微分方程的初值问题和数值解法" class="headerlink" title="常微分方程的初值问题和数值解法"></a>常微分方程的初值问题和数值解法</h2>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>notes</tag>
       </tags>
   </entry>
   <entry>
@@ -2513,20 +2513,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>20 岁了</title>
-    <url>/2021/01/I-am-20-years-old/</url>
-    <content><![CDATA[<p>有点恍惚，已经 20 岁了。</p>
-<p>没有多开心，更多的只是伤感，已经 20 了，还是现在这个样子，不知道自己在追求什么，可以说只是单纯的活着。罢了，怕也没用，生老病死是规律，躲不了的也不用怕。</p>
-<p>生日快乐。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CSAPP 第二章 信息的表示及处理</title>
     <url>/2021/01/csapp-chapter2-notes-integer-float/</url>
     <content><![CDATA[<p>csapp 第二章笔记，包括整数表示和浮点数表示及相关的运算规则。</p>
@@ -2745,6 +2731,20 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>20 岁了</title>
+    <url>/2021/01/I-am-20-years-old/</url>
+    <content><![CDATA[<p>有点恍惚，已经 20 岁了。</p>
+<p>没有多开心，更多的只是伤感，已经 20 了，还是现在这个样子，不知道自己在追求什么，可以说只是单纯的活着。罢了，怕也没用，生老病死是规律，躲不了的也不用怕。</p>
+<p>生日快乐。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>结构三十六法</title>
     <url>/2021/02/thirty-six-structural-methods/</url>
     <content><![CDATA[<p>看着自己越来越难看的字，最近决定练一练，抄下最近看到的楷书行笔的方法。</p>
@@ -2758,20 +2758,6 @@ proc complete_sim {} {...}
 <li>挑：字形虚空之处，笔画应舒展，使字饱满方正。如『成』字的斜钩宜劲健舒展以补右部虚空；『郡』字左部笔画较多，右部笔画宜伸展，使字形均衡相称。</li>
 <li>相让：当字左重右轻时，要左高右低，右部让左部；左轻右重时，要左低右高，左边让右边，彼此相让使两边平衡。</li>
 </ol>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>新年快乐</title>
-    <url>/2021/02/happy-chinese-new-year/</url>
-    <content><![CDATA[<p>今天除夕，提前说声新年快乐了。</p>
-<p>生活无论喜乐都不可阻挡地向前进，快不快乐今天明天都得说新年快乐。新年快乐。</p>
-<p>辞旧迎新的日子，该对过去做一个完整的了断了，回归自我的本心，由此方能知道自己在追求什么，也好不误此生。</p>
-<p>感觉自己越来越像机器了，摒弃情感也就选择了放弃爱的能力，活着意义就更难找到了么？Live long and prosper。放弃就放弃吧。</p>
-<p>怎么样才算主宰自己的一生呢？无论如何前半生怕是做不到，且看后半生的努力吧。</p>
-<p>多看看书，少玩手机，多写写记录。希望明年今日不再如此迷茫，年年这时候都说这话，自己想想都有点好笑了，也罢，就逗自己笑笑吧。</p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -2856,6 +2842,20 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>新年快乐</title>
+    <url>/2021/02/happy-chinese-new-year/</url>
+    <content><![CDATA[<p>今天除夕，提前说声新年快乐了。</p>
+<p>生活无论喜乐都不可阻挡地向前进，快不快乐今天明天都得说新年快乐。新年快乐。</p>
+<p>辞旧迎新的日子，该对过去做一个完整的了断了，回归自我的本心，由此方能知道自己在追求什么，也好不误此生。</p>
+<p>感觉自己越来越像机器了，摒弃情感也就选择了放弃爱的能力，活着意义就更难找到了么？Live long and prosper。放弃就放弃吧。</p>
+<p>怎么样才算主宰自己的一生呢？无论如何前半生怕是做不到，且看后半生的努力吧。</p>
+<p>多看看书，少玩手机，多写写记录。希望明年今日不再如此迷茫，年年这时候都说这话，自己想想都有点好笑了，也罢，就逗自己笑笑吧。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+  </entry>
+  <entry>
     <title>『Weekly』开学啦</title>
     <url>/2021/03/weekly-final-semester-starts/</url>
     <content><![CDATA[<p>最后一个学期终于是开始了，转眼间整个大学生涯要结束了，扪心自问，似乎没有掌握什么可以谋生的技能，整个人还是处在一种迷茫的状态，希望这种情况早点结束，早点找到自己真正的渴望真正的梦想，寻找到一点人生的意义。</p>
@@ -2924,24 +2924,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>无题</title>
-    <url>/2021/03/no-title/</url>
-    <content><![CDATA[<p>无题，如题，真不知道来个什么标题，索性就用无题，反正过不了多久，现在发生的所有事情都会消散，留下或长或短的影响，这都是后话了，无题正好合适，干脆开一个新的 tag，就叫无题，专门写写不知道起什么名字的小短文。现在的我正在摸鱼，明明还有很多事情需要做，都交给明天吧。</p>
-<p>闷闷不乐的一天在与老师讨论后完全结束了，只剩下了快乐。我想我找到了苦恼的源泉，那个问题实在是难以解决，终于在与老师的讨论中发现了根本原因：我们完全搞错了方向，通信人想要的信息的传递，而雷达人要的不过是几个状态的确定，这完全不是一个数量级的数据需要。由此出发，带来的不同研究方向也就完全可以理解了。对各自专业保持足够的尊重，做自己熟悉的事情，并保持开放的心态，需求合作的机会。</p>
-<p>更进一步的思考，前面说的这件事让我明白了更多东西。在我们考虑一项技术被采用或者一种行为发生的原因，我们首先要考虑的就是他的<strong>目的</strong>。看似相同的事情，诚然他们一定有很多的相同之处，但关键的目的不同，导致了完全不同的结果。在对未知的事情有足够多的了解之前，我们最好尊重。紧守自己的能力圈，清楚自己的边界在哪里。</p>
-<p>痛快，痛快，实在是痛快，现在终于有信心去做我想做的事情。</p>
-<p>今后要从事什么样的工作，我现在还是没有想法，只是一心想找个钱多的，这是一个朴素的想法，抱着这样普通的想法寻找，自然也只能找到普通的工作，需要将这个目标细化一点，什么样的工作是钱多的，是可持续的吗？我有从事 10 年以上的觉悟吗？我能从中获得自我的成长吗？这些都是需要考虑的问题，都留给明天吧。</p>
-<p>看起来明天的事情可太多了，<strong>人生意义以及毕业设计</strong>，所以今晚早点睡吧，晚安。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>无题</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>渴望说些什么</title>
     <url>/2021/03/desire-to-say-something/</url>
     <content><![CDATA[<p>一种并非强烈的表达欲望促使我开始写下这篇短短的文章，『找点什么事情做，做点有用的事情，什么都好』，这就是我最初的愿望，然而我实在无话可说，或者说值得说道的事情实在太多了，我不知道该说什么好。</p>
@@ -2960,21 +2942,21 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>终于调试成功后的感悟</title>
-    <url>/2021/03/a-little-thinking-of-debug/</url>
-    <content><![CDATA[<p>今天下午终于把译码器调试好了，现在在仿真上已经没有问题，可以正确译码，效果符合预期。但是我得说这整个过程没有那么轻松，甚至可以用痛苦来形容。</p>
-<blockquote>
-<p>现在可以回头看这一切了，总算是度过了这个阶段，昨晚上调试失败的时候，一度在想是不是自己的整个系统设计就是错误的，从一开始就错了，晃荡了这么久，一点点调试，总算是解决了问题，关于调试的心得，我想还是可以写一点东西，调试得多了，心中越来越有数了，但是定位错误的速度还是不够快，还得练，但我又不希望碰到太多的错误，真是矛盾啊。</p>
-<p>又想到那个老问题了，我到底是在设计系统还是在调试系统，这两者的差别十分巨大，可以说完全不是一个层次的东西，我现在更多的只是在单纯地调试，遇到时序上的问题，我只会去仿真去看波形，然后一点点试出来，根本就不是一个设计者。一个好的设计者，应该能从推出每一个信号的源头，推出信号的来龙去脉，而不是一味地去做仿真，根据结果一点点修改代码，这样的层次也太低了。我需要提高自己的层次，尽量减少对仿真的依赖。<strong>代码、电路和波形，三者间是有很强的联系的，作为一个设计中心中应该将他们对应起来，而不是仿真仿真仿真</strong>。慢慢转变想法吧。</p>
-</blockquote>
-<p>上面这段话是我今晚在实验室写的，作为这次 Debug 的记录，一种低技术含量的 debug 方式消耗的时间和精力是巨大，虽然这次问题比较简单，经过了两天的尝试终于解决了问题，但是今后碰到的问题还会这么容易么？我还能有这么多时间去慢慢地寻找错误么？正如我上面所说的，一味依靠仿真去寻找错误就是愚蠢的，真正的设计者不应该这样。</p>
-<p>痛苦正是成长的机会，希望我能好好抓住这样的机会。</p>
+    <title>无题</title>
+    <url>/2021/03/no-title/</url>
+    <content><![CDATA[<p>无题，如题，真不知道来个什么标题，索性就用无题，反正过不了多久，现在发生的所有事情都会消散，留下或长或短的影响，这都是后话了，无题正好合适，干脆开一个新的 tag，就叫无题，专门写写不知道起什么名字的小短文。现在的我正在摸鱼，明明还有很多事情需要做，都交给明天吧。</p>
+<p>闷闷不乐的一天在与老师讨论后完全结束了，只剩下了快乐。我想我找到了苦恼的源泉，那个问题实在是难以解决，终于在与老师的讨论中发现了根本原因：我们完全搞错了方向，通信人想要的信息的传递，而雷达人要的不过是几个状态的确定，这完全不是一个数量级的数据需要。由此出发，带来的不同研究方向也就完全可以理解了。对各自专业保持足够的尊重，做自己熟悉的事情，并保持开放的心态，需求合作的机会。</p>
+<p>更进一步的思考，前面说的这件事让我明白了更多东西。在我们考虑一项技术被采用或者一种行为发生的原因，我们首先要考虑的就是他的<strong>目的</strong>。看似相同的事情，诚然他们一定有很多的相同之处，但关键的目的不同，导致了完全不同的结果。在对未知的事情有足够多的了解之前，我们最好尊重。紧守自己的能力圈，清楚自己的边界在哪里。</p>
+<p>痛快，痛快，实在是痛快，现在终于有信心去做我想做的事情。</p>
+<p>今后要从事什么样的工作，我现在还是没有想法，只是一心想找个钱多的，这是一个朴素的想法，抱着这样普通的想法寻找，自然也只能找到普通的工作，需要将这个目标细化一点，什么样的工作是钱多的，是可持续的吗？我有从事 10 年以上的觉悟吗？我能从中获得自我的成长吗？这些都是需要考虑的问题，都留给明天吧。</p>
+<p>看起来明天的事情可太多了，<strong>人生意义以及毕业设计</strong>，所以今晚早点睡吧，晚安。</p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>生活</category>
       </categories>
       <tags>
-        <tag>FPGA</tag>
+        <tag>记录</tag>
+        <tag>无题</tag>
       </tags>
   </entry>
   <entry>
@@ -3015,6 +2997,24 @@ proc complete_sim {} {...}
       <tags>
         <tag>记录</tag>
         <tag>weekly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>终于调试成功后的感悟</title>
+    <url>/2021/03/a-little-thinking-of-debug/</url>
+    <content><![CDATA[<p>今天下午终于把译码器调试好了，现在在仿真上已经没有问题，可以正确译码，效果符合预期。但是我得说这整个过程没有那么轻松，甚至可以用痛苦来形容。</p>
+<blockquote>
+<p>现在可以回头看这一切了，总算是度过了这个阶段，昨晚上调试失败的时候，一度在想是不是自己的整个系统设计就是错误的，从一开始就错了，晃荡了这么久，一点点调试，总算是解决了问题，关于调试的心得，我想还是可以写一点东西，调试得多了，心中越来越有数了，但是定位错误的速度还是不够快，还得练，但我又不希望碰到太多的错误，真是矛盾啊。</p>
+<p>又想到那个老问题了，我到底是在设计系统还是在调试系统，这两者的差别十分巨大，可以说完全不是一个层次的东西，我现在更多的只是在单纯地调试，遇到时序上的问题，我只会去仿真去看波形，然后一点点试出来，根本就不是一个设计者。一个好的设计者，应该能从推出每一个信号的源头，推出信号的来龙去脉，而不是一味地去做仿真，根据结果一点点修改代码，这样的层次也太低了。我需要提高自己的层次，尽量减少对仿真的依赖。<strong>代码、电路和波形，三者间是有很强的联系的，作为一个设计中心中应该将他们对应起来，而不是仿真仿真仿真</strong>。慢慢转变想法吧。</p>
+</blockquote>
+<p>上面这段话是我今晚在实验室写的，作为这次 Debug 的记录，一种低技术含量的 debug 方式消耗的时间和精力是巨大，虽然这次问题比较简单，经过了两天的尝试终于解决了问题，但是今后碰到的问题还会这么容易么？我还能有这么多时间去慢慢地寻找错误么？正如我上面所说的，一味依靠仿真去寻找错误就是愚蠢的，真正的设计者不应该这样。</p>
+<p>痛苦正是成长的机会，希望我能好好抓住这样的机会。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>FPGA</tag>
       </tags>
   </entry>
   <entry>
@@ -3115,6 +3115,28 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>『weekly』准备毕设检查</title>
+    <url>/2021/04/weekly-ready-for-mid-term-assessment/</url>
+    <content><![CDATA[<p>第四周的最后一天即将结束，月份也早已经进入了四月，毕业的日子越来越近了，这意味着中期检查马上就要来了。是的，4 月 8 号就是中期检查的日子，因此我这一周放下了手头的工作，全力准备中期检查，需要完成一份中期报告和一份用于答辩的 PPT，到现在为止，PPT 还没开始做，报告已经写完了，8500来字，一个应该可以及格的字数，我没有什么太大的目标，尽力完成老师交给我的任务，在可以完成的基础上进行一些合理的拓展，顺利毕业就算成功。</p>
+<h2 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h2><p>2021.03.29~2021.04.04</p>
+<h2 id="小事记"><a href="#小事记" class="headerlink" title="小事记"></a>小事记</h2><ul>
+<li>写报告，写报告，还是写报告。</li>
+<li>清明节到了，缅怀……</li>
+<li>参加了 leetcode 周赛，这次做出两道题了，很开心。</li>
+</ul>
+<a id="more"></a>
+<p>这一周，不，应该说这两周真的有点乱过了，上周末没有按照计划写 weeky，这周虽然是安心写报告了，但速度也是慢得可以，边摸鱼边写，写报告像是一个逃避责任的事情……为了慢点写报告，啥都干得出来，也正是写得慢，我推卸了一部分本属于我的责任。本周应该是我讲组会的，但由于我认为时间紧张，因此推给师兄了，然而师兄这周的事情更多：实习机考、创新课助教。为什么人家可以处理好呢？而我却不能处理好这种事情特别多的情况呢？我看归根结底还是太拖延了，而且几乎不会专心去做一件事情，写报告的时候是不是看会儿手机，突然又想到什么事情了，又去做了……这种情况还能持续多久了，我需要改变这种情况，那就先从专心做每一件手上的事情开始吧。一定要践行，就看下周了。</p>
+<p>希望下周的答辩顺利结束，希望我的译码器能够在板子上调出来，希望一切顺利。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>weekly</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>顺利通过中期答辩</title>
     <url>/2021/04/wow-pass-mid-term-assessment/</url>
     <content><![CDATA[<p>已经是 10 号了，8 号下午通过了毕设的中期答辩，一切都很顺利，让我有点轻松，差点忘记了自己身在何处。现在听着答辩时的录音，回头想想，一切都不过如此，我答的真的是不好，不过好在答辩老师有做相关内容的，还算认可我的工作这只是一个阶段的任务，完成了这个阶段的目标，就应该准备朝着下一个阶段前进了，不过在继续前进之前，我想回头看看这整个过程中发生的事情，单纯的记录也好，复盘也好。</p>
@@ -3173,36 +3195,29 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>『weekly』准备毕设检查</title>
-    <url>/2021/04/weekly-ready-for-mid-term-assessment/</url>
-    <content><![CDATA[<p>第四周的最后一天即将结束，月份也早已经进入了四月，毕业的日子越来越近了，这意味着中期检查马上就要来了。是的，4 月 8 号就是中期检查的日子，因此我这一周放下了手头的工作，全力准备中期检查，需要完成一份中期报告和一份用于答辩的 PPT，到现在为止，PPT 还没开始做，报告已经写完了，8500来字，一个应该可以及格的字数，我没有什么太大的目标，尽力完成老师交给我的任务，在可以完成的基础上进行一些合理的拓展，顺利毕业就算成功。</p>
-<h2 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h2><p>2021.03.29~2021.04.04</p>
-<h2 id="小事记"><a href="#小事记" class="headerlink" title="小事记"></a>小事记</h2><ul>
-<li>写报告，写报告，还是写报告。</li>
-<li>清明节到了，缅怀……</li>
-<li>参加了 leetcode 周赛，这次做出两道题了，很开心。</li>
-</ul>
+    <title>内心平静安详</title>
+    <url>/2021/05/peace-and-serenity/</url>
+    <content><![CDATA[<p>现在是早上 10 点 20，写点东西对抗刚刚聊完天产生的焦虑，标题取作『内心平静安详』就当作是一种愿望。</p>
 <a id="more"></a>
-<p>这一周，不，应该说这两周真的有点乱过了，上周末没有按照计划写 weeky，这周虽然是安心写报告了，但速度也是慢得可以，边摸鱼边写，写报告像是一个逃避责任的事情……为了慢点写报告，啥都干得出来，也正是写得慢，我推卸了一部分本属于我的责任。本周应该是我讲组会的，但由于我认为时间紧张，因此推给师兄了，然而师兄这周的事情更多：实习机考、创新课助教。为什么人家可以处理好呢？而我却不能处理好这种事情特别多的情况呢？我看归根结底还是太拖延了，而且几乎不会专心去做一件事情，写报告的时候是不是看会儿手机，突然又想到什么事情了，又去做了……这种情况还能持续多久了，我需要改变这种情况，那就先从专心做每一件手上的事情开始吧。一定要践行，就看下周了。</p>
-<p>希望下周的答辩顺利结束，希望我的译码器能够在板子上调出来，希望一切顺利。</p>
+<p>焦虑源起于什么？自然是永远逃不开的终生大事——找个对象。群里聊着聊着意识到如果再不找个对象，离开学校之后，今后大概只有相亲一条路了，而这条路就看到的例子来说实在是一言难尽，所以焦虑就产生了，如果想要规避这条一言难尽的路， 那么在剩下的两年时间内我们就得抓紧时间找到一个对象。既然群里的人都有过感情经历，那么想必对自己需要什么不需要什么已经比较清楚了，『下一个更乖』也不仅仅是口号，而是实际的目标。我们都是在麦田里找最大麦穗的人，什么时候该收手呢？37%，不得而知。</p>
+<p>我倒不担心找对象的事，因为我相信要发生的一定会发生，最后该和谁走到最后都是命里注定，当她来的时候，我一定会有一种感觉，倘若不合适，那就该决绝地离开。这一切的前提是我需要训练好我的感觉，即确定若干标准，关于自己到底渴望什么样的关系，对于爱与爱人抱有何种期望。我想在书中可以寻找到一些答案，或者说是启发我们的例子，《爱上双人舞》看起来是一个不错的选择。在行动之前，清楚自己的目标，永远是正确的做法，对于爱与对象这种更为严肃的事情尤其如此。</p>
+<p>内心平静安详的真正原因来自于昨晚的闲聊。和朋友聊了有一会儿，没有特意去涉及一些问题，但说着说着似乎心中就有了答案，我也不能说出口来，只是有一种感觉：哦，我好像明白了。有一种放下了的轻松感，不再抱着念。烦恼皆起于执念，放下执念之后，我们开始寻找自己，反而变得更加平静安详了。</p>
 ]]></content>
       <categories>
         <category>生活</category>
       </categories>
       <tags>
         <tag>记录</tag>
-        <tag>weekly</tag>
       </tags>
   </entry>
   <entry>
-    <title>换位思考</title>
-    <url>/2021/05/stand-in-their-shoes/</url>
-    <content><![CDATA[<p>上一篇还是 4 月 19 号写的，看来还是得有冲突得发生一些事情才会有动力去写点东西，如果都是完全平常不出意料的生活，真是了无趣味，完全不值得记录了。写这篇的原因是因为和朋友的一点小小争论，结论是我一贯坚持的：没有对错，只取决于你处于什么样的位置，以及你想要什么样的结果。</p>
-<p>如果仅仅停留于此，那就是落于俗套的换位思考了，但是可以更深入的考虑，也许这是胡思乱想且毫无必要，但仅仅作为睡前的游戏还是有意思的。</p>
-<p>换位思考，假设我们意识到了应该换位思考，然后说出我们认为的对方想要的答案或者回应，这样就能维持良好的关系。这里先不考虑具体的场合，考虑一般的情况，如果想要获得对方的好感提升，这么做有问题吗？我觉得没有，这像是一种游戏规则，人人皆如此，人与人的关系就非常融洽。</p>
-<p>万一我们想错了呢？我们以为的对方想要的答案并不是对方想要的，最糟糕的情况是，两者完全相反，这可算是捅了马蜂窝了。所以还是得考虑具体面对的人，考研自己的分析能力了，一般情况下，做出符合常理的回答即可，这表示自己是一个符合社会要求的人。与大部分人保持一致，在这种情况下，应该没有问题。</p>
-<p>如果碰到这种情况就这么做，那么我们就会成为一个表面的符合社会要求的人，相当于外面裹上了一层润滑剂，这样的社会当然很平和，很稳定。抛开这些不说，回归我们自己，我们希望自己成为什么样的？或者说除掉外面这层润滑剂，我们到底是什么样的呢？我们自己的本质是什么样的呢？比起具体的表现，我更加愿意关注自己内心到底是什么样的，我表现出来的行为与我的思想是统一的吗？如果真的要正确表现，那一定是由内而外的。</p>
-<p>所以，最终的结论是，先正心，再谈其他的具体行为，不可舍本逐末。 </p>
+    <title>最近的一些事情——准备考驾照以及其他</title>
+    <url>/2021/05/what-s-going-on/</url>
+    <content><![CDATA[<p>可恶啊，本来想今晚上就写好的，看来是不行了，23:35 建的文件，到 50 才开始动笔，不愧是我，老摸鱼人了，简单写两句吧，最近也还是有一点事情可以说的。</p>
+<p>终于报名考驾照了，10 号上午步行 10 公里，先去体检再去报名，折腾了挺久，主要是在路上耽误的，到了目的地反而一下就办好了。体检就检查下视力，还好戴了眼镜，不然是过不去了，顺利拿到检查报告之后，走了 1h 左右去驾校报名，报名可是真快，果然，交钱出去的事对面巴不得你快一点，还好我提前了解过了，所以也没有什么疑问，很快的就结束了。接下来就安心准备考试吧，不过恰逢毕设要结题了，后面的事情还是有点多的，要准备好多线程工作了。</p>
+<p>昨天对项目的问题开了个会（还是前天呢），总之我认为其实更可以说成是布置任务，没有太多的争论，也没有太多的讨论，我认为这是<strong>不好的现象</strong>，但又不好直接说出来，因为这个项目做起来实在心里没底：要做实际的系统，而我们又基本没有相关的经验，所以很难受的，心里没底，这是最让人难受的。先这样看看吧。</p>
+<p>今天和以前的队友讨论了另一件事情，我感觉其中存在问题，但由于先前答应了，现在又不好多说些什么。实在是难受啊，又要继续做心里不太认可的事情吗？我怕自己的心态迟早出大问题。</p>
+<p>晚上群里大伙又在说对象的事情了，概括起来就是『只有后悔，拍懒大腿』。</p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -3229,6 +3244,21 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>爱上一个人</title>
+    <url>/2021/05/fall-in-love-with-someone/</url>
+    <content><![CDATA[<p>这个标题正好切合昨天和今天这两个日子，昨天是5.20，今天是5.21，爱上一个人是多么幸福啊。</p>
+<p>不过这和我没关系，我暂时还没有这种能力，或者这个打算，四年前我是这么想的，两年前我以为自己可以了，但最终失败，现在我又回到了原点，依然没有这个能力和打算，至于到底是哪个在前，我也说不清，就当作是一种逃避。</p>
+<p>抛开儿女情长，眼下有更重要的事情要做，那就是毕设，上一篇的内容就当我没说过吧，到今天为止我还是没有写完绪论……，这部分实在是太恶心了，难以继续行动。按照师兄的经验，写到后面会越写越快，因为都是自己的东西了，写起来舒服，而绪论是写别人的内容，还要小心查重，自然就没有那么得心应手。就算考虑到以上重重原因，今天我也得把绪论写完，明后两天把第二章写完，那么下周就可以把后两章结束，🛫️。</p>
+<p>丧失了爱的能力，全是计算，真是可悲，只有求得一个解脱之道才能逃离这种情绪的影响。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一份感人的致谢</title>
     <url>/2021/04/a-touching-acknowledgement/</url>
     <content><![CDATA[<p>最近被一张图刷屏了，那是 17 年一个博士在论文中写的致谢，我看了很多遍，但总是不忍卒读，真的有很多人生活得远比我苦，也远比我努力，看了致谢的内容，总感觉自己做得不够好，还不够努力，大概因为还有人为我分担责任吧，那现在呢？我想没有了，要自己来了。</p>
@@ -3250,29 +3280,14 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>内心平静安详</title>
-    <url>/2021/05/peace-and-serenity/</url>
-    <content><![CDATA[<p>现在是早上 10 点 20，写点东西对抗刚刚聊完天产生的焦虑，标题取作『内心平静安详』就当作是一种愿望。</p>
-<a id="more"></a>
-<p>焦虑源起于什么？自然是永远逃不开的终生大事——找个对象。群里聊着聊着意识到如果再不找个对象，离开学校之后，今后大概只有相亲一条路了，而这条路就看到的例子来说实在是一言难尽，所以焦虑就产生了，如果想要规避这条一言难尽的路， 那么在剩下的两年时间内我们就得抓紧时间找到一个对象。既然群里的人都有过感情经历，那么想必对自己需要什么不需要什么已经比较清楚了，『下一个更乖』也不仅仅是口号，而是实际的目标。我们都是在麦田里找最大麦穗的人，什么时候该收手呢？37%，不得而知。</p>
-<p>我倒不担心找对象的事，因为我相信要发生的一定会发生，最后该和谁走到最后都是命里注定，当她来的时候，我一定会有一种感觉，倘若不合适，那就该决绝地离开。这一切的前提是我需要训练好我的感觉，即确定若干标准，关于自己到底渴望什么样的关系，对于爱与爱人抱有何种期望。我想在书中可以寻找到一些答案，或者说是启发我们的例子，《爱上双人舞》看起来是一个不错的选择。在行动之前，清楚自己的目标，永远是正确的做法，对于爱与对象这种更为严肃的事情尤其如此。</p>
-<p>内心平静安详的真正原因来自于昨晚的闲聊。和朋友聊了有一会儿，没有特意去涉及一些问题，但说着说着似乎心中就有了答案，我也不能说出口来，只是有一种感觉：哦，我好像明白了。有一种放下了的轻松感，不再抱着念。烦恼皆起于执念，放下执念之后，我们开始寻找自己，反而变得更加平静安详了。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>最近的一些事情——准备考驾照以及其他</title>
-    <url>/2021/05/what-s-going-on/</url>
-    <content><![CDATA[<p>可恶啊，本来想今晚上就写好的，看来是不行了，23:35 建的文件，到 50 才开始动笔，不愧是我，老摸鱼人了，简单写两句吧，最近也还是有一点事情可以说的。</p>
-<p>终于报名考驾照了，10 号上午步行 10 公里，先去体检再去报名，折腾了挺久，主要是在路上耽误的，到了目的地反而一下就办好了。体检就检查下视力，还好戴了眼镜，不然是过不去了，顺利拿到检查报告之后，走了 1h 左右去驾校报名，报名可是真快，果然，交钱出去的事对面巴不得你快一点，还好我提前了解过了，所以也没有什么疑问，很快的就结束了。接下来就安心准备考试吧，不过恰逢毕设要结题了，后面的事情还是有点多的，要准备好多线程工作了。</p>
-<p>昨天对项目的问题开了个会（还是前天呢），总之我认为其实更可以说成是布置任务，没有太多的争论，也没有太多的讨论，我认为这是<strong>不好的现象</strong>，但又不好直接说出来，因为这个项目做起来实在心里没底：要做实际的系统，而我们又基本没有相关的经验，所以很难受的，心里没底，这是最让人难受的。先这样看看吧。</p>
-<p>今天和以前的队友讨论了另一件事情，我感觉其中存在问题，但由于先前答应了，现在又不好多说些什么。实在是难受啊，又要继续做心里不太认可的事情吗？我怕自己的心态迟早出大问题。</p>
-<p>晚上群里大伙又在说对象的事情了，概括起来就是『只有后悔，拍懒大腿』。</p>
+    <title>换位思考</title>
+    <url>/2021/05/stand-in-their-shoes/</url>
+    <content><![CDATA[<p>上一篇还是 4 月 19 号写的，看来还是得有冲突得发生一些事情才会有动力去写点东西，如果都是完全平常不出意料的生活，真是了无趣味，完全不值得记录了。写这篇的原因是因为和朋友的一点小小争论，结论是我一贯坚持的：没有对错，只取决于你处于什么样的位置，以及你想要什么样的结果。</p>
+<p>如果仅仅停留于此，那就是落于俗套的换位思考了，但是可以更深入的考虑，也许这是胡思乱想且毫无必要，但仅仅作为睡前的游戏还是有意思的。</p>
+<p>换位思考，假设我们意识到了应该换位思考，然后说出我们认为的对方想要的答案或者回应，这样就能维持良好的关系。这里先不考虑具体的场合，考虑一般的情况，如果想要获得对方的好感提升，这么做有问题吗？我觉得没有，这像是一种游戏规则，人人皆如此，人与人的关系就非常融洽。</p>
+<p>万一我们想错了呢？我们以为的对方想要的答案并不是对方想要的，最糟糕的情况是，两者完全相反，这可算是捅了马蜂窝了。所以还是得考虑具体面对的人，考研自己的分析能力了，一般情况下，做出符合常理的回答即可，这表示自己是一个符合社会要求的人。与大部分人保持一致，在这种情况下，应该没有问题。</p>
+<p>如果碰到这种情况就这么做，那么我们就会成为一个表面的符合社会要求的人，相当于外面裹上了一层润滑剂，这样的社会当然很平和，很稳定。抛开这些不说，回归我们自己，我们希望自己成为什么样的？或者说除掉外面这层润滑剂，我们到底是什么样的呢？我们自己的本质是什么样的呢？比起具体的表现，我更加愿意关注自己内心到底是什么样的，我表现出来的行为与我的思想是统一的吗？如果真的要正确表现，那一定是由内而外的。</p>
+<p>所以，最终的结论是，先正心，再谈其他的具体行为，不可舍本逐末。 </p>
 ]]></content>
       <categories>
         <category>生活</category>
