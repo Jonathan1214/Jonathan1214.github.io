@@ -17,6 +17,18 @@
       </tags>
   </entry>
   <entry>
+    <title>Believe_in_yourself</title>
+    <url>/2018/06/Believe-in-yourself/</url>
+    <content><![CDATA[<p>最近有点烦躁，事情一件接着一件地扑面而来，丝毫不给我喘气的机会，为了排遣苦闷，我嘴上的脏话多了不少，不过好在这一切都将过去了，过去了之后我一定要好好开始，现在，我只有祈祷最后能有一个好的结果。<br><a id="more"></a><br>这是一个疯狂的六月！<br>英语课程考试(6.7)，英语口语测试(6.14)，六级考试(6.16)，科创答辩(6.20)，数学建模考试(6.21)，近代史考试(6.26)，英语期末考试(6.29)……这还远没有结束，七月是工大的小学期时间！八月才放暑假！九月开学！坏消息是大物和微积分的考试放到小学期了，当然，这也可以算是好消息，至少六月份可以喘口气了，真正毫无疑问的好消息自然就是我们会搬进新公寓！</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一点思考</title>
     <url>/2018/04/A_little_thinking/</url>
     <content><![CDATA[<p>时间总是不等人的，转眼大一快过完了，看着现在的窘境，回首过去，难免有一点伤感，如果那些时候换些选择，现在肯定不一样，不过转念一想，每准一切都是最好的安排，在那些时候做的那些选择成就了今天的我，好坏都这样吧，我得直视前方，正所谓，往者不可谏，来者犹可追。</p>
@@ -26,6 +38,39 @@
       </categories>
       <tags>
         <tag>思考</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记录高频硬件课程设计</title>
+    <url>/2019/12/record-of-high-frequency-course-design/</url>
+    <content><![CDATA[<p>本文绝大部分内容是在19年12月29日写的，我记得很清楚，那天是周日上午，我没有为即将到来的通原考试而复习，而是选择去写点东西记录几天前刚刚结束的高频课设，这是一次很难忘的经历，有痛苦也有快乐，有想过放弃但还是坚持了下来，感谢自己和队友们。现在是2020年3月15日，本该在学校度过周日的我，和所有的大学生一样，因为肺炎疫情只能在家里学习，我没什么学习状态，有些无聊，因此整理博客，把这篇去年的记录整理整理，发到GitHubBlog上，留作纪念，发表日期还是使用去年写这篇文章的日子。<br><a id="more"></a></p>
+<h2 id="最终验收"><a href="#最终验收" class="headerlink" title="最终验收"></a>最终验收</h2><p>12月24号，高频硬件课设验收，在队友的强烈要求下，我们选择了一个比较宽松的老师给我们验收，因为我们功率达不到，但还想 <strong>『恰完烂分』</strong>，这能对他的保研有所帮助。最后的结果很好，我们拿到了5分（满分5分），<strong>『烂分恰完』</strong>。</p>
+<div align="center" class="img"><br>    <img src="/assets/img/2019/final.jpg" alt="验收" height="400"><br>    <p align="center" style="color:#999">最终验收时电路连接和波形</p><br></div>
+
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>12月17号周二下午考完『随机过程』，终于有时间休息了，躺了一个小时，吃个饭，室友已经去搞硬件了，虽然已经是晚上9点多了，但我还想去，带上东西，去李老师办公室焊。折腾了两个小时，焊好了一个西勒振荡器，但没有测试工具，只能第二天测试焊接是否正确，测试工具缺乏和焊接出错这两个问题在整个课设过程中一直困扰着我们。</p>
+<div align="center" class="img"><br>    <img src="/assets/img/2019/siler_oscillator.jpg" alt="西勒振荡器" height="400"><br>    <p align="center" style="color:#999">第一天晚上焊好的西勒振荡器</p><br></div>
+
+<h2 id="一起干"><a href="#一起干" class="headerlink" title="一起干"></a>一起干</h2><p>第二天是周三，没有课，我和赵公子决定去实验室接着焊板子，顺便测试下昨晚上焊的振荡器。两个小时后，我们焊好了发射机和接收机的振荡器，经过测试，他的能用，而我的那块振荡器产生了寄生调幅。检查了电路没有任何问题，折腾到下午，最后发现是射极偏置电阻过大导致的，微调射极电阻，即可解决这个问题。</p>
+<p>下午和晚上我们都在实验室呆着，一直做到晚上11点。因为我已经很久没焊接东西，有点手生，他更是没啥经验，我们效率比较低，只焊好了一个乘法电路、一个中频放大器和一个包络检波器。后面测试时发现，我焊接的那个乘法电路不能实现信号相乘。那时我还不知道，接下来3天我都会把时间花在乘法电路上，如果早知道调试它会这么折腾，第一天晚上就应该当机立断重新焊一个的。</p>
+<h2 id="心生退意"><a href="#心生退意" class="headerlink" title="心生退意"></a>心生退意</h2><p>接下来的几天我感到痛苦不堪，我焊接乘法电路始终不好使，不知为什么我就是不愿重新焊一块，执着地想把它修好，但这一切都是徒劳的。看着周围的同学一个个都做出来乘法电路了，我开始怀疑自己：如果做不出来是不是证明我不行，我怎么能不行呢？要不放弃吧，这样就不存在证明了，我告诉自己这些bonus对我来说并不那么重要，我保研与否与这课设5分没什么关系。沃老板执着地说焊板子的烟搞得他很难受，实验室里面人太多了，空气太差，乌烟瘴气，他想回寝室做，这样的参与状态让我心有不快，偏偏他才是一定要拿这 5 分保研的人，为什么我要受这些精神折磨，我当时的确不想再做下去了。</p>
+<p>周六早上，纠结了许久，我去教化补充了些元器件，决定去实验室再焊一个乘法器，还说服沃老板也焊一个接收机的乘法电路。我不知道是什么力量支撑着我继续做下去，这件事对我来说不是那么必要，最诱人的bonus并不是我一定需要的，如果不做课设，我可以去复习通原，我可以享受轻松的一周。事后我仔细想了想，大概是因为我自己的性格决定的，我不是那种遇到问题就放弃的人，借口谁都有一些，但是作为我，一旦开始做了，就要做到最后，没有中途放弃的，之前的软件仿真就是如此，没有理由硬件不坚持下去，到这个时候，其实做这个课设已经变成了和自己较劲了，我不想就这么输了。</p>
+<p>周六下午去做了通信原理实验，晚上终于焊好我的第二块乘法电路，测试再次失败，沃老板也焊好接收机混频电路，经过测试也失败。这时候我心态已经到了最低点了，我真的不想再来了，前面说的那么多不服输如何如何，可是看着别人一个个做好，我的却始终不行，旁边还有人明着嘲讽我，这使我明白『挫败感』是何含义。晚上10点，我和沃老板回寝室了，赵公子在周五下午有事回家了，但他做的已经足够多了。我突然决定不再去了。</p>
+<h2 id="坚持才是胜利"><a href="#坚持才是胜利" class="headerlink" title="坚持才是胜利"></a>坚持才是胜利</h2><p>周日上午我还是去实验室了，我想就是什么都做不出来，也得一直在实验室坐着，我就要和它刚到底。好在一切坚持都没有白费，我的乘法电路测试成功了，事实证明我的电路设计没有问题，焊接的也没有问题，昨晚测试失败只是因为电路连线没有接好，胜利让我欣喜若狂，我真想大声怒吼：我终于完成了。另一边也有好消息传来，沃老板焊的和赵公子焊的乘法电路都是好使的，还有什么比此刻更快乐呢？</p>
+<div align="center"><br>    <img src="/assets/img/2019/amplitude_modulation.jpg" alt="AM调幅" height="400"><br>    <p align="center" style="color:#999">赵公子的乘法器AM波形</p><br>    <img src="/assets/img/2019/mixing.jpg" alt="混频" height="400"><br>    <p align="center" style="color:#999">沃老板的混频器波形</p><br></div>
+
+<p>周日下午发生了一些不愉快的事情，因为下午找不到他人（其实他在午睡），我对沃老板的不满更加强烈了，而那时我已经十分疲惫，愤怒之下，下午3点左右我直接回寝室，拒绝回他消息，然后睡了一觉。期间他来找我，我『哈哈』糊弄过去，不想再干。6点多起来看一眼手机，想了想，还是再去试试，把级联和功率要求做完吧，都已经到这个份上了，干脆就把它做到完。</p>
+<h2 id="乘胜追击"><a href="#乘胜追击" class="headerlink" title="乘胜追击"></a>乘胜追击</h2><p>我不想就此打住，野心开始膨胀了，<strong>『恰5分』</strong> 是调侃，此时更像是口号。发射机 AM 调制输出接上我焊调试乘法器抽空焊好的小信号放大器，效果非常好！放大了80倍，但我心里清楚，因为没有接负载，最后功率肯定达不到；接收机，混频后中频放大再检波，效果很差，但也算检波出来了，在要求不那么严苛的时候，可以拿到分；发射机接收机级联成功，和仿真保持一致。</p>
+<p>如此算来，我们已经可以拿到 4.5 分，但是我们不想收手，我们继续调放大器，要把功率的 5 分也拿到手。很不幸，我们没有成功，三极管射极电阻过小，导致射极电流过大，二极管被烧坏了，放大器也就怀了，这又是我们唯一的放大器，级联也没办法做了，这下只有 4 分了，后悔，懊恼。</p>
+<p>第二天周一，已经是12月23号了，我都没想到自己会在这上面花上近一周时间。白天上了一天课，晚上我们接着调试了一下，还是那个问题，AM 波后的小信号放大器不好使，级联就不行，功率也没有。赵公子也回来了，我们让他重新焊了一个，失败了，因为我临时对之前测试成功的电路做了修改，为了减小电流避免三极管烧毁的事再发生，但是我没想到这么一改，电流太小，放大倍数达不到要求，而且我应该自己亲手焊的。可以说今天又是一无所获。但我不会就此打住，我不愿放弃。</p>
+<p>周二上午上完微波课，我立马去教化买了元件，再焊一个小信号放大器，再试一次，不到最后，谁也不知道结果，我不想放弃。一番折腾，焊好，测试，成功。</p>
+<p>下午验收前一刻，上周三买的陶瓷滤波器终于从深圳邮到了学校，我赶紧去取回来，接到电路中，完美!<strong>『烂分恰完』</strong>。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>做完这次课设，心里有太多感慨，很多次我都想放弃了，但是总有一股力量把我拉了回来，这其中有对朋友承诺的坚守也有自己那股不服输的劲，验收成功那一刻我有点想哭，是啊，这整个过程只有我自己这么看重吧，最后还在自我感动，但如果没有这自我感动，我不知道自己能否坚持下来。当然，课设整个过程也暴露了我的一些问题：我需要有更强大的精神力量，激励自己前进，也要学会如何带领团队前进。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -89,98 +134,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
         <tag>C/C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Believe_in_yourself</title>
-    <url>/2018/06/Believe-in-yourself/</url>
-    <content><![CDATA[<p>最近有点烦躁，事情一件接着一件地扑面而来，丝毫不给我喘气的机会，为了排遣苦闷，我嘴上的脏话多了不少，不过好在这一切都将过去了，过去了之后我一定要好好开始，现在，我只有祈祷最后能有一个好的结果。<br><a id="more"></a><br>这是一个疯狂的六月！<br>英语课程考试(6.7)，英语口语测试(6.14)，六级考试(6.16)，科创答辩(6.20)，数学建模考试(6.21)，近代史考试(6.26)，英语期末考试(6.29)……这还远没有结束，七月是工大的小学期时间！八月才放暑假！九月开学！坏消息是大物和微积分的考试放到小学期了，当然，这也可以算是好消息，至少六月份可以喘口气了，真正毫无疑问的好消息自然就是我们会搬进新公寓！</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记录高频硬件课程设计</title>
-    <url>/2019/12/record-of-high-frequency-course-design/</url>
-    <content><![CDATA[<p>本文绝大部分内容是在19年12月29日写的，我记得很清楚，那天是周日上午，我没有为即将到来的通原考试而复习，而是选择去写点东西记录几天前刚刚结束的高频课设，这是一次很难忘的经历，有痛苦也有快乐，有想过放弃但还是坚持了下来，感谢自己和队友们。现在是2020年3月15日，本该在学校度过周日的我，和所有的大学生一样，因为肺炎疫情只能在家里学习，我没什么学习状态，有些无聊，因此整理博客，把这篇去年的记录整理整理，发到GitHubBlog上，留作纪念，发表日期还是使用去年写这篇文章的日子。<br><a id="more"></a></p>
-<h2 id="最终验收"><a href="#最终验收" class="headerlink" title="最终验收"></a>最终验收</h2><p>12月24号，高频硬件课设验收，在队友的强烈要求下，我们选择了一个比较宽松的老师给我们验收，因为我们功率达不到，但还想 <strong>『恰完烂分』</strong>，这能对他的保研有所帮助。最后的结果很好，我们拿到了5分（满分5分），<strong>『烂分恰完』</strong>。</p>
-<div align="center" class="img"><br>    <img src="/assets/img/2019/final.jpg" alt="验收" height="400"><br>    <p align="center" style="color:#999">最终验收时电路连接和波形</p><br></div>
-
-<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>12月17号周二下午考完『随机过程』，终于有时间休息了，躺了一个小时，吃个饭，室友已经去搞硬件了，虽然已经是晚上9点多了，但我还想去，带上东西，去李老师办公室焊。折腾了两个小时，焊好了一个西勒振荡器，但没有测试工具，只能第二天测试焊接是否正确，测试工具缺乏和焊接出错这两个问题在整个课设过程中一直困扰着我们。</p>
-<div align="center" class="img"><br>    <img src="/assets/img/2019/siler_oscillator.jpg" alt="西勒振荡器" height="400"><br>    <p align="center" style="color:#999">第一天晚上焊好的西勒振荡器</p><br></div>
-
-<h2 id="一起干"><a href="#一起干" class="headerlink" title="一起干"></a>一起干</h2><p>第二天是周三，没有课，我和赵公子决定去实验室接着焊板子，顺便测试下昨晚上焊的振荡器。两个小时后，我们焊好了发射机和接收机的振荡器，经过测试，他的能用，而我的那块振荡器产生了寄生调幅。检查了电路没有任何问题，折腾到下午，最后发现是射极偏置电阻过大导致的，微调射极电阻，即可解决这个问题。</p>
-<p>下午和晚上我们都在实验室呆着，一直做到晚上11点。因为我已经很久没焊接东西，有点手生，他更是没啥经验，我们效率比较低，只焊好了一个乘法电路、一个中频放大器和一个包络检波器。后面测试时发现，我焊接的那个乘法电路不能实现信号相乘。那时我还不知道，接下来3天我都会把时间花在乘法电路上，如果早知道调试它会这么折腾，第一天晚上就应该当机立断重新焊一个的。</p>
-<h2 id="心生退意"><a href="#心生退意" class="headerlink" title="心生退意"></a>心生退意</h2><p>接下来的几天我感到痛苦不堪，我焊接乘法电路始终不好使，不知为什么我就是不愿重新焊一块，执着地想把它修好，但这一切都是徒劳的。看着周围的同学一个个都做出来乘法电路了，我开始怀疑自己：如果做不出来是不是证明我不行，我怎么能不行呢？要不放弃吧，这样就不存在证明了，我告诉自己这些bonus对我来说并不那么重要，我保研与否与这课设5分没什么关系。沃老板执着地说焊板子的烟搞得他很难受，实验室里面人太多了，空气太差，乌烟瘴气，他想回寝室做，这样的参与状态让我心有不快，偏偏他才是一定要拿这 5 分保研的人，为什么我要受这些精神折磨，我当时的确不想再做下去了。</p>
-<p>周六早上，纠结了许久，我去教化补充了些元器件，决定去实验室再焊一个乘法器，还说服沃老板也焊一个接收机的乘法电路。我不知道是什么力量支撑着我继续做下去，这件事对我来说不是那么必要，最诱人的bonus并不是我一定需要的，如果不做课设，我可以去复习通原，我可以享受轻松的一周。事后我仔细想了想，大概是因为我自己的性格决定的，我不是那种遇到问题就放弃的人，借口谁都有一些，但是作为我，一旦开始做了，就要做到最后，没有中途放弃的，之前的软件仿真就是如此，没有理由硬件不坚持下去，到这个时候，其实做这个课设已经变成了和自己较劲了，我不想就这么输了。</p>
-<p>周六下午去做了通信原理实验，晚上终于焊好我的第二块乘法电路，测试再次失败，沃老板也焊好接收机混频电路，经过测试也失败。这时候我心态已经到了最低点了，我真的不想再来了，前面说的那么多不服输如何如何，可是看着别人一个个做好，我的却始终不行，旁边还有人明着嘲讽我，这使我明白『挫败感』是何含义。晚上10点，我和沃老板回寝室了，赵公子在周五下午有事回家了，但他做的已经足够多了。我突然决定不再去了。</p>
-<h2 id="坚持才是胜利"><a href="#坚持才是胜利" class="headerlink" title="坚持才是胜利"></a>坚持才是胜利</h2><p>周日上午我还是去实验室了，我想就是什么都做不出来，也得一直在实验室坐着，我就要和它刚到底。好在一切坚持都没有白费，我的乘法电路测试成功了，事实证明我的电路设计没有问题，焊接的也没有问题，昨晚测试失败只是因为电路连线没有接好，胜利让我欣喜若狂，我真想大声怒吼：我终于完成了。另一边也有好消息传来，沃老板焊的和赵公子焊的乘法电路都是好使的，还有什么比此刻更快乐呢？</p>
-<div align="center"><br>    <img src="/assets/img/2019/amplitude_modulation.jpg" alt="AM调幅" height="400"><br>    <p align="center" style="color:#999">赵公子的乘法器AM波形</p><br>    <img src="/assets/img/2019/mixing.jpg" alt="混频" height="400"><br>    <p align="center" style="color:#999">沃老板的混频器波形</p><br></div>
-
-<p>周日下午发生了一些不愉快的事情，因为下午找不到他人（其实他在午睡），我对沃老板的不满更加强烈了，而那时我已经十分疲惫，愤怒之下，下午3点左右我直接回寝室，拒绝回他消息，然后睡了一觉。期间他来找我，我『哈哈』糊弄过去，不想再干。6点多起来看一眼手机，想了想，还是再去试试，把级联和功率要求做完吧，都已经到这个份上了，干脆就把它做到完。</p>
-<h2 id="乘胜追击"><a href="#乘胜追击" class="headerlink" title="乘胜追击"></a>乘胜追击</h2><p>我不想就此打住，野心开始膨胀了，<strong>『恰5分』</strong> 是调侃，此时更像是口号。发射机 AM 调制输出接上我焊调试乘法器抽空焊好的小信号放大器，效果非常好！放大了80倍，但我心里清楚，因为没有接负载，最后功率肯定达不到；接收机，混频后中频放大再检波，效果很差，但也算检波出来了，在要求不那么严苛的时候，可以拿到分；发射机接收机级联成功，和仿真保持一致。</p>
-<p>如此算来，我们已经可以拿到 4.5 分，但是我们不想收手，我们继续调放大器，要把功率的 5 分也拿到手。很不幸，我们没有成功，三极管射极电阻过小，导致射极电流过大，二极管被烧坏了，放大器也就怀了，这又是我们唯一的放大器，级联也没办法做了，这下只有 4 分了，后悔，懊恼。</p>
-<p>第二天周一，已经是12月23号了，我都没想到自己会在这上面花上近一周时间。白天上了一天课，晚上我们接着调试了一下，还是那个问题，AM 波后的小信号放大器不好使，级联就不行，功率也没有。赵公子也回来了，我们让他重新焊了一个，失败了，因为我临时对之前测试成功的电路做了修改，为了减小电流避免三极管烧毁的事再发生，但是我没想到这么一改，电流太小，放大倍数达不到要求，而且我应该自己亲手焊的。可以说今天又是一无所获。但我不会就此打住，我不愿放弃。</p>
-<p>周二上午上完微波课，我立马去教化买了元件，再焊一个小信号放大器，再试一次，不到最后，谁也不知道结果，我不想放弃。一番折腾，焊好，测试，成功。</p>
-<p>下午验收前一刻，上周三买的陶瓷滤波器终于从深圳邮到了学校，我赶紧去取回来，接到电路中，完美!<strong>『烂分恰完』</strong>。</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>做完这次课设，心里有太多感慨，很多次我都想放弃了，但是总有一股力量把我拉了回来，这其中有对朋友承诺的坚守也有自己那股不服输的劲，验收成功那一刻我有点想哭，是啊，这整个过程只有我自己这么看重吧，最后还在自我感动，但如果没有这自我感动，我不知道自己能否坚持下来。当然，课设整个过程也暴露了我的一些问题：我需要有更强大的精神力量，激励自己前进，也要学会如何带领团队前进。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>算法的分析方法</title>
-    <url>/2020/03/a-way-to-algorithm-analysis/</url>
-    <content><![CDATA[<p>也看了几天『算法』了，总是觉得不得要领，在此做一点笔记想必会有所帮助，能够完整地写下来或者清楚地讲述给别人并使之理解才算掌握了知识，这个观点来自费曼，我深以为然。<br><!-- 这里应该添加一个目录 --><br><a id="more"></a></p>
-<h2 id="算法及其重要性"><a href="#算法及其重要性" class="headerlink" title="算法及其重要性"></a>算法及其重要性</h2><p><strong>算法</strong> 被用来描述一种有限的、确定的、有效的并适合计算机程序来实现的解决问题的方法，它是计算机科学的基础，是这个领域研究的核心。『算法』在前言中就如此讲到：</p>
-<blockquote>
-<p>算法和数据结构的学习的学习是所有计算机教学计划的基础。</p>
-</blockquote>
-<p>我想算法的重要性已不言而喻，这也是我在此努力学习的原因，当然我不是计算机系的学生，但我深信一定程度上了解算法和其分析方法对我的专业学习和理解也很有帮助。</p>
-<h2 id="使用数据抽象开发可重用的算法"><a href="#使用数据抽象开发可重用的算法" class="headerlink" title="使用数据抽象开发可重用的算法"></a>使用数据抽象开发可重用的算法</h2><p>虽然我关心的是算法背后的逻辑，但是真正实现起来还是落在代码上，为了保证其可重用性，使用数据抽象，让我们更关注算法的内核，而不是具体的数据。按照下面的步骤解决问题：</p>
-<ul>
-<li>定义 API</li>
-<li>根据特定的应用场景开发用例代码</li>
-<li>描述一种数据结构，并在 API 说对应的抽象数据类型的实现中根据它定义类的实例变量</li>
-<li>描述算法</li>
-<li>分析算法的性能特点</li>
-</ul>
-<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><p>诸如『我的算法会运行多久？』和『为什么我的程序耗尽了所有的内存』这样的基础问题，我们使用 <em>科学方法</em> 可以给出实际性的回答，如下所示，同时使用 <em>数学分析</em> 为算法建立模型，还可以使用 <em>实验数据</em> 验证模型。</p>
-<ul>
-<li>细致的观察真实世界的特点</li>
-<li>根据观察的结果提出假设模型</li>
-<li>预测未来事件</li>
-<li>继续观测并核实预测的准确性</li>
-<li>如此反复直到确认预测和观察一致</li>
-</ul>
-<p>进行实际分析之前，首先要确定 <strong>输入模型</strong> 和 <strong>问题的规模</strong>，其实就是说 <strong>输入数据量的大小</strong> 和 <strong>数据的特点</strong> 对运行时间的影响，显然运行时间会随着规模的增大而变长。</p>
-<p>关于数学分析，依据 Knuth 的观点，程序运行的总时间主要与 <strong>执行每条语句的耗时</strong> 和 <strong>执行每条语句的频率有关</strong>。对于前者，这由机器决定，我们不关心，而后者由程序和输入决定，这正是我们要分析的。对于语句频率的分析我们会采用近似的方法，这由会得到 <strong>增长的数量级</strong> 这一概念，当输入规模很大时，这被验证是可行的，而我们正是关注算法处理大规模输入的性能。</p>
-<p>增长的数量级概念的应用使我们能够 <strong>将程序和它实现的算法隔离开</strong>，算法和输入模型决定了增长的数量级。</p>
-<p>使用 <strong>成本模型</strong> 评估算法的性质，该模型定义了算法中的基本操作，如数组的访问次数和元素的交换次数等等。在选定的数学模型下，我们或许可以用精确的数学语言说明算法的性质，这正是我们进行数学分析的目的。</p>
-<p>以上我们可以得出分析程序运行时间数学模型的步骤如下：</p>
-<ul>
-<li>确定输入模型下，定义问题的规模</li>
-<li>识别内循环</li>
-<li>根据内循环的操作确定成本模型</li>
-<li>对于规定的输入，判断这些操作的执行频率</li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>Java</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -211,8 +166,8 @@
       </categories>
       <tags>
         <tag>算法</tag>
-        <tag>Java</tag>
         <tag>union-find</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -300,6 +255,51 @@
       <tags>
         <tag>记录</tag>
         <tag>weekly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>算法的分析方法</title>
+    <url>/2020/03/a-way-to-algorithm-analysis/</url>
+    <content><![CDATA[<p>也看了几天『算法』了，总是觉得不得要领，在此做一点笔记想必会有所帮助，能够完整地写下来或者清楚地讲述给别人并使之理解才算掌握了知识，这个观点来自费曼，我深以为然。<br><!-- 这里应该添加一个目录 --><br><a id="more"></a></p>
+<h2 id="算法及其重要性"><a href="#算法及其重要性" class="headerlink" title="算法及其重要性"></a>算法及其重要性</h2><p><strong>算法</strong> 被用来描述一种有限的、确定的、有效的并适合计算机程序来实现的解决问题的方法，它是计算机科学的基础，是这个领域研究的核心。『算法』在前言中就如此讲到：</p>
+<blockquote>
+<p>算法和数据结构的学习的学习是所有计算机教学计划的基础。</p>
+</blockquote>
+<p>我想算法的重要性已不言而喻，这也是我在此努力学习的原因，当然我不是计算机系的学生，但我深信一定程度上了解算法和其分析方法对我的专业学习和理解也很有帮助。</p>
+<h2 id="使用数据抽象开发可重用的算法"><a href="#使用数据抽象开发可重用的算法" class="headerlink" title="使用数据抽象开发可重用的算法"></a>使用数据抽象开发可重用的算法</h2><p>虽然我关心的是算法背后的逻辑，但是真正实现起来还是落在代码上，为了保证其可重用性，使用数据抽象，让我们更关注算法的内核，而不是具体的数据。按照下面的步骤解决问题：</p>
+<ul>
+<li>定义 API</li>
+<li>根据特定的应用场景开发用例代码</li>
+<li>描述一种数据结构，并在 API 说对应的抽象数据类型的实现中根据它定义类的实例变量</li>
+<li>描述算法</li>
+<li>分析算法的性能特点</li>
+</ul>
+<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><p>诸如『我的算法会运行多久？』和『为什么我的程序耗尽了所有的内存』这样的基础问题，我们使用 <em>科学方法</em> 可以给出实际性的回答，如下所示，同时使用 <em>数学分析</em> 为算法建立模型，还可以使用 <em>实验数据</em> 验证模型。</p>
+<ul>
+<li>细致的观察真实世界的特点</li>
+<li>根据观察的结果提出假设模型</li>
+<li>预测未来事件</li>
+<li>继续观测并核实预测的准确性</li>
+<li>如此反复直到确认预测和观察一致</li>
+</ul>
+<p>进行实际分析之前，首先要确定 <strong>输入模型</strong> 和 <strong>问题的规模</strong>，其实就是说 <strong>输入数据量的大小</strong> 和 <strong>数据的特点</strong> 对运行时间的影响，显然运行时间会随着规模的增大而变长。</p>
+<p>关于数学分析，依据 Knuth 的观点，程序运行的总时间主要与 <strong>执行每条语句的耗时</strong> 和 <strong>执行每条语句的频率有关</strong>。对于前者，这由机器决定，我们不关心，而后者由程序和输入决定，这正是我们要分析的。对于语句频率的分析我们会采用近似的方法，这由会得到 <strong>增长的数量级</strong> 这一概念，当输入规模很大时，这被验证是可行的，而我们正是关注算法处理大规模输入的性能。</p>
+<p>增长的数量级概念的应用使我们能够 <strong>将程序和它实现的算法隔离开</strong>，算法和输入模型决定了增长的数量级。</p>
+<p>使用 <strong>成本模型</strong> 评估算法的性质，该模型定义了算法中的基本操作，如数组的访问次数和元素的交换次数等等。在选定的数学模型下，我们或许可以用精确的数学语言说明算法的性质，这正是我们进行数学分析的目的。</p>
+<p>以上我们可以得出分析程序运行时间数学模型的步骤如下：</p>
+<ul>
+<li>确定输入模型下，定义问题的规模</li>
+<li>识别内循环</li>
+<li>根据内循环的操作确定成本模型</li>
+<li>对于规定的输入，判断这些操作的执行频率</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -409,6 +409,73 @@
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文简单分析了 NS2 的大体结构和体系结构。现在来考虑下如何获得 NS2 的仿真结果，如第一张图所示，，当仿真结束时，NS2 按照输入的 Tcl（或 OTcl）脚本中的说明产生一个或者多个文本输出文件，其中包含了详细的仿真数据。这些数据可用于后续的仿真分析中，或者作为图形化仿真展示工具 NAM 的输入。</p>
 <hr>
 <p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI 大学的资源</a></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+        <tag>NS2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NS2 的介绍（三）—— 事件调度器</title>
+    <url>/2020/04/ns2-event-scheduler/</url>
+    <content><![CDATA[<p>在<a href="/2020/04/ns2-simple-simulation-example">上一篇文章</a>中，我们从一个简单的例子出发，从零开始编写了一个 NS2 模拟用的 OTcl 脚本，我们需要在脚本中完成以下任务：</p>
+<ol>
+<li>创建 Simulator 对象；</li>
+<li>创建 node 对象并构建 node 间的连接 link；</li>
+<li>创建代理对象和 traffic 源对象，连接 node 和代理，连接代理和 traffic 源；</li>
+<li>创建模拟场景 scenario，即定义调度任务；</li>
+<li>开始模拟。</li>
+</ol>
+<p>按照以上这些步骤编写就可完成模拟脚本编写。这篇文章中要介绍的是第 4 个步骤创建模拟场景的详细信息，我们将讨论 NS2 中的离散事件调度器。<br><a id="more"></a><br>如<a href="/2020/04/02/ns2-simulation-overview">第一篇文章</a>中谈到的，在 NS2 中，事件调度器主要是由一些网络组件来使用，组件们模拟 packet 的处理时需要调度程序作为延时器或计时器。如下图展示，每一个网络对象使用一个时间调度器，图中需要注意：<br>（1）网络对象发出一个事件那么它就要在预定的时间点上处理这个事件；<br>（2）网络对象间的数据路径和事件路径不相同；<br>若深入到代码层面，包在网络对象中传递时，发送方使用 <code>send(Packet* p){target_-&gt;recv(p);</code> 语句发送，接收方使用 <code>recv(Packet*, Handler* h = 0)</code> 方法接收。</p>
+<p><div align="center" class="img"><br>    <img src="/assets/img/2020/discrete_event_scheduler.png" alt="discrete_event_scheduler" width="750"><br>    <span align="center" style="color:#999">离散事件调度器</span><br></div><br>NS2 实现了两种事件调度器，实时调度器和非实时调度器。非实时调度器有三种实现，分别为 List、Heap 和 Calendar，它们逻辑上是一样的，之所以有这么多实现，是由于向下兼容的原因。默认的非实时调度器是 Calender 方式实现的。实时调度器是为仿真 emulation 使用的，允许仿真器 simulator 和真实的网络交互。下面这个就是一个指定事件调度器的例子。</p>
+<pre><code>set ns [new Simulator]
+$ns use-scheduler Heap
+</code></pre><p>事件调度器还可以调度模拟事件，比如启动一个 FTP 应用或者结束模拟。事件调度器对象本身有一些模拟调度成员函数，比如 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code>，它就可以在发起一个在特定的模拟时间 &lt;time> 发生的叫做 <code>AtEvent</code> 的事件。<code>AtEvent</code> 其实是 <code>Event</code> 类的子类，它扩展了额外的变量保存 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 中的 <code>string</code>，尽管有扩展，它在事件调度器中和一般的事件还是被相同对待的。模拟开始后，当模拟时间到达事件队列中的 AtEvent 应该被调度的时间时，该 <code>AtEvent</code> 就会被传递给一个 <code>AtEvent Handler</code>，<code>AtEvent Handler</code> 只被创建一次并处理所有的的 <code>AtEvent</code>，<code>AtEvent</code> 的 &lt;string> 确定的 OTcl 命令也会被执行。下面是一个模拟事件调度示例：</p>
+<pre><code>set ns [new Simulator]
+$ns use-scheduler Heap
+$ns at 300.5 &quot;complete_sim&quot;
+
+proc complete_sim {} {...}
+</code></pre><p>注意到在上面的例子中，<code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 是 Simulator 对象 ns 的成员函数，但是我们要记住，Simulator 对象仅仅只是起到一个用户接口的作用，事实上它会去调用网络对象或者调度器对象的成员函数，由它们真正地完成工作。下面是一个函数列表和简单说明，这些函数就是 Simulator 对象用来接口调度器成员函数的成员函数。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">成员函数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Simulator instproc now</td>
+<td style="text-align:left">返回调度器对现在时间的 notion</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator isntproc at args</td>
+<td style="text-align:left">在特定的时间调度执行代码</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator instproc at-now args</td>
+<td style="text-align:left">立即调度执行代码</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator instproc after n args</td>
+<td style="text-align:left">n 秒后调度执行代码</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator instproc run args</td>
+<td style="text-align:left">启动调度器</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulator instproc halt</td>
+<td style="text-align:left">停止或赞同调度器</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -533,73 +600,6 @@
 <li><code>$ns at &lt;time&gt; &quot;&lt;string&gt;&quot;</code>：让调度器在指定的 time 时执行 string 中的命令。如 <code>$ns at 0.1 &quot;$cbr start&quot;</code>，让调度器调用 CBR traffic 源对象的一个名为 start 的成员函数，start 会开始启动 CBR 发送数据。在 NS2 中，一个 traffic 源通常不会发生真实的数据，它会通知下层的代理『有一些数据要发生』，代理就会知道有多少数据要发生，然后由代理创建 packet 并发送出去。</li>
 </ul>
 <h3 id="开始模拟"><a href="#开始模拟" class="headerlink" title="开始模拟"></a>开始模拟</h3><p>配置好网络，写好调度程序和指定模拟后的数据保存操作之后，最后开始模拟即可，脚本中的最后一句：<code>$ns run</code> 声明开始模拟。</p>
-<hr>
-<p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>网络</tag>
-        <tag>NS2</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NS2 的介绍（三）—— 事件调度器</title>
-    <url>/2020/04/ns2-event-scheduler/</url>
-    <content><![CDATA[<p>在<a href="/2020/04/ns2-simple-simulation-example">上一篇文章</a>中，我们从一个简单的例子出发，从零开始编写了一个 NS2 模拟用的 OTcl 脚本，我们需要在脚本中完成以下任务：</p>
-<ol>
-<li>创建 Simulator 对象；</li>
-<li>创建 node 对象并构建 node 间的连接 link；</li>
-<li>创建代理对象和 traffic 源对象，连接 node 和代理，连接代理和 traffic 源；</li>
-<li>创建模拟场景 scenario，即定义调度任务；</li>
-<li>开始模拟。</li>
-</ol>
-<p>按照以上这些步骤编写就可完成模拟脚本编写。这篇文章中要介绍的是第 4 个步骤创建模拟场景的详细信息，我们将讨论 NS2 中的离散事件调度器。<br><a id="more"></a><br>如<a href="/2020/04/02/ns2-simulation-overview">第一篇文章</a>中谈到的，在 NS2 中，事件调度器主要是由一些网络组件来使用，组件们模拟 packet 的处理时需要调度程序作为延时器或计时器。如下图展示，每一个网络对象使用一个时间调度器，图中需要注意：<br>（1）网络对象发出一个事件那么它就要在预定的时间点上处理这个事件；<br>（2）网络对象间的数据路径和事件路径不相同；<br>若深入到代码层面，包在网络对象中传递时，发送方使用 <code>send(Packet* p){target_-&gt;recv(p);</code> 语句发送，接收方使用 <code>recv(Packet*, Handler* h = 0)</code> 方法接收。</p>
-<p><div align="center" class="img"><br>    <img src="/assets/img/2020/discrete_event_scheduler.png" alt="discrete_event_scheduler" width="750"><br>    <span align="center" style="color:#999">离散事件调度器</span><br></div><br>NS2 实现了两种事件调度器，实时调度器和非实时调度器。非实时调度器有三种实现，分别为 List、Heap 和 Calendar，它们逻辑上是一样的，之所以有这么多实现，是由于向下兼容的原因。默认的非实时调度器是 Calender 方式实现的。实时调度器是为仿真 emulation 使用的，允许仿真器 simulator 和真实的网络交互。下面这个就是一个指定事件调度器的例子。</p>
-<pre><code>set ns [new Simulator]
-$ns use-scheduler Heap
-</code></pre><p>事件调度器还可以调度模拟事件，比如启动一个 FTP 应用或者结束模拟。事件调度器对象本身有一些模拟调度成员函数，比如 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code>，它就可以在发起一个在特定的模拟时间 &lt;time> 发生的叫做 <code>AtEvent</code> 的事件。<code>AtEvent</code> 其实是 <code>Event</code> 类的子类，它扩展了额外的变量保存 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 中的 <code>string</code>，尽管有扩展，它在事件调度器中和一般的事件还是被相同对待的。模拟开始后，当模拟时间到达事件队列中的 AtEvent 应该被调度的时间时，该 <code>AtEvent</code> 就会被传递给一个 <code>AtEvent Handler</code>，<code>AtEvent Handler</code> 只被创建一次并处理所有的的 <code>AtEvent</code>，<code>AtEvent</code> 的 &lt;string> 确定的 OTcl 命令也会被执行。下面是一个模拟事件调度示例：</p>
-<pre><code>set ns [new Simulator]
-$ns use-scheduler Heap
-$ns at 300.5 &quot;complete_sim&quot;
-
-proc complete_sim {} {...}
-</code></pre><p>注意到在上面的例子中，<code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 是 Simulator 对象 ns 的成员函数，但是我们要记住，Simulator 对象仅仅只是起到一个用户接口的作用，事实上它会去调用网络对象或者调度器对象的成员函数，由它们真正地完成工作。下面是一个函数列表和简单说明，这些函数就是 Simulator 对象用来接口调度器成员函数的成员函数。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">成员函数</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Simulator instproc now</td>
-<td style="text-align:left">返回调度器对现在时间的 notion</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator isntproc at args</td>
-<td style="text-align:left">在特定的时间调度执行代码</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc at-now args</td>
-<td style="text-align:left">立即调度执行代码</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc after n args</td>
-<td style="text-align:left">n 秒后调度执行代码</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc run args</td>
-<td style="text-align:left">启动调度器</td>
-</tr>
-<tr>
-<td style="text-align:left">Simulator instproc halt</td>
-<td style="text-align:left">停止或赞同调度器</td>
-</tr>
-</tbody>
-</table>
 <hr>
 <p>参考：<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">WPI</a></p>
 ]]></content>
@@ -857,10 +857,10 @@ proc complete_sim {} {...}
         <category>学习</category>
       </categories>
       <tags>
-        <tag>算法</tag>
         <tag>数据结构</tag>
-        <tag>notes</tag>
+        <tag>算法</tag>
         <tag>Java</tag>
+        <tag>notes</tag>
       </tags>
   </entry>
   <entry>
@@ -1149,8 +1149,8 @@ proc complete_sim {} {...}
         <category>学习</category>
       </categories>
       <tags>
-        <tag>notes</tag>
         <tag>Ad-Hoc</tag>
+        <tag>notes</tag>
       </tags>
   </entry>
   <entry>
@@ -1293,23 +1293,20 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>LeetCode | 4 两个排序数组的中位数</title>
-    <url>/2020/05/find-median-sorted-arrays/</url>
-    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定两个大小为 <code>m</code> 和 <code>n</code> 的有序数组 <code>nums1</code> 和 <code>nums2</code>。找出这两个有序数组的中位数。要求算法的时间复杂度为<code>O(log(m+n))</code>。</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
-<li><code>nums1 = [1, 3]</code>，<code>nums2 = [2]</code>，中位数是 2.0；</li>
-<li><code>nums1 = [1, 2]</code>，<code>nums2 = [3, 4]</code>，中位数是 2.5；<a id="more"></a>
-</li>
-</ul>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>整体上是一个分而治之的思想，将问题分解，使用递归可以很方便的完成。这个问题是『寻找两个有序数组中的第 k 大元素』问题的特殊形式，我们直接实现寻址第 k 大元素的函数  <code>find_kth()</code> 即可，然后在 <code>findMedianSortedArrays()</code> 中调用它即可。</p>
-<p>我们使用递归方式实现 <code>find_kth()</code>，对于递归算法，我们要注意递归终止条件。首先要确保第一个参数数组的长度是较短的，</p>
-<ul>
-<li>较短数组 <code>a</code> 的长度（未搜索区域长度）变为 0，返回 <code>b</code> 中第 <code>k</code> 个元素；</li>
-<li>待寻找的序数 <code>k = 1</code>，返回<code>a</code> 和 <code>b</code> 的第一个元素中的较小者。</li>
-</ul>
-<p>然后我们需要确定每个数组的搜索长度。对于较小数组 <code>a</code>，搜索长度为数组长和 <code>k/2</code> 的较大者，余下的长度则为数组 <code>b</code> 待搜索的长度。</p>
-<p>代码如下：</p>
-<figure class="highlight c"><figcaption><span>LeetCodeSolution4.c</span><a href="/downloads/code/LeetCodeSolution4.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">// 辅助函数 选择两个有序数组中第 k 大的数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find_kth</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> alen, <span class="keyword">int</span> *b, <span class="keyword">int</span> blen, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="comment">// 确保 alen &lt; blen</span></span><br><span class="line">    <span class="keyword">if</span> (alen &gt; blen)</span><br><span class="line">        <span class="keyword">return</span> find_kth(b, blen, a, alen, k);</span><br><span class="line">    <span class="keyword">if</span> (alen == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> b[k<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">if</span> (k == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> a[<span class="number">0</span>] &lt; b[<span class="number">0</span>] ? a[<span class="number">0</span>] : b[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ia = alen &gt; k/<span class="number">2</span> ? k/<span class="number">2</span> : alen;</span><br><span class="line">    <span class="keyword">int</span> ib = k - ia;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (b[ib<span class="number">-1</span>] &gt; a[ia<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">return</span> find_kth(a+ia, alen-ia, b, blen, k-ia);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (b[ib<span class="number">-1</span>] &lt; a[ia<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">return</span> find_kth(a, alen, b+ib, blen-ib, k-ib);</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">// 注意这种情况</span></span><br><span class="line">        <span class="keyword">return</span> a[ia<span class="number">-1</span>];</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 找出两个有序数组中的中位数</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span> *nums1, <span class="keyword">int</span> nums1Size,</span></span></span><br><span class="line"><span class="function"><span class="params">                        <span class="keyword">int</span> *nums2, <span class="keyword">int</span> nums2Size)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> mid = nums2Size + (nums1Size - nums2Size) / <span class="number">2</span>;</span><br><span class="line">    <span class="comment">// if ((nums1Size &amp; 0x1) ^ (nums2Size &amp; 0x1)) // 和为奇数</span></span><br><span class="line">    <span class="keyword">if</span> ((nums1Size+nums2Size) &amp; <span class="number">0x1</span>)</span><br><span class="line">        <span class="keyword">return</span> find_kth(nums1, nums1Size, nums2, nums2Size, mid+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span>    <span class="comment">// 和为偶数</span></span><br><span class="line">        <span class="keyword">return</span> (find_kth(nums1, nums1Size, nums2, nums2Size, mid)</span><br><span class="line">                    + find_kth(nums1, nums1Size, nums2, nums2Size, mid+<span class="number">1</span>)) / <span class="number">2.0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>]]></content>
+    <title>LeetCode | 11 盛最多水的容器</title>
+    <url>/2020/05/max-area/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定 <code>n</code> 个非负整数 <code>a1, a2, ..., an</code>，每个数代表坐标中的一个点 <code>(i, ai)</code>。画 <code>n</code> 条垂直线，使得垂直线 <code>i</code> 的两个端点分别为 <code>(i, ai)</code> 和 <code>(i, 0)</code>。找出其中的两条线，使得它们与 <code>x</code> 轴共同构成的容器可以容纳最多的水。</p>
+<p>注意：不能倾斜容器，<code>n</code> 至少是 2。<br><a id="more"></a></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>如果使用暴力算法，那么时间复杂度为 $O(n^2)$。如果使用双指针法，那么时间复杂度降为 $O(n)$。如下所示。</p>
+<ol>
+<li>初始化两个指针 <code>first</code> 和 <code>last</code> 分别指向数组头和尾；</li>
+<li>当 <code>last</code> 指向的值较小时，计算一个面积，并决定是否保留，然后 <code>last--</code> ；</li>
+<li>当 <code>first</code> 指向的值较小时，计算一个面积，并决定是否保留，然后 <code>first++</code>；</li>
+<li>从第 2 步重新执行，直到 <code>first == last</code>，返回最大值。</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span> *height, <span class="keyword">int</span> heightSize)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>, aux = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> first = <span class="number">0</span>, last = heightSize - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (first &lt; last) &#123;</span><br><span class="line">        <span class="keyword">if</span> (height[first] &lt; height[last]) &#123;</span><br><span class="line">            aux = height[first] * (last - first);</span><br><span class="line">            res = aux &gt; res ? aux : res;</span><br><span class="line">            first++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            aux = height[last] * (last - first);</span><br><span class="line">            res = aux &gt; res ? aux : res;</span><br><span class="line">            last--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们还可以对上面的算法进行一些改进。在上面的算法中，我们每次将指针挪动一个位置（向左或向右），然后计算面积并进行比较。这个面积的计算是否每次都有必要呢？其实并不必要，每次挪动指针后，所求区域的长度都会减小，只有<strong>区域的宽度增加我们才有重新计算面积的必要</strong>，即指针新指向的值大于它原来指向的值，我们才需要再次计算面积。基于此，我们可以对算法进行改进，如下所示。</p>
+<figure class="highlight c"><figcaption><span>LeetCodeSolution11.c</span><a href="/downloads/code/LeetCodeSolution11.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span> *height, <span class="keyword">int</span> heightSize)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>, aux = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> first = <span class="number">0</span>, last = heightSize - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (first &lt; last) {</span><br><span class="line">        aux = (last - first) * </span><br><span class="line">            (height[first] &lt; height[last] ? height[first] : height[last]);</span><br><span class="line">        res = aux &gt; res ? aux : res;</span><br><span class="line">        <span class="keyword">if</span> (height[first] &lt; height[last])</span><br><span class="line">            <span class="keyword">while</span> (++first &lt; max &amp;&amp; height[min] &lt;= height[min<span class="number">-1</span>])</span><br><span class="line">                <span class="comment">// 新指针指向的值不大于原来的值 继续减小指针即可</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">while</span> (--last &gt; first &amp;&amp; height[last] &lt;= height[last+<span class="number">1</span>])</span><br><span class="line">                <span class="comment">// 新指针指向的值不大于原来的值 继续减小指针即可</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>学习</category>
       </categories>
@@ -1345,32 +1342,9 @@ proc complete_sim {} {...}
         <category>学习</category>
       </categories>
       <tags>
-        <tag>算法</tag>
         <tag>C/C++</tag>
-        <tag>链表</tag>
-        <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode | 11 盛最多水的容器</title>
-    <url>/2020/05/max-area/</url>
-    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定 <code>n</code> 个非负整数 <code>a1, a2, ..., an</code>，每个数代表坐标中的一个点 <code>(i, ai)</code>。画 <code>n</code> 条垂直线，使得垂直线 <code>i</code> 的两个端点分别为 <code>(i, ai)</code> 和 <code>(i, 0)</code>。找出其中的两条线，使得它们与 <code>x</code> 轴共同构成的容器可以容纳最多的水。</p>
-<p>注意：不能倾斜容器，<code>n</code> 至少是 2。<br><a id="more"></a></p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>如果使用暴力算法，那么时间复杂度为 $O(n^2)$。如果使用双指针法，那么时间复杂度降为 $O(n)$。如下所示。</p>
-<ol>
-<li>初始化两个指针 <code>first</code> 和 <code>last</code> 分别指向数组头和尾；</li>
-<li>当 <code>last</code> 指向的值较小时，计算一个面积，并决定是否保留，然后 <code>last--</code> ；</li>
-<li>当 <code>first</code> 指向的值较小时，计算一个面积，并决定是否保留，然后 <code>first++</code>；</li>
-<li>从第 2 步重新执行，直到 <code>first == last</code>，返回最大值。</li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span> *height, <span class="keyword">int</span> heightSize)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>, aux = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> first = <span class="number">0</span>, last = heightSize - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (first &lt; last) &#123;</span><br><span class="line">        <span class="keyword">if</span> (height[first] &lt; height[last]) &#123;</span><br><span class="line">            aux = height[first] * (last - first);</span><br><span class="line">            res = aux &gt; res ? aux : res;</span><br><span class="line">            first++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            aux = height[last] * (last - first);</span><br><span class="line">            res = aux &gt; res ? aux : res;</span><br><span class="line">            last--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们还可以对上面的算法进行一些改进。在上面的算法中，我们每次将指针挪动一个位置（向左或向右），然后计算面积并进行比较。这个面积的计算是否每次都有必要呢？其实并不必要，每次挪动指针后，所求区域的长度都会减小，只有<strong>区域的宽度增加我们才有重新计算面积的必要</strong>，即指针新指向的值大于它原来指向的值，我们才需要再次计算面积。基于此，我们可以对算法进行改进，如下所示。</p>
-<figure class="highlight c"><figcaption><span>LeetCodeSolution11.c</span><a href="/downloads/code/LeetCodeSolution11.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span> *height, <span class="keyword">int</span> heightSize)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>, aux = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> first = <span class="number">0</span>, last = heightSize - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (first &lt; last) {</span><br><span class="line">        aux = (last - first) * </span><br><span class="line">            (height[first] &lt; height[last] ? height[first] : height[last]);</span><br><span class="line">        res = aux &gt; res ? aux : res;</span><br><span class="line">        <span class="keyword">if</span> (height[first] &lt; height[last])</span><br><span class="line">            <span class="keyword">while</span> (++first &lt; max &amp;&amp; height[min] &lt;= height[min<span class="number">-1</span>])</span><br><span class="line">                <span class="comment">// 新指针指向的值不大于原来的值 继续减小指针即可</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">while</span> (--last &gt; first &amp;&amp; height[last] &lt;= height[last+<span class="number">1</span>])</span><br><span class="line">                <span class="comment">// 新指针指向的值不大于原来的值 继续减小指针即可</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
         <tag>算法</tag>
+        <tag>链表</tag>
         <tag>LeetCode</tag>
       </tags>
   </entry>
@@ -1402,60 +1376,29 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>LeetCode | 61 旋转链表</title>
-    <url>/2020/05/rotate-LinkedList-rightly/</url>
-    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。</p>
+    <title>LeetCode | 4 两个排序数组的中位数</title>
+    <url>/2020/05/find-median-sorted-arrays/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定两个大小为 <code>m</code> 和 <code>n</code> 的有序数组 <code>nums1</code> 和 <code>nums2</code>。找出这两个有序数组的中位数。要求算法的时间复杂度为<code>O(log(m+n))</code>。</p>
 <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
-<li>输入：<code>1-&gt;2-&gt;3-&gt;4-&gt;5</code>，<code>k=2</code></li>
-<li>输出：<code>4-&gt;5-&gt;1-&gt;2-&gt;3</code></li>
+<li><code>nums1 = [1, 3]</code>，<code>nums2 = [2]</code>，中位数是 2.0；</li>
+<li><code>nums1 = [1, 2]</code>，<code>nums2 = [3, 4]</code>，中位数是 2.5；<a id="more"></a>
+</li>
 </ul>
-<a id="more"></a>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>题目名字叫旋转链表，其实就是循环移动。最简单的思路是：遍历链表找到尾节点的前一节点，然后把尾节点从头插入链表，对这个过程执行 k 次即可。这样做算法的时间复杂度为 <code>O(kn)</code>。考虑到是循环移动，我们可以对算法进行改进。</p>
-<p>首先考虑 <code>k</code> 小于链表长度的情况，链表循环向右移动 <code>k</code> 次，不就相当于把链表练成环，然后尾节点位置向左移动 <code>k</code> 次吗？下面这个图展示了这个过程。</p>
-<img src="/2020/05/rotate-LinkedList-rightly/illustration.png" title="循环移动">
-<p>对于 <code>k</code> 大于链表长度的情况，先构成环，沿着环一直移动就行。这种方法的问题在于我们需要逆向移动单链表的指针，即每次需要找到单链表前驱的前驱，这是很难做到的，但我们可以先行将单链表进行逆序，然后移动指针，确定最终的头尾节点后再把链表逆序回来即可。</p>
-<p>更进一步的，在环中逆序移动指针 <code>k</code> 次，就相当于顺序移动指针 <code>n-k</code> 次，其中 <code>n</code> 是链表的长度。基于这种想法，我们再加以改进，得到下面的解法。</p>
-<p>先把指针 <code>p</code> 从头向后移动到尾，直到循环移动的次数 <code>k==0</code>。在此过程中，如果 <code>p</code> 指向了空节点，说明到了链表尾部，<code>k</code> 大于链表的长度，这时候我们可以利用循环的特点，对链表的长度减一值进行取模运算，得到的值是我们需要再移动到位置。然后按照上述的方法进行指针移动即可。最终代码如下所示。</p>
-<figure class="highlight c"><figcaption><span>LeetCodeSolution61.c</span><a href="/downloads/code/LeetCodeSolution61.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function">ListNode *<span class="title">rotateRight</span><span class="params">(ListNode *head, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="literal">NULL</span> || k &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    ListNode *pre, *last, *p;</span><br><span class="line">    ListNode tmpNode;</span><br><span class="line">    tmpNode.next = head;</span><br><span class="line">    last = &amp;tmpNode;</span><br><span class="line">    p = head;</span><br><span class="line">    <span class="keyword">int</span> ak = k;</span><br><span class="line">    <span class="keyword">while</span> (k &gt; <span class="number">0</span>){</span><br><span class="line">        <span class="comment">// 滑动指针来代替循环</span></span><br><span class="line">        <span class="keyword">if</span> (p == <span class="literal">NULL</span>) {</span><br><span class="line">            <span class="keyword">int</span> tmp = ak - k;</span><br><span class="line">            pre = &amp;tmpNode;</span><br><span class="line">            p = head;</span><br><span class="line">            k = ak % tmp;</span><br><span class="line">            <span class="keyword">if</span> (k == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">        pre = p;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        k--;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span>) {</span><br><span class="line">        last = last-&gt;next;</span><br><span class="line">        pre = p;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> (last != &amp;tmpNode) {</span><br><span class="line">        pre-&gt;next = head;</span><br><span class="line">        tmpNode.next = last-&gt;next;</span><br><span class="line">        last-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> tmpNode.next;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-]]></content>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>整体上是一个分而治之的思想，将问题分解，使用递归可以很方便的完成。这个问题是『寻找两个有序数组中的第 k 大元素』问题的特殊形式，我们直接实现寻址第 k 大元素的函数  <code>find_kth()</code> 即可，然后在 <code>findMedianSortedArrays()</code> 中调用它即可。</p>
+<p>我们使用递归方式实现 <code>find_kth()</code>，对于递归算法，我们要注意递归终止条件。首先要确保第一个参数数组的长度是较短的，</p>
+<ul>
+<li>较短数组 <code>a</code> 的长度（未搜索区域长度）变为 0，返回 <code>b</code> 中第 <code>k</code> 个元素；</li>
+<li>待寻找的序数 <code>k = 1</code>，返回<code>a</code> 和 <code>b</code> 的第一个元素中的较小者。</li>
+</ul>
+<p>然后我们需要确定每个数组的搜索长度。对于较小数组 <code>a</code>，搜索长度为数组长和 <code>k/2</code> 的较大者，余下的长度则为数组 <code>b</code> 待搜索的长度。</p>
+<p>代码如下：</p>
+<figure class="highlight c"><figcaption><span>LeetCodeSolution4.c</span><a href="/downloads/code/LeetCodeSolution4.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">// 辅助函数 选择两个有序数组中第 k 大的数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find_kth</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> alen, <span class="keyword">int</span> *b, <span class="keyword">int</span> blen, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="comment">// 确保 alen &lt; blen</span></span><br><span class="line">    <span class="keyword">if</span> (alen &gt; blen)</span><br><span class="line">        <span class="keyword">return</span> find_kth(b, blen, a, alen, k);</span><br><span class="line">    <span class="keyword">if</span> (alen == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> b[k<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">if</span> (k == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> a[<span class="number">0</span>] &lt; b[<span class="number">0</span>] ? a[<span class="number">0</span>] : b[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ia = alen &gt; k/<span class="number">2</span> ? k/<span class="number">2</span> : alen;</span><br><span class="line">    <span class="keyword">int</span> ib = k - ia;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (b[ib<span class="number">-1</span>] &gt; a[ia<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">return</span> find_kth(a+ia, alen-ia, b, blen, k-ia);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (b[ib<span class="number">-1</span>] &lt; a[ia<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">return</span> find_kth(a, alen, b+ib, blen-ib, k-ib);</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">// 注意这种情况</span></span><br><span class="line">        <span class="keyword">return</span> a[ia<span class="number">-1</span>];</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 找出两个有序数组中的中位数</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span> *nums1, <span class="keyword">int</span> nums1Size,</span></span></span><br><span class="line"><span class="function"><span class="params">                        <span class="keyword">int</span> *nums2, <span class="keyword">int</span> nums2Size)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> mid = nums2Size + (nums1Size - nums2Size) / <span class="number">2</span>;</span><br><span class="line">    <span class="comment">// if ((nums1Size &amp; 0x1) ^ (nums2Size &amp; 0x1)) // 和为奇数</span></span><br><span class="line">    <span class="keyword">if</span> ((nums1Size+nums2Size) &amp; <span class="number">0x1</span>)</span><br><span class="line">        <span class="keyword">return</span> find_kth(nums1, nums1Size, nums2, nums2Size, mid+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span>    <span class="comment">// 和为偶数</span></span><br><span class="line">        <span class="keyword">return</span> (find_kth(nums1, nums1Size, nums2, nums2Size, mid)</span><br><span class="line">                    + find_kth(nums1, nums1Size, nums2, nums2Size, mid+<span class="number">1</span>)) / <span class="number">2.0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
         <tag>算法</tag>
         <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MPSK 和 MQAM 的误码率仿真</title>
-    <url>/2020/05/ber-and-ser-of-PSK-and-QAM/</url>
-    <content><![CDATA[<p>拖延几日，不觉课程已结课几天了，在此趁着脑中还有些关于课程内容的印象，简单写一篇记录，关于如何使用MATLAB构建一个调制技术的仿真程序。<br><a id="more"></a></p>
-<h2 id="BPSK"><a href="#BPSK" class="headerlink" title="BPSK"></a>BPSK</h2><p>首先来看最简单的二进制仿真，以 BPSK 为例，我们来看看如何搭建一个仿真仿真程序，从中得到些一般的仿真设置方法。</p>
-<p>在进行仿真之前，先看看我们期待需要得到的是什么——BPSK的误码率 Pe 随信噪比 SNR 的变化曲线，那么这个图像的横坐标就是信噪比，纵坐标就是误码率。这里面还有一个问题需要提前考虑，老师也在上课的时候强调过让我们去思考，即 SNR 和 $\frac{E_b}{N_0}$ 的关系，我们的结论是 $SNR=2\frac{E_b}{N_0}$，这里面有一个<strong>从带通等效到低通的过程，同时把基带波形的因素也进行一般化</strong>，具体的我只是有一个模糊的概念，等我真的理解了，有机会再来补上吧。最终我们要画的就是 Pe 随 $\frac{E_b}{N_0}$ 的变化曲线。</p>
-<p>这里直接给出理论值计算公式，具体推导并不复杂。<br>$$<br>P_e=\frac{1}{2}erfc(\frac{E_b}{N_0})<br>$$</p>
-<p>接下来的问题在于我们如何通过 $\frac{E_b}{N_0}$ 定量描述噪声和信号的大小，在仿真中我们需要实际比较噪声和信号幅度的大小确定最终的判定结果。</p>
-<p>先来看一个比较笨的办法，这个办法并不具有一般性，它没有使用到一个特别重要的东西——<strong>星座图</strong>，后续我会利用星座图给出一个更加简单的方法。考虑如下这个公式：<br>$$<br>SNR = \frac{P_s}{P_n}=\frac{E_b/T_s}{N_0\cdot B}\times log_2(M)=\frac{E_b}{N_0}=\frac{a^2}{2\sigma^2}<br>$$</p>
-<p>信号幅度a=1，则立即可以得到噪声功率</p>
-<p>$$<br>\sigma^2=\frac{1}{2E_b/N_0}<br>$$</p>
-<p>BPSK 的基带信号是双极性的，用 -1 和 +1 来表示两种不同极性的信号，前面已经得到噪声的功率，那么信号加上噪声幅度就得到接收信号。这就是关键之处，确定信号和噪声的定量关系，已经噪声该如何加到信号上，明白了这个，其余都很简单。最终我们可以得到如下的代码：</p>
-<figure class="highlight matlab"><figcaption><span>BPSK.m</span><a href="/downloads/code/BPSK.m">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line">EbN0dB = <span class="number">0</span>:<span class="number">1</span>:<span class="number">10</span>;</span><br><span class="line">EbN0 = <span class="number">10.</span>^(EbN0dB/<span class="number">10</span>);</span><br><span class="line">N = <span class="number">2</span>*<span class="number">10</span>^<span class="number">6</span>;                     <span class="comment">% 发送比特数即码元数</span></span><br><span class="line">Pb = <span class="number">0.5</span>*<span class="built_in">erfc</span>(<span class="built_in">sqrt</span>(EbN0));      <span class="comment">% 理论值</span></span><br><span class="line">ber = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB)); <span class="comment">% 仿真误码率 预分配</span></span><br><span class="line">a = <span class="built_in">sign</span>(<span class="built_in">randn</span>(<span class="number">1</span>, N));          <span class="comment">% 基带信号</span></span><br><span class="line">noise = <span class="built_in">randn</span>(<span class="number">1</span>, N);            <span class="comment">% 标准噪声</span></span><br><span class="line">sigma = <span class="built_in">sqrt</span>(<span class="number">1.</span>/EbN0/<span class="number">2</span>);        <span class="comment">% 噪声功率</span></span><br><span class="line"><span class="keyword">for</span> n = <span class="number">1</span>:<span class="built_in">length</span>(EbN0dB)</span><br><span class="line">    rk = a + sigma(n)*noise;    <span class="comment">% 加噪声得到接收信号</span></span><br><span class="line">    dec_a = <span class="built_in">sign</span>(rk);           <span class="comment">% 判决</span></span><br><span class="line">    ber(n) = sum(<span class="built_in">abs</span>(a-dec_a)/<span class="number">2</span>)/<span class="built_in">length</span>(a);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">semilogy(EbN0dB, Pb, <span class="string">'LineWidth'</span>, <span class="number">1</span>);</span><br><span class="line">hold on;</span><br><span class="line">semilogy(EbN0dB, ber, <span class="string">'rd'</span>);</span><br><span class="line">legend(<span class="string">'理论结果'</span>, <span class="string">'仿真结果'</span>)</span><br><span class="line">xlabel(<span class="string">'\itE_b/N_0\rm(dB)'</span>); ylabel(<span class="string">'Pb'</span>);</span><br><span class="line">title(<span class="string">'BPSK误码率仿真'</span>)</span><br><span class="line">grid on</span><br></pre></td></tr></table></figure>
-<p>得到的结果如下所示：</p>
-<img src="/2020/05/ber-and-ser-of-PSK-and-QAM/BPSK.png" title="BPSK 仿真结果">
-<p>第二种方法更具有一般性，理解了它，其他调制方式也是一样的可以实现。这需要星座图的帮助，通过星座图，我们可以得到最小欧式距离和平均比特能量的关系。在 BPSK 中，有<br>$$<br>d_{min}=\sqrt{4E_b}<br>$$</p>
-<p>同时，$\frac{d_{min}}{2}$ 也正是信号的幅度，令 $d_{min}=2$，则信号的幅度为 $a=1$，由 $\frac{E_b}{N_0}$ 和 $d_{min}$ 与 $E_b$ 的关系，我们可以得到<br>$$<br>N_0=\frac{E_b}{E_b/N_0}=\frac{d_{min}^2}{4}\cdot\frac{1}{E_b/N_0}<br>$$</p>
-<p>那么噪声功率就是$\sigma^2=\frac{N_0}{2}$。然后按照第一种方法的思路去编写仿真程序即可，非常简单。再来说说它的通用性，使用星座图仿真 AWGN 信道下的调制方式，我们首先需要确定最小欧式距离和平均比特能量的关系，然后得到噪声功率即可，这样就可以得到信号和噪声的定量关系，进行仿真即可。</p>
-<h2 id="QPSK"><a href="#QPSK" class="headerlink" title="QPSK"></a>QPSK</h2><p>利用上面提到的具有一般性的方式，我们需要使用星座图，QPSK有如下两种星座图形式：</p>
-<img src="/2020/05/ber-and-ser-of-PSK-and-QAM/QPSKConstellation.png" title="QPSK 的两种星座图">
-<p>以第一种左边的星座图为例，说明仿真过程。对于 MPSK 调制，最小欧式距离为：<br>$$<br>d_{min}=2\sqrt{(log_2M\times sin^2\frac{\pi}{M})\varepsilon_b}<br>$$<br>在 QPSK 中，M=4，则 $d_{min}=2\sqrt{\varepsilon_b}$。注意到这和之前的 BPSK 不一样，我们可以将 QPSK 看作两路正交的相位调制叠加。仿真中我们令 $d_{min}=2$，则$\varepsilon =1$，进而可以得到两路信号的幅度都是1，同时还可以确定噪声功率为 $\sigma^2 = \frac{1}{2SNR}$。按照上面的仿真思路我们很容易可以写出代码，最终得到的图形如下所示。</p>
-<h2 id="16QAM-和-16PSK"><a href="#16QAM-和-16PSK" class="headerlink" title="16QAM 和 16PSK"></a>16QAM 和 16PSK</h2><p>同理，对16QAM和16PSK也是一样的道理，只不过星座点映射在代码实现上会稍稍复杂一点。分析 16QAM 可以将它看作两路正交的 4PAM 信号的叠加，其余分析方法和上面完全相同。16PSK 就更加简单了，不多说，直接给出代码和最终的波形图，如下所示。</p>
-<img src="/2020/05/ber-and-ser-of-PSK-and-QAM/QAMandPSK.jpg" title="16QAM和16PSK仿真结果">
-<figure class="highlight matlab"><figcaption><span>QAMandPSK.m</span><a href="/downloads/code/QAMandPSK.m">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line">clear all;</span><br><span class="line">close all;</span><br><span class="line">clc;</span><br><span class="line"></span><br><span class="line">EbN0dB = <span class="number">0</span>:<span class="number">1</span>:<span class="number">15</span>;</span><br><span class="line">EbN0 = <span class="number">10.</span>^(EbN0dB/<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">M = <span class="number">16</span>; <span class="comment">% 16 QAM</span></span><br><span class="line">N = <span class="number">64</span>; <span class="comment">% 64 QAM</span></span><br><span class="line"><span class="comment">%% 16QAM 64QAM theory</span></span><br><span class="line">Pe_16_help = <span class="number">2</span>*(<span class="number">1</span><span class="number">-1</span>/<span class="built_in">sqrt</span>(M))*qfunc(<span class="built_in">sqrt</span>(<span class="number">3</span>*<span class="built_in">log2</span>(M)*EbN0/(M<span class="number">-1</span>)));</span><br><span class="line">Pe_16 = <span class="number">1</span>- (<span class="number">1</span> - Pe_16_help).^<span class="number">2</span>;</span><br><span class="line">Pb_16 = Pe_16 / <span class="number">4</span>;</span><br><span class="line">Pe_64_help = <span class="number">2</span>*(<span class="number">1</span><span class="number">-1</span>/<span class="built_in">sqrt</span>(N))*qfunc(<span class="built_in">sqrt</span>(<span class="number">3</span>*<span class="built_in">log2</span>(N)*EbN0/(N<span class="number">-1</span>)));</span><br><span class="line">Pe_64 = <span class="number">1</span>- (<span class="number">1</span> - Pe_64_help).^<span class="number">2</span>;</span><br><span class="line"><span class="comment">%% 16PSK theory</span></span><br><span class="line">Pe_theory_PSK = <span class="number">2</span>*qfunc(<span class="built_in">sin</span>(<span class="built_in">pi</span>/M)*<span class="built_in">sqrt</span>(<span class="number">2</span>*<span class="built_in">log2</span>(M)*EbN0));</span><br><span class="line"><span class="comment">%% theory plot</span></span><br><span class="line">semilogy(EbN0dB, Pe_16, <span class="string">'LineWidth'</span>, <span class="number">1</span>)</span><br><span class="line">hold on</span><br><span class="line"><span class="comment">% semilogy(EbN0dB, Pe_64)</span></span><br><span class="line"><span class="comment">% hold on</span></span><br><span class="line">semilogy(EbN0dB, Pe_theory_PSK, <span class="string">'k'</span>, <span class="string">'LineWidth'</span>, <span class="number">1</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, Pb_16, <span class="string">'c'</span>, <span class="string">'LineWidth'</span>, <span class="number">1</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, Pe_theory_PSK / <span class="number">4</span>, <span class="string">'g'</span>, <span class="string">'LineWidth'</span>, <span class="number">1</span>)</span><br><span class="line">grid on</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'\it{E_b/N_0} \rm(dB)'</span>)</span><br><span class="line">ylabel(<span class="string">'P_b and P_e'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">% 16QAM 仿真</span></span><br><span class="line"><span class="comment">% 格雷码映射表</span></span><br><span class="line">gray_code_table = [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>; % <span class="number">0</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;  % <span class="number">1</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>;  % <span class="number">2</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>;  % <span class="number">3</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span>;  % <span class="number">4</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span>;  % <span class="number">5</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>;  % <span class="number">6</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>;  % <span class="number">7</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span>;  % <span class="number">8</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span>;  % <span class="number">9</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span>;  % <span class="number">10</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span>;  % <span class="number">11</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span>;  % <span class="number">12</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span>;  % <span class="number">13</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>;  % <span class="number">14</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>;];<span class="comment">% 15</span></span><br><span class="line"><span class="comment">% 星座点位置表 16QAM</span></span><br><span class="line">star_table_1 = [<span class="number">-1</span>*(<span class="number">-3</span>:<span class="number">2</span>:<span class="number">3</span>) (<span class="number">-3</span>:<span class="number">2</span>:<span class="number">3</span>) <span class="number">-1</span>*(<span class="number">-3</span>:<span class="number">2</span>:<span class="number">3</span>) (<span class="number">-3</span>:<span class="number">2</span>:<span class="number">3</span>)];</span><br><span class="line">star_table_2 = [ones(<span class="number">1</span>, <span class="number">4</span>)*<span class="number">3</span> ones(<span class="number">1</span>, <span class="number">4</span>) <span class="number">-1</span>*ones(<span class="number">1</span>,<span class="number">4</span>) <span class="number">-3</span>*ones(<span class="number">1</span>,<span class="number">4</span>)];</span><br><span class="line">star_table = [star_table_1<span class="string">' star_table_2'</span>];</span><br><span class="line">star_table_T = star_table';</span><br><span class="line">table_used = <span class="built_in">reshape</span>(star_table_T, <span class="number">1</span>, M*<span class="number">2</span>);</span><br><span class="line"><span class="comment">% 星座点位置表 16PSK</span></span><br><span class="line">phase = <span class="number">0</span>:<span class="number">2</span>*<span class="built_in">pi</span>/M:(<span class="number">2</span>*<span class="built_in">pi</span><span class="number">-2</span>*<span class="built_in">pi</span>/M);</span><br><span class="line">PSK16StarTable = [cos(phase);</span><br><span class="line">                  sin(phase)];</span><br><span class="line">PSK_table_used = <span class="built_in">reshape</span>(PSK16StarTable, M*<span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">% 基带信号</span></span><br><span class="line">N = <span class="number">4</span>*<span class="number">10</span>^<span class="number">4</span>; <span class="comment">% bit数</span></span><br><span class="line">base = (<span class="built_in">sign</span>(<span class="built_in">randn</span>(<span class="number">1</span>, N)) + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">mid_modul = <span class="built_in">reshape</span>(base, [<span class="number">4</span> N/<span class="number">4</span>]);</span><br><span class="line">mid_modul = mid_modul';</span><br><span class="line"><span class="comment">% 映射到星座点上 QAM 和 QPSK</span></span><br><span class="line">modulSignalPosi = <span class="built_in">zeros</span>(N/<span class="number">4</span>, <span class="number">2</span>);</span><br><span class="line">PSK_modulSignalPosi = <span class="built_in">zeros</span>(<span class="number">2</span>, N/<span class="number">4</span>);</span><br><span class="line"><span class="keyword">for</span> symbol = <span class="number">1</span>:N/<span class="number">4</span></span><br><span class="line">    dude = gray2int(mid_modul(symbol, :)) + <span class="number">1</span>;</span><br><span class="line">    modulSignalPosi(symbol, :) = star_table(dude, :);</span><br><span class="line">    PSK_modulSignalPosi(:, symbol) = PSK16StarTable(:, dude);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% 噪声</span></span><br><span class="line">sigma = <span class="built_in">sqrt</span>(<span class="number">4</span>*(M<span class="number">-1</span>)/<span class="number">6</span>/<span class="built_in">log2</span>(M)./EbN0/<span class="number">2</span>);</span><br><span class="line">PSK_sigma = <span class="built_in">sqrt</span>(<span class="number">1</span>/<span class="built_in">log2</span>(M)./EbN0/<span class="number">2</span>);</span><br><span class="line"><span class="comment">% 过信道 解调 求信噪比</span></span><br><span class="line">be = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB));</span><br><span class="line">se = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB));</span><br><span class="line">PSK_be = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB));</span><br><span class="line">PSK_se = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB));</span><br><span class="line"><span class="keyword">for</span> index = <span class="number">1</span>:<span class="built_in">length</span>(EbN0dB)</span><br><span class="line">    <span class="comment">% 加噪声</span></span><br><span class="line">    reciPosi = modulSignalPosi + sigma(index) * <span class="built_in">randn</span>(N/<span class="number">4</span>, <span class="number">2</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% 最小距离解调 QAM</span></span><br><span class="line">    distanceMid = <span class="built_in">repmat</span>(reciPosi, [<span class="number">1</span> M]) - <span class="built_in">repmat</span>(table_used, N/<span class="number">4</span>, <span class="number">1</span>);</span><br><span class="line">    distanceMid = distanceMid.^<span class="number">2</span>;</span><br><span class="line">    distance = distanceMid(:, <span class="number">1</span>:<span class="number">2</span>:(M*<span class="number">2</span><span class="number">-1</span>)) + distanceMid(:, <span class="number">2</span>:<span class="number">2</span>:(M*<span class="number">2</span>));</span><br><span class="line">    distance = distance';</span><br><span class="line">    <span class="comment">% decodePosi 即为解调结果对应gray_code_table的位置</span></span><br><span class="line">    [~, decodePosi] = min(distance);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% 解调结果映射到基带 QAM</span></span><br><span class="line">    toBaseGray = gray_code_table(decodePosi, :);</span><br><span class="line">    toBaseSignal = <span class="built_in">reshape</span>(toBaseGray', <span class="number">1</span>, N);</span><br><span class="line">    be(index) = sum(<span class="built_in">abs</span>(base-toBaseSignal));</span><br><span class="line">    se_posi = double(mid_modul ~= toBaseGray);</span><br><span class="line">    se(index) = sum(<span class="built_in">sign</span>(sum(se_posi, <span class="number">2</span>)));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% PSK</span></span><br><span class="line">    PSK_reciPosi = PSK_modulSignalPosi + PSK_sigma(index) * <span class="built_in">randn</span>(<span class="number">2</span>, N/<span class="number">4</span>);</span><br><span class="line">    </span><br><span class="line">    PSK_distanceMid = <span class="built_in">repmat</span>(PSK_reciPosi, [M <span class="number">1</span>]) - <span class="built_in">repmat</span>(PSK_table_used, [<span class="number">1</span> N/<span class="number">4</span>]);</span><br><span class="line">    PSK_distanceMid = PSK_distanceMid.^<span class="number">2</span>;</span><br><span class="line">    PSK_distance = PSK_distanceMid(<span class="number">1</span>:<span class="number">2</span>:(M*<span class="number">2</span><span class="number">-1</span>), :) + PSK_distanceMid(<span class="number">2</span>:<span class="number">2</span>:(M*<span class="number">2</span>), :);</span><br><span class="line">    [~, PSK_decodePosi] = min(PSK_distance);</span><br><span class="line">    </span><br><span class="line">    PSK_toBaseGray = gray_code_table(PSK_decodePosi, :);</span><br><span class="line">    PSK_toBaseSignal = <span class="built_in">reshape</span>(PSK_toBaseGray', <span class="number">1</span>, N);</span><br><span class="line">    PSK_be(index) = sum(<span class="built_in">abs</span>(base-PSK_toBaseSignal));</span><br><span class="line">    PSK_se_posi = double(mid_modul ~= PSK_toBaseGray);</span><br><span class="line">    PSK_se(index) = sum(<span class="built_in">sign</span>(sum(PSK_se_posi, <span class="number">2</span>)));</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">semilogy(EbN0dB, se/N*<span class="number">4</span>, <span class="string">'v'</span>, <span class="string">'MarkerEdgeColor'</span>, <span class="string">'r'</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, be/N, <span class="string">'*'</span>, <span class="string">'MarkerEdgeColor'</span>, <span class="string">'r'</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, PSK_se/N*<span class="number">4</span>, <span class="string">'^'</span>, <span class="string">'MarkerEdgeColor'</span>, <span class="string">'m'</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, PSK_be/N, <span class="string">'*'</span>, <span class="string">'MarkerEdgeColor'</span>, <span class="string">'m'</span>)</span><br><span class="line">legend(<span class="string">'16QAM理论误码率'</span>, <span class="string">'16PSK理论误码率'</span>, <span class="string">'16QAM理论误比特率'</span>,  <span class="string">'16PSK理论误比特率'</span>, ...</span><br><span class="line">    <span class="string">'16QAM仿真误码率'</span>, <span class="string">'16QAM仿真误比特率'</span>, <span class="string">'16PSK仿真误码率'</span>, <span class="string">'16PSK仿真误比特率'</span>)</span><br><span class="line">title(<span class="string">'16QAM and 16PSK'</span>)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MATLAB</tag>
-        <tag>通信</tag>
       </tags>
   </entry>
   <entry>
@@ -1491,6 +1434,31 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>LeetCode | 61 旋转链表</title>
+    <url>/2020/05/rotate-LinkedList-rightly/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
+<li>输入：<code>1-&gt;2-&gt;3-&gt;4-&gt;5</code>，<code>k=2</code></li>
+<li>输出：<code>4-&gt;5-&gt;1-&gt;2-&gt;3</code></li>
+</ul>
+<a id="more"></a>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>题目名字叫旋转链表，其实就是循环移动。最简单的思路是：遍历链表找到尾节点的前一节点，然后把尾节点从头插入链表，对这个过程执行 k 次即可。这样做算法的时间复杂度为 <code>O(kn)</code>。考虑到是循环移动，我们可以对算法进行改进。</p>
+<p>首先考虑 <code>k</code> 小于链表长度的情况，链表循环向右移动 <code>k</code> 次，不就相当于把链表练成环，然后尾节点位置向左移动 <code>k</code> 次吗？下面这个图展示了这个过程。</p>
+<img src="/2020/05/rotate-LinkedList-rightly/illustration.png" title="循环移动">
+<p>对于 <code>k</code> 大于链表长度的情况，先构成环，沿着环一直移动就行。这种方法的问题在于我们需要逆向移动单链表的指针，即每次需要找到单链表前驱的前驱，这是很难做到的，但我们可以先行将单链表进行逆序，然后移动指针，确定最终的头尾节点后再把链表逆序回来即可。</p>
+<p>更进一步的，在环中逆序移动指针 <code>k</code> 次，就相当于顺序移动指针 <code>n-k</code> 次，其中 <code>n</code> 是链表的长度。基于这种想法，我们再加以改进，得到下面的解法。</p>
+<p>先把指针 <code>p</code> 从头向后移动到尾，直到循环移动的次数 <code>k==0</code>。在此过程中，如果 <code>p</code> 指向了空节点，说明到了链表尾部，<code>k</code> 大于链表的长度，这时候我们可以利用循环的特点，对链表的长度减一值进行取模运算，得到的值是我们需要再移动到位置。然后按照上述的方法进行指针移动即可。最终代码如下所示。</p>
+<figure class="highlight c"><figcaption><span>LeetCodeSolution61.c</span><a href="/downloads/code/LeetCodeSolution61.c">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function">ListNode *<span class="title">rotateRight</span><span class="params">(ListNode *head, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="literal">NULL</span> || k &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    ListNode *pre, *last, *p;</span><br><span class="line">    ListNode tmpNode;</span><br><span class="line">    tmpNode.next = head;</span><br><span class="line">    last = &amp;tmpNode;</span><br><span class="line">    p = head;</span><br><span class="line">    <span class="keyword">int</span> ak = k;</span><br><span class="line">    <span class="keyword">while</span> (k &gt; <span class="number">0</span>){</span><br><span class="line">        <span class="comment">// 滑动指针来代替循环</span></span><br><span class="line">        <span class="keyword">if</span> (p == <span class="literal">NULL</span>) {</span><br><span class="line">            <span class="keyword">int</span> tmp = ak - k;</span><br><span class="line">            pre = &amp;tmpNode;</span><br><span class="line">            p = head;</span><br><span class="line">            k = ak % tmp;</span><br><span class="line">            <span class="keyword">if</span> (k == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">        pre = p;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        k--;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span>) {</span><br><span class="line">        last = last-&gt;next;</span><br><span class="line">        pre = p;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> (last != &amp;tmpNode) {</span><br><span class="line">        pre-&gt;next = head;</span><br><span class="line">        tmpNode.next = last-&gt;next;</span><br><span class="line">        last-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> tmpNode.next;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>A Distance Sensor Demo For Arduino</title>
     <url>/2020/06/distance-sensor-demo-for-arduino/</url>
     <content><![CDATA[<p>Distance sensor can be very useful in some conditons, such as obstacles detecting and avoiding. By using arduino, it’s very easy for us to use distance sensor. This demo show us a simple example to use distance sensor. For better display, we will use LCD1602 to show the distance. <strong>It’s modified from example in arduino.</strong><br><a id="more"></a></p>
@@ -1515,6 +1483,38 @@ proc complete_sim {} {...}
       <categories>
         <category>学习</category>
       </categories>
+  </entry>
+  <entry>
+    <title>MPSK 和 MQAM 的误码率仿真</title>
+    <url>/2020/05/ber-and-ser-of-PSK-and-QAM/</url>
+    <content><![CDATA[<p>拖延几日，不觉课程已结课几天了，在此趁着脑中还有些关于课程内容的印象，简单写一篇记录，关于如何使用MATLAB构建一个调制技术的仿真程序。<br><a id="more"></a></p>
+<h2 id="BPSK"><a href="#BPSK" class="headerlink" title="BPSK"></a>BPSK</h2><p>首先来看最简单的二进制仿真，以 BPSK 为例，我们来看看如何搭建一个仿真仿真程序，从中得到些一般的仿真设置方法。</p>
+<p>在进行仿真之前，先看看我们期待需要得到的是什么——BPSK的误码率 Pe 随信噪比 SNR 的变化曲线，那么这个图像的横坐标就是信噪比，纵坐标就是误码率。这里面还有一个问题需要提前考虑，老师也在上课的时候强调过让我们去思考，即 SNR 和 $\frac{E_b}{N_0}$ 的关系，我们的结论是 $SNR=2\frac{E_b}{N_0}$，这里面有一个<strong>从带通等效到低通的过程，同时把基带波形的因素也进行一般化</strong>，具体的我只是有一个模糊的概念，等我真的理解了，有机会再来补上吧。最终我们要画的就是 Pe 随 $\frac{E_b}{N_0}$ 的变化曲线。</p>
+<p>这里直接给出理论值计算公式，具体推导并不复杂。<br>$$<br>P_e=\frac{1}{2}erfc(\frac{E_b}{N_0})<br>$$</p>
+<p>接下来的问题在于我们如何通过 $\frac{E_b}{N_0}$ 定量描述噪声和信号的大小，在仿真中我们需要实际比较噪声和信号幅度的大小确定最终的判定结果。</p>
+<p>先来看一个比较笨的办法，这个办法并不具有一般性，它没有使用到一个特别重要的东西——<strong>星座图</strong>，后续我会利用星座图给出一个更加简单的方法。考虑如下这个公式：<br>$$<br>SNR = \frac{P_s}{P_n}=\frac{E_b/T_s}{N_0\cdot B}\times log_2(M)=\frac{E_b}{N_0}=\frac{a^2}{2\sigma^2}<br>$$</p>
+<p>信号幅度a=1，则立即可以得到噪声功率</p>
+<p>$$<br>\sigma^2=\frac{1}{2E_b/N_0}<br>$$</p>
+<p>BPSK 的基带信号是双极性的，用 -1 和 +1 来表示两种不同极性的信号，前面已经得到噪声的功率，那么信号加上噪声幅度就得到接收信号。这就是关键之处，确定信号和噪声的定量关系，已经噪声该如何加到信号上，明白了这个，其余都很简单。最终我们可以得到如下的代码：</p>
+<figure class="highlight matlab"><figcaption><span>BPSK.m</span><a href="/downloads/code/BPSK.m">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line">EbN0dB = <span class="number">0</span>:<span class="number">1</span>:<span class="number">10</span>;</span><br><span class="line">EbN0 = <span class="number">10.</span>^(EbN0dB/<span class="number">10</span>);</span><br><span class="line">N = <span class="number">2</span>*<span class="number">10</span>^<span class="number">6</span>;                     <span class="comment">% 发送比特数即码元数</span></span><br><span class="line">Pb = <span class="number">0.5</span>*<span class="built_in">erfc</span>(<span class="built_in">sqrt</span>(EbN0));      <span class="comment">% 理论值</span></span><br><span class="line">ber = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB)); <span class="comment">% 仿真误码率 预分配</span></span><br><span class="line">a = <span class="built_in">sign</span>(<span class="built_in">randn</span>(<span class="number">1</span>, N));          <span class="comment">% 基带信号</span></span><br><span class="line">noise = <span class="built_in">randn</span>(<span class="number">1</span>, N);            <span class="comment">% 标准噪声</span></span><br><span class="line">sigma = <span class="built_in">sqrt</span>(<span class="number">1.</span>/EbN0/<span class="number">2</span>);        <span class="comment">% 噪声功率</span></span><br><span class="line"><span class="keyword">for</span> n = <span class="number">1</span>:<span class="built_in">length</span>(EbN0dB)</span><br><span class="line">    rk = a + sigma(n)*noise;    <span class="comment">% 加噪声得到接收信号</span></span><br><span class="line">    dec_a = <span class="built_in">sign</span>(rk);           <span class="comment">% 判决</span></span><br><span class="line">    ber(n) = sum(<span class="built_in">abs</span>(a-dec_a)/<span class="number">2</span>)/<span class="built_in">length</span>(a);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">semilogy(EbN0dB, Pb, <span class="string">'LineWidth'</span>, <span class="number">1</span>);</span><br><span class="line">hold on;</span><br><span class="line">semilogy(EbN0dB, ber, <span class="string">'rd'</span>);</span><br><span class="line">legend(<span class="string">'理论结果'</span>, <span class="string">'仿真结果'</span>)</span><br><span class="line">xlabel(<span class="string">'\itE_b/N_0\rm(dB)'</span>); ylabel(<span class="string">'Pb'</span>);</span><br><span class="line">title(<span class="string">'BPSK误码率仿真'</span>)</span><br><span class="line">grid on</span><br></pre></td></tr></table></figure>
+<p>得到的结果如下所示：</p>
+<img src="/2020/05/ber-and-ser-of-PSK-and-QAM/BPSK.png" title="BPSK 仿真结果">
+<p>第二种方法更具有一般性，理解了它，其他调制方式也是一样的可以实现。这需要星座图的帮助，通过星座图，我们可以得到最小欧式距离和平均比特能量的关系。在 BPSK 中，有<br>$$<br>d_{min}=\sqrt{4E_b}<br>$$</p>
+<p>同时，$\frac{d_{min}}{2}$ 也正是信号的幅度，令 $d_{min}=2$，则信号的幅度为 $a=1$，由 $\frac{E_b}{N_0}$ 和 $d_{min}$ 与 $E_b$ 的关系，我们可以得到<br>$$<br>N_0=\frac{E_b}{E_b/N_0}=\frac{d_{min}^2}{4}\cdot\frac{1}{E_b/N_0}<br>$$</p>
+<p>那么噪声功率就是$\sigma^2=\frac{N_0}{2}$。然后按照第一种方法的思路去编写仿真程序即可，非常简单。再来说说它的通用性，使用星座图仿真 AWGN 信道下的调制方式，我们首先需要确定最小欧式距离和平均比特能量的关系，然后得到噪声功率即可，这样就可以得到信号和噪声的定量关系，进行仿真即可。</p>
+<h2 id="QPSK"><a href="#QPSK" class="headerlink" title="QPSK"></a>QPSK</h2><p>利用上面提到的具有一般性的方式，我们需要使用星座图，QPSK有如下两种星座图形式：</p>
+<img src="/2020/05/ber-and-ser-of-PSK-and-QAM/QPSKConstellation.png" title="QPSK 的两种星座图">
+<p>以第一种左边的星座图为例，说明仿真过程。对于 MPSK 调制，最小欧式距离为：<br>$$<br>d_{min}=2\sqrt{(log_2M\times sin^2\frac{\pi}{M})\varepsilon_b}<br>$$<br>在 QPSK 中，M=4，则 $d_{min}=2\sqrt{\varepsilon_b}$。注意到这和之前的 BPSK 不一样，我们可以将 QPSK 看作两路正交的相位调制叠加。仿真中我们令 $d_{min}=2$，则$\varepsilon =1$，进而可以得到两路信号的幅度都是1，同时还可以确定噪声功率为 $\sigma^2 = \frac{1}{2SNR}$。按照上面的仿真思路我们很容易可以写出代码，最终得到的图形如下所示。</p>
+<h2 id="16QAM-和-16PSK"><a href="#16QAM-和-16PSK" class="headerlink" title="16QAM 和 16PSK"></a>16QAM 和 16PSK</h2><p>同理，对16QAM和16PSK也是一样的道理，只不过星座点映射在代码实现上会稍稍复杂一点。分析 16QAM 可以将它看作两路正交的 4PAM 信号的叠加，其余分析方法和上面完全相同。16PSK 就更加简单了，不多说，直接给出代码和最终的波形图，如下所示。</p>
+<img src="/2020/05/ber-and-ser-of-PSK-and-QAM/QAMandPSK.jpg" title="16QAM和16PSK仿真结果">
+<figure class="highlight matlab"><figcaption><span>QAMandPSK.m</span><a href="/downloads/code/QAMandPSK.m">view raw</a></figcaption><table><tr><td class="code"><pre><span class="line">clear all;</span><br><span class="line">close all;</span><br><span class="line">clc;</span><br><span class="line"></span><br><span class="line">EbN0dB = <span class="number">0</span>:<span class="number">1</span>:<span class="number">15</span>;</span><br><span class="line">EbN0 = <span class="number">10.</span>^(EbN0dB/<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">M = <span class="number">16</span>; <span class="comment">% 16 QAM</span></span><br><span class="line">N = <span class="number">64</span>; <span class="comment">% 64 QAM</span></span><br><span class="line"><span class="comment">%% 16QAM 64QAM theory</span></span><br><span class="line">Pe_16_help = <span class="number">2</span>*(<span class="number">1</span><span class="number">-1</span>/<span class="built_in">sqrt</span>(M))*qfunc(<span class="built_in">sqrt</span>(<span class="number">3</span>*<span class="built_in">log2</span>(M)*EbN0/(M<span class="number">-1</span>)));</span><br><span class="line">Pe_16 = <span class="number">1</span>- (<span class="number">1</span> - Pe_16_help).^<span class="number">2</span>;</span><br><span class="line">Pb_16 = Pe_16 / <span class="number">4</span>;</span><br><span class="line">Pe_64_help = <span class="number">2</span>*(<span class="number">1</span><span class="number">-1</span>/<span class="built_in">sqrt</span>(N))*qfunc(<span class="built_in">sqrt</span>(<span class="number">3</span>*<span class="built_in">log2</span>(N)*EbN0/(N<span class="number">-1</span>)));</span><br><span class="line">Pe_64 = <span class="number">1</span>- (<span class="number">1</span> - Pe_64_help).^<span class="number">2</span>;</span><br><span class="line"><span class="comment">%% 16PSK theory</span></span><br><span class="line">Pe_theory_PSK = <span class="number">2</span>*qfunc(<span class="built_in">sin</span>(<span class="built_in">pi</span>/M)*<span class="built_in">sqrt</span>(<span class="number">2</span>*<span class="built_in">log2</span>(M)*EbN0));</span><br><span class="line"><span class="comment">%% theory plot</span></span><br><span class="line">semilogy(EbN0dB, Pe_16, <span class="string">'LineWidth'</span>, <span class="number">1</span>)</span><br><span class="line">hold on</span><br><span class="line"><span class="comment">% semilogy(EbN0dB, Pe_64)</span></span><br><span class="line"><span class="comment">% hold on</span></span><br><span class="line">semilogy(EbN0dB, Pe_theory_PSK, <span class="string">'k'</span>, <span class="string">'LineWidth'</span>, <span class="number">1</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, Pb_16, <span class="string">'c'</span>, <span class="string">'LineWidth'</span>, <span class="number">1</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, Pe_theory_PSK / <span class="number">4</span>, <span class="string">'g'</span>, <span class="string">'LineWidth'</span>, <span class="number">1</span>)</span><br><span class="line">grid on</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'\it{E_b/N_0} \rm(dB)'</span>)</span><br><span class="line">ylabel(<span class="string">'P_b and P_e'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">% 16QAM 仿真</span></span><br><span class="line"><span class="comment">% 格雷码映射表</span></span><br><span class="line">gray_code_table = [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>; % <span class="number">0</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;  % <span class="number">1</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>;  % <span class="number">2</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>;  % <span class="number">3</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span>;  % <span class="number">4</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span>;  % <span class="number">5</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>;  % <span class="number">6</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>;  % <span class="number">7</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span>;  % <span class="number">8</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span>;  % <span class="number">9</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span>;  % <span class="number">10</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span>;  % <span class="number">11</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span>;  % <span class="number">12</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span>;  % <span class="number">13</span></span><br><span class="line">                  <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>;  % <span class="number">14</span></span><br><span class="line">                  <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>;];<span class="comment">% 15</span></span><br><span class="line"><span class="comment">% 星座点位置表 16QAM</span></span><br><span class="line">star_table_1 = [<span class="number">-1</span>*(<span class="number">-3</span>:<span class="number">2</span>:<span class="number">3</span>) (<span class="number">-3</span>:<span class="number">2</span>:<span class="number">3</span>) <span class="number">-1</span>*(<span class="number">-3</span>:<span class="number">2</span>:<span class="number">3</span>) (<span class="number">-3</span>:<span class="number">2</span>:<span class="number">3</span>)];</span><br><span class="line">star_table_2 = [ones(<span class="number">1</span>, <span class="number">4</span>)*<span class="number">3</span> ones(<span class="number">1</span>, <span class="number">4</span>) <span class="number">-1</span>*ones(<span class="number">1</span>,<span class="number">4</span>) <span class="number">-3</span>*ones(<span class="number">1</span>,<span class="number">4</span>)];</span><br><span class="line">star_table = [star_table_1<span class="string">' star_table_2'</span>];</span><br><span class="line">star_table_T = star_table';</span><br><span class="line">table_used = <span class="built_in">reshape</span>(star_table_T, <span class="number">1</span>, M*<span class="number">2</span>);</span><br><span class="line"><span class="comment">% 星座点位置表 16PSK</span></span><br><span class="line">phase = <span class="number">0</span>:<span class="number">2</span>*<span class="built_in">pi</span>/M:(<span class="number">2</span>*<span class="built_in">pi</span><span class="number">-2</span>*<span class="built_in">pi</span>/M);</span><br><span class="line">PSK16StarTable = [cos(phase);</span><br><span class="line">                  sin(phase)];</span><br><span class="line">PSK_table_used = <span class="built_in">reshape</span>(PSK16StarTable, M*<span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">% 基带信号</span></span><br><span class="line">N = <span class="number">4</span>*<span class="number">10</span>^<span class="number">4</span>; <span class="comment">% bit数</span></span><br><span class="line">base = (<span class="built_in">sign</span>(<span class="built_in">randn</span>(<span class="number">1</span>, N)) + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">mid_modul = <span class="built_in">reshape</span>(base, [<span class="number">4</span> N/<span class="number">4</span>]);</span><br><span class="line">mid_modul = mid_modul';</span><br><span class="line"><span class="comment">% 映射到星座点上 QAM 和 QPSK</span></span><br><span class="line">modulSignalPosi = <span class="built_in">zeros</span>(N/<span class="number">4</span>, <span class="number">2</span>);</span><br><span class="line">PSK_modulSignalPosi = <span class="built_in">zeros</span>(<span class="number">2</span>, N/<span class="number">4</span>);</span><br><span class="line"><span class="keyword">for</span> symbol = <span class="number">1</span>:N/<span class="number">4</span></span><br><span class="line">    dude = gray2int(mid_modul(symbol, :)) + <span class="number">1</span>;</span><br><span class="line">    modulSignalPosi(symbol, :) = star_table(dude, :);</span><br><span class="line">    PSK_modulSignalPosi(:, symbol) = PSK16StarTable(:, dude);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% 噪声</span></span><br><span class="line">sigma = <span class="built_in">sqrt</span>(<span class="number">4</span>*(M<span class="number">-1</span>)/<span class="number">6</span>/<span class="built_in">log2</span>(M)./EbN0/<span class="number">2</span>);</span><br><span class="line">PSK_sigma = <span class="built_in">sqrt</span>(<span class="number">1</span>/<span class="built_in">log2</span>(M)./EbN0/<span class="number">2</span>);</span><br><span class="line"><span class="comment">% 过信道 解调 求信噪比</span></span><br><span class="line">be = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB));</span><br><span class="line">se = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB));</span><br><span class="line">PSK_be = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB));</span><br><span class="line">PSK_se = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">length</span>(EbN0dB));</span><br><span class="line"><span class="keyword">for</span> index = <span class="number">1</span>:<span class="built_in">length</span>(EbN0dB)</span><br><span class="line">    <span class="comment">% 加噪声</span></span><br><span class="line">    reciPosi = modulSignalPosi + sigma(index) * <span class="built_in">randn</span>(N/<span class="number">4</span>, <span class="number">2</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% 最小距离解调 QAM</span></span><br><span class="line">    distanceMid = <span class="built_in">repmat</span>(reciPosi, [<span class="number">1</span> M]) - <span class="built_in">repmat</span>(table_used, N/<span class="number">4</span>, <span class="number">1</span>);</span><br><span class="line">    distanceMid = distanceMid.^<span class="number">2</span>;</span><br><span class="line">    distance = distanceMid(:, <span class="number">1</span>:<span class="number">2</span>:(M*<span class="number">2</span><span class="number">-1</span>)) + distanceMid(:, <span class="number">2</span>:<span class="number">2</span>:(M*<span class="number">2</span>));</span><br><span class="line">    distance = distance';</span><br><span class="line">    <span class="comment">% decodePosi 即为解调结果对应gray_code_table的位置</span></span><br><span class="line">    [~, decodePosi] = min(distance);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% 解调结果映射到基带 QAM</span></span><br><span class="line">    toBaseGray = gray_code_table(decodePosi, :);</span><br><span class="line">    toBaseSignal = <span class="built_in">reshape</span>(toBaseGray', <span class="number">1</span>, N);</span><br><span class="line">    be(index) = sum(<span class="built_in">abs</span>(base-toBaseSignal));</span><br><span class="line">    se_posi = double(mid_modul ~= toBaseGray);</span><br><span class="line">    se(index) = sum(<span class="built_in">sign</span>(sum(se_posi, <span class="number">2</span>)));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% PSK</span></span><br><span class="line">    PSK_reciPosi = PSK_modulSignalPosi + PSK_sigma(index) * <span class="built_in">randn</span>(<span class="number">2</span>, N/<span class="number">4</span>);</span><br><span class="line">    </span><br><span class="line">    PSK_distanceMid = <span class="built_in">repmat</span>(PSK_reciPosi, [M <span class="number">1</span>]) - <span class="built_in">repmat</span>(PSK_table_used, [<span class="number">1</span> N/<span class="number">4</span>]);</span><br><span class="line">    PSK_distanceMid = PSK_distanceMid.^<span class="number">2</span>;</span><br><span class="line">    PSK_distance = PSK_distanceMid(<span class="number">1</span>:<span class="number">2</span>:(M*<span class="number">2</span><span class="number">-1</span>), :) + PSK_distanceMid(<span class="number">2</span>:<span class="number">2</span>:(M*<span class="number">2</span>), :);</span><br><span class="line">    [~, PSK_decodePosi] = min(PSK_distance);</span><br><span class="line">    </span><br><span class="line">    PSK_toBaseGray = gray_code_table(PSK_decodePosi, :);</span><br><span class="line">    PSK_toBaseSignal = <span class="built_in">reshape</span>(PSK_toBaseGray', <span class="number">1</span>, N);</span><br><span class="line">    PSK_be(index) = sum(<span class="built_in">abs</span>(base-PSK_toBaseSignal));</span><br><span class="line">    PSK_se_posi = double(mid_modul ~= PSK_toBaseGray);</span><br><span class="line">    PSK_se(index) = sum(<span class="built_in">sign</span>(sum(PSK_se_posi, <span class="number">2</span>)));</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">semilogy(EbN0dB, se/N*<span class="number">4</span>, <span class="string">'v'</span>, <span class="string">'MarkerEdgeColor'</span>, <span class="string">'r'</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, be/N, <span class="string">'*'</span>, <span class="string">'MarkerEdgeColor'</span>, <span class="string">'r'</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, PSK_se/N*<span class="number">4</span>, <span class="string">'^'</span>, <span class="string">'MarkerEdgeColor'</span>, <span class="string">'m'</span>)</span><br><span class="line">hold on</span><br><span class="line">semilogy(EbN0dB, PSK_be/N, <span class="string">'*'</span>, <span class="string">'MarkerEdgeColor'</span>, <span class="string">'m'</span>)</span><br><span class="line">legend(<span class="string">'16QAM理论误码率'</span>, <span class="string">'16PSK理论误码率'</span>, <span class="string">'16QAM理论误比特率'</span>,  <span class="string">'16PSK理论误比特率'</span>, ...</span><br><span class="line">    <span class="string">'16QAM仿真误码率'</span>, <span class="string">'16QAM仿真误比特率'</span>, <span class="string">'16PSK仿真误码率'</span>, <span class="string">'16PSK仿真误比特率'</span>)</span><br><span class="line">title(<span class="string">'16QAM and 16PSK'</span>)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MATLAB</tag>
+        <tag>通信</tag>
+      </tags>
   </entry>
   <entry>
     <title>计算机网络课程报告</title>
@@ -1565,6 +1565,36 @@ proc complete_sim {} {...}
       </categories>
       <tags>
         <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>写在移动通信期末考试后</title>
+    <url>/2020/07/written-after-mobile-communications-final-exam/</url>
+    <content><![CDATA[<p>刚结束了今年的第一门专业课考试，不用感觉就知道考得稀烂，卷面约有 30 分没做完，折合下最终的成绩直接没了 18 分，这下可以考虑打破最低的考试课得分记录了——电路 76 分，我觉得很有希望。<br><a id="more"></a></p>
+<p>艰苦的 2020 过去一半了，我还呆在家，来不及感慨自己这半年来又是什么都没做，就得不认真地准备专业课考试，我从心里抵触考试，自然就不好好准备，以为也不过如此，拿到足够多的分数即可，但被现实告知，不会这么容易的，拿到想要的东西也得认真对待才行。</p>
+<p>刚结束了今年的第一门专业课考试，不用感觉就知道考得稀烂，卷面约有 30 分没做完，折合下最终的成绩直接没了 18 分，这下可以考虑打破最低的考试课得分记录了——电路 76 分，我觉得很有希望。</p>
+<p>问题出在了哪里？</p>
+<p>痛苦地承认自己真的不行？未免太过窝囊。好在这才刚刚开始，还有补救的机会，移动通信失去的东西，要在后面的天线原理和卫星通信上找回来，就像以前做的那样。</p>
+<p>希望一切好起来吧。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>结束了，我的大学前三年</title>
+    <url>/2020/07/the-end-of-my-first-three-years-of-university/</url>
+    <content><![CDATA[<p>今天，终于写完了生产实习要求提交的设计报告，给自己这一周来的辛苦来一个结局。辛苦聪聪了，一直在小组内沟通，感谢，还有大家，虽然摸鱼但好歹在线，感谢。至此，我的大学前三年结束了，没有什么高光时刻，平平淡淡地度过了，今天是一个里程碑。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>里程碑</tag>
       </tags>
   </entry>
   <entry>
@@ -1640,36 +1670,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>写在移动通信期末考试后</title>
-    <url>/2020/07/written-after-mobile-communications-final-exam/</url>
-    <content><![CDATA[<p>刚结束了今年的第一门专业课考试，不用感觉就知道考得稀烂，卷面约有 30 分没做完，折合下最终的成绩直接没了 18 分，这下可以考虑打破最低的考试课得分记录了——电路 76 分，我觉得很有希望。<br><a id="more"></a></p>
-<p>艰苦的 2020 过去一半了，我还呆在家，来不及感慨自己这半年来又是什么都没做，就得不认真地准备专业课考试，我从心里抵触考试，自然就不好好准备，以为也不过如此，拿到足够多的分数即可，但被现实告知，不会这么容易的，拿到想要的东西也得认真对待才行。</p>
-<p>刚结束了今年的第一门专业课考试，不用感觉就知道考得稀烂，卷面约有 30 分没做完，折合下最终的成绩直接没了 18 分，这下可以考虑打破最低的考试课得分记录了——电路 76 分，我觉得很有希望。</p>
-<p>问题出在了哪里？</p>
-<p>痛苦地承认自己真的不行？未免太过窝囊。好在这才刚刚开始，还有补救的机会，移动通信失去的东西，要在后面的天线原理和卫星通信上找回来，就像以前做的那样。</p>
-<p>希望一切好起来吧。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>结束了，我的大学前三年</title>
-    <url>/2020/07/the-end-of-my-first-three-years-of-university/</url>
-    <content><![CDATA[<p>今天，终于写完了生产实习要求提交的设计报告，给自己这一周来的辛苦来一个结局。辛苦聪聪了，一直在小组内沟通，感谢，还有大家，虽然摸鱼但好歹在线，感谢。至此，我的大学前三年结束了，没有什么高光时刻，平平淡淡地度过了，今天是一个里程碑。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>里程碑</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>近日杂记</title>
     <url>/2020/08/some-recent-chores/</url>
     <content><![CDATA[<p>又过去几天了，每天保持低效率地看书，也总算是看完了『Channel   Codes』的前两章，看书时间分布也就是上午两小时下午两小时，晚上一小时了，期间得穿插着打游戏和上网冲浪，这就是放假的状态吗？有点舒服，但是又觉得不该如此，人生怎么能如此颓废。思考罢了，回头又是继续这种生活，好不快乐。</p>
@@ -1699,6 +1699,37 @@ proc complete_sim {} {...}
       </categories>
       <tags>
         <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>闲逛半个月</title>
+    <url>/2020/09/hang-out-for-half-a-month/</url>
+    <content><![CDATA[<p>如题所示 ，我已经闲逛了半个月之久，昏昏沉沉过了半个月，像是突然失去了学习的状态，心情无法平复，难以集中到文章上，于是我逃避到游戏中，我尝试了 CSGO，Dota2，现在又开始玩 LOL 了，但我从心里知道这并不会长久的，很快我就会回归到我的状态，集中注意力学习。<br><a id="more"></a><br>这半个月来我到底干了什么呢？首先我感受到了自己的懈怠，但是不想就这样懈怠下去，于是决定先做点简单的事情——在 B 站看 FPGA 教程，或许是教程的每个视频太长，让我感觉很挫败，或许根本就是我无法静下心学习，总之，几天后我决定看买的那本 FPGA 书。看书比起看视频来果然快很多，而且可以随时停下来刷刷手机，四天之后，我把书看完了，但真的只是看完了，自问看过的东西脑子还记得的真的不多，很惭愧。接下来我彻底无事可做了，虽然老师给了篇文章让我去看，但是我完全无法静下心去看文章，尽管那篇文章并不长，简单看下的话应该花不到一个下午就能看完，我一定是哪里不对劲了。到现在我还是没有找到原因，不过我感受到了，这段不对劲的时间马上要过去了，我可以重新回归到之前的状态。</p>
+<p>我猜测，我在失去目标时很容易变的不知所措，如果我正在做的事情没有一个清晰的进度指示，也会让我感到沮丧无法坚持下去。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搬砖日记 2020.09.16</title>
+    <url>/2020/09/sr-log-200916/</url>
+    <content><![CDATA[<p>实验室的第二天，写下的第一篇日志。今天的任务是实现 LDPC 码的高阶调制问题，经过了一番折腾，最终得到了一个看起来正确的方法，这种方法也在『Channel Codes』这本书的第 15 章简单提到了。实现 LDPC 码的高阶调制解调框图如下所示。</p>
+<a id="more"></a>
+<img src="/2020/09/sr-log-200916/image-20200916203759142.png" title="a block diagram of an LDPC-coded modulation system">
+<p>问题在于如何从接收到的符号中获得 LDPC 码译码器需要的信息，15 章中给出了在 SPA 下，由接收到的符号求每个比特的内信息计算方法，如下所示：</p>
+<img src="/2020/09/sr-log-200916/image-20200916204403197.png" title="LDPC-coded modulation system 内信息计算">
+<p>其他的计算则和 BPSK 调制的 LDPC 码译码相同，由此我们解决了 LDPC 码的高阶调制问题。当然肯定有很多细节我没有考虑到，暂时先这样吧，后面想到了再补充。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>sr-log</tag>
       </tags>
   </entry>
   <entry>
@@ -1750,64 +1781,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>闲逛半个月</title>
-    <url>/2020/09/hang-out-for-half-a-month/</url>
-    <content><![CDATA[<p>如题所示 ，我已经闲逛了半个月之久，昏昏沉沉过了半个月，像是突然失去了学习的状态，心情无法平复，难以集中到文章上，于是我逃避到游戏中，我尝试了 CSGO，Dota2，现在又开始玩 LOL 了，但我从心里知道这并不会长久的，很快我就会回归到我的状态，集中注意力学习。<br><a id="more"></a><br>这半个月来我到底干了什么呢？首先我感受到了自己的懈怠，但是不想就这样懈怠下去，于是决定先做点简单的事情——在 B 站看 FPGA 教程，或许是教程的每个视频太长，让我感觉很挫败，或许根本就是我无法静下心学习，总之，几天后我决定看买的那本 FPGA 书。看书比起看视频来果然快很多，而且可以随时停下来刷刷手机，四天之后，我把书看完了，但真的只是看完了，自问看过的东西脑子还记得的真的不多，很惭愧。接下来我彻底无事可做了，虽然老师给了篇文章让我去看，但是我完全无法静下心去看文章，尽管那篇文章并不长，简单看下的话应该花不到一个下午就能看完，我一定是哪里不对劲了。到现在我还是没有找到原因，不过我感受到了，这段不对劲的时间马上要过去了，我可以重新回归到之前的状态。</p>
-<p>我猜测，我在失去目标时很容易变的不知所措，如果我正在做的事情没有一个清晰的进度指示，也会让我感到沮丧无法坚持下去。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>搬砖日记 2020.09.16</title>
-    <url>/2020/09/sr-log-200916/</url>
-    <content><![CDATA[<p>实验室的第二天，写下的第一篇日志。今天的任务是实现 LDPC 码的高阶调制问题，经过了一番折腾，最终得到了一个看起来正确的方法，这种方法也在『Channel Codes』这本书的第 15 章简单提到了。实现 LDPC 码的高阶调制解调框图如下所示。</p>
-<a id="more"></a>
-<img src="/2020/09/sr-log-200916/image-20200916203759142.png" title="a block diagram of an LDPC-coded modulation system">
-<p>问题在于如何从接收到的符号中获得 LDPC 码译码器需要的信息，15 章中给出了在 SPA 下，由接收到的符号求每个比特的内信息计算方法，如下所示：</p>
-<img src="/2020/09/sr-log-200916/image-20200916204403197.png" title="LDPC-coded modulation system 内信息计算">
-<p>其他的计算则和 BPSK 调制的 LDPC 码译码相同，由此我们解决了 LDPC 码的高阶调制问题。当然肯定有很多细节我没有考虑到，暂时先这样吧，后面想到了再补充。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>sr-log</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>完成小阶段任务——终于完成了简单的 LDPC 编译码</title>
-    <url>/2020/09/I-DID-IT/</url>
-    <content><![CDATA[<p>折腾了这么多天，总算是完成了 8 月就拿到的 LDPC 编码译码任务，最近几天一直在 Debug，如果不是做高阶调制，我可能永远不会注意到这个 Bug——随机数生成错误，而这个错误在低信噪比时对仿真结果几乎没有印象，当时做的时候也没有去尝试更高的信噪比，这是我的失误，加上高阶调制之后，事情变得不太一样了，错误就显现出来了，误码率平层在10^-4位置出现了，这本不该发生。经过几天的寻找，从一开始的随意寻找，到昨晚上才想到断点查看判决时的数据，还是经验不足啊，希望经过这次的痛苦经历，自己的Debug能力能有所提高。</p>
-<p>列出几条 Debug 原则，长长记性。<br><a id="more"></a></p>
-<ul>
-<li>Debug 之前，先捋一遍代码的整个流程，思考可能出现错误的地方。</li>
-<li>测试驱动开发。多写写测试。</li>
-<li>对于从网上找来的代码，如果没有经过充分的测试，谨慎使用。</li>
-<li>按时提交代码，千万不要拖延。</li>
-<li>更好的断点调试，查看出问题的数据，找到问题的根源。</li>
-<li>如果实在在自己写的部分找不到错误，那么错的不是你，是这个世界……</li>
-</ul>
-<p>OK，这一阶段的任务已经完成，下一步是尝试在 FPGA 上实现编译码过程，我需要好好思考这个问题：</p>
-<blockquote>
-<p>目标：LDPC 码编译码 FPGA 实现。</p>
-</blockquote>
-<p>这个目标还不够明确：是仅仅做一下基带仿真还是要进行实际的传输，这是两件完全不一样的事情。这个问题需要考虑，但我觉得大概率两件事情都要做，先易后难。至于更多的事情，后面碰到了再说吧。 </p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>sr-log</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>毕设要开题了！</title>
     <url>/2020/10/preparation-for-start-of-graduation-project/</url>
     <content><![CDATA[<p>昨天恰逢国庆和中秋一起过，中午和晚上都出去聚餐了，中午和实验室的师姐和师兄们吃，晚上和打篮球的朋友们吃，很舒服。<br><a id="more"></a><br>不过今天需要准备开题了，早上来实验室了，又是拖着略显疲惫的身体，我已经有点分不清是因为睡眠不足还是手上在做的东西迟迟没有进展，稍加思索，我更觉得是手上做的东西迟迟没有进展导致的，因为一事无成，所以心中有牵挂，晚上睡不好，早上没精神，然后就是效率低下，更加难以推进手中的事情，这是一个恶性循环。需要找到好的办法突破这个循环，目前看来唯一的办法就是取得进展，但是需要消耗的时间和精力未免也太多了些，我需要别的更好的办法。</p>
@@ -1848,6 +1821,33 @@ proc complete_sim {} {...}
       </categories>
       <tags>
         <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>完成小阶段任务——终于完成了简单的 LDPC 编译码</title>
+    <url>/2020/09/I-DID-IT/</url>
+    <content><![CDATA[<p>折腾了这么多天，总算是完成了 8 月就拿到的 LDPC 编码译码任务，最近几天一直在 Debug，如果不是做高阶调制，我可能永远不会注意到这个 Bug——随机数生成错误，而这个错误在低信噪比时对仿真结果几乎没有印象，当时做的时候也没有去尝试更高的信噪比，这是我的失误，加上高阶调制之后，事情变得不太一样了，错误就显现出来了，误码率平层在10^-4位置出现了，这本不该发生。经过几天的寻找，从一开始的随意寻找，到昨晚上才想到断点查看判决时的数据，还是经验不足啊，希望经过这次的痛苦经历，自己的Debug能力能有所提高。</p>
+<p>列出几条 Debug 原则，长长记性。<br><a id="more"></a></p>
+<ul>
+<li>Debug 之前，先捋一遍代码的整个流程，思考可能出现错误的地方。</li>
+<li>测试驱动开发。多写写测试。</li>
+<li>对于从网上找来的代码，如果没有经过充分的测试，谨慎使用。</li>
+<li>按时提交代码，千万不要拖延。</li>
+<li>更好的断点调试，查看出问题的数据，找到问题的根源。</li>
+<li>如果实在在自己写的部分找不到错误，那么错的不是你，是这个世界……</li>
+</ul>
+<p>OK，这一阶段的任务已经完成，下一步是尝试在 FPGA 上实现编译码过程，我需要好好思考这个问题：</p>
+<blockquote>
+<p>目标：LDPC 码编译码 FPGA 实现。</p>
+</blockquote>
+<p>这个目标还不够明确：是仅仅做一下基带仿真还是要进行实际的传输，这是两件完全不一样的事情。这个问题需要考虑，但我觉得大概率两件事情都要做，先易后难。至于更多的事情，后面碰到了再说吧。 </p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>sr-log</tag>
       </tags>
   </entry>
   <entry>
@@ -2007,18 +2007,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>写在开题答辩之后</title>
-    <url>/2020/10/fxxking-opening-things/</url>
-    <content><![CDATA[<p>今天下午进行了毕设开题答辩，一句话来总结：退一步越想越气。一气自己不争气，二气答辩老师太离谱。抛开其他人的因素，我自己也应该从这次经历中学到点东西。<br><a id="more"></a></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>11 月的第一篇和最后一篇</title>
     <url>/2020/11/log-11-29/</url>
     <content><![CDATA[<p>已经是11月29日了，今天是教学周第12周的的最后一天，已经有许久没有整理整理了，今天正好休息，记下两笔吧。<br><a id="more"></a><br>先说毕设，距离我预订的完成时间还剩下两周，按照过去一个月的进度来看，我肯定无法在这最后两周完成全部内容，但我还想试试。我现在对 FPGA 的掌握程度还远没有达到预订的目标：给定一个需求，能够完成设计和代码实现。现在的我就算是照着设计去写代码都有很大的困难，问题出在哪里呢？这段时间以来，我也没闲着，也在看 Verilog 代码，也看了一些那几本书，但还是不得要领。按照之前学习的经验来看，还是代码抄得不够，我感觉回到了三年前，那是一次痛苦的 Python 学习经历，像个无头苍蝇一样撞了几天后直接放弃了，不过现在我没有放弃这个选项，我必须完成，那么在接下来这段时间多抄点代码吧，看看好的设计是怎么完成的。下周日再来检验吧。</p>
@@ -2034,20 +2022,15 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>一点数字电路设计的感悟</title>
-    <url>/2020/12/a-little-understanding-of-FPGA-design/</url>
-    <content><![CDATA[<p>惊呼：已经12月了！</p>
-<p>现在每日牵挂的无非是课设二字，近日还算专心钻研数字电路设计，也算是知道了一点东西，有一点感悟，不妨写下来，让这种感觉更加准确。<br><a id="more"></a><br>数字电路设计，无非是时序逻辑电路和组合逻辑电路，在 FPGA 设计中，就是带触发器的同步电路设计和纯组合电路设计，浅显的理解可以认为是阻塞赋值和非阻塞赋值的区别。话虽说得简单，但是实际做起来倒真的不容易，就比如我几天前写的那个串口接收和发送的代码，时序总是不对，后面多看了看别人的设计，才发现自己真是太嫩了，这种设计自然是有比较特定的规律。</p>
-<h2 id="边沿检测"><a href="#边沿检测" class="headerlink" title="边沿检测"></a>边沿检测</h2><p>边沿检测可算是最最经典的电路设计了，实际当中却是处处会用到。一个典型的检测电路如下：</p>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> Edge_detect(</span><br><span class="line">    <span class="keyword">input</span> clk,		<span class="comment">// 时钟</span></span><br><span class="line">    <span class="keyword">input</span> rst_n,	<span class="comment">// 复位信号</span></span><br><span class="line">    <span class="keyword">input</span> SigIn,	<span class="comment">// 输入信号 </span></span><br><span class="line">    <span class="keyword">output</span> SigOut,  <span class="comment">// 同步之后的输出信号</span></span><br><span class="line">    <span class="keyword">output</span> down,    <span class="comment">// 检测到下降沿产生一个脉冲</span></span><br><span class="line">    <span class="keyword">output</span> up	    <span class="comment">// 检测上升沿产生一个脉冲</span></span><br><span class="line">);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">reg</span> [<span class="number">2</span>:<span class="number">0</span>] ToggleSigIn;	<span class="comment">// 三级寄存器，前两级用于同步信号</span></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk <span class="keyword">or</span> <span class="keyword">negedge</span> rst_n) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> (~rst_n) <span class="keyword">begin</span></span><br><span class="line">            ToggleSigIn &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">begin</span></span><br><span class="line">            <span class="comment">// 移位寄存</span></span><br><span class="line">            ToggleSigIn &lt;= &#123;ToggleSigIn[<span class="number">1</span>:<span class="number">0</span>], SigIn&#125;;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 同步后的信号直接作为输出</span></span><br><span class="line">    <span class="keyword">assign</span> SigOut = ToggleSigIn[<span class="number">2</span>];	</span><br><span class="line">    <span class="comment">// 前一时刻为低电平 后一时刻为高电平 下降沿出现</span></span><br><span class="line">    <span class="keyword">assign</span> down   = (~ToggleSigIn[<span class="number">2</span>] &amp; ToggleSigIn[<span class="number">1</span>]);</span><br><span class="line">    <span class="comment">// 前一时刻为高电平 后一时刻为低电平 下降沿出现</span></span><br><span class="line">    <span class="keyword">assign</span> up     = (ToggleSigIn[<span class="number">2</span>] &amp; ~ToggleSigIn[<span class="number">1</span>]);</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-<p>看起来非常简单，但在实际使用中却是必不可少又十分有效的，譬如在串口接收中就需要简单信号线上下降沿的产生，以检测信号到来，当然，检测之前，做一次数据同步是必不可少的。</p>
+    <title>写在开题答辩之后</title>
+    <url>/2020/10/fxxking-opening-things/</url>
+    <content><![CDATA[<p>今天下午进行了毕设开题答辩，一句话来总结：退一步越想越气。一气自己不争气，二气答辩老师太离谱。抛开其他人的因素，我自己也应该从这次经历中学到点东西。<br><a id="more"></a></p>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>学习</category>
       </categories>
       <tags>
         <tag>记录</tag>
-        <tag>sr-log</tag>
       </tags>
   </entry>
   <entry>
@@ -2069,23 +2052,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>2021 第五天</title>
-    <url>/2021/01/day3-feeling-better/</url>
-    <content><![CDATA[<p>又是流水的一天，唯有大腿的疼痛提醒我今天早上打羽毛球不该那么拼的，菜就认，接不到的球就不要去勉强了嘛，现在能想明白，但当时是肯定不服气的，不过这没啥好处，现在除了大腿疼，左脚也有轻微的扭伤……人老了，随便动一动也得好好考虑考虑了。</p>
-<a id="more"></a>
-<p>好消息是今天把数值分析简单复习完了，可算是容易啊，讲的知识点很多，但是要考的东西都比较简单，复习起来也快。8 号的考试快点来吧，考完放假，回家。还有一个好消息，cy 的高频课出分了，80 来分，我又可以吃到一顿饭了。晚上发现了 windows store 中的 bilibili 客户端居然可以缓存 B 站的视频，这下好了，不用担心回家因为网络问题而无法学习了，这几天要把打算的学习的内容基本准备好，考完试就写一个计划吧，这次一定要坚持久一点。</p>
-<p>尽管早晨起来嗓子像是被火烧一样，但感冒的确是好点儿了，今天又吃了一天药，正常的话明天就该痊愈了，希望如此。我在生病的时候似乎总是会去想一些奇怪的东西，不过也有可能是因为生病印象了我午睡的质量，事实上今天中午我并没有睡着，那个时候我在想写什么呢？现在已经没有印象了，要不下次醒来就开始记录，把脑子中有的印象全部写下来，就像我以前做的那样，这一定很有意思。</p>
-<p>关于学习实在没什么好说的，最近一直在以缓慢的速度复习数值分析，纯粹是为了消磨时间罢了，晚上经常打打游戏，让时间更快的过去，为什么现在有一种煎熬的感觉，难道是因为马上就要放假了吗？心已经走了吗？我知道它没有要去的地方，应该只是给自己一个暗示：要放假了，我应该有个放假的样子，该放松放松了。不过我自认为一直很松啊，保持我自己想要额节奏就好了，记得适时检查自己，内自省也。</p>
-<p>因为后悔没用，所以永不后悔。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021 第三天</title>
     <url>/2021/01/day2-not-feeling-well/</url>
     <content><![CDATA[<p>新年第三天了，这两天也没做什么事情，做了两次物联网实验，粘贴了一份读书报告，补完了数值分析的实验报告和作业，终于有时间复习数值分析了，下周五就要考试了，得抓紧复习了。</p>
@@ -2095,6 +2061,23 @@ proc complete_sim {} {...}
 <p>晚上头晕得厉害，估计是这些天来的累积结果，某一天晚上踢被子被冻醒了，昨天在正心一楼的大教室自习，脚一直没热过……想必是要感冒了，想到马上就要放假，不会开学那段极限坐车经历又要再次重演了吧，果真生活是个圈？赶紧找vv要了点药吃，希望赶紧好起来，还得复习数值分析，orz。</p>
 <p>啊！对了，看到一篇很感人的帖子<a href="https://m.hupu.com/bbs/40172727.html" target="_blank" rel="noopener">七年了，我还是很想你</a>，真羡慕啊，“有一个人能去爱，多珍贵”，后面和朋友们聊到这件事，说自己变得越来越现实，大概不会再去喜欢别人了，当我开始选择的时候，就意味着没有选择了，不过还是要相信真爱的，当不会在我这里发生就是了，祝各位幸福。</p>
 <p>OK，这大概就是这两天了，时间快到了，事也说得差不多了。晚安。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021 第五天</title>
+    <url>/2021/01/day3-feeling-better/</url>
+    <content><![CDATA[<p>又是流水的一天，唯有大腿的疼痛提醒我今天早上打羽毛球不该那么拼的，菜就认，接不到的球就不要去勉强了嘛，现在能想明白，但当时是肯定不服气的，不过这没啥好处，现在除了大腿疼，左脚也有轻微的扭伤……人老了，随便动一动也得好好考虑考虑了。</p>
+<a id="more"></a>
+<p>好消息是今天把数值分析简单复习完了，可算是容易啊，讲的知识点很多，但是要考的东西都比较简单，复习起来也快。8 号的考试快点来吧，考完放假，回家。还有一个好消息，cy 的高频课出分了，80 来分，我又可以吃到一顿饭了。晚上发现了 windows store 中的 bilibili 客户端居然可以缓存 B 站的视频，这下好了，不用担心回家因为网络问题而无法学习了，这几天要把打算的学习的内容基本准备好，考完试就写一个计划吧，这次一定要坚持久一点。</p>
+<p>尽管早晨起来嗓子像是被火烧一样，但感冒的确是好点儿了，今天又吃了一天药，正常的话明天就该痊愈了，希望如此。我在生病的时候似乎总是会去想一些奇怪的东西，不过也有可能是因为生病印象了我午睡的质量，事实上今天中午我并没有睡着，那个时候我在想写什么呢？现在已经没有印象了，要不下次醒来就开始记录，把脑子中有的印象全部写下来，就像我以前做的那样，这一定很有意思。</p>
+<p>关于学习实在没什么好说的，最近一直在以缓慢的速度复习数值分析，纯粹是为了消磨时间罢了，晚上经常打打游戏，让时间更快的过去，为什么现在有一种煎熬的感觉，难道是因为马上就要放假了吗？心已经走了吗？我知道它没有要去的地方，应该只是给自己一个暗示：要放假了，我应该有个放假的样子，该放松放松了。不过我自认为一直很松啊，保持我自己想要额节奏就好了，记得适时检查自己，内自省也。</p>
+<p>因为后悔没用，所以永不后悔。</p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -2168,12 +2151,54 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>一点数字电路设计的感悟</title>
+    <url>/2020/12/a-little-understanding-of-FPGA-design/</url>
+    <content><![CDATA[<p>惊呼：已经12月了！</p>
+<p>现在每日牵挂的无非是课设二字，近日还算专心钻研数字电路设计，也算是知道了一点东西，有一点感悟，不妨写下来，让这种感觉更加准确。<br><a id="more"></a><br>数字电路设计，无非是时序逻辑电路和组合逻辑电路，在 FPGA 设计中，就是带触发器的同步电路设计和纯组合电路设计，浅显的理解可以认为是阻塞赋值和非阻塞赋值的区别。话虽说得简单，但是实际做起来倒真的不容易，就比如我几天前写的那个串口接收和发送的代码，时序总是不对，后面多看了看别人的设计，才发现自己真是太嫩了，这种设计自然是有比较特定的规律。</p>
+<h2 id="边沿检测"><a href="#边沿检测" class="headerlink" title="边沿检测"></a>边沿检测</h2><p>边沿检测可算是最最经典的电路设计了，实际当中却是处处会用到。一个典型的检测电路如下：</p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> Edge_detect(</span><br><span class="line">    <span class="keyword">input</span> clk,		<span class="comment">// 时钟</span></span><br><span class="line">    <span class="keyword">input</span> rst_n,	<span class="comment">// 复位信号</span></span><br><span class="line">    <span class="keyword">input</span> SigIn,	<span class="comment">// 输入信号 </span></span><br><span class="line">    <span class="keyword">output</span> SigOut,  <span class="comment">// 同步之后的输出信号</span></span><br><span class="line">    <span class="keyword">output</span> down,    <span class="comment">// 检测到下降沿产生一个脉冲</span></span><br><span class="line">    <span class="keyword">output</span> up	    <span class="comment">// 检测上升沿产生一个脉冲</span></span><br><span class="line">);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">reg</span> [<span class="number">2</span>:<span class="number">0</span>] ToggleSigIn;	<span class="comment">// 三级寄存器，前两级用于同步信号</span></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk <span class="keyword">or</span> <span class="keyword">negedge</span> rst_n) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> (~rst_n) <span class="keyword">begin</span></span><br><span class="line">            ToggleSigIn &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">begin</span></span><br><span class="line">            <span class="comment">// 移位寄存</span></span><br><span class="line">            ToggleSigIn &lt;= &#123;ToggleSigIn[<span class="number">1</span>:<span class="number">0</span>], SigIn&#125;;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 同步后的信号直接作为输出</span></span><br><span class="line">    <span class="keyword">assign</span> SigOut = ToggleSigIn[<span class="number">2</span>];	</span><br><span class="line">    <span class="comment">// 前一时刻为低电平 后一时刻为高电平 下降沿出现</span></span><br><span class="line">    <span class="keyword">assign</span> down   = (~ToggleSigIn[<span class="number">2</span>] &amp; ToggleSigIn[<span class="number">1</span>]);</span><br><span class="line">    <span class="comment">// 前一时刻为高电平 后一时刻为低电平 下降沿出现</span></span><br><span class="line">    <span class="keyword">assign</span> up     = (ToggleSigIn[<span class="number">2</span>] &amp; ~ToggleSigIn[<span class="number">1</span>]);</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+<p>看起来非常简单，但在实际使用中却是必不可少又十分有效的，譬如在串口接收中就需要简单信号线上下降沿的产生，以检测信号到来，当然，检测之前，做一次数据同步是必不可少的。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>sr-log</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ready-for-final-exam</title>
     <url>/2021/01/ready-for-final-exam/</url>
     <content><![CDATA[<p>又过了两天，感冒还是没好全，但好在体温不高，应该不会影响我的回家计划，数值分析已经复习得差不多了，我的目标早就不是奖学金一类的东西了，因为太难了我追求不到，倒不如现在就改换赛道，做点别的事情，也让自己能够开心点，求不得苦还是少受点为好。</p>
 <p>真是糟糕，我已经记不得昨天发生了什么，午饭吃的什么东西呢？完全没有印象了，大概不重要的事情都是这样，一晃而过，我只是按照预订的路线去经历罢了，但那些刻骨铭心的事呢？我在内心不断对它进行加工，慢慢的，它变得面目全非，当时到底发生了发生什么，当时的我到底在想什么，都无从知晓了。这大概就是记录的意义，让平淡的生活留下痕迹，保留那些难得的珍贵回忆。</p>
 <p>这两天的复习就是在消磨时间，因为内心认为考试比较简单，没有必要花太多时间，所以早就把认为该看的内容看完了，可惜的是多出来的这点时间全都白白消耗了，打游戏，逛论坛，刷 B 站，干什么都好，就是没有正经学习。啊！该做的计划也没有做，记得用notion吧，或者找一个更好的离线版的工具，不然每天真的不知道自己都干了些什么，用文字记录虽然可以，但总是不够直白，图表形式才是最好的。罢了罢了，明天再说，又是这样的态度，可惜没有办法，只能明天再说了。</p>
 <p>明天好好考试，然后找老师讨论下放假要完成的任务，制定一个好的计划，这大概就是接下来的安排了。晚安。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>回家咯！</title>
+    <url>/2021/01/no-big-just-go-home/</url>
+    <content><![CDATA[<p>8 号考完了本科阶段的最后一门课，题目很简单，考得也很顺利，只是离毕业又近了一步。今天是 1 月 13 号，经过了将近两天的路程，火车转汽车再转汽车，终于在昨天下午到家了，现在还是有点恍惚，假期就这么开始了？希望结束的时候不稀里糊涂。</p>
+<a id="more"></a>
+<p>9 号和 10 号在学校快乐地玩耍了两天，10 号晚上坐上熟悉的那班火车，踏上回家的路。12号凌晨到达长沙，找个地方睡了一觉，第二天起来好歹是赶上了 9 点 20 回县城的大巴，令人不解的是大巴并没有同往常一样驶入站内，我们在站前的路上被放下了，有一段 6 车道宽的路，只有斑马线没有红绿灯，因为害怕，我在路旁站了起码 20 分钟才鼓起勇气穿过马路，在整个穿越的过程中，我都不太敢抬起头去看旁边的车，只敢用余光去看看，心想：如果就这么结束了，是不是也不算一件坏事儿……但并没有结束，我过去了，多等了一个小时，坐上了回来的车，这一趟折腾总算是结束了。</p>
+<p>说回假期的计划吧，这寒冷的天气都快让我忘记这回事儿了，在这种温度下，开始学习是一件需要很大勇气的事情，希望我有勇气开始，有定力能够坚持做下去。大概就下面这几件事情：</p>
+<ul>
+<li>基于 FPGA 的 LDPC 译码器</li>
+<li>算法</li>
+<li>C++</li>
+<li>英语</li>
+</ul>
+<p><strong>第一件事是最重要的，一定要放在首位，在假期结束的时候我需要完成，那么，为了达到这个目的，我的连续可用时间最长的下午就全部应该用来忙这件事儿。</strong></p>
+<p>其他三件都好说，没有硬性指标，<strong>只是一定要每天坚持去做</strong>，尤其是算法，希望每天都坚持看一点并且输出自己的想法，保证自己不是单纯的接受，一定要对输入的东西进行思考和加工。</p>
+<p>还有补充几点：保证适当的运动，不要生锈了；如果可能的话，看看有没有办法提高下自己的写作水平；打字速度该怎么提高呢；字该练了‘抄抄经吧……</p>
+<p>学习是没有尽头的，Linux 也应该看起来了，毕竟系统都装好了……</p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -2211,31 +2236,6 @@ proc complete_sim {} {...}
       </categories>
       <tags>
         <tag>notes</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>回家咯！</title>
-    <url>/2021/01/no-big-just-go-home/</url>
-    <content><![CDATA[<p>8 号考完了本科阶段的最后一门课，题目很简单，考得也很顺利，只是离毕业又近了一步。今天是 1 月 13 号，经过了将近两天的路程，火车转汽车再转汽车，终于在昨天下午到家了，现在还是有点恍惚，假期就这么开始了？希望结束的时候不稀里糊涂。</p>
-<a id="more"></a>
-<p>9 号和 10 号在学校快乐地玩耍了两天，10 号晚上坐上熟悉的那班火车，踏上回家的路。12号凌晨到达长沙，找个地方睡了一觉，第二天起来好歹是赶上了 9 点 20 回县城的大巴，令人不解的是大巴并没有同往常一样驶入站内，我们在站前的路上被放下了，有一段 6 车道宽的路，只有斑马线没有红绿灯，因为害怕，我在路旁站了起码 20 分钟才鼓起勇气穿过马路，在整个穿越的过程中，我都不太敢抬起头去看旁边的车，只敢用余光去看看，心想：如果就这么结束了，是不是也不算一件坏事儿……但并没有结束，我过去了，多等了一个小时，坐上了回来的车，这一趟折腾总算是结束了。</p>
-<p>说回假期的计划吧，这寒冷的天气都快让我忘记这回事儿了，在这种温度下，开始学习是一件需要很大勇气的事情，希望我有勇气开始，有定力能够坚持做下去。大概就下面这几件事情：</p>
-<ul>
-<li>基于 FPGA 的 LDPC 译码器</li>
-<li>算法</li>
-<li>C++</li>
-<li>英语</li>
-</ul>
-<p><strong>第一件事是最重要的，一定要放在首位，在假期结束的时候我需要完成，那么，为了达到这个目的，我的连续可用时间最长的下午就全部应该用来忙这件事儿。</strong></p>
-<p>其他三件都好说，没有硬性指标，<strong>只是一定要每天坚持去做</strong>，尤其是算法，希望每天都坚持看一点并且输出自己的想法，保证自己不是单纯的接受，一定要对输入的东西进行思考和加工。</p>
-<p>还有补充几点：保证适当的运动，不要生锈了；如果可能的话，看看有没有办法提高下自己的写作水平；打字速度该怎么提高呢；字该练了‘抄抄经吧……</p>
-<p>学习是没有尽头的，Linux 也应该看起来了，毕竟系统都装好了……</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -2465,8 +2465,8 @@ proc complete_sim {} {...}
         <category>C/C++</category>
       </categories>
       <tags>
-        <tag>notes</tag>
         <tag>C/C++</tag>
+        <tag>notes</tag>
         <tag>STL</tag>
       </tags>
   </entry>
@@ -2764,6 +2764,20 @@ proc complete_sim {} {...}
       </categories>
   </entry>
   <entry>
+    <title>新年快乐</title>
+    <url>/2021/02/happy-chinese-new-year/</url>
+    <content><![CDATA[<p>今天除夕，提前说声新年快乐了。</p>
+<p>生活无论喜乐都不可阻挡地向前进，快不快乐今天明天都得说新年快乐。新年快乐。</p>
+<p>辞旧迎新的日子，该对过去做一个完整的了断了，回归自我的本心，由此方能知道自己在追求什么，也好不误此生。</p>
+<p>感觉自己越来越像机器了，摒弃情感也就选择了放弃爱的能力，活着意义就更难找到了么？Live long and prosper。放弃就放弃吧。</p>
+<p>怎么样才算主宰自己的一生呢？无论如何前半生怕是做不到，且看后半生的努力吧。</p>
+<p>多看看书，少玩手机，多写写记录。希望明年今日不再如此迷茫，年年这时候都说这话，自己想想都有点好笑了，也罢，就逗自己笑笑吧。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+  </entry>
+  <entry>
     <title>『HDLbits』时序逻辑之 FF 和 Counter</title>
     <url>/2021/01/hdlbits-sequantial-logic-ff-and-counter/</url>
     <content><![CDATA[<p>刷了一天 hdlbits 了，放几道时序逻辑电路设计的题上来，对于现在的我来说，这些问题都算不得难了，因为电路都很简单，只是要用 Verilog 实现，但真正要设计电路的问题对我而言就相对困难了，比如文中的 <a href="#Dualedge">Dualedge</a>，难在电路设计，而不是 Verilog 实现，后者纯粹是个体力活，比如 <a href="#Count-clock">Count clock</a>，需要加油啊。</p>
@@ -2842,20 +2856,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>新年快乐</title>
-    <url>/2021/02/happy-chinese-new-year/</url>
-    <content><![CDATA[<p>今天除夕，提前说声新年快乐了。</p>
-<p>生活无论喜乐都不可阻挡地向前进，快不快乐今天明天都得说新年快乐。新年快乐。</p>
-<p>辞旧迎新的日子，该对过去做一个完整的了断了，回归自我的本心，由此方能知道自己在追求什么，也好不误此生。</p>
-<p>感觉自己越来越像机器了，摒弃情感也就选择了放弃爱的能力，活着意义就更难找到了么？Live long and prosper。放弃就放弃吧。</p>
-<p>怎么样才算主宰自己的一生呢？无论如何前半生怕是做不到，且看后半生的努力吧。</p>
-<p>多看看书，少玩手机，多写写记录。希望明年今日不再如此迷茫，年年这时候都说这话，自己想想都有点好笑了，也罢，就逗自己笑笑吧。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-  </entry>
-  <entry>
     <title>『Weekly』开学啦</title>
     <url>/2021/03/weekly-final-semester-starts/</url>
     <content><![CDATA[<p>最后一个学期终于是开始了，转眼间整个大学生涯要结束了，扪心自问，似乎没有掌握什么可以谋生的技能，整个人还是处在一种迷茫的状态，希望这种情况早点结束，早点找到自己真正的渴望真正的梦想，寻找到一点人生的意义。</p>
@@ -2924,24 +2924,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>渴望说些什么</title>
-    <url>/2021/03/desire-to-say-something/</url>
-    <content><![CDATA[<p>一种并非强烈的表达欲望促使我开始写下这篇短短的文章，『找点什么事情做，做点有用的事情，什么都好』，这就是我最初的愿望，然而我实在无话可说，或者说值得说道的事情实在太多了，我不知道该说什么好。</p>
-<p>几天来，看了《写出我心》的几篇内容，对坚持写些东西有了信心，也不怕没有东西可写，融入到生活当中去，用心去感受，自然而然就能写出写一些东西。在最开始的时候，不需要关心写出来的是什么可怕的东西，重要的是一直在写，一直在表达自己，找到源源不断的动力，这就是写作的土壤，土壤肥沃了，才有可能在之后写出好的东西。</p>
-<p>我对能否写出好东西倒不太关心，终于有了一个借口可以一直坚持写些东西，这件事是最令我快乐的，就随便写吧，什么都好，这更让我欣喜若狂，之前我总是想着下笔就要好、要追求完美，现在我就是在写自己的感受，就是在写内心的东西，我不关心写出来的东西怎么样，合不合规矩，我只是在写罢了。我太爱这种感觉了，自由，大概就是这样。</p>
-<p>开学快两周了，疯狂赶中期的进度，有点小疲惫，不，我真的很累了，但是这才只是个开始，接下来的两周会更加痛苦，中期答辩和组会都赶上了，挑战极限，极限挑战，总之很难，不知道还有多少个夜需要熬过去，我只怕自己没有休息好坚持不下去，就像今天这样，但群体生活就是如此，很难休息好，大环境会在很大程度上影响我的时间安排，我总是身不由己。</p>
-<p>借口总有一天会用到头，说到底每天还是得留出时间给自己独立思考，每天独自徒步去实验室就是一个很好的契机，我享受这个过程，如果回来也能自己一个人走，那就更好了。</p>
-<p>还得给这篇文章再加一个 tag，但我现在没有好的想法，只能写上一个『记录』，仅此而已了吗？或许『写作练习』也可以，就是随便写写，让思绪飘荡，享受这个过程，那就这样。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>写作练习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>无题</title>
     <url>/2021/03/no-title/</url>
     <content><![CDATA[<p>无题，如题，真不知道来个什么标题，索性就用无题，反正过不了多久，现在发生的所有事情都会消散，留下或长或短的影响，这都是后话了，无题正好合适，干脆开一个新的 tag，就叫无题，专门写写不知道起什么名字的小短文。现在的我正在摸鱼，明明还有很多事情需要做，都交给明天吧。</p>
@@ -2957,6 +2939,24 @@ proc complete_sim {} {...}
       <tags>
         <tag>记录</tag>
         <tag>无题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>渴望说些什么</title>
+    <url>/2021/03/desire-to-say-something/</url>
+    <content><![CDATA[<p>一种并非强烈的表达欲望促使我开始写下这篇短短的文章，『找点什么事情做，做点有用的事情，什么都好』，这就是我最初的愿望，然而我实在无话可说，或者说值得说道的事情实在太多了，我不知道该说什么好。</p>
+<p>几天来，看了《写出我心》的几篇内容，对坚持写些东西有了信心，也不怕没有东西可写，融入到生活当中去，用心去感受，自然而然就能写出写一些东西。在最开始的时候，不需要关心写出来的是什么可怕的东西，重要的是一直在写，一直在表达自己，找到源源不断的动力，这就是写作的土壤，土壤肥沃了，才有可能在之后写出好的东西。</p>
+<p>我对能否写出好东西倒不太关心，终于有了一个借口可以一直坚持写些东西，这件事是最令我快乐的，就随便写吧，什么都好，这更让我欣喜若狂，之前我总是想着下笔就要好、要追求完美，现在我就是在写自己的感受，就是在写内心的东西，我不关心写出来的东西怎么样，合不合规矩，我只是在写罢了。我太爱这种感觉了，自由，大概就是这样。</p>
+<p>开学快两周了，疯狂赶中期的进度，有点小疲惫，不，我真的很累了，但是这才只是个开始，接下来的两周会更加痛苦，中期答辩和组会都赶上了，挑战极限，极限挑战，总之很难，不知道还有多少个夜需要熬过去，我只怕自己没有休息好坚持不下去，就像今天这样，但群体生活就是如此，很难休息好，大环境会在很大程度上影响我的时间安排，我总是身不由己。</p>
+<p>借口总有一天会用到头，说到底每天还是得留出时间给自己独立思考，每天独自徒步去实验室就是一个很好的契机，我享受这个过程，如果回来也能自己一个人走，那就更好了。</p>
+<p>还得给这篇文章再加一个 tag，但我现在没有好的想法，只能写上一个『记录』，仅此而已了吗？或许『写作练习』也可以，就是随便写写，让思绪飘荡，享受这个过程，那就这样。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>写作练习</tag>
       </tags>
   </entry>
   <entry>
@@ -3000,6 +3000,20 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
+    <title>两个会和一次长谈</title>
+    <url>/2021/03/two-meetings-and-chilling/</url>
+    <content><![CDATA[<p>按照预订计划，下午参加了华为的座谈会，不能说有意思，只能说大概知道了华为无线里的基带无线与芯片验证部门的工作，我们专业进去之后大概是做些什么的，不能说我有多感兴趣，我还没有想明白自己到底对进华为无线工作有多少兴趣，也许去也许不去，这都放在以后吧，还有将近一年的时间。</p>
+<p>晚上开组会，师兄讲的内容我实在是不太明白，关于 MIMO 云云，我实在一窍不通，希望有机会能深入了解下这些东西，当然前提是我能够把手上的事情做完，然后顺利毕业。要学的东西实在太多了，我真怕自己的时间不够用，不能成长为一个优秀的人。</p>
+<p>晚上和朋友闲聊了将近一个小时，还是很开心的，和人交流果然是快乐源泉。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>终于调试成功后的感悟</title>
     <url>/2021/03/a-little-thinking-of-debug/</url>
     <content><![CDATA[<p>今天下午终于把译码器调试好了，现在在仿真上已经没有问题，可以正确译码，效果符合预期。但是我得说这整个过程没有那么轻松，甚至可以用痛苦来形容。</p>
@@ -3015,20 +3029,6 @@ proc complete_sim {} {...}
       </categories>
       <tags>
         <tag>FPGA</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>两个会和一次长谈</title>
-    <url>/2021/03/two-meetings-and-chilling/</url>
-    <content><![CDATA[<p>按照预订计划，下午参加了华为的座谈会，不能说有意思，只能说大概知道了华为无线里的基带无线与芯片验证部门的工作，我们专业进去之后大概是做些什么的，不能说我有多感兴趣，我还没有想明白自己到底对进华为无线工作有多少兴趣，也许去也许不去，这都放在以后吧，还有将近一年的时间。</p>
-<p>晚上开组会，师兄讲的内容我实在是不太明白，关于 MIMO 云云，我实在一窍不通，希望有机会能深入了解下这些东西，当然前提是我能够把手上的事情做完，然后顺利毕业。要学的东西实在太多了，我真怕自己的时间不够用，不能成长为一个优秀的人。</p>
-<p>晚上和朋友闲聊了将近一个小时，还是很开心的，和人交流果然是快乐源泉。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -3051,32 +3051,6 @@ proc complete_sim {} {...}
       </categories>
       <tags>
         <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>准备完成毕设中期了</title>
-    <url>/2021/03/ready-to-finish-mid-goal/</url>
-    <content><![CDATA[<p>可以预见的中期目标将要完成了，从 2 月份与老师汇报完到今天也已经有一个多月了，紧赶慢赶得总算做到现在了，到目前为止，我基本完成了译码器的整体模块编写。</p>
-<p>下一步是什么呢？完成中期报告和答辩 PPT。再然后呢？做编码器或者一个实现 RMSA 的译码器。再然后呢？那时候就该毕业了吧。毕业之后呢？这两个月时间应该做点什么呢，我有好多事想做了，做这些事情不单单为了找工作，还又为了自己的一点兴趣，暂时想到的如下：</p>
-<ul>
-<li>一个通用的 C++ 实现的 LDPC 编译码库</li>
-<li>深入理解计算机系统</li>
-<li>算法</li>
-<li>MIMO</li>
-<li>Linux</li>
-<li>C++</li>
-<li>数学</li>
-<li>更深入地理解 FPGA</li>
-<li>……</li>
-</ul>
-<p>想做的事情实在太多了，时间肯定是来不及了，那么必须得将事情分出一个轻重缓急，至于怎么分，那取决于什么是更重要的，好好问问自己今后想做什么。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>无题</tag>
       </tags>
   </entry>
   <entry>
@@ -3112,6 +3086,32 @@ proc complete_sim {} {...}
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>准备完成毕设中期了</title>
+    <url>/2021/03/ready-to-finish-mid-goal/</url>
+    <content><![CDATA[<p>可以预见的中期目标将要完成了，从 2 月份与老师汇报完到今天也已经有一个多月了，紧赶慢赶得总算做到现在了，到目前为止，我基本完成了译码器的整体模块编写。</p>
+<p>下一步是什么呢？完成中期报告和答辩 PPT。再然后呢？做编码器或者一个实现 RMSA 的译码器。再然后呢？那时候就该毕业了吧。毕业之后呢？这两个月时间应该做点什么呢，我有好多事想做了，做这些事情不单单为了找工作，还又为了自己的一点兴趣，暂时想到的如下：</p>
+<ul>
+<li>一个通用的 C++ 实现的 LDPC 编译码库</li>
+<li>深入理解计算机系统</li>
+<li>算法</li>
+<li>MIMO</li>
+<li>Linux</li>
+<li>C++</li>
+<li>数学</li>
+<li>更深入地理解 FPGA</li>
+<li>……</li>
+</ul>
+<p>想做的事情实在太多了，时间肯定是来不及了，那么必须得将事情分出一个轻重缓急，至于怎么分，那取决于什么是更重要的，好好问问自己今后想做什么。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>无题</tag>
       </tags>
   </entry>
   <entry>
@@ -3157,24 +3157,6 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>生日饭之后</title>
-    <url>/2021/04/after-the-birthday-dinner-hongchi/</url>
-    <content><![CDATA[<p>晚上出去聚餐了，到那儿才知道是泓池师兄的生日，28 岁了，正经不小了，希望师兄早日毕业。</p>
-<p>实验室的各位实在是太有意思了，能处在这样一个环境中真是我的幸运，不过就待人处世上我真有点格格不入，完全不是一个水平的人，但还是希望自己能有所成长吧，具体成长了什么？希望自己实时记录下来，这是最重要的，一定要记录。</p>
-<p>下午上了一下午沙老师的课，很有意思，老师实在是太能说了，连讲将近四个小时都不重样，这真的是一种让人佩服的能力，值得学习。至于具体的授课内容，总结起来就一点：学会去解决问题，从不同的角度去思考，给出解决方案。啊，真是可恶，现在已经有点不太记得当时的感悟了，当时真的有一种明白了什么的感觉，但是现在脑子里只剩下一个模糊的印象，抓也抓不住，养成用 flomo 随时记录的习惯。</p>
-<p>饭桌上聊天的末尾，谈到了华为性格测试的问题，原来一切都有套路，没做好准备基本就是白给，笔试、面试和性格测试都是如此，什么都可以准备的。后来不知道怎么的，说起了大一入学时候的心理测试，大部分人没有被叫过去，而我是例外之一。</p>
-<p>关于那次心理测试后的面对面交流，我还能想起来多少呢？最深刻的印象是交谈完之后，在下楼的电梯里碰到了一个感觉很好看的女生，当然，她现在已经是别人的女朋友了……不过我想起来的不只这么点，我还记得对面的心理咨询师十一个很胖的年轻男人，虽然有点冒犯，但我觉得他的体型实在是太过不健康。我还记得当时自己陷入一种不知道该怎么安排自己的状态，做事情老是做到一半就放弃，坚持不下去，所以总是感觉一事无成，所以我问了他，该怎么去改变，我记得他给我展示了他的日程表，慢慢的都是计划安排，实在是太忙了，但他还是要处理，借此来鼓励我吧，有作用和吗？我向有一点，但不多。</p>
-<p>碎碎念了这许多，还是早睡觉为好。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>生日</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>焦虑之下如何面向未来</title>
     <url>/2021/04/under-anxiety-how-to-face-future/</url>
     <content><![CDATA[<p>万物皆可转码！这些天来的焦虑缘起于此么？或许有个七八分吧，无尽的焦虑，我该怎样面对未来。</p>
@@ -3195,67 +3177,21 @@ proc complete_sim {} {...}
       </tags>
   </entry>
   <entry>
-    <title>内心平静安详</title>
-    <url>/2021/05/peace-and-serenity/</url>
-    <content><![CDATA[<p>现在是早上 10 点 20，写点东西对抗刚刚聊完天产生的焦虑，标题取作『内心平静安详』就当作是一种愿望。</p>
-<a id="more"></a>
-<p>焦虑源起于什么？自然是永远逃不开的终生大事——找个对象。群里聊着聊着意识到如果再不找个对象，离开学校之后，今后大概只有相亲一条路了，而这条路就看到的例子来说实在是一言难尽，所以焦虑就产生了，如果想要规避这条一言难尽的路， 那么在剩下的两年时间内我们就得抓紧时间找到一个对象。既然群里的人都有过感情经历，那么想必对自己需要什么不需要什么已经比较清楚了，『下一个更乖』也不仅仅是口号，而是实际的目标。我们都是在麦田里找最大麦穗的人，什么时候该收手呢？37%，不得而知。</p>
-<p>我倒不担心找对象的事，因为我相信要发生的一定会发生，最后该和谁走到最后都是命里注定，当她来的时候，我一定会有一种感觉，倘若不合适，那就该决绝地离开。这一切的前提是我需要训练好我的感觉，即确定若干标准，关于自己到底渴望什么样的关系，对于爱与爱人抱有何种期望。我想在书中可以寻找到一些答案，或者说是启发我们的例子，《爱上双人舞》看起来是一个不错的选择。在行动之前，清楚自己的目标，永远是正确的做法，对于爱与对象这种更为严肃的事情尤其如此。</p>
-<p>内心平静安详的真正原因来自于昨晚的闲聊。和朋友聊了有一会儿，没有特意去涉及一些问题，但说着说着似乎心中就有了答案，我也不能说出口来，只是有一种感觉：哦，我好像明白了。有一种放下了的轻松感，不再抱着念。烦恼皆起于执念，放下执念之后，我们开始寻找自己，反而变得更加平静安详了。</p>
+    <title>生日饭之后</title>
+    <url>/2021/04/after-the-birthday-dinner-hongchi/</url>
+    <content><![CDATA[<p>晚上出去聚餐了，到那儿才知道是泓池师兄的生日，28 岁了，正经不小了，希望师兄早日毕业。</p>
+<p>实验室的各位实在是太有意思了，能处在这样一个环境中真是我的幸运，不过就待人处世上我真有点格格不入，完全不是一个水平的人，但还是希望自己能有所成长吧，具体成长了什么？希望自己实时记录下来，这是最重要的，一定要记录。</p>
+<p>下午上了一下午沙老师的课，很有意思，老师实在是太能说了，连讲将近四个小时都不重样，这真的是一种让人佩服的能力，值得学习。至于具体的授课内容，总结起来就一点：学会去解决问题，从不同的角度去思考，给出解决方案。啊，真是可恶，现在已经有点不太记得当时的感悟了，当时真的有一种明白了什么的感觉，但是现在脑子里只剩下一个模糊的印象，抓也抓不住，养成用 flomo 随时记录的习惯。</p>
+<p>饭桌上聊天的末尾，谈到了华为性格测试的问题，原来一切都有套路，没做好准备基本就是白给，笔试、面试和性格测试都是如此，什么都可以准备的。后来不知道怎么的，说起了大一入学时候的心理测试，大部分人没有被叫过去，而我是例外之一。</p>
+<p>关于那次心理测试后的面对面交流，我还能想起来多少呢？最深刻的印象是交谈完之后，在下楼的电梯里碰到了一个感觉很好看的女生，当然，她现在已经是别人的女朋友了……不过我想起来的不只这么点，我还记得对面的心理咨询师十一个很胖的年轻男人，虽然有点冒犯，但我觉得他的体型实在是太过不健康。我还记得当时自己陷入一种不知道该怎么安排自己的状态，做事情老是做到一半就放弃，坚持不下去，所以总是感觉一事无成，所以我问了他，该怎么去改变，我记得他给我展示了他的日程表，慢慢的都是计划安排，实在是太忙了，但他还是要处理，借此来鼓励我吧，有作用和吗？我向有一点，但不多。</p>
+<p>碎碎念了这许多，还是早睡觉为好。</p>
 ]]></content>
       <categories>
         <category>生活</category>
       </categories>
       <tags>
         <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>最近的一些事情——准备考驾照以及其他</title>
-    <url>/2021/05/what-s-going-on/</url>
-    <content><![CDATA[<p>可恶啊，本来想今晚上就写好的，看来是不行了，23:35 建的文件，到 50 才开始动笔，不愧是我，老摸鱼人了，简单写两句吧，最近也还是有一点事情可以说的。</p>
-<p>终于报名考驾照了，10 号上午步行 10 公里，先去体检再去报名，折腾了挺久，主要是在路上耽误的，到了目的地反而一下就办好了。体检就检查下视力，还好戴了眼镜，不然是过不去了，顺利拿到检查报告之后，走了 1h 左右去驾校报名，报名可是真快，果然，交钱出去的事对面巴不得你快一点，还好我提前了解过了，所以也没有什么疑问，很快的就结束了。接下来就安心准备考试吧，不过恰逢毕设要结题了，后面的事情还是有点多的，要准备好多线程工作了。</p>
-<p>昨天对项目的问题开了个会（还是前天呢），总之我认为其实更可以说成是布置任务，没有太多的争论，也没有太多的讨论，我认为这是<strong>不好的现象</strong>，但又不好直接说出来，因为这个项目做起来实在心里没底：要做实际的系统，而我们又基本没有相关的经验，所以很难受的，心里没底，这是最让人难受的。先这样看看吧。</p>
-<p>今天和以前的队友讨论了另一件事情，我感觉其中存在问题，但由于先前答应了，现在又不好多说些什么。实在是难受啊，又要继续做心里不太认可的事情吗？我怕自己的心态迟早出大问题。</p>
-<p>晚上群里大伙又在说对象的事情了，概括起来就是『只有后悔，拍懒大腿』。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>开搞毕设论文</title>
-    <url>/2021/05/ready-for-thesis/</url>
-    <content><![CDATA[<p>这个文档是 13 号建的，准备动手写的时候已经到了睡觉的时候了，第二天晚上也就是现在才想起来还有这个遗留的任务没有完成，那么随便写两笔也好，<strong>标志着毕设论文正式开搞</strong>。</p>
-<p>本科四年真正走到了最后一步，说起来还真是有些伤感，4 年啊，好像忽然就过去了，没有留下太深刻的印象，不说这个了，再继续想下去又要落入之前的圈套了，现在该有的态度是：不管不过如何可惜，我们注定无法改变，我们身处现在，面对的是未来，好好想想接下来该怎么做。</p>
-<p>对于毕设论文，如果没有意外，我想在 <strong>24 号</strong>基本完成毕设论文，目标字数是<strong>正文 2W 字</strong>，所以平均下来，从明天开始，每天需要写 <strong>2K</strong> 字。在这个过程中，需要注意保持与老师的沟通，别和中期一样，写到最后发现有很大一块没有写。</p>
-<p>今天基本全用在学习如何使用 LaTeX 进行简单的排版以及安装使用 <code>hithesis</code>，总算是解决了，其实本可以等到去实验室的时候问师兄的，这样做花的时间会更少一点，但我还是选择自己折腾了，正好也把时间花掉了，还挺心安理得的……</p>
-<p>啊，不可忘记了，除了毕设论文之外，还有其他几门课程需要写报告：导航定位技术专题、空间通信技术专题、深度学习还有通信系统建模仿真。空间通信技术专题的报告师兄写了……只能说师兄太强了，要抱紧大腿。那么剩下的几个报告我需要抓紧写了，尤其是深度学习，还得自己找材料，硬凑，说白了就是抄……好吧，能抄会就不错了，py 下的 DL 环境，还有其他种种东西，都搞好了时间肯定不够了，哪能把时间都花这儿呢？</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-        <tag>里程碑</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>爱上一个人</title>
-    <url>/2021/05/fall-in-love-with-someone/</url>
-    <content><![CDATA[<p>这个标题正好切合昨天和今天这两个日子，昨天是5.20，今天是5.21，爱上一个人是多么幸福啊。</p>
-<p>不过这和我没关系，我暂时还没有这种能力，或者这个打算，四年前我是这么想的，两年前我以为自己可以了，但最终失败，现在我又回到了原点，依然没有这个能力和打算，至于到底是哪个在前，我也说不清，就当作是一种逃避。</p>
-<p>抛开儿女情长，眼下有更重要的事情要做，那就是毕设，上一篇的内容就当我没说过吧，到今天为止我还是没有写完绪论……，这部分实在是太恶心了，难以继续行动。按照师兄的经验，写到后面会越写越快，因为都是自己的东西了，写起来舒服，而绪论是写别人的内容，还要小心查重，自然就没有那么得心应手。就算考虑到以上重重原因，今天我也得把绪论写完，明后两天把第二章写完，那么下周就可以把后两章结束，🛫️。</p>
-<p>丧失了爱的能力，全是计算，真是可悲，只有求得一个解脱之道才能逃离这种情绪的影响。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
+        <tag>生日</tag>
       </tags>
   </entry>
   <entry>
@@ -3294,6 +3230,102 @@ proc complete_sim {} {...}
       </categories>
       <tags>
         <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>内心平静安详</title>
+    <url>/2021/05/peace-and-serenity/</url>
+    <content><![CDATA[<p>现在是早上 10 点 20，写点东西对抗刚刚聊完天产生的焦虑，标题取作『内心平静安详』就当作是一种愿望。</p>
+<a id="more"></a>
+<p>焦虑源起于什么？自然是永远逃不开的终生大事——找个对象。群里聊着聊着意识到如果再不找个对象，离开学校之后，今后大概只有相亲一条路了，而这条路就看到的例子来说实在是一言难尽，所以焦虑就产生了，如果想要规避这条一言难尽的路， 那么在剩下的两年时间内我们就得抓紧时间找到一个对象。既然群里的人都有过感情经历，那么想必对自己需要什么不需要什么已经比较清楚了，『下一个更乖』也不仅仅是口号，而是实际的目标。我们都是在麦田里找最大麦穗的人，什么时候该收手呢？37%，不得而知。</p>
+<p>我倒不担心找对象的事，因为我相信要发生的一定会发生，最后该和谁走到最后都是命里注定，当她来的时候，我一定会有一种感觉，倘若不合适，那就该决绝地离开。这一切的前提是我需要训练好我的感觉，即确定若干标准，关于自己到底渴望什么样的关系，对于爱与爱人抱有何种期望。我想在书中可以寻找到一些答案，或者说是启发我们的例子，《爱上双人舞》看起来是一个不错的选择。在行动之前，清楚自己的目标，永远是正确的做法，对于爱与对象这种更为严肃的事情尤其如此。</p>
+<p>内心平静安详的真正原因来自于昨晚的闲聊。和朋友聊了有一会儿，没有特意去涉及一些问题，但说着说着似乎心中就有了答案，我也不能说出口来，只是有一种感觉：哦，我好像明白了。有一种放下了的轻松感，不再抱着念。烦恼皆起于执念，放下执念之后，我们开始寻找自己，反而变得更加平静安详了。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>爱上一个人</title>
+    <url>/2021/05/fall-in-love-with-someone/</url>
+    <content><![CDATA[<p>这个标题正好切合昨天和今天这两个日子，昨天是5.20，今天是5.21，爱上一个人是多么幸福啊。</p>
+<p>不过这和我没关系，我暂时还没有这种能力，或者这个打算，四年前我是这么想的，两年前我以为自己可以了，但最终失败，现在我又回到了原点，依然没有这个能力和打算，至于到底是哪个在前，我也说不清，就当作是一种逃避。</p>
+<p>抛开儿女情长，眼下有更重要的事情要做，那就是毕设，上一篇的内容就当我没说过吧，到今天为止我还是没有写完绪论……，这部分实在是太恶心了，难以继续行动。按照师兄的经验，写到后面会越写越快，因为都是自己的东西了，写起来舒服，而绪论是写别人的内容，还要小心查重，自然就没有那么得心应手。就算考虑到以上重重原因，今天我也得把绪论写完，明后两天把第二章写完，那么下周就可以把后两章结束，🛫️。</p>
+<p>丧失了爱的能力，全是计算，真是可悲，只有求得一个解脱之道才能逃离这种情绪的影响。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>最近的一些事情——准备考驾照以及其他</title>
+    <url>/2021/05/what-s-going-on/</url>
+    <content><![CDATA[<p>可恶啊，本来想今晚上就写好的，看来是不行了，23:35 建的文件，到 50 才开始动笔，不愧是我，老摸鱼人了，简单写两句吧，最近也还是有一点事情可以说的。</p>
+<p>终于报名考驾照了，10 号上午步行 10 公里，先去体检再去报名，折腾了挺久，主要是在路上耽误的，到了目的地反而一下就办好了。体检就检查下视力，还好戴了眼镜，不然是过不去了，顺利拿到检查报告之后，走了 1h 左右去驾校报名，报名可是真快，果然，交钱出去的事对面巴不得你快一点，还好我提前了解过了，所以也没有什么疑问，很快的就结束了。接下来就安心准备考试吧，不过恰逢毕设要结题了，后面的事情还是有点多的，要准备好多线程工作了。</p>
+<p>昨天对项目的问题开了个会（还是前天呢），总之我认为其实更可以说成是布置任务，没有太多的争论，也没有太多的讨论，我认为这是<strong>不好的现象</strong>，但又不好直接说出来，因为这个项目做起来实在心里没底：要做实际的系统，而我们又基本没有相关的经验，所以很难受的，心里没底，这是最让人难受的。先这样看看吧。</p>
+<p>今天和以前的队友讨论了另一件事情，我感觉其中存在问题，但由于先前答应了，现在又不好多说些什么。实在是难受啊，又要继续做心里不太认可的事情吗？我怕自己的心态迟早出大问题。</p>
+<p>晚上群里大伙又在说对象的事情了，概括起来就是『只有后悔，拍懒大腿』。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>致谢</title>
+    <url>/2021/05/reach-acknowledgement/</url>
+    <content><![CDATA[<p>折腾了两周的毕设论文终于要告一段落了，终于写到致谢了，却发现自己写不下去了，我反问自己为什么不一口气写完，得到的答案如下：</p>
+<ul>
+<li>不写完就好像毕业能慢一点，但其实我已经没有多少留恋……</li>
+<li>就是单纯的懒，我想拖一拖</li>
+<li>想营造一种气氛，一种离别的伤感的气氛</li>
+</ul>
+<p>无论如何，致谢都是非写不可的，不是今天就是明天，那就没什么好拖的了，就现在吧，写完它，初稿就完成了。以下为致谢全文：</p>
+<a id="more"></a>
+<p>写到致谢的时候，发现自己真的是要毕业了，这四年过得很快很快，仿佛昨天我还是刚刚中学毕业的未成年，明天就要大学毕业了。时间总是太快，我们总是一路向前奔跑，很难得能在致谢这里停下来，回头想想一路走来碰到的许多值得我去深深感谢的人。</p>
+<p>还记得4年前毕业填志愿的时候，在毛毛家叨扰多日，三个人（有时候是四个，甚至更多）看来看去，还是不知道要去哪儿，在填志愿的最后一天早上凌晨2点，我失眠了，最后把哈尔滨工业大学填在了第一志愿，而后兜兜转转，最终来了哈尔滨。现在回头看，只感觉太有意思了，我居然就这样来了，大概是缘吧，感谢那时的各位兄弟和阿姨，实在是太欢乐了。</p>
+<p>我选择在这里度过了平淡的四年，大部分时间都花在了学习上，余下的时间和各位好友一起打篮球，尽管对我来说不那么平静，经历过一些坎坷挫折，不过现在都能回头笑看了。感谢在这个过程中给予我帮助的老师们，刘莹导员、何晨光老师、侯成宇老师还有于启月老师，特别是于老师，在去年5月份接收我进实验室开始学习，让我见到了同课堂上不一样的通信，确定了我现在研究的课题，还有幸结识了师兄们和师姐，文斌师兄、继冲师兄、泓池师兄、曹大哥、灏哥、鹏政师兄、王屹大哥、李瑭师姐、浩天师兄、子靖师兄、冠辰师兄和柯浔师兄，感谢各位师兄和师姐在学业上和生活上的帮助。还有两位同窗，成瑶和天威，感谢两位大佬的包容。</p>
+<p>和各位同窗一起走过四年，很是欢乐，沃老板、赵公子、梁院长、群主、侯哥、刘飞还有斐哥，能与各位相识，实在是一种幸运，此后我们各奔东西，都有光明的未来。</p>
+<p>那一帮一起打球的兄弟们，还记得一位学长说过，打球真的是一辈子的财富，我想最大的财富就是结识了各位球友。</p>
+<p>延续了一年的毕设终于要结束了，感谢这个过程中答辩老师的指导意见，辛苦了。</p>
+<p>最后，感谢我的爸妈和姐姐，没有你们，我到不了这里。写到致谢的时候，发现自己真的是要毕业了，这四年过得很快很快，仿佛昨天我还是刚刚中学毕业的未成年，明天就要大学毕业了。时间总是太快，我们总是一路向前奔跑，很难得能在致谢这里停下来，回头想想一路走来碰到的许多值得我去深深感谢的人。</p>
+<p>还记得4年前毕业填志愿的时候，在毛毛家叨扰多日，三个人（有时候是四个，甚至更多）看来看去，还是不知道要去哪儿，在填志愿的最后一天早上凌晨2点，我失眠了，最后把哈尔滨工业大学填在了第一志愿，而后兜兜转转，最终来了哈尔滨。现在回头看，只感觉太有意思了，我居然就这样来了，大概是缘吧，感谢那时的各位兄弟和阿姨，实在是太欢乐了。</p>
+<p>我选择在这里度过了平淡的四年，大部分时间都花在了学习上，余下的时间和各位好友一起打篮球，尽管对我来说不那么平静，经历过一些坎坷挫折，不过现在都能回头笑看了。感谢在这个过程中给予我帮助的老师们，刘莹导员、何晨光老师、侯成宇老师还有于启月老师，特别是于老师，在去年5月份接收我进实验室开始学习，让我见到了同课堂上不一样的通信，确定了我现在研究的课题，还有幸结识了师兄们和师姐，文斌师兄、继冲师兄、泓池师兄、曹大哥、灏哥、鹏政师兄、王屹大哥、李瑭师姐、浩天师兄、子靖师兄、冠辰师兄和柯浔师兄，感谢各位师兄和师姐在学业上和生活上的帮助。还有两位同窗，成瑶和天威，感谢两位大佬的包容。</p>
+<p>和各位同窗一起走过四年，很是欢乐，沃老板、赵公子、梁院长、群主、侯哥、刘飞还有斐哥，能与各位相识，实在是一种幸运，此后我们各奔东西，都有光明的未来。</p>
+<p>那一帮一起打球的兄弟们，还记得一位学长说过，打球真的是一辈子的财富，我想最大的财富就是结识了各位球友。</p>
+<p>延续了一年的毕设终于要结束了，感谢这个过程中答辩老师的指导意见，辛苦了。</p>
+<p>最后，感谢我的爸妈和姐姐，没有你们，我到不了这里。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>开搞毕设论文</title>
+    <url>/2021/05/ready-for-thesis/</url>
+    <content><![CDATA[<p>这个文档是 13 号建的，准备动手写的时候已经到了睡觉的时候了，第二天晚上也就是现在才想起来还有这个遗留的任务没有完成，那么随便写两笔也好，<strong>标志着毕设论文正式开搞</strong>。</p>
+<p>本科四年真正走到了最后一步，说起来还真是有些伤感，4 年啊，好像忽然就过去了，没有留下太深刻的印象，不说这个了，再继续想下去又要落入之前的圈套了，现在该有的态度是：不管不过如何可惜，我们注定无法改变，我们身处现在，面对的是未来，好好想想接下来该怎么做。</p>
+<p>对于毕设论文，如果没有意外，我想在 <strong>24 号</strong>基本完成毕设论文，目标字数是<strong>正文 2W 字</strong>，所以平均下来，从明天开始，每天需要写 <strong>2K</strong> 字。在这个过程中，需要注意保持与老师的沟通，别和中期一样，写到最后发现有很大一块没有写。</p>
+<p>今天基本全用在学习如何使用 LaTeX 进行简单的排版以及安装使用 <code>hithesis</code>，总算是解决了，其实本可以等到去实验室的时候问师兄的，这样做花的时间会更少一点，但我还是选择自己折腾了，正好也把时间花掉了，还挺心安理得的……</p>
+<p>啊，不可忘记了，除了毕设论文之外，还有其他几门课程需要写报告：导航定位技术专题、空间通信技术专题、深度学习还有通信系统建模仿真。空间通信技术专题的报告师兄写了……只能说师兄太强了，要抱紧大腿。那么剩下的几个报告我需要抓紧写了，尤其是深度学习，还得自己找材料，硬凑，说白了就是抄……好吧，能抄会就不错了，py 下的 DL 环境，还有其他种种东西，都搞好了时间肯定不够了，哪能把时间都花这儿呢？</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+        <tag>里程碑</tag>
       </tags>
   </entry>
 </search>
