@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32_32.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16_16.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="notes,csapp," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="csapp 第二章笔记，包括整数表示和浮点数表示及相关的运算规则。">
+<meta name="keywords" content="notes,csapp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSAPP 第二章 信息的表示及处理">
+<meta property="og:url" content="https://jonathan1214.github.io/2021/01/csapp-chapter2-notes-integer-float/index.html">
+<meta property="og:site_name" content="dsfds&#39; blog">
+<meta property="og:description" content="csapp 第二章笔记，包括整数表示和浮点数表示及相关的运算规则。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://jonathan1214.github.io/2021/01/csapp-chapter2-notes-integer-float/Byte-ordering-example.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2021/01/csapp-chapter2-notes-integer-float/floating-point-representation.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2021/01/csapp-chapter2-notes-integer-float/single-precision.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2021/01/csapp-chapter2-notes-integer-float/double-precision.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2021/01/csapp-chapter2-notes-integer-float/visualization-floating-point.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2021/01/csapp-chapter2-notes-integer-float/floating-point-puzzles.png">
+<meta property="og:updated_time" content="2021-10-17T02:26:55.062Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSAPP 第二章 信息的表示及处理">
+<meta name="twitter:description" content="csapp 第二章笔记，包括整数表示和浮点数表示及相关的运算规则。">
+<meta name="twitter:image" content="https://jonathan1214.github.io/2021/01/csapp-chapter2-notes-integer-float/Byte-ordering-example.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://jonathan1214.github.io/2021/01/csapp-chapter2-notes-integer-float/"/>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <title>CSAPP 第二章 信息的表示及处理 | dsfds' blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">dsfds' blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学海无涯，回头是岸</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2021/01/csapp-chapter2-notes-integer-float/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="dsfds">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dsfds' blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSAPP 第二章 信息的表示及处理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-24T12:55:36+08:00">
+                2021-01-24
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2021-10-17T10:26:55+08:00">
+                2021-10-17
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/01/csapp-chapter2-notes-integer-float/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/01/csapp-chapter2-notes-integer-float/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>csapp 第二章笔记，包括整数表示和浮点数表示及相关的运算规则。</p>
+<a id="more"></a>
+<h2 id="Lecture-2-Bits-Bytes-amp-Integers-part-1"><a href="#Lecture-2-Bits-Bytes-amp-Integers-part-1" class="headerlink" title="Lecture 2 Bits, Bytes, &amp; Integers -part 1"></a>Lecture 2 Bits, Bytes, &amp; Integers -part 1</h2><p>分为两个部分，主要介绍了机器中数据的存储方式及一些运算。</p>
+<p>第一部分介绍了如下内容，重点是无符号数（unsigned）和有符号数（signed）的关系，包括他们在机器中的存储方式、表示范围、运算法则和转换关系。</p>
+<ul>
+<li>数据类型的宽度</li>
+<li>位级表示及运算与集合运算的关系</li>
+<li>C 中的逻辑运算</li>
+<li>移位运算：逻辑移位与算术移位</li>
+<li>用二进制数对整数进行表示，包括有符号数和无符号数</li>
+<li>二进制表示的整数的数值范围（unsigned和signed）</li>
+<li>unsigned 和 signed 之间的转换关系</li>
+<li>默认 signed 向 unsigned 转换带来的危险</li>
+<li>扩展 signed：符号位向前扩展</li>
+<li>扩展 unsigned：向前扩展 0</li>
+<li>截断 unsiged：模 $2^w$</li>
+<li>截断 signed</li>
+</ul>
+<h3 id="数据类型的宽度"><a href="#数据类型的宽度" class="headerlink" title="数据类型的宽度"></a>数据类型的宽度</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">C Data Type</th>
+<th style="text-align:center">Typical 32-bit</th>
+<th style="text-align:center">Typical 64-bit</th>
+<th style="text-align:center">x86-64</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:center">long double</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">10/16</td>
+</tr>
+<tr>
+<td style="text-align:center">pointer</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">8</td>
+</tr>
+</tbody>
+</table>
+<h3 id="移位运算"><a href="#移位运算" class="headerlink" title="移位运算"></a>移位运算</h3><p>包括逻辑移位和数值移位，对于无符号数而言，无论是左移还是右移，两种移位是相同的，补 0 即可。对有符号数来说，左移两种移位方式都是在后面补 0，而右移，数值移位需要在前面补符号位，这牵涉到后面讲到的有符号数的扩展。</p>
+<h3 id="无符号整数"><a href="#无符号整数" class="headerlink" title="无符号整数"></a>无符号整数</h3><p>$$<br>B2U(X)=\Sigma^{w-1}_{i=0}x_i\cdot2^i<br>$$</p>
+<h3 id="有符号整数"><a href="#有符号整数" class="headerlink" title="有符号整数"></a>有符号整数</h3><p>$$<br>B2T(X)=-x_{w-1}\cdot2^{w-1}+\Sigma^{w-2}_{i=0}x_i\cdot2^i<br>$$</p>
+<h3 id="数值范围"><a href="#数值范围" class="headerlink" title="数值范围"></a>数值范围</h3><ul>
+<li>无符号：0~$2^w-1$</li>
+<li>有符号：$-2^{w-1}$~$2^{w-1}-1$</li>
+</ul>
+<hr>
+<h2 id="Lecture-3-Bits-Bytes-amp-Integers-part-2"><a href="#Lecture-3-Bits-Bytes-amp-Integers-part-2" class="headerlink" title="Lecture 3 Bits, Bytes, &amp; Integers -part 2"></a>Lecture 3 Bits, Bytes, &amp; Integers -part 2</h2><p>这是整数表示的第二部分，包括加法、取反、乘法和移位操作，此外还包含了数据在存储空间中的表示。</p>
+<h3 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h3><p>unsigned 加，当最终结果的位数超出原来，直接舍去进位。</p>
+<p>signed 加，也是直接舍去进位，但注意到，补码的加法会产生两种溢出，即数据过大向上溢出变成负数（positive overflow）和数据过小向下溢出变成正数（negtive overflow）。</p>
+<h3 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h3><p>先计算结果，在直接舍去前面的位，unsigned 和 signed 均是如此。</p>
+<h3 id="移位"><a href="#移位" class="headerlink" title="移位"></a>移位</h3><p>移位和乘2^k是等价的，因此一些乘法可以用移位和加法组合实现，如：<code>(u&lt;&lt;5) - (u&lt;&lt;3) == u * 24</code>。</p>
+<p>但需要注意的是，对 unsigned 进行的是逻辑移位，而对 signed 进行的是算术移位。</p>
+<p>相应的当k为负数时，移位就和除法等价了。</p>
+<h3 id="取反"><a href="#取反" class="headerlink" title="取反"></a>取反</h3><p>借助逐位取反我们可以得到一个补码的相反数，即 <code>~x + 1 == -x</code>，但是，<strong>这条规则</strong>对 <code>TMin</code> 并不成立，事实上<code>~TMin + 1 = TMin</code>，这不难想到，因为补码表示的范围为 $-2^{w-1}$~$2^{w-1}-1$，没有与 TMin 相对应的相反数。</p>
+<h3 id="字节顺序"><a href="#字节顺序" class="headerlink" title="字节顺序"></a>字节顺序</h3><p>数据在内存中是按照字节来存储，多字节的数据如何存储呢？</p>
+<ul>
+<li>Big Endian：大端序，即低地址存放数据的高字节，依次类推。</li>
+<li><p>Little Endian：小端序，即低地址存放数据的低字节。这是今天常用的处理器使用的数据存储方法。</p>
+<img src="/2021/01/csapp-chapter2-notes-integer-float/Byte-ordering-example.png" title="Byte-ordering-example">
+</li>
+</ul>
+<p>下面以整数、指针和字符串在内存中的表示为例：</p>
+<ul>
+<li>整数早大端序和小端序机器上的表示顺序完全相反。</li>
+<li>指针的具体数值我们并不关心。</li>
+<li>字符串比较有意思，字符串中的每个字符都可以用一个字节的ASCII码表示，因此不存在字节顺序的问题，所以字符串大端序和小端序机器上的表示是相同的。</li>
+</ul>
+<hr>
+<h2 id="Lecture-4-float"><a href="#Lecture-4-float" class="headerlink" title="Lecture 4 float"></a>Lecture 4 float</h2><p>这一讲介绍的是浮点数，包括小数二进制数表示，IEEE754浮点数标准，浮点数的舍入规则、加法和乘法。</p>
+<h3 id="Fractional-binary-numbers"><a href="#Fractional-binary-numbers" class="headerlink" title="Fractional binary numbers"></a>Fractional binary numbers</h3><p><code>1011.101</code> 为例，小数点后面的数按照负指数依次进行计算即可，这在前面也提到了。一个好的计算方法是：</p>
+<ul>
+<li>对于小数部分，不考虑其为小数部分，按照 unsigned 数得出其数值，如例子中的 <code>.101</code> 为 5</li>
+<li>小数部分的位数为 k，将第一步得到的数值除以 2^k 即得到最终小数部分的值，如例子中的 k = 3，最终的小数部分数值为 5/8。</li>
+</ul>
+<p>这种表示方法太局限了，要对 1/3 这样的小数进行精确表示，需要很多位数，此外对于固定位数的数，我们始终要在表示的数据范围和对小数表示的精确成都进行折中。</p>
+<h3 id="Floating-Point"><a href="#Floating-Point" class="headerlink" title="Floating Point"></a>Floating Point</h3><p>这里介绍 IEEE 754 标准提出的浮点数，这也是当前所有主流 CPU 支持的浮点数标准。该标准易于实现浮点数的舍入、上溢出和下溢出，它的缺点是在硬件上实现起来较慢。</p>
+<p>典型的浮点数表示如下，M取值为 [1.0, 2.0)。<br>$$<br>(-1)^s\cdot M \cdot 2^E<br>$$<br>对应到内存中，表示如下：</p>
+ <img src="/2021/01/csapp-chapter2-notes-integer-float/floating-point-representation.png" title="floating-point-representation">
+<ul>
+<li>s  表示公式中的符号位 s</li>
+<li>exp 表示公式中的 E（并不相等，存在转换关系）</li>
+<li>frac 表示公式中的 M（并不相等，存在转换关系）</li>
+</ul>
+<p>IEEE 754 主要提供了两种浮点数标准：单精度（32位）和双精度（64位）</p>
+ <img src="/2021/01/csapp-chapter2-notes-integer-float/single-precision.png" title="single-precision">
+ <img src="/2021/01/csapp-chapter2-notes-integer-float/double-precision.png" title="double-precision">
+<p>这两种标准是相似的，只是数据位数不同，甚至我们自己也可以参考这种定义给出如 8 位浮点数的定义，容易帮助我们理解浮点数。</p>
+<p>针对 e 的内容的不同，划分了浮点数的类型：</p>
+<ul>
+<li><code>00...00</code>：denormalized</li>
+<li><code>exp != 0 and exp != 11...11</code>: normalized</li>
+<li><code>11...11</code>: specail</li>
+</ul>
+<h4 id="Normalized"><a href="#Normalized" class="headerlink" title="Normalized"></a>Normalized</h4><p><code>exp != 0 and exp != 11...11</code>，此时 E = exp - <em>Bias</em>，</p>
+<ul>
+<li>exp 为 exp 部分表示的 unsigned 值。</li>
+<li>Bias = 2^{k-1}-1，k 为 exp 部分的位数。对于单精度，k = 8，Bias = 127，对于双精度，k=11，Bias = 1023。</li>
+</ul>
+<p>公式中的 M 部分化为 <code>M = 1.xx...xxx</code>：</p>
+<ul>
+<li><code>xx...xxx</code> 作为 frac 部分</li>
+<li>最大为 <code>frac = 000...0 (M = 1.0)</code></li>
+<li>最小为 <code>frac = 111...1 (M = 2.0 -\delta)</code></li>
+</ul>
+<p>由此得到了内存中 frac 部分和 exp 部分与原数据的对应关系，在考虑到符号位即可得出数据的浮点数表示。</p>
+<h4 id="Denormalized"><a href="#Denormalized" class="headerlink" title="Denormalized"></a>Denormalized</h4><p>上述表示的问题在于，对于 M &lt; 1 的数据，无法进行处理，这部由 denormalized 定义：</p>
+<ul>
+<li><code>exp = 000...0</code></li>
+<li>Bias 和前面的定义相当，但是转换关系变成 E = 1 - Bias</li>
+<li>M 表示为 <code>0.xxx...x</code>，<code>xxx...x</code> 作为 frac 部分</li>
+</ul>
+<p>这样一来，exp 和 frac 所有位均为 0 时就可以表示数字 0 了，注意到这里仍然有 +0 和 -0 的区别。</p>
+<h4 id="Special"><a href="#Special" class="headerlink" title="Special"></a>Special</h4><p>除了上面说到的，浮点数还有一种例外，即当 <code>exp = 111...1</code> 时：</p>
+<ul>
+<li><code>exp = 111..1</code>，<code>frac = 000...0</code>：表示 infinity 无穷大，用于表述数据运算中的溢出</li>
+<li><p><code>exp = 111...1</code>，<code>frac != 000...0</code>：表示 NaN 非数，用于表述数据运算中的无效运算结果，如 sqrt(-1)。</p>
+<img src="/2021/01/csapp-chapter2-notes-integer-float/visualization-floating-point.png" title="visualization-floating">
+</li>
+</ul>
+<h3 id="Special-Properties"><a href="#Special-Properties" class="headerlink" title="Special Properties"></a>Special Properties</h3><ul>
+<li>全 0 表示整数 0</li>
+<li>数据大小比较，几乎可以使用 unsigned 整数比较方法。当然有一些例外：<ul>
+<li>首先比较符号位</li>
+<li>-0 = 0</li>
+<li>NaNs 大于任何数</li>
+<li>其他均是可以的</li>
+</ul>
+</li>
+</ul>
+<h3 id="Floating-Point-Rounding"><a href="#Floating-Point-Rounding" class="headerlink" title="Floating Point Rounding"></a>Floating Point Rounding</h3><p>加法也好，乘法也好，关键在于对结果的舍入，因为位数有限，只能如此。</p>
+<ul>
+<li>先计算准确的数值</li>
+<li>然后按照规则进行舍入</li>
+</ul>
+<p>默认的舍入规则为向<strong>就近 偶数（Nearest Even）</strong>靠近，如 1.4 舍入为 1， 1.5 舍入为2.0，2.5 舍入为 2.0：基本上按照向最近的数靠近（1.4==&gt;&gt;1.0），但是当出于中间时，则向最近的偶数靠近（1.5==&gt;&gt;2.0）。所以这个名字可能有些困扰，它应该分为两部分理解：优先选择近的（Nearest），如果距离两个数距离相同（half-way），则选择偶数（even）。</p>
+<p>十进制例子如下所示（有效位数为小数点后两位）：</p>
+<ul>
+<li>7.8949999 —&gt;&gt;&gt; 7.89</li>
+<li>7.8940001 —&gt;&gt;&gt; 7.90</li>
+<li>7.8950000 —&gt;&gt;&gt; 7.90</li>
+<li>7.8850000 —&gt;&gt;&gt; 7.88</li>
+</ul>
+<p>在二进制中，even 表示最低有效位为 0，half-way 表示最低有效位后的为 <code>100...</code>。如下这几个例子（有效位数为小数点后两位）</p>
+<ul>
+<li>10.00011   —-&gt;&gt; 10.00</li>
+<li>10.00110   —-&gt;&gt; 10.01</li>
+<li>10.11100   —-&gt;&gt; 11.00</li>
+<li>10.10100   —-&gt;&gt; 10.10</li>
+</ul>
+<h3 id="Floating-Point-Multiplication"><a href="#Floating-Point-Multiplication" class="headerlink" title="Floating Point Multiplication"></a>Floating Point Multiplication</h3><p>按照如下规则计算：</p>
+<ul>
+<li>s = s1 ^ s2</li>
+<li>M = M1 * M2</li>
+<li>E = E1 + E2</li>
+</ul>
+<p>然后在进行转化和舍入。</p>
+<h3 id="Floating-Point-Additon"><a href="#Floating-Point-Additon" class="headerlink" title="Floating Point Additon"></a>Floating Point Additon</h3><p>对于 E 不相同的浮点数，先通过移位将 E 向较大的一方靠近，然后进行加法，再进行舍入。</p>
+<h3 id="Mathematical-Properties"><a href="#Mathematical-Properties" class="headerlink" title="Mathematical Properties"></a>Mathematical Properties</h3><ul>
+<li>对加法封闭</li>
+<li>加法满足交换律 Commutative</li>
+<li>加法不满足结合率 Associative（因为舍入）</li>
+<li>对乘法封闭</li>
+<li>乘法满足交换律</li>
+<li>乘法不满足结合律（因为舍入）</li>
+</ul>
+<h3 id="Floating-Point-in-C"><a href="#Floating-Point-in-C" class="headerlink" title="Floating Point in C"></a>Floating Point in C</h3><p>包括单精度 float 和双精度 double，注意他们的转换关系，即是否会产生误差，关注他们的位数即可，float 的 frac 长为23，int 长为 32，double frac 长为 52，根据短的向长的转换不会出现误差即可的得出结论。</p>
+ <img src="/2021/01/csapp-chapter2-notes-integer-float/floating-point-puzzles.png" title="floating-point-puzzles">
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    dsfds
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://jonathan1214.github.io/2021/01/csapp-chapter2-notes-integer-float/" title="CSAPP 第二章 信息的表示及处理">https://jonathan1214.github.io/2021/01/csapp-chapter2-notes-integer-float/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/notes/" rel="tag"><i class="fa fa-tag"></i> notes</a>
+          
+            <a href="/tags/csapp/" rel="tag"><i class="fa fa-tag"></i> csapp</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/01/two-pointer-technique/" rel="next" title="双指针技术">
+                <i class="fa fa-chevron-left"></i> 双指针技术
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/01/I-am-20-years-old/" rel="prev" title="20 岁了">
+                20 岁了 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="dsfds" />
+            
+              <p class="site-author-name" itemprop="name">dsfds</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">104</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jonathan1214" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jonathan1214@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lecture-2-Bits-Bytes-amp-Integers-part-1"><span class="nav-text">Lecture 2 Bits, Bytes, &amp; Integers -part 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型的宽度"><span class="nav-text">数据类型的宽度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移位运算"><span class="nav-text">移位运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无符号整数"><span class="nav-text">无符号整数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有符号整数"><span class="nav-text">有符号整数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数值范围"><span class="nav-text">数值范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lecture-3-Bits-Bytes-amp-Integers-part-2"><span class="nav-text">Lecture 3 Bits, Bytes, &amp; Integers -part 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加法"><span class="nav-text">加法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#乘法"><span class="nav-text">乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移位"><span class="nav-text">移位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取反"><span class="nav-text">取反</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字节顺序"><span class="nav-text">字节顺序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lecture-4-float"><span class="nav-text">Lecture 4 float</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Fractional-binary-numbers"><span class="nav-text">Fractional binary numbers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Floating-Point"><span class="nav-text">Floating Point</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Normalized"><span class="nav-text">Normalized</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Denormalized"><span class="nav-text">Denormalized</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Special"><span class="nav-text">Special</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Special-Properties"><span class="nav-text">Special Properties</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Floating-Point-Rounding"><span class="nav-text">Floating Point Rounding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Floating-Point-Multiplication"><span class="nav-text">Floating Point Multiplication</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Floating-Point-Additon"><span class="nav-text">Floating Point Additon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mathematical-Properties"><span class="nav-text">Mathematical Properties</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Floating-Point-in-C"><span class="nav-text">Floating Point in C</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">dsfds</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">90.8k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'pKduJiwXGxEBLhnENF3li3Fv-gzGzoHsz',
+        appKey: 'TfcDSWRi0FBxPFOnGhQ1d5be',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+</body>
+</html>

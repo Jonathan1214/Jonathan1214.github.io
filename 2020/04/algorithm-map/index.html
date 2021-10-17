@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32_32.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16_16.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="算法,数据结构,notes,Java," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在许多计算机应用中，由相连的结点所表示的模型起到了关键的作用。这些结点之间的连接很自然地会让人们产生一连串的疑问：沿着这些连接能否从一个结点到达另一个结点？有多少个结点和指定的结点相连？两个结点之间最短的连接是哪一条？要描述这些问题，我们要使用一种抽象的数学对象，叫做图。">
+<meta name="keywords" content="算法,数据结构,notes,Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法笔记 —— 图">
+<meta property="og:url" content="https://jonathan1214.github.io/2020/04/algorithm-map/index.html">
+<meta property="og:site_name" content="dsfds&#39; blog">
+<meta property="og:description" content="在许多计算机应用中，由相连的结点所表示的模型起到了关键的作用。这些结点之间的连接很自然地会让人们产生一连串的疑问：沿着这些连接能否从一个结点到达另一个结点？有多少个结点和指定的结点相连？两个结点之间最短的连接是哪一条？要描述这些问题，我们要使用一种抽象的数学对象，叫做图。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/04/algorithm-map/adjacency_list.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/04/algorithm-map/directional_graph.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/04/algorithm-map/managment_and_loop.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/04/algorithm-map/kosaraju_example.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/04/algorithm-map/kosaraju_provement.png">
+<meta property="og:updated_time" content="2021-10-17T02:26:54.999Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法笔记 —— 图">
+<meta name="twitter:description" content="在许多计算机应用中，由相连的结点所表示的模型起到了关键的作用。这些结点之间的连接很自然地会让人们产生一连串的疑问：沿着这些连接能否从一个结点到达另一个结点？有多少个结点和指定的结点相连？两个结点之间最短的连接是哪一条？要描述这些问题，我们要使用一种抽象的数学对象，叫做图。">
+<meta name="twitter:image" content="https://jonathan1214.github.io/2020/04/algorithm-map/adjacency_list.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://jonathan1214.github.io/2020/04/algorithm-map/"/>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <title>算法笔记 —— 图 | dsfds' blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">dsfds' blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学海无涯，回头是岸</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2020/04/algorithm-map/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="dsfds">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dsfds' blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">算法笔记 —— 图</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-10T11:03:42+08:00">
+                2020-04-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2021-10-17T10:26:54+08:00">
+                2021-10-17
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/04/algorithm-map/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/algorithm-map/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  14
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在许多计算机应用中，由相连的结点所表示的模型起到了关键的作用。这些结点之间的连接很自然地会让人们产生一连串的疑问：沿着这些连接能否从一个结点到达另一个结点？有多少个结点和指定的结点相连？两个结点之间最短的连接是哪一条？要描述这些问题，我们要使用一种抽象的数学对象，叫做图。<br><a id="more"></a></p>
+<h2 id="1-无向图"><a href="#1-无向图" class="headerlink" title="1. 无向图"></a>1. 无向图</h2><p><em>无向图的定义</em>：无向图是由一组顶点和一组能够将两个顶点相连的边组成的。在无向图中，边（edge）仅仅是两个顶点（vertex）间的连接。根据这个定义，顶点叫什么名字无关紧要，我们使用 0 到 V-1 来表示一张含有 V 个顶点的图中的各个顶点，这样的表示便于使用数组的索引来访问各个结点，我们可以直接用数组的索引作为结点的名称，事实上如果顶点不符合我们的预设，我们也可以把它们映射到 0 到 V-1 上来。</p>
+<p>在这个定义下，允许出现下面两种特殊情况：</p>
+<ul>
+<li>自环：即一条连接一个顶点和其自身的边；</li>
+<li>连接同一对顶点的两条边称为平行边。</li>
+</ul>
+<h3 id="1-1-一些术语"><a href="#1-1-一些术语" class="headerlink" title="1.1. 一些术语"></a>1.1. 一些术语</h3><p>这里先介绍一些关于图的术语。</p>
+<ul>
+<li>相邻：两个顶点通过用一条边相连，称两个顶点<em>相邻</em>，边<em>依附于</em>这两个顶点；</li>
+<li>度数：顶点的度数为依附于它的边的总数；</li>
+<li>子图：一幅图的所有边的一个子集（包括所依附的结点）组成的图；</li>
+<li>路径：由边顺序连接的一系列顶点，简单路径没有重复顶点；</li>
+<li>连通图：从任意一个顶点都存在一条路径到达另一个任意顶点；</li>
+<li>树：树是一副无环连通图，互不相连的树组成的集合称为森林；当且仅当一幅含有 V 个结点的图 G 满足下列 5 个条件之一时，它就是一棵树：<ul>
+<li>G 有 V-1 条边且不含有环；</li>
+<li>G 有 V-1 条边且是连通的；</li>
+<li>G 是连通的，但删除任意一条边都会使它不再连通；</li>
+<li>G 是无环图，但添加任意一条边都会产生一条环；</li>
+<li>G 中的任意一对顶点之间仅存在一条简单路径。</li>
+</ul>
+</li>
+<li>稠密图与稀疏图：</li>
+<li>二分图：可将所有结点分为两部分，其中图的每条边所接的两个顶点术语不用的部分；</li>
+</ul>
+<h3 id="1-2-无向图的表示"><a href="#1-2-无向图的表示" class="headerlink" title="1.2. 无向图的表示"></a>1.2. 无向图的表示</h3><p>对于一个顶点数为 V，边数为 E 的无向图，我们可以用以下几种方式表示：</p>
+<ul>
+<li>邻接矩阵：使用 V 乘 V 的布尔矩阵，顶点 v 和 w 间存在连接时，则矩阵的 v 行 w 列和 w 行 v 列置为 true；</li>
+<li>边的数组：</li>
+<li>邻接表数组：使用一个以顶点为索引的列表数组，其中每个元素都是和该顶点相邻的顶点列表。</li>
+</ul>
+<img src="/2020/04/algorithm-map/adjacency_list.png" title="邻接表">
+<p>我们使用 <em>邻接表</em> 表示非稠密图，它将每个顶点的所有相邻顶点都保存在该顶点对应的元素所指向的一张链表中，使用这个数组可以快速访问给定顶点的邻接顶点列表。用这种表示方法，使用的空间和 V+E 成正比；添加一条边所需的时间为常数；遍历顶点 v 的所有相邻顶点所需的时间和 v 的度数成正比。</p>
+<h3 id="1-3-深度优先搜索-DFS"><a href="#1-3-深度优先搜索-DFS" class="headerlink" title="1.3. 深度优先搜索 DFS"></a>1.3. 深度优先搜索 DFS</h3><p>我们可以通过系统地检查每一个顶点和每一条边来获取图的各种性质，在此基础上获得一些我们感兴趣的东西。在图中，很多性质是和路径相关的，我们经常需要从一个顶点移动到另一个顶点。许多图算法的抽象模型都非常简单，比如 DFS。</p>
+<p>在讲 DFS 之前，让我们先来看看走迷宫问题，迷宫和图是非常相似的，用<em>通道</em>代替<em>边</em>，<em>路口</em>代替<em>顶点</em>，思考迷宫问题有助于我们理解 DFS。我们按照如下策略探索迷宫中的所有通道：</p>
+<ul>
+<li>选择一条没有标记过的通道，在你走过的路上铺一条<br>绳子；</li>
+<li>标记所有你第一次路过的路口和通道；</li>
+<li>当来到一个标记过的路口时（用绳子）回退到上个路口；</li>
+<li>当回退到的路口已没有可走的通道时继续回退。</li>
+</ul>
+<p>绳子可以保证我们总能找到一条出路，标记保证我们不会两次经过同一个通道或路口。理解迷宫问题，对于 DFS 自然也就不在话下了，甚至描述起来更加简单：</p>
+<ul>
+<li>访问当前顶点，标记其标记已访问；</li>
+<li>递归地访问它所有没有被标记过的所有邻居顶点。</li>
+</ul>
+<p>这就是 DFS 的全部思路了，很容易发现在递归调用中我们使用了栈这种数据结构，这对我们标记顶点而言，是 LIFO 的，这是 DFS 和 BFS 的不同之处，BFS 是 FIFO 的，我们马上会讲到 BFS。</p>
+<p>DFS 可以有效处理许多和图有关的任务，如：</p>
+<ul>
+<li>连通性：给定两个顶点是否连通；</li>
+<li>单点路径：从 s 到 v 是否存在一条路径。</li>
+</ul>
+<p>其实这是同一个问题，只不过路径问题需要使用额外的数组保存遍历过的路径而已，这样我们就可以从某一顶点出发构造出一棵树，树中所有结点均是该顶点可到达的。</p>
+<h3 id="1-4-广度优先搜索-BFS"><a href="#1-4-广度优先搜索-BFS" class="headerlink" title="1.4. 广度优先搜索 BFS"></a>1.4. 广度优先搜索 BFS</h3><p>基于 DFS，我们可以确定到某一结点的是否存在路径，很自然的地我们会考虑这是不是最短路径，如果不是有没有别的办法寻找到最短路径。这正是 BFS 要解决的问题，<strong>BFS 是很多图算法的基石，需要重点掌握</strong>。而 DFS 无法解决这个问题，这是由它们遍历图的顺序决定的。如上面提到的，在 DFS 中，我们使用一个下压栈（递归方法体现了出来），在这种 LIFO 的规则下的探索和走迷宫探索相邻的通道非常类似。在 BFS 中，我们希望按照距离起点的距离的顺序来遍历所有的顶点，使用 FIFO 队列代替 LIFO 栈即可：<br>重复以下步骤直到队列为空：</p>
+<ul>
+<li>取队列中的下一个顶点 v 并标记它；</li>
+<li>将与 v 相邻的所有未被标记过的顶点加入队列。</li>
+</ul>
+<p>同时，我们还可以使用一个数组保存遍历的路径，索引是顶点，数组的值为该顶点的已知路径上的最后一个顶点。</p>
+<h3 id="1-5-DFS-和-BFS-的总结"><a href="#1-5-DFS-和-BFS-的总结" class="headerlink" title="1.5. DFS 和 BFS 的总结"></a>1.5. DFS 和 BFS 的总结</h3><p>如同前面谈到的，DFS 和 BFS 的基本思路是一样的。在搜索中，我们先将起点存入数据结构中，然后重复以下步骤直到数据被清空：</p>
+<ul>
+<li>取其中的下一个顶点并标记它；</li>
+<li>将 v 的所有相邻而又未被标记的顶点加入数据结构。</li>
+</ul>
+<p>两个算法的不同之处仅仅在于从数据结构中获取下一个顶点的规则不同，BFS 是最早加入的顶点，DFS 是最晚加入的顶点。这种差异得到了处理图的两种完全不同的视角，无论如何，最早我们都可以遍历所有与起点连通的顶点和边。</p>
+<h3 id="1-6-更多问题"><a href="#1-6-更多问题" class="headerlink" title="1.6. 更多问题"></a>1.6. 更多问题</h3><p>有了 DFS 和 BFS 两种策略，我们可以处理更多问题：</p>
+<ul>
+<li>连通分量；</li>
+<li>检测环；</li>
+<li>双色问题。</li>
+</ul>
+<h2 id="2-有向图"><a href="#2-有向图" class="headerlink" title="2. 有向图"></a>2. 有向图</h2><p><strong>定义</strong>：有向图是由一组<em>顶点</em>和有方向的边的组成，每条有方向的边都连接着有序的一对顶点。</p>
+<img src="/2020/04/algorithm-map/directional_graph.png" title="有向图">
+<h3 id="2-1-有向图的表示"><a href="#2-1-有向图的表示" class="headerlink" title="2.1. 有向图的表示"></a>2.1. 有向图的表示</h3><p>这里先给出有向图的一些术语。</p>
+<ul>
+<li>顶点的出度：该顶点指向的边的总数；</li>
+<li>顶点的入度：指向该顶点的边的总数；</li>
+<li>有向边的头：它的第一个顶点；</li>
+<li>有向边的尾：它的第二个顶点；</li>
+<li>有向路径：由一些列顶点组成，每个顶点都存在一条有向边从它指向序列中下一个顶点；</li>
+<li>有向环：一条至少含有一条边且起点和终点相同的有向路径；</li>
+<li>简单有向环：一条（除了起点和终点必须相同之外）不含有重复的顶点和边的环；</li>
+<li>v 能够到达 w：v 到 w 存在有向路径（注意：这并不意味着从 w 可以达到 v）。</li>
+</ul>
+<p>有向图的表示和无向图类似，我们仍然可以使用邻接表数组来表示有向图，甚至更加简单，因为边是单向的，只需保存一个相邻结点。数组索引为某个顶点，索引下的邻接表为该顶点所指向的顶点构成的链表。</p>
+<h3 id="2-2-可达性问题"><a href="#2-2-可达性问题" class="headerlink" title="2.2. 可达性问题"></a>2.2. 可达性问题</h3><p>在无向图中我们处理过单点连通性问题，即判断其他顶点和给定的顶点是否连通，而在有向图中，也可以解决类似的问题，而且思路非常相似。</p>
+<ul>
+<li>单点可达性：给定一副有向图和起点 s，是否存在一条从 s 到达给定顶点 v 的有向图；</li>
+<li>多点可达性：给定一副图和顶点的集合，是否存在一条从集合中的任意顶点到达给定顶点 v 的路径。</li>
+</ul>
+<p>解决这个问题的算法是基于 DFS 的，稍作修改即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. 访问当前顶点，标记为已访问；</span><br><span class="line">2. 递归地访问它所谓未被标记过的顶点。</span><br></pre></td></tr></table></figure>
+<p>在此基础上，稍作修改我们就可以跟进一步地求出起点 s 和 终点 v 之间的路径或最短路径，算法和无向图中的完全一样。</p>
+<h3 id="2-3-环和有向无环图"><a href="#2-3-环和有向无环图" class="headerlink" title="2.3. 环和有向无环图"></a>2.3. 环和有向无环图</h3><p>对于有向图中环进行研究可以解决很多问题，如</p>
+<ul>
+<li><em>优先级限制下调度问题</em>：给定一组需要完成的任务，以及一组关于任务完成的先后次序的优先级限制。在满足限制条件的前提下应该如何安排并完成所有任务？</li>
+<li><em>拓扑排序</em>：给定一幅有向图，将所有的顶点排序，使得所有的有向边均从排在前面的元素指向排在后面的元素（或者说明无法做到这一点）。</li>
+</ul>
+<p>为什么说环和这些问题是相关的呢？举个例子，考虑一个调度问题：A 必须在 B 之前完成，B 必须在 C 之前完成，C 又必须在 A 之前完成。这显然是不可能实现的，这在有向图就构成了一个环。处理这些调度问题我们必须对图中的环进行检测。</p>
+<img src="/2020/04/algorithm-map/managment_and_loop.png" title="调度问题与有向图中的环">
+<p>有向无环图（DAG）就是一副不含有环的有向图。实现有向图中的环检测算法并不困难，我们可以基于 DFS 来解决这个问题。系统维护的递归调用栈表示的正是『当前』正在遍历的有向路径，一旦我们找到了一条有向边 v –&gt; w 且 w 已经在栈中，就找到了一个环，如果没有，那就说明这是无环图。如果更进一步，多加一个栈，我们就可以找出构成环的顶点。</p>
+<h4 id="DAG-检测算法"><a href="#DAG-检测算法" class="headerlink" title="DAG 检测算法"></a>DAG 检测算法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. 访问当前顶点，标记为已访问，标记为在当前搜索的路径的栈中</span><br><span class="line">2. 对当前顶点指向的顶点</span><br><span class="line">    如果未被标记，将其来源标记当前顶点，为其跳转到 1</span><br><span class="line">    如果在栈中，说明图中存在环</span><br><span class="line">    记录环到另一个栈中</span><br><span class="line">3. 当前顶点调用完毕，标记为不在当前搜索的路径的栈中</span><br></pre></td></tr></table></figure>
+<p>可以看到这个无向图中 DFS 路径搜索算法是类似的，这再次说明了 DFS 的重要性。</p>
+<h4 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h4><p>同样的，拓扑排序也是基于 DFS 的，只需稍作修改就可以实现拓扑排序。DFS 正好只会访问每个顶点一次，如果将递归调用函数 <code>dfs</code> 的参数顶点保存在一个数据结构中，遍历这个数据结构实际上就能访问图中的所有顶点，遍历的顺序取决于这个数据结构的性质以及是在递归调用之前还是之后进行保存。我们关心下面三种顺序：</p>
+<ul>
+<li>前序：在递归调用之前将顶点加入队列。</li>
+<li>后序：在递归调用之后将顶点加入队列。</li>
+<li>逆后序：在递归调用之后将顶点压入栈。</li>
+</ul>
+<p>可以证明，一幅有向无环图的拓扑顺序即为所有顶点的逆后续排列。</p>
+<p>我们可以看到，拓扑排序和调度问题离不开有向环的检测，而且这两个问题可以看作是一个问题。在调度时，必须保证有向图中没有环，因此，解决任务调度类应用通常需要以下3 步：</p>
+<ul>
+<li>指明任务和优先级条件；</li>
+<li>不断检测并去除有向图中的所有环，以确保存在可行的方案；</li>
+<li>使用拓扑排序解决调度问题。</li>
+</ul>
+<h3 id="2-4-强连通性"><a href="#2-4-强连通性" class="headerlink" title="2.4. 强连通性"></a>2.4. 强连通性</h3><p>类似无向图中的连通性，我们在有向图中定义了<strong>强连通性</strong>：在有向图 G 中，如果两个顶点 v 和 w 是互相可达的，则称它们是<strong>强连通的</strong>。联想到环的定义，我们很容易想到两个顶点是强连通的等价于它们在同一个有向环中。</p>
+<p>有向图中的强连通性也是一种顶点之间的等价关系，满足以下性质：</p>
+<ul>
+<li>自反性：任意顶点 v 和自己都是强连通的。</li>
+<li>对称性：如果 v 和 w 是强连通的，那么 w 和 v 也是强连通的。</li>
+<li>传递性：如果 v 和 w 是强连通的且 w 和 x 也是强连通的，那<br>么 v 和 x 也是强连通的。</li>
+</ul>
+<p>强连通性将所有的顶点分为两一些等价类，每个等价类都是由相互均为强连通的顶点的最大子集组成的，我们称这些子集为<strong>强连通分量</strong>。对于理解有向图的结构，强连通性是一种非常重要的抽象，它突出了相互关联的几组顶点，如可以帮助决定话题分类和理解食物链中的能量流动问题。</p>
+<p>对于强连通分量问题，我们可以使用 Kosaraju 算法来解决，本质上这个算法还是基于 DFS 的，</p>
+<ul>
+<li>首先对 G 进行反转，即改变所有边的指向和原来相反，得到图 H；</li>
+<li>然后对 H 进行逆后序排列；</li>
+<li>按照这个排列顺序对 G 中的顶点调用标准 DFS，每一次非标记的顶点遍历完表示做完了一个强连通分量的搜索。</li>
+</ul>
+<img src="/2020/04/algorithm-map/kosaraju_example.png" title="Kosaraju 算法运行示例">
+<p>举个例子，如上图所示。证明如下：</p>
+<img src="/2020/04/algorithm-map/kosaraju_provement.png" title="Kosaraju 算法证明">
+<h2 id="3-最小生成树"><a href="#3-最小生成树" class="headerlink" title="3. 最小生成树"></a>3. 最小生成树</h2><p><strong>加权图</strong>是为每条边关联一个<em>权值</em>或是<em>成本</em>的图模型。这种图能够自然地表示许多应用。在一幅电路图中，边表示导线，权值则可能表示导线的长度即成本，或是信号通过这条线路所需的时间。在这些情形中，最令人感兴趣的自然是将成本最小化。我们将学习加权无向图模型并用算法回答这个问题。</p>
+<p><strong>最小生成树</strong>：给定一副加权无向图，找到它的一棵最小生成树。</p>
+<p>在解决这个问题之前，我们需要对之前的数据结构进行一些改变。</p>
+<h3 id="3-1-Prim-算法"><a href="#3-1-Prim-算法" class="headerlink" title="3.1. Prim 算法"></a>3.1. Prim 算法</h3><p>这是一种得到加权无向图的有效算法，基本思想如下：</p>
+<ul>
+<li>将一个节点加入队列，将它的所有邻边加入队列</li>
+</ul>
+<h3 id="3-2-Kruskal-算法"><a href="#3-2-Kruskal-算法" class="headerlink" title="3.2. Kruskal 算法"></a>3.2. Kruskal 算法</h3><h2 id="4-最短路径"><a href="#4-最短路径" class="headerlink" title="4. 最短路径"></a>4. 最短路径</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          
+            <a href="/tags/数据结构/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
+          
+            <a href="/tags/notes/" rel="tag"><i class="fa fa-tag"></i> notes</a>
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/ns2-trace-analysis-example/" rel="next" title="NS2 的介绍（六）—— trace 分析示例">
+                <i class="fa fa-chevron-left"></i> NS2 的介绍（六）—— trace 分析示例
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/ns2-redQueue-monitor-ex/" rel="prev" title="NS2 的介绍（七）—— RED 队列监视示例">
+                NS2 的介绍（七）—— RED 队列监视示例 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="dsfds" />
+            
+              <p class="site-author-name" itemprop="name">dsfds</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">104</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jonathan1214" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jonathan1214@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-无向图"><span class="nav-text">1. 无向图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-一些术语"><span class="nav-text">1.1. 一些术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-无向图的表示"><span class="nav-text">1.2. 无向图的表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-深度优先搜索-DFS"><span class="nav-text">1.3. 深度优先搜索 DFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-广度优先搜索-BFS"><span class="nav-text">1.4. 广度优先搜索 BFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-DFS-和-BFS-的总结"><span class="nav-text">1.5. DFS 和 BFS 的总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-更多问题"><span class="nav-text">1.6. 更多问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-有向图"><span class="nav-text">2. 有向图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-有向图的表示"><span class="nav-text">2.1. 有向图的表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-可达性问题"><span class="nav-text">2.2. 可达性问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-环和有向无环图"><span class="nav-text">2.3. 环和有向无环图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DAG-检测算法"><span class="nav-text">DAG 检测算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓扑排序"><span class="nav-text">拓扑排序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-强连通性"><span class="nav-text">2.4. 强连通性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-最小生成树"><span class="nav-text">3. 最小生成树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Prim-算法"><span class="nav-text">3.1. Prim 算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Kruskal-算法"><span class="nav-text">3.2. Kruskal 算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-最短路径"><span class="nav-text">4. 最短路径</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">dsfds</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">90.8k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'pKduJiwXGxEBLhnENF3li3Fv-gzGzoHsz',
+        appKey: 'TfcDSWRi0FBxPFOnGhQ1d5be',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+  </script>
+
+  
+
+  
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+</body>
+</html>

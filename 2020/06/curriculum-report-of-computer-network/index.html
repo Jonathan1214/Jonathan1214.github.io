@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32_32.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16_16.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="网络," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="现在初步打算写无线局域网中MAC的接入技术，在知网简单搜索下，发现研究这个的还真不少，如无线局域网中高效MAC层接入机制研究，低时延高可靠无线局域网MAC增强技术研究和工业无线局域网MAC协议确定性机制研究。看起来写完这篇课程报告不是特别烦，基本上我觉得可以照着一篇硕士论文快速完成这篇课程报告，毕竟时间紧急，拿到该拿的分即可。写完后，我会在这里同步完报告的全部内容。">
+<meta name="keywords" content="网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络课程报告">
+<meta property="og:url" content="https://jonathan1214.github.io/2020/06/curriculum-report-of-computer-network/index.html">
+<meta property="og:site_name" content="dsfds&#39; blog">
+<meta property="og:description" content="现在初步打算写无线局域网中MAC的接入技术，在知网简单搜索下，发现研究这个的还真不少，如无线局域网中高效MAC层接入机制研究，低时延高可靠无线局域网MAC增强技术研究和工业无线局域网MAC协议确定性机制研究。看起来写完这篇课程报告不是特别烦，基本上我觉得可以照着一篇硕士论文快速完成这篇课程报告，毕竟时间紧急，拿到该拿的分即可。写完后，我会在这里同步完报告的全部内容。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/06/curriculum-report-of-computer-network/mainIEEE80211Standard.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/06/curriculum-report-of-computer-network/networdPattern.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/06/curriculum-report-of-computer-network/WLANMAC.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/06/curriculum-report-of-computer-network/channelConnectionProcess.png">
+<meta property="og:updated_time" content="2021-10-17T02:26:55.015Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机网络课程报告">
+<meta name="twitter:description" content="现在初步打算写无线局域网中MAC的接入技术，在知网简单搜索下，发现研究这个的还真不少，如无线局域网中高效MAC层接入机制研究，低时延高可靠无线局域网MAC增强技术研究和工业无线局域网MAC协议确定性机制研究。看起来写完这篇课程报告不是特别烦，基本上我觉得可以照着一篇硕士论文快速完成这篇课程报告，毕竟时间紧急，拿到该拿的分即可。写完后，我会在这里同步完报告的全部内容。">
+<meta name="twitter:image" content="https://jonathan1214.github.io/2020/06/curriculum-report-of-computer-network/mainIEEE80211Standard.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://jonathan1214.github.io/2020/06/curriculum-report-of-computer-network/"/>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <title>计算机网络课程报告 | dsfds' blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">dsfds' blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学海无涯，回头是岸</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2020/06/curriculum-report-of-computer-network/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="dsfds">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dsfds' blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机网络课程报告</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-07T22:25:10+08:00">
+                2020-06-07
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2021-10-17T10:26:55+08:00">
+                2021-10-17
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/06/curriculum-report-of-computer-network/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/06/curriculum-report-of-computer-network/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>现在初步打算写无线局域网中MAC的接入技术，在知网简单搜索下，发现研究这个的还真不少，如<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CMFD&amp;dbname=CMFD201902&amp;filename=1019113029.nh&amp;uid=WEEvREcwSlJHSldRa1FhdXNzY2Z2S3F4L2xoUW9La0NoVFhnOE9GdXhpZz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjU0ODllWm9GQ3ZsVUwvSlZGMjZGN0s1SGRIT3BwRWJQSVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlk=" target="_blank" rel="noopener">无线局域网中高效MAC层接入机制研究</a>，<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CMFD&amp;dbname=CMFD202001&amp;filename=1020004190.nh&amp;uid=WEEvREcwSlJHSldRa1FhdXNzY2Z2S3F4L2xoUW9La0NoVFhnOE9GdXhpZz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjYzMzBab0ZDdmxWcnpCVkYyNUhyTzRHdERGcjVFYlBJUjhlWDFMdXhZUzdEaDFUM3FUcldNMUZyQ1VSN3FmWWU=" target="_blank" rel="noopener">低时延高可靠无线局域网MAC增强技术研究</a>和<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CDFD&amp;dbname=CDFDLAST2020&amp;filename=1019253781.nh&amp;uid=WEEvREcwSlJHSldRa1FhdXNzY2Z2S3F4L2xoUW9La0NoVFhnOE9GdXhpZz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjA5NDlkYkVycEViUElSOGVYMUx1eFlTN0RoMVQzcVRyV00xRnJDVVI3cWZZZVpvRkN2a1dydlBWRjI2RjdHOUg=" target="_blank" rel="noopener">工业无线局域网MAC协议确定性机制研究</a>。看起来写完这篇课程报告不是特别烦，基本上我觉得可以照着一篇硕士论文快速完成这篇课程报告，毕竟时间紧急，拿到该拿的分即可。写完后，我会在这里同步完报告的全部内容。<br><a id="more"></a></p>
+<h2 id="1-无线局域网的发展历史"><a href="#1-无线局域网的发展历史" class="headerlink" title="1. 无线局域网的发展历史"></a>1. 无线局域网的发展历史</h2><p>随着互联网业务的迅速发展，人们对各种在线服务的实时性需求日益强烈。相比蜂窝网，无线局域网网络有着高带宽，灵活以及廉价等诸多优势，目前，无线局域网（Wireless Local Area Network, WLAN）己经在家庭、校园、企业和城市公共场所等多种场景部署。</p>
+<p>可以看到无线局域网已经广泛应用于我们的日常生活，这是由于其传输速率高、带宽配置灵活、使用非授权频段以及方便灵活部署等优势。无线局域网的代表协议是IEEE 802.11系列标准，第一个IEEE 802.11 标准于1997年发表，至今已有 23 年历史了[1]。二十年来，802.11取得了很大的发展，很多新技术进入了标准，推动 802.11 协议日趋完善。</p>
+<p>1997年，IEEE推出了第一个无线局域网标准——IEEE 802.11，其中定义了介质访问控制（MAC）层和物理层。物理层定义了工作在2.4GHz的ISM频段上的两种扩频作调制方式和一种红外线传输的方式，总数据传输速率设计为2Mbit/s，MAC层采用的CSMA/CA技术。</p>
+<p>EEE 802.11a协议[2]在1999年被标准化，它采用的是正交频分复用技术（Orthogonal Frequency Division Multiplexing, OFDM），工作频率为5GHz，使用52个正交频分多路复用子载波，最大原始数据传输率为54Mb/s，达到了现实网络中等吞吐量（20Mb/s）的要求。</p>
+<p>同年IEEE 802.11b被正式批准，该标准规定无线局域网工作频段在2.4GHz，由于工作频段更低，与IEEE 802.11a相比，它的工作范围更大，但速率更低，数据传输速率达到11Mbps。该标准是对IEEE 802.11的一个补充，采用点对点模式和基本模式两种运作模式，其数据传输速率可以根据实际情况在11Mbps、5.5Mbps、2Mbps、1Mbps的不同速率间自动切换，802.11b和工作在5GHz频率上的802.11a标准不兼容。由于价格低廉，802.11b产品已经被广泛地投入市场，并在许多实际工作场所运行。</p>
+<p>2003年7月IEEE 802.11工作组批准了IEEE 802.11g草案，在2.4GHz频段使用正交频分复用技术，使数据传输速率提高到20Mbit/s以上；可与IEEE 802.11b的Wi-Fi系统互联互通，可共存于同一AP的网络里，从而保障了后向兼容性。</p>
+<p>IEEE 802.11 n在2009年标准化，采用了OFDM和4x4多入多出（Multiple-Input Multiple-Output, MIMO）技术[3]，物理层速率可以在两路20MHz信道(共40MHz )中达到600Mbps。</p>
+<p>2013推出的IEEE 802.11ac协议利用OFDM和8x8 MIMO技术[4]，在8个20MHz信道(共160MHz)中，物理层速率可达到6.9Gbps，在802.11n基础上有了很大的提升。最新的 802.11ax 标准已经支持160MHz的带宽，8条流空间复用，基于 OFDMA的多址接入技术提高了信道利用率，满足密集部署场景的应用需求[5]。其他更多标准的简略信息如图1-1所示。    </p>
+<img src="/2020/06/curriculum-report-of-computer-network/mainIEEE80211Standard.png" title="图1-1 主要的IEEE 802.11标准">
+<p>我们可以看到，无线局域网标准定义了协议的工作频段、调制编码方式及最高速度的支持。可以看到，无线局域网的工作频段是2.4GHz和5GHz，前者的具体范围是2.4000～2.4835GHz，后者是5.15～5.825GHz，通常设计工作在2.4GHz频段的协议支持的数据传输速率低一些，但覆盖范围大，工作在5GHz频段的协议支持的数据传输塑料布高一些，但覆盖范围小。从调制技术来看，无线局域网的物理层从CCK向OFDM和MIMO-OFDM发展，支持的传输速率越来越大，2Mbps，54Mbps，600Mbps，1Gbps，9.6Gbps，传输速率是越来越大，当然其中消耗了更多的带宽资源。</p>
+<h2 id="2-无线局域网的MAC层"><a href="#2-无线局域网的MAC层" class="headerlink" title="2. 无线局域网的MAC层"></a>2. 无线局域网的MAC层</h2><h3 id="2-1-无线局域网的两种网络结构"><a href="#2-1-无线局域网的两种网络结构" class="headerlink" title="2.1 无线局域网的两种网络结构"></a>2.1 无线局域网的两种网络结构</h3><p>IEEE 802.11定义了无线局域网的两种网络结构，分别是无中心网络（Ad hoc模式）和有中心网络。在Ad hoc模式下，网络中没有中心站点，各站点式平等的，这是一种对等式网络（Peer-to-Peer，P2P），有中心网络的网络结构中有一个中心站点，又称接入点（Access Point，AP），也叫做AP模式。两种结构的示意图如图2-1所示。</p>
+<p>目前，AP模式是比较常用的，我们在家中使用的WiFi就是这种模式，而Ad hoc一般在一些专用场合使用，平时比较少见。</p>
+<img src="/2020/06/curriculum-report-of-computer-network/networdPattern.png" title="图2-1 网络模式示意图">
+<h3 id="2-2-无线局域网的MAC层结构"><a href="#2-2-无线局域网的MAC层结构" class="headerlink" title="2.2 无线局域网的MAC层结构"></a>2.2 无线局域网的MAC层结构</h3><p>在无线局域网中，无线信道由多个站点共享，它们同处于一个冲突域下，在这种情况下，最需要解决的一个问题就是如何避免站点数据的碰撞，否则站点的数据会发生相互干扰，导致接受站点无法正确接收到信息。这个时候我们就需要一个控制各站点接入无线信道的协议来统一管理，这就是我们的MAC层协议。</p>
+<p>MAC层即介质访问控制层，在传输帧时，一个基站首先要获取共享信道的访问，无线局域网的标准定义了两种介质访问控制方式：分布式协调功能（DCF）和集中式协调功能（PCF）。其中DCF功能是必须支持的，而PCF则不一定。MAC的结构如图2-2所示。</p>
+<img src="/2020/06/curriculum-report-of-computer-network/WLANMAC.png" title="图2-2 无线局域网 MAC示意图">
+<p>DCF机制是IEEE 802.11协议采用的基于竞争的MAC机制，其采用载波监听多址接入/冲突避免（Carrier Sense Multiple Access mechanism with Collision Avoidance，CSMA/CA）和二进制指数退避（Binary Exponential Back-off，BEB）两种基本机制可以为多个站点提供信道接入，各个站点在这种机制下对信道资源进行争用，有可能会发生数据碰撞。</p>
+<p>PCF是MAC的可选用功能，在PCF下，各站点不需要争用信道，信道资源由AP统一分配，这种工作模式下，不会发生数据碰撞。但是一般情况下这种方式使用较少，只有在对传输时间要求高的视频、音频会话类应用时，才会启用PCF方式。</p>
+<h3 id="2-3-无线局域网的MAC层接入机制"><a href="#2-3-无线局域网的MAC层接入机制" class="headerlink" title="2.3 无线局域网的MAC层接入机制"></a>2.3 无线局域网的MAC层接入机制</h3><p>当前，IEEE 802.11MAC协议中广泛采用的接入方法是CSMA/CA。CA的意思是冲突避免，无线局域网发送结点监测到无线信道“空闲”时不“立即”发送帧，而是所有准备发送数据帧的主机都执行退避算法，通过“冲突避免”（CA）来减小冲突发生概率，而且无线局域网发送结点需要等待接收结点发送回确认帧，来判断此次发送是否成功。</p>
+<h4 id="2-3-1-常用帧间间隔"><a href="#2-3-1-常用帧间间隔" class="headerlink" title="2.3.1 常用帧间间隔"></a>2.3.1 常用帧间间隔</h4><p>网络中的无线网卡在检测到信道空闲时到真正发送一帧时，或发送一帧之后到发送下一帧时，都需要间隔一个帧间隔（Inter Frame Space，IFS）时间。IEEE 802.11协议规定了4种帧间间隔：</p>
+<p>（1）短帧间间隔（Short IFS，SIFS）<br>固定值，是最小的帧间间隔，只有在等待一个SIFS后才可能发送ACK帧、CTS帧。</p>
+<p>（2）分布协调功能帧间间隔（Distributed coordination IFS，DIFS）<br>DIFS比PIFS长一个时一隙时间。它只能工作在DCF模式，主要用于在每次通信中的第一帧之前。</p>
+<p>（3）点协调功能帧间间隔（Point coordination IFS，PIFS)<br>PIFS比SIFS长一个时隙时间(slot time )，又称集中协调功能帧间间隔。它只能工作在PCF模式，用于在开始使用PCF功能时，使站点能够尽快获得发送权。</p>
+<p>（4）扩展帧间间隔（Extended coordination IFS，EIFS）<br>EIFS是最长的IFS，主要用于在前一帧出错的情况下，发送站点必须延迟EIFS，而不是正常情况下的DIFS时间后，再发送下一帧</p>
+<h4 id="2-3-2-CSMA-CA原理"><a href="#2-3-2-CSMA-CA原理" class="headerlink" title="2.3.2 CSMA/CA原理"></a>2.3.2 CSMA/CA原理</h4><p>CSMA/CA的设计目标是为了尽可能减少冲突发送概率，简单概括其基本原理就是信道监听，推迟发送和冲突避免。信道监听通过物理层对无线信道进行载波监听，ACK确认，推迟发送采用虚拟载波监听（Virtual Carrier Sense，VCS）与网络分配向量（Network Allocation Vector，NAV）机制，冲突退避采用DIFS和二进制指数退避算法。</p>
+<p>CSMA/CA有两种工作模式，基本模式和可选的RTS/CTS预约模式，后者可以解决隐藏主机带来的冲突问题。这里只介绍基本模式，它的信道接入过程如图2-3所示。</p>
+<img src="/2020/06/curriculum-report-of-computer-network/channelConnectionProcess.png" title="图2-3 基本模式下的信道接入过程">
+<p>NAV起到一个计时器的作用，其数值由发送主机在帧头的“持续时间”字段广播给其他主机，对于其他主机，只有当检测到NAV=0时才认为信道是空闲的。如果检测到信道空闲，那么发送主机需要等待一个DIFS，然后随机退避n个slot time才能发送数据帧，这个时候的数据帧就携带了此次发送站点的NAV信息，提醒其他站点信道繁忙，让其他站点保持静默以免发送碰撞。退避时间由二进制指数退避算法决定，退避时间为<br>$$<br>W = (2^{2+i}-1)\cdot W_s<br>$$<br>第i次退避时，从 $2^{i+1}-1$ 个slot time中随机选取一个作为退避时间，如果在退避时，检测到NAV不为0，这表示其他站点开始发送帧，此次竞争失败，则冻结当前退避时间，直到NAV=0并等待DIFS后继续从刚才冻结的退避时间开始倒数。从上述的描述我们可以看到，帧立即发送的条件为：NAV=0并且经过DIFS并且退避时间=0。</p>
+<p>接收主机（AP模式下即为AP）收到数据帧后，等待SIFS，才能向发送主机发送ACK确认帧，发送主机收到后，一次帧发送才算完成。</p>
+<p>从前述对CSMA/CA的分析我们不难发现，这种机制在AP连接的站点数目较少时性能才比较好，因为此时站点退避的时间相同的概率比较小，发生冲突的概率小，但如果AP接入的站点很多，那么碰撞的概率增大，网络的性能变差。针对这种情况，对其进行改进的研究也很多，我们在后面进行介绍。</p>
+<h2 id="3-无线局域网的MAC层接入技术的改进"><a href="#3-无线局域网的MAC层接入技术的改进" class="headerlink" title="3. 无线局域网的MAC层接入技术的改进"></a>3. 无线局域网的MAC层接入技术的改进</h2><p>前面谈到，传统的无线局域网MAC接入技术基于CAMA/CA和BEB机制，在这种机制下，如果网络中接入的站点比较多，数据发生碰撞的概率会增大，极端情况下，如果接入的站点特别多，没有站带你能够向AP发送数据，也就是说在密集组网的情况下，传统的MAC层接入技术有许多需要改进的地方。</p>
+<h3 id="3-1-初始竞争窗口值的改进"><a href="#3-1-初始竞争窗口值的改进" class="headerlink" title="3.1 初始竞争窗口值的改进"></a>3.1 初始竞争窗口值的改进</h3><p>在CSMA/CA和BEB协议中，一些参数如初始竞争窗口值对网络的性能有着显著的影响，系统吞吐量对初始竞争窗口值比较敏感，一个合适的竞争窗口选择方案可以极大地提高系统的吞吐量[6]，这不难理解，当网络负载小的时候，窗口也就可以小一些，让用户得以快速接入。</p>
+<p>基于此，有很多竞争窗口值优化方案被提出，竞争窗口值其实是与当前的活跃用户关联在一起的，因此活跃用户检测也是有一个需要考虑的问题，可以根据测量得到的碰撞概率对当前活跃用户进行估计[7]，也可以根据观察到的空闲时隙数来对活跃用户数进行估计[8]，估计完用户数后，再对竞争窗口值进行动态调整。</p>
+<p>还有利用贪婪策略的CSMA/CA竞争窗口启发式优化方案，使用贪婪搜索算法得到当前系统初始竞争窗口值的，并根据启发式规则使之处于动态最优状态[9]。</p>
+<h3 id="3-2-接入方式的改变"><a href="#3-2-接入方式的改变" class="headerlink" title="3.2 接入方式的改变"></a>3.2 接入方式的改变</h3><p>从本质上来看CSMA/CA机制是一种随机接入的竞争机制，而且是单用户单信道的，这种机制天然就不适合密集用户的场景。因此，有的学者研究了多信道下的MAC协议，以获得更高的吞吐量和更低的时延[10]。</p>
+<p>最新的WiFi标准IEEE 802.11ax引入OFDMA技术，不再采用原来的单用户单信道，而是将整个信道划分为多个子信道来允许多个用户同时接入。新的MAC层技术也必须适应这种接入方式，原有的CSMA/CA其实已经不太适用了，因此，人们又提出了多站点随机接入型和接入点集中调度接入型。</p>
+<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h2><p>本文简单介绍了无线局域网的发展历史，介绍了无线局域网的MAC层接入技术，我们发现，随着网络的发展和接入用户数量的快速增长，带宽和接入速率已经不是限制网络的因素，如何让众多用户有效地接入站点成了一个更加值得重视的问题。其实整个问题不止在无线局域网中存在，在蜂窝网络等用户接入网都会存在这样的问题，这种场景下，用户是随机接入的，如何有效地区分用户是一个很关键的问题。</p>
+<p>未来，随着接入站点数目的不断增加，有效地接入控制方法是需要的，值得研究。在一些特定场景下，如工业局域网中，不仅要保证站点的接入，还需要保证高可靠性，针对确定性问题做到指标检测过程和负载调整过程，就可实现良好的负载均衡[11]。针对这些特定场景下的优化的研究也有很多。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1]   Perahia E .IEEE 802.11n Development: History, Process, and Technology[J]. IEEE Communications Magazine, 2008, 46(7):48-55.<br>[2]   IEEE. IEEE Standard for Telecommunications and Information Exchange Between Systems一LAN/MAN Specific Requirements一Part 11:Wireless Medium Access Control (MAC) and physical layer (PHY) specifications: High Speed Physical Layer in the 5 GHz band[C]// IEEE Std 80211a. IEEE, 2002.<br>[3]   IEEE. IEEE Standard for Information technology–Local and metropolitan area networks– Specific requirements– Part 11:Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications Amendment 2: Fast Basic Service Set (BSS) Transition[J]. IEEE Xplore,2008:1-126.<br>[4]   IEEE Standard for Information technology– Telecommunications and information exchange between systems Local and metropolitan area networks—Specific requirements–Part 11:Wireless LAN Medium Access Control (MAC) and Physical Layer (PH Y) Specifications–A[C]// IEEE Std 802.11 ac-2013 (Amendment to IEEE Std 802.11-2012, as amended by IEEE Std 802.11 ae-2012, IEEE Std 802.11 aa-2012, and IEEE Std 802.11 ad-2012). 2013.<br>[5]   Zhu H , Li M , Chlamtac I , et al. A survey of quality of service in IEEE 802.11 networks.[J]. Wireless Communications IEEE, 2004, 11(4):6-14.<br>[6]   Parker B M, Schormans J A, Gilmour S G. Increasing throughput in IEEE 802.11 by optimal selection of backoff parameters[J]. Networks Iet, 2014, 4(1):21-29.<br>[7]   Morino Y, Hiraguri T, Yoshino H, et al. A Novel Contention Window Control Scheme Based on a Markov Chain Model in Dense WLAN Environment[C]// International Conference on Artificial Intelligence. 2016.<br>[8]   Yu Q, Zhuang Y, Ma L. Dynamic contention window adjustment scheme for improving throughput and fairness in IEEE 802.11 wireless LANs[C]// Global Communications Conference. IEEE, 2013.<br>[9]   林尚娟. 无线局域网中高效MAC层接入机制研究[D].北京邮电大学,2019.<br>[10] Hadded M , Muhlethaler P , Laouiti A , et al. TDMA-based MAC Protocols for Vehicular Ad Hoc Networks: A Survey, Qualitative Analysis and Open Research Issues[J]. IEEE Communications Surveys &amp; Tutorials, 2015, 17(4):1-1.<br>[11] 程煜钧. 工业无线局域网MAC协议确定性机制研究[D].北京交通大学,2019.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络/" rel="tag"><i class="fa fa-tag"></i> 网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/distance-sensor-demo-for-arduino/" rel="next" title="A Distance Sensor Demo For Arduino">
+                <i class="fa fa-chevron-left"></i> A Distance Sensor Demo For Arduino
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/finiteFields-VectorSpaces-FiniteGeometries-Graphs/" rel="prev" title="『Channel Codes』笔记之有限域、向量空间、有限集合和图">
+                『Channel Codes』笔记之有限域、向量空间、有限集合和图 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="dsfds" />
+            
+              <p class="site-author-name" itemprop="name">dsfds</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">104</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jonathan1214" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jonathan1214@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-无线局域网的发展历史"><span class="nav-text">1. 无线局域网的发展历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-无线局域网的MAC层"><span class="nav-text">2. 无线局域网的MAC层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-无线局域网的两种网络结构"><span class="nav-text">2.1 无线局域网的两种网络结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-无线局域网的MAC层结构"><span class="nav-text">2.2 无线局域网的MAC层结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-无线局域网的MAC层接入机制"><span class="nav-text">2.3 无线局域网的MAC层接入机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-常用帧间间隔"><span class="nav-text">2.3.1 常用帧间间隔</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-CSMA-CA原理"><span class="nav-text">2.3.2 CSMA/CA原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-无线局域网的MAC层接入技术的改进"><span class="nav-text">3. 无线局域网的MAC层接入技术的改进</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-初始竞争窗口值的改进"><span class="nav-text">3.1 初始竞争窗口值的改进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-接入方式的改变"><span class="nav-text">3.2 接入方式的改变</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-总结"><span class="nav-text">4. 总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">dsfds</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">90.8k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'pKduJiwXGxEBLhnENF3li3Fv-gzGzoHsz',
+        appKey: 'TfcDSWRi0FBxPFOnGhQ1d5be',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+</body>
+</html>
