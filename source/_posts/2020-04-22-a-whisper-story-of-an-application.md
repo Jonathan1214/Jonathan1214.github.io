@@ -1,5 +1,7 @@
 ---
 title: 呓语——一次申请的记录
+password: kolinahr
+notshow: true
 categories:
   - 生活
 tags:

@@ -3,6 +3,8 @@ title: 最近的一些事情——准备考驾照以及其他
 copyright: true
 date: 2021-05-12 23:35:02
 updated:
+password: kolinahr
+notshow: true
 categories:
   - 生活
 tags:
