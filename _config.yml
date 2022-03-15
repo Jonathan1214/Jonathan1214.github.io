@@ -8,7 +8,7 @@ subtitle: 学海无涯，回头是岸
 description:
 #keywords: 记录 成长
 author: dsfds
-language: zh-Hans
+language: zh-CN
 email: jonathan1214@foxmail.com
 timezone:
 
@@ -77,7 +77,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: next-new
 
 # Security
 encrypt:
