@@ -20,18 +20,18 @@
     var CONFIG = {"hostname":"jonathan1214.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="关于 cmake 的使用，如果要讲细的话可以说上很多，这里通过一个简单的例子介绍如何快速写一个可以跑起来的 cmake 脚本。 假设我们的目录下只有 main.cpp 一个文件，那么我们的 CMakeList.txt 可以这样写： 123cmake_minimum_required(VERSION 3.17)project(test)add_executable(test main.cpp) 这就">
+  <meta name="description" content="关于 cmake 的使用，如果要讲细的话可以说上很多，这里通过一个简单的例子介绍如何快速写一个可以跑起来的 cmake 脚本。 假设我们的目录下只有 main.cpp 一个文件，那么我们的 CMakeList.txt 可以这样写： 123cmake_minimum_required(VERSION 3.17)project(test)add_executable(test main.cpp)">
 <meta name="keywords" content="cmake,usage">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cmake 的基本使用方法">
 <meta property="og:url" content="https://jonathan1214.github.io/2022/06/cmake-basic-usage/index.html">
 <meta property="og:site_name" content="dsfds&#39; blog">
-<meta property="og:description" content="关于 cmake 的使用，如果要讲细的话可以说上很多，这里通过一个简单的例子介绍如何快速写一个可以跑起来的 cmake 脚本。 假设我们的目录下只有 main.cpp 一个文件，那么我们的 CMakeList.txt 可以这样写： 123cmake_minimum_required(VERSION 3.17)project(test)add_executable(test main.cpp) 这就">
+<meta property="og:description" content="关于 cmake 的使用，如果要讲细的话可以说上很多，这里通过一个简单的例子介绍如何快速写一个可以跑起来的 cmake 脚本。 假设我们的目录下只有 main.cpp 一个文件，那么我们的 CMakeList.txt 可以这样写： 123cmake_minimum_required(VERSION 3.17)project(test)add_executable(test main.cpp)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2022-06-19T08:50:44.049Z">
+<meta property="og:updated_time" content="2022-07-08T11:51:39.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cmake 的基本使用方法">
-<meta name="twitter:description" content="关于 cmake 的使用，如果要讲细的话可以说上很多，这里通过一个简单的例子介绍如何快速写一个可以跑起来的 cmake 脚本。 假设我们的目录下只有 main.cpp 一个文件，那么我们的 CMakeList.txt 可以这样写： 123cmake_minimum_required(VERSION 3.17)project(test)add_executable(test main.cpp) 这就">
+<meta name="twitter:description" content="关于 cmake 的使用，如果要讲细的话可以说上很多，这里通过一个简单的例子介绍如何快速写一个可以跑起来的 cmake 脚本。 假设我们的目录下只有 main.cpp 一个文件，那么我们的 CMakeList.txt 可以这样写： 123cmake_minimum_required(VERSION 3.17)project(test)add_executable(test main.cpp)">
 
 <link rel="canonical" href="https://jonathan1214.github.io/2022/06/cmake-basic-usage/">
 
@@ -217,10 +217,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-06-19 16:05:52 / 修改时间：16:50:44" itemprop="dateCreated datePublished" datetime="2022-06-19T16:05:52+08:00">2022-06-19</time>
+              <time title="创建时间：2022-06-19 16:05:52" itemprop="dateCreated datePublished" datetime="2022-06-19T16:05:52+08:00">2022-06-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-07-08 19:51:39" itemprop="dateModified" datetime="2022-07-08T19:51:39+08:00">2022-07-08</time>
+              </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -257,10 +263,11 @@
         <p>关于 cmake 的使用，如果要讲细的话可以说上很多，这里通过一个简单的例子介绍如何快速写一个可以跑起来的 cmake 脚本。</p>
 <p>假设我们的目录下只有 <code>main.cpp</code> 一个文件，那么我们的 CMakeList.txt 可以这样写：</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.17</span>)</span><br><span class="line"><span class="keyword">project</span>(test)</span><br><span class="line"><span class="keyword">add_executable</span>(test main.cpp)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>这就是最简单的 CMakeList.txt 脚本，如果我们还有一个源文件 mymath.cpp 和 main.cpp 在同一目录下，那么，CMakeList.txt 可以写成这样：</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.17</span>)</span><br><span class="line"><span class="keyword">project</span>(test)</span><br><span class="line"><span class="keyword">add_executable</span>(test test.cpp main.cpp)</span><br></pre></td></tr></table></figure>
 <p>就这么简单，其他更多内容可以 RTFM 或者 STFW，有很多例子可以供我们参考，如果我们对 C/C++ 文件的编译过程有很好的理解，这些例子足以帮我们了解全部内容。</p>
-<p>我的 QLDPC 的 CMakeList.txt 如下：</p>
+<p>我的 QC-LDPC 的 CMakeList.txt 如下：</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.17</span>)</span><br><span class="line"><span class="keyword">project</span>(FFT_QSPA)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">11</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">SET</span>(EXECUTABLE_OUTPUT_PATH <span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/bin)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_subdirectory</span>(lib_math)</span><br><span class="line">list(APPEND EXTRA_LIBS gfmath)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_subdirectory</span>(lib_ldpc)</span><br><span class="line">list(APPEND EXTRA_LIBS lib_ldpc)</span><br><span class="line"></span><br><span class="line"><span class="comment"># add_executable(FFT_QSPA main.cpp)</span></span><br><span class="line"><span class="comment"># add_executable(FFT_QSPA fht.cpp)</span></span><br><span class="line"><span class="keyword">add_executable</span>(FFT_QSPA global_vars.cpp main.cpp)</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_link_libraries</span>(FFT_QSPA PUBLIC <span class="variable">$&#123;EXTRA_LIBS&#125;</span>)</span><br><span class="line"></span><br><span class="line">target_include_directories(FFT_QSPA PUBLIC</span><br><span class="line">                           <span class="string">"$&#123;PROJECT_BINARY_DIR&#125;"</span></span><br><span class="line">                           )</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -285,8 +292,8 @@
       <i class="fa fa-chevron-left"></i> 结 束
     </a></div>
       <div class="post-nav-item">
-    <a href="/2022/06/makefile-basic-usage/" rel="next" title="makefile-basic-usage">
-      makefile-basic-usage <i class="fa fa-chevron-right"></i>
+    <a href="/2022/06/makefile-basic-usage/" rel="next" title="Makefile 的基本用法">
+      Makefile 的基本用法 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -362,7 +369,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">114</span>
+          <span class="site-state-item-count">115</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -375,7 +382,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">58</span>
+        <span class="site-state-item-count">60</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

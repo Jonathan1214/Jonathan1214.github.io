@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.7.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jonathan1214.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="参考链接：多目录makefile。 简单的 Makefile 很好写，但是一旦复杂起来，尤其是多文件和多目录的 Makefile 就不是那么好写了。参考上面列出的文章，记录一个 cheatlist。  赋值 = 是最基本的赋值 := 是覆盖之前的值 ?= 是如果没有被赋值过就赋予等号后面的值 += 是添加等号后面的值">
+<meta name="keywords" content="Makefile,cheatsheet,gcc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一份简单的 Makefile cheatsheet —— 关于 Makefile 多目录编译">
+<meta property="og:url" content="https://jonathan1214.github.io/2022/07/a-simple-makefile-cheatsheet/index.html">
+<meta property="og:site_name" content="dsfds&#39; blog">
+<meta property="og:description" content="参考链接：多目录makefile。 简单的 Makefile 很好写，但是一旦复杂起来，尤其是多文件和多目录的 Makefile 就不是那么好写了。参考上面列出的文章，记录一个 cheatlist。  赋值 = 是最基本的赋值 := 是覆盖之前的值 ?= 是如果没有被赋值过就赋予等号后面的值 += 是添加等号后面的值">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-07-08T11:53:28.363Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一份简单的 Makefile cheatsheet —— 关于 Makefile 多目录编译">
+<meta name="twitter:description" content="参考链接：多目录makefile。 简单的 Makefile 很好写，但是一旦复杂起来，尤其是多文件和多目录的 Makefile 就不是那么好写了。参考上面列出的文章，记录一个 cheatlist。  赋值 = 是最基本的赋值 := 是覆盖之前的值 ?= 是如果没有被赋值过就赋予等号后面的值 += 是添加等号后面的值">
+
+<link rel="canonical" href="https://jonathan1214.github.io/2022/07/a-simple-makefile-cheatsheet/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>一份简单的 Makefile cheatsheet —— 关于 Makefile 多目录编译 | dsfds' blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">dsfds' blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">学海无涯，回头是岸</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/07/a-simple-makefile-cheatsheet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="dsfds">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dsfds' blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一份简单的 Makefile cheatsheet —— 关于 Makefile 多目录编译
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-08 19:44:28 / 修改时间：19:53:28" itemprop="dateCreated datePublished" datetime="2022-07-08T19:44:28+08:00">2022-07-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/a-simple-makefile-cheatsheet/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/a-simple-makefile-cheatsheet/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>参考链接：<a href="https://blog.csdn.net/guoxiaojie_415/article/details/52206139" target="_blank" rel="noopener">多目录makefile</a>。</p>
+<p>简单的 Makefile 很好写，但是一旦复杂起来，尤其是多文件和多目录的 Makefile 就不是那么好写了。参考上面列出的文章，记录一个 cheatlist。</p>
+<hr>
+<h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><ul>
+<li>= 是最基本的赋值</li>
+<li>:= 是覆盖之前的值</li>
+<li>?= 是如果没有被赋值过就赋予等号后面的值</li>
+<li>+= 是添加等号后面的值</li>
+</ul>
+<a id="more"></a>
+<hr>
+<h2 id="example-1：分目录存放-src-include"><a href="#example-1：分目录存放-src-include" class="headerlink" title="example-1：分目录存放 src include"></a>example-1：分目录存放 src include</h2><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">INC_DIR=./<span class="keyword">include</span></span><br><span class="line">BIN_DIR=./bin</span><br><span class="line">SRC_DIR=./src</span><br><span class="line">OBJ_DIR=./obj</span><br><span class="line"></span><br><span class="line">SRC=$&#123;wildcard $&#123;SRC_DIR&#125;/*.c&#125;</span><br><span class="line">OBJ=$&#123;patsubst %.c, <span class="variable">$(OBJ_DIR)</span>/%.o, $&#123;notdir $&#123;SRC&#125;&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#用于查看变量的值</span></span><br><span class="line"><span class="comment">#test:</span></span><br><span class="line"><span class="comment">#   echo $(SRC)</span></span><br><span class="line"><span class="comment">#   echo $(OBJ)</span></span><br><span class="line"></span><br><span class="line">TARGET=main</span><br><span class="line">BIN_TARGET=$&#123;BIN_DIR&#125;/$&#123;TARGET&#125;</span><br><span class="line"></span><br><span class="line">CC=gcc</span><br><span class="line">CFLAGS= -g -Wall -I$&#123;INC_DIR&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">$&#123;BIN_TARGET&#125;:$&#123;OBJ&#125;</span></span><br><span class="line">    $&#123;CC&#125; $&#123;OBJ&#125; -o <span class="variable">$@</span></span><br><span class="line"></span><br><span class="line"><span class="section">$&#123;OBJ_DIR&#125;/%.o:$&#123;SRC_DIR&#125;/%.c</span></span><br><span class="line">    $&#123;CC&#125; $&#123;CFLAGS&#125; -c <span class="variable">$&lt;</span> -o <span class="variable">$@</span></span><br><span class="line"></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">    find $&#123;OBJ_DIR&#125; -name *.o -exec rm -rf &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="example-2：分功能存放-sum-add"><a href="#example-2：分功能存放-sum-add" class="headerlink" title="example-2：分功能存放 sum add"></a>example-2：分功能存放 sum add</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">CC = g++</span><br><span class="line">LD = g++</span><br><span class="line">SUFFIX = .cpp</span><br><span class="line">CUR_DIR = .</span><br><span class="line">BIN_DIR = ./bin</span><br><span class="line">DEC_DIR = $(CUR_DIR)/decoder</span><br><span class="line">ENC_DIR = $(CUR_DIR)/encoder</span><br><span class="line">LCC_DIR = $(CUR_DIR)/LDPCc</span><br><span class="line"></span><br><span class="line">INC_DIR = -I$(LCC_DIR) \</span><br><span class="line">            -I$(DEC_DIR) \</span><br><span class="line">            -I$(ENC_DIR)</span><br><span class="line"></span><br><span class="line">SRC =   $(wildcard $(LCC_DIR)/*$(SUFFIX)) \</span><br><span class="line">        $(wildcard $(DEC_DIR)/*$(SUFFIX)) \</span><br><span class="line">        $(wildcard $(ENC_DIR)/*$(SUFFIX)) \</span><br><span class="line">        main.cpp</span><br><span class="line"></span><br><span class="line">OBJ = $(patsubst %$(SUFFIX),%.o, $(SRC))</span><br><span class="line">CLFAGS = -O3 $(INC_DIR)</span><br><span class="line">TARGET = $(BIN_DIR)/ldpc</span><br><span class="line"></span><br><span class="line">$(TARGET): $(OBJ)</span><br><span class="line">    $(CC) $(OBJ) -o $@ --verbose -W</span><br><span class="line">    @echo &quot;Compile done.&quot;</span><br><span class="line"></span><br><span class="line">$(OBJ):%.o:%$(SUFFIX)</span><br><span class="line">    @echo &quot;compiling $&lt; --&gt; $@&quot;</span><br><span class="line">    $(CC) $(CLFAGS) -c $&lt; -o $@</span><br><span class="line"></span><br><span class="line">all:</span><br><span class="line">    @echo $(INC_DIR)</span><br><span class="line">    @echo $(SRC)</span><br><span class="line">    @echo $(OBJ)</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">    rm -f $(OBJ)</span><br><span class="line">    @echo clean done</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="内嵌函数"><a href="#内嵌函数" class="headerlink" title="内嵌函数"></a>内嵌函数</h2><p>例子中的 <code>wildcard</code> 和 <code>patsubst</code> 是 make 中的两个重要内嵌函数，如果不需要了解更多，那么可以直接参考上面的用法，否则 <a href="">STFW</a>。</p>
+<p>除此之外，make 中还有很多非常有意思的内嵌函数，列出如下，每一个的详细内容可以 <a href="">STFW</a> 参考。</p>
+<p>文本处理：</p>
+<ul>
+<li>subst</li>
+<li>patsubst</li>
+<li>strip</li>
+<li>findstring</li>
+<li>filter</li>
+<li>filter-out</li>
+<li>sort</li>
+<li>word</li>
+<li>wordlist</li>
+<li>words</li>
+<li>firstword</li>
+</ul>
+<p>文件名处理函数：</p>
+<ul>
+<li>dir</li>
+<li>notdir</li>
+<li>suffix</li>
+<li>basename</li>
+<li>addsuffix</li>
+<li>addprefix</li>
+<li>join</li>
+<li>wildcard</li>
+</ul>
+<p>其他：</p>
+<ul>
+<li>foreach</li>
+<li>if</li>
+<li>call</li>
+<li>value</li>
+<li>eval</li>
+<li>origin</li>
+<li>shell 函数</li>
+<li>控制函数<ul>
+<li>error</li>
+<li>warning</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="静态模式"><a href="#静态模式" class="headerlink" title="静态模式"></a>静态模式</h2><p>注意下面这一段，如果如要查找更加详细的内容，可以搜索 Makefile 的 <strong>静态模式</strong>。</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$(OBJ)</span>:%.o:%<span class="variable">$(SUFFIX)</span></span><br><span class="line">    @echo <span class="string">"compiling <span class="variable">$&lt;</span> --&gt; <span class="variable">$@</span>"</span></span><br><span class="line">    <span class="variable">$(CC)</span> <span class="variable">$(CLFAGS)</span> -c <span class="variable">$&lt;</span> -o <span class="variable">$@</span></span><br></pre></td></tr></table></figure>
+<p>这是一种匹配的语法，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TARGETS ...: TARGET-PATTERN: PREREQ-PATTERNS ...</span><br><span class="line">COMMANDS</span><br></pre></td></tr></table></figure>
+<p>如例子中所示的，<code>%.o</code> 中的 <code>%</code> 会匹配 <code>$(OBJ)</code>中的 <code>.o</code> 文件，得到文件名（假设匹配到了 <code>foo.o</code>，那么得到 <code>foo</code>），<code>foo</code> 和替换 <code>%.cpp</code> 中的 <code>%</code>，得到 <code>foo.cpp</code>，如此一来，展开后的 target 和 dependency 就变成了 <code>foo.o:foo.cpp</code>。command 部分的 <code>$&lt;</code> 表示第一个依赖文件，<code>$@</code> 表示规则中的 target，详细可以参考 <a href="">Makefile 自动化变量</a>。</p>
+<p>举个更简单的例子：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">objects := foo.o bar.o</span><br><span class="line"></span><br><span class="line"><span class="variable">$(objects)</span>:%.o:%.c</span><br><span class="line">    <span class="variable">$(CC)</span> -c <span class="variable">$(CFLAGS)</span> <span class="variable">$&lt;</span> -o <span class="variable">$@</span></span><br></pre></td></tr></table></figure>
+<p>第二段会扩展成如下：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">foo.o:foo.cpp</span></span><br><span class="line">    <span class="variable">$(CC)</span> -c <span class="variable">$(CFLAGS)</span> foo.cpp -o foo.o</span><br><span class="line"><span class="section">bar.o:bar.cpp</span></span><br><span class="line">    <span class="variable">$(CC)</span> -c <span class="variable">$(CFLAGS)</span> bar.cpp -o bar.o</span><br></pre></td></tr></table></figure>
+<p>从上面这个例子，我们知道当有多个 objects，我们应该怎样写 Makefile，这可以作为 cheatsheet。</p>
+<p>更进一步的，如果上面这个例子中，object 中不仅仅有 .o 文件，那么 make 会给一个失败提示，我们可以使用 filter 函数。搜索 <a href="">Makefile 内嵌函数</a> 获得更多信息。</p>
+<p>一个简单的例子如下：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">files = foo.elc bar.o lose.o</span><br><span class="line"><span class="variable">$(<span class="built_in">filter</span> %.o,<span class="variable">$(files)</span>)</span>:%.o:%.c</span><br><span class="line">    <span class="variable">$(CC)</span> -c <span class="variable">$(CFLAGS)</span> <span class="variable">$&lt;</span> -o <span class="variable">$@</span></span><br><span class="line"><span class="variable">$(<span class="built_in">filter</span> %.elc,<span class="variable">$(files)</span>)</span>:%.elc:%.el</span><br><span class="line">    emacs -f batch-byte-compile <span class="variable">$&lt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>更多内容可以参考：<a href="https://www.gnu.org/software/make/manual/" target="_blank" rel="noopener">gnumake manual</a></p>
+<p>当然，这么经典的工具的 Manual，也有很多翻译版可以参考。</p>
+<p><a href="https://jonathan1214.github.io/2022/06/makefile-basic-usage/">readmore</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Makefile/" rel="tag"># Makefile</a>
+              <a href="/tags/cheatsheet/" rel="tag"># cheatsheet</a>
+              <a href="/tags/gcc/" rel="tag"># gcc</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/leetcode-weekly-contest-300/" rel="prev" title="『leetcode』周赛 300">
+      <i class="fa fa-chevron-left"></i> 『leetcode』周赛 300
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#赋值"><span class="nav-number">1.</span> <span class="nav-text">赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example-1：分目录存放-src-include"><span class="nav-number">2.</span> <span class="nav-text">example-1：分目录存放 src include</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example-2：分功能存放-sum-add"><span class="nav-number">3.</span> <span class="nav-text">example-2：分功能存放 sum add</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内嵌函数"><span class="nav-number">4.</span> <span class="nav-text">内嵌函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态模式"><span class="nav-number">5.</span> <span class="nav-text">静态模式</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="dsfds"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">dsfds</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">115</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">dsfds</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'pKduJiwXGxEBLhnENF3li3Fv-gzGzoHsz',
+      appKey     : 'TfcDSWRi0FBxPFOnGhQ1d5be',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
