@@ -190,6 +190,103 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/07/auto-mail-sender/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="dsfds">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dsfds' blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/auto-mail-sender/" class="post-title-link" itemprop="url">邮件自动发送器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-25 13:00:45 / 修改时间：13:07:33" itemprop="dateCreated datePublished" datetime="2022-07-25T13:00:45+08:00">2022-07-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/auto-mail-sender/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/auto-mail-sender/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>一个用 Python 实现的邮件自动发送器，代码不长，这再次展现了 Python 这个胶水语言的简洁。</p>
+<p>网上有很多基于 Python 的邮件发送器实现，这里使用的是基于 smtplib 的方式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send_mail</span><span class="params">(mail_content)</span>:</span></span><br><span class="line">    message = MIMEText(mail_content,<span class="string">'html'</span>,<span class="string">'utf-8'</span>)</span><br><span class="line">    <span class="comment">#邮件主题</span></span><br><span class="line">    message[<span class="string">'Subject'</span>] = <span class="string">'[auto] simulation result'</span></span><br><span class="line">    <span class="comment">#发送方信息</span></span><br><span class="line">    message[<span class="string">'From'</span>] = sender</span><br><span class="line">    <span class="comment">#接受方信息</span></span><br><span class="line">    message[<span class="string">'To'</span>] = <span class="string">";"</span>.join(receivers)</span><br><span class="line">    <span class="comment"># print(message.as_string())</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        smtpObj = smtplib.SMTP()</span><br><span class="line">        <span class="comment">#连接到服务器</span></span><br><span class="line">        smtpObj.connect(mail_host,<span class="number">25</span>)</span><br><span class="line">        <span class="comment">#登录到服务器</span></span><br><span class="line">        smtpObj.login(mail_user,mail_pass)</span><br><span class="line">        <span class="comment">#发送</span></span><br><span class="line">        smtpObj.sendmail(</span><br><span class="line">            sender,receivers,message.as_string())</span><br><span class="line">        <span class="comment">#退出</span></span><br><span class="line">        smtpObj.quit()</span><br><span class="line">        print(<span class="string">'success'</span>)</span><br><span class="line">    <span class="keyword">except</span> smtplib.SMTPException <span class="keyword">as</span> e:</span><br><span class="line">        print(<span class="string">'error'</span>,e) <span class="comment">#打印错误</span></span><br></pre></td></tr></table></figure>
+<p>这里我们需要正确设置如下变量：</p>
+<ul>
+<li><code>mail_host -&gt; str</code>：smtp 邮箱服务器，如 163 邮箱的 <code>smtp.163.com</code></li>
+<li><code>mail_user -&gt; str</code>：邮箱用户名，即登录时用的用户名，如 <code>kolinahr</code></li>
+<li><code>mail_pass -&gt; str</code>：密码（或授权码，请 STFW）</li>
+<li><code>sender</code>：发送方的邮箱地址，如 <a href="mailto:`kolinahr@163.com" target="_blank" rel="noopener">`kolinahr@163.com</a>`</li>
+<li><code>receivers -&gt; [str]</code>：邮箱接收者列表，如 <code>[wds00@qq.com, wgdgf01@qq.com]</code></li>
+<li><code>message -&gt; str</code>：待发送的信息，这里 <code>MIMEText</code> 指定了格式为 <code>html</code>，也可以使用纯文本，指定为 <code>plain</code> 即可</li>
+</ul>
+<p>这就是全部内容了。如果需要更简单的方式，可以考虑使用 Python 库 <code>zmail</code>，请 STFW。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://zhuanlan.zhihu.com/p/24180606" target="_blank" rel="noopener">简单三步，用 Python 发邮件</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/07/a-simple-makefile-cheatsheet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -213,10 +310,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-07-08 19:44:28 / 修改时间：19:53:28" itemprop="dateCreated datePublished" datetime="2022-07-08T19:44:28+08:00">2022-07-08</time>
+              <time title="创建时间：2022-07-08 19:44:28" itemprop="dateCreated datePublished" datetime="2022-07-08T19:44:28+08:00">2022-07-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-07-09 12:38:00" itemprop="dateModified" datetime="2022-07-09T12:38:00+08:00">2022-07-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -252,7 +355,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>参考链接：<a href="https://blog.csdn.net/guoxiaojie_415/article/details/52206139" target="_blank" rel="noopener">多目录makefile</a>。</p>
+          <p>如果还不知道最简单的 Makefile 应该怎么写，可以参考 <a href="https://jonathan1214.github.io/2022/06/makefile-basic-usage/">Makefile 基本用法</a>。</p>
+<p>参考链接：<a href="https://blog.csdn.net/guoxiaojie_415/article/details/52206139" target="_blank" rel="noopener">多目录makefile</a>。</p>
 <p>简单的 Makefile 很好写，但是一旦复杂起来，尤其是多文件和多目录的 Makefile 就不是那么好写了。参考上面列出的文章，记录一个 cheatlist。</p>
 <hr>
 <h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><ul>
@@ -569,96 +673,6 @@
     
     
     
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/03/advanced-VL1-sequenc-detection/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="dsfds">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dsfds' blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/advanced-VL1-sequenc-detection/" class="post-title-link" itemprop="url">输入序列连续的序列检测</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-03-15 09:30:01 / 修改时间：10:53:02" itemprop="dateCreated datePublished" datetime="2022-03-15T09:30:01+08:00">2022-03-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习/IC/" itemprop="url" rel="index"><span itemprop="name">IC</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/03/advanced-VL1-sequenc-detection/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/03/advanced-VL1-sequenc-detection/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这段时间在准备暑期实习，刚好牛客上新开放了 Verilog 刷题的模块，大概是为了这波风口，大家都在一起疯狂。</p>
-<p><a href="https://www.nowcoder.com/practice/d65c2204fae944d2a6d9a3b32aa37b39?tpId=302&amp;tqId=5000628&amp;ru=/exam/oj&amp;qru=/ta/verilog-advanced/question-ranking&amp;sourceUrl=%2Fexam%2Foj%3Ftab%3DVerilog%25E7%25AF%2587%26topicId%3D302" target="_blank" rel="noopener">输入序列连续的序列检测</a></p>
-<p>序列检测算是比较简单的题了，无非两种方法，移位寄存然后判断，或者更复杂一点的用状态机实现，序列检测还可以分为可重复检测和非可重复检测，具体实现上有细微的差别，都不算复杂。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
 
   
   <nav class="pagination">
@@ -730,7 +744,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">115</span>
+          <span class="site-state-item-count">116</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -743,7 +757,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-count">61</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
