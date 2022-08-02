@@ -6,7 +6,9 @@ categories:
   - 学习
 tags:
 ---
+
 Distance sensor can be very useful in some conditons, such as obstacles detecting and avoiding. By using arduino, it's very easy for us to use distance sensor. This demo show us a simple example to use distance sensor. For better display, we will use LCD1602 to show the distance. **It's modified from example in arduino.**
+
 <!-- more -->
 
 ## Supplies
@@ -23,7 +25,7 @@ Distance sensor can be very useful in some conditons, such as obstacles detectin
 
 Browsering internet, it's easy to find instructions of HC-SR04 and LCD1602. And there are so many libraries for us in arduino. In our circuit, arduino digital pin 2, 3, 4, 5, 11 and 12 are used for LCD1602 while digital pin 7 and 8 are for HC-SR04. LED uses digital pin 13. Finally, following is our circuits.
 
-{% asset_img distance-sensor-demo.png 'Final Circuit' %}
+![](2020-06-01-distance-sensor-demo-for-arduino/distance-sensor-demo.png)
 
 ## Step2 Code
 

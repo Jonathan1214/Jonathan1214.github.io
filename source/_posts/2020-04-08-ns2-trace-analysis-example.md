@@ -21,7 +21,8 @@ $ns trace-all $f
 
 执行代码{% asset_link ns-simple.tcl %}会生成一个 NAM trace 文件，该文件作为 NAM 的输入，同时还会生成一个名为 out.tr 的文件，该文件用于我们的模拟分析。下图展示了 trace 的格式和来自 out.tr 的 trace 数据示例。
 
-{% asset_img trace_format_example.png 'trace 文件格式与示例' %}
+![](2020-04-08-ns2-trace-analysis-example/trace_format_example.png)
+
 每一个 trace 行依次为以下部分：
 
 + 事件描述符：+，-，d，r

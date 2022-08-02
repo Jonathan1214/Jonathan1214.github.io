@@ -27,7 +27,7 @@ In the example waveform below, reset, in[1] and out[1] are shown again separatel
 
 保持先前为 1 的状态，最好的办法莫过于使用`与AND`了，如 `out <= out | (reg_in & (~in))` 简单一句就完成抓取下降沿的任务，同理易知抓取上升沿即 `out <= out | ((~reg_in) & in)`。
 
- {% asset_img image-20210130143822445.png %}
+![](2021-01-30-hdlbits-sequantial-logic-ff-and-counter/image-20210130143822445.png)
 
 ```verilog
 module top_module (
@@ -61,7 +61,7 @@ You're familiar with flip-flops that are triggered on the positive edge of the c
 
 Build a circuit that functionally behaves like a dual-edge triggered flip-flop:
 
- {% asset_img image-20210130150619632.png %}
+![](2021-01-30-hdlbits-sequantial-logic-ff-and-counter/image-20210130150619632.png)
 
 ```verilog
 module top_module (
@@ -144,7 +144,7 @@ Create a set of counters suitable for use as a 12-hour clock (with am/pm indicat
 
 The following timing diagram shows the rollover behaviour from `11:59:59 AM` to `12:00:00 PM` and the synchronous reset and enable behaviour.
 
- {% asset_img image-20210130204152683.png %}
+![](2021-01-30-hdlbits-sequantial-logic-ff-and-counter/image-20210130204152683.png)
 
 ```verilog
 module top_module(

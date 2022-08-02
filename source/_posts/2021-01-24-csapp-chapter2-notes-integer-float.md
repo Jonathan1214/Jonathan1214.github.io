@@ -102,7 +102,7 @@ signed 加，也是直接舍去进位，但注意到，补码的加法会产生�
 + Big Endian：大端序，即低地址存放数据的高字节，依次类推。
 + Little Endian：小端序，即低地址存放数据的低字节。这是今天常用的处理器使用的数据存储方法。
 
- {% asset_img Byte-ordering-example.png "Byte-ordering-example" %}
+![](2021-01-24-csapp-chapter2-notes-integer-float/Byte-ordering-example.png)
 
 下面以整数、指针和字符串在内存中的表示为例：
 
@@ -135,7 +135,7 @@ $$
 $$
 对应到内存中，表示如下：
 
- {% asset_img floating-point-representation.png "floating-point-representation" %}
+![](2021-01-24-csapp-chapter2-notes-integer-float/floating-point-representation.png)
 
 + s  表示公式中的符号位 s
 + exp 表示公式中的 E（并不相等，存在转换关系）
@@ -143,9 +143,9 @@ $$
 
 IEEE 754 主要提供了两种浮点数标准：单精度（32位）和双精度（64位）
 
- {% asset_img single-precision.png "single-precision" %}
+![](2021-01-24-csapp-chapter2-notes-integer-float/single-precision.png)
 
- {% asset_img double-precision.png "double-precision" %}
+![](2021-01-24-csapp-chapter2-notes-integer-float/double-precision.png)
 
 这两种标准是相似的，只是数据位数不同，甚至我们自己也可以参考这种定义给出如 8 位浮点数的定义，容易帮助我们理解浮点数。
 
@@ -187,7 +187,7 @@ IEEE 754 主要提供了两种浮点数标准：单精度（32位）和双精度
 + `exp = 111..1`，`frac = 000...0`：表示 infinity 无穷大，用于表述数据运算中的溢出
 + `exp = 111...1`，`frac != 000...0`：表示 NaN 非数，用于表述数据运算中的无效运算结果，如 sqrt(-1)。
 
- {% asset_img visualization-floating-point.png "visualization-floating" %}
+![](2021-01-24-csapp-chapter2-notes-integer-float/visualization-floating-point.png)
 
 ### Special Properties
 
@@ -248,4 +248,4 @@ IEEE 754 主要提供了两种浮点数标准：单精度（32位）和双精度
 
 包括单精度 float 和双精度 double，注意他们的转换关系，即是否会产生误差，关注他们的位数即可，float 的 frac 长为23，int 长为 32，double frac 长为 52，根据短的向长的转换不会出现误差即可的得出结论。
 
- {% asset_img floating-point-puzzles.png "floating-point-puzzles" %}
+![](2021-01-24-csapp-chapter2-notes-integer-float/floating-point-puzzles.png)

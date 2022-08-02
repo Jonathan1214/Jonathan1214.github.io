@@ -55,7 +55,7 @@ bool hasCycle(ListNode *head) {
 
  ### example:
 
- {% asset_img image-20210122164350248.png %}
+![](2021-01-22-two-pointer-technique/image-20210122164350248.png)
 
  ```
  Input: head = [3,2,0,-4], pos = 1
@@ -98,7 +98,7 @@ ListNode *detectCycle(ListNode *head) {
 
  For example, the following two linked lists begin to intersect at node c1.
 
- {% asset_img image-20210122173105096.png %}
+![](2021-01-22-two-pointer-technique/image-20210122173105096.png)
 
  ### solution:
 
@@ -162,7 +162,7 @@ Given the `head` of a linked list, remove the `nth` node from the end of the lis
 
 ### example:
 
- {% asset_img image-20210122192335143.png %}
+![](2021-01-22-two-pointer-technique/image-20210122192335143.png)
 
 ```
 Input: head = [1,2,3,4,5], n = 2

@@ -15,11 +15,11 @@ tags:
 
 致谢全文如下：
 
- {% asset_img a_touching_acknowledgement.jpg "a_touching_acknowledgement" %}
+![](2021-04-19-a-touching-acknowledgement/a_touching_acknowledgement.jpg)
 
 在受到广泛的关注后，作者又写了一份回应，全文如下：
 
- {% asset_img a_letter_to_efriends.jpg "a_letter_to_efriends" %}
+![a_letter_to_efriends](2021-04-19-a-touching-acknowledgement/a_letter_to_efriends.jpg)
 
 看完这些，心中涌起种种感情，却又不知道从何说起，把我感受到的都列出来吧。仅观察他整个博士前经历的人生，只能用苦来形容，太不容易了，但好在生的时机不算坏，上升的空间是存在的，社会也提供了很多帮助，好在好在读了个好专业，博士也是机器翻译，现在人在腾讯 AL Lab 了，前途钱途一片光明，如果选择了所谓的天坑专业，实在是难以想象今后还会有多么困难的人生，读了这么久的书，却发现能挣到的钱完全不能满意……由此看来，选择实在是太重要了，宇宙机果然牛逼，算是穷人家的孩子改变命运的最好选择了，或者不叫改变命运这么大的名字，叫赚到足够多的钱。
 

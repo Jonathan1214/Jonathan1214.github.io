@@ -43,7 +43,7 @@ BPSK 的基带信号是双极性的，用 -1 和 +1 来表示两种不同极性�
 
 得到的结果如下所示：
 
-{% asset_img BPSK.png 'BPSK 仿真结果' %}
+![](2020-05-21-ber-and-ser-of-PSK-and-QAM/BPSK.png)
 
 第二种方法更具有一般性，理解了它，其他调制方式也是一样的可以实现。这需要星座图的帮助，通过星座图，我们可以得到最小欧式距离和平均比特能量的关系。在 BPSK 中，有
 $$
@@ -61,7 +61,7 @@ $$
 
 利用上面提到的具有一般性的方式，我们需要使用星座图，QPSK有如下两种星座图形式：
 
-{% asset_img QPSKConstellation.png 'QPSK 的两种星座图' %}
+![QPSKConstellation](2020-05-21-ber-and-ser-of-PSK-and-QAM/QPSKConstellation.png)
 
 以第一种左边的星座图为例，说明仿真过程。对于 MPSK 调制，最小欧式距离为：
 $$
@@ -73,6 +73,6 @@ $$
 
 同理，对16QAM和16PSK也是一样的道理，只不过星座点映射在代码实现上会稍稍复杂一点。分析 16QAM 可以将它看作两路正交的 4PAM 信号的叠加，其余分析方法和上面完全相同。16PSK 就更加简单了，不多说，直接给出代码和最终的波形图，如下所示。
 
-{% asset_img QAMandPSK.jpg '16QAM和16PSK仿真结果' %}
+![QAMandPSK](2020-05-21-ber-and-ser-of-PSK-and-QAM/QAMandPSK.jpg)
 
 {% include_code QAMandPSK.m lang:MatLab %}

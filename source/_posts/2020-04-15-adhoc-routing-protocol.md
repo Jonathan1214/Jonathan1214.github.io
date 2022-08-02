@@ -62,8 +62,8 @@ Ad-Hoc 网络路由也面临着一些问题：
 + 其他类型
 	+ 主要是专门用途的路由协议，如基于地理信息的路由协议 LAR 和 GPSR 等。
 
-{% asset_img common_routing_protocol.png '常用路由协议名称' %}
-{% asset_img common_routing_protocol2.png '常用路由协议归类' %}
+![](2020-04-15-adhoc-routing-protocol/common_routing_protocol.png)
+![](2020-04-15-adhoc-routing-protocol/common_routing_protocol2.png)
 按照这种划分，我们在这里只介绍按照第一种划分方式（按照路由协议依据）和第二种划分方式（按照路由建立的方式）下的一些典型的路由协议。
 
 ## 2. 链路状态与距离矢量路由协议
@@ -86,7 +86,7 @@ OSPF 工作分为如下三个过程：邻居表的建立，拓扑表的建立，
 3. 网络中的其他路由器收到它发来的 hello 后，将它的信息加入到数据库中，并回应 hello 分组。
 4. 新路由器看到自己的 ID 出现在其他路由器应答的 hello 中时，就建立了邻接关系，将自己的状态改为双向。
 
-{% asset_img OSPF_build_adjacent_table.png 'OSPF 下邻接表建立'  %}
+![](2020-04-15-adhoc-routing-protocol/OSPF_build_adjacent_table.png)
 
 #### 拓扑表的建立
 
@@ -116,13 +116,13 @@ OSPF 工作分为如下三个过程：邻居表的建立，拓扑表的建立，
 
 Ad-Hoc 网络中距离通过跳数体现，矢量就表现为下一跳的节点是谁。路由器之间广播自己的路由表中的信息，更具体将 Next 和 Metric 广播出去，广播的同时自己的位置天然携带了。接收到信息的其他路由器根据需要更新自己的路由表。从下图中的例子展示了细节。
 
-{% asset_img dv_phase1_init.png 'DV 算法初始化' %}
-{% asset_img dv_phase2_update_route.png 'DV 算法路由更新' %}
+![](2020-04-15-adhoc-routing-protocol/dv_phase1_init.png)
+![](2020-04-15-adhoc-routing-protocol/dv_phase2_update_route.png)
 
 看起来很好，不过这种算法却没有在 Ad-Hoc 直接被使用，因为它会带来路由环路问题。下面这个例子展示了这个问题。
 
-{% asset_img dv_route_loop1.png %}
-{% asset_img dv_route_loop2.png '路由环路问题示例' %}
+![](2020-04-15-adhoc-routing-protocol/dv_route_loop1.png)
+![](2020-04-15-adhoc-routing-protocol/dv_route_loop2.png)
 
 在维护路由表信息的时候，如果在<span style="color:red">拓扑发生改变</span>后，网络收敛缓慢产生了不协调或者<span style="color:red">矛盾的路由选择条目</span>，就会发生路由环路的问题。这种条件下，路由器对无法到达的网络路由不予理睬，导致用户的数据包不停在网络上<span style="color:red">循环发送</span>，最终造成网络资源的严重浪费。
 
@@ -218,7 +218,8 @@ DSR 协议使用源路由，采用 Cache（缓冲器）存放路由信息，且�
 
 源节点向邻居节点广播路由请求（RREQ）消息，RREQ 的格式及含义如下所示。
 
-{% asset_img dsr_rreq_format.png 'RREQ 格式' %}
+![](2020-04-15-adhoc-routing-protocol/dsr_rreq_format.png)
+
 其中，Sid 为源节点 ID 号，Did 为目的节点 ID 号，Route record 是路由记录，记录了从源节点到目的节点所经过的节点序列，Request ID 为路由请求序列号，由源节点设置。
 
 当一个节点收到 RREQ 时，如果该节点满足：
@@ -238,7 +239,8 @@ DSR 协议使用源路由，采用 Cache（缓冲器）存放路由信息，且�
 
 当 RREQ 分组最终传递到目的节点 D 时，D 会往回发送 RREP 分组，分组的格式如下：
 
-{% asset_img dsr_rrep_format.png 'RREP 格式' %}
+![](2020-04-15-adhoc-routing-protocol/dsr_rrep_format.png)
+
 其中，Did 表示目的节点 ID 或者说是请求路由分组的源节点 ID，Date Route 表示启动路由请求的源节点发送的数据分组要经过的路由（节点序列），而 Reply Route 是路由应答分组 RREP 所要经过的路由（节点序列，不难发现将 Date Route 反向即可）。
 
 ##### 获得新路由的方式
@@ -278,12 +280,13 @@ DSR 协议使用源路由，采用 Cache（缓冲器）存放路由信息，且�
 如果中间节点发现路由表中显示的下一跳节点链路层不可到达，向源节
 点发送一个RERR。源节点从路由缓冲条目中删除所有不可到达的链路（这条路径的中间节点也利用这个信息更新路由缓冲器） 。源节点将重新启动新的路由发现过程。RERR 的格式如下：
 
-{% asset_img dsr_rerr_format.png 'RERR 格式' %}
+![](2020-04-15-adhoc-routing-protocol/dsr_rerr_format.png)
+
 其中 Node1 表示链路出错的一端节点 ID 号，Node2 是链路出错的另一端节点 ID 号，Did 表示目的节点 ID 或遇到链路出错的数据分组的源节点 ID ，Rerr route 是路由出错分组所要经过的路由（节点序号）。
 
 下图展示了一个例子，从中我们可以看出 RERR 是如何工作的。
 
-{% asset_img rerr_example.png 'RERR 示例' %}
+![](2020-04-15-adhoc-routing-protocol/rerr_example.png)
 
 #### 4.1.3. DSR 总结
 
@@ -382,7 +385,7 @@ AODV链路状态检测机制，活跃路径节点以HELLO_INTERVAL为周期发�
 
 ## 5. 主动路由协议与按需路由协议
 
-{% asset_img proactive_reactive_route.png '主动路由和按需路由' %}
+![](2020-04-15-adhoc-routing-protocol/proactive_reactive_route.png)
 
 主动路由协议是按路由发现和建立路由方式的角度分类下的一种路由协议，也叫表驱动路由协议，与之相对的是按需路由协议，前面介绍的两种路由协议 OSPF、DSDV 均属于主动路由协议。
 

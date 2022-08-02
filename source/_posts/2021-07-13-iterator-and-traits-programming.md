@@ -34,7 +34,7 @@ tags:
 
 第3节介绍了迭代器的相应型别（associated types）。我不太认可这里的中文翻译，当然 jjhou 可能也是如此，因此加上来英文原名——associated types。迭代器的 associate type 可以理解成迭代器所指之物的类型。考虑这个问题是有实际意义的，如果算法中必须声明一个变量，且变量类型是**迭代器所指向对象的型别**，解决办法是：利用 function template 的参数推导（argument deducation）机制。
 
-{% asset_img image-20210713230331626.png '参数推导' %}
+![](2021-07-13-iterator-and-traits-programming/image-20210713230331626.png)
 
 这里还需要说明的时，迭代器相应型别（associated types）不只是『迭代器所指对象的型别』而已，实际上有 5 种，后面会详细提到。
 
@@ -42,13 +42,13 @@ tags:
 
 上述的参数推导虽好，但是如果需要进行返回值的推导，我们就需要新的方法了。声明**内嵌型别**（nested type）似乎是个好主意。像下面这样：
 
-{% asset_img image-20210713231308026.png %}
+![](2021-07-13-iterator-and-traits-programming/image-20210713231308026.png)
 
 看起来不错，但是有一个陷阱：**并不是所有的迭代器都是 class type**。比如原生指针，无法为它定义内嵌型别。为了处理这个问题，我们需要模板偏特化（template partial specialization）：
 
 >  如果 class template 拥有一个以上的 template 参数，我们可以针对其中某些 template 参数进行特化工作，即在泛化设计中提供一个特化版本。
 
-{% asset_img image-20210713232048166.png %}
+![](2021-07-13-iterator-and-traits-programming/image-20210713232048166.png)
 
 现在，我们可以解决原生指针带来的问题了，为迭代器的template参数为指针的情况，设计特化版的迭代器。
 
@@ -91,7 +91,7 @@ struct iterator_traits<const T*> {
 
 这样对迭代器相应型别中的推导就完成了，实际上 STL 也是如此设计的，iterator_traits 包括两个偏特化版本。
 
-{% asset_img image-20210713233540292.png %}
+![](2021-07-13-iterator-and-traits-programming/image-20210713233540292.png)
 
 接着依次介绍了 value_type，difference_type，reference_type，pointer_type 和 iterator_category。
 
@@ -99,11 +99,11 @@ struct iterator_traits<const T*> {
 
 迭代器的分类如下：
 
-{% asset_img image-20210713234006100.png %}
+![](2021-07-13-iterator-and-traits-programming/image-20210713234006100.png)
 
 当然，其实我们不用过多关注category，只要明白设计这么多种类是贴合实际的，是为了提高某些代码运行时的效率，但是这样一来就需要对不同类型的迭代器分别设计函数，这显然不够泛化，因此进行了一系列的设计，以期望对函数进行重载。这又用到 traits，我们期望 traits 能够萃取出迭代器的种类！这个类别必须是class type，因为编译器需要依赖它进行重载决议（overloaded resolution）。
 
-{% asset_img image-20210713234514174.png %}
+![](2021-07-13-iterator-and-traits-programming/image-20210713234514174.png)
 
 大概重要的内容就是这些，关键是 traits 的想法，实在是巧妙，但其实也是没有办法的事情，因为 C++ 没有类型推导如 typeof 这样的函数，只能通过这种方法来完成了。
 

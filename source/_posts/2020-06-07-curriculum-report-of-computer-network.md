@@ -30,7 +30,7 @@ IEEE 802.11 n在2009年标准化，采用了OFDM和4x4多入多出（Multiple-In
 
 2013推出的IEEE 802.11ac协议利用OFDM和8x8 MIMO技术[4]，在8个20MHz信道(共160MHz)中，物理层速率可达到6.9Gbps，在802.11n基础上有了很大的提升。最新的 802.11ax 标准已经支持160MHz的带宽，8条流空间复用，基于 OFDMA的多址接入技术提高了信道利用率，满足密集部署场景的应用需求[5]。其他更多标准的简略信息如图1-1所示。	
 
-{% asset_img mainIEEE80211Standard.png '图1-1 主要的IEEE 802.11标准' %}
+![](2020-06-07-curriculum-report-of-computer-network/mainIEEE80211Standard.png)
 
 我们可以看到，无线局域网标准定义了协议的工作频段、调制编码方式及最高速度的支持。可以看到，无线局域网的工作频段是2.4GHz和5GHz，前者的具体范围是2.4000～2.4835GHz，后者是5.15～5.825GHz，通常设计工作在2.4GHz频段的协议支持的数据传输速率低一些，但覆盖范围大，工作在5GHz频段的协议支持的数据传输塑料布高一些，但覆盖范围小。从调制技术来看，无线局域网的物理层从CCK向OFDM和MIMO-OFDM发展，支持的传输速率越来越大，2Mbps，54Mbps，600Mbps，1Gbps，9.6Gbps，传输速率是越来越大，当然其中消耗了更多的带宽资源。
 
@@ -42,7 +42,7 @@ IEEE 802.11定义了无线局域网的两种网络结构，分别是无中心网
 
 目前，AP模式是比较常用的，我们在家中使用的WiFi就是这种模式，而Ad hoc一般在一些专用场合使用，平时比较少见。
 
-{% asset_img networdPattern.png '图2-1 网络模式示意图' %}
+![](2020-06-07-curriculum-report-of-computer-network/networdPattern.png)
 
 ### 2.2 无线局域网的MAC层结构
 
@@ -50,7 +50,7 @@ IEEE 802.11定义了无线局域网的两种网络结构，分别是无中心网
 
 MAC层即介质访问控制层，在传输帧时，一个基站首先要获取共享信道的访问，无线局域网的标准定义了两种介质访问控制方式：分布式协调功能（DCF）和集中式协调功能（PCF）。其中DCF功能是必须支持的，而PCF则不一定。MAC的结构如图2-2所示。
 
-{% asset_img WLANMAC.png '图2-2 无线局域网 MAC示意图' %}
+![](2020-06-07-curriculum-report-of-computer-network/WLANMAC.png)
 
 DCF机制是IEEE 802.11协议采用的基于竞争的MAC机制，其采用载波监听多址接入/冲突避免（Carrier Sense Multiple Access mechanism with Collision Avoidance，CSMA/CA）和二进制指数退避（Binary Exponential Back-off，BEB）两种基本机制可以为多个站点提供信道接入，各个站点在这种机制下对信道资源进行争用，有可能会发生数据碰撞。
 
@@ -82,7 +82,7 @@ CSMA/CA的设计目标是为了尽可能减少冲突发送概率，简单概括�
 
 CSMA/CA有两种工作模式，基本模式和可选的RTS/CTS预约模式，后者可以解决隐藏主机带来的冲突问题。这里只介绍基本模式，它的信道接入过程如图2-3所示。
 
-{% asset_img channelConnectionProcess.png '图2-3 基本模式下的信道接入过程' %}
+![](2020-06-07-curriculum-report-of-computer-network/channelConnectionProcess.png)
 
 NAV起到一个计时器的作用，其数值由发送主机在帧头的“持续时间”字段广播给其他主机，对于其他主机，只有当检测到NAV=0时才认为信道是空闲的。如果检测到信道空闲，那么发送主机需要等待一个DIFS，然后随机退避n个slot time才能发送数据帧，这个时候的数据帧就携带了此次发送站点的NAV信息，提醒其他站点信道繁忙，让其他站点保持静默以免发送碰撞。退避时间由二进制指数退避算法决定，退避时间为
 $$

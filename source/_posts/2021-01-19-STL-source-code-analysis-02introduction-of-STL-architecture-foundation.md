@@ -18,9 +18,7 @@ STL 六大部件：
 + 适配器（Adapters）
 + 仿函数（Functors）
 
- {% asset_img image-20210119105439154.png %}
-
-<!--![image-20210119105439154](2021-01-19-STL-source-code-analysis-02introduction-of-STL-architecture-foundation/image-20210119105439154.png)-->
+![image-20210119105439154](2021-01-19-STL-source-code-analysis-02introduction-of-STL-architecture-foundation/image-20210119105439154.png)
 
 一个例子：
 
@@ -73,7 +71,7 @@ C++11带来的新方法：
 
 ## 容器——结构与分类
 
- {% asset_img image-20210119111745950.png %}
+![image-20210119105439154](2021-01-19-STL-source-code-analysis-02introduction-of-STL-architecture-foundation/image-20210119111745950.png)
 
 序列型容器（Sequence Containers）：
 + Array（C++11）

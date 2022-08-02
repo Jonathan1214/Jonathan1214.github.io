@@ -31,7 +31,7 @@ updated:
 3. `p1` 和 `p2` 一起向后滑动，当 `p1` 指向节点的下一个节点为空时，`p2` 指向的节点即为待删除节点的前一个节点，执行删除操作。
 4. 返回头指针
 
-{% asset_img illustration.png '算法执行图示'  %}
+![](2020-05-04-delete-numN-node-at-reverse-order-in-list/illustration.png)
 
 使用 C 语言实现如下：
 

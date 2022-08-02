@@ -35,9 +35,9 @@ updated:
 
 具体代码在此列出了，放到了 Github 上，新建了一个仓库用来存放所有做过的实验和一些课设的代码，本次课设的代码地址在[这里]()。这里就放几张图吧。
 
-{% asset_img hamming.jpg '汉明码性能仿真' %}
+![](2020-05-26-curriculum-design-of-satellite-communications/hamming.jpg)
 
-{% asset_img convolutional_213.jpg 213卷积码性能仿真' %}
+![](2020-05-26-curriculum-design-of-satellite-communications/convolutional_213.jpg)
 
 ## 总结
 

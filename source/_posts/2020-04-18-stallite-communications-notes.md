@@ -31,11 +31,11 @@ Union ) 同一管理分配。在卫星通信中，为了更好地对频率资源
 
 下表展示了常用的频带和它们的名称，这些都是常识。
 
-{% asset_img frequency_band_designations.png 'Frequency Band Designations' %}
+![](2020-04-18-stallite-communications-notes/frequency_band_designations.png)
 
 还有一种 ITU 的频段划分方式，不在卫星通信中使用：
 
-{% asset_img itu_frequency_band_designations.png 'ITU Frequency Band Designations' %}
+![](2020-04-18-stallite-communications-notes/itu_frequency_band_designations.png)
 
 
 ## 2. Orbits and Launching Methods
