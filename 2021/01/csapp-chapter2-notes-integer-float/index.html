@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://jonathan1214.github.io/2021/01/csapp-chapter2-notes-integer-float/double-precision.png">
 <meta property="og:image" content="https://jonathan1214.github.io/2021/01/csapp-chapter2-notes-integer-float/visualization-floating-point.png">
 <meta property="og:image" content="https://jonathan1214.github.io/2021/01/csapp-chapter2-notes-integer-float/floating-point-puzzles.png">
-<meta property="og:updated_time" content="2021-10-17T02:26:55.062Z">
+<meta property="og:updated_time" content="2022-08-02T14:12:17.936Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSAPP 第二章 信息的表示及处理">
 <meta name="twitter:description" content="csapp 第二章笔记，包括整数表示和浮点数表示及相关的运算规则。">
@@ -232,7 +232,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-17 10:26:55" itemprop="dateModified" datetime="2021-10-17T10:26:55+08:00">2021-10-17</time>
+                <time title="修改时间：2022-08-02 22:12:17" itemprop="dateModified" datetime="2022-08-02T22:12:17+08:00">2022-08-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -373,10 +373,9 @@
 <h3 id="字节顺序"><a href="#字节顺序" class="headerlink" title="字节顺序"></a>字节顺序</h3><p>数据在内存中是按照字节来存储，多字节的数据如何存储呢？</p>
 <ul>
 <li>Big Endian：大端序，即低地址存放数据的高字节，依次类推。</li>
-<li><p>Little Endian：小端序，即低地址存放数据的低字节。这是今天常用的处理器使用的数据存储方法。</p>
-<img src="/2021/01/csapp-chapter2-notes-integer-float/Byte-ordering-example.png" title="Byte-ordering-example">
-</li>
+<li>Little Endian：小端序，即低地址存放数据的低字节。这是今天常用的处理器使用的数据存储方法。</li>
 </ul>
+<p><img src="Byte-ordering-example.png" alt=""></p>
 <p>下面以整数、指针和字符串在内存中的表示为例：</p>
 <ul>
 <li>整数早大端序和小端序机器上的表示顺序完全相反。</li>
@@ -393,15 +392,15 @@
 <p>这种表示方法太局限了，要对 1/3 这样的小数进行精确表示，需要很多位数，此外对于固定位数的数，我们始终要在表示的数据范围和对小数表示的精确成都进行折中。</p>
 <h3 id="Floating-Point"><a href="#Floating-Point" class="headerlink" title="Floating Point"></a>Floating Point</h3><p>这里介绍 IEEE 754 标准提出的浮点数，这也是当前所有主流 CPU 支持的浮点数标准。该标准易于实现浮点数的舍入、上溢出和下溢出，它的缺点是在硬件上实现起来较慢。</p>
 <p>典型的浮点数表示如下，M取值为 [1.0, 2.0)。<br>$$<br>(-1)^s\cdot M \cdot 2^E<br>$$<br>对应到内存中，表示如下：</p>
- <img src="/2021/01/csapp-chapter2-notes-integer-float/floating-point-representation.png" title="floating-point-representation">
+<p><img src="floating-point-representation.png" alt=""></p>
 <ul>
 <li>s  表示公式中的符号位 s</li>
 <li>exp 表示公式中的 E（并不相等，存在转换关系）</li>
 <li>frac 表示公式中的 M（并不相等，存在转换关系）</li>
 </ul>
 <p>IEEE 754 主要提供了两种浮点数标准：单精度（32位）和双精度（64位）</p>
- <img src="/2021/01/csapp-chapter2-notes-integer-float/single-precision.png" title="single-precision">
- <img src="/2021/01/csapp-chapter2-notes-integer-float/double-precision.png" title="double-precision">
+<p><img src="single-precision.png" alt=""></p>
+<p><img src="double-precision.png" alt=""></p>
 <p>这两种标准是相似的，只是数据位数不同，甚至我们自己也可以参考这种定义给出如 8 位浮点数的定义，容易帮助我们理解浮点数。</p>
 <p>针对 e 的内容的不同，划分了浮点数的类型：</p>
 <ul>
@@ -431,10 +430,9 @@
 <h4 id="Special"><a href="#Special" class="headerlink" title="Special"></a>Special</h4><p>除了上面说到的，浮点数还有一种例外，即当 <code>exp = 111...1</code> 时：</p>
 <ul>
 <li><code>exp = 111..1</code>，<code>frac = 000...0</code>：表示 infinity 无穷大，用于表述数据运算中的溢出</li>
-<li><p><code>exp = 111...1</code>，<code>frac != 000...0</code>：表示 NaN 非数，用于表述数据运算中的无效运算结果，如 sqrt(-1)。</p>
-<img src="/2021/01/csapp-chapter2-notes-integer-float/visualization-floating-point.png" title="visualization-floating">
-</li>
+<li><code>exp = 111...1</code>，<code>frac != 000...0</code>：表示 NaN 非数，用于表述数据运算中的无效运算结果，如 sqrt(-1)。</li>
 </ul>
+<p><img src="visualization-floating-point.png" alt=""></p>
 <h3 id="Special-Properties"><a href="#Special-Properties" class="headerlink" title="Special Properties"></a>Special Properties</h3><ul>
 <li>全 0 表示整数 0</li>
 <li>数据大小比较，几乎可以使用 unsigned 整数比较方法。当然有一些例外：<ul>
@@ -482,7 +480,8 @@
 <li>乘法不满足结合律（因为舍入）</li>
 </ul>
 <h3 id="Floating-Point-in-C"><a href="#Floating-Point-in-C" class="headerlink" title="Floating Point in C"></a>Floating Point in C</h3><p>包括单精度 float 和双精度 double，注意他们的转换关系，即是否会产生误差，关注他们的位数即可，float 的 frac 长为23，int 长为 32，double frac 长为 52，根据短的向长的转换不会出现误差即可的得出结论。</p>
- <img src="/2021/01/csapp-chapter2-notes-integer-float/floating-point-puzzles.png" title="floating-point-puzzles">
+<p><img src="floating-point-puzzles.png" alt=""></p>
+
     </div>
 
     
@@ -583,20 +582,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">62</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

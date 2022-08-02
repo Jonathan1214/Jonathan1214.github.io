@@ -29,7 +29,7 @@
 <meta property="og:description" content="本文将展示一个 trace 分析示例，从中可以知道如何从 NS2 中生成 trace，如何解释 trace，如何从 trace 中得到有用的信息。在 模拟示例 给出的代码 ns-simple.tcl 中的第 15、16 行，我们打开了一个 trace 文件，在 finish 步骤中，我们向 trace 文件中写入了 trace 信息。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://jonathan1214.github.io/2020/04/ns2-trace-analysis-example/trace_format_example.png">
-<meta property="og:updated_time" content="2021-10-17T02:26:54.999Z">
+<meta property="og:updated_time" content="2022-08-02T14:26:55.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NS2 的介绍（六）—— trace 分析示例">
 <meta name="twitter:description" content="本文将展示一个 trace 分析示例，从中可以知道如何从 NS2 中生成 trace，如何解释 trace，如何从 trace 中得到有用的信息。在 模拟示例 给出的代码 ns-simple.tcl 中的第 15、16 行，我们打开了一个 trace 文件，在 finish 步骤中，我们向 trace 文件中写入了 trace 信息。">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-17 10:26:54" itemprop="dateModified" datetime="2021-10-17T10:26:54+08:00">2021-10-17</time>
+                <time title="修改时间：2022-08-02 22:26:55" itemprop="dateModified" datetime="2022-08-02T22:26:55+08:00">2022-08-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -274,7 +274,7 @@
         <p>本文将展示一个 trace 分析示例，从中可以知道如何从 NS2 中生成 trace，如何解释 trace，如何从 trace 中得到有用的信息。在 <a href="/2020/04/ns2-simple-simulation-example/" title="模拟示例">模拟示例</a> 给出的代码 <a href="/2020/04/ns2-trace-analysis-example/ns-simple.tcl" title="ns-simple.tcl">ns-simple.tcl</a> 中的第 15、16 行，我们打开了一个 trace 文件，在 finish 步骤中，我们向 trace 文件中写入了 trace 信息。<a id="more"></a></p>
 <figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#...</span></span><br><span class="line"><span class="comment">#open trace file</span></span><br><span class="line"><span class="keyword">set</span> f [<span class="keyword">open</span> out.tr w]</span><br><span class="line">$ns <span class="keyword">trace</span>-all $f</span><br><span class="line">#...</span><br></pre></td></tr></table></figure>
 <p>执行代码<a href="/2020/04/ns2-trace-analysis-example/ns-simple.tcl" title="ns-simple.tcl">ns-simple.tcl</a>会生成一个 NAM trace 文件，该文件作为 NAM 的输入，同时还会生成一个名为 out.tr 的文件，该文件用于我们的模拟分析。下图展示了 trace 的格式和来自 out.tr 的 trace 数据示例。</p>
-<img src="/2020/04/ns2-trace-analysis-example/trace_format_example.png" title="trace 文件格式与示例">
+<p><img src="trace_format_example.png" alt=""></p>
 <p>每一个 trace 行依次为以下部分：</p>
 <ul>
 <li>事件描述符：+，-，d，r</li>
@@ -394,20 +394,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">62</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -190,6 +190,105 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/08/git-flow-basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="dsfds">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dsfds' blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/git-flow-basic/" class="post-title-link" itemprop="url">git-flow 简单介绍及使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-08-02 20:58:03 / 修改时间：22:02:02" itemprop="dateCreated datePublished" datetime="2022-08-02T20:58:03+08:00">2022-08-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/software/engineering/" itemprop="url" rel="index"><span itemprop="name">engineering</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/08/git-flow-basic/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/git-flow-basic/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>关于 git-flow 的简单介绍，是时候来好好管理我们的项目了，一条 main 交到底的方式并不合适。</p>
+<p>参考：</p>
+<p><a href="https://www.bilibili.com/video/BV1W3411C72K?share_source=copy_web&amp;vd_source=9f384d4584d09b2753c054baff8d4c9e" target="_blank" rel="noopener">git-flow介绍及开发过程演示</a></p>
+<p>基本的分支类型<br>| 分支名称  | 说明             | 命名 |<br>| ——– | —————- | —- |<br>| master   | 发布分支         |  master 或者 main    |<br>| develop  | 开发分支         |   develop   |<br>| feature  | 功能分支         |  feature/FOO-1    |<br>| bugfix   | 修复分支         |  bugfix/FOO-2    |<br>| hotfix   | 紧急修复分支     |   hotfix/FOO-3    |<br>| release  | 发布前的准备工作 |   release/1.0.3   |</p>
+<p>额外的老版本的维护分支，一般使用 <code>support</code>，<code>support/1.0.x</code>。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/git-flow-basic/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/08/nowcoder-verilog-answers/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -215,7 +314,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-08-01 10:27:53 / 修改时间：10:46:28" itemprop="dateCreated datePublished" datetime="2022-08-01T10:27:53+08:00">2022-08-01</time>
+              <time title="创建时间：2022-08-01 10:27:53 / 修改时间：10:53:22" itemprop="dateCreated datePublished" datetime="2022-08-01T10:27:53+08:00">2022-08-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,6 +357,12 @@
       
           <p>牛客上 Verilog 练习题的答案合集。我对这些题目的评价是比较坑，练习的快感不如 HDLbits，而且测试非常不专业，但还是值得一做的。</p>
 <p><a href="https://www.nowcoder.com/exam/oj?page=1&amp;tab=Verilog%E7%AF%87&amp;topicId=302" target="_blank" rel="noopener">verilog题目集</a></p>
+<ul>
+<li>VL25 输入序列连续的序列检测</li>
+<li>VL26 含无关项的序列检测</li>
+<li>VL27 不重叠序列检测</li>
+<li>VL28 输入序列不连续的序列检测</li>
+</ul>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/08/nowcoder-verilog-answers/#more" rel="contents">
@@ -762,7 +867,6 @@
     
     
     
-    
 
   
   <nav class="pagination">
@@ -834,20 +938,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">62</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

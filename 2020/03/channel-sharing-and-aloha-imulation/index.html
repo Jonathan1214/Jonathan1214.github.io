@@ -28,15 +28,15 @@
 <meta property="og:site_name" content="dsfds&#39; blog">
 <meta property="og:description" content="MAC（Media Access Control）协议，即介质访问控制协议。MAC层需要实现数据帧的封装卸装、帧寻址和识别、帧的接受和发送、链路的管理和帧的差错控制等。屏蔽了不同物理链路的种类差异性。其核心是对有限物理资源的高效利用。在Ad Hoc网络中，由于其无中心和使用无线信道等特点，新带来的问题有：选择什么样的信道共享方式，如何处理终端暴露问题，如何隐藏终端，以及如何处理节点移动带来的影响。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/aloha_principle_illustration.png">
-<meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/aloha_success.png">
-<meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/pure_aloha.jpg">
-<meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/slotted_aloha.jpg">
-<meta property="og:updated_time" content="2021-10-17T02:26:54.999Z">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/03/channel-sharing-and-aloha-imulation/img/2020/aloha_principle_illustration.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/03/channel-sharing-and-aloha-imulation/img/2020/aloha_success.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/03/channel-sharing-and-aloha-imulation/img/2020/pure_aloha.jpg">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/03/channel-sharing-and-aloha-imulation/img/2020/slotted_aloha.jpg">
+<meta property="og:updated_time" content="2022-08-02T14:27:43.160Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="信道共享技术简述与ALOHA的仿真">
 <meta name="twitter:description" content="MAC（Media Access Control）协议，即介质访问控制协议。MAC层需要实现数据帧的封装卸装、帧寻址和识别、帧的接受和发送、链路的管理和帧的差错控制等。屏蔽了不同物理链路的种类差异性。其核心是对有限物理资源的高效利用。在Ad Hoc网络中，由于其无中心和使用无线信道等特点，新带来的问题有：选择什么样的信道共享方式，如何处理终端暴露问题，如何隐藏终端，以及如何处理节点移动带来的影响。">
-<meta name="twitter:image" content="https://jonathan1214.github.io/assets/img/2020/aloha_principle_illustration.png">
+<meta name="twitter:image" content="https://jonathan1214.github.io/2020/03/channel-sharing-and-aloha-imulation/img/2020/aloha_principle_illustration.png">
 
 <link rel="canonical" href="https://jonathan1214.github.io/2020/03/channel-sharing-and-aloha-imulation/">
 
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-17 10:26:54" itemprop="dateModified" datetime="2021-10-17T10:26:54+08:00">2021-10-17</time>
+                <time title="修改时间：2022-08-02 22:27:43" itemprop="dateModified" datetime="2022-08-02T22:27:43+08:00">2022-08-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -289,9 +289,9 @@
 <p>从一个更高的角度上来看，信道复用技术是一种信道的静态分配技术，受控接入和随机接入是一种信道的动态分配技术。</p>
 <h2 id="ALOHA"><a href="#ALOHA" class="headerlink" title="ALOHA"></a>ALOHA</h2><p>前面讲到，ALOHA协议是一种信道的动态分配协议，它实现了信道共享方式中的一种随机接入技术。在这种动态分配的方式下，信道有三种状态，<code>传输</code>，<code>空闲</code>和<code>竞争</code>，所有的站点都通过同一信道发送或接受帧，某一特定时刻只允许一个站点使用信道。</p>
 <p>以一个数据帧A的发送为例，考虑其如何才能成功发送。发送时机有两种选择，连续时间或时间片，前者允许在任意时刻发送，后者将时间用时钟分离为片段，帧只允许在每一个片段开始瞬间发生。若是以连续时间发送，帧发送时，若信道是空闲状态，则成功开始发送帧，此时信道为传输状态，假设在帧发送时间内又有数据帧B的发送请求产生，则信道进入竞争状态，产生了<em>冲突</em>，帧A发送失败，帧B也发送失败，都需要重传，二者分别随机等待一段时间，然后进行发送，直到发送成功。</p>
-<p><div align="center" class="img"><br>    <img src="/assets/img/2020/aloha_principle_illustration.png" alt="aloha_principle_illustration" width="750"><br>    <span align="center" style="color:#999">纯ALOHA帧传输示意图</span><br></div><br>我们把以连续时间发送的称为纯ALOHA（pure ALOHA），按时间片发送到称为时隙ALOHA（slotted ALOHA），下面对它们的信道利用率进行分析。</p>
+<p><div align="center" class="img"><br>    <img src="img/2020/aloha_principle_illustration.png" alt="aloha_principle_illustration" width="750"><br>    <span align="center" style="color:#999">纯ALOHA帧传输示意图</span><br></div><br>我们把以连续时间发送的称为纯ALOHA（pure ALOHA），按时间片发送到称为时隙ALOHA（slotted ALOHA），下面对它们的信道利用率进行分析。</p>
 <h3 id="pure-ALOHA-信道利用率分析"><a href="#pure-ALOHA-信道利用率分析" class="headerlink" title="pure ALOHA 信道利用率分析"></a>pure ALOHA 信道利用率分析</h3><p>首先考虑<code>pure ALOHA</code>中一帧发送成功的条件，假设帧长固定，发送所需时间为T，则不难推知发送成功的条件为<strong>该帧发送前后各有一段T时间内没有其他帧发送</strong>，如下图所示。</p>
-<p align="center" class="img"><br><img src="/assets/img/2020/aloha_success.png" alt="pure_aloha_success" width="750"><br>    <span align="center" style="color:#999">纯ALOHA的帧发送成功条件</span><br></p>
+<p align="center" class="img"><br><img src="img/2020/aloha_success.png" alt="pure_aloha_success" width="750"><br>    <span align="center" style="color:#999">纯ALOHA的帧发送成功条件</span><br></p>
 
 <p>对其信道利用率分析我们先要确定一些条件：</p>
 <ul>
@@ -303,11 +303,11 @@
 <p>我们研究信道利用率，就是要考虑在什么的样的网络负载下，能够取得最大的吞吐率，并且要知道这个最大的吞吐率。</p>
 <p>对这个问题进行理论分析并不困难，稳定情况下，<code>S=G*P[发送成功]</code>，求出一个数据帧发送成功概率P即可，由前面的分析可知，当前帧要想发送成功，以为着当前时刻的前后T时间内，共2T时间内，没有其他数据帧的发送请求产生，按照数据帧的产生数或者说数据帧请求产生数在T时间内服从参数为G的泊松分布，不难得出<code>P[发送成功]=((2G)^0/0!)*e^(-2G)</code>，则吞吐率<code>S=G*P[发送成功]=G*e^(-2G)</code>，求极值可知，当G=0.5时，S取最大值0.184，非常小。</p>
 <p>对这个过程进行MATLAB仿真并不难，具体思路如下：产生一系列值的G，对每一个帧，产生若干个服从参数为G的泊松分布随机数，若连续的前后两个随机数和为0，则表示发送成功，统计发送成功的数占所有随机数的比即为该负载G下发送成功的概率，在和G相乘求得此时的吞吐率S，对每一个G都这么求即可得出一系列的(G,S)，再使用plot作出图像，如下所示：</p>
-<p align="center" class="img"><br><img src="/assets/img/2020/pure_aloha.jpg" alt="pure_aloha" width="750"><br>    <span align="center" style="color:#999">纯ALOHA的信道吞吐率与网络负载的关系</span><br></p>
+<p align="center" class="img"><br><img src="img/2020/pure_aloha.jpg" alt="pure_aloha" width="750"><br>    <span align="center" style="color:#999">纯ALOHA的信道吞吐率与网络负载的关系</span><br></p>
 
 <h3 id="slotted-ALOHA-信道利用率分析"><a href="#slotted-ALOHA-信道利用率分析" class="headerlink" title="slotted ALOHA 信道利用率分析"></a>slotted ALOHA 信道利用率分析</h3><p>时隙ALOHA协议下，将信道时间划分为离散的时间隙，隙长为一个帧所需的发送时间，每个站点只能在时隙开始时才允许发。</p>
 <p>分析信道利用率时，条件和纯ALOHA相同。重点也是在考虑发送成功的概率，在时隙ALOHA协议下，当前帧发送成功的条件为：当前发送时隙前的一个时隙T内没有新的数据帧发送请求产生。事实上，由于只允许在时隙开始时发送请求，站点发送的数据帧都是积攒下来的。可以求出<code>P[发送成功]=(G^0/0!)*e^(-G)</code>，<code>S=G*e^(-G)</code>，当G=1时，S取最大值0.368，是纯ALOHA的2倍，但还是不够高。<br>仿真思路同纯ALOHA，最后作出的S-G图像如下所示：</p>
-<p align="center" class="img"><br>    <img src="/assets/img/2020/slotted_aloha.jpg" alt="slotted_aloha" width="750"><br>    <span align="center" style="color:#999">时隙ALOHA的信道吞吐率与网络负载的关系</span><br></p>
+<p align="center" class="img"><br>    <img src="img/2020/slotted_aloha.jpg" alt="slotted_aloha" width="750"><br>    <span align="center" style="color:#999">时隙ALOHA的信道吞吐率与网络负载的关系</span><br></p>
 
 <p>附MATLAB仿真代码：<br><figure class="highlight matlab"><figcaption><span>aloha_.m</span><a href="/downloads/code/aloha_.m">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">clear all;clc;</span><br><span class="line"><span class="comment">% ALOHA 仿真</span></span><br><span class="line"><span class="comment">% 网络负载G</span></span><br><span class="line"><span class="comment">% 成功发送条件，请求为0</span></span><br><span class="line">T = <span class="number">100000</span>;   <span class="comment">% 仿真时间 1000个帧长</span></span><br><span class="line">load_scale = <span class="number">0.1</span>;</span><br><span class="line">G = <span class="number">0</span>:load_scale:<span class="number">5</span>; <span class="comment">% 网络负载</span></span><br><span class="line">requests = <span class="built_in">zeros</span>(T+<span class="number">1</span>, <span class="built_in">size</span>(G,<span class="number">2</span>)); <span class="comment">% 请求次数</span></span><br><span class="line">pure_ALOHA_sucess = <span class="built_in">zeros</span>(<span class="number">1</span>,<span class="built_in">size</span>(G,<span class="number">2</span>)); <span class="comment">% pure ALOHA成功次数</span></span><br><span class="line">slotted_ALOHA_sucess = <span class="built_in">zeros</span>(<span class="number">1</span>,<span class="built_in">size</span>(G,<span class="number">2</span>)); <span class="comment">% slotted ALOHA</span></span><br><span class="line"><span class="comment">% 产生请求</span></span><br><span class="line"><span class="keyword">for</span> g = <span class="number">1</span>:<span class="built_in">size</span>(G,<span class="number">2</span>)</span><br><span class="line">    requests(:,g) = random(<span class="string">'Poisson'</span>,G(g),T+<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% pure ALOHA</span></span><br><span class="line"><span class="keyword">for</span> g = <span class="number">1</span>:<span class="built_in">size</span>(G,<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">for</span> index = <span class="number">1</span>:T</span><br><span class="line">       <span class="keyword">if</span> requests(index,g) + requests(index+<span class="number">1</span>,g) == <span class="number">0</span></span><br><span class="line">           pure_ALOHA_sucess(g) = pure_ALOHA_sucess(g) + <span class="number">1</span>;</span><br><span class="line">       <span class="keyword">end</span></span><br><span class="line">       <span class="keyword">if</span> requests(index,g) == <span class="number">0</span></span><br><span class="line">           slotted_ALOHA_sucess(g) = slotted_ALOHA_sucess(g) + <span class="number">1</span>;</span><br><span class="line">       <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">%% calculate</span></span><br><span class="line"><span class="comment">% pure ALOHA</span></span><br><span class="line">probl_pure_ALOHA = pure_ALOHA_sucess / T; <span class="comment">% 成功概率</span></span><br><span class="line">S_pure_ALOHA = G.*probl_pure_ALOHA;       <span class="comment">% 吞吐率</span></span><br><span class="line"><span class="comment">% slotted ALOHA</span></span><br><span class="line">probl_slotted_ALOHA = slotted_ALOHA_sucess / T;</span><br><span class="line">S_slotted_ALOHA = G.*probl_slotted_ALOHA;</span><br><span class="line"><span class="comment">%% plot</span></span><br><span class="line"><span class="comment">% pure</span></span><br><span class="line">figure(<span class="number">1</span>)</span><br><span class="line">yyaxis left</span><br><span class="line">plot(G,probl_pure_ALOHA)</span><br><span class="line">ylabel(<span class="string">'Probablity of Sucess'</span>)</span><br><span class="line">yyaxis right</span><br><span class="line">plot(G,S_pure_ALOHA)</span><br><span class="line">title(<span class="string">'Average Throughput of Pure ALOHA'</span>)</span><br><span class="line">xlabel(<span class="string">'G'</span>)</span><br><span class="line">ylabel(<span class="string">'Average Throughput'</span>)</span><br><span class="line">grid on</span><br><span class="line"><span class="comment">% slotted</span></span><br><span class="line">figure(<span class="number">2</span>)</span><br><span class="line">yyaxis left</span><br><span class="line">plot(G,probl_slotted_ALOHA)</span><br><span class="line">ylabel(<span class="string">'Probablity of Sucess'</span>)</span><br><span class="line">yyaxis right</span><br><span class="line">plot(G,S_slotted_ALOHA)</span><br><span class="line">title(<span class="string">'Average Throughput of Slotted ALOHA'</span>)</span><br><span class="line">xlabel(<span class="string">'G'</span>)</span><br><span class="line">ylabel(<span class="string">'Average Throughput'</span>)</span><br><span class="line">grid on</span><br></pre></td></tr></table></figure></p>
 
@@ -413,20 +413,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">62</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -20,18 +20,18 @@
     var CONFIG = {"hostname":"jonathan1214.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="牛客上 Verilog 练习题的答案合集。我对这些题目的评价是比较坑，练习的快感不如 HDLbits，而且测试非常不专业，但还是值得一做的。 verilog题目集">
+  <meta name="description" content="牛客上 Verilog 练习题的答案合集。我对这些题目的评价是比较坑，练习的快感不如 HDLbits，而且测试非常不专业，但还是值得一做的。 verilog题目集  VL25 输入序列连续的序列检测 VL26 含无关项的序列检测 VL27 不重叠序列检测 VL28 输入序列不连续的序列检测">
 <meta name="keywords" content="verilog,nowcoder">
 <meta property="og:type" content="article">
 <meta property="og:title" content="『NC』verilog 序列检测">
 <meta property="og:url" content="https://jonathan1214.github.io/2022/08/nowcoder-verilog-answers/index.html">
 <meta property="og:site_name" content="dsfds&#39; blog">
-<meta property="og:description" content="牛客上 Verilog 练习题的答案合集。我对这些题目的评价是比较坑，练习的快感不如 HDLbits，而且测试非常不专业，但还是值得一做的。 verilog题目集">
+<meta property="og:description" content="牛客上 Verilog 练习题的答案合集。我对这些题目的评价是比较坑，练习的快感不如 HDLbits，而且测试非常不专业，但还是值得一做的。 verilog题目集  VL25 输入序列连续的序列检测 VL26 含无关项的序列检测 VL27 不重叠序列检测 VL28 输入序列不连续的序列检测">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2022-08-01T02:46:28.674Z">
+<meta property="og:updated_time" content="2022-08-01T02:53:22.334Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="『NC』verilog 序列检测">
-<meta name="twitter:description" content="牛客上 Verilog 练习题的答案合集。我对这些题目的评价是比较坑，练习的快感不如 HDLbits，而且测试非常不专业，但还是值得一做的。 verilog题目集">
+<meta name="twitter:description" content="牛客上 Verilog 练习题的答案合集。我对这些题目的评价是比较坑，练习的快感不如 HDLbits，而且测试非常不专业，但还是值得一做的。 verilog题目集  VL25 输入序列连续的序列检测 VL26 含无关项的序列检测 VL27 不重叠序列检测 VL28 输入序列不连续的序列检测">
 
 <link rel="canonical" href="https://jonathan1214.github.io/2022/08/nowcoder-verilog-answers/">
 
@@ -219,7 +219,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-08-01 10:27:53 / 修改时间：10:46:28" itemprop="dateCreated datePublished" datetime="2022-08-01T10:27:53+08:00">2022-08-01</time>
+              <time title="创建时间：2022-08-01 10:27:53 / 修改时间：10:53:22" itemprop="dateCreated datePublished" datetime="2022-08-01T10:27:53+08:00">2022-08-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -269,6 +269,12 @@
       
         <p>牛客上 Verilog 练习题的答案合集。我对这些题目的评价是比较坑，练习的快感不如 HDLbits，而且测试非常不专业，但还是值得一做的。</p>
 <p><a href="https://www.nowcoder.com/exam/oj?page=1&amp;tab=Verilog%E7%AF%87&amp;topicId=302" target="_blank" rel="noopener">verilog题目集</a></p>
+<ul>
+<li>VL25 输入序列连续的序列检测</li>
+<li>VL26 含无关项的序列检测</li>
+<li>VL27 不重叠序列检测</li>
+<li>VL28 输入序列不连续的序列检测</li>
+</ul>
 <a id="more"></a>
 <h2 id="VL25-输入序列连续的序列检测"><a href="#VL25-输入序列连续的序列检测" class="headerlink" title="VL25 输入序列连续的序列检测"></a>VL25 输入序列连续的序列检测</h2><p>状态机法：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">`<span class="meta-keyword">timescale</span> 1ns/1ns</span></span><br><span class="line"><span class="keyword">module</span> sequence_detect(</span><br><span class="line">    <span class="keyword">input</span> clk,</span><br><span class="line">    <span class="keyword">input</span> rst_n,</span><br><span class="line">    <span class="keyword">input</span> a,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> match</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">parameter</span> idle = <span class="number">0</span>, s0 = <span class="number">1</span>, s1 = <span class="number">2</span>, s2 = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">parameter</span> s3 = <span class="number">4</span>, s4 = <span class="number">5</span>, s5 = <span class="number">6</span>, s6 = <span class="number">7</span>, s7 = <span class="number">8</span>;</span><br><span class="line">    <span class="keyword">reg</span> [<span class="number">3</span>:<span class="number">0</span>] state;</span><br><span class="line">    <span class="keyword">reg</span> [<span class="number">3</span>:<span class="number">0</span>] nstate;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk <span class="keyword">or</span> <span class="keyword">negedge</span> rst_n) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> (rst_n == <span class="number">1'b0</span>)</span><br><span class="line">            state &lt;= idle;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            state &lt;= nstate;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">always</span> @(*) <span class="keyword">begin</span></span><br><span class="line">        nstate = idle;</span><br><span class="line">        <span class="keyword">case</span> (state)</span><br><span class="line">            idle: nstate = a ? idle : s0;</span><br><span class="line">            s0 : nstate = a == <span class="number">1'b1</span> ? s1 : s0;</span><br><span class="line">            s1 : nstate = a == <span class="number">1'b1</span> ? s2 : s0;</span><br><span class="line">            s2 : nstate = a == <span class="number">1'b1</span> ? s3 : s0;</span><br><span class="line">            s3 : nstate = a == <span class="number">1'b0</span> ? s4 : idle;</span><br><span class="line">            s4 : nstate = a == <span class="number">1'b0</span> ? s5 : s1;</span><br><span class="line">            s5 : nstate = a == <span class="number">1'b0</span> ? s6 : s1;</span><br><span class="line">            s6 : nstate = a == <span class="number">1'b1</span> ? s7 : s0;</span><br><span class="line">            s7 : nstate = a == <span class="number">1'b1</span> ? s2 : s0;</span><br><span class="line">            <span class="keyword">default</span> : nstate = idle;</span><br><span class="line">        <span class="keyword">endcase</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk <span class="keyword">or</span> <span class="keyword">negedge</span> rst_n) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> (rst_n == <span class="number">1'b0</span>)</span><br><span class="line">            match &lt;= <span class="number">1'b0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (state == s7)</span><br><span class="line">            match &lt;= <span class="number">1'b1</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            match &lt;= <span class="number">1'b0</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
@@ -301,7 +307,10 @@
     <a href="/2022/07/auto-mail-sender/" rel="prev" title="邮件自动发送器">
       <i class="fa fa-chevron-left"></i> 邮件自动发送器
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/08/git-flow-basic/" rel="next" title="git-flow 简单介绍及使用">
+      git-flow 简单介绍及使用 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -377,20 +386,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">62</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

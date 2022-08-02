@@ -28,20 +28,20 @@
 <meta property="og:site_name" content="dsfds&#39; blog">
 <meta property="og:description" content="几天前再次从老师那儿得知毕设我需要做的是 LDPC 码的 FPGA 实现，看起来我必须得找时间学学 FPGA 了。本文就是在今天看完 B 站小梅哥的FPGA视频做的笔记，简单介绍 FPGA 的开发流程，最后会在 Quartus 中创建一个工程。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/2020-08-07-FPGA-development-process-and-an-project-example/image-20200807223822609.png">
-<meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/2020-08-07-FPGA-development-process-and-an-project-example/image-20200807224428973.png">
-<meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/2020-08-07-FPGA-development-process-and-an-project-example/image-20200807225227001.png">
-<meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/2020-08-07-FPGA-development-process-and-an-project-example/image-20200807225754347.png">
-<meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/2020-08-07-FPGA-development-process-and-an-project-example/image-20200807230147706.png">
-<meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/2020-08-07-FPGA-development-process-and-an-project-example/image-20200808202917341.png">
-<meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/2020-08-07-FPGA-development-process-and-an-project-example/image-20200809133617627.png">
-<meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/2020-08-07-FPGA-development-process-and-an-project-example/image-20200809133806051.png">
-<meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/2020-08-07-FPGA-development-process-and-an-project-example/image-20200809134109186.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/image-20200807223822609.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/image-20200807224428973.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/image-20200807225227001.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/image-20200807225754347.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/image-20200807230147706.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/image-20200808202917341.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/image-20200809133617627.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/image-20200809133806051.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/image-20200809134109186.png">
 <meta property="og:updated_time" content="2021-10-17T02:26:55.031Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FPGA 开发流程以及如何创建一个工程">
 <meta name="twitter:description" content="几天前再次从老师那儿得知毕设我需要做的是 LDPC 码的 FPGA 实现，看起来我必须得找时间学学 FPGA 了。本文就是在今天看完 B 站小梅哥的FPGA视频做的笔记，简单介绍 FPGA 的开发流程，最后会在 Quartus 中创建一个工程。">
-<meta name="twitter:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/2020-08-07-FPGA-development-process-and-an-project-example/image-20200807223822609.png">
+<meta name="twitter:image" content="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/image-20200807223822609.png">
 
 <link rel="canonical" href="https://jonathan1214.github.io/2020/08/FPGA-development-process-and-an-project-example/">
 
@@ -296,26 +296,26 @@
 <li>rtl 用来存放我们设计模块，保存的是 Verilog 文件；</li>
 <li>testbench 存放的是 testbench 的 Verilog 文件，在涉及到时在详细述。</li>
 </ul>
-<p><img src="2020-08-07-FPGA-development-process-and-an-project-example/image-20200807223822609.png" alt="image-20200807223822609"></p>
+<p><img src="image-20200807223822609.png" alt="image-20200807223822609"></p>
 <p>了解项目目录安排后，我们就可以创建工程了，每次需要创建工程时，可以把这个 template 拷贝一份然后改为我们需要的名字即可。打开 Quartus 软件，开始界面如下所示，我使用的是 13.0 版本。</p>
-<p><img src="2020-08-07-FPGA-development-process-and-an-project-example/image-20200807224428973.png" alt="image-20200807224428973"></p>
+<p><img src="image-20200807224428973.png" alt="image-20200807224428973"></p>
 <p>点击红框处的 Create a New Project 就可以开始创建一个新工程了，点击下一步会出现如下界面，在这个界面有两件事需要做：选择项目目录，填写项目名称。</p>
-<p><img src="2020-08-07-FPGA-development-process-and-an-project-example/image-20200807225227001.png" alt="image-20200807225227001"></p>
+<p><img src="image-20200807225227001.png" alt="image-20200807225227001"></p>
 <p>像我们刚才所说的一样，复制 template 目录，重命名为 test，然后选择项目目录为 test 下的 prj 目录，填写项目名称为也为 test，然后点击下一步，这个界面我们可以添加已经有的文件，但我们还没有，直接点击下一步，在这里我们需要选择 FPGA 的型号，这里根据手中的板子上的 FPGA 型号选择即可，关于 FPGA 的命名规则，可以上网搜下。</p>
-<p><img src="2020-08-07-FPGA-development-process-and-an-project-example/image-20200807225754347.png" alt="image-20200807225754347"></p>
+<p><img src="image-20200807225754347.png" alt="image-20200807225754347"></p>
 <p>选择完之后点击下一步，在这里我们需要选择 EDA 工具，这里选择 Simulation 工具即可，我这里安装了 ModelSim，所以选择 ModelSim，一般还是建议使用 ModelSim-Altera，说是用 ModelSim 会有一些路径问题，需要配置，对初学者不是很友好，我暂时还没有碰到，因此先这么用着。然后选择 Format 为 Verilog HDL。</p>
-<p><img src="2020-08-07-FPGA-development-process-and-an-project-example/image-20200807230147706.png" alt="image-20200807230147706"></p>
+<p><img src="image-20200807230147706.png" alt="image-20200807230147706"></p>
 <p>之后一路点击next即可。我们的项目创建完毕了。</p>
 <h3 id="2-2-编写模块"><a href="#2-2-编写模块" class="headerlink" title="2.2 编写模块"></a>2.2 编写模块</h3><p>接下来编写模块以实现设计定义，先创建 Verilog 脚本：Ctrl + N 新建文件，选择 Verilog HDL。新建文件后，将文件保存到 rtl 目录下，命名为 test.v，之后就可以编写 module 了。在打开的 test.v 文件中输入如下内容：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> test(a, b, key_in, led_out);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">input</span> a; <span class="comment">// 输入端口 a</span></span><br><span class="line">    <span class="keyword">input</span> b; <span class="comment">// 输入端口 b</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">input</span> key_in; <span class="comment">// 按键输入 选择信号</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">output</span> led_out; <span class="comment">// led 控制端口</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 当 key_in == 0, led_out = a</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">assign</span> led_out = (key_in == <span class="number">0</span>) ? a : b;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
 <h3 id="2-3-分析与综合"><a href="#2-3-分析与综合" class="headerlink" title="2.3 分析与综合"></a>2.3 分析与综合</h3><p>这个模块就可以实现我们设计定义中的内容，编写完之后，点击菜单栏中的 Processing 下的 Start 下的 Start Analysis &amp; Synthesis，或者点击工具栏上的 Start Analysis &amp; Synthesis，对文件进行分析和综合，检查文件中是否有错，如果有的话，需要去解决才能进行下一步。</p>
-<p><img src="2020-08-07-FPGA-development-process-and-an-project-example/image-20200808202917341.png" alt="image-20200808202917341"></p>
+<p><img src="image-20200808202917341.png" alt="image-20200808202917341"></p>
 <h3 id="2-4-前仿真"><a href="#2-4-前仿真" class="headerlink" title="2.4 前仿真"></a>2.4 前仿真</h3><p>前仿真前，先要配置我们的 testbench。完成之后可以点击 RTL Simulation 进行前仿真。</p>
-<p><img src="2020-08-07-FPGA-development-process-and-an-project-example/image-20200809133617627.png" alt="image-20200809133617627"></p>
+<p><img src="image-20200809133617627.png" alt="image-20200809133617627"></p>
 <h3 id="2-5-布局布线"><a href="#2-5-布局布线" class="headerlink" title="2.5 布局布线"></a>2.5 布局布线</h3><p>点击 Start Compilation：</p>
-<p><img src="2020-08-07-FPGA-development-process-and-an-project-example/image-20200809133806051.png" alt="image-20200809133806051"></p>
+<p><img src="image-20200809133806051.png" alt="image-20200809133806051"></p>
 <h3 id="2-6-后仿真"><a href="#2-6-后仿真" class="headerlink" title="2.6 后仿真"></a>2.6 后仿真</h3><p>点击 Gate Level Simulation：</p>
-<p><img src="2020-08-07-FPGA-development-process-and-an-project-example/image-20200809134109186.png" alt="image-20200809134109186"></p>
+<p><img src="image-20200809134109186.png" alt="image-20200809134109186"></p>
 
     </div>
 
@@ -416,20 +416,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">62</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

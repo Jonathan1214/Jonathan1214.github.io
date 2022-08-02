@@ -28,18 +28,18 @@
 <meta property="og:site_name" content="dsfds&#39; blog">
 <meta property="og:description" content="单时钟设计（或者说是同步设计），在单时钟域中，有单个时钟贯穿整个设计，同多时钟设计相比，这样的设计更易于实现，并且更少产生与亚稳态、建立和保持时间违背方面的问题。 3.2 多时钟域包含如下时钟关系之一的设计：  时钟的频率不同 时钟频率相同，但相位不同   3.3 多时钟域设计的难题面临下列问题：  建立时间和保持时间的违背 亚稳态  违背建立时间和保持时间建立时间：在时钟脉冲到来前，输入数据需要">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="d:/Documents/Jonathan1214.github.io/source/_drafts/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/image-20220325102523304.png">
-<meta property="og:image" content="d:/Documents/Jonathan1214.github.io/source/_drafts/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/image-20220325102839053.png">
-<meta property="og:image" content="d:/Documents/Jonathan1214.github.io/source/_drafts/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/image-20220325104047078.png">
-<meta property="og:image" content="d:/Documents/Jonathan1214.github.io/source/_drafts/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/image-20220326090836705.png">
-<meta property="og:image" content="d:/Documents/Jonathan1214.github.io/source/_drafts/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/image-20220326091114307.png">
-<meta property="og:image" content="d:/Documents/Jonathan1214.github.io/source/_drafts/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/image-20220326100924782.png">
-<meta property="og:image" content="d:/Documents/Jonathan1214.github.io/source/_drafts/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/image-20220326104345632.png">
-<meta property="og:updated_time" content="2022-06-15T16:32:04.713Z">
+<meta property="og:image" content="https://jonathan1214.github.io/2022/03/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/Documents/Jonathan1214.github.io/source/_drafts/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/image-20220325102523304.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2022/03/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/Documents/Jonathan1214.github.io/source/_drafts/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/image-20220325102839053.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2022/03/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/Documents/Jonathan1214.github.io/source/_drafts/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/image-20220325104047078.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2022/03/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/Documents/Jonathan1214.github.io/source/_drafts/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/image-20220326090836705.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2022/03/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/Documents/Jonathan1214.github.io/source/_drafts/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/image-20220326091114307.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2022/03/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/Documents/Jonathan1214.github.io/source/_drafts/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/image-20220326100924782.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2022/03/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/Documents/Jonathan1214.github.io/source/_drafts/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/image-20220326104345632.png">
+<meta property="og:updated_time" content="2022-08-02T13:13:35.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ch3-handling-multiple-clocks-The-art-of-hardware-architecture">
 <meta name="twitter:description" content="单时钟设计（或者说是同步设计），在单时钟域中，有单个时钟贯穿整个设计，同多时钟设计相比，这样的设计更易于实现，并且更少产生与亚稳态、建立和保持时间违背方面的问题。 3.2 多时钟域包含如下时钟关系之一的设计：  时钟的频率不同 时钟频率相同，但相位不同   3.3 多时钟域设计的难题面临下列问题：  建立时间和保持时间的违背 亚稳态  违背建立时间和保持时间建立时间：在时钟脉冲到来前，输入数据需要">
-<meta name="twitter:image" content="d:/Documents/Jonathan1214.github.io/source/_drafts/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/image-20220325102523304.png">
+<meta name="twitter:image" content="https://jonathan1214.github.io/2022/03/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/Documents/Jonathan1214.github.io/source/_drafts/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/image-20220325102523304.png">
 
 <link rel="canonical" href="https://jonathan1214.github.io/2022/03/ch3-handling-multiple-clocks-The-art-of-hardware-architecture/">
 
@@ -233,7 +233,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-16 00:32:04" itemprop="dateModified" datetime="2022-06-16T00:32:04+08:00">2022-06-16</time>
+                <time title="修改时间：2022-08-02 21:13:35" itemprop="dateModified" datetime="2022-08-02T21:13:35+08:00">2022-08-02</time>
               </span>
 
           
@@ -274,7 +274,7 @@
 <li>时钟的频率不同</li>
 <li>时钟频率相同，但相位不同</li>
 </ul>
-<p><img src="D:\Documents\Jonathan1214.github.io\source\_drafts\ch3-handling-multiple-clocks-The-art-of-hardware-architecture\image-20220325102523304.png" alt="image-20220325102523304"></p>
+<p><img src="Documents\Jonathan1214.github.io\source\_drafts\ch3-handling-multiple-clocks-The-art-of-hardware-architecture\image-20220325102523304.png" alt="image-20220325102523304"></p>
 <h2 id="3-3-多时钟域设计的难题"><a href="#3-3-多时钟域设计的难题" class="headerlink" title="3.3 多时钟域设计的难题"></a>3.3 多时钟域设计的难题</h2><p>面临下列问题：</p>
 <ul>
 <li>建立时间和保持时间的违背</li>
@@ -283,7 +283,7 @@
 <h3 id="违背建立时间和保持时间"><a href="#违背建立时间和保持时间" class="headerlink" title="违背建立时间和保持时间"></a>违背建立时间和保持时间</h3><p><strong>建立时间</strong>：在时钟脉冲到来前，输入数据需要保持稳定的时间。</p>
 <p><strong>保持时间</strong>：在时钟脉冲到达后，输入数据扔需要保持稳定的时间。</p>
 <p>在多时钟域下，容易违背这两个条件，如下图所示：</p>
-<p><img src="D:\Documents\Jonathan1214.github.io\source\_drafts\ch3-handling-multiple-clocks-The-art-of-hardware-architecture\image-20220325102839053.png" alt="image-20220325102839053"></p>
+<p><img src="Documents\Jonathan1214.github.io\source\_drafts\ch3-handling-multiple-clocks-The-art-of-hardware-architecture\image-20220325102839053.png" alt="image-20220325102839053"></p>
 <h2 id="3-4-多时钟设计的处理技术"><a href="#3-4-多时钟设计的处理技术" class="headerlink" title="3.4 多时钟设计的处理技术"></a>3.4 多时钟设计的处理技术</h2><p>通用的准则：</p>
 <ul>
 <li>时钟命名规则</li>
@@ -301,7 +301,7 @@
 <li>数据信号</li>
 </ul>
 <p>控制信号跨时钟域传输时，<strong>需要使用多级同步器以降低亚稳态出现的概率，但是会增加电路的延时。</strong></p>
-<p><img src="D:\Documents\Jonathan1214.github.io\source\_drafts\ch3-handling-multiple-clocks-The-art-of-hardware-architecture\image-20220325104047078.png" alt="image-20220325104047078"></p>
+<p><img src="Documents\Jonathan1214.github.io\source\_drafts\ch3-handling-multiple-clocks-The-art-of-hardware-architecture\image-20220325104047078.png" alt="image-20220325104047078"></p>
 <p>一般来讲，使用两级同步器即可，只有在时钟频率非常高的设计中才要求使用三级同步器。</p>
 <p>保证数据信号正确传输的方法：</p>
 <ul>
@@ -321,23 +321,23 @@
 </ul>
 </li>
 </ul>
-<h2 id="3-6-握手信号方法"><a href="#3-6-握手信号方法" class="headerlink" title="3.6 握手信号方法"></a>3.6 握手信号方法</h2><p><img src="D:\Documents\Jonathan1214.github.io\source\_drafts\ch3-handling-multiple-clocks-The-art-of-hardware-architecture\image-20220326090836705.png" alt="image-20220326090836705"></p>
+<h2 id="3-6-握手信号方法"><a href="#3-6-握手信号方法" class="headerlink" title="3.6 握手信号方法"></a>3.6 握手信号方法</h2><p><img src="Documents\Jonathan1214.github.io\source\_drafts\ch3-handling-multiple-clocks-The-art-of-hardware-architecture\image-20220326090836705.png" alt="image-20220326090836705"></p>
 <p>要求：</p>
 <ul>
 <li>数据应该在发送时钟域内稳定至少两个时钟上升沿。</li>
 <li>请求信号 xreq 的宽度应该超过两个上升沿时钟，否则从告诉时钟域向低速时钟域传递可能无法捕捉到该信号。</li>
 </ul>
 <p>缺点：延迟太大。</p>
-<h2 id="3-7-使用同步-FIFO-传输数据"><a href="#3-7-使用同步-FIFO-传输数据" class="headerlink" title="3.7 使用同步 FIFO 传输数据"></a>3.7 使用同步 FIFO 传输数据</h2><p><img src="D:\Documents\Jonathan1214.github.io\source\_drafts\ch3-handling-multiple-clocks-The-art-of-hardware-architecture\image-20220326091114307.png" alt="image-20220326091114307"></p>
+<h2 id="3-7-使用同步-FIFO-传输数据"><a href="#3-7-使用同步-FIFO-传输数据" class="headerlink" title="3.7 使用同步 FIFO 传输数据"></a>3.7 使用同步 FIFO 传输数据</h2><p><img src="Documents\Jonathan1214.github.io\source\_drafts\ch3-handling-multiple-clocks-The-art-of-hardware-architecture\image-20220326091114307.png" alt="image-20220326091114307"></p>
 <p>核心是判断空满，一种方法是扩大位宽，另一种方法是直接判断空满：</p>
 <ul>
 <li>full：<code>wr_fifo &amp;&amp; (rd_ptr == wr_ptr + 1&#39;b1)</code></li>
 <li>empty：<code>rd_fifo &amp;&amp; (rw_ptr == rd_ptr + 1&#39;b1)</code></li>
 </ul>
-<h2 id="3-7-异步-FIFO"><a href="#3-7-异步-FIFO" class="headerlink" title="3.7 异步 FIFO"></a>3.7 异步 FIFO</h2><p><img src="D:\Documents\Jonathan1214.github.io\source\_drafts\ch3-handling-multiple-clocks-The-art-of-hardware-architecture\image-20220326100924782.png" alt="image-20220326100924782"></p>
+<h2 id="3-7-异步-FIFO"><a href="#3-7-异步-FIFO" class="headerlink" title="3.7 异步 FIFO"></a>3.7 异步 FIFO</h2><p><img src="Documents\Jonathan1214.github.io\source\_drafts\ch3-handling-multiple-clocks-The-art-of-hardware-architecture\image-20220326100924782.png" alt="image-20220326100924782"></p>
 <p>FIFO 用于对性能要求较高的设计中，尤其是时钟延迟比系统资源更为重要的环境中。</p>
 <p>为什么要使用格雷码？格雷码下相邻地址信号只有 1bit 差距，因此，可以看作是异步的单比特信号。</p>
-<p><img src="D:\Documents\Jonathan1214.github.io\source\_drafts\ch3-handling-multiple-clocks-The-art-of-hardware-architecture\image-20220326104345632.png" alt="image-20220326104345632"></p>
+<p><img src="Documents\Jonathan1214.github.io\source\_drafts\ch3-handling-multiple-clocks-The-art-of-hardware-architecture\image-20220326104345632.png" alt="image-20220326104345632"></p>
 <p>使用格雷码直接判断空满情况，而不需要转换到二进制码。</p>
 
     </div>
@@ -441,20 +441,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">62</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

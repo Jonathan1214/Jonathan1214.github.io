@@ -21,7 +21,7 @@
   </script>
 
   <meta name="description" content="路，径之大者。由，从也。  路由，即建立、选择与遵循路径。在网络中，路由就是分组从源节点到目的节点时，决定端到端路径的网络范围的进程。路由工作在 OSI 参考模型的第三层——网络层，它解决了信息传递时的路径选择问题。">
-<meta name="keywords" content="Ad-Hoc,notes">
+<meta name="keywords" content="notes,Ad-Hoc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="无线自组织网络路由协议">
 <meta property="og:url" content="https://jonathan1214.github.io/2020/04/adhoc-routing-protocol/index.html">
@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://jonathan1214.github.io/2020/04/adhoc-routing-protocol/dsr_rerr_format.png">
 <meta property="og:image" content="https://jonathan1214.github.io/2020/04/adhoc-routing-protocol/rerr_example.png">
 <meta property="og:image" content="https://jonathan1214.github.io/2020/04/adhoc-routing-protocol/proactive_reactive_route.png">
-<meta property="og:updated_time" content="2021-10-17T02:26:54.999Z">
+<meta property="og:updated_time" content="2022-08-02T14:24:50.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="无线自组织网络路由协议">
 <meta name="twitter:description" content="路，径之大者。由，从也。  路由，即建立、选择与遵循路径。在网络中，路由就是分组从源节点到目的节点时，决定端到端路径的网络范围的进程。路由工作在 OSI 参考模型的第三层——网络层，它解决了信息传递时的路径选择问题。">
@@ -238,7 +238,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-17 10:26:54" itemprop="dateModified" datetime="2021-10-17T10:26:54+08:00">2021-10-17</time>
+                <time title="修改时间：2022-08-02 22:24:50" itemprop="dateModified" datetime="2022-08-02T22:24:50+08:00">2022-08-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -333,9 +333,7 @@
 </ul>
 </li>
 </ul>
-<img src="/2020/04/adhoc-routing-protocol/common_routing_protocol.png" title="常用路由协议名称">
-<img src="/2020/04/adhoc-routing-protocol/common_routing_protocol2.png" title="常用路由协议归类">
-<p>按照这种划分，我们在这里只介绍按照第一种划分方式（按照路由协议依据）和第二种划分方式（按照路由建立的方式）下的一些典型的路由协议。</p>
+<p><img src="common_routing_protocol.png" alt=""><br><img src="common_routing_protocol2.png" alt=""><br>按照这种划分，我们在这里只介绍按照第一种划分方式（按照路由协议依据）和第二种划分方式（按照路由建立的方式）下的一些典型的路由协议。</p>
 <h2 id="2-链路状态与距离矢量路由协议"><a href="#2-链路状态与距离矢量路由协议" class="headerlink" title="2. 链路状态与距离矢量路由协议"></a>2. 链路状态与距离矢量路由协议</h2><h3 id="2-1-链路状态路由协议"><a href="#2-1-链路状态路由协议" class="headerlink" title="2.1. 链路状态路由协议"></a>2.1. 链路状态路由协议</h3><p>该协议下，基于链路状态，汇总区域内所有的路由器的链路状态信息。根据状态信息生成网络拓扑结构，每一个路由器再根据拓扑结构计算出路由。<br>对链路状态路由协议，我们通过一个典型的协议来研究，它就是 OSPF（开放式最短路径优先）协议。</p>
 <p>OSPF 协议是一种典型的链路状态路由协议，<strong>基于 IP</strong>，采用 <strong>Dijkstra 算法</strong> 计算节点间的最短路径，它将链路状态广播数据包传送给区域内的所有路由器，区域内路由器共同维护同一张完整的网络图，保存在数据库中，每条记录都代表网络的一条从当前节点到其他节点的最短路径。</p>
 <p>OSPF 工作分为如下三个过程：邻居表的建立，拓扑表的建立，计算路由。</p>
@@ -346,7 +344,7 @@
 <li>网络中的其他路由器收到它发来的 hello 后，将它的信息加入到数据库中，并回应 hello 分组。</li>
 <li>新路由器看到自己的 ID 出现在其他路由器应答的 hello 中时，就建立了邻接关系，将自己的状态改为双向。</li>
 </ol>
-<img src="/2020/04/adhoc-routing-protocol/OSPF_build_adjacent_table.png" title="OSPF 下邻接表建立">
+<p><img src="OSPF_build_adjacent_table.png" alt=""></p>
 <h4 id="拓扑表的建立"><a href="#拓扑表的建立" class="headerlink" title="拓扑表的建立"></a>拓扑表的建立</h4><p>此阶段依次涉及如下四个状态，经过这四个阶段后，此OSPF区域的所有路由器的数据拓扑图都达到了同步。</p>
 <ol>
 <li>exstart state：其中一台路由器成为主路由器，两个邻居根据接口的IP地址的大小来确定主/从关系，主路由器负责发起通信。</li>
@@ -365,11 +363,9 @@
 <li>路由表：每个节点维护一个路由表，表项包括信宿地址、到信宿的下一跳、到信宿节点的费用等；</li>
 </ul>
 <p>Ad-Hoc 网络中距离通过跳数体现，矢量就表现为下一跳的节点是谁。路由器之间广播自己的路由表中的信息，更具体将 Next 和 Metric 广播出去，广播的同时自己的位置天然携带了。接收到信息的其他路由器根据需要更新自己的路由表。从下图中的例子展示了细节。</p>
-<img src="/2020/04/adhoc-routing-protocol/dv_phase1_init.png" title="DV 算法初始化">
-<img src="/2020/04/adhoc-routing-protocol/dv_phase2_update_route.png" title="DV 算法路由更新">
+<p><img src="dv_phase1_init.png" alt=""><br><img src="dv_phase2_update_route.png" alt=""></p>
 <p>看起来很好，不过这种算法却没有在 Ad-Hoc 直接被使用，因为它会带来路由环路问题。下面这个例子展示了这个问题。</p>
-<img src="/2020/04/adhoc-routing-protocol/dv_route_loop1.png">
-<img src="/2020/04/adhoc-routing-protocol/dv_route_loop2.png" title="路由环路问题示例">
+<p><img src="dv_route_loop1.png" alt=""><br><img src="dv_route_loop2.png" alt=""></p>
 <p>在维护路由表信息的时候，如果在<span style="color:red">拓扑发生改变</span>后，网络收敛缓慢产生了不协调或者<span style="color:red">矛盾的路由选择条目</span>，就会发生路由环路的问题。这种条件下，路由器对无法到达的网络路由不予理睬，导致用户的数据包不停在网络上<span style="color:red">循环发送</span>，最终造成网络资源的严重浪费。</p>
 <p>通过一定的调整对 DV 算法进行改进，我们可以解决路由环路问题，一般而言，有如下常见解决方案：</p>
 <ul>
@@ -460,7 +456,7 @@
 <h4 id="4-1-1-路由发现"><a href="#4-1-1-路由发现" class="headerlink" title="4.1.1. 路由发现"></a>4.1.1. 路由发现</h4><p>当一个节点欲发送数据到目的节点时，它首先查询路由缓冲器是否有到目的节点的路由。如果有，则按此路由发送数据；如果没有，源节点就开始启动路由发现程序。路由发现过程中使用<span style="color:red">洪泛路由</span>（Flooding Routing）。</p>
 <p>当节点 S 需要向节点 D 发送数据，但不知到节点 D 的路由于是节点 S 就开始路由发现过程。源节点 S 洪泛『路由请求』分组 Route Request(RREQ)，每个请求分组通过序列号和源节点 S 标识唯一确定。</p>
 <h5 id="路由请求"><a href="#路由请求" class="headerlink" title="路由请求"></a>路由请求</h5><p>源节点向邻居节点广播路由请求（RREQ）消息，RREQ 的格式及含义如下所示。</p>
-<img src="/2020/04/adhoc-routing-protocol/dsr_rreq_format.png" title="RREQ 格式">
+<p><img src="dsr_rreq_format.png" alt=""></p>
 <p>其中，Sid 为源节点 ID 号，Did 为目的节点 ID 号，Route record 是路由记录，记录了从源节点到目的节点所经过的节点序列，Request ID 为路由请求序列号，由源节点设置。</p>
 <p>当一个节点收到 RREQ 时，如果该节点满足：</p>
 <ol>
@@ -472,7 +468,7 @@
 <p>那么<span style="color:red">节点将自己的地址附加到『路由请求』分组头部的 Route record 中，并将该分组转发给所有相邻节点</span>。</p>
 <h5 id="重复检测"><a href="#重复检测" class="headerlink" title="重复检测"></a>重复检测</h5><p>上面提到的第 2、3 点其实就是对 RREQ 重复的检测，这种检测是为了避免路由环路问题。我们再次重复一下这个 RREQ 重复的检测：如果（1）节点接收到的RREQ消息中的 &lt;源节点地址、请求 ID&gt; 存在于本节点的序列对列表中，或者（2）如果节点接收到的RREQ消息中的路由记录中包含本节点的地址，那么我们认为这个 RREQ 是重复的，将它丢弃。</p>
 <h5 id="路由应答"><a href="#路由应答" class="headerlink" title="路由应答"></a>路由应答</h5><p>当 RREQ 分组最终传递到目的节点 D 时，D 会往回发送 RREP 分组，分组的格式如下：</p>
-<img src="/2020/04/adhoc-routing-protocol/dsr_rrep_format.png" title="RREP 格式">
+<p><img src="dsr_rrep_format.png" alt=""></p>
 <p>其中，Did 表示目的节点 ID 或者说是请求路由分组的源节点 ID，Date Route 表示启动路由请求的源节点发送的数据分组要经过的路由（节点序列），而 Reply Route 是路由应答分组 RREP 所要经过的路由（节点序列，不难发现将 Date Route 反向即可）。</p>
 <h5 id="获得新路由的方式"><a href="#获得新路由的方式" class="headerlink" title="获得新路由的方式"></a>获得新路由的方式</h5><p>节点在转发 RREQ 时也会获得到源节点的，如 E 转发来自 C 的 RREQ（A-B-C），它就会获得到 A 的路由（E-C-B-A）。</p>
 <p>节点也会监听相邻节点发送的分组（包括 RREQ，RREP，数据分组），查看需要的路由信息。</p>
@@ -485,10 +481,10 @@
 <h5 id="RREP-风暴"><a href="#RREP-风暴" class="headerlink" title="RREP 风暴"></a>RREP 风暴</h5><p>当某个节点广播某个目的节点的 RREQ 时，当其邻居节点的路由缓存中都有到该目的节点的路由时，每个邻居节点都试图以自己缓存的路由响应，由此造成 RREP 风暴。RREP风暴将浪费网络带宽，并且加剧局部网络冲突。</p>
 <p>为解决这个问题，让所有欲发送 RREP 的节点，先延时 D，再发送。<code>D=H*(h-1+r)</code>，其中 H 是每条链路的传播延时，h 是自己返回的路径长度即到目的节点的跳数，r 是 0 或者 1。可以看到，D 与节点到目的节点的跳数成正比，使得到目的节点的最短路径的 RREP 最先发送。同时，所有的节点都设置成混杂模式，监听是否存在比自己更短的到目的节点的路径，如果有，就不发送本节点的 RREP。</p>
 <h5 id="路由故障分组-RERR"><a href="#路由故障分组-RERR" class="headerlink" title="路由故障分组 RERR"></a>路由故障分组 RERR</h5><p>如果中间节点发现路由表中显示的下一跳节点链路层不可到达，向源节<br>点发送一个RERR。源节点从路由缓冲条目中删除所有不可到达的链路（这条路径的中间节点也利用这个信息更新路由缓冲器） 。源节点将重新启动新的路由发现过程。RERR 的格式如下：</p>
-<img src="/2020/04/adhoc-routing-protocol/dsr_rerr_format.png" title="RERR 格式">
+<p><img src="dsr_rerr_format.png" alt=""></p>
 <p>其中 Node1 表示链路出错的一端节点 ID 号，Node2 是链路出错的另一端节点 ID 号，Did 表示目的节点 ID 或遇到链路出错的数据分组的源节点 ID ，Rerr route 是路由出错分组所要经过的路由（节点序号）。</p>
 <p>下图展示了一个例子，从中我们可以看出 RERR 是如何工作的。</p>
-<img src="/2020/04/adhoc-routing-protocol/rerr_example.png" title="RERR 示例">
+<p><img src="rerr_example.png" alt=""></p>
 <h4 id="4-1-3-DSR-总结"><a href="#4-1-3-DSR-总结" class="headerlink" title="4.1.3. DSR 总结"></a>4.1.3. DSR 总结</h4><p>从上面的描述中，我们不难发现 DSR 协议的特点，这里再对其进行一个总结，它具有如下优点：</p>
 <ul>
 <li>采用源路由机制、避免了路由环路；</li>
@@ -543,7 +539,7 @@
 <p>中间节点收到发送到目的节点的数据包时，如果发现到达目的节点的路由失效，该中间节点可以缓存该数据包，并发起到目的节点的路由请求，等待路由重新建立后再据需发送数据包。</p>
 <h4 id="4-2-4-AODV-总结"><a href="#4-2-4-AODV-总结" class="headerlink" title="4.2.4. AODV 总结"></a>4.2.4. AODV 总结</h4><p>优点：传统的距离向量路由机制；支持中间节点应答，能使源节点迅速获得路由，有效减少了广播数，但存在过时路由问题；节点只存储需要的路由，减少了内存的需要和不必要的复制；快速响应路径上的断链，避免路由环路；具有网络的可扩充性；</p>
 <p>缺点是路由建立时延较大。</p>
-<h2 id="5-主动路由协议与按需路由协议"><a href="#5-主动路由协议与按需路由协议" class="headerlink" title="5. 主动路由协议与按需路由协议"></a>5. 主动路由协议与按需路由协议</h2><img src="/2020/04/adhoc-routing-protocol/proactive_reactive_route.png" title="主动路由和按需路由">
+<h2 id="5-主动路由协议与按需路由协议"><a href="#5-主动路由协议与按需路由协议" class="headerlink" title="5. 主动路由协议与按需路由协议"></a>5. 主动路由协议与按需路由协议</h2><p><img src="proactive_reactive_route.png" alt=""></p>
 <p>主动路由协议是按路由发现和建立路由方式的角度分类下的一种路由协议，也叫表驱动路由协议，与之相对的是按需路由协议，前面介绍的两种路由协议 OSPF、DSDV 均属于主动路由协议。</p>
 <p>主动路由协议的特点：</p>
 <ul>
@@ -569,8 +565,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Ad-Hoc/" rel="tag"># Ad-Hoc</a>
               <a href="/tags/notes/" rel="tag"># notes</a>
+              <a href="/tags/Ad-Hoc/" rel="tag"># Ad-Hoc</a>
           </div>
 
         
@@ -661,20 +657,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">62</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

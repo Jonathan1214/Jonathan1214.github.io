@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://jonathan1214.github.io/2020/06/curriculum-report-of-computer-network/networdPattern.png">
 <meta property="og:image" content="https://jonathan1214.github.io/2020/06/curriculum-report-of-computer-network/WLANMAC.png">
 <meta property="og:image" content="https://jonathan1214.github.io/2020/06/curriculum-report-of-computer-network/channelConnectionProcess.png">
-<meta property="og:updated_time" content="2021-10-17T02:26:55.015Z">
+<meta property="og:updated_time" content="2022-08-02T14:17:00.071Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络课程报告">
 <meta name="twitter:description" content="现在初步打算写无线局域网中MAC的接入技术，在知网简单搜索下，发现研究这个的还真不少，如无线局域网中高效MAC层接入机制研究，低时延高可靠无线局域网MAC增强技术研究和工业无线局域网MAC协议确定性机制研究。看起来写完这篇课程报告不是特别烦，基本上我觉得可以照着一篇硕士论文快速完成这篇课程报告，毕竟时间紧急，拿到该拿的分即可。写完后，我会在这里同步完报告的全部内容。">
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-17 10:26:55" itemprop="dateModified" datetime="2021-10-17T10:26:55+08:00">2021-10-17</time>
+                <time title="修改时间：2022-08-02 22:17:00" itemprop="dateModified" datetime="2022-08-02T22:17:00+08:00">2022-08-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -283,14 +283,14 @@
 <p>2003年7月IEEE 802.11工作组批准了IEEE 802.11g草案，在2.4GHz频段使用正交频分复用技术，使数据传输速率提高到20Mbit/s以上；可与IEEE 802.11b的Wi-Fi系统互联互通，可共存于同一AP的网络里，从而保障了后向兼容性。</p>
 <p>IEEE 802.11 n在2009年标准化，采用了OFDM和4x4多入多出（Multiple-Input Multiple-Output, MIMO）技术[3]，物理层速率可以在两路20MHz信道(共40MHz )中达到600Mbps。</p>
 <p>2013推出的IEEE 802.11ac协议利用OFDM和8x8 MIMO技术[4]，在8个20MHz信道(共160MHz)中，物理层速率可达到6.9Gbps，在802.11n基础上有了很大的提升。最新的 802.11ax 标准已经支持160MHz的带宽，8条流空间复用，基于 OFDMA的多址接入技术提高了信道利用率，满足密集部署场景的应用需求[5]。其他更多标准的简略信息如图1-1所示。    </p>
-<img src="/2020/06/curriculum-report-of-computer-network/mainIEEE80211Standard.png" title="图1-1 主要的IEEE 802.11标准">
+<p><img src="mainIEEE80211Standard.png" alt=""></p>
 <p>我们可以看到，无线局域网标准定义了协议的工作频段、调制编码方式及最高速度的支持。可以看到，无线局域网的工作频段是2.4GHz和5GHz，前者的具体范围是2.4000～2.4835GHz，后者是5.15～5.825GHz，通常设计工作在2.4GHz频段的协议支持的数据传输速率低一些，但覆盖范围大，工作在5GHz频段的协议支持的数据传输塑料布高一些，但覆盖范围小。从调制技术来看，无线局域网的物理层从CCK向OFDM和MIMO-OFDM发展，支持的传输速率越来越大，2Mbps，54Mbps，600Mbps，1Gbps，9.6Gbps，传输速率是越来越大，当然其中消耗了更多的带宽资源。</p>
 <h2 id="2-无线局域网的MAC层"><a href="#2-无线局域网的MAC层" class="headerlink" title="2. 无线局域网的MAC层"></a>2. 无线局域网的MAC层</h2><h3 id="2-1-无线局域网的两种网络结构"><a href="#2-1-无线局域网的两种网络结构" class="headerlink" title="2.1 无线局域网的两种网络结构"></a>2.1 无线局域网的两种网络结构</h3><p>IEEE 802.11定义了无线局域网的两种网络结构，分别是无中心网络（Ad hoc模式）和有中心网络。在Ad hoc模式下，网络中没有中心站点，各站点式平等的，这是一种对等式网络（Peer-to-Peer，P2P），有中心网络的网络结构中有一个中心站点，又称接入点（Access Point，AP），也叫做AP模式。两种结构的示意图如图2-1所示。</p>
 <p>目前，AP模式是比较常用的，我们在家中使用的WiFi就是这种模式，而Ad hoc一般在一些专用场合使用，平时比较少见。</p>
-<img src="/2020/06/curriculum-report-of-computer-network/networdPattern.png" title="图2-1 网络模式示意图">
+<p><img src="networdPattern.png" alt=""></p>
 <h3 id="2-2-无线局域网的MAC层结构"><a href="#2-2-无线局域网的MAC层结构" class="headerlink" title="2.2 无线局域网的MAC层结构"></a>2.2 无线局域网的MAC层结构</h3><p>在无线局域网中，无线信道由多个站点共享，它们同处于一个冲突域下，在这种情况下，最需要解决的一个问题就是如何避免站点数据的碰撞，否则站点的数据会发生相互干扰，导致接受站点无法正确接收到信息。这个时候我们就需要一个控制各站点接入无线信道的协议来统一管理，这就是我们的MAC层协议。</p>
 <p>MAC层即介质访问控制层，在传输帧时，一个基站首先要获取共享信道的访问，无线局域网的标准定义了两种介质访问控制方式：分布式协调功能（DCF）和集中式协调功能（PCF）。其中DCF功能是必须支持的，而PCF则不一定。MAC的结构如图2-2所示。</p>
-<img src="/2020/06/curriculum-report-of-computer-network/WLANMAC.png" title="图2-2 无线局域网 MAC示意图">
+<p><img src="WLANMAC.png" alt=""></p>
 <p>DCF机制是IEEE 802.11协议采用的基于竞争的MAC机制，其采用载波监听多址接入/冲突避免（Carrier Sense Multiple Access mechanism with Collision Avoidance，CSMA/CA）和二进制指数退避（Binary Exponential Back-off，BEB）两种基本机制可以为多个站点提供信道接入，各个站点在这种机制下对信道资源进行争用，有可能会发生数据碰撞。</p>
 <p>PCF是MAC的可选用功能，在PCF下，各站点不需要争用信道，信道资源由AP统一分配，这种工作模式下，不会发生数据碰撞。但是一般情况下这种方式使用较少，只有在对传输时间要求高的视频、音频会话类应用时，才会启用PCF方式。</p>
 <h3 id="2-3-无线局域网的MAC层接入机制"><a href="#2-3-无线局域网的MAC层接入机制" class="headerlink" title="2.3 无线局域网的MAC层接入机制"></a>2.3 无线局域网的MAC层接入机制</h3><p>当前，IEEE 802.11MAC协议中广泛采用的接入方法是CSMA/CA。CA的意思是冲突避免，无线局域网发送结点监测到无线信道“空闲”时不“立即”发送帧，而是所有准备发送数据帧的主机都执行退避算法，通过“冲突避免”（CA）来减小冲突发生概率，而且无线局域网发送结点需要等待接收结点发送回确认帧，来判断此次发送是否成功。</p>
@@ -301,7 +301,7 @@
 <p>（4）扩展帧间间隔（Extended coordination IFS，EIFS）<br>EIFS是最长的IFS，主要用于在前一帧出错的情况下，发送站点必须延迟EIFS，而不是正常情况下的DIFS时间后，再发送下一帧</p>
 <h4 id="2-3-2-CSMA-CA原理"><a href="#2-3-2-CSMA-CA原理" class="headerlink" title="2.3.2 CSMA/CA原理"></a>2.3.2 CSMA/CA原理</h4><p>CSMA/CA的设计目标是为了尽可能减少冲突发送概率，简单概括其基本原理就是信道监听，推迟发送和冲突避免。信道监听通过物理层对无线信道进行载波监听，ACK确认，推迟发送采用虚拟载波监听（Virtual Carrier Sense，VCS）与网络分配向量（Network Allocation Vector，NAV）机制，冲突退避采用DIFS和二进制指数退避算法。</p>
 <p>CSMA/CA有两种工作模式，基本模式和可选的RTS/CTS预约模式，后者可以解决隐藏主机带来的冲突问题。这里只介绍基本模式，它的信道接入过程如图2-3所示。</p>
-<img src="/2020/06/curriculum-report-of-computer-network/channelConnectionProcess.png" title="图2-3 基本模式下的信道接入过程">
+<p><img src="channelConnectionProcess.png" alt=""></p>
 <p>NAV起到一个计时器的作用，其数值由发送主机在帧头的“持续时间”字段广播给其他主机，对于其他主机，只有当检测到NAV=0时才认为信道是空闲的。如果检测到信道空闲，那么发送主机需要等待一个DIFS，然后随机退避n个slot time才能发送数据帧，这个时候的数据帧就携带了此次发送站点的NAV信息，提醒其他站点信道繁忙，让其他站点保持静默以免发送碰撞。退避时间由二进制指数退避算法决定，退避时间为<br>$$<br>W = (2^{2+i}-1)\cdot W_s<br>$$<br>第i次退避时，从 $2^{i+1}-1$ 个slot time中随机选取一个作为退避时间，如果在退避时，检测到NAV不为0，这表示其他站点开始发送帧，此次竞争失败，则冻结当前退避时间，直到NAV=0并等待DIFS后继续从刚才冻结的退避时间开始倒数。从上述的描述我们可以看到，帧立即发送的条件为：NAV=0并且经过DIFS并且退避时间=0。</p>
 <p>接收主机（AP模式下即为AP）收到数据帧后，等待SIFS，才能向发送主机发送ACK确认帧，发送主机收到后，一次帧发送才算完成。</p>
 <p>从前述对CSMA/CA的分析我们不难发现，这种机制在AP连接的站点数目较少时性能才比较好，因为此时站点退避的时间相同的概率比较小，发生冲突的概率小，但如果AP接入的站点很多，那么碰撞的概率增大，网络的性能变差。针对这种情况，对其进行改进的研究也很多，我们在后面进行介绍。</p>
@@ -414,20 +414,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">62</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

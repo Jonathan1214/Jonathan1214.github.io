@@ -28,7 +28,7 @@
 <meta property="og:description" content="Distance sensor can be very useful in some conditons, such as obstacles detecting and avoiding. By using arduino, it’s very easy for us to use distance sensor. This demo show us a simple example to us">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://jonathan1214.github.io/2020/06/distance-sensor-demo-for-arduino/distance-sensor-demo.png">
-<meta property="og:updated_time" content="2021-10-17T02:26:55.015Z">
+<meta property="og:updated_time" content="2022-08-02T14:17:38.328Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A Distance Sensor Demo For Arduino">
 <meta name="twitter:description" content="Distance sensor can be very useful in some conditons, such as obstacles detecting and avoiding. By using arduino, it’s very easy for us to use distance sensor. This demo show us a simple example to us">
@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-17 10:26:55" itemprop="dateModified" datetime="2021-10-17T10:26:55+08:00">2021-10-17</time>
+                <time title="修改时间：2022-08-02 22:17:38" itemprop="dateModified" datetime="2022-08-02T22:17:38+08:00">2022-08-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -270,7 +270,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Distance sensor can be very useful in some conditons, such as obstacles detecting and avoiding. By using arduino, it’s very easy for us to use distance sensor. This demo show us a simple example to use distance sensor. For better display, we will use LCD1602 to show the distance. <strong>It’s modified from example in arduino.</strong><br><a id="more"></a></p>
+        <p>Distance sensor can be very useful in some conditons, such as obstacles detecting and avoiding. By using arduino, it’s very easy for us to use distance sensor. This demo show us a simple example to use distance sensor. For better display, we will use LCD1602 to show the distance. <strong>It’s modified from example in arduino.</strong></p>
+<a id="more"></a>
 <h2 id="Supplies"><a href="#Supplies" class="headerlink" title="Supplies"></a>Supplies</h2><ul>
 <li>Arduino uno R3</li>
 <li>HC-SR04</li>
@@ -282,7 +283,7 @@
 <li>some DuPont lines</li>
 </ul>
 <h2 id="Step-1-Design-and-connect-circuit"><a href="#Step-1-Design-and-connect-circuit" class="headerlink" title="Step 1 Design and connect circuit"></a>Step 1 Design and connect circuit</h2><p>Browsering internet, it’s easy to find instructions of HC-SR04 and LCD1602. And there are so many libraries for us in arduino. In our circuit, arduino digital pin 2, 3, 4, 5, 11 and 12 are used for LCD1602 while digital pin 7 and 8 are for HC-SR04. LED uses digital pin 13. Finally, following is our circuits.</p>
-<img src="/2020/06/distance-sensor-demo-for-arduino/distance-sensor-demo.png" title="Final Circuit">
+<p><img src="distance-sensor-demo.png" alt=""></p>
 <h2 id="Step2-Code"><a href="#Step2-Code" class="headerlink" title="Step2 Code"></a>Step2 Code</h2><p>As we said before, our program is  based on libraries. So it’s simple to write code. Later I will display complete code. </p>
 <p>Outside the loop, we define a function readUltrasonicDistance used for HC-SR04. Calling this readUltrasonicDistance, we get distance in centimeter. Inside the function setup, we initialize a LCD1604. In the loop, we get distance in centimeter by calling function readUltrasonicDistance. Then we clear LCD screen and print some characters and distance we just got. Finally, we turn on the LED if distance less than 90cm, or turn off the LED if not less than 90cm.</p>
 <p>Here shows complete code.</p>
@@ -385,20 +386,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">62</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

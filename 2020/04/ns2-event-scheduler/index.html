@@ -28,12 +28,12 @@
 <meta property="og:site_name" content="dsfds&#39; blog">
 <meta property="og:description" content="在上一篇文章中，我们从一个简单的例子出发，从零开始编写了一个 NS2 模拟用的 OTcl 脚本，我们需要在脚本中完成以下任务：  创建 Simulator 对象； 创建 node 对象并构建 node 间的连接 link； 创建代理对象和 traffic 源对象，连接 node 和代理，连接代理和 traffic 源； 创建模拟场景 scenario，即定义调度任务； 开始模拟。  按照以上这些步">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/discrete_event_scheduler.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/04/ns2-event-scheduler/img/2020/discrete_event_scheduler.png">
 <meta property="og:updated_time" content="2021-10-17T02:26:54.999Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NS2 的介绍（三）—— 事件调度器">
 <meta name="twitter:description" content="在上一篇文章中，我们从一个简单的例子出发，从零开始编写了一个 NS2 模拟用的 OTcl 脚本，我们需要在脚本中完成以下任务：  创建 Simulator 对象； 创建 node 对象并构建 node 间的连接 link； 创建代理对象和 traffic 源对象，连接 node 和代理，连接代理和 traffic 源； 创建模拟场景 scenario，即定义调度任务； 开始模拟。  按照以上这些步">
-<meta name="twitter:image" content="https://jonathan1214.github.io/assets/img/2020/discrete_event_scheduler.png">
+<meta name="twitter:image" content="https://jonathan1214.github.io/2020/04/ns2-event-scheduler/img/2020/discrete_event_scheduler.png">
 
 <link rel="canonical" href="https://jonathan1214.github.io/2020/04/ns2-event-scheduler/">
 
@@ -280,7 +280,7 @@
 <li>开始模拟。</li>
 </ol>
 <p>按照以上这些步骤编写就可完成模拟脚本编写。这篇文章中要介绍的是第 4 个步骤创建模拟场景的详细信息，我们将讨论 NS2 中的离散事件调度器。<br><a id="more"></a><br>如<a href="/2020/04/02/ns2-simulation-overview">第一篇文章</a>中谈到的，在 NS2 中，事件调度器主要是由一些网络组件来使用，组件们模拟 packet 的处理时需要调度程序作为延时器或计时器。如下图展示，每一个网络对象使用一个时间调度器，图中需要注意：<br>（1）网络对象发出一个事件那么它就要在预定的时间点上处理这个事件；<br>（2）网络对象间的数据路径和事件路径不相同；<br>若深入到代码层面，包在网络对象中传递时，发送方使用 <code>send(Packet* p){target_-&gt;recv(p);</code> 语句发送，接收方使用 <code>recv(Packet*, Handler* h = 0)</code> 方法接收。</p>
-<p><div align="center" class="img"><br>    <img src="/assets/img/2020/discrete_event_scheduler.png" alt="discrete_event_scheduler" width="750"><br>    <span align="center" style="color:#999">离散事件调度器</span><br></div><br>NS2 实现了两种事件调度器，实时调度器和非实时调度器。非实时调度器有三种实现，分别为 List、Heap 和 Calendar，它们逻辑上是一样的，之所以有这么多实现，是由于向下兼容的原因。默认的非实时调度器是 Calender 方式实现的。实时调度器是为仿真 emulation 使用的，允许仿真器 simulator 和真实的网络交互。下面这个就是一个指定事件调度器的例子。</p>
+<p><div align="center" class="img"><br>    <img src="img/2020/discrete_event_scheduler.png" alt="discrete_event_scheduler" width="750"><br>    <span align="center" style="color:#999">离散事件调度器</span><br></div><br>NS2 实现了两种事件调度器，实时调度器和非实时调度器。非实时调度器有三种实现，分别为 List、Heap 和 Calendar，它们逻辑上是一样的，之所以有这么多实现，是由于向下兼容的原因。默认的非实时调度器是 Calender 方式实现的。实时调度器是为仿真 emulation 使用的，允许仿真器 simulator 和真实的网络交互。下面这个就是一个指定事件调度器的例子。</p>
 <pre><code>set ns [new Simulator]
 $ns use-scheduler Heap
 </code></pre><p>事件调度器还可以调度模拟事件，比如启动一个 FTP 应用或者结束模拟。事件调度器对象本身有一些模拟调度成员函数，比如 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code>，它就可以在发起一个在特定的模拟时间 &lt;time> 发生的叫做 <code>AtEvent</code> 的事件。<code>AtEvent</code> 其实是 <code>Event</code> 类的子类，它扩展了额外的变量保存 <code>at &lt;time&gt; &quot;&lt;string&gt;&quot;</code> 中的 <code>string</code>，尽管有扩展，它在事件调度器中和一般的事件还是被相同对待的。模拟开始后，当模拟时间到达事件队列中的 AtEvent 应该被调度的时间时，该 <code>AtEvent</code> 就会被传递给一个 <code>AtEvent Handler</code>，<code>AtEvent Handler</code> 只被创建一次并处理所有的的 <code>AtEvent</code>，<code>AtEvent</code> 的 &lt;string> 确定的 OTcl 命令也会被执行。下面是一个模拟事件调度示例：</p>
@@ -426,20 +426,20 @@ proc complete_sim {} {...}
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">62</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

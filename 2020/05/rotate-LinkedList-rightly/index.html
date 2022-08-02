@@ -29,7 +29,7 @@
 <meta property="og:description" content="题目给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。 示例 输入：1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5，k=2 输出：4-&amp;gt;5-&amp;gt;1-&amp;gt;2-&amp;gt;3">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://jonathan1214.github.io/2020/05/rotate-LinkedList-rightly/illustration.png">
-<meta property="og:updated_time" content="2021-10-17T02:26:55.015Z">
+<meta property="og:updated_time" content="2022-08-02T14:20:05.678Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode | 61 旋转链表">
 <meta name="twitter:description" content="题目给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。 示例 输入：1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5，k=2 输出：4-&amp;gt;5-&amp;gt;1-&amp;gt;2-&amp;gt;3">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-17 10:26:55" itemprop="dateModified" datetime="2021-10-17T10:26:55+08:00">2021-10-17</time>
+                <time title="修改时间：2022-08-02 22:20:05" itemprop="dateModified" datetime="2022-08-02T22:20:05+08:00">2022-08-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -279,7 +279,7 @@
 <a id="more"></a>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>题目名字叫旋转链表，其实就是循环移动。最简单的思路是：遍历链表找到尾节点的前一节点，然后把尾节点从头插入链表，对这个过程执行 k 次即可。这样做算法的时间复杂度为 <code>O(kn)</code>。考虑到是循环移动，我们可以对算法进行改进。</p>
 <p>首先考虑 <code>k</code> 小于链表长度的情况，链表循环向右移动 <code>k</code> 次，不就相当于把链表练成环，然后尾节点位置向左移动 <code>k</code> 次吗？下面这个图展示了这个过程。</p>
-<img src="/2020/05/rotate-LinkedList-rightly/illustration.png" title="循环移动">
+<p><img src="illustration.png" alt=""></p>
 <p>对于 <code>k</code> 大于链表长度的情况，先构成环，沿着环一直移动就行。这种方法的问题在于我们需要逆向移动单链表的指针，即每次需要找到单链表前驱的前驱，这是很难做到的，但我们可以先行将单链表进行逆序，然后移动指针，确定最终的头尾节点后再把链表逆序回来即可。</p>
 <p>更进一步的，在环中逆序移动指针 <code>k</code> 次，就相当于顺序移动指针 <code>n-k</code> 次，其中 <code>n</code> 是链表的长度。基于这种想法，我们再加以改进，得到下面的解法。</p>
 <p>先把指针 <code>p</code> 从头向后移动到尾，直到循环移动的次数 <code>k==0</code>。在此过程中，如果 <code>p</code> 指向了空节点，说明到了链表尾部，<code>k</code> 大于链表的长度，这时候我们可以利用循环的特点，对链表的长度减一值进行取模运算，得到的值是我们需要再移动到位置。然后按照上述的方法进行指针移动即可。最终代码如下所示。</p>
@@ -385,20 +385,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">62</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

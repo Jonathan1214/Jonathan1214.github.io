@@ -28,14 +28,14 @@
 <meta property="og:site_name" content="dsfds&#39; blog">
 <meta property="og:description" content="最近在上一门叫『无线自组织网络与应用』的课程，介绍了很多以前没有接触过的概念，包括了一个叫 NS2 的仿真工具，在前面一篇文章中介绍的 AHOHA 协议也是在这门课程中有被详细讲述的。这篇文章基本上是这篇文章的翻译，介绍 NS2 这个仿真工具，给出这个它的概述。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/structure_of_ns2.png">
-<meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/cpp_vs_otcl.png">
-<meta property="og:image" content="https://jonathan1214.github.io/assets/img/2020/architecture_view_of_ns.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/04/ns2-simulation-overview/img/2020/structure_of_ns2.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/04/ns2-simulation-overview/img/2020/cpp_vs_otcl.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2020/04/ns2-simulation-overview/img/2020/architecture_view_of_ns.png">
 <meta property="og:updated_time" content="2021-10-17T02:26:54.999Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NS2 的介绍（一）—— 概述">
 <meta name="twitter:description" content="最近在上一门叫『无线自组织网络与应用』的课程，介绍了很多以前没有接触过的概念，包括了一个叫 NS2 的仿真工具，在前面一篇文章中介绍的 AHOHA 协议也是在这门课程中有被详细讲述的。这篇文章基本上是这篇文章的翻译，介绍 NS2 这个仿真工具，给出这个它的概述。">
-<meta name="twitter:image" content="https://jonathan1214.github.io/assets/img/2020/structure_of_ns2.png">
+<meta name="twitter:image" content="https://jonathan1214.github.io/2020/04/ns2-simulation-overview/img/2020/structure_of_ns2.png">
 
 <link rel="canonical" href="https://jonathan1214.github.io/2020/04/ns2-simulation-overview/">
 
@@ -276,7 +276,7 @@
         <p>最近在上一门叫『无线自组织网络与应用』的课程，介绍了很多以前没有接触过的概念，包括了一个叫 NS2 的仿真工具，在前面<a href="/2020/03/latex-notes-1-basic-concepts/">一篇文章</a>中介绍的 AHOHA 协议也是在这门课程中有被详细讲述的。这篇文章基本上是<a href="http://nile.wpi.edu.cn/NS/" target="_blank" rel="noopener">这篇文章</a>的翻译，介绍 NS2 这个仿真工具，给出这个它的概述。<br><a id="more"></a></p>
 <h2 id="NS2是什么"><a href="#NS2是什么" class="headerlink" title="NS2是什么"></a>NS2是什么</h2><p>NS2 是一个使用 C++ 和 OTcl 编写的面向对象的离散事件驱动的网络仿真器，在 UCBerkely 被开发出来。它主要用于局域网和广域网仿真。由于缺少适合新手入门的教程，NS2对于初学者来说不是很友好。</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>NS2 可以仿真各种各样的IP网络。它实现了一些网络协议如 TCP 和 UDP，文件传输协议如 FTP、Telnet、Web、CBR 和 VBR，路由队列管理机制如 DropTail、RED 和 CBQ，路由选择算法如 Dijkstra，等等。针对局域网仿真，NS2 还实现了组播和一些 MAC 层协议。这里要介绍的是 NS2 的基本结构，然后按照例子介绍细节。</p>
-<p><div align="center" class="img"><br>    <img src="/assets/img/2020/structure_of_ns2.png" alt="structure_of_ns2" width="750"><br>    <span align="center" style="color:#999">用户角度的NS概览</span><br></div><br>NS2 是 OTcl 脚本解释器，包括仿真事件调度程序、网络组件对象库和网络启动 (plumbing) 模块库。plumbing 模块通常实现为基本模拟对象成员函数。换句话说，使用 NS2，你需要使用 OTcl 语言写一个脚本，包括以下内容：</p>
+<p><div align="center" class="img"><br>    <img src="img/2020/structure_of_ns2.png" alt="structure_of_ns2" width="750"><br>    <span align="center" style="color:#999">用户角度的NS概览</span><br></div><br>NS2 是 OTcl 脚本解释器，包括仿真事件调度程序、网络组件对象库和网络启动 (plumbing) 模块库。plumbing 模块通常实现为基本模拟对象成员函数。换句话说，使用 NS2，你需要使用 OTcl 语言写一个脚本，包括以下内容：</p>
 <ul>
 <li>初始化一个事件调度程序</li>
 <li>使用网络对象和 plumbing 函数建立网络拓扑结构</li>
@@ -287,10 +287,10 @@
 <p>举个例子，一个网络转发组件S模拟一次转发的延时为 20us，它为一个需要转发的 packet P 向调度程序发出一个延时 20us 的事件 E，20us 后，调度程序 M 从事件队列中调度出这个事件 E 并把它立即发给转发组件 S ，然后由转发组件 S 将 packet P 交给适当的输出链接组件。</p>
 <p>还有一种用法将事件调度程序当作计时器。比如，TCP 需要一个计时器记录一个 packet 的发送时间以备重发（发送一个具有相同 TCP 编号且不同 NS packet ID 的 packet）。计时器和延时器用类似的方式使用事件调度程序，不同之处在于计时器计算与 packet 相关的时间值，然后一段特定的时间过去后对该 packet 做合适的动作（如上面那个例子，计算 packet 的发送时间，如果超过预定时间重发该 packet），而不是模拟一个延时，</p>
 <h2 id="C-与-NS2"><a href="#C-与-NS2" class="headerlink" title="C++ 与 NS2"></a>C++ 与 NS2</h2><p>NS2 不仅可以用 OTcl 编写也可以用 C++ 编写。处于效率考量，NS2 将<strong>数据路径</strong>的实现和<strong>控制路径</strong>的实现分离开来，为了减少 packet 和事件的处理时间（注意，不是仿真时间），数据路径中的事件调度程序和基本网络组件对象用 C++ 编写然后编译，使用编译好的对象，OTcl 解释器通过一个 OTcl 连接为每一个 C++ 对象创建配对的 OTcl 对象，为成员函数创建配对的控制函数，为成员变量创建配对的配置变量，这样一来，对 C++ 对象的控制就传递给了 OTcl。向一个连接到 OTcl 的 C++ 对象中添加成员函数也是可能的，C++ 对象中不需要在一次模拟中被控制的或者不需要在内部被其他对象使用使用的，是不需要被连接到 OTcl 中。同样地，一个不在数据路径中的对象也可以使用 OTcl 实现。如图为一个对象在 C++ 和 OTcl 中的层次体系，可以看到，连接到 C++ 的 OTcl 对象和它连接的 C++ 对象具有相同的层次结构。</p>
-<p align="center" class="img"><br>    <img src="/assets/img/2020/cpp_vs_otcl.png" alt="cpp_vs_otcl" width="750"><br>    <span align="center" style="color:#999">C++ 和 OTcl 的连接</span><br></p>
+<p align="center" class="img"><br>    <img src="img/2020/cpp_vs_otcl.png" alt="cpp_vs_otcl" width="750"><br>    <span align="center" style="color:#999">C++ 和 OTcl 的连接</span><br></p>
 
 <h2 id="NS2-的大体结构"><a href="#NS2-的大体结构" class="headerlink" title="NS2 的大体结构"></a>NS2 的大体结构</h2><p>如图为 NS2 的整体结构，使用者站在图中的左下角，在 Tcl 中，使用 OTcl 库中的仿真对象设计并控制模拟。事件调度程序和绝大多数网络组件是通过 C++ 实现的，并且 OTcl 通过 OTcl 连接 (linkage) 可以使用到它们，而这个连接是通过 tclcl 实现的。这些东西共同构成了 NS2，它就是一个扩展了面向对象的 Tcl 解释器和网络模拟库。</p>
-<p align="center" class="img"><br>    <img src="/assets/img/2020/architecture_view_of_ns.png" alt="architecture_view_of_ns" width="750"><br>    <span align="center" style="color:#999">NS2  的体系结构图</span><br></p>
+<p align="center" class="img"><br>    <img src="img/2020/architecture_view_of_ns.png" alt="architecture_view_of_ns" width="750"><br>    <span align="center" style="color:#999">NS2  的体系结构图</span><br></p>
 
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文简单分析了 NS2 的大体结构和体系结构。现在来考虑下如何获得 NS2 的仿真结果，如第一张图所示，，当仿真结束时，NS2 按照输入的 Tcl（或 OTcl）脚本中的说明产生一个或者多个文本输出文件，其中包含了详细的仿真数据。这些数据可用于后续的仿真分析中，或者作为图形化仿真展示工具 NAM 的输入。</p>
 <hr>
@@ -396,20 +396,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">62</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

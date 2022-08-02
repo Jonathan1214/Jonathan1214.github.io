@@ -28,14 +28,14 @@
 <meta property="og:site_name" content="dsfds&#39; blog">
 <meta property="og:description" content="同步设计何为同步设计？在同步设计中，由单个主时钟和单个主置位、复位信号驱动设计中所有的时序器件。 经验表明，对 ASIC 时序控制最安全的方法就是同步设计。 同步设计避坑指南：  避免使用行波计数器 门控时钟 双边沿或混合边沿时钟 用触发器驱动另一个触发器的异步复位端  推荐的设计技术：  避免在设计中出现组合环路 避免数字设计中的延迟链 避免使用异步脉冲产生器 避免使用锁存器 避免使用双沿时钟">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="d:/Documents/Jonathan1214.github.io/source/_drafts/ch2-clock-and-reset-of-The-art-of-hardware-architecture/image-20220323223559804.png">
-<meta property="og:image" content="d:/Documents/Jonathan1214.github.io/source/_drafts/ch2-clock-and-reset-of-The-art-of-hardware-architecture/image-20220323225848060.png">
-<meta property="og:image" content="d:/Documents/Jonathan1214.github.io/source/_drafts/ch2-clock-and-reset-of-The-art-of-hardware-architecture/image-20220323230645958.png">
-<meta property="og:updated_time" content="2022-06-15T16:31:45.013Z">
+<meta property="og:image" content="https://jonathan1214.github.io/2022/03/ch2-clock-and-reset-of-The-art-of-hardware-architecture/Documents/Jonathan1214.github.io/source/_drafts/ch2-clock-and-reset-of-The-art-of-hardware-architecture/image-20220323223559804.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2022/03/ch2-clock-and-reset-of-The-art-of-hardware-architecture/Documents/Jonathan1214.github.io/source/_drafts/ch2-clock-and-reset-of-The-art-of-hardware-architecture/image-20220323225848060.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2022/03/ch2-clock-and-reset-of-The-art-of-hardware-architecture/Documents/Jonathan1214.github.io/source/_drafts/ch2-clock-and-reset-of-The-art-of-hardware-architecture/image-20220323230645958.png">
+<meta property="og:updated_time" content="2022-08-02T13:13:39.183Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="『TAHA』02 时钟和复位">
 <meta name="twitter:description" content="同步设计何为同步设计？在同步设计中，由单个主时钟和单个主置位、复位信号驱动设计中所有的时序器件。 经验表明，对 ASIC 时序控制最安全的方法就是同步设计。 同步设计避坑指南：  避免使用行波计数器 门控时钟 双边沿或混合边沿时钟 用触发器驱动另一个触发器的异步复位端  推荐的设计技术：  避免在设计中出现组合环路 避免数字设计中的延迟链 避免使用异步脉冲产生器 避免使用锁存器 避免使用双沿时钟">
-<meta name="twitter:image" content="d:/Documents/Jonathan1214.github.io/source/_drafts/ch2-clock-and-reset-of-The-art-of-hardware-architecture/image-20220323223559804.png">
+<meta name="twitter:image" content="https://jonathan1214.github.io/2022/03/ch2-clock-and-reset-of-The-art-of-hardware-architecture/Documents/Jonathan1214.github.io/source/_drafts/ch2-clock-and-reset-of-The-art-of-hardware-architecture/image-20220323223559804.png">
 
 <link rel="canonical" href="https://jonathan1214.github.io/2022/03/ch2-clock-and-reset-of-The-art-of-hardware-architecture/">
 
@@ -229,7 +229,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-16 00:31:45" itemprop="dateModified" datetime="2022-06-16T00:31:45+08:00">2022-06-16</time>
+                <time title="修改时间：2022-08-02 21:13:39" itemprop="dateModified" datetime="2022-08-02T21:13:39+08:00">2022-08-02</time>
               </span>
 
           
@@ -293,11 +293,11 @@
 <li>设计中时钟树产生的功耗</li>
 </ul>
 <p>门控时钟可以存在于时钟树的根部、末端，或者两者之间的任何位置。</p>
-<p><img src="D:\Documents\Jonathan1214.github.io\source\_drafts\ch2-clock-and-reset-of-The-art-of-hardware-architecture\image-20220323223559804.png" alt="image-20220323223559804"></p>
+<p><img src="Documents\Jonathan1214.github.io\source\_drafts\ch2-clock-and-reset-of-The-art-of-hardware-architecture\image-20220323223559804.png" alt="image-20220323223559804"></p>
 <h2 id="复位信号的设计策略"><a href="#复位信号的设计策略" class="headerlink" title="复位信号的设计策略"></a>复位信号的设计策略</h2><p>最好的方法，注意在这种情况下，第二个触发器不会出现恢复时间亚稳态问题，因为在移除复位时该触发器的输入和输出都为低电平。</p>
-<p><img src="D:\Documents\Jonathan1214.github.io\source\_drafts\ch2-clock-and-reset-of-The-art-of-hardware-architecture\image-20220323225848060.png" alt="image-20220323225848060"></p>
+<p><img src="Documents\Jonathan1214.github.io\source\_drafts\ch2-clock-and-reset-of-The-art-of-hardware-architecture\image-20220323225848060.png" alt="image-20220323225848060"></p>
 <h2 id="控制时钟偏移"><a href="#控制时钟偏移" class="headerlink" title="控制时钟偏移"></a>控制时钟偏移</h2><p>对于同一时钟边沿偏移较大的寄存器，如果舒徐相邻，那么在向其提供时钟时，就会有违背时序的潜在风险。</p>
-<p><img src="D:\Documents\Jonathan1214.github.io\source\_drafts\ch2-clock-and-reset-of-The-art-of-hardware-architecture\image-20220323230645958.png" alt="image-20220323230645958"></p>
+<p><img src="Documents\Jonathan1214.github.io\source\_drafts\ch2-clock-and-reset-of-The-art-of-hardware-architecture\image-20220323230645958.png" alt="image-20220323230645958"></p>
 <p>如上图所示，两个触发器之间的时钟偏移定义为：</p>
 <p>$$T_{skew_{i,j}}=T_{c_i}-T_{c_j}$$</p>
 <p>这里 $$T_{c_i}$$ 和 $$T_{c_j}$$ 分别是从时钟源到触发器 $$F_i$$ 和 $$F_j$$ 的延迟。</p>
@@ -404,20 +404,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">62</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
