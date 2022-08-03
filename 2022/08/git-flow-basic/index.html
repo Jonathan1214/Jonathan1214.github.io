@@ -20,22 +20,22 @@
     var CONFIG = {"hostname":"jonathan1214.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="关于 git-flow 的简单介绍，是时候来好好管理我们的项目了，一条 main 交到底的方式并不合适。 参考： git-flow介绍及开发过程演示 基本的分支类型| 分支名称  | 说明             | 命名 || ——– | —————- | —- || master   | 发布分支         |  master 或者 main    || develop  | 开发分支">
+  <meta name="description" content="关于 git-flow 的简单介绍，是时候来好好管理我们的项目了，一条 main 交到底的方式并不合适。 参考： git-flow介绍及开发过程演示 基本的分支类型    分支名称 说明 命名     master 发布分支 master 或者 main   develop 开发分支 develop   feature 功能分支 feature/FOO-1   bugfix 修复分支 bugfix">
 <meta name="keywords" content="git,gitflow,bilibili">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git-flow 简单介绍及使用">
 <meta property="og:url" content="https://jonathan1214.github.io/2022/08/git-flow-basic/index.html">
 <meta property="og:site_name" content="dsfds&#39; blog">
-<meta property="og:description" content="关于 git-flow 的简单介绍，是时候来好好管理我们的项目了，一条 main 交到底的方式并不合适。 参考： git-flow介绍及开发过程演示 基本的分支类型| 分支名称  | 说明             | 命名 || ——– | —————- | —- || master   | 发布分支         |  master 或者 main    || develop  | 开发分支">
+<meta property="og:description" content="关于 git-flow 的简单介绍，是时候来好好管理我们的项目了，一条 main 交到底的方式并不合适。 参考： git-flow介绍及开发过程演示 基本的分支类型    分支名称 说明 命名     master 发布分支 master 或者 main   develop 开发分支 develop   feature 功能分支 feature/FOO-1   bugfix 修复分支 bugfix">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://jonathan1214.github.io/2022/08/git-flow-basic/279f84ead6cd4b7e3851973077a9ff9bae8b2ac8.png">
 <meta property="og:image" content="https://jonathan1214.github.io/2022/08/git-flow-basic/1ce6172fe4d3436b2fb95087cb9f36a02c715c41.png">
 <meta property="og:image" content="https://jonathan1214.github.io/2022/08/git-flow-basic/0164772a0a7b70fda86bc30ff4e268c21d3042a7.png">
 <meta property="og:image" content="https://jonathan1214.github.io/2022/08/git-flow-basic/b846e8e3a8872d5050dbafdf6ae6acb2ca7a52af.png">
-<meta property="og:updated_time" content="2022-08-02T14:02:02.302Z">
+<meta property="og:updated_time" content="2022-08-03T10:11:13.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git-flow 简单介绍及使用">
-<meta name="twitter:description" content="关于 git-flow 的简单介绍，是时候来好好管理我们的项目了，一条 main 交到底的方式并不合适。 参考： git-flow介绍及开发过程演示 基本的分支类型| 分支名称  | 说明             | 命名 || ——– | —————- | —- || master   | 发布分支         |  master 或者 main    || develop  | 开发分支">
+<meta name="twitter:description" content="关于 git-flow 的简单介绍，是时候来好好管理我们的项目了，一条 main 交到底的方式并不合适。 参考： git-flow介绍及开发过程演示 基本的分支类型    分支名称 说明 命名     master 发布分支 master 或者 main   develop 开发分支 develop   feature 功能分支 feature/FOO-1   bugfix 修复分支 bugfix">
 <meta name="twitter:image" content="https://jonathan1214.github.io/2022/08/git-flow-basic/279f84ead6cd4b7e3851973077a9ff9bae8b2ac8.png">
 
 <link rel="canonical" href="https://jonathan1214.github.io/2022/08/git-flow-basic/">
@@ -222,10 +222,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-08-02 20:58:03 / 修改时间：22:02:02" itemprop="dateCreated datePublished" datetime="2022-08-02T20:58:03+08:00">2022-08-02</time>
+              <time title="创建时间：2022-08-02 20:58:03" itemprop="dateCreated datePublished" datetime="2022-08-02T20:58:03+08:00">2022-08-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-03 18:11:13" itemprop="dateModified" datetime="2022-08-03T18:11:13+08:00">2022-08-03</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -275,7 +281,48 @@
         <p>关于 git-flow 的简单介绍，是时候来好好管理我们的项目了，一条 main 交到底的方式并不合适。</p>
 <p>参考：</p>
 <p><a href="https://www.bilibili.com/video/BV1W3411C72K?share_source=copy_web&amp;vd_source=9f384d4584d09b2753c054baff8d4c9e" target="_blank" rel="noopener">git-flow介绍及开发过程演示</a></p>
-<p>基本的分支类型<br>| 分支名称  | 说明             | 命名 |<br>| ——– | —————- | —- |<br>| master   | 发布分支         |  master 或者 main    |<br>| develop  | 开发分支         |   develop   |<br>| feature  | 功能分支         |  feature/FOO-1    |<br>| bugfix   | 修复分支         |  bugfix/FOO-2    |<br>| hotfix   | 紧急修复分支     |   hotfix/FOO-3    |<br>| release  | 发布前的准备工作 |   release/1.0.3   |</p>
+<p>基本的分支类型</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">分支名称</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">命名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">master</td>
+<td style="text-align:left">发布分支</td>
+<td style="text-align:left">master 或者 main</td>
+</tr>
+<tr>
+<td style="text-align:left">develop</td>
+<td style="text-align:left">开发分支</td>
+<td style="text-align:left">develop</td>
+</tr>
+<tr>
+<td style="text-align:left">feature</td>
+<td style="text-align:left">功能分支</td>
+<td style="text-align:left">feature/FOO-1</td>
+</tr>
+<tr>
+<td style="text-align:left">bugfix</td>
+<td style="text-align:left">修复分支</td>
+<td style="text-align:left">bugfix/FOO-2</td>
+</tr>
+<tr>
+<td style="text-align:left">hotfix</td>
+<td style="text-align:left">紧急修复分支</td>
+<td style="text-align:left">hotfix/FOO-3</td>
+</tr>
+<tr>
+<td style="text-align:left">release</td>
+<td style="text-align:left">发布前的准备工作</td>
+<td style="text-align:left">release/1.0.3</td>
+</tr>
+</tbody>
+</table>
 <p>额外的老版本的维护分支，一般使用 <code>support</code>，<code>support/1.0.x</code>。</p>
 <a id="more"></a>
 <hr>
