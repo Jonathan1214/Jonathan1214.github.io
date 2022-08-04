@@ -338,7 +338,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">120</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -497,5 +497,27 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 
 </body>
 </html>
+ return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'pKduJiwXGxEBLhnENF3li3Fv-gzGzoHsz',
+      appKey     : 'TfcDSWRi0FBxPFOnGhQ1d5be',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
 </body>
 </html>

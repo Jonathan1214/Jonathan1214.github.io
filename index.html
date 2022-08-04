@@ -190,6 +190,110 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/08/nowcoder-verilog-data-cusum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="dsfds">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dsfds' blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/nowcoder-verilog-data-cusum/" class="post-title-link" itemprop="url">『NC』verilog 数据累加输出</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-08-04 15:32:55 / 修改时间：15:42:52" itemprop="dateCreated datePublished" datetime="2022-08-04T15:32:55+08:00">2022-08-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/veriog/" itemprop="url" rel="index"><span itemprop="name">veriog</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/veriog/cheetsheet/" itemprop="url" rel="index"><span itemprop="name">cheetsheet</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/veriog/cheetsheet/handshake/" itemprop="url" rel="index"><span itemprop="name">handshake</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/08/nowcoder-verilog-data-cusum/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/nowcoder-verilog-data-cusum/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>和上一篇类似，不过这次上下游握手协议均是 valid-ready。</p>
+<p><a href="https://www.nowcoder.com/practice/956fa4fa03e4441d85262dc1ec46a3bd?tpId=302&amp;tqId=5000601&amp;ru=/exam/oj&amp;qru=/ta/verilog-advanced/question-ranking&amp;sourceUrl=%2Fexam%2Foj%3Ftab%3DVerilog%25E7%25AF%2587%26topicId%3D302" target="_blank" rel="noopener">原题链接：数据累加输出</a></p>
+<p><img src="2022-08-04-15-41-46-image.png" alt=""></p>
+<p>数据通路的处理比较清晰，关键是上下游的控制信号传递。</p>
+<p>这是核心：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// valid_b == 1b'1 ---&gt; 数据输出有效，此时停止读入新的数据</span></span><br><span class="line"><span class="comment">// ready_b == 1'b1 ---&gt; 下游可以接收数据，此时可以读取新的数据</span></span><br><span class="line"><span class="keyword">assign</span> ready_a = ~valid_b || ready_b;</span><br><span class="line"><span class="keyword">assign</span> valid_in = ready_a &amp;&amp; valid_a;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/nowcoder-verilog-data-cusum/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/08/verilog-data-trans-01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1019,7 +1123,6 @@
 
       
     
-    
 
   
   <nav class="pagination">
@@ -1091,7 +1194,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">120</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

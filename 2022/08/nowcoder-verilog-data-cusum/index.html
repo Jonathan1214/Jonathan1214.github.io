@@ -20,23 +20,22 @@
     var CONFIG = {"hostname":"jonathan1214.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="过去的这两周，我的时间基本花在了 LDPC 码的学习上，开始是阅读『hannel Codes』这本书，然后就是用 C 语言实现其中介绍的译码算法和 SPA 和其简化版本 MSA，若是不深入其原理，实现这个算法并不困难，但我忽视了一个重要的问题：我实现的算法最终要达到什么样的效果？这导致我白白浪费了两天时间。">
-<meta name="keywords" content="记录">
+  <meta name="description" content="和上一篇类似，不过这次上下游握手协议均是 valid-ready。 原题链接：数据累加输出  数据通路的处理比较清晰，关键是上下游的控制信号传递。 这是核心： 1234// valid_b == 1b&apos;1 ---&amp;gt; 数据输出有效，此时停止读入新的数据// ready_b == 1&apos;b1 ---&amp;gt; 下游可以接收数据，此时可以读取新的数据assign ready_a = ~valid_b">
+<meta name="keywords" content="verilog,nowcoder">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LDPC 码译码结束，喘上一口气">
-<meta property="og:url" content="https://jonathan1214.github.io/2020/08/a-small-summer-win/index.html">
+<meta property="og:title" content="『NC』verilog 数据累加输出">
+<meta property="og:url" content="https://jonathan1214.github.io/2022/08/nowcoder-verilog-data-cusum/index.html">
 <meta property="og:site_name" content="dsfds&#39; blog">
-<meta property="og:description" content="过去的这两周，我的时间基本花在了 LDPC 码的学习上，开始是阅读『hannel Codes』这本书，然后就是用 C 语言实现其中介绍的译码算法和 SPA 和其简化版本 MSA，若是不深入其原理，实现这个算法并不困难，但我忽视了一个重要的问题：我实现的算法最终要达到什么样的效果？这导致我白白浪费了两天时间。">
+<meta property="og:description" content="和上一篇类似，不过这次上下游握手协议均是 valid-ready。 原题链接：数据累加输出  数据通路的处理比较清晰，关键是上下游的控制信号传递。 这是核心： 1234// valid_b == 1b&apos;1 ---&amp;gt; 数据输出有效，此时停止读入新的数据// ready_b == 1&apos;b1 ---&amp;gt; 下游可以接收数据，此时可以读取新的数据assign ready_a = ~valid_b">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://jonathan1214.github.io/2020/08/a-small-summer-win/image-20200817230403378.png">
-<meta property="og:image" content="https://jonathan1214.github.io/2020/08/a-small-summer-win/finalresult.png">
-<meta property="og:updated_time" content="2022-08-02T14:15:37.510Z">
+<meta property="og:image" content="https://jonathan1214.github.io/2022/08/nowcoder-verilog-data-cusum/2022-08-04-15-41-46-image.png">
+<meta property="og:updated_time" content="2022-08-04T07:42:52.888Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LDPC 码译码结束，喘上一口气">
-<meta name="twitter:description" content="过去的这两周，我的时间基本花在了 LDPC 码的学习上，开始是阅读『hannel Codes』这本书，然后就是用 C 语言实现其中介绍的译码算法和 SPA 和其简化版本 MSA，若是不深入其原理，实现这个算法并不困难，但我忽视了一个重要的问题：我实现的算法最终要达到什么样的效果？这导致我白白浪费了两天时间。">
-<meta name="twitter:image" content="https://jonathan1214.github.io/2020/08/a-small-summer-win/image-20200817230403378.png">
+<meta name="twitter:title" content="『NC』verilog 数据累加输出">
+<meta name="twitter:description" content="和上一篇类似，不过这次上下游握手协议均是 valid-ready。 原题链接：数据累加输出  数据通路的处理比较清晰，关键是上下游的控制信号传递。 这是核心： 1234// valid_b == 1b&apos;1 ---&amp;gt; 数据输出有效，此时停止读入新的数据// ready_b == 1&apos;b1 ---&amp;gt; 下游可以接收数据，此时可以读取新的数据assign ready_a = ~valid_b">
+<meta name="twitter:image" content="https://jonathan1214.github.io/2022/08/nowcoder-verilog-data-cusum/2022-08-04-15-41-46-image.png">
 
-<link rel="canonical" href="https://jonathan1214.github.io/2020/08/a-small-summer-win/">
+<link rel="canonical" href="https://jonathan1214.github.io/2022/08/nowcoder-verilog-data-cusum/">
 
 
 <script id="page-configurations">
@@ -49,7 +48,7 @@
   };
 </script>
 
-  <title>LDPC 码译码结束，喘上一口气 | dsfds' blog</title>
+  <title>『NC』verilog 数据累加输出 | dsfds' blog</title>
   
 
 
@@ -198,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2020/08/a-small-summer-win/">
+    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/08/nowcoder-verilog-data-cusum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -211,7 +210,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LDPC 码译码结束，喘上一口气
+          『NC』verilog 数据累加输出
         </h1>
 
         <div class="post-meta">
@@ -220,23 +219,25 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-08-17 22:39:27" itemprop="dateCreated datePublished" datetime="2020-08-17T22:39:27+08:00">2020-08-17</time>
+              <time title="创建时间：2022-08-04 15:32:55 / 修改时间：15:42:52" itemprop="dateCreated datePublished" datetime="2022-08-04T15:32:55+08:00">2022-08-04</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-02 22:15:37" itemprop="dateModified" datetime="2022-08-02T22:15:37+08:00">2022-08-02</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
+                  <a href="/categories/veriog/" itemprop="url" rel="index"><span itemprop="name">veriog</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/veriog/cheetsheet/" itemprop="url" rel="index"><span itemprop="name">cheetsheet</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/veriog/cheetsheet/handshake/" itemprop="url" rel="index"><span itemprop="name">handshake</span></a>
                 </span>
             </span>
 
@@ -256,8 +257,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/08/a-small-summer-win/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/a-small-summer-win/" itemprop="commentCount"></span>
+    <a title="valine" href="/2022/08/nowcoder-verilog-data-cusum/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/nowcoder-verilog-data-cusum/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -272,14 +273,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>过去的这两周，我的时间基本花在了 LDPC 码的学习上，开始是阅读『hannel Codes』这本书，然后就是用 C 语言实现其中介绍的译码算法和 SPA 和其简化版本 MSA，若是不深入其原理，实现这个算法并不困难，但我忽视了一个重要的问题：我实现的算法最终要达到什么样的效果？这导致我白白浪费了两天时间。</p>
+        <p>和上一篇类似，不过这次上下游握手协议均是 valid-ready。</p>
+<p><a href="https://www.nowcoder.com/practice/956fa4fa03e4441d85262dc1ec46a3bd?tpId=302&amp;tqId=5000601&amp;ru=/exam/oj&amp;qru=/ta/verilog-advanced/question-ranking&amp;sourceUrl=%2Fexam%2Foj%3Ftab%3DVerilog%25E7%25AF%2587%26topicId%3D302" target="_blank" rel="noopener">原题链接：数据累加输出</a></p>
+<p><img src="2022-08-04-15-41-46-image.png" alt=""></p>
+<p>数据通路的处理比较清晰，关键是上下游的控制信号传递。</p>
+<p>这是核心：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// valid_b == 1b'1 ---&gt; 数据输出有效，此时停止读入新的数据</span></span><br><span class="line"><span class="comment">// ready_b == 1'b1 ---&gt; 下游可以接收数据，此时可以读取新的数据</span></span><br><span class="line"><span class="keyword">assign</span> ready_a = ~valid_b || ready_b;</span><br><span class="line"><span class="keyword">assign</span> valid_in = ready_a &amp;&amp; valid_a;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>书上给出的 BER 曲线中，使用的算法是 SPA，而我实现的算法是 MSA，其他条件相同的情况下，MSA 性能就是不如 SPA，因为它只是 SPA 的简化版本。我做出来的误码率曲线老是和书上的差一点，让我非常困惑，纠结了半天，后面问了老师，她给了她当时做的时候生成的 H 矩阵和当时实现的代码，让我作一个参考，这对我帮助很大。</p>
-<p><img src="image-20200817230403378.png" alt=""></p>
-<p>昨天一天还是白白度过了，我在极度自闭中混过了一天，期间断点运行了代码试了试，发现了我原来实现算法中的一个小问题，还优化了一下代码，但都对性能毫无改进，就算是使用老师给的 H 矩阵也是一样。我开始怀疑是算法本身的问题，是不是它根本就达不到书上给出的性能，于是今天我回头去看书，在图的上方，作者写明了仿真算法是 SPA，而我做的是 MSA！该死，我居然直接忽视了这么明显了信息。在往前翻翻，作者提到 MSA 会比 SPA 的性能差 0.1dB，我的仿真是符合的！我有点激动，赶紧实现了 SPA，稍加调试，开始运行，等待结果。</p>
-<p><strong>果然，就是 MSA 算法的问题，书上给出的图在 SPA 算法下的，而我做的是 MSA，自然有性能差距。</strong></p>
-<p><img src="finalresult.png" alt=""></p>
-<p>这次仿真就告一段落了，后续我会写几篇文章，总结仿真实现的过程以及在仿真中遇到的问题。现在我觉得最关键的一个问题是：<strong>面对仿真结果的不理想，如何进行调试，尤其是时间有限的情况下，如何快速定位错误。</strong>这是个共性的问题，需要经验的积累，从这次经历中我能学到的是什么呢？找时间总结下。</p>
+<hr>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">`<span class="meta-keyword">timescale</span> 1ns/1ns</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">module</span> valid_ready(</span><br><span class="line">    <span class="keyword">input</span> 				clk 		,   </span><br><span class="line">    <span class="keyword">input</span> 				rst_n		,</span><br><span class="line">    <span class="keyword">input</span>		[<span class="number">7</span>:<span class="number">0</span>]	data_in		,</span><br><span class="line">    <span class="keyword">input</span>				valid_a		,</span><br><span class="line">    <span class="keyword">input</span>	 			ready_b		,</span><br><span class="line"> </span><br><span class="line"> 	<span class="keyword">output</span>		 		ready_a		,</span><br><span class="line"> 	<span class="keyword">output</span>	<span class="keyword">reg</span>			valid_b		,</span><br><span class="line">    <span class="keyword">output</span>  <span class="keyword">reg</span> [<span class="number">9</span>:<span class="number">0</span>] 	data_out</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">wire</span> valid_in;</span><br><span class="line">    <span class="keyword">wire</span> valid_out;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// valid_b == 1b'1 ---&gt; 数据输出有效，此时停止读入新的数据</span></span><br><span class="line">    <span class="comment">// ready_b == 1'b1 ---&gt; 下游可以接收数据，此时可以读取新的数据</span></span><br><span class="line">    <span class="keyword">assign</span> ready_a = ~valid_b || ready_b;</span><br><span class="line">    <span class="keyword">assign</span> valid_in = ready_a &amp;&amp; valid_a;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">reg</span> [<span class="number">1</span>:<span class="number">0</span>] cnt;</span><br><span class="line">    <span class="keyword">reg</span> [<span class="number">9</span>:<span class="number">0</span>] buffer;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">wire</span> cntdone = cnt == <span class="number">2'd3</span>;</span><br><span class="line">    <span class="keyword">wire</span> cntstart = cnt == <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk <span class="keyword">or</span> <span class="keyword">negedge</span> rst_n) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> (rst_n == <span class="number">1'b0</span>) cnt &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (valid_in &amp;&amp; cntdone) cnt &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (valid_in) cnt &lt;= cnt + <span class="number">1'b1</span>;</span><br><span class="line">        <span class="keyword">else</span> cnt &lt;= cnt;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk <span class="keyword">or</span> <span class="keyword">negedge</span> rst_n) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> (rst_n == <span class="number">1'b0</span>) buffer &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (valid_in &amp;&amp; cntdone) buffer &lt;= <span class="number">0</span>; </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (valid_in) buffer &lt;= buffer + data_in;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk <span class="keyword">or</span> <span class="keyword">negedge</span> rst_n) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> (rst_n == <span class="number">1'b0</span>) data_out &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (valid_in &amp;&amp; cntstart) data_out &lt;= data_in;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (valid_in) data_out &lt;= data_out + data_in;</span><br><span class="line">        <span class="keyword">else</span> data_out &lt;= data_out;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk <span class="keyword">or</span> <span class="keyword">negedge</span> rst_n) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> (rst_n == <span class="number">1'b0</span>) valid_b &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (valid_in &amp;&amp; cntdone) valid_b &lt;= <span class="number">1'b1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (ready_b) valid_b &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> valid_b &lt;= valid_b;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -289,7 +291,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/记录/" rel="tag"># 记录</a>
+              <a href="/tags/verilog/" rel="tag"># verilog</a>
+              <a href="/tags/nowcoder/" rel="tag"># nowcoder</a>
           </div>
 
         
@@ -298,13 +301,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/FPGA-development-process-and-an-project-example/" rel="prev" title="FPGA 开发流程以及如何创建一个工程">
-      <i class="fa fa-chevron-left"></i> FPGA 开发流程以及如何创建一个工程
+    <a href="/2022/08/verilog-data-trans-01/" rel="prev" title="『NC』verilog 数据串并转换">
+      <i class="fa fa-chevron-left"></i> 『NC』verilog 数据串并转换
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/09/hang-out-for-half-a-month/" rel="next" title="闲逛半个月">
-      闲逛半个月 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -364,6 +364,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">1.</span> <span class="nav-text">code</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
