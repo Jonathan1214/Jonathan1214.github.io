@@ -190,6 +190,109 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/08/nc-verilog-data-width-24to128/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="dsfds">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dsfds' blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/nc-verilog-data-width-24to128/" class="post-title-link" itemprop="url">『NC』verilog 非整数倍数据位宽转换 24 to 128</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-08-04 23:19:11 / 修改时间：23:29:47" itemprop="dateCreated datePublished" datetime="2022-08-04T23:19:11+08:00">2022-08-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/veriog/" itemprop="url" rel="index"><span itemprop="name">veriog</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/veriog/cheetsheet/" itemprop="url" rel="index"><span itemprop="name">cheetsheet</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/08/nc-verilog-data-width-24to128/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/nc-verilog-data-width-24to128/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>非整数倍的数据位宽转换，和上一篇比较类似，但是由于转换宽度非整数倍，会产生更多的状态，但又不复杂到需要使用状态机来解决。</p>
+<p><a href="https://www.nowcoder.com/practice/6312169e30a645bba5d832c7313c64cc?tpId=302&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=0&amp;sourceUrl=%2Fexam%2Foj%3Ftab%3DVerilog%25E7%25AF%2587%26topicId%3D302" target="_blank" rel="noopener">原题链接：VL32 非整数倍数据位宽转换24to128</a></p>
+<p><img src="2022-08-04-23-28-24-image.png" alt=""></p>
+<p>通常的做法是 <strong>寻转转换前后位宽的最小公倍数</strong>。用计数器记录状态，计数器的值和最小公倍数相关。在这个例子中，转换前宽度 <code>A = 24</code>，转换后宽度 <code>B = 128</code>，最小公倍数为 <code>24 * 16 = 128 * 3</code>，所以：</p>
+<ul>
+<li>一共有 16 个状态。</li>
+<li>计数器 应该最大计数到 <code>16 - 1 = 15</code></li>
+<li>其中有 3 个状态需要输出 <code>data_out</code>，且标明 <code>valid_out</code></li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/nc-verilog-data-width-24to128/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/08/nowcoder-verilog-data-cusum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -215,7 +318,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-08-04 15:32:55 / 修改时间：15:42:52" itemprop="dateCreated datePublished" datetime="2022-08-04T15:32:55+08:00">2022-08-04</time>
+              <time title="创建时间：2022-08-04 15:32:55 / 修改时间：23:28:48" itemprop="dateCreated datePublished" datetime="2022-08-04T15:32:55+08:00">2022-08-04</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1122,11 +1225,10 @@
   
 
       
-    
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1194,7 +1296,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
