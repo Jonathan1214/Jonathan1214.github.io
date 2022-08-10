@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="dsfds&#39; blog">
 <meta property="og:description" content="Effective C++ 的目录。 1. 让自己习惯 C++01 视 C++ 为一个语言联邦02 尽量以 const, enum, inline 代替 #define 对于单纯常量，最好以 const 对象或 enums 替换 #define 对于形似函数的宏，最好改用 inline 函数替换 #define  03 尽可能使用 constconst 允许我们指定一个 语义约束，编译器会强制实施">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2022-08-09T10:57:35.206Z">
+<meta property="og:updated_time" content="2022-08-10T15:07:35.208Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="『effective』C++">
 <meta name="twitter:description" content="Effective C++ 的目录。 1. 让自己习惯 C++01 视 C++ 为一个语言联邦02 尽量以 const, enum, inline 代替 #define 对于单纯常量，最好以 const 对象或 enums 替换 #define 对于形似函数的宏，最好改用 inline 函数替换 #define  03 尽可能使用 constconst 允许我们指定一个 语义约束，编译器会强制实施">
@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-09 18:57:35" itemprop="dateModified" datetime="2022-08-09T18:57:35+08:00">2022-08-09</time>
+                <time title="修改时间：2022-08-10 23:07:35" itemprop="dateModified" datetime="2022-08-10T23:07:35+08:00">2022-08-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -340,14 +340,88 @@
 <li>以 local static 对象替换 non-local static 对象</li>
 </ul>
 <a id="more"></a>
-<h2 id="2-构造-析构-赋值运算"><a href="#2-构造-析构-赋值运算" class="headerlink" title="2. 构造/析构/赋值运算"></a>2. 构造/析构/赋值运算</h2><p>05 了解 C++ 默默编写并调用哪些函数</p>
+<h2 id="2-构造-析构-赋值运算"><a href="#2-构造-析构-赋值运算" class="headerlink" title="2. 构造/析构/赋值运算"></a>2. 构造/析构/赋值运算</h2><p>06 了解 C++ 默默编写并调用哪些函数</p>
+<ul>
+<li>copy 构造函数</li>
+<li>copy assignment 操作符</li>
+<li>析构函数</li>
+<li>default 构造函数</li>
+</ul>
+<p>这些函数都是 public 且 inline 的。</p>
+<p>如果 成员变量 中有引用（指针）和 const 变量，通常我们需要主动编写 copy assignment。</p>
 <p>06 若不想使用编译器自动生成的函数，就该明确拒绝</p>
+<p>即，我不想对象被拷贝，应该怎么做才能拒绝生成默认的 copy 函数。</p>
+<p>这是一个小技巧：将 copy 构造和 assignment 运算符声明为 pirvate 即可，而且我们不用实现他们。这样一来，如果有人调用他们，就会获得 linkage error。</p>
+<p>我们还可以把 linkage error 提前到 编译期 发生。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Uncopyable</span> &#123;</span></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    Uncopyable() &#123;&#125;</span><br><span class="line">    ~Uncopyable() &#123;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Uncopyable(<span class="keyword">const</span> Uncopyable&amp;); <span class="comment">// 阻止 copying</span></span><br><span class="line">    Uncopyable&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Uncopyable&amp;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HomeForSale</span>:</span> <span class="keyword">private</span> Uncopyable &#123;</span><br><span class="line">    <span class="comment">// 不用再声明 copy 构造和 copy assign 操作符</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h4><p>为了禁止编译器自动提供的机能，可将相应的成员函数声明为 private 并且不实现它。</p>
+<hr>
 <p>07 为多态基类声明 virtual 析构函数</p>
+<blockquote>
+<p>当 derived class 对象经由一个 base class 指针被删除，而该 base class 带着一个 non-virtual 析构函数，其结果是未定义的。</p>
+</blockquote>
+<p>通常在这种情况下，base class 的部分会被析构掉，但 derived class 的部分不会发生改变。</p>
+<p>解决办法是，为 base class 声明 virtual 析构函数。</p>
+<p>但是，virtual 析构函数也不该被滥用，即 class 中如果没有其他 virtual 函数，我们就不需要也不应该声明 virtual 析构函数。这是因为 virtual 函数是通过 vptr（virtual table pointer）实现的，这会导致 class 所占用的空间变大，且不利于移植。</p>
+<p>小心继承类，如果 base class 没有 virtual 析构，很可能会发生一些奇怪的错误。</p>
+<p>pure virtual 函数为我声明了一个 abstract classes，即不能被实例化（instantiated）的 class。</p>
+<hr>
+<h4 id="Note-1"><a href="#Note-1" class="headerlink" title="Note"></a>Note</h4><ul>
+<li>polymorphic（带多态性质）的 base classes 应该声明一个 virtual 析构函数。如果 class 带有任何 virtual 函数，它就应该拥有一个 virtual 析构函数。</li>
+<li>Classes 的设计目的如果不是作为 base classes 使用，或不是为了具备多态性，就不该声明 virtual 析构函数。</li>
+</ul>
+<hr>
 <p>08 别让异常逃离析构函数</p>
+<p>C++ 并不禁止析构函数吐出异常，但并不鼓励这么做。我们应该在 virtual 中就把异常处理掉。</p>
+<p>考虑下面这个例子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Widget</span> &#123;</span></span><br><span class="line">    ...</span><br><span class="line">    ~Widget() &#123; ... &#125; <span class="comment">// 假设可能吐出异常</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dosomething</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Widge&gt; v;</span><br><span class="line">    ...  <span class="comment">// 销毁 v</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一旦 Widget 吐出异常，vector 中后续的析构无法继续进行。这会导致恶劣的行为。</p>
+<h4 id="Note-2"><a href="#Note-2" class="headerlink" title="Note"></a>Note</h4><ul>
+<li>析构函数绝对不要吐出异常。</li>
+<li>如果客户需要对某个操作函数运行期间抛出的异常做出反应，那么 class 应该提供一个普通函数（而非在析构函数中）执行该操作。</li>
+</ul>
+<hr>
 <p>09 绝不在构造和析构过程中调用 virtual 函数</p>
+<p>base class 构造期间 virtual 函数绝不会下降到 derived classed 阶层。</p>
+<blockquote>
+<p>base class 构造期间，virtual 函数不是 virtual 函数。</p>
+</blockquote>
+<h4 id="Note-3"><a href="#Note-3" class="headerlink" title="Note"></a>Note</h4><ul>
+<li>在构造和析构期间不要调用 virtual 函数，因为这类调用从不下降至 derived class。</li>
+</ul>
+<hr>
 <p>10 令 operator= 返回一个 <code>reference to *this</code></p>
+<p>有趣的连续赋值形式：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x, y, z;;</span><br><span class="line">x = y = z = <span class="number">15</span>;</span><br></pre></td></tr></table></figure>
+<p>这暗示着，赋值采用右结合律。即 <code>x = (y = (z = 15));</code>。</p>
+<p>扩展到对象中，这意味着 <code>operator=</code> 需要返回一个 <code>referece</code> 指向操作符左侧的实参。看下面的例子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Widget</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ...</span><br><span class="line">    Widget&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Widget&amp; rhs) &#123;</span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>; <span class="comment">// 返回左侧对象</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>所有和赋值相关的运算都应该返回这样的值，如 <code>+=</code>、<code>*=</code>等等。</p>
+<h4 id="Note-4"><a href="#Note-4" class="headerlink" title="Note"></a>Note</h4><ul>
+<li>令 assignment 操作符返回一个 refrence to *this</li>
+</ul>
+<hr>
 <p>11 在 operator= 中处理 自我赋值</p>
+<p>一定要考虑自我赋值：<code>A = A;</code> 的情况。</p>
+<p>危险往往发生在 class 中有指针时，copy assginment 通常意味着指针的释放和新内容的开辟。这会导致问题。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Widget&amp; Widget::<span class="keyword">operator</span>=(<span class="keyword">const</span> Widget&amp; rhs) &#123;</span><br><span class="line">    <span class="keyword">delete</span> pb;</span><br><span class="line">    pb = <span class="keyword">new</span> Bitmap(*rhs.pb);</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果 <code>*this</code> 和 <code>rhs</code> 是同一对象，那么就会导致 deference nullptr 的问题。</p>
+<p>做一个 identity test 即可避免这种问题：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Widget&amp; Widget::<span class="keyword">operator</span>=(<span class="keyword">const</span> Widget&amp; rhs) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == &amp;rhs) <span class="keyword">return</span> *<span class="keyword">this</span>; <span class="comment">// identity test</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span> pb;</span><br><span class="line">    pb = <span class="keyword">new</span> Bitmap(*rhs.pb);</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="巧妙语句顺序"><a href="#巧妙语句顺序" class="headerlink" title="巧妙语句顺序"></a>巧妙语句顺序</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Wiget&amp; Widget::<span class="keyword">operator</span>=(<span class="keyword">const</span> Widget&amp; rhs) &#123;</span><br><span class="line">    Bitmap* pOrig = pb;</span><br><span class="line">    pb = <span class="keyword">new</span> Bitmap(*rhs.pb);</span><br><span class="line">    <span class="keyword">delete</span> pOrig;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="使用-copy-and-swap-技术"><a href="#使用-copy-and-swap-技术" class="headerlink" title="使用 copy and swap 技术"></a>使用 copy and swap 技术</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Widget</span> &#123;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(Widget&amp; rhs)</span></span>;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line">Widget&amp; Widget::<span class="keyword">operator</span>=(<span class="keyword">const</span> Widget&amp; rhs) &#123;</span><br><span class="line">    Widget temp(rhs);  <span class="comment">// 为 rhs 数据制作副本</span></span><br><span class="line">    swap(temp);        <span class="comment">// 交换</span></span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 另一个版本</span></span><br><span class="line">Widget&amp; Widget::<span class="keyword">operator</span>=(Widget rhs) &#123;</span><br><span class="line">    swap(rhs);        <span class="comment">// 交换</span></span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Note-5"><a href="#Note-5" class="headerlink" title="Note"></a>Note</h4><ul>
+<li>确保当对象自我赋值时 operator= 有良好行为。</li>
+<li>确定任何函数如果操作一个以上的对象，而其中多个对象是同一个对象时，其行为仍然正确。</li>
+</ul>
+<hr>
 <p>12 赋值对象时勿忘其每一个成分</p>
+<p>编写 derived class 的 copying 函数时，要小心操作，base class 的变量需要调用他们的 copying 函数完成复制。</p>
+<ul>
+<li>Copying 函数应该确保复制 “对象内所有成员变量” 及 “所有 base class 成分”。</li>
+<li>不要尝试以某个 copying 函数实现另一个 copying 函数。应该将共同机能放进第三个函数中。</li>
+</ul>
+<hr>
 <h2 id="3-资源管理"><a href="#3-资源管理" class="headerlink" title="3. 资源管理"></a>3. 资源管理</h2><p>13 以对象管理资源</p>
 <p>14 在资源管理类中小心 copying 行为</p>
 <p>15 在资源管理类中提供对原始资源的访问</p>
@@ -475,7 +549,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-让自己习惯-C"><span class="nav-number">1.</span> <span class="nav-text">1. 让自己习惯 C++</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#01-视-C-为一个语言联邦"><span class="nav-number">1.1.</span> <span class="nav-text">01 视 C++ 为一个语言联邦</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-尽量以-const-enum-inline-代替-define"><span class="nav-number">1.2.</span> <span class="nav-text">02 尽量以 const, enum, inline 代替 #define</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03-尽可能使用-const"><span class="nav-number">1.3.</span> <span class="nav-text">03 尽可能使用 const</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#const-成员函数"><span class="nav-number">1.3.1.</span> <span class="nav-text">const 成员函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在-const-和-non-const-成员函数中避免重复"><span class="nav-number">1.3.2.</span> <span class="nav-text">在 const 和 non-const 成员函数中避免重复</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#note"><span class="nav-number">1.3.3.</span> <span class="nav-text">note</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#04-确定对象被使用前已先被初始化"><span class="nav-number">1.4.</span> <span class="nav-text">04 确定对象被使用前已先被初始化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-构造-析构-赋值运算"><span class="nav-number">2.</span> <span class="nav-text">2. 构造/析构/赋值运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-资源管理"><span class="nav-number">3.</span> <span class="nav-text">3. 资源管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-设计与声明"><span class="nav-number">4.</span> <span class="nav-text">4. 设计与声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-实现"><span class="nav-number">5.</span> <span class="nav-text">5. 实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-继承与面向对象设计"><span class="nav-number">6.</span> <span class="nav-text">6. 继承与面向对象设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-模板与泛型编程"><span class="nav-number">7.</span> <span class="nav-text">7. 模板与泛型编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-定制-new-和-delete"><span class="nav-number">8.</span> <span class="nav-text">8. 定制 new 和 delete</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-杂项讨论"><span class="nav-number">9.</span> <span class="nav-text">9. 杂项讨论</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-让自己习惯-C"><span class="nav-number">1.</span> <span class="nav-text">1. 让自己习惯 C++</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#01-视-C-为一个语言联邦"><span class="nav-number">1.1.</span> <span class="nav-text">01 视 C++ 为一个语言联邦</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-尽量以-const-enum-inline-代替-define"><span class="nav-number">1.2.</span> <span class="nav-text">02 尽量以 const, enum, inline 代替 #define</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03-尽可能使用-const"><span class="nav-number">1.3.</span> <span class="nav-text">03 尽可能使用 const</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#const-成员函数"><span class="nav-number">1.3.1.</span> <span class="nav-text">const 成员函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在-const-和-non-const-成员函数中避免重复"><span class="nav-number">1.3.2.</span> <span class="nav-text">在 const 和 non-const 成员函数中避免重复</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#note"><span class="nav-number">1.3.3.</span> <span class="nav-text">note</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#04-确定对象被使用前已先被初始化"><span class="nav-number">1.4.</span> <span class="nav-text">04 确定对象被使用前已先被初始化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-构造-析构-赋值运算"><span class="nav-number">2.</span> <span class="nav-text">2. 构造/析构/赋值运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Note"><span class="nav-number">2.0.1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-1"><span class="nav-number">2.0.2.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-2"><span class="nav-number">2.0.3.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-3"><span class="nav-number">2.0.4.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-4"><span class="nav-number">2.0.5.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#巧妙语句顺序"><span class="nav-number">2.0.6.</span> <span class="nav-text">巧妙语句顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-copy-and-swap-技术"><span class="nav-number">2.0.7.</span> <span class="nav-text">使用 copy and swap 技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-5"><span class="nav-number">2.0.8.</span> <span class="nav-text">Note</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-资源管理"><span class="nav-number">3.</span> <span class="nav-text">3. 资源管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-设计与声明"><span class="nav-number">4.</span> <span class="nav-text">4. 设计与声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-实现"><span class="nav-number">5.</span> <span class="nav-text">5. 实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-继承与面向对象设计"><span class="nav-number">6.</span> <span class="nav-text">6. 继承与面向对象设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-模板与泛型编程"><span class="nav-number">7.</span> <span class="nav-text">7. 模板与泛型编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-定制-new-和-delete"><span class="nav-number">8.</span> <span class="nav-text">8. 定制 new 和 delete</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-杂项讨论"><span class="nav-number">9.</span> <span class="nav-text">9. 杂项讨论</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -491,14 +565,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">123</span>
+          <span class="site-state-item-count">124</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
