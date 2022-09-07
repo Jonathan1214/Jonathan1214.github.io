@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.7.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32_32.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16_16.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jonathan1214.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="操作系统接口操作系统的工作：  将计算机的资源在多个程序间共享，并且给程序提供一系列比硬件本身更有用的服务。 管理并抽象底层硬件 多路复用硬件，使得多个程序可以(至少看起来是)同时运行的 最后，给程序间提供一种受控的交互方式，使得程序之间可以共享数据、共同工作  操作系统通过接口向用户程序提供服务。让接口的设计依赖于少量的机制 （mechanism)，而通过这些机制的组合提供强大、通用的功能。提供">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xv6-00-操作系统接口">
+<meta property="og:url" content="https://jonathan1214.github.io/2022/09/xv6-00-os-interface/index.html">
+<meta property="og:site_name" content="dsfds&#39; blog">
+<meta property="og:description" content="操作系统接口操作系统的工作：  将计算机的资源在多个程序间共享，并且给程序提供一系列比硬件本身更有用的服务。 管理并抽象底层硬件 多路复用硬件，使得多个程序可以(至少看起来是)同时运行的 最后，给程序间提供一种受控的交互方式，使得程序之间可以共享数据、共同工作  操作系统通过接口向用户程序提供服务。让接口的设计依赖于少量的机制 （mechanism)，而通过这些机制的组合提供强大、通用的功能。提供">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://jonathan1214.github.io/2022/09/xv6-00-os-interface/f0-1.png">
+<meta property="og:updated_time" content="2022-09-07T07:05:55.312Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="xv6-00-操作系统接口">
+<meta name="twitter:description" content="操作系统接口操作系统的工作：  将计算机的资源在多个程序间共享，并且给程序提供一系列比硬件本身更有用的服务。 管理并抽象底层硬件 多路复用硬件，使得多个程序可以(至少看起来是)同时运行的 最后，给程序间提供一种受控的交互方式，使得程序之间可以共享数据、共同工作  操作系统通过接口向用户程序提供服务。让接口的设计依赖于少量的机制 （mechanism)，而通过这些机制的组合提供强大、通用的功能。提供">
+<meta name="twitter:image" content="https://jonathan1214.github.io/2022/09/xv6-00-os-interface/f0-1.png">
+
+<link rel="canonical" href="https://jonathan1214.github.io/2022/09/xv6-00-os-interface/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>xv6-00-操作系统接口 | dsfds' blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">dsfds' blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">学海无涯，回头是岸</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/09/xv6-00-os-interface/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="dsfds">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dsfds' blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          xv6-00-操作系统接口
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-09-07 13:30:12 / 修改时间：15:05:55" itemprop="dateCreated datePublished" datetime="2022-09-07T13:30:12+08:00">2022-09-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/xv6/" itemprop="url" rel="index"><span itemprop="name">xv6</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/os/" itemprop="url" rel="index"><span itemprop="name">os</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/09/xv6-00-os-interface/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/09/xv6-00-os-interface/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="操作系统接口"><a href="#操作系统接口" class="headerlink" title="操作系统接口"></a>操作系统接口</h2><p>操作系统的工作：</p>
+<ul>
+<li>将计算机的资源在多个程序间共享，并且给程序提供一系列比硬件本身更有用的服务。</li>
+<li>管理并抽象底层硬件</li>
+<li>多路复用硬件，使得多个程序可以(至少看起来是)同时运行的</li>
+<li>最后，给程序间提供一种受控的交互方式，使得程序之间可以共享数据、共同工作</li>
+</ul>
+<p>操作系统通过接口向用户程序提供服务。让接口的设计依赖于少量的<em>机制</em> （<em>mechanism</em>)，而通过这些机制的组合提供强大、通用的功能。<strong>提供机制而不是方法。</strong></p>
+<a id="more"></a>
+<p><img src="f0-1.png" alt="kernel"></p>
+<p>提供的接口如下：</p>
+<table>
+<thead>
+<tr>
+<th>系统调用</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fork()</td>
+<td>创建进程</td>
+</tr>
+<tr>
+<td>exit()</td>
+<td>结束当前进程</td>
+</tr>
+<tr>
+<td>wait()</td>
+<td>等待子进程结束</td>
+</tr>
+<tr>
+<td>kill(pid)</td>
+<td>结束 pid 所指进程</td>
+</tr>
+<tr>
+<td>getpid()</td>
+<td>获得当前进程 pid</td>
+</tr>
+<tr>
+<td>sleep(n)</td>
+<td>睡眠 n 秒</td>
+</tr>
+<tr>
+<td>exec(filename, *argv)</td>
+<td>加载并执行一个文件</td>
+</tr>
+<tr>
+<td>sbrk(n)</td>
+<td>为进程内存空间增加 n 字节</td>
+</tr>
+<tr>
+<td>open(filename, flags)</td>
+<td>打开文件，flags 指定读/写模式</td>
+</tr>
+<tr>
+<td>read(fd, buf, n)</td>
+<td>从文件中读 n 个字节到 buf</td>
+</tr>
+<tr>
+<td>write(fd, buf, n)</td>
+<td>从 buf 中写 n 个字节到文件</td>
+</tr>
+<tr>
+<td>close(fd)</td>
+<td>关闭打开的 fd</td>
+</tr>
+<tr>
+<td>dup(fd)</td>
+<td>复制 fd</td>
+</tr>
+<tr>
+<td>pipe( p)</td>
+<td>创建管道， 并把读和写的 fd 返回到p</td>
+</tr>
+<tr>
+<td>chdir(dirname)</td>
+<td>改变当前目录</td>
+</tr>
+<tr>
+<td>mkdir(dirname)</td>
+<td>创建新的目录</td>
+</tr>
+<tr>
+<td>mknod(name, major, minor)</td>
+<td>创建设备文件</td>
+</tr>
+<tr>
+<td>fstat(fd)</td>
+<td>返回文件信息</td>
+</tr>
+<tr>
+<td>link(f1, f2)</td>
+<td>给 f1 创建一个新名字(f2)</td>
+</tr>
+<tr>
+<td>unlink(filename)</td>
+<td>删除文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="进程和内存"><a href="#进程和内存" class="headerlink" title="进程和内存"></a>进程和内存</h2><p>一个 xv6 进程由两部分组成，一部分是用户内存空间（指令，数据，栈），另一部分是仅对内核可见的进程状态。</p>
+<p>xv6 提供了分时特性：它在可用 CPU 之间不断切换，决定哪一个等待中的进程被执行。</p>
+<p>内核将每个进程和一个 <strong>pid</strong> (process identifier) 关联起来。</p>
+<p>一个进程可以通过系统调用 <code>fork</code> 来创建一个新的进程。<code>fork</code> 创建的新进程被称为<strong>子进程</strong>，子进程的内存内容同创建它的进程（父进程）一样。子进程返回 0，而父进程返回子进程的 pid。</p>
+<p>系统调用 <code>wait</code> 会返回一个当前进程已退出的子进程，如果没有子进程退出，<code>wait</code> 会等候直到有一个子进程退出。即使用 <code>wait</code> 回收子进程。</p>
+<p>父子进程拥有不同的内存空间和寄存器，改变一个进程中的变量不会影响另一个进程。</p>
+<p>系统调用 <code>exec</code> 将从某个<em>文件</em>（通常是可执行文件）里读取内存镜像，并将其替换到调用它的进程的内存空间。即读取 elf 文件。</p>
+<p>观察 shell 中 main 的代码（8001），就可以明白，shell 其实就是在不断读取输入的命令，fork 创建子进程，exec 加载子进程执行即可。</p>
+<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p>在 7922 行，我们得到如下结果：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">caes EXEC:</span><br><span class="line">ecmd = (struct execcmd*)cmd;</span><br><span class="line"><span class="keyword">if</span> (ecmd-&gt;argv[<span class="number">0</span>] == <span class="number">0</span>) <span class="built_in">exit</span>();</span><br><span class="line">exec(ecmd-&gt;argv[<span class="number">0</span>], ecmd-&gt;argv);</span><br><span class="line"><span class="built_in">printf</span>(<span class="number">2</span>, <span class="string">"exec %s faild\n"</span>, ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line"><span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+<p>我们发现和有意思的现象，<strong>如果代码正确执行了，那么 exec 是不会返回的</strong>。</p>
+<p>我们还发现，fork 和 exec 是分离的，即加载一个程序分为两步：fork创建进程，exec加载进行。</p>
+<p><strong>xv6 通常隐式地分配用户的内存空间。</strong><code>fork</code> 在子进程需要装入父进程的内存拷贝时分配空间，<code>exec</code> 在需要装入可执行文件时分配空间。一个进程在需要额外内存时可以通过调用 <code>sbrk(n)</code> 来增加 n 字节的数据内存。 <code>sbrk</code> 返回新的内存的地址。</p>
+<p>其实没什么新鲜的，就是 copy-on-write。</p>
+<h2 id="I-O-和文件描述符"><a href="#I-O-和文件描述符" class="headerlink" title="I/O 和文件描述符"></a>I/O 和文件描述符</h2><p><strong>文件描述符</strong>是一个整数，它代表了一个进程可以读写的被内核管理的对象。</p>
+<p>常常把文件描述符指向的对象称为“文件”。</p>
+<ul>
+<li>进程从文件描述符0读入（标准输入）</li>
+<li>从文件描述符1输出（标准输出）</li>
+<li>从文件描述符2输出错误（标准错误输出）</li>
+</ul>
+<p>shell 中代码（8007），保证 console 拥有前 3 个打开的文件描述符：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> ((fd = open(<span class="string">"console"</span>, O_RDWR)) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (fd &gt;= <span class="number">3</span>) &#123;</span><br><span class="line">        close(fd);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>系统调用 <code>read</code> 和 <code>write</code> 从文件描述符所指的文件中读或者写 n 个字节。每一个指向文件的<strong>文件描述符都和一个偏移关联</strong>。</p>
+<ul>
+<li><code>read(fd, buf, n)</code></li>
+<li><code>write(fd, buf, n)</code></li>
+</ul>
+<p>系统调用 <code>close</code> 会释放一个文件描述符，使得它未来可以被 <code>open</code>, <code>pipe</code>, <code>dup</code> 等调用重用。<strong>一个新分配的文件描述符永远都是当前进程的最小的未被使用的文件描述符。</strong></p>
+<p>使用文件描述付和 <code>fork</code> 实现 I/O 重定向：<code>fork</code> 一个进程，重新打开指定文件的文件描述符，然后执行新的程序。</p>
+<p>这是因为<code>fork</code> 会复制父进程的文件描述符和内存，所以子进程和父进程的文件描述符一模一样。<code>exec</code> 会替换调用它的进程的内存但是会保留它的文件描述符表。</p>
+<p>下面这个例子展示了如何使用重定向的方式使用 <code>cat</code>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *argv[<span class="number">2</span>];</span><br><span class="line">argv[<span class="number">0</span>] = <span class="string">"cat"</span>;</span><br><span class="line"><span class="keyword">if</span> (fork() == <span class="number">0</span>) &#123; <span class="comment">// 子进程</span></span><br><span class="line">    close(<span class="number">0</span>); <span class="comment">// 关闭 0 号文件描述付</span></span><br><span class="line">    open(<span class="string">"input.txt"</span>, O_RDONLY); <span class="comment">// 将 0 号文件描述符绑定到文件</span></span><br><span class="line">    <span class="comment">// 新分配的文件描述符一定是最小的</span></span><br><span class="line">    exec(<span class="string">"cat"</span>, argv); <span class="comment">// cat 将 从 0 号文件描述符指向的位置读取</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="源码-1"><a href="#源码-1" class="headerlink" title="源码"></a>源码</h3><p>在 xv6 中，这部分是这么实现的（7930）：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> REDIR:</span><br><span class="line">    rcmd = (struct redircmd*)cmd;</span><br><span class="line">    close(rcmd-&gt;fd); <span class="comment">// 关闭文件描述符</span></span><br><span class="line">    <span class="keyword">if</span> (open(rcmd-&gt;file, rcmd-&gt;mode) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="number">2</span>, <span class="string">"open %s faild\n"</span>, rcmd-&gt;file);</span><br><span class="line">        <span class="built_in">exit</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    runcmd(rcmd-&gt;cmd);</span><br><span class="line">    <span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，fork 复制文件描述符时，文件偏移是在进程之间共享的。</p>
+<p><code>dup</code> 可以复制已有的文件描述符。返回一个指向同一个 I/O 对象的新描述符。共享文件偏移。</p>
+<h2 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h2><p>管道是一个小的内核缓冲区，它以文件描述符对的形式提供给进程，一个用于写操作，一个用于读操作。</p>
+<p>管道的 0 号用于进程读，1 号用于进程写。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> p[<span class="number">2</span>];</span><br><span class="line"><span class="keyword">char</span> *argv[<span class="number">2</span>];</span><br><span class="line">argv[<span class="number">0</span>] = <span class="string">"wc"</span>;</span><br><span class="line">argv[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">pipe(p);</span><br><span class="line"><span class="keyword">if</span>(fork() == <span class="number">0</span>) &#123;</span><br><span class="line">    close(<span class="number">0</span>);</span><br><span class="line">    dup(p[<span class="number">0</span>]); <span class="comment">// 子进程复制 pipe 读口到标准输入 0</span></span><br><span class="line">    close(p[<span class="number">0</span>]); <span class="comment">// 关闭其余 pipe 口</span></span><br><span class="line">    close(p[<span class="number">1</span>]);</span><br><span class="line">    exec(<span class="string">"/bin/wc"</span>, argv);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    write(p[<span class="number">1</span>], <span class="string">"hello world\n"</span>, <span class="number">12</span>);</span><br><span class="line">    close(p[<span class="number">0</span>]);</span><br><span class="line">    close(p[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>如果数据没有准备好，那么对管道执行的<code>read</code>会一直等待，直到有数据了或者其他绑定在这个管道写端口的描述符都已经关闭了。</strong>在后一种情况中，<code>read</code> 会返回 0，就像是一份文件读到了最后。读操作会一直阻塞直到不可能再有新数据到来了，这就是为什么我们在执行 <code>wc</code> 之前要关闭子进程的写端口。</p>
+<h3 id="源码-2"><a href="#源码-2" class="headerlink" title="源码"></a>源码</h3><p>在 xv6 中，shell 对管道是这么处理的（7950）：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> PIPE:</span><br><span class="line">pcmd = (struct pipecmd*)cmd;</span><br><span class="line"><span class="keyword">if</span> (pipe(p) &lt; <span class="number">0</span>) panic(<span class="string">"pipe"</span>);</span><br><span class="line"><span class="keyword">if</span> (fork1() == <span class="number">0</span>) &#123; <span class="comment">// 子进程 1，执行管道左边的命令，产生输出</span></span><br><span class="line">    close(<span class="number">1</span>); <span class="comment">// 关闭标准输出</span></span><br><span class="line">    dup(p[<span class="number">1</span>]); <span class="comment">// 将标准输出指向 p[1]，即指向管道</span></span><br><span class="line">    close(p[<span class="number">0</span>]);</span><br><span class="line">    close(p[<span class="number">1</span>]);</span><br><span class="line">    runcmd(pcmd-&gt;left);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (fork1() == <span class="number">0</span>) &#123; <span class="comment">// 子进程2，管道右边的命令，读取输入</span></span><br><span class="line">    close(<span class="number">0</span>); <span class="comment">// 关闭标准输入</span></span><br><span class="line">    dup(p[<span class="number">0</span>]); <span class="comment">// 0 号 fd 绑定到管道读口</span></span><br><span class="line">    close(p[<span class="number">0</span>]);</span><br><span class="line">    close(p[<span class="number">1</span>]);</span><br><span class="line">    runcmd(pcmd-&gt;right);</span><br><span class="line">&#125;</span><br><span class="line">close(p[<span class="number">0</span>]);</span><br><span class="line">close(p[<span class="number">1</span>]);</span><br><span class="line">wait();</span><br><span class="line">wait();</span><br><span class="line"><span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2><p>xv6 文件系统提供文件和目录，文件就是一个简单的字节数组，而目录包含指向文件和其他目录的引用。</p>
+<p><code>mknod</code> 在文件系统中创建一个文件，但是这个文件没有任何内容。</p>
+<p><code>fstat</code> 可以获取一个文件描述符指向的文件的信息。</p>
+<p>文件名和这个文件本身是有很大的区别。同一个文件（称为 <code>inode</code>）可能有多个名字，称为<strong>连接</strong> (<code>links</code>)。</p>
+<p>系统调用 <code>unlink</code> 从文件系统移除一个文件名。</p>
+<p>一个文件的 inode 和磁盘空间只有当它的链接数变为 0 的时候才会被清空，也就是没有一个文件再指向它。</p>
+<h2 id="现实情况"><a href="#现实情况" class="headerlink" title="现实情况"></a>现实情况</h2><p>UNIX 将“标准”的文件描述符，管道，和便于操作它们的 shell 命令整合在一起，这是编写通用、可重用程序的重大进步。这个想法激发了 UNIX 强大和流行的“软件工具”文化，而且 shell 也是首个所谓的“脚本语言”。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/08/effective-cpp-5-implementation/" rel="prev" title="effective-cpp-5-implementation">
+      <i class="fa fa-chevron-left"></i> effective-cpp-5-implementation
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统接口"><span class="nav-number">1.</span> <span class="nav-text">操作系统接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程和内存"><span class="nav-number">2.</span> <span class="nav-text">进程和内存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#源码"><span class="nav-number">2.1.</span> <span class="nav-text">源码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-O-和文件描述符"><span class="nav-number">3.</span> <span class="nav-text">I/O 和文件描述符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#源码-1"><span class="nav-number">3.1.</span> <span class="nav-text">源码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管道"><span class="nav-number">4.</span> <span class="nav-text">管道</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#源码-2"><span class="nav-number">4.1.</span> <span class="nav-text">源码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件系统"><span class="nav-number">5.</span> <span class="nav-text">文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#现实情况"><span class="nav-number">6.</span> <span class="nav-text">现实情况</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="dsfds"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">dsfds</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jonathan1214" title="GitHub → https://github.com/jonathan1214" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jonathan1214@foxmail.com" title="E-Mail → mailto:jonathan1214@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52
+       src="//music.163.com/outchain/player?type=2&id=108835&auto=0&height=32">
+      </iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">dsfds</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'pKduJiwXGxEBLhnENF3li3Fv-gzGzoHsz',
+      appKey     : 'TfcDSWRi0FBxPFOnGhQ1d5be',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

@@ -190,6 +190,214 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/09/xv6-00-os-interface/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="dsfds">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dsfds' blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/09/xv6-00-os-interface/" class="post-title-link" itemprop="url">xv6-00-操作系统接口</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-09-07 13:30:12 / 修改时间：15:05:55" itemprop="dateCreated datePublished" datetime="2022-09-07T13:30:12+08:00">2022-09-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/xv6/" itemprop="url" rel="index"><span itemprop="name">xv6</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/os/" itemprop="url" rel="index"><span itemprop="name">os</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/09/xv6-00-os-interface/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/09/xv6-00-os-interface/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="操作系统接口"><a href="#操作系统接口" class="headerlink" title="操作系统接口"></a>操作系统接口</h2><p>操作系统的工作：</p>
+<ul>
+<li>将计算机的资源在多个程序间共享，并且给程序提供一系列比硬件本身更有用的服务。</li>
+<li>管理并抽象底层硬件</li>
+<li>多路复用硬件，使得多个程序可以(至少看起来是)同时运行的</li>
+<li>最后，给程序间提供一种受控的交互方式，使得程序之间可以共享数据、共同工作</li>
+</ul>
+<p>操作系统通过接口向用户程序提供服务。让接口的设计依赖于少量的<em>机制</em> （<em>mechanism</em>)，而通过这些机制的组合提供强大、通用的功能。<strong>提供机制而不是方法。</strong></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/09/xv6-00-os-interface/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/08/effective-cpp-5-implementation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="dsfds">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dsfds' blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/effective-cpp-5-implementation/" class="post-title-link" itemprop="url">effective-cpp-5-implementation</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-11 12:29:23" itemprop="dateCreated datePublished" datetime="2022-08-11T12:29:23+08:00">2022-08-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-05 16:58:29" itemprop="dateModified" datetime="2022-09-05T16:58:29+08:00">2022-09-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/effective/" itemprop="url" rel="index"><span itemprop="name">effective</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/08/effective-cpp-5-implementation/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/effective-cpp-5-implementation/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>26 尽可能延后变量定义式的出现时间</p>
+<p>27 尽量少做转型动作（Minimize casting）</p>
+<p>28 避免返回 handles 指向对象内部成分</p>
+<p>29 为 异常安全（exception-safe）努力是值得的</p>
+<p>30 透彻了解 <code>inlining</code> 的里里外外</p>
+<p>31 将文件间的编译依存关系降至最低</p>
+<hr>
+<p>尽量延后变量定义式的出现，这样做可增加程序的清晰度并改善程序效率。</p>
+<hr>
+<p>const_cast，将对象的常量性转除（cast away the constness）。</p>
+<p>dynamic_cast</p>
+<p>reinterpret_cast</p>
+<p>static_cast，强迫隐式转换，将 non-cast 转为 cast，或则 int 转为 double。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/08/effective-cpp-4-design-and-declarations/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -918,260 +1126,6 @@
   
 
       
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/08/git-flow-basic/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="dsfds">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dsfds' blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/08/git-flow-basic/" class="post-title-link" itemprop="url">git-flow 简单介绍及使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-08-02 20:58:03" itemprop="dateCreated datePublished" datetime="2022-08-02T20:58:03+08:00">2022-08-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-09 20:58:07" itemprop="dateModified" datetime="2022-08-09T20:58:07+08:00">2022-08-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/engineering/" itemprop="url" rel="index"><span itemprop="name">engineering</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/08/git-flow-basic/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/git-flow-basic/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>关于 git-flow 的简单介绍，是时候来好好管理我们的项目了，一条 main 交到底的方式并不合适。</p>
-<p>参考：</p>
-<p><a href="https://www.bilibili.com/video/BV1W3411C72K?share_source=copy_web&amp;vd_source=9f384d4584d09b2753c054baff8d4c9e" target="_blank" rel="noopener">git-flow介绍及开发过程演示</a></p>
-<p>基本的分支类型</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">分支名称</th>
-<th style="text-align:left">说明</th>
-<th style="text-align:left">命名</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">master</td>
-<td style="text-align:left">发布分支</td>
-<td style="text-align:left">master 或者 main</td>
-</tr>
-<tr>
-<td style="text-align:left">develop</td>
-<td style="text-align:left">开发分支</td>
-<td style="text-align:left">develop</td>
-</tr>
-<tr>
-<td style="text-align:left">feature</td>
-<td style="text-align:left">功能分支</td>
-<td style="text-align:left">feature/FOO-1</td>
-</tr>
-<tr>
-<td style="text-align:left">bugfix</td>
-<td style="text-align:left">修复分支</td>
-<td style="text-align:left">bugfix/FOO-2</td>
-</tr>
-<tr>
-<td style="text-align:left">hotfix</td>
-<td style="text-align:left">紧急修复分支</td>
-<td style="text-align:left">hotfix/FOO-3</td>
-</tr>
-<tr>
-<td style="text-align:left">release</td>
-<td style="text-align:left">发布前的准备工作</td>
-<td style="text-align:left">release/1.0.3</td>
-</tr>
-</tbody>
-</table>
-<p>额外的老版本的维护分支，一般使用 <code>support</code>，<code>support/1.0.x</code>。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/git-flow-basic/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/08/nowcoder-verilog-answers/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="dsfds">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dsfds' blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/08/nowcoder-verilog-answers/" class="post-title-link" itemprop="url">『NC』verilog 序列检测</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-08-01 10:27:53" itemprop="dateCreated datePublished" datetime="2022-08-01T10:27:53+08:00">2022-08-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-09 20:58:16" itemprop="dateModified" datetime="2022-08-09T20:58:16+08:00">2022-08-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/verilog/" itemprop="url" rel="index"><span itemprop="name">verilog</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/cheatsheet/" itemprop="url" rel="index"><span itemprop="name">cheatsheet</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/08/nowcoder-verilog-answers/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/08/nowcoder-verilog-answers/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>牛客上 Verilog 练习题的答案合集。我对这些题目的评价是比较坑，练习的快感不如 HDLbits，而且测试非常不专业，但还是值得一做的。</p>
-<p><a href="https://www.nowcoder.com/exam/oj?page=1&amp;tab=Verilog%E7%AF%87&amp;topicId=302" target="_blank" rel="noopener">verilog题目集</a></p>
-<ul>
-<li>VL25 输入序列连续的序列检测</li>
-<li>VL26 含无关项的序列检测</li>
-<li>VL27 不重叠序列检测</li>
-<li>VL28 输入序列不连续的序列检测</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/nowcoder-verilog-answers/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
 
   
   <nav class="pagination">
@@ -1243,14 +1197,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
