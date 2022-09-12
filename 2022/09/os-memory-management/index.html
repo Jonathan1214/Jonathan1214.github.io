@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.7.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32_32.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16_16.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jonathan1214.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="为什么要有虚拟内存？ 第一，虚拟内存可以使得进程对运行内存超过物理内存大小，因为程序运行符合局部性原理，CPU 访问内存会有很明显的重复访问的倾向性，对于那些没有被经常使用到的内存，我们可以把它换出到物理内存之外，比如硬盘上的 swap 区域。 第二，由于每个进程都有自己的页表，所以每个进程的虚拟内存空间就是相互独立的。进程也没有办法访问其他进程的页表，所以这些页表是私有的，这就解决了多进程之间地">
+<meta property="og:type" content="article">
+<meta property="og:title" content="『OS』内存管理">
+<meta property="og:url" content="https://jonathan1214.github.io/2022/09/os-memory-management/index.html">
+<meta property="og:site_name" content="dsfds&#39; blog">
+<meta property="og:description" content="为什么要有虚拟内存？ 第一，虚拟内存可以使得进程对运行内存超过物理内存大小，因为程序运行符合局部性原理，CPU 访问内存会有很明显的重复访问的倾向性，对于那些没有被经常使用到的内存，我们可以把它换出到物理内存之外，比如硬盘上的 swap 区域。 第二，由于每个进程都有自己的页表，所以每个进程的虚拟内存空间就是相互独立的。进程也没有办法访问其他进程的页表，所以这些页表是私有的，这就解决了多进程之间地">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://jonathan1214.github.io/2022/09/os-memory-management/19296e249b2240c29f9c52be70f611d5.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2022/09/os-memory-management/3a6cb4e3f27241d3b09b4766bb0b1124.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2022/09/os-memory-management/b4f882b9447760ce5321de109276ec23.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2022/09/os-memory-management/2f61b0822b3c4a359f99770231981b07.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2022/09/os-memory-management/image-20220909154746852.png">
+<meta property="og:image" content="https://jonathan1214.github.io/2022/09/os-memory-management/166bc9f5b7c545d89f1e36ab8dd772cf.png">
+<meta property="og:updated_time" content="2022-09-09T11:37:41.173Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="『OS』内存管理">
+<meta name="twitter:description" content="为什么要有虚拟内存？ 第一，虚拟内存可以使得进程对运行内存超过物理内存大小，因为程序运行符合局部性原理，CPU 访问内存会有很明显的重复访问的倾向性，对于那些没有被经常使用到的内存，我们可以把它换出到物理内存之外，比如硬盘上的 swap 区域。 第二，由于每个进程都有自己的页表，所以每个进程的虚拟内存空间就是相互独立的。进程也没有办法访问其他进程的页表，所以这些页表是私有的，这就解决了多进程之间地">
+<meta name="twitter:image" content="https://jonathan1214.github.io/2022/09/os-memory-management/19296e249b2240c29f9c52be70f611d5.png">
+
+<link rel="canonical" href="https://jonathan1214.github.io/2022/09/os-memory-management/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>『OS』内存管理 | dsfds' blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">dsfds' blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">学海无涯，回头是岸</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/09/os-memory-management/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="dsfds">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dsfds' blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          『OS』内存管理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-09-09 15:19:16 / 修改时间：19:37:41" itemprop="dateCreated datePublished" datetime="2022-09-09T15:19:16+08:00">2022-09-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/os/" itemprop="url" rel="index"><span itemprop="name">os</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/09/os-memory-management/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/09/os-memory-management/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="为什么要有虚拟内存？"><a href="#为什么要有虚拟内存？" class="headerlink" title="为什么要有虚拟内存？"></a>为什么要有虚拟内存？</h2><ul>
+<li>第一，虚拟内存可以使得进程对运行内存超过物理内存大小，因为程序运行符合局部性原理，CPU 访问内存会有很明显的重复访问的倾向性，对于那些没有被经常使用到的内存，我们可以把它换出到物理内存之外，比如硬盘上的 swap 区域。</li>
+<li>第二，由于每个进程都有自己的页表，所以每个进程的虚拟内存空间就是相互独立的。进程也没有办法访问其他进程的页表，所以这些页表是私有的，这就解决了多进程之间地址冲突的问题。</li>
+<li>第三，页表里的页表项中除了物理地址之外，还有一些标记属性的比特，比如控制一个页的读写权限，标记该页是否存在等。在内存访问方面，操作系统提供了更好的安全性。</li>
+</ul>
+<p>这就是虚拟内存的作用，为了引入虚拟内存，操作系统做了很多工作。</p>
+<a id="more"></a>
+<h3 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h3><p><strong>操作系统会提供一种机制，将不同进程的虚拟地址和不同内存的物理地址映射起来。</strong></p>
+<h3 id="内存分段"><a href="#内存分段" class="headerlink" title="内存分段"></a>内存分段</h3><p>程序是由若干个逻辑分段组成的，如可由代码分段、数据分段、栈段、堆段组成。<strong>不同的段是有不同的属性的，所以就用分段（*Segmentation*）的形式把这些段分离出来。</strong></p>
+<blockquote>
+<p>这就进入到内存模型的范围。</p>
+</blockquote>
+<p>但是分段会带来 <strong>外部内存碎片</strong> 的问题。</p>
+<p>因此需要引入分页。</p>
+<h3 id="内存分页"><a href="#内存分页" class="headerlink" title="内存分页"></a>内存分页</h3><p>页就是粒度更小的段，一般是 4KB。 </p>
+<p><strong>分页是把整个虚拟和物理内存空间切成一段段固定尺寸的大小</strong>。这样一个连续并且尺寸固定的内存空间，我们叫<strong>页</strong>（<em>Page</em>）。在 Linux 下，每一页的大小为 <code>4KB</code>。（12bit）</p>
+<p>但是这样划分带来的问题是，页表太大，造成了很大的浪费，大概需要 4MB 大小的页表，这是无法接受的，因此引入了多级页表，32位机中引入了两级页表。</p>
+<p><img src="19296e249b2240c29f9c52be70f611d5.png" alt="img"></p>
+<p>再次应用局部性，二级分页看起来占用了更多内存，但是由于局部性的存在，只有一小部分会被真正使用。</p>
+<p>那么为什么不分级的页表就做不到这样节约内存呢？</p>
+<p>我们从页表的性质来看，保存在内存中的页表承担的职责是将虚拟地址翻译成物理地址。假如虚拟地址在页表中找不到对应的页表项，计算机系统就不能工作了。所以<strong>页表一定要覆盖全部虚拟地址空间，不分级的页表就需要有 100 多万个页表项来映射，而二级分页则只需要 1024 个页表项</strong>（此时一级页表覆盖到了全部虚拟地址空间，二级页表在需要时创建）。</p>
+<p>对于 64 位的系统，两级分页肯定不够了，就变成了四级目录，分别是：</p>
+<ul>
+<li>全局页目录项 PGD（<em>Page Global Directory</em>）；</li>
+<li>上层页目录项 PUD（<em>Page Upper Directory</em>）；</li>
+<li>中间页目录项 PMD（<em>Page Middle Directory</em>）；</li>
+<li>页表项 PTE（<em>Page Table Entry</em>）；</li>
+</ul>
+<p>进一步利用局部性，引入了 TLB，其实就是页表的缓存。</p>
+<h3 id="Linux-内存管理"><a href="#Linux-内存管理" class="headerlink" title="Linux 内存管理"></a>Linux 内存管理</h3><p>简化段页式的映射，所有的段起点都是0。</p>
+<p><img src="3a6cb4e3f27241d3b09b4766bb0b1124.png" alt="img"></p>
+<ul>
+<li><code>32</code> 位系统的内核空间占用 <code>1G</code>，位于最高处，剩下的 <code>3G</code> 是用户空间；</li>
+<li><code>64</code> 位系统的内核空间和用户空间都是 <code>128T</code>，分别占据整个内存空间的最高和最低处，剩下的中间部分是未定义的。</li>
+</ul>
+<p>我们看看用户空间分布的情况，以 32 位系统为例：</p>
+<p><img src="b4f882b9447760ce5321de109276ec23.png" alt="虚拟内存空间划分"></p>
+<p>我们需要清楚每一个部分是干什么的，这其实就告诉了我们 ELF 文件的格式。</p>
+<ul>
+<li>程序文件段（.text），包括二进制可执行代码；</li>
+<li>已初始化数据段（.data），包括静态常量；</li>
+<li>未初始化数据段（.bss），包括未初始化的静态变量；</li>
+<li>堆段，包括动态分配的内存，从低地址开始向上增长；</li>
+<li>文件映射段，包括动态库、共享内存等，从低地址开始向上增长（<a href="http://lishiwen4.github.io/linux/linux-process-memory-location" target="_blank" rel="noopener">跟硬件和内核版本有关 (opens new window)</a>）；</li>
+<li>栈段，包括局部变量和函数调用的上下文等。栈的大小是固定的，一般是 <code>8 MB</code>。当然系统也提供了参数，以便我们自定义大小；</li>
+</ul>
+<h2 id="malloc-如何分配内存"><a href="#malloc-如何分配内存" class="headerlink" title="malloc 如何分配内存"></a>malloc 如何分配内存</h2><p>两种方式：brk() 和 mmap()</p>
+<ul>
+<li>当分配的内存较小时，brk() 在 堆中分配内存</li>
+<li>当分配的内存较大时，mmap 在文件映射区分配内存，并且使用匿名映射的方式。</li>
+</ul>
+<p>这个阈值在 32 位机和 64 位机器上是不同的。</p>
+<p>32 位机上，这个值是 128KB，64位机上我还没确定，在 wsl2 上的测试结果是 130KB。</p>
+<p>具体的分配结果，可以通过 <code>pmap -d pid</code> 查到，或者直接 <code>cat /proc/pid/maps</code>。</p>
+<blockquote>
+<p> malloc 返回给用户态的内存起始地址比进程的堆空间起始地址多了 16 字节？</p>
+<p>保留内存分配信息，给 free 调用。</p>
+</blockquote>
+<hr>
+<h2 id="内存满了会发生什么"><a href="#内存满了会发生什么" class="headerlink" title="内存满了会发生什么"></a>内存满了会发生什么</h2><p>虚拟内存的作用：</p>
+<ul>
+<li><p>第一，虚拟内存可以使得进程对运行内存超过物理内存大小，因为程序运行符合局部性原理，CPU 访问内存会有很明显的重复访问的倾向性，对于那些没有被经常使用到的内存，我们可以把它换出到物理内存之外，比如硬盘上的 swap 区域。</p>
+</li>
+<li><p>第二，由于每个进程都有自己的页表，所以每个进程的虚拟内存空间就是相互独立的。进程也没有办法访问其他进程的页表，所以这些页表是私有的，这就解决了多进程之间地址冲突的问题。</p>
+</li>
+<li><p>第三，页表里的页表项中除了物理地址之外，还有一些标记属性的比特，比如控制一个页的读写权限，标记该页是否存在等。在内存访问方面，操作系统提供了更好的安全性。</p>
+</li>
+</ul>
+<p>总结起来就是：允许程序更大；解决多进程的地址冲突；加强页的读写权限，保证了安全性。</p>
+<h3 id="内存的分配过程"><a href="#内存的分配过程" class="headerlink" title="内存的分配过程"></a>内存的分配过程</h3><p>应用程序通过 malloc 函数申请内存的时候，实际上申请的是虚拟内存，此时并不会分配物理内存。</p>
+<p>当应用程序读写了这块虚拟内存，CPU 就会去访问这个虚拟内存， 这时会发现这个虚拟内存没有映射到物理内存， CPU 就会产生<strong>缺页中断</strong>，进程会从用户态切换到内核态，并将缺页中断交给内核的 Page Fault Handler （缺页中断函数）处理。</p>
+<blockquote>
+<p>机制的重要性，只有在发生访问的时候通过缺页中断调入相应的内存。</p>
+</blockquote>
+<p>如果没有空闲内存，那么就进行页的换入换出。</p>
+<ul>
+<li><strong>后台内存回收</strong>（kswapd）：在物理内存紧张的时候，会唤醒 kswapd 内核线程来回收内存，这个回收内存的过程<strong>异步</strong>的，不会阻塞进程的执行。</li>
+<li><strong>直接内存回收</strong>（direct reclaim）：如果后台异步回收跟不上进程内存申请的速度，就会开始直接回收，这个回收内存的过程是<strong>同步</strong>的，会阻塞进程的执行。</li>
+</ul>
+<p>如果直接内存回收后，空闲的物理内存仍然无法满足此次物理内存的申请，那么内核就会放最后的大招了 ——<strong>触发 OOM （Out of Memory）机制</strong>。</p>
+<p><img src="2f61b0822b3c4a359f99770231981b07.png" alt="img" style="zoom:80%;"></p>
+<h3 id="哪些内存可以被回收"><a href="#哪些内存可以被回收" class="headerlink" title="哪些内存可以被回收"></a>哪些内存可以被回收</h3><p>两类内存：文件页，匿名页。</p>
+<ul>
+<li><strong>文件页</strong>（File-backed Page）：内核缓存的磁盘数据（Buffer）和内核缓存的文件数据（Cache）都叫作文件页。大部分文件页，都可以直接释放内存，以后有需要时，再从磁盘重新读取就可以了。而那些被应用程序修改过，并且暂时还没写入磁盘的数据（也就是脏页），就得先写入磁盘，然后才能进行内存释放。所以，<strong>回收干净页的方式是直接释放内存，回收脏页的方式是先写回磁盘后再释放内存</strong>。</li>
+<li><strong>匿名页</strong>（Anonymous Page）：这部分内存没有实际载体，不像文件缓存有硬盘文件这样一个载体，比如堆、栈数据等。这部分内存很可能还要再次被访问，所以不能直接释放内存，它们<strong>回收的方式是通过 Linux 的 Swap 机制</strong>，Swap 会把不常访问的内存先写到磁盘中，然后释放这些内存，给其他更需要的进程使用。再次访问这些内存时，重新从磁盘读入内存就可以了。</li>
+</ul>
+<p>文件页和匿名页的回收都是基于 LRU 算法，也就是优先回收不常访问的内存。具体是通过两个双向链表实现：</p>
+<ul>
+<li><strong>active_list</strong> 活跃内存页链表，这里存放的是最近被访问过（活跃）的内存页；</li>
+<li><strong>inactive_list</strong> 不活跃内存页链表，这里存放的是很少被访问（非活跃）的内存页；</li>
+</ul>
+<p>可以从 /proc/meminfo 中，查询它们的大小。</p>
+<p>总结一下，两种回收方式：kswapd 后台回收 和 直接回收。两种回收对象：文件页（赃数据页发生写回）和 匿名页（进行swap）。</p>
+<p>通常，不可避免要访问到内存，即发生磁盘 I/O，这是很花费时间的。</p>
+<h3 id="尽早触发-kswapd-内核线程异步回收内存"><a href="#尽早触发-kswapd-内核线程异步回收内存" class="headerlink" title="尽早触发 kswapd 内核线程异步回收内存"></a>尽早触发 kswapd 内核线程异步回收内存</h3><p><code>sar -B 1</code> 查看状态：</p>
+<ul>
+<li>pgscank/s : kswapd(后台回收线程) 每秒扫描的 page 个数。</li>
+<li>pgscand/s: 应用程序在内存申请过程中每秒直接扫描的 page 个数。</li>
+<li>pgsteal/s: 扫描的 page 中每秒被回收的个数（pgscank+pgscand）。</li>
+</ul>
+<p><img src="image-20220909154746852.png" alt="image-20220909154746852"></p>
+<p>调整参数值，尽早进行回收。</p>
+<ul>
+<li>页最小阈值（pages_min）；</li>
+<li>页低阈值（pages_low）；</li>
+<li>页高阈值（pages_high）；</li>
+</ul>
+<p><img src="166bc9f5b7c545d89f1e36ab8dd772cf.png" alt="img"></p>
+<p>kswapd 会定期扫描内存的使用情况，根据剩余内存（pages_free）的情况来进行内存回收的工作。</p>
+<p>页低阈值（pages_low）可以通过内核选项 <code>/proc/sys/vm/min_free_kbytes</code> （该参数代表系统所保留空闲内存的最低限）来间接设置。</p>
+<h3 id="保护一个进程不被-OOM-杀掉"><a href="#保护一个进程不被-OOM-杀掉" class="headerlink" title="保护一个进程不被 OOM 杀掉"></a>保护一个进程不被 OOM 杀掉</h3><p>Linux 内核里有一个 <code>oom_badness()</code> 函数，它会把系统中可以被杀掉的进程扫描一遍，并对每个进程打分，得分最高的进程就会被首先杀掉。</p>
+<ul>
+<li>第一，进程已经使用的物理内存页面数。</li>
+<li>第二，每个进程的 OOM 校准值 oom_score_adj。它是可以通过 <code>/proc/[pid]/oom_score_adj</code> 来配置的。我们可以在设置 -1000 到 1000 之间的任意一个数值，调整进程被 OOM Kill 的几率。</li>
+</ul>
+<p>每个进程的 oom_score_adj 默认值都为 0，所以最终得分跟进程自身消耗的内存有关，消耗的内存越大越容易被杀掉。我们可以通过调整 oom_score_adj 的数值，来改成进程的得分结果。</p>
+<p>-1000 如果不想被杀掉。</p>
+<hr>
+<h2 id="4G-物理内存的机器上申请-8G-内存会发生什么？"><a href="#4G-物理内存的机器上申请-8G-内存会发生什么？" class="headerlink" title="4G 物理内存的机器上申请 8G 内存会发生什么？"></a>4G 物理内存的机器上申请 8G 内存会发生什么？</h2><p>这个问题要考虑三个前置条件：</p>
+<ul>
+<li>操作系统是 32 位的，还是 64 位的？</li>
+<li>申请完 8G 内存后会不会被使用？</li>
+<li>操作系统有没有使用 Swap 机制？</li>
+</ul>
+<p>Linux 中的 Swap 机制会在内存不足和内存闲置的场景下触发：</p>
+<ul>
+<li><strong>内存不足</strong>：当系统需要的内存超过了可用的物理内存时，内核会将内存中不常使用的内存页交换到磁盘上为当前进程让出内存，保证正在执行的进程的可用性，这个内存回收的过程是强制的直接内存回收（Direct Page Reclaim）。直接内存回收是同步的过程，会阻塞当前申请内存的进程。</li>
+<li><strong>内存闲置</strong>：应用程序在启动阶段使用的大量内存在启动后往往都不会使用，通过后台运行的守护进程（kSwapd），我们可以将这部分只使用一次的内存交换到磁盘上为其他内存的申请预留空间。kSwapd 是 Linux 负责页面置换（Page replacement）的守护进程，它也是负责交换闲置内存的主要进程，它会在<a href="https://xiaolincoding.com/os/3_memory/mem_reclaim.html#尽早触发-kSwapd-内核线程异步回收内存" target="_blank" rel="noopener">空闲内存低于一定水位 (opens new window)</a>时，回收内存页中的空闲内存保证系统中的其他进程可以尽快获得申请的内存。kSwapd 是后台进程，所以回收内存的过程是异步的，不会阻塞当前申请内存的进程。</li>
+</ul>
+<p>swap 机制是提供给匿名文件的，他们无法写回磁盘的对应文件中，因此在磁盘中开辟出一段空间用来存放 swap。</p>
+<p>结论如下：</p>
+<ul>
+<li>在 32 位操作系统，因为进程最大只能申请 3 GB 大小的虚拟内存，所以直接申请 8G 内存，会申请失败。</li>
+<li>在 64位 位操作系统，因为进程最大只能申请 128 TB 大小的虚拟内存，即使物理内存只有 4GB，申请 8G 内存也是没问题，因为申请的内存是虚拟内存。如果这块虚拟内存被访问了，要看系统有没有 Swap 分区：<ul>
+<li>如果没有 Swap 分区，因为物理空间不够，进程会被操作系统杀掉，原因是 OOM（内存溢出）；</li>
+<li>如果有 Swap 分区，即使物理内存只有 4GB，程序也能正常使用 8GB 的内存，进程可以正常运行；</li>
+</ul>
+</li>
+</ul>
+<h2 id="避免预读失效和缓存污染的问额"><a href="#避免预读失效和缓存污染的问额" class="headerlink" title="避免预读失效和缓存污染的问额"></a>避免预读失效和缓存污染的问额</h2><p>因为传统的 LRU 算法存在这两个问题：</p>
+<ul>
+<li><strong>「预读失效」导致缓存命中率下降（对应第一个题目）</strong></li>
+<li><strong>「缓存污染」导致缓存命中率下降（对应第二个题目）</strong></li>
+</ul>
+<h3 id="预读失效"><a href="#预读失效" class="headerlink" title="预读失效"></a>预读失效</h3><p>所谓预读，就是读入更多的页。</p>
+<p>但是会引入不被活跃的页，为了解决这个问额，引入了活跃LRU和非活跃LRU。</p>
+<p>在 Linux 中，引入了活跃 LRU 和非活跃 LRU。</p>
+<ul>
+<li><strong>active list</strong> 活跃内存页链表，这里存放的是最近被访问过（活跃）的内存页；</li>
+<li><strong>inactive list</strong> 不活跃内存页链表，这里存放的是很少被访问（非活跃）的内存页；</li>
+</ul>
+<p>有了这两个 LRU 链表后，<strong>预读页就只需要加入到 inactive list 区域的头部，当页被真正访问的时候，才将页插入 active list 的头部</strong>。如果预读的页一直没有被访问，就会从 inactive list 移除，这样就不会影响 active list 中的热点数据。</p>
+<h3 id="缓存污染"><a href="#缓存污染" class="headerlink" title="缓存污染"></a>缓存污染</h3><p>前面的 LRU 算法只要数据被访问一次，就将数据加入活跃 LRU 链表（或者 young 区域），<strong>这种 LRU 算法进入活跃 LRU 链表的门槛太低了</strong>！正式因为门槛太低，才导致在发生缓存污染的时候，很容就将原本在活跃 LRU 链表里的热点数据淘汰了。</p>
+<blockquote>
+<p>说白了就是新加入的活跃不那么活跃，要提高门槛。</p>
+</blockquote>
+<ul>
+<li><strong>Linux 操作系统</strong>：在内存页被访问<strong>第二次</strong>的时候，才将页从 inactive list 升级到 active list 里。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>通过提高了进入 active list （或者 young 区域）的门槛后，就很好了避免缓存污染带来的影响。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/09/xv6-01-first-process/" rel="prev" title="xv6-01-第一个进程">
+      <i class="fa fa-chevron-left"></i> xv6-01-第一个进程
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/09/os-process-management/" rel="next" title="『OS』进程管理">
+      『OS』进程管理 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要有虚拟内存？"><span class="nav-number">1.</span> <span class="nav-text">为什么要有虚拟内存？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟内存"><span class="nav-number">1.1.</span> <span class="nav-text">虚拟内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存分段"><span class="nav-number">1.2.</span> <span class="nav-text">内存分段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存分页"><span class="nav-number">1.3.</span> <span class="nav-text">内存分页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-内存管理"><span class="nav-number">1.4.</span> <span class="nav-text">Linux 内存管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#malloc-如何分配内存"><span class="nav-number">2.</span> <span class="nav-text">malloc 如何分配内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存满了会发生什么"><span class="nav-number">3.</span> <span class="nav-text">内存满了会发生什么</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内存的分配过程"><span class="nav-number">3.1.</span> <span class="nav-text">内存的分配过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#哪些内存可以被回收"><span class="nav-number">3.2.</span> <span class="nav-text">哪些内存可以被回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#尽早触发-kswapd-内核线程异步回收内存"><span class="nav-number">3.3.</span> <span class="nav-text">尽早触发 kswapd 内核线程异步回收内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保护一个进程不被-OOM-杀掉"><span class="nav-number">3.4.</span> <span class="nav-text">保护一个进程不被 OOM 杀掉</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4G-物理内存的机器上申请-8G-内存会发生什么？"><span class="nav-number">4.</span> <span class="nav-text">4G 物理内存的机器上申请 8G 内存会发生什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免预读失效和缓存污染的问额"><span class="nav-number">5.</span> <span class="nav-text">避免预读失效和缓存污染的问额</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#预读失效"><span class="nav-number">5.1.</span> <span class="nav-text">预读失效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存污染"><span class="nav-number">5.2.</span> <span class="nav-text">缓存污染</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="dsfds"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">dsfds</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">132</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jonathan1214" title="GitHub → https://github.com/jonathan1214" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jonathan1214@foxmail.com" title="E-Mail → mailto:jonathan1214@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52
+       src="//music.163.com/outchain/player?type=2&id=108835&auto=0&height=32">
+      </iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">dsfds</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'pKduJiwXGxEBLhnENF3li3Fv-gzGzoHsz',
+      appKey     : 'TfcDSWRi0FBxPFOnGhQ1d5be',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
