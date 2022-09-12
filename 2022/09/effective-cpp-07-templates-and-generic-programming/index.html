@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.7.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32_32.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16_16.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jonathan1214.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="41. 了解隐式接口和编译器多态面向对象编程世界总是以显示接口和运行期多态解决问题。 Templates 中，隐式接口和编译器多态更加重要。 隐式接口，不基于函数签名式，而是由有效表达式组成。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="『Effective-cpp』07 模板与泛型编程">
+<meta property="og:url" content="https://jonathan1214.github.io/2022/09/effective-cpp-07-templates-and-generic-programming/index.html">
+<meta property="og:site_name" content="dsfds&#39; blog">
+<meta property="og:description" content="41. 了解隐式接口和编译器多态面向对象编程世界总是以显示接口和运行期多态解决问题。 Templates 中，隐式接口和编译器多态更加重要。 隐式接口，不基于函数签名式，而是由有效表达式组成。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-09-12T10:49:29.982Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="『Effective-cpp』07 模板与泛型编程">
+<meta name="twitter:description" content="41. 了解隐式接口和编译器多态面向对象编程世界总是以显示接口和运行期多态解决问题。 Templates 中，隐式接口和编译器多态更加重要。 隐式接口，不基于函数签名式，而是由有效表达式组成。">
+
+<link rel="canonical" href="https://jonathan1214.github.io/2022/09/effective-cpp-07-templates-and-generic-programming/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>『Effective-cpp』07 模板与泛型编程 | dsfds' blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">dsfds' blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">学海无涯，回头是岸</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jonathan1214.github.io/2022/09/effective-cpp-07-templates-and-generic-programming/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="dsfds">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dsfds' blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          『Effective-cpp』07 模板与泛型编程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-09-12 15:55:54 / 修改时间：18:49:29" itemprop="dateCreated datePublished" datetime="2022-09-12T15:55:54+08:00">2022-09-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/泛型编程/" itemprop="url" rel="index"><span itemprop="name">泛型编程</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/09/effective-cpp-07-templates-and-generic-programming/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/09/effective-cpp-07-templates-and-generic-programming/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="41-了解隐式接口和编译器多态"><a href="#41-了解隐式接口和编译器多态" class="headerlink" title="41. 了解隐式接口和编译器多态"></a>41. 了解隐式接口和编译器多态</h2><p>面向对象编程世界总是以<strong>显示接口</strong>和<strong>运行期多态</strong>解决问题。</p>
+<p>Templates 中，<strong>隐式接口</strong>和编译器多态更加重要。</p>
+<p>隐式接口，不基于函数签名式，而是由有效表达式组成。</p>
+<a id="more"></a>
+<h2 id="42-了解-typename-的双重意义"><a href="#42-了解-typename-的双重意义" class="headerlink" title="42. 了解 typename 的双重意义"></a>42. 了解 typename 的双重意义</h2><p>只是声明 template 的话，class 和 typename 没有区别。</p>
+<p>一个简单的例子说明那个 typename 在 template 中的重要意义。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> C&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print2nd</span><span class="params">(<span class="keyword">const</span> C&amp; container)</span> </span>&#123;</span><br><span class="line">    C::const_iterator* x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在问题出现了，<code>const_iterator</code> 是静态成员变量 还是 类型呢？这是有歧义的，需要使用 typename 加以说明，就像下面这样。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> C&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print2nd</span><span class="params">(<span class="keyword">const</span> C&amp; container)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">typename</span> C::const_iterator* x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>即，typename 必须作为嵌套丛书类型名称的前缀词。</p>
+<p>但是，typename 不可以出现在 base classes list 内的嵌套从属类型名称之前，也不可以在 member  initialization list 中作为 base class 修饰符。</p>
+<p>显然，这个时候如果名称过长，我们应该考虑使用 typedef，如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> IterT&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">workWithIterator</span><span class="params">(IterT iter)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">typedef</span> <span class="keyword">typename</span> <span class="built_in">std</span>::iterator_traits&lt;IterT&gt;:: value_type value_type;</span><br><span class="line">    <span class="function">value_type <span class="title">tmep</span><span class="params">(*iter)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>template 声明时，class 和 typename 相同</li>
+<li>使用关键字 typename 标识嵌套从属类型名称。</li>
+</ul>
+<h2 id="43-学习处理模板化基类内的名称"><a href="#43-学习处理模板化基类内的名称" class="headerlink" title="43. 学习处理模板化基类内的名称"></a>43. 学习处理模板化基类内的名称</h2><p>偏特化版本：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MsgSender</span>&lt;CompanyZ&gt; &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ...</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sendSecret</span><span class="params">(<span class="keyword">const</span> MsgInfo&amp; info)</span> </span>&#123; ... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可在 derived class templates 内通过 this-&gt; 指涉 base class templates 内的成员名称，或者使用 using 直接点名。</li>
+</ul>
+<h2 id="44-将与参数无关的代码抽离-templates"><a href="#44-将与参数无关的代码抽离-templates" class="headerlink" title="44. 将与参数无关的代码抽离 templates"></a>44. 将与参数无关的代码抽离 templates</h2><p>不要随意在 template 中增加参数，这会造成代码不必要的膨胀。</p>
+<ul>
+<li>因非类型模板参数（non-type template parameters）而造成的代码膨胀，往往可以消除，即以函数参数或class成员变量替换template参数。</li>
+<li>因类型参数而造成的代码膨胀，往往可降低，即让带有完全相同二进制表述（binary representations）的具现类型（instantiation types）共享实现码。</li>
+</ul>
+<h2 id="45-运用成员函数模板接受所有兼容类型"><a href="#45-运用成员函数模板接受所有兼容类型" class="headerlink" title="45. 运用成员函数模板接受所有兼容类型"></a>45. 运用成员函数模板接受所有兼容类型</h2><p>。。。</p>
+<p>TMP 等等</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/09/effective-cpp-06-inheritance-and-object-oriented-design/" rel="prev" title="『Effective cpp』06 继承与面向对象设计">
+      <i class="fa fa-chevron-left"></i> 『Effective cpp』06 继承与面向对象设计
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#41-了解隐式接口和编译器多态"><span class="nav-number">1.</span> <span class="nav-text">41. 了解隐式接口和编译器多态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#42-了解-typename-的双重意义"><span class="nav-number">2.</span> <span class="nav-text">42. 了解 typename 的双重意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#43-学习处理模板化基类内的名称"><span class="nav-number">3.</span> <span class="nav-text">43. 学习处理模板化基类内的名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#44-将与参数无关的代码抽离-templates"><span class="nav-number">4.</span> <span class="nav-text">44. 将与参数无关的代码抽离 templates</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#45-运用成员函数模板接受所有兼容类型"><span class="nav-number">5.</span> <span class="nav-text">45. 运用成员函数模板接受所有兼容类型</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="dsfds"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">dsfds</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jonathan1214" title="GitHub → https://github.com/jonathan1214" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jonathan1214@foxmail.com" title="E-Mail → mailto:jonathan1214@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52
+       src="//music.163.com/outchain/player?type=2&id=108835&auto=0&height=32">
+      </iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">dsfds</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'pKduJiwXGxEBLhnENF3li3Fv-gzGzoHsz',
+      appKey     : 'TfcDSWRi0FBxPFOnGhQ1d5be',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
