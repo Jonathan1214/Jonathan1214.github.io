@@ -5,8 +5,8 @@ notshow: false
 date: 2022-08-01 10:27:53
 updated:
 categories:
-  - verilog
-  - cheatsheet
+  - [verilog]
+  - [cheatsheet]
 tags:
   - verilog
   - nowcoder

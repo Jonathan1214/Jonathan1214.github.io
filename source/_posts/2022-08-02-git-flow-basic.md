@@ -5,8 +5,8 @@ notshow: false
 date: 2022-08-02 20:58:03
 updated:
 categories:
-  - software
-  - engineering
+  - [software]
+  - [engineering]
 tags:
   - git
   - gitflow
@@ -20,14 +20,15 @@ tags:
 [git-flow介绍及开发过程演示](https://www.bilibili.com/video/BV1W3411C72K?share_source=copy_web&vd_source=9f384d4584d09b2753c054baff8d4c9e)
 
 基本的分支类型
-| 分支名称  | 说明             | 命名 |
-| -------- | ---------------- | ---- |
-| master   | 发布分支         |  master 或者 main    |
-| develop  | 开发分支         |   develop   |
-| feature  | 功能分支         |  feature/FOO-1    |
-| bugfix   | 修复分支         |  bugfix/FOO-2    |
-| hotfix   | 紧急修复分支     |   hotfix/FOO-3    |
-| release  | 发布前的准备工作 |   release/1.0.3   |
+
+| 分支名称    | 说明       | 命名             |
+|:------- |:-------- |:-------------- |
+| master  | 发布分支     | master 或者 main |
+| develop | 开发分支     | develop        |
+| feature | 功能分支     | feature/FOO-1  |
+| bugfix  | 修复分支     | bugfix/FOO-2   |
+| hotfix  | 紧急修复分支   | hotfix/FOO-3   |
+| release | 发布前的准备工作 | release/1.0.3  |
 
 额外的老版本的维护分支，一般使用 `support`，`support/1.0.x`。
 

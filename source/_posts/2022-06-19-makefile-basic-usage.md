@@ -5,11 +5,10 @@ notshow: false
 date: 2022-06-19 16:17:53
 updated:
 categories:
+  - engineering
 tags:
-
-- Makefile
-- usage
-
+  - Makefile
+  - usage
 ---
 
 Makefile 好，用过都说好，我们可以将一长串编译指令写到文件中，然后执行 make，就可以得到我们想要的结果。
